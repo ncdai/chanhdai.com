@@ -112,12 +112,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {process.env.GOOGLE_ADSENSE_ACCOUNT && (
-          <meta
-            name="google-adsense-account"
-            content={process.env.GOOGLE_ADSENSE_ACCOUNT}
-          />
-        )}
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{ __html: darkModeScript }}
