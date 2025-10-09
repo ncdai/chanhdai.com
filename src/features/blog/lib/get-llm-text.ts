@@ -4,9 +4,8 @@ import remarkGfm from "remark-gfm";
 import remarkMdx from "remark-mdx";
 
 import type { Post } from "@/features/blog/types/post";
-import { remarkComponent } from "@/lib/remark-component";
 
-const processor = remark().use(remarkMdx).use(remarkComponent).use(remarkGfm);
+const processor = remark().use(remarkMdx).use(remarkGfm);
 
 export async function getLLMText(post: Post) {
   const processed = await processor.process({

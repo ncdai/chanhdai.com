@@ -23,10 +23,6 @@ export const MAIN_NAV: NavItem[] = [
     title: "Blog",
     href: "/blog",
   },
-  {
-    title: "Components",
-    href: "/components",
-  },
 ];
 
 export const GITHUB_USERNAME = "ncdai";
