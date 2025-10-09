@@ -6,20 +6,16 @@ import {
   BriefcaseBusinessIcon,
   CircleUserIcon,
   CornerDownLeftIcon,
-  DownloadIcon,
   LetterTextIcon,
   MoonStarIcon,
   RssIcon,
   SunIcon,
   TextIcon,
-  TriangleDashedIcon,
-  TypeIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { toast } from "sonner";
 
 import {
   CommandDialog,
@@ -34,10 +30,7 @@ import type { Post } from "@/features/blog/types/post";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { useSound } from "@/hooks/use-sound";
 import { cn } from "@/lib/utils";
-import { copyText } from "@/utils/copy";
 
-import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark";
-import { getWordmarkSVG } from "./chanhdai-wordmark";
 import { Icons } from "./icons";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
@@ -54,55 +47,45 @@ type CommandLinkItem = {
 
 const MENU_LINKS: CommandLinkItem[] = [
   {
-    title: "Daifolio",
+    title: "Portfolio",
     href: "/",
-    icon: ChanhDaiMark,
+    icon: CircleUserIcon,
   },
   {
     title: "Blog",
     href: "/blog",
     icon: RssIcon,
   },
-  {
-    title: "Components",
-    href: "/components",
-    icon: Icons.react,
-  },
 ];
 
-const DAIFOLIO_LINKS: CommandLinkItem[] = [
+const PORTFOLIO_LINKS: CommandLinkItem[] = [
   {
-    title: "About",
+    title: "Sobre",
     href: "/#about",
     icon: LetterTextIcon,
   },
   {
-    title: "Tech Stack",
+    title: "Stack",
     href: "/#stack",
     icon: Icons.ts,
   },
   {
-    title: "Experience",
+    title: "Experiência",
     href: "/#experience",
     icon: BriefcaseBusinessIcon,
   },
   {
-    title: "Projects",
+    title: "Projetos",
     href: "/#projects",
     icon: Icons.project,
   },
   {
-    title: "Honors & Awards",
-    href: "/#awards",
-    icon: Icons.award,
-  },
-  {
-    title: "Certifications",
+    title: "Certificações",
     href: "/#certs",
     icon: Icons.certificate,
   },
   {
-    title: "Download vCard",
+    title: "Baixar vCard",
     href: "/vcard",
     icon: CircleUserIcon,
   },
@@ -118,7 +101,7 @@ const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({
 export function CommandMenu({ posts }: { posts: Post[] }) {
   const router = useRouter();
 
-  const { setTheme, resolvedTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   const [open, setOpen] = useState(false);
 
@@ -164,12 +147,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
     [router]
   );
 
-  const handleCopyText = useCallback((text: string, message: string) => {
-    setOpen(false);
-    copyText(text);
-    toast.success(message);
-  }, []);
-
   const createThemeHandler = useCallback(
     (theme: "light" | "dark" | "system") => () => {
       setOpen(false);
@@ -186,15 +163,11 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
     [playClick, setTheme]
   );
 
-  const { blogLinks, componentLinks } = useMemo(
-    () => ({
-      blogLinks: posts
+  const blogLinks = useMemo(
+    () =>
+      posts
         .filter((post) => post.metadata?.category !== "components")
         .map(postToCommandLinkItem),
-      componentLinks: posts
-        .filter((post) => post.metadata?.category === "components")
-        .map(postToCommandLinkItem),
-    }),
     [posts]
   );
 
@@ -220,7 +193,7 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
         </svg>
 
         <span className="font-sans text-sm/4 font-medium sm:hidden">
-          Search
+          Buscar
         </span>
 
         <CommandMenuKbd className="hidden tracking-wider sm:in-[.os-macos_&]:flex">
@@ -232,10 +205,10 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
       </Button>
 
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="Digite um comando ou pesquise..." />
 
         <CommandList className="min-h-80">
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>Nenhum resultado encontrado.</CommandEmpty>
 
           <CommandLinkGroup
             heading="Menu"
@@ -246,8 +219,8 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
           <CommandSeparator />
 
           <CommandLinkGroup
-            heading="Daifolio"
-            links={DAIFOLIO_LINKS}
+            heading="Portfolio"
+            links={PORTFOLIO_LINKS}
             onLinkSelect={handleOpenLink}
           />
 
@@ -263,85 +236,34 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
           <CommandSeparator />
 
           <CommandLinkGroup
-            heading="Components"
-            links={componentLinks}
-            fallbackIcon={Icons.react}
-            onLinkSelect={handleOpenLink}
-          />
-
-          <CommandSeparator />
-
-          <CommandLinkGroup
-            heading="Social Links"
+            heading="Redes Sociais"
             links={SOCIAL_LINK_ITEMS}
             onLinkSelect={handleOpenLink}
           />
 
           <CommandSeparator />
 
-          <CommandGroup heading="Brand Assets">
+          <CommandGroup heading="Tema">
             <CommandItem
-              onSelect={() => {
-                handleCopyText(
-                  getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Mark as SVG"
-                );
-              }}
-            >
-              <ChanhDaiMark />
-              Copy Mark as SVG
-            </CommandItem>
-
-            <CommandItem
-              onSelect={() => {
-                handleCopyText(
-                  getWordmarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Logotype as SVG"
-                );
-              }}
-            >
-              <TypeIcon />
-              Copy Logotype as SVG
-            </CommandItem>
-
-            <CommandItem
-              onSelect={() => handleOpenLink("/blog/chanhdai-brand")}
-            >
-              <TriangleDashedIcon />
-              Brand Guidelines
-            </CommandItem>
-
-            <CommandItem asChild>
-              <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-                <DownloadIcon />
-                Download Brand Assets
-              </a>
-            </CommandItem>
-          </CommandGroup>
-
-          <CommandSeparator />
-
-          <CommandGroup heading="Theme">
-            <CommandItem
-              keywords={["theme"]}
+              keywords={["theme", "tema"]}
               onSelect={createThemeHandler("light")}
             >
               <SunIcon />
-              Light
+              Claro
             </CommandItem>
             <CommandItem
-              keywords={["theme"]}
+              keywords={["theme", "tema"]}
               onSelect={createThemeHandler("dark")}
             >
               <MoonStarIcon />
-              Dark
+              Escuro
             </CommandItem>
             <CommandItem
-              keywords={["theme"]}
+              keywords={["theme", "tema"]}
               onSelect={createThemeHandler("system")}
             >
               <Icons.contrast />
-              Auto
+              Automático
             </CommandItem>
           </CommandGroup>
         </CommandList>
@@ -406,21 +328,11 @@ type CommandMetaMap = Map<
 function buildCommandMetaMap() {
   const commandMetaMap: CommandMetaMap = new Map();
 
-  commandMetaMap.set("Download vCard", { commandKind: "command" });
+  commandMetaMap.set("Baixar vCard", { commandKind: "command" });
 
-  commandMetaMap.set("Light", { commandKind: "command" });
-  commandMetaMap.set("Dark", { commandKind: "command" });
-  commandMetaMap.set("Auto", { commandKind: "command" });
-
-  commandMetaMap.set("Copy Mark as SVG", {
-    commandKind: "command",
-  });
-  commandMetaMap.set("Copy Logotype as SVG", {
-    commandKind: "command",
-  });
-  commandMetaMap.set("Download Brand Assets", {
-    commandKind: "command",
-  });
+  commandMetaMap.set("Claro", { commandKind: "command" });
+  commandMetaMap.set("Escuro", { commandKind: "command" });
+  commandMetaMap.set("Automático", { commandKind: "command" });
 
   SOCIAL_LINK_ITEMS.forEach((item) => {
     commandMetaMap.set(item.title, {
@@ -434,9 +346,9 @@ function buildCommandMetaMap() {
 const COMMAND_META_MAP = buildCommandMetaMap();
 
 const ENTER_ACTION_LABELS: Record<CommandKind, string> = {
-  command: "Run Command",
-  page: "Go to Page",
-  link: "Open Link",
+  command: "Executar Comando",
+  page: "Ir para Página",
+  link: "Abrir Link",
 };
 
 function CommandMenuFooter() {
@@ -448,9 +360,7 @@ function CommandMenuFooter() {
     <>
       <div className="flex h-10" />
 
-      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
-        <ChanhDaiMark className="size-6 text-muted-foreground" aria-hidden />
-
+      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-center gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
           <CommandMenuKbd>
@@ -460,7 +370,7 @@ function CommandMenuFooter() {
             orientation="vertical"
             className="data-[orientation=vertical]:h-4"
           />
-          <span className="text-muted-foreground">Exit</span>
+          <span className="text-muted-foreground">Sair</span>
           <CommandMenuKbd>Esc</CommandMenuKbd>
         </div>
       </div>

@@ -1,61 +1,57 @@
 import type { User } from "@/features/profile/types/user";
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Frederico",
+  lastName: "Amantino",
+  displayName: "Frederico Amantino",
+  username: "fredamantino",
   gender: "male",
-  pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  pronouns: "ele/dele",
+  bio: "Full Stack Developer com foco em IA e Automação",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer",
-    "Open Source Contributor",
+    "Full Stack Developer com foco em IA e Automação",
+    "Desenvolvedor Full Stack",
+    "Node.js e React",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumber: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "Minas Gerais, Brasil",
+  phoneNumber: "KzU1MzE5ODQ1Mzk0MjQ=", // +5531984539424 (E.164 format, base64 encoded)
+  email: "cmljb2FtYW50aW5vQGdtYWlsLmNvbQ==", // ricoamantino@gmail.com (base64 encoded)
+  website: "https://ricoamantino.com",
+  jobTitle: "Desenvolvedor de Software Júnior",
   jobs: [
     {
-      title: "Senior Frontend Developer & UI Design Lead",
-      company: "Simplamo",
-      website: "https://simplamo.com?ref=IN-926722",
-    },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
+      title: "Desenvolvedor de Software Júnior",
+      company: "Fluna",
+      website: "https://fluna.com.br",
     },
   ],
   about: `
-Hello, World! I am Chánh Đại — a Design Engineer passionate about creating high-performance, user-centric software solutions with intuitive and engaging designs.
+Olá! Sou Frederico Amantino, um Desenvolvedor Full Stack com experiência em Inteligência Artificial, automação de processos e integração de APIs.
 
-With 5+ years of experience, I specialize in building high-quality web and mobile applications using Next.js, React, TypeScript, and modern front-end technologies. Beyond work, I love exploring new technologies and turning ideas into reality through personal projects.
+Atuo em todo o ciclo de desenvolvimento, da concepção à entrega, dentro do ecossistema Node.js e TypeScript. Tenho experiência com desenvolvimento de POCs/MVPs, sustentação de sistemas grandes em produção (Node/React), automação de fluxos (Make, n8n, Google Apps Script) e coordenação de equipes usando metodologias ágeis (Scrum).
 
-One of my key projects, [ZaDark](https://zadark.com), launched in 2022, enhances the Zalo experience on PC and Web, surpassing 80k+ downloads on [SourceForge](https://sourceforge.net/projects/zadark) and reaching 20k+ active users on the [Chrome Web Store](https://chromewebstore.google.com/detail/llfhpkkeljlgnjgkholeppfnepmjppob) (as of Sep 2025).
+Atualmente trabalho na Fluna, onde atuo na manutenção e desenvolvimento de novas features para a plataforma de automação, incluindo:
+- Sistema RPA para testes automatizados e automações via browser
+- Kanban automatizado com tags de status, timer e regras de fluxo
+- Integração de LLMs (ChatGPT, Gemini) ao produto Mind (IA)
+- Processamento de documentos com análise de prompts
 
-I'm also the creator of [React Wheel Picker](https://react-wheel-picker.chanhdai.com) — iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. It has earned 4k+ weekly downloads on [npm](https://www.npmjs.com/package/@ncdai/react-wheel-picker) and was selected for [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker) summer 2025 cohort.
+Graduando em Tecnologia da Informação na Pontifícia Universidade Católica de Minas Gerais (previsão 2026).
 
-Let's connect and collaborate!
+Vamos conectar e colaborar!
   `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1759581475",
-  namePronunciationUrl: "/audio/chanhdai.mp3",
+  avatar: "https://github.com/fredamantino.png", // Avatar do GitHub
+  ogImage: "https://github.com/fredamantino.png",
+  namePronunciationUrl: "",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "frederico amantino",
+    "fredamantino",
+    "fred amantino",
+    "desenvolvedor full stack",
+    "node.js",
+    "typescript",
+    "react",
+    "inteligência artificial",
   ],
-  dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateCreated: "2025-01-15", // Data de hoje
 };

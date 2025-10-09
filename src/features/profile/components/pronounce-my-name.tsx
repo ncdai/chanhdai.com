@@ -24,7 +24,7 @@ export function PronounceMyName({
       onClick={() => play()}
     >
       <Volume2Icon className="size-[0.6em]" />
-      <span className="sr-only">Pronounce my name</span>
+      <span className="sr-only">Pronunciar meu nome</span>
     </button>
   );
 }

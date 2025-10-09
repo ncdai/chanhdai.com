@@ -77,17 +77,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "https://assets.chanhdai.com/images/favicon.ico",
+        url: "https://api.iconify.design/mdi/circle.svg?color=%23000000",
         sizes: "any",
+        type: "image/svg+xml",
       },
       {
-        url: "https://assets.chanhdai.com/images/favicon.svg",
+        url: "https://api.iconify.design/mdi/circle.svg?color=%23000000",
+        sizes: "any",
         type: "image/svg+xml",
       },
     ],
     apple: {
-      url: "https://assets.chanhdai.com/images/apple-touch-icon.png",
-      type: "image/png",
+      url: "https://api.iconify.design/mdi/circle.svg?color=%23000000",
+      type: "image/svg+xml",
       sizes: "180x180",
     },
   },

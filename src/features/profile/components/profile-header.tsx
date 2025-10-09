@@ -20,18 +20,19 @@ export function ProfileHeader() {
           />
         </div>
 
-        <SimpleTooltip content="I'm from Việt Nam">
-          {/* Flag of Viet Nam */}
+        <SimpleTooltip content="Sou do Brasil">
+          {/* Bandeira do Brasil */}
           <svg
             className="absolute top-0 -left-px h-8 sm:h-9"
             viewBox="0 0 30 20"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="30" height="20" fill="#F00" />
-            <polygon
-              points="15,4 11.47,14.85 20.71,8.15 9.29,8.15 18.53,14.85"
-              fill="#FFEB00"
-            />
+            {/* Fundo verde */}
+            <rect width="30" height="20" fill="#009739" />
+            {/* Losango amarelo */}
+            <polygon points="15,2 28,10 15,18 2,10" fill="#FEDD00" />
+            {/* Círculo azul */}
+            <circle cx="15" cy="10" r="4" fill="#002776" />
           </svg>
         </SimpleTooltip>
       </div>

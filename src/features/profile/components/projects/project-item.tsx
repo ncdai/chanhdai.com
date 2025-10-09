@@ -1,8 +1,6 @@
 import { InfinityIcon, LinkIcon } from "lucide-react";
-import Image from "next/image";
 import React from "react";
 
-import { Icons } from "@/components/icons";
 import { Markdown } from "@/components/markdown";
 import {
   CollapsibleChevronsIcon,
@@ -14,6 +12,7 @@ import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { Prose } from "@/components/ui/typography";
 import { UTM_PARAMS } from "@/config/site";
+import { getColorFromString } from "@/lib/color-avatar";
 import { addQueryParams } from "@/utils/url";
 
 import type { Project } from "../../types/projects";
@@ -27,30 +26,17 @@ export function ProjectItem({
 }) {
   const { start, end } = project.period;
   const isOngoing = !end;
+  const avatarColor = getColorFromString(project.id);
 
   return (
     <CollapsibleWithContext defaultOpen={project.isExpanded} asChild>
       <div className={className}>
         <div className="flex items-center hover:bg-accent2">
-          {project.logo ? (
-            <Image
-              src={project.logo}
-              alt={project.title}
-              width={32}
-              height={32}
-              quality={100}
-              className="mx-4 flex size-6 shrink-0 select-none"
-              unoptimized
-              aria-hidden="true"
-            />
-          ) : (
-            <div
-              className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none"
-              aria-hidden="true"
-            >
-              <Icons.project className="size-4" />
-            </div>
-          )}
+          <div
+            className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-full select-none"
+            style={{ backgroundColor: avatarColor }}
+            aria-hidden="true"
+          />
 
           <div className="flex-1 border-l border-dashed border-edge">
             <CollapsibleTrigger className="flex w-full items-center gap-4 p-4 pr-2 text-left select-none">
@@ -60,7 +46,7 @@ export function ProjectItem({
                 </h3>
 
                 <dl className="text-sm text-muted-foreground">
-                  <dt className="sr-only">Period</dt>
+                  <dt className="sr-only">Período</dt>
                   <dd className="flex items-center gap-0.5">
                     <span>{start}</span>
                     <span className="font-mono">—</span>
@@ -70,7 +56,7 @@ export function ProjectItem({
                           className="size-4.5 translate-y-[0.5px]"
                           aria-hidden
                         />
-                        <span className="sr-only">Present</span>
+                        <span className="sr-only">Presente</span>
                       </>
                     ) : (
                       <span>{end}</span>
@@ -79,7 +65,7 @@ export function ProjectItem({
                 </dl>
               </div>
 
-              <SimpleTooltip content="Open Project Link">
+              <SimpleTooltip content="Abrir Link do Projeto">
                 <a
                   className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
                   href={addQueryParams(project.link, UTM_PARAMS)}
@@ -87,7 +73,7 @@ export function ProjectItem({
                   rel="noopener"
                 >
                   <LinkIcon className="pointer-events-none size-4" />
-                  <span className="sr-only">Open Project Link</span>
+                  <span className="sr-only">Abrir Link do Projeto</span>
                 </a>
               </SimpleTooltip>
 

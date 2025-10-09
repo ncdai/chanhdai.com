@@ -12,7 +12,7 @@ import { PhoneItem } from "./phone-item";
 export function Overview() {
   return (
     <Panel>
-      <h2 className="sr-only">Overview</h2>
+      <h2 className="sr-only">Visão Geral</h2>
 
       <PanelContent className="space-y-2">
         {USER.jobs.map((job, index) => {

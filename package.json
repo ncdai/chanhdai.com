@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "ricoamantino-portfolio",
   "version": "0.1.0",
-  "description": "A minimal portfolio and blog.",
-  "homepage": "https://chanhdai.com",
+  "description": "Portfolio e blog de Frederico Amantino - Full Stack Developer",
+  "homepage": "https://ricoamantino.com",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Frederico Amantino",
+    "email": "ricoamantino@gmail.com",
+    "url": "https://github.com/fredamantino"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "Frederico Amantino",
+      "email": "ricoamantino@gmail.com",
+      "url": "https://github.com/fredamantino"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+https://github.com/fredamantino/portfolio.git"
   },
   "scripts": {
     "dev": "next dev -p 1408 --turbopack",

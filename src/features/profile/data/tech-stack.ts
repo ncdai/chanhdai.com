@@ -1,6 +1,7 @@
 import type { TechStack } from "../types/tech-stack";
 
 export const TECH_STACK: TechStack[] = [
+  // Linguagens
   {
     key: "typescript",
     title: "TypeScript",
@@ -8,7 +9,7 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Language"],
   },
   {
-    key: "js",
+    key: "javascript",
     title: "JavaScript",
     href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     categories: ["Language"],
@@ -19,30 +20,16 @@ export const TECH_STACK: TechStack[] = [
     href: "https://www.python.org/",
     categories: ["Language"],
   },
+
+  // Runtime
   {
-    key: "php",
-    title: "PHP",
-    href: "https://www.php.net/",
-    categories: ["Language"],
-  },
-  {
-    key: "java",
-    title: "Java",
-    href: "https://www.java.com/",
-    categories: ["Language"],
-  },
-  {
-    key: "nodejs",
+    key: "nodedotjs",
     title: "Node.js",
     href: "https://nodejs.org/",
     categories: ["Runtime Environment"],
   },
-  {
-    key: "bun",
-    title: "Bun",
-    href: "https://bun.sh/",
-    categories: ["Runtime Environment"],
-  },
+
+  // Frontend - React Ecosystem
   {
     key: "react",
     title: "React",
@@ -50,25 +37,29 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Library", "UI Library"],
   },
   {
-    key: "nextjs2",
+    key: "nextdotjs",
     title: "Next.js",
     href: "https://nextjs.org/",
     categories: ["Framework"],
     theme: true,
   },
   {
+    key: "expo",
+    title: "Expo",
+    href: "https://expo.dev/",
+    categories: ["Framework", "Mobile"],
+    theme: true,
+  },
+
+  // Styling
+  {
     key: "tailwindcss",
     title: "Tailwind CSS",
     href: "https://tailwindcss.com/",
-    categories: ["Framework"],
+    categories: ["Framework", "CSS"],
   },
-  {
-    key: "shadcn-ui",
-    title: "shadcn/ui",
-    href: "https://ui.shadcn.com/",
-    categories: ["Library", "Component Library"],
-    theme: true,
-  },
+
+  // UI Component Libraries
   {
     key: "radixui",
     title: "Radix UI",
@@ -77,70 +68,18 @@ export const TECH_STACK: TechStack[] = [
     theme: true,
   },
   {
-    key: "motion",
-    title: "Motion",
-    href: "https://motion.dev/",
-    categories: ["Library", "Animation"],
-  },
-  {
-    key: "mobx-state-tree",
-    title: "MobX-State-Tree",
-    href: "https://mobx-state-tree.js.org/",
-    categories: ["State Management"],
-  },
-  {
-    key: "redux",
-    title: "Redux",
-    href: "https://redux.js.org/",
-    categories: ["State Management"],
-  },
-  {
-    key: "antd",
-    title: "Ant Design",
-    href: "https://ant.design/",
-    categories: ["Library", "UI Library"],
-  },
-  {
-    key: "react-router",
-    title: "React Router",
-    href: "https://reactrouter.com/",
-    categories: ["Library", "Navigation"],
+    key: "shadcnui",
+    title: "shadcn/ui",
+    href: "https://ui.shadcn.com/",
+    categories: ["Library", "Component Library"],
     theme: true,
   },
+
+  // Bancos de Dados
   {
-    key: "react-navigation",
-    title: "React Navigation",
-    href: "https://reactnavigation.org/",
-    categories: ["Library", "Navigation"],
-  },
-  {
-    key: "loopback",
-    title: "LoopBack",
-    href: "https://loopback.io/",
-    categories: ["Framework"],
-  },
-  {
-    key: "laravel",
-    title: "Laravel",
-    href: "https://laravel.com/",
-    categories: ["Framework"],
-  },
-  {
-    key: "git",
-    title: "Git",
-    href: "https://git-scm.com/",
-    categories: ["Version Control"],
-  },
-  {
-    key: "docker",
-    title: "Docker",
-    href: "https://www.docker.com/",
-    categories: ["Containerization"],
-  },
-  {
-    key: "mysql",
-    title: "MySQL",
-    href: "https://www.mysql.com/",
+    key: "postgresql",
+    title: "PostgreSQL",
+    href: "https://www.postgresql.org/",
     categories: ["Database"],
   },
   {
@@ -153,31 +92,51 @@ export const TECH_STACK: TechStack[] = [
     key: "redis",
     title: "Redis",
     href: "https://redis.io/",
-    categories: ["Database"],
+    categories: ["Database", "Cache"],
   },
+
+  // Message Broker
   {
-    key: "figma",
-    title: "Figma",
-    href: "https://www.figma.com/",
-    categories: ["Tools", "Design"],
+    key: "rabbitmq",
+    title: "RabbitMQ",
+    href: "https://www.rabbitmq.com/",
+    categories: ["Message Broker"],
   },
+
+  // Inteligência Artificial
   {
-    key: "ps",
-    title: "Adobe Photoshop",
-    href: "https://www.adobe.com/vn_en/products/photoshop.html",
-    categories: ["Tools", "Design"],
-  },
-  {
-    key: "chatgpt",
+    key: "openai",
     title: "ChatGPT",
     href: "https://chatgpt.com/",
     categories: ["Tools", "AI"],
     theme: true,
   },
-  // {
-  //   key: "zalo-mini-app",
-  //   title: "Zalo Mini App",
-  //   href: "https://mini.zalo.me/",
-  //   categories: ["Other"],
-  // },
+  {
+    key: "googlegemini",
+    title: "Google Gemini",
+    href: "https://gemini.google.com/",
+    categories: ["Tools", "AI"],
+  },
+
+  // Automação
+  {
+    key: "n8n",
+    title: "n8n",
+    href: "https://n8n.io/",
+    categories: ["Tools", "Automation"],
+  },
+
+  // DevOps & Tools
+  {
+    key: "git",
+    title: "Git",
+    href: "https://git-scm.com/",
+    categories: ["Version Control"],
+  },
+  {
+    key: "docker",
+    title: "Docker",
+    href: "https://www.docker.com/",
+    categories: ["Containerization"],
+  },
 ];
