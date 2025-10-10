@@ -3,7 +3,7 @@ import type { NavItem } from "@/types/nav";
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://chanhdai.com",
+  url: process.env.APP_URL || "https://mohamedarkid.dev",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -16,25 +16,26 @@ export const META_THEME_COLORS = {
 
 export const MAIN_NAV: NavItem[] = [
   {
-    title: "Daifolio",
+    title: "Portfolio",
     href: "/",
   },
   {
-    title: "Blog",
+    title: "Writing",
     href: "/blog",
   },
   {
-    title: "Components",
+    title: "Playground",
     href: "/components",
   },
 ];
 
-export const GITHUB_USERNAME = "ncdai";
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com";
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com";
+export const GITHUB_USERNAME = "mohamedarkid";
+export const SOURCE_CODE_GITHUB_REPO = "mohamedarkid/portfolio";
+export const SOURCE_CODE_GITHUB_URL =
+  "https://github.com/mohamedarkid/portfolio";
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "mohamedarkid.dev",
   utm_medium: "portfolio_website",
   utm_campaign: "referral",
 };

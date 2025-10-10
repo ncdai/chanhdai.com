@@ -1,61 +1,70 @@
 import type { User } from "@/features/profile/types/user";
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Mohamed",
+  lastName: "Arkid",
+  displayName: "Mohamed Arkid",
+  username: "mohamedarkid",
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Data Analyst & AI Engineer turning raw data into predictive insights and intelligent products.",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer",
-    "Open Source Contributor",
+    "Data Analyst & AI Engineer",
+    "Building dashboards, models & automation",
+    "Powering decisions with intelligent data",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumber: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "Casablanca, Morocco",
+  phoneNumber: "KzIxMjYwMDAwMDAwMA==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
+  email: "bW9oYW1lZC5hcmtpZC5kZXZAZ21haWwuY29t", // base64 encoded
+  website: "https://mohamedarkid.dev",
+  jobTitle: "Data Analyst & AI Engineer",
   jobs: [
     {
-      title: "Senior Frontend Developer & UI Design Lead",
-      company: "Simplamo",
-      website: "https://simplamo.com?ref=IN-926722",
+      title: "DevOps Engineer Intern",
+      company: "BookAsfar",
+      website: "https://www.bookasfar.com",
     },
     {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
+      title: "Software Engineer Intern",
+      company: "AJICOD",
+      website: "https://www.ajicod.com",
     },
   ],
   about: `
-Hello, World! I am Chánh Đại — a Design Engineer passionate about creating high-performance, user-centric software solutions with intuitive and engaging designs.
+Hello! I'm Mohamed Arkid — a data analyst and AI engineer passionate about turning raw, messy datasets into clear direction for the teams that rely on them.
 
-With 5+ years of experience, I specialize in building high-quality web and mobile applications using Next.js, React, TypeScript, and modern front-end technologies. Beyond work, I love exploring new technologies and turning ideas into reality through personal projects.
+My academic path in Embedded Artificial Intelligence taught me how to build reliable systems from the edge to the cloud. Since then I've focused on data analytics, machine learning, and automation projects that improve decision-making for operations, sales, and legal teams.
 
-One of my key projects, [ZaDark](https://zadark.com), launched in 2022, enhances the Zalo experience on PC and Web, surpassing 80k+ downloads on [SourceForge](https://sourceforge.net/projects/zadark) and reaching 20k+ active users on the [Chrome Web Store](https://chromewebstore.google.com/detail/llfhpkkeljlgnjgkholeppfnepmjppob) (as of Sep 2025).
+Recent work includes forecasting shipment delays for Casablanca Port, designing sales intelligence dashboards that surface growth opportunities, and engineering secure RAG pipelines for sensitive legal content. Whether I'm scripting ETL pipelines, training models, or crafting stories in Power BI, my goal is the same: deliver trustworthy insights that teams can act on with confidence.
 
-I'm also the creator of [React Wheel Picker](https://react-wheel-picker.chanhdai.com) — iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. It has earned 4k+ weekly downloads on [npm](https://www.npmjs.com/package/@ncdai/react-wheel-picker) and was selected for [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker) summer 2025 cohort.
-
-Let's connect and collaborate!
+If you're seeking someone who blends analytical rigour with curiosity, collaboration, and continuous learning — let's build data-driven solutions together.
   `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  avatar:
+    "https://ui-avatars.com/api/?name=Mohamed+Arkid&background=1D4ED8&color=fff",
   ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1759581475",
-  namePronunciationUrl: "/audio/chanhdai.mp3",
+    "https://og-playground.vercel.sh/api/og?title=Mohamed%20Arkid&description=Data%20Analyst%20%26%20AI%20Engineer",
+  namePronunciationUrl: "",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "Mohamed Arkid",
+    "Data Analyst",
+    "AI Engineer",
+    "Python",
+    "SQL",
+    "Power BI",
+    "Machine Learning",
+    "Casablanca",
+    "Morocco",
+    "Embedded Artificial Intelligence",
+    "Forecasting",
+    "Time-Series",
+    "ETL",
+    "Dashboard",
+    "LangChain",
+    "Streamlit",
+    "GeoPandas",
+    "Prophet",
+    "MLflow",
+    "Internship",
   ],
-  dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateCreated: "2025-02-01", // YYYY-MM-DD
 };
