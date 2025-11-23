@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { CollapsibleList } from "@/components/collapsible-list";
 
 import { AWARDS } from "../../data/awards";
-import { Panel, PanelHeader, PanelTitle } from "../panel";
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel";
 import { AwardItem } from "./award-item";
 
 const SORTED_AWARDS = [...AWARDS].sort((a, b) => {
@@ -16,9 +16,7 @@ export function Awards() {
       <PanelHeader>
         <PanelTitle>
           Honors & Awards
-          <sup className="ml-1 font-mono text-sm font-medium text-muted-foreground select-none">
-            ({AWARDS.length})
-          </sup>
+          <PanelTitleSup>({AWARDS.length})</PanelTitleSup>
         </PanelTitle>
       </PanelHeader>
 

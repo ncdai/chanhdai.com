@@ -90,7 +90,7 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
           <Clock12Icon />
         </IntroItemIcon>
 
-        <IntroItemContent>—:—</IntroItemContent>
+        <IntroItemContent>00:00</IntroItemContent>
       </IntroItem>
     );
   }
