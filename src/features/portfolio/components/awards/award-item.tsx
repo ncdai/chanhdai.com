@@ -36,7 +36,7 @@ export function AwardItem({
           </div>
 
           <div className="flex-1 border-l border-dashed border-edge">
-            <CollapsibleTrigger className="flex w-full items-center gap-4 p-4 pr-2 text-left select-none">
+            <CollapsibleTrigger className="flex w-full items-center gap-4 p-4 pr-2 text-left">
               <div className="flex-1">
                 <h3 className="mb-1 leading-snug font-medium text-balance">
                   {award.title}

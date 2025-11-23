@@ -29,7 +29,7 @@ export function PronounceMyName({
         });
       }}
     >
-      <Volume2Icon className="size-[0.6em]" />
+      <Volume2Icon className="size-4.5" />
       <span className="sr-only">Pronounce my name</span>
     </button>
   );
