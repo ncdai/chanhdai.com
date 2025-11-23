@@ -50,26 +50,32 @@ export function ProfileHeader() {
         </div>
 
         <div className="border-t border-edge">
-          <h1 className="flex items-center pl-4 text-3xl font-semibold">
-            {USER.displayName}
-            &nbsp;
+          <div className="flex items-center gap-2 pl-4">
+            <h1 className="-translate-y-px text-3xl font-semibold">
+              {USER.displayName}
+            </h1>
+
             <VerifiedIcon
-              className="size-[0.6em] translate-y-px text-info select-none"
+              className="size-4.5 text-info select-none"
               aria-label="Verified"
             />
-            {USER.namePronunciationUrl && (
-              <>
-                &nbsp;
-                <PronounceMyName
-                  className="translate-y-px"
-                  namePronunciationUrl={USER.namePronunciationUrl}
-                />
-              </>
-            )}
-          </h1>
 
-          <div className="h-12 border-t border-edge py-1 pl-4 sm:h-auto">
-            <FlipSentences className="font-mono text-sm text-balance text-muted-foreground">
+            {USER.namePronunciationUrl && (
+              <PronounceMyName
+                namePronunciationUrl={USER.namePronunciationUrl}
+              />
+            )}
+          </div>
+
+          <div className="h-12.5 border-t border-edge py-1 pl-4 sm:h-9">
+            <FlipSentences
+              className="font-mono text-sm text-balance text-muted-foreground"
+              variants={{
+                initial: { y: -10, opacity: 0 },
+                animate: { y: -1, opacity: 1 },
+                exit: { y: 10, opacity: 0 },
+              }}
+            >
               {USER.flipSentences}
             </FlipSentences>
           </div>

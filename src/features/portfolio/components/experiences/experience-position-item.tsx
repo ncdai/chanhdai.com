@@ -29,7 +29,7 @@ export function ExperiencePositionItem({
       <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
         <CollapsibleTrigger
           className={cn(
-            "block w-full text-left select-none",
+            "block w-full text-left",
             "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg hover:before:bg-accent2"
           )}
         >
