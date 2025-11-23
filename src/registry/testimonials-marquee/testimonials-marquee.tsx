@@ -95,7 +95,7 @@ export function TestimonialAvatarRing({
     <div
       data-slot="avatar-ring"
       className={cn(
-        "pointer-events-none absolute inset-0 rounded-full ring-1 ring-black/10 ring-inset dark:ring-white/10",
+        "pointer-events-none absolute inset-0 rounded-full ring-1 ring-black/10 ring-inset dark:ring-white/15",
         className
       )}
       {...props}
