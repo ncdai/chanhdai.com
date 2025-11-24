@@ -121,4 +121,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/shadcn/status/1992950153976991893",
     quote: "Nice",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1957717329397141507/7ctDgOuc_400x400.jpg",
+    authorName: "Ajay Patel",
+    authorBio: "Creator of shadcnstudio.com",
+    url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
+    quote: "This Portfolio is something else 😍",
+  },
 ];
