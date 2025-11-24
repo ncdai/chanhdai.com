@@ -23,7 +23,7 @@ export function TestimonialItem({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block h-full"
+      className="block h-full transition-colors hover:bg-accent2"
     >
       <Testimonial>
         <TestimonialQuote>

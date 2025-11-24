@@ -113,4 +113,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/zaidmukaddam/status/1984599685974409374",
     quote: "super clean",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1593304942210478080/TUYae5z7_400x400.jpg",
+    authorName: "shadcn",
+    authorBio: "Creator of shadcn/ui",
+    url: "https://x.com/shadcn/status/1992950153976991893",
+    quote: "Nice",
+  },
 ];
