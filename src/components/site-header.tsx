@@ -58,7 +58,7 @@ export function SiteHeader() {
           <NavItemGitHub />
           <span className="mx-2 flex h-4 w-px bg-border" />
           <ThemeToggle />
-          <MobileNav className="sm:hidden" items={MAIN_NAV} />
+          <MobileNav className="md:hidden" items={MAIN_NAV} />
         </div>
       </div>
     </SiteHeaderWrapper>
