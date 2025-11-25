@@ -3,7 +3,7 @@ import type { SocialLink } from "../types/social-links";
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "https://assets.chanhdai.com/images/link-icons/x.webp?t=1759581475",
-    title: "X (Formerly Twitter)",
+    title: "X (formerly Twitter)",
     description: "@iamncdai",
     href: "https://x.com/iamncdai",
   },

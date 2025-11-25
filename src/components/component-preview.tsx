@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { SimpleTooltip } from "./ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Code as CodeInline } from "./ui/typography";
 import { OpenInV0Button } from "./v0-open-button";
 
@@ -79,16 +79,22 @@ export function ComponentPreview({
             {(canReplay || openInV0Url) && (
               <div data-slot="buttons" className="mb-2 flex justify-end gap-2">
                 {canReplay && (
-                  <SimpleTooltip content="Replay">
-                    <Button
-                      className="rounded-md"
-                      variant="secondary"
-                      size="icon-sm"
-                      onClick={() => setReplay((v) => v + 1)}
-                    >
-                      <RepeatIcon />
-                    </Button>
-                  </SimpleTooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        className="rounded-md"
+                        variant="secondary"
+                        size="icon-sm"
+                        onClick={() => setReplay((v) => v + 1)}
+                      >
+                        <RepeatIcon />
+                      </Button>
+                    </TooltipTrigger>
+
+                    <TooltipContent>
+                      <p>Replay</p>
+                    </TooltipContent>
+                  </Tooltip>
                 )}
 
                 {openInV0Url && <OpenInV0Button url={openInV0Url} />}
