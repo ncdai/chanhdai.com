@@ -1,7 +1,10 @@
 import Image from "next/image";
-import React from "react";
 
-import { SimpleTooltip } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 import { TECH_STACK } from "../data/tech-stack";
@@ -25,44 +28,50 @@ export function TeckStack() {
           {TECH_STACK.map((tech) => {
             return (
               <li key={tech.key} className="flex">
-                <SimpleTooltip content={tech.title}>
-                  <a
-                    href={tech.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={tech.title}
-                  >
-                    {tech.theme ? (
-                      <>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a
+                      href={tech.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={tech.title}
+                    >
+                      {tech.theme ? (
+                        <>
+                          <Image
+                            src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
+                            alt={`${tech.title} light icon`}
+                            width={32}
+                            height={32}
+                            className="hidden [html.light_&]:block"
+                            unoptimized
+                          />
+                          <Image
+                            src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
+                            alt={`${tech.title} dark icon`}
+                            width={32}
+                            height={32}
+                            className="hidden [html.dark_&]:block"
+                            unoptimized
+                          />
+                        </>
+                      ) : (
                         <Image
-                          src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
-                          alt={`${tech.title} light icon`}
+                          src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
+                          alt={`${tech.title} icon`}
                           width={32}
                           height={32}
-                          className="hidden [html.light_&]:block"
                           unoptimized
                         />
-                        <Image
-                          src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
-                          alt={`${tech.title} dark icon`}
-                          width={32}
-                          height={32}
-                          className="hidden [html.dark_&]:block"
-                          unoptimized
-                        />
-                      </>
-                    ) : (
-                      <Image
-                        src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
-                        alt={`${tech.title} icon`}
-                        width={32}
-                        height={32}
-                        unoptimized
-                      />
-                    )}
-                    <span className="sr-only">{tech.title}</span>
-                  </a>
-                </SimpleTooltip>
+                      )}
+                      <span className="sr-only">{tech.title}</span>
+                    </a>
+                  </TooltipTrigger>
+
+                  <TooltipContent>
+                    <p>{tech.title}</p>
+                  </TooltipContent>
+                </Tooltip>
               </li>
             );
           })}
