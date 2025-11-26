@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/button";
+import { SPONSORSHIP_URL } from "@/config/site";
 import sponsors from "@/features/sponsors/sponsors.json";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Sponsors",
   description:
-    "We are grateful to our sponsors who help us grow and support our projects.",
+    "Grateful for the support that helps me grow and maintain high-quality projects.",
 };
 
 export default function Page() {
@@ -19,8 +20,7 @@ export default function Page() {
 
       <div className="p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
-          We are grateful to our sponsors who help us grow and support our
-          projects.
+          {metadata.description}
         </p>
       </div>
 
@@ -40,12 +40,13 @@ export default function Page() {
                 "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
               )}
               href={item.homepage}
-              title={item.name}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener sponsored"
             >
               <div
-                className="[&_svg]:pointer-events-none [&_svg]:h-6 [&_svg]:w-auto [&_svg]:shrink-0"
+                className="[&_svg]:pointer-events-none [&_svg]:h-6 [&_svg]:w-auto"
+                role="img"
+                aria-label={`${item.name} logo`}
                 dangerouslySetInnerHTML={{ __html: item.logo }}
               />
             </a>
@@ -59,13 +60,9 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-4 p-2">
+      <div className="flex justify-center p-2">
         <Button asChild>
-          <a
-            href="https://github.com/sponsors/ncdai"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={SPONSORSHIP_URL} target="_blank" rel="noopener noreferrer">
             Become a Sponsor
           </a>
         </Button>
@@ -84,6 +81,7 @@ function PlaceholderLogo() {
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}
+      aria-hidden
     />
   );
 }
