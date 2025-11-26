@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-
 import { SITE_INFO } from "@/config/site";
 import { getPostsByCategory } from "@/features/blog/data/posts";
 
@@ -15,7 +13,7 @@ export function GET() {
           <title>${post.metadata.title}</title>
           <link>${SITE_INFO.url}/components/${post.slug}</link>
           <description>${post.metadata.description || ""}</description>
-          <pubDate>${dayjs(post.metadata.createdAt).toISOString()}</pubDate>
+          <pubDate>${new Date(post.metadata.createdAt).toISOString()}</pubDate>
         </item>`
     )
     .join("\n");

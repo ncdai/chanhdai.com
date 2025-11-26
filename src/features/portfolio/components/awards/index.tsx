@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { compareDesc } from "date-fns";
 
 import { CollapsibleList } from "@/components/collapsible-list";
 
@@ -7,7 +7,7 @@ import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel";
 import { AwardItem } from "./award-item";
 
 const SORTED_AWARDS = [...AWARDS].sort((a, b) => {
-  return dayjs(b.date).diff(dayjs(a.date));
+  return compareDesc(new Date(a.date), new Date(b.date));
 });
 
 export function Awards() {

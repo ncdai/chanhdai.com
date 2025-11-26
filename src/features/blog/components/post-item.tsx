@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { format } from "date-fns";
 import { PinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -65,8 +65,8 @@ export function PostItem({
         <dl>
           <dt className="sr-only">Published on</dt>
           <dd className="text-sm text-muted-foreground">
-            <time dateTime={dayjs(post.metadata.createdAt).toISOString()}>
-              {dayjs(post.metadata.createdAt).format("DD.MM.YYYY")}
+            <time dateTime={new Date(post.metadata.createdAt).toISOString()}>
+              {format(new Date(post.metadata.createdAt), "dd.MM.yyyy")}
             </time>
           </dd>
         </dl>

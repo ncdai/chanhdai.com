@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
 import { About } from "@/features/portfolio/components/about";
@@ -77,8 +76,8 @@ function getPageJsonLd(): WithContext<PageSchema> {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    dateCreated: dayjs(USER.dateCreated).toISOString(),
-    dateModified: dayjs().toISOString(),
+    dateCreated: new Date(USER.dateCreated).toISOString(),
+    dateModified: new Date().toISOString(),
     mainEntity: {
       "@type": "Person",
       name: USER.displayName,

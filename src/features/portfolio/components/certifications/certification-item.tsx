@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { format } from "date-fns";
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -72,8 +72,8 @@ export function CertificationItem({
           <dl>
             <dt className="sr-only">Issued on</dt>
             <dd>
-              <time dateTime={dayjs(certification.issueDate).toISOString()}>
-                {dayjs(certification.issueDate).format("DD.MM.YYYY")}
+              <time dateTime={new Date(certification.issueDate).toISOString()}>
+                {format(new Date(certification.issueDate), "dd.MM.yyyy")}
               </time>
             </dd>
           </dl>
