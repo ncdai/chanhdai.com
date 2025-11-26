@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { format } from "date-fns";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkMdx from "remark-mdx";
@@ -19,5 +19,5 @@ ${post.metadata.description}
 
 ${processed.value}
 
-Last updated on ${dayjs(post.metadata.updatedAt).format("MMMM D, YYYY")}`;
+Last updated on ${format(new Date(post.metadata.updatedAt), "MMMM d, yyyy")}`;
 }

@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import { getTableOfContents } from "fumadocs-core/content/toc";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
@@ -62,8 +61,8 @@ export async function generateMetadata({
     openGraph: {
       url: postUrl,
       type: "article",
-      publishedTime: dayjs(createdAt).toISOString(),
-      modifiedTime: dayjs(updatedAt).toISOString(),
+      publishedTime: new Date(createdAt).toISOString(),
+      modifiedTime: new Date(updatedAt).toISOString(),
       images: {
         url: ogImage,
         width: 1200,
@@ -88,8 +87,8 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
       post.metadata.image ||
       `/og/simple?title=${encodeURIComponent(post.metadata.title)}`,
     url: `${SITE_INFO.url}/components/${post.slug}`,
-    datePublished: dayjs(post.metadata.createdAt).toISOString(),
-    dateModified: dayjs(post.metadata.updatedAt).toISOString(),
+    datePublished: new Date(post.metadata.createdAt).toISOString(),
+    dateModified: new Date(post.metadata.updatedAt).toISOString(),
     author: {
       "@type": "Person",
       name: USER.displayName,
