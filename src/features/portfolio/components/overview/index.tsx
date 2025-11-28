@@ -37,8 +37,13 @@ export function Overview() {
             <IntroItemIcon>
               <MapPinIcon />
             </IntroItemIcon>
-            <IntroItemContent aria-label={`Location: ${USER.address}`}>
-              {USER.address}
+            <IntroItemContent>
+              <IntroItemLink
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(USER.address)}`}
+                aria-label={`Location: ${USER.address}`}
+              >
+                {USER.address}
+              </IntroItemLink>
             </IntroItemContent>
           </IntroItem>
 
