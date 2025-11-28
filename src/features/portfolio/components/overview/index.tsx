@@ -32,13 +32,18 @@ export function Overview() {
           );
         })}
 
-        <div className="grid gap-x-4 gap-y-2.5 sm:grid-cols-2">
+        <div className="grid gap-x-12 gap-y-2.5 sm:grid-cols-2">
           <IntroItem>
             <IntroItemIcon>
               <MapPinIcon />
             </IntroItemIcon>
-            <IntroItemContent aria-label={`Location: ${USER.address}`}>
-              {USER.address}
+            <IntroItemContent>
+              <IntroItemLink
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(USER.address)}`}
+                aria-label={`Location: ${USER.address}`}
+              >
+                {USER.address}
+              </IntroItemLink>
             </IntroItemContent>
           </IntroItem>
 
@@ -72,8 +77,6 @@ export function Overview() {
           </IntroItem>
         </div>
       </PanelContent>
-
-      <div className="pointer-events-none absolute -inset-x-px inset-y-0 rounded-2xl border" />
     </Panel>
   );
 }

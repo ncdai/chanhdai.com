@@ -104,7 +104,7 @@
     "remark-gfm": "^4.0.1",
     "remark-mdx": "^3.1.0",
     "rimraf": "^6.0.1",
-    "shadcn": "3.4.2",
+    "shadcn": "3.5.0",
     "shiki": "1.9.1",
     "strip-indent": "^4.0.0",
     "tailwindcss": "^4.1.17",

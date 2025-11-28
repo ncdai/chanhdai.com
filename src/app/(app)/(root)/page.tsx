@@ -41,10 +41,10 @@ export default function Page() {
         <About />
         <Separator />
 
-        <GitHubContributions />
+        <TestimonialsMarquee />
         <Separator />
 
-        <TestimonialsMarquee />
+        <GitHubContributions />
         <Separator />
 
         <TeckStack />
