@@ -19,7 +19,7 @@ export const AWARDS: Award[] = [
     date: "2014-09",
     grade: "Grade 8",
     description:
-      "- Organized in Hanoi\n- Field: Creative Software\n- Project: Website Hành Trình Khám Phá Miền Tây",
+      "- Organized in Hanoi, Viet Nam\n- Field: Creative Software\n- Project: Website Hành Trình Khám Phá Miền Tây",
     referenceLink:
       "https://drive.google.com/file/d/16OOVuKBxFAnROU-pmhkDFkbljkmeO-kc/view?usp=sharing",
   },
@@ -52,7 +52,7 @@ export const AWARDS: Award[] = [
     date: "2015-08",
     grade: "Grade 9",
     description:
-      "- Organized in Binh Duong\n- Field: Informatics Knowledge and Skills\n- Programming Language: Pascal",
+      "- Organized in Binh Duong, Viet Nam\n- Field: Informatics Knowledge and Skills\n- Programming Language: Pascal",
     referenceLink:
       "https://drive.google.com/file/d/1FfV9ju5612DE272nQdlgjzJ67zbVknQ6/view?usp=sharing",
   },
@@ -116,7 +116,7 @@ export const AWARDS: Award[] = [
     date: "2016-08",
     grade: "Grade 10",
     description:
-      "- Organized in Quang Binh\n- Field: Hardware Programming\n- Project: IoT Technology Application for Smart Home Control",
+      "- Organized in Quang Binh, Viet Nam\n- Field: Hardware Programming\n- Project: IoT Technology Application for Smart Home Control",
     referenceLink:
       "https://drive.google.com/file/d/1kf3AR8StAEb3he67pTD1QE53b9_nzklS/view?usp=sharing",
   },
@@ -127,7 +127,7 @@ export const AWARDS: Award[] = [
     date: "2016-10",
     grade: "Grade 10",
     description:
-      "- Organized in Hanoi\n- Field: Software\n- Project: Study English",
+      "- Organized in Hanoi, Viet Nam\n- Field: Software\n- Project: Study English",
     referenceLink:
       "https://drive.google.com/file/d/1FZXB2CeW0rrZmKnL4bHJjzXt0r_WeU2q/view?usp=sharing",
   },
@@ -215,7 +215,7 @@ export const AWARDS: Award[] = [
     date: "2018-03",
     grade: "Grade 12",
     description:
-      "- Organized in Lam Dong\n- Field: System Software\n- Project: [UnlimitedStudy](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm)",
+      "- Organized in Lam Dong, Viet Nam\n- Field: System Software\n- Project: [UnlimitedStudy](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm)",
     referenceLink:
       "https://drive.google.com/file/d/1oOLM_ivrQ_IFHst66AC9qy3CoATT3z8B/view?usp=sharing",
   },
@@ -248,7 +248,7 @@ export const AWARDS: Award[] = [
     date: "2018-08",
     grade: "Grade 12",
     description:
-      "- Organized in Ba Ria - Vung Tau\n- Field: Creative Products\n- Project: [UnlimitedStudy](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm)",
+      "- Organized in Ba Ria - Vung Tau, Viet Nam\n- Field: Creative Products\n- Project: [UnlimitedStudy](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm)",
     referenceLink:
       "https://drive.google.com/file/d/1Te5Ygi89H3j4pH5Yvm9ipDKEcghQXYy_/view?usp=sharing",
   },
