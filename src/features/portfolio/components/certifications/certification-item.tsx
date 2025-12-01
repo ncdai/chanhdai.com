@@ -1,7 +1,6 @@
 import { format } from "date-fns";
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 
 import { getIcon, Icons } from "@/components/icons";
 import { Separator } from "@/components/ui/separator";
