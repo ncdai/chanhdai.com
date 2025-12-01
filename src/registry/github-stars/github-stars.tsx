@@ -30,7 +30,9 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
               {new Intl.NumberFormat("en-US", {
                 notation: "compact",
                 compactDisplay: "short",
-              }).format(stargazersCount)}
+              })
+                .format(stargazersCount)
+                .toLowerCase()}
             </span>
           </a>
         </Button>
