@@ -147,6 +147,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "HSGS Olympiad 2016",
     issuer: "HUS High School for Gifted Students",
+    issuerLogoURL: "https://assets.chanhdai.com/images/companies/hus-vnu.webp",
     issueDate: "2016-05-08",
     credentialID: "",
     credentialURL:
