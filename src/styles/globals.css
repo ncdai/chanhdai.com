@@ -51,7 +51,7 @@
   --color-selection-foreground: var(--selection-foreground);
 
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --font-mono: var(--font-geist-mono);
 
   --shadow-popover: var(--shadow-popover);
 
