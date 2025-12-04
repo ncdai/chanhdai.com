@@ -1,7 +1,6 @@
 import { format } from "date-fns";
-import { ArrowUpRightIcon } from "lucide-react";
+import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react";
 
-import { Icons } from "@/components/icons";
 import type { Bookmark } from "@/features/portfolio/types/bookmarks";
 import { cn } from "@/lib/utils";
 
@@ -30,7 +29,7 @@ export function BookmarkItem({
         )}
         aria-hidden
       >
-        <Icons.bookmarks />
+        <BookmarkIcon />
       </div>
 
       <div className="flex-1 space-y-1 border-l border-dashed border-edge p-4 pr-2">
