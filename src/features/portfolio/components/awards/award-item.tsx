@@ -1,7 +1,6 @@
 import { format } from "date-fns";
-import { FileCheckIcon } from "lucide-react";
+import { AwardIcon, FileCheckIcon } from "lucide-react";
 
-import { Icons } from "@/components/icons";
 import { Markdown } from "@/components/markdown";
 import {
   CollapsibleChevronsIcon,
@@ -36,7 +35,7 @@ export function AwardItem({
             className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background"
             aria-hidden
           >
-            <Icons.award className="pointer-events-none size-4 text-muted-foreground" />
+            <AwardIcon className="pointer-events-none size-4 text-muted-foreground" />
           </div>
 
           <div className="flex-1 border-l border-dashed border-edge">

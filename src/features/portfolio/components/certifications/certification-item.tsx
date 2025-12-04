@@ -1,8 +1,8 @@
 import { format } from "date-fns";
-import { ArrowUpRightIcon } from "lucide-react";
+import { ArrowUpRightIcon, ShieldCheckIcon } from "lucide-react";
 import Image from "next/image";
 
-import { getIcon, Icons } from "@/components/icons";
+import { getIcon } from "@/components/icons";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
@@ -45,7 +45,7 @@ export function CertificationItem({
           )}
           aria-hidden
         >
-          {getIcon(certification.issuerIconName) ?? <Icons.certificate />}
+          {getIcon(certification.issuerIconName) ?? <ShieldCheckIcon />}
         </div>
       )}
 

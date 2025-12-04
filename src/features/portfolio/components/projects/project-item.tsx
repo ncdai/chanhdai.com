@@ -1,7 +1,6 @@
-import { InfinityIcon, LinkIcon } from "lucide-react";
+import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react";
 import Image from "next/image";
 
-import { Icons } from "@/components/icons";
 import { Markdown } from "@/components/markdown";
 import {
   CollapsibleChevronsIcon,
@@ -52,7 +51,7 @@ export function ProjectItem({
               className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none"
               aria-hidden="true"
             >
-              <Icons.project className="size-4" />
+              <BoxIcon className="size-4" />
             </div>
           )}
 
