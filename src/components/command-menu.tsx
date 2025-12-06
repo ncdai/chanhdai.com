@@ -34,7 +34,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/components/ui/command";
 import type { Post } from "@/features/blog/types/post";
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
@@ -276,15 +275,11 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
             onLinkSelect={handleOpenLink}
           />
 
-          <CommandSeparator />
-
           <CommandLinkGroup
             heading="Portfolio"
             links={PORTFOLIO_LINKS}
             onLinkSelect={handleOpenLink}
           />
-
-          <CommandSeparator />
 
           <CommandLinkGroup
             heading="Components"
@@ -293,8 +288,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
             onLinkSelect={handleOpenLink}
           />
 
-          <CommandSeparator />
-
           <CommandLinkGroup
             heading="Blog"
             links={blogLinks}
@@ -302,15 +295,11 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
             onLinkSelect={handleOpenLink}
           />
 
-          <CommandSeparator />
-
           <CommandLinkGroup
             heading="Social Links"
             links={SOCIAL_LINK_ITEMS}
             onLinkSelect={handleOpenLink}
           />
-
-          <CommandSeparator />
 
           <CommandGroup heading="Brand Assets">
             <CommandItem
@@ -351,8 +340,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
               </a>
             </CommandItem>
           </CommandGroup>
-
-          <CommandSeparator />
 
           <CommandGroup heading="Theme">
             <CommandItem
