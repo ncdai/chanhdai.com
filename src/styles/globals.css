@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./scroll-fade-effect.css";
 
 @plugin "@tailwindcss/typography";
 @plugin "@toolwind/corner-shape";
@@ -389,30 +390,6 @@
       clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
     }
   } */
-
-  @keyframes show-top-mask {
-    to {
-      --top-mask-height: var(--mask-height);
-    }
-  }
-
-  @keyframes hide-bottom-mask {
-    to {
-      --bottom-mask-height: 0px;
-    }
-  }
-
-  @keyframes show-left-mask {
-    to {
-      --left-mask-width: var(--mask-width);
-    }
-  }
-
-  @keyframes hide-right-mask {
-    to {
-      --right-mask-width: 0px;
-    }
-  }
 }
 
 @layer components {
@@ -421,7 +398,7 @@
 
     pre {
       @apply overflow-x-auto overscroll-x-none px-4 py-4 has-data-line-numbers:px-0;
-      /* @apply supports-timeline-scroll:scroll-fade-x supports-timeline-scroll:[--mask-offset-right:-1px] supports-timeline-scroll:[--mask-width:24px] supports-timeline-scroll:has-data-line-numbers:[--mask-offset-left:calc(var(--spacing)*16-4px)]; */
+      /* @apply supports-timeline-scroll:scroll-fade-effect-x supports-timeline-scroll:[--mask-offset-right:-1px] supports-timeline-scroll:[--mask-width:24px] supports-timeline-scroll:has-data-line-numbers:[--mask-offset-left:calc(var(--spacing)*16-4px)]; */
     }
 
     code {
@@ -458,88 +435,4 @@
   [data-highlighted-line] {
     @apply bg-code-highlight;
   }
-}
-
-@property --top-mask-height {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-
-@property --bottom-mask-height {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 80px;
-}
-
-@property --left-mask-width {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-
-@property --right-mask-width {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 80px;
-}
-
-@utility scroll-fade-y {
-  --mask-height: 64px;
-  --scroll-buffer: 2rem;
-
-  /* Set up the mask layers */
-  mask-image:
-    linear-gradient(to top, transparent, var(--foreground) 90%),
-    linear-gradient(to bottom, transparent 0%, var(--foreground) 100%),
-    linear-gradient(var(--background), var(--background));
-
-  mask-size:
-    100% var(--top-mask-height),
-    100% var(--bottom-mask-height),
-    100% 100%;
-  mask-repeat: no-repeat, no-repeat, no-repeat;
-  mask-position:
-    0 0,
-    0 100%,
-    0 0;
-  /* Exclude the gradient areas from the solid mask */
-  mask-composite: exclude;
-
-  animation-name: show-top-mask, hide-bottom-mask;
-  animation-timeline: scroll(self), scroll(self);
-  animation-range:
-    0 var(--scroll-buffer),
-    calc(100% - var(--scroll-buffer)) 100%;
-  animation-fill-mode: both;
-}
-
-@utility scroll-fade-x {
-  --mask-width: 64px;
-  --mask-offset-left: 0px;
-  --mask-offset-right: 0px;
-  --scroll-buffer: 2rem;
-
-  mask-image:
-    linear-gradient(to left, transparent, var(--foreground) 90%),
-    linear-gradient(to right, transparent 0%, var(--foreground) 100%),
-    linear-gradient(var(--background), var(--background));
-
-  mask-size:
-    var(--left-mask-width) 100%,
-    var(--right-mask-width) 100%,
-    100% 100%;
-  mask-repeat: no-repeat, no-repeat, no-repeat;
-  mask-position:
-    var(--mask-offset-left) 0,
-    calc(100% - var(--mask-offset-right)) 0,
-    0 0;
-  mask-composite: exclude;
-
-  animation-name: show-left-mask, hide-right-mask;
-  animation-timeline: scroll(self inline), scroll(self inline);
-  animation-range:
-    0 var(--scroll-buffer),
-    calc(100% - var(--scroll-buffer)) 100%;
-  animation-fill-mode: both;
 }
