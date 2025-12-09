@@ -14,10 +14,10 @@ import { getIconForPackageManager } from "./icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 const pmCommands = {
-  pnpm: "pnpm dlx shadcn add",
-  yarn: "npx shadcn add",
-  npm: "npx shadcn add",
-  bun: "bunx --bun shadcn add",
+  pnpm: "pnpm dlx",
+  yarn: "npx",
+  npm: "npx",
+  bun: "bunx --bun",
 };
 
 const registryItemNames = components
@@ -70,11 +70,11 @@ export function RegistryCommandAnimated() {
             data-language="bash"
             className="block font-mono text-sm text-muted-foreground max-sm:leading-6"
           >
-            {Object.entries(pmCommands).map(([key, value]) => {
+            {Object.entries(pmCommands).map(([key, command]) => {
               return (
                 <TabsContent key={key} value={key} asChild>
                   <span className="block sm:inline-block">
-                    {value} <span className="sm:hidden">\</span>
+                    {command} shadcn add <span className="sm:hidden">\</span>
                   </span>
                 </TabsContent>
               );

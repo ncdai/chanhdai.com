@@ -112,4 +112,52 @@ export const blocks: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "scroll-fade-effect-block-01",
+    type: "registry:block",
+    registryDependencies: ["@ncdai/scroll-fade-effect"],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-01.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  {
+    name: "scroll-fade-effect-block-02",
+    type: "registry:block",
+    registryDependencies: ["@ncdai/scroll-fade-effect"],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-02.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  {
+    name: "scroll-fade-effect-block-03",
+    type: "registry:block",
+    registryDependencies: [
+      "@ncdai/scroll-fade-effect",
+      "scroll-area",
+      "separator",
+    ],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-03.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  {
+    name: "scroll-fade-effect-block-04",
+    type: "registry:block",
+    registryDependencies: ["@ncdai/scroll-fade-effect", "scroll-area"],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-04.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ];

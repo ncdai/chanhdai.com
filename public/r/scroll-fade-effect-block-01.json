@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-fade-effect-block-01",
+  "type": "registry:block",
+  "registryDependencies": [
+    "@ncdai/scroll-fade-effect"
+  ],
+  "files": [
+    {
+      "path": "src/registry/examples/scroll-fade-effect-demo-01.tsx",
+      "content": "import * as React from \"react\";\n\nimport { Separator } from \"@/components/ui/separator\";\nimport { ScrollFadeEffect } from \"@/registry/scroll-fade-effect\";\n\nconst tags = Array.from({ length: 50 }).map(\n  (_, i, a) => `v1.2.0-beta.${a.length - i}`\n);\n\nexport default function ScrollFadeEffectDemo() {\n  return (\n    <div className=\"rounded-lg border\">\n      <ScrollFadeEffect className=\"h-72 w-48\">\n        <div className=\"p-4\">\n          <h4 className=\"mb-4 text-sm leading-none font-medium\">Tags</h4>\n          {tags.map((tag) => (\n            <React.Fragment key={tag}>\n              <div className=\"text-sm\">{tag}</div>\n              <Separator className=\"my-2\" />\n            </React.Fragment>\n          ))}\n        </div>\n      </ScrollFadeEffect>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

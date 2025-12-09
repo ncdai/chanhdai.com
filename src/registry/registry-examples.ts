@@ -155,4 +155,57 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "scroll-fade-effect-demo-01",
+    type: "registry:example",
+    description: "A scroll fade effect demo with a list of tags.",
+    registryDependencies: ["@ncdai/scroll-fade-effect"],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-01.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-fade-effect-demo-02",
+    type: "registry:example",
+    description: "A scroll fade effect demo with horizontal scrolling.",
+    registryDependencies: ["@ncdai/scroll-fade-effect"],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-02.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-fade-effect-demo-03",
+    type: "registry:example",
+    description: "A scroll fade effect demo using shadcn/ui Scroll Area.",
+    registryDependencies: [
+      "@ncdai/scroll-fade-effect",
+      "scroll-area",
+      "separator",
+    ],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-03.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-fade-effect-demo-04",
+    type: "registry:example",
+    description:
+      "A demo of ScrollFadeEffect with shadcn/ui Scroll Area (horizontal scrolling).",
+    registryDependencies: ["@ncdai/scroll-fade-effect", "scroll-area"],
+    files: [
+      {
+        path: "examples/scroll-fade-effect-demo-04.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

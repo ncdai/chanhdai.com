@@ -2,6 +2,7 @@ import {
   BriefcaseBusinessIcon,
   FileIcon,
   GalleryHorizontalEndIcon,
+  GalleryVerticalIcon,
   LineSquiggleIcon,
   MoonStarIcon,
   TerminalSquareIcon,
@@ -377,6 +378,9 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
 
     case "github-stars":
       return <Icons.github {...props} />;
+
+    case "scroll-fade-effect":
+      return <GalleryVerticalIcon {...props} />;
 
     default:
       return <Icons.react {...props} />;

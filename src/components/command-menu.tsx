@@ -266,7 +266,7 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandMenuInput />
 
-        <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-y">
+        <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-effect-y">
           <CommandEmpty>No results found.</CommandEmpty>
 
           <CommandLinkGroup

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-fade-effect-block-03",
+  "type": "registry:block",
+  "registryDependencies": [
+    "@ncdai/scroll-fade-effect",
+    "scroll-area",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "src/registry/examples/scroll-fade-effect-demo-03.tsx",
+      "content": "import * as React from \"react\";\n\nimport { ScrollArea } from \"@/components/ui/scroll-area\";\nimport { Separator } from \"@/components/ui/separator\";\nimport { cn } from \"@/lib/utils\";\n\nconst tags = Array.from({ length: 50 }).map(\n  (_, i, a) => `v1.2.0-beta.${a.length - i}`\n);\n\nexport default function ScrollAreaDemo() {\n  return (\n    <ScrollArea\n      className={cn(\n        \"h-72 w-48 rounded-lg border\",\n        \"**:data-[slot=scroll-area-viewport]:scroll-fade-effect-y\"\n        // \"**:data-[slot=scroll-area-viewport]:[--mask-offset-top:8px]\",\n        // \"**:data-[slot=scroll-area-viewport]:[--mask-offset-bottom:8px]\"\n      )}\n    >\n      <div className=\"p-4\">\n        <h4 className=\"mb-4 text-sm leading-none font-medium\">Tags</h4>\n        {tags.map((tag) => (\n          <React.Fragment key={tag}>\n            <div className=\"text-sm\">{tag}</div>\n            <Separator className=\"my-2\" />\n          </React.Fragment>\n        ))}\n      </div>\n    </ScrollArea>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

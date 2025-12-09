@@ -119,6 +119,8 @@ export function rehypeComponent() {
           source = source.replaceAll(`@/registry/`, "@/components/ncdai/");
           source = source.replaceAll("export default", "export");
 
+          const codeMeta = getNodeAttributeByName(node, "data-code-meta");
+
           // Add code as children so that rehype can take over at build time.
           node.children?.push(
             u("element", {
@@ -131,7 +133,9 @@ export function rehypeComponent() {
                     className: ["language-tsx"],
                   },
                   data: {
-                    meta: "showLineNumbers",
+                    meta: ["showLineNumbers"]
+                      .concat(codeMeta ? [codeMeta.value as string] : [])
+                      .join(" "),
                   },
                   children: [
                     {

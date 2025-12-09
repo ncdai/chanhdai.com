@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         hostname: "assets.chanhdai.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+      },
     ],
     qualities: [75, 100],
   },
