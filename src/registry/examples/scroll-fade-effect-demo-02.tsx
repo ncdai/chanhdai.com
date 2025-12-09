@@ -25,7 +25,7 @@ const works: Artwork[] = [
 export default function ScrollFadeEffectHorizontalDemo() {
   return (
     <div className="rounded-lg border">
-      <ScrollFadeEffect className="w-96" orientation="horizontal">
+      <ScrollFadeEffect className="w-72 sm:w-96" orientation="horizontal">
         <div className="flex w-max gap-4 p-4">
           {works.map((artwork) => (
             <figure key={artwork.artist} className="shrink-0">
