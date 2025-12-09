@@ -29,15 +29,13 @@ export default function ScrollFadeEffectHorizontalDemo() {
         <div className="flex w-max gap-4 p-4">
           {works.map((artwork) => (
             <figure key={artwork.artist} className="shrink-0">
-              <div className="overflow-hidden rounded-lg">
-                <Image
-                  src={artwork.art}
-                  alt={`Photo by ${artwork.artist}`}
-                  className="aspect-3/4 h-fit w-fit object-cover"
-                  width={300}
-                  height={400}
-                />
-              </div>
+              <Image
+                src={artwork.art}
+                alt={`Photo by ${artwork.artist}`}
+                className="aspect-3/4 h-fit w-fit rounded-sm object-cover"
+                width={300}
+                height={400}
+              />
 
               <figcaption className="pt-2 text-xs text-muted-foreground">
                 Photo by{" "}
