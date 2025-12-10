@@ -47,7 +47,7 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    docs: "https://chanhdai.com/components/writing-effect-inspired-by-apple",
+    docs: "https://chanhdai.com/components/apple-hello-effect",
   },
   {
     name: "wheel-picker",
