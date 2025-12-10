@@ -94,10 +94,12 @@ The project features a custom component registry built on top of shadcn/ui:
 5. **work-experience** - Work experience display
 6. **shimmering-text** - Shimmering text animation
 7. **slide-to-unlock** - iOS-style slide to unlock component
-8. **github-stars** - GitHub repository stars display component
-9. **use-controllable-state** - State management hook
-10. **use-sound** - Sound effects hook
-11. **utils** - Utility functions
+8. **scroll-fade-effect** - Adds fade effect to content as you scroll
+9. **github-stars** - GitHub repository stars display component
+10. **testimonials-marquee** - Testimonials marquee component
+11. **use-controllable-state** - State management hook
+12. **use-sound** - Sound effects hook
+13. **utils** - Utility functions
 
 > **Note**: All components are compatible with [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4) and [React 19](https://react.dev/blog/2024/12/05/react-19).
 
