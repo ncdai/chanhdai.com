@@ -26,4 +26,9 @@ export const BOOKMARKS: Bookmark[] = [
     url: "https://emilkowal.ski/ui/you-dont-need-animations",
     createdAt: "2025-12-01",
   },
+  {
+    title: "components.build",
+    url: "https://www.components.build",
+    createdAt: "2025-12-11",
+  },
 ];
