@@ -14,18 +14,6 @@ import {
   IntroItemLink,
 } from "./intro-item";
 
-function getJobIcon(title: string) {
-  if (/(developer|engineer)/i.test(title)) {
-    return <CodeXmlIcon />;
-  }
-
-  if (/(founder|co-founder)/i.test(title)) {
-    return <LightbulbIcon />;
-  }
-
-  return <BriefcaseBusinessIcon />;
-}
-
 type JobItemProps = {
   title: string;
   company: string;
@@ -49,4 +37,16 @@ export function JobItem({ title, company, website }: JobItemProps) {
       </IntroItemContent>
     </IntroItem>
   );
+}
+
+function getJobIcon(title: string) {
+  if (/(developer|engineer)/i.test(title)) {
+    return <CodeXmlIcon />;
+  }
+
+  if (/(founder|co-founder)/i.test(title)) {
+    return <LightbulbIcon />;
+  }
+
+  return <BriefcaseBusinessIcon />;
 }
