@@ -1,6 +1,6 @@
 import type { Project } from "../types/projects";
 
-export const PROJECTS: Project[] = [
+export const PROJECTS = [
   {
     id: "react-wheel-picker",
     title: "React Wheel Picker",
@@ -261,4 +261,4 @@ export const PROJECTS: Project[] = [
 - 1st Prize — Can Tho City Youth and Children's Creativity Contest 2016
 - Consolation Prize — Can Tho City Young Informatics Contest 2016`,
   },
-];
+] satisfies Project[];
