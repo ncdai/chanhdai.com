@@ -1,6 +1,6 @@
 import type { TechStack } from "../types/tech-stack";
 
-export const TECH_STACK = [
+export const TECH_STACK: TechStack[] = [
   {
     key: "typescript",
     title: "TypeScript",
@@ -181,4 +181,4 @@ export const TECH_STACK = [
     categories: ["Tools", "AI"],
     theme: true,
   },
-] satisfies TechStack[];
+];

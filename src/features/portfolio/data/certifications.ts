@@ -1,6 +1,6 @@
 import type { Certification } from "../types/certifications";
 
-export const CERTIFICATIONS = [
+export const CERTIFICATIONS: Certification[] = [
   {
     title: "Gemini Certified Educator",
     issuer: "Google for Education",
@@ -171,4 +171,4 @@ export const CERTIFICATIONS = [
     credentialURL:
       "https://drive.google.com/file/d/1-NHhjKlQbhlcO7bpRue1XzDgDaudOf2N/view?usp=sharing",
   },
-] satisfies Certification[];
+];

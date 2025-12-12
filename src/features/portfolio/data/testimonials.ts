@@ -1,6 +1,6 @@
 import type { Testimonial } from "../types/testimonials";
 
-export const TESTIMONIALS_1 = [
+export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar:
       "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
@@ -62,9 +62,9 @@ export const TESTIMONIALS_1 = [
     quote:
       "Everything you'd want in a picker, minus the styling headaches. Awesome job!",
   },
-] satisfies Testimonial[];
+];
 
-export const TESTIMONIALS_2 = [
+export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar:
       "https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg",
@@ -129,4 +129,4 @@ export const TESTIMONIALS_2 = [
     url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
     quote: "This Portfolio is something else 😍",
   },
-] satisfies Testimonial[];
+];

@@ -1,6 +1,6 @@
 import type { Experience } from "../types/experiences";
 
-export const EXPERIENCES = [
+export const EXPERIENCES: Experience[] = [
   {
     id: "simplamo",
     companyName: "Simplamo Enterprise JSC",
@@ -325,4 +325,4 @@ In-house Project: [ZaDark](https://zadark.com)
       },
     ],
   },
-] satisfies Experience[];
+];
