@@ -1,6 +1,13 @@
-import { GlobeIcon, MapPinIcon, MarsIcon, VenusIcon } from "lucide-react";
+import {
+  GlobeIcon,
+  MapPinIcon,
+  MarsIcon,
+  NonBinaryIcon,
+  VenusIcon,
+} from "lucide-react";
 
 import { USER } from "@/features/portfolio/data/user";
+import type { User } from "@/features/portfolio/types/user";
 import { urlToName } from "@/utils/url";
 
 import { Panel, PanelContent } from "../panel";
@@ -68,9 +75,7 @@ export function Overview() {
           </IntroItem>
 
           <IntroItem>
-            <IntroItemIcon>
-              {USER.gender === "male" ? <MarsIcon /> : <VenusIcon />}
-            </IntroItemIcon>
+            <IntroItemIcon>{getGenderIcon(USER.gender)}</IntroItemIcon>
             <IntroItemContent aria-label={`Pronouns: ${USER.pronouns}`}>
               {USER.pronouns}
             </IntroItemContent>
@@ -79,4 +84,15 @@ export function Overview() {
       </PanelContent>
     </Panel>
   );
+}
+
+function getGenderIcon(gender: User["gender"]) {
+  switch (gender) {
+    case "male":
+      return <MarsIcon />;
+    case "female":
+      return <VenusIcon />;
+    case "non-binary":
+      return <NonBinaryIcon />;
+  }
 }

@@ -5,8 +5,7 @@ export type User = {
   displayName: string;
   /** Handle/username used in links or mentions */
   username: string;
-  /** e.g. "male", "female", "non-binary" */
-  gender: string;
+  gender: "male" | "female" | "non-binary";
   /** e.g. "he/him", "she/her", "they/them" */
   pronouns: string;
   bio: string;
