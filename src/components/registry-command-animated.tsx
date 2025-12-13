@@ -9,9 +9,15 @@ import { useConfig } from "@/hooks/use-config";
 import { FlipSentences } from "@/registry/flip-sentences";
 import { components } from "@/registry/registry-components";
 
+import {
+  Tabs,
+  TabsContent,
+  TabsIndicator,
+  TabsList,
+  TabsTrigger,
+} from "./base/ui/tabs";
 import { CopyButton } from "./copy-button";
 import { getIconForPackageManager } from "./icons";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 const pmCommands = {
   pnpm: "pnpm dlx",
@@ -55,13 +61,15 @@ export function RegistryCommandAnimated() {
               return (
                 <TabsTrigger
                   key={key}
-                  className="h-10 rounded-none border-b border-transparent p-0 font-mono data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none dark:data-[state=active]:bg-transparent"
+                  className="h-10 border-b border-transparent p-0 font-mono"
                   value={key}
                 >
                   {key}
                 </TabsTrigger>
               );
             })}
+
+            <TabsIndicator className="top-auto bottom-0 h-px rounded-none bg-foreground shadow-none dark:bg-foreground" />
           </TabsList>
         </div>
 
@@ -72,10 +80,12 @@ export function RegistryCommandAnimated() {
           >
             {Object.entries(pmCommands).map(([key, command]) => {
               return (
-                <TabsContent key={key} value={key} asChild>
-                  <span className="block sm:inline-block">
-                    {command} shadcn add <span className="sm:hidden">\</span>
-                  </span>
+                <TabsContent
+                  key={key}
+                  value={key}
+                  render={<span className="block sm:inline-block" />}
+                >
+                  {command} shadcn add <span className="sm:hidden">\</span>
                 </TabsContent>
               );
             })}
