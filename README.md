@@ -4,11 +4,8 @@ A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase
 
 Check out the live site: [chanhdai.com](https://chanhdai.com)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?t=1764345394">
-  <source media="(prefers-color-scheme: light)" srcset="https://assets.chanhdai.com/images/screenshot-desktop-light.webp?t=1764345394">
-  <img src="https://assets.chanhdai.com/images/screenshot-desktop-light.webp?t=1764345394" alt="Screenshot">
-</picture>
+[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?t=1764345394#gh-dark-mode-only)](https://github.com/ncdai/chanhdai.com#gh-dark-mode-only)
+[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?t=1764345394#gh-light-mode-only)](https://github.com/ncdai/chanhdai.com#gh-light-mode-only)
 
 ## Overview
 
