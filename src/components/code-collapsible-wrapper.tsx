@@ -17,7 +17,7 @@ export function CodeCollapsibleWrapper({
   return (
     <CollapsibleWithContext
       className={cn(
-        "group/collapsible not-prose relative my-[1.25em]",
+        "group/collapsible not-prose relative my-[1.25em] overflow-hidden rounded-xl",
         className
       )}
       {...props}
@@ -36,13 +36,13 @@ export function CodeCollapsibleWrapper({
       </CollapsibleTrigger>
 
       <CollapsibleContent
-        className="overflow-hidden data-[state=closed]:max-h-80 data-[state=closed]:rounded-b-xl [&>figure]:my-0"
+        className="overflow-hidden *:data-rehype-pretty-code-figure:my-0 **:data-rehype-pretty-code-figure:rounded-none data-[state=closed]:max-h-80"
         forceMount
       >
         {children}
       </CollapsibleContent>
 
-      <CollapsibleTrigger className="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center rounded-b-xl bg-linear-to-t from-code from-25% to-transparent pb-4 text-sm font-medium text-muted-foreground group-data-[state=open]/collapsible:hidden">
+      <CollapsibleTrigger className="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-linear-to-t from-code from-25% to-transparent pb-4 text-sm font-medium text-muted-foreground group-data-[state=open]/collapsible:hidden">
         Expand
       </CollapsibleTrigger>
     </CollapsibleWithContext>

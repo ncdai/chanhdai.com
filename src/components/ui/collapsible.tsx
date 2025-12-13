@@ -6,11 +6,33 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import type { ChevronsDownUpIconHandle } from "../animated-icons/chevrons-down-up-icon";
 import { ChevronsDownUpIcon } from "../animated-icons/chevrons-down-up-icon";
 
-const Collapsible = CollapsiblePrimitive.Root;
+function Collapsible(
+  props: React.ComponentProps<typeof CollapsiblePrimitive.Root>
+) {
+  return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
+}
 
-const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger;
+function CollapsibleTrigger(
+  props: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleTrigger>
+) {
+  return (
+    <CollapsiblePrimitive.CollapsibleTrigger
+      data-slot="collapsible-trigger"
+      {...props}
+    />
+  );
+}
 
-const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent;
+function CollapsibleContent(
+  props: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleContent>
+) {
+  return (
+    <CollapsiblePrimitive.CollapsibleContent
+      data-slot="collapsible-content"
+      {...props}
+    />
+  );
+}
 
 type CollapsibleContextType = {
   open: boolean;

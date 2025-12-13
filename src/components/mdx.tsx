@@ -8,7 +8,6 @@ import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
 
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
-import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
 import {
   Table,
@@ -30,6 +29,7 @@ import type { NpmCommands } from "@/types/unist";
 
 import { CodeBlockCommand } from "./code-block-command";
 import { CodeTabs } from "./code-tabs";
+import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2";
 import { CopyButton } from "./copy-button";
 import { FramedImage, YouTubeEmbed } from "./embed";
 import { getIconForLanguageExtension, Icons } from "./icons";
