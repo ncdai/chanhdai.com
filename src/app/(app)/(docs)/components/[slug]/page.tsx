@@ -8,7 +8,7 @@ import type { BlogPosting as PageSchema, WithContext } from "schema-dts";
 import { InlineTOC } from "@/components/inline-toc";
 import { MDX } from "@/components/mdx";
 import { Button } from "@/components/ui/button";
-import { Kbd, KbdGroup } from "@/components/ui/kbd";
+import { Kbd } from "@/components/ui/kbd";
 import {
   Tooltip,
   TooltipContent,
@@ -170,11 +170,9 @@ export default async function Page({
               <TooltipContent className="pr-2 pl-3">
                 <div className="flex items-center gap-3">
                   Previous Component
-                  <KbdGroup>
-                    <Kbd>
-                      <ArrowLeftIcon />
-                    </Kbd>
-                  </KbdGroup>
+                  <Kbd>
+                    <ArrowLeftIcon />
+                  </Kbd>
                 </div>
               </TooltipContent>
             </Tooltip>
@@ -194,11 +192,9 @@ export default async function Page({
               <TooltipContent className="pr-2 pl-3">
                 <div className="flex items-center gap-3">
                   Next Component
-                  <KbdGroup>
-                    <Kbd>
-                      <ArrowRightIcon />
-                    </Kbd>
-                  </KbdGroup>
+                  <Kbd>
+                    <ArrowRightIcon />
+                  </Kbd>
                 </div>
               </TooltipContent>
             </Tooltip>
