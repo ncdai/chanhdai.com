@@ -7,6 +7,13 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
 
+import {
+  Tabs,
+  TabsContent,
+  TabsIndicator,
+  TabsList,
+  TabsTrigger,
+} from "@/components/base/ui/tabs";
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
 import { ComponentSource } from "@/components/component-source";
 import {
@@ -17,7 +24,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code, Heading } from "@/components/ui/typography";
 import { UTM_PARAMS } from "@/config/site";
 import { rehypeAddQueryParams } from "@/lib/rehype-add-query-params";
@@ -128,6 +134,7 @@ const components: MDXRemoteProps["components"] = {
   ),
   Tabs,
   TabsList,
+  TabsIndicator,
   TabsTrigger,
   TabsContent,
   TabsListInstallType: () => (
@@ -140,6 +147,8 @@ const components: MDXRemoteProps["components"] = {
       <TabsTrigger className="px-2.5" value="manual">
         Manual
       </TabsTrigger>
+
+      <TabsIndicator />
     </TabsList>
   ),
   YouTubeEmbed,
