@@ -425,7 +425,7 @@
   [data-line-numbers] > [data-line]::before {
     counter-increment: line;
     content: counter(line);
-    @apply sticky left-0 inline-block w-16 bg-code pr-6 text-right text-sm text-code-number;
+    @apply sticky left-0 inline-block w-16 bg-code pe-6 text-right text-sm text-code-number;
   }
 
   [data-line-numbers] [data-highlighted-line][data-line]::before {
