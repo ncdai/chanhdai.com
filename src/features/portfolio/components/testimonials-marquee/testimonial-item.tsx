@@ -26,7 +26,7 @@ export function TestimonialItem({
       className="block h-full transition-[background-color] ease-out hover:bg-accent2"
     >
       <Testimonial>
-        <TestimonialQuote>
+        <TestimonialQuote className="not-italic">
           <p>{quote}</p>
         </TestimonialQuote>
 
