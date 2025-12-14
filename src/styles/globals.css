@@ -407,7 +407,7 @@
   }
 
   [data-line] {
-    @apply py-0.5;
+    @apply py-0.5 pe-4;
   }
 
   [data-line] span {
@@ -415,7 +415,7 @@
   }
 
   [data-rehype-pretty-code-title] {
-    @apply flex items-center gap-3 border-b px-4 py-2.5 text-sm text-muted-foreground [&_svg]:size-4 [&_svg]:text-muted-foreground;
+    @apply flex items-center gap-3 border-b px-4 py-2.5 pe-10 text-sm text-muted-foreground group-data-[slot=collapsible]/collapsible:pe-20 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground;
   }
 
   [data-line-numbers] {
@@ -425,7 +425,7 @@
   [data-line-numbers] > [data-line]::before {
     counter-increment: line;
     content: counter(line);
-    @apply sticky left-0 inline-block w-16 bg-code pr-6 text-right text-sm text-code-number;
+    @apply sticky left-0 inline-block w-16 bg-code pe-6 text-right text-sm text-code-number;
   }
 
   [data-line-numbers] [data-highlighted-line][data-line]::before {
