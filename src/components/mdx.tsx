@@ -69,10 +69,12 @@ const components: MDXRemoteProps["components"] = {
         ? getIconForLanguageExtension(props["data-language"])
         : null;
 
+    const hasCodeTitle = "data-rehype-pretty-code-title" in props;
+
     return (
       <figcaption {...props}>
         {iconExtension}
-        {children}
+        {hasCodeTitle ? <p className="truncate">{children}</p> : children}
       </figcaption>
     );
   },
