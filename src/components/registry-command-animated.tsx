@@ -54,14 +54,14 @@ export function RegistryCommandAnimated() {
         }}
       >
         <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-edge">
-          <TabsList className="h-auto gap-4 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:size-4 [&_svg]:text-muted-foreground">
+          <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
             {getIconForPackageManager(packageManager)}
 
             {Object.entries(pmCommands).map(([key]) => {
               return (
                 <TabsTrigger
                   key={key}
-                  className="h-10 border-b border-transparent p-0 font-mono"
+                  className="h-7 rounded-lg p-0 px-2 font-mono"
                   value={key}
                 >
                   {key}
