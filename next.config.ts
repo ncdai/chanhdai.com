@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "4kwallpapers.com",
+        port: "",
+      },
+      {
+        protocol: "https",
         hostname: "assets.chanhdai.com",
         port: "",
       },
