@@ -63,7 +63,7 @@ export function CodeBlockCommand({
               );
             })}
 
-            <TabsIndicator className="top-auto bottom-0 h-px rounded-none bg-foreground shadow-none dark:bg-foreground" />
+            <TabsIndicator className="h-0.5 translate-y-0 rounded-none bg-foreground shadow-none dark:bg-foreground" />
           </TabsList>
         </div>
 
