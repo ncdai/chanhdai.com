@@ -1,0 +1,94 @@
+---
+title: Consent Manager
+description: A React component for managing user consent for cookies and tracking in Next.js applications.
+image: https://assets.chanhdai.com/images/blog/consent-manager.webp
+category: components
+icon: consent-manager
+new: true
+createdAt: 2025-12-16
+updatedAt: 2025-12-16
+---
+
+<IframeEmbed
+  src="https://react-wheel-picker.chanhdai.com/docs/getting-started"
+  title="Consent Manager Demo"
+/>
+
+## About
+
+- Built on top of [c15t](https://c15t.com/docs/frameworks/next/quickstart).
+- Default theme is customized to match [shadcn/ui](https://ui.shadcn.com/docs/theming).
+- For Next.js, but can be easily adapted to other frameworks following [c15t's documentation](https://c15t.com).
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn add @ncdai/consent-manager
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge @c15t/nextjs
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible={false}
+/>
+
+<Step>Install the required shadcn/ui components</Step>
+
+- https://ui.shadcn.com/docs/components/button
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/components/consent-manager.tsx"
+  title="components/ncdai/consent-manager.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+Wrap your app with the `ConsentManager` component:
+
+```tsx title="app/layout.tsx" showLineNumbers {1,11-13}
+import { ConsentManager } from "@/components/ncdai/consent-manager";
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <ConsentManager>{children}</ConsentManager>
+      </body>
+    </html>
+  );
+}
+```
+
+For customization and advanced usage, see [c15t's documentation](https://c15t.com/docs/frameworks/next/quickstart).

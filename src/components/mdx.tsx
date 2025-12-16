@@ -37,7 +37,7 @@ import { CodeBlockCommand } from "./code-block-command";
 import { CodeTabs } from "./code-tabs";
 import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2";
 import { CopyButton } from "./copy-button";
-import { FramedImage, YouTubeEmbed } from "./embed";
+import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed";
 import { getIconForLanguageExtension, Icons } from "./icons";
 
 const components: MDXRemoteProps["components"] = {
@@ -154,6 +154,7 @@ const components: MDXRemoteProps["components"] = {
     </TabsList>
   ),
   YouTubeEmbed,
+  IframeEmbed,
   FramedImage,
 };
 

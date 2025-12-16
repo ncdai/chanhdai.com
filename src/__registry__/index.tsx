@@ -127,6 +127,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "consent-manager": {
+    name: "consent-manager",
+    description: "A React component for managing user consent for cookies and tracking in Next.js applications.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/src/components/consent-manager.tsx",
+      type: "registry:component",
+    }],
+  },
   "wheel-picker-block-01": {
     name: "wheel-picker-block-01",
     description: "",
