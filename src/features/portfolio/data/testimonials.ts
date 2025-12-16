@@ -62,6 +62,15 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "Everything you'd want in a picker, minus the styling headaches. Awesome job!",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1988259821020221440/qRyYd6iE_400x400.jpg",
+    authorName: "Christopher Burns",
+    authorBio: "Creator of c15t.com",
+    url: "https://x.com/BurnedChris/status/2000947403571204445",
+    quote:
+      "This is super cool, Full circle moment (the prototype for c15t actually used shadcn). Would love to get this in our docs also and shared in our discord!",
+  },
 ];
 
 export const TESTIMONIALS_2: Testimonial[] = [
