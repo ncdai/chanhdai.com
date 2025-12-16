@@ -145,6 +145,10 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
               "data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0 dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground"
             ),
           },
+          "widget.footer.sub-group": {
+            noStyle: true,
+            className: "grid grid-cols-2 gap-4 sm:flex",
+          },
           "widget.footer.reject-button": {
             noStyle: true,
             className: buttonVariants({ variant: "secondary" }),
