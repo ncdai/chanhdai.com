@@ -337,6 +337,40 @@
       }
     },
     {
+      "name": "consent-manager",
+      "type": "registry:component",
+      "title": "Consent Manager",
+      "author": "ncdai <dai@chanhdai.com>",
+      "description": "A React component for managing user consent for cookies and tracking in Next.js applications.",
+      "dependencies": [
+        "@c15t/nextjs"
+      ],
+      "registryDependencies": [
+        "@ncdai/utils",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/components/consent-manager.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-popover-border": "var(--popover-border)",
+          "shadow-popover": "var(--shadow-popover)"
+        },
+        "light": {
+          "popover-border": "color-mix(in oklab, var(--color-black) 15%, transparent)",
+          "shadow-popover": "0 6px 24px rgba(0, 0, 0, 0.25)"
+        },
+        "dark": {
+          "popover-border": "oklch(0.37 0.013 285.805)",
+          "shadow-popover": "0 0 24px rgba(0, 0, 0, 0.5)"
+        }
+      }
+    },
+    {
       "name": "wheel-picker-block-01",
       "type": "registry:block",
       "registryDependencies": [

@@ -4,16 +4,12 @@ import {
   CookieBanner,
 } from "@c15t/nextjs";
 
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { ConsentManagerClient } from "./consent-manager-client";
-import { buttonVariants } from "./ui/button";
 
-export default function ConsentManager({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function ConsentManager({ children }: { children: React.ReactNode }) {
   return (
     <ConsentManagerProvider
       options={{
@@ -63,6 +59,7 @@ export default function ConsentManager({
       <ConsentManagerDialog
         theme={{
           "dialog.root": {
+            noStyle: true,
             style: {
               "--dialog-card-radius": "1rem",
 
@@ -72,7 +69,6 @@ export default function ConsentManager({
               "--dialog-border-color": "var(--border)",
               "--dialog-border-color-dark": "var(--border)",
             },
-            noStyle: true,
             className:
               "rounded-2xl border-none bg-background shadow-popover ring ring-popover-border",
           },
@@ -95,6 +91,11 @@ export default function ConsentManager({
 
               "--dialog-branding-icon-height": "1.125rem",
               "--dialog-branding-font-size": "0.875rem",
+
+              "--dialog-branding-focus-color":
+                "color-mix(in oklab, var(--ring) 50%, transparent)",
+              "--dialog-branding-focus-color-dark":
+                "color-mix(in oklab, var(--ring) 50%, transparent)",
 
               "--dialog-foreground-color": "var(--muted-foreground)",
               "--dialog-foreground-color-dark": "var(--muted-foreground)",

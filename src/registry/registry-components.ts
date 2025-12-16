@@ -262,4 +262,35 @@ export const components: Registry["items"] = [
       },
     },
   },
+  {
+    name: "consent-manager",
+    type: "registry:component",
+    description:
+      "A React component for managing user consent for cookies and tracking in Next.js applications.",
+    title: "Consent Manager",
+    author: "ncdai <dai@chanhdai.com>",
+    dependencies: ["@c15t/nextjs"],
+    registryDependencies: ["@ncdai/utils", "button"],
+    files: [
+      {
+        path: "src/components/consent-manager.tsx",
+        type: "registry:component",
+      },
+    ],
+    cssVars: {
+      light: {
+        "popover-border":
+          "color-mix(in oklab, var(--color-black) 15%, transparent)",
+        "shadow-popover": "0 6px 24px rgba(0, 0, 0, 0.25)",
+      },
+      dark: {
+        "popover-border": "oklch(0.37 0.013 285.805)",
+        "shadow-popover": "0 0 24px rgba(0, 0, 0, 0.5)",
+      },
+      theme: {
+        "color-popover-border": "var(--popover-border)",
+        "shadow-popover": "var(--shadow-popover)",
+      },
+    },
+  },
 ];
