@@ -118,7 +118,13 @@ export default async function Page({
 
   const toc = getTableOfContents(post.content);
 
-  const allPosts = getPostsByCategory("components");
+  const allPosts = getPostsByCategory("components")
+    .slice()
+    .sort((a, b) =>
+      a.metadata.title.localeCompare(b.metadata.title, "en", {
+        sensitivity: "base",
+      })
+    );
   const { previous, next } = findNeighbour(allPosts, slug);
 
   return (
