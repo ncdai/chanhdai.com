@@ -134,6 +134,9 @@ export const Index: Record<string, any> = {
     files: [{
       path: "src/registry/src/components/consent-manager.tsx",
       type: "registry:component",
+    },{
+      path: "src/registry/consent-manager/consent-manager-client.tsx",
+      type: "registry:component",
     }],
   },
   "wheel-picker-block-01": {
