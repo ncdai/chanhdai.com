@@ -276,6 +276,10 @@ export const components: Registry["items"] = [
         path: "src/components/consent-manager.tsx",
         type: "registry:component",
       },
+      {
+        path: "consent-manager/consent-manager-client.tsx",
+        type: "registry:component",
+      },
     ],
     cssVars: {
       light: {
