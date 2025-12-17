@@ -40,6 +40,7 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
+  TestimonialVerifiedBadge,
 } from "@/registry/testimonials-marquee";
 import type { NpmCommands } from "@/types/unist";
 
@@ -174,6 +175,7 @@ const components: MDXRemoteProps["components"] = {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
+  TestimonialVerifiedBadge,
 };
 
 const options: MDXRemoteProps["options"] = {

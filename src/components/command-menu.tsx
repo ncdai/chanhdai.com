@@ -223,6 +223,11 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
     () => ({
       componentLinks: posts
         .filter((post) => post.metadata?.category === "components")
+        .sort((a, b) =>
+          a.metadata.title.localeCompare(b.metadata.title, "en", {
+            sensitivity: "base",
+          })
+        )
         .map(postToCommandLinkItem),
       blogLinks: posts
         .filter((post) => post.metadata?.category !== "components")
