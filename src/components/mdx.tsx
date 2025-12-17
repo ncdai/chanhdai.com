@@ -31,6 +31,16 @@ import { rehypeComponent } from "@/lib/rehype-component";
 import { rehypeNpmCommand } from "@/lib/rehype-npm-command";
 import { remarkCodeImport } from "@/lib/remark-code-import";
 import { cn } from "@/lib/utils";
+import {
+  Testimonial,
+  TestimonialAuthor,
+  TestimonialAuthorBio,
+  TestimonialAuthorName,
+  TestimonialAvatar,
+  TestimonialAvatarImg,
+  TestimonialAvatarRing,
+  TestimonialQuote,
+} from "@/registry/testimonials-marquee";
 import type { NpmCommands } from "@/types/unist";
 
 import { CodeBlockCommand } from "./code-block-command";
@@ -156,6 +166,14 @@ const components: MDXRemoteProps["components"] = {
   YouTubeEmbed,
   IframeEmbed,
   FramedImage,
+  Testimonial,
+  TestimonialAuthor,
+  TestimonialAuthorBio,
+  TestimonialAuthorName,
+  TestimonialAvatar,
+  TestimonialAvatarImg,
+  TestimonialAvatarRing,
+  TestimonialQuote,
 };
 
 const options: MDXRemoteProps["options"] = {
