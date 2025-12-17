@@ -77,6 +77,13 @@ export const TECH_STACK: TechStack[] = [
     theme: true,
   },
   {
+    key: "base-ui",
+    title: "Base UI",
+    href: "https://base-ui.com/",
+    categories: ["Library", "Component Library"],
+    theme: true,
+  },
+  {
     key: "motion",
     title: "Motion",
     href: "https://motion.dev/",
