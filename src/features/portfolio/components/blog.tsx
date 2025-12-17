@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { PostItem } from "@/features/blog/components/post-item";
 import { getAllPosts } from "@/features/blog/data/posts";
 
-import { Panel, PanelHeader, PanelTitle } from "./panel";
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel";
 
 export function Blog() {
   const allPosts = getAllPosts();
@@ -14,7 +14,10 @@ export function Blog() {
   return (
     <Panel id="blog">
       <PanelHeader>
-        <PanelTitle>Blog</PanelTitle>
+        <PanelTitle>
+          Blog
+          <PanelTitleSup>({allPosts.length})</PanelTitleSup>
+        </PanelTitle>
       </PanelHeader>
 
       <div className="relative py-4">
