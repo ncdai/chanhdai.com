@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { ComponentIcon } from "@/components/icons";
+import { ComponentIcon, Icons } from "@/components/icons";
 import { MDX } from "@/components/mdx";
 import { RegistryCommandAnimated } from "@/components/registry-command-animated";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Tag } from "@/components/ui/tag";
 import { registryConfig } from "@/config/registry";
 import { getPostsByCategory } from "@/features/blog/data/posts";
 import { cn } from "@/lib/utils";
@@ -154,6 +155,26 @@ export default function Page() {
                 )}
               </Link>
             ))}
+        </div>
+      </div>
+
+      <div className="h-4" />
+
+      <div className="screen-line-before screen-line-after flex flex-wrap items-center gap-2 p-4">
+        <span className="font-mono text-xs text-muted-foreground">
+          Built for
+        </span>
+
+        <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
+          <Tag>
+            <Icons.react />
+            React 19
+          </Tag>
+
+          <Tag>
+            <Icons.tailwindcss />
+            Tailwind CSS v4
+          </Tag>
         </div>
       </div>
 

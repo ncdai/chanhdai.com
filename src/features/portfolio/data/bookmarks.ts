@@ -31,4 +31,9 @@ export const BOOKMARKS: Bookmark[] = [
     url: "https://www.components.build",
     createdAt: "2025-12-11",
   },
+  {
+    title: "7 Principles of Rich Web Applications",
+    url: "https://rauchg.com/2014/7-principles-of-rich-web-applications",
+    createdAt: "2025-12-16",
+  },
 ];
