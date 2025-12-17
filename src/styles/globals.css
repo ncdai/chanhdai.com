@@ -195,8 +195,7 @@
   /* zinc-400 */
   --code-number: oklch(0.705 0.015 286.067);
 
-  /* zinc-100 */
-  --code-highlight: oklch(0.967 0.001 286.375);
+  --code-highlight: oklch(0.9584 0.0013 286.37);
 
   /* zinc-950 */
   --selection: oklch(0.141 0.005 285.823);
