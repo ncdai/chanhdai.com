@@ -1,10 +1,11 @@
 import Image from "next/image";
 
 import {
-  Tooltip,
   TooltipContent,
+  TooltipProvider,
+  TooltipRoot,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/base/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 import { TECH_STACK } from "../data/tech-stack";
@@ -24,17 +25,21 @@ export function TeckStack() {
           "bg-zinc-950/0.75 dark:bg-white/0.75"
         )}
       >
-        <ul className="flex flex-wrap gap-4 select-none">
-          {TECH_STACK.map((tech) => {
-            return (
-              <li key={tech.key} className="flex">
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <a
-                      href={tech.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={tech.title}
+        <TooltipProvider>
+          <ul className="flex flex-wrap gap-4 select-none">
+            {TECH_STACK.map((tech) => {
+              return (
+                <li key={tech.key} className="flex">
+                  <TooltipRoot>
+                    <TooltipTrigger
+                      render={
+                        <a
+                          href={tech.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={tech.title}
+                        />
+                      }
                     >
                       {tech.theme ? (
                         <>
@@ -64,18 +69,17 @@ export function TeckStack() {
                           unoptimized
                         />
                       )}
-                      <span className="sr-only">{tech.title}</span>
-                    </a>
-                  </TooltipTrigger>
+                    </TooltipTrigger>
 
-                  <TooltipContent>
-                    <p>{tech.title}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </li>
-            );
-          })}
-        </ul>
+                    <TooltipContent>
+                      <p>{tech.title}</p>
+                    </TooltipContent>
+                  </TooltipRoot>
+                </li>
+              );
+            })}
+          </ul>
+        </TooltipProvider>
       </PanelContent>
     </Panel>
   );
