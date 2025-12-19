@@ -10,9 +10,9 @@ import { useSound } from "@/hooks/use-sound";
 
 import { MoonIcon } from "./animated-icons/moon";
 import { SunMediumIcon } from "./animated-icons/sun-medium";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./base/ui/tooltip";
 import { Button } from "./ui/button";
 import { Kbd } from "./ui/kbd";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -35,20 +35,22 @@ export function ThemeToggle() {
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={switchTheme}
-          // onClick={() => {
-          //   if (!document.startViewTransition) switchTheme();
-          //   document.startViewTransition(switchTheme);
-          // }}
-        >
-          <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
-          <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
-          <span className="sr-only">Theme Toggle</span>
-        </Button>
+      <TooltipTrigger
+        render={
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={switchTheme}
+            // onClick={() => {
+            //   if (!document.startViewTransition) switchTheme();
+            //   document.startViewTransition(switchTheme);
+            // }}
+          />
+        }
+      >
+        <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
+        <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
+        <span className="sr-only">Theme Toggle</span>
       </TooltipTrigger>
 
       <TooltipContent className="pr-2 pl-3">
