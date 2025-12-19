@@ -109,13 +109,15 @@ export default function Page() {
         </Dialog>
       </div>
 
-      <div className="relative mt-4">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
+      <Separator />
+
+      <div className="relative">
+        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-edge"></div>
           <div className="border-l border-edge"></div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {posts
             .slice()
             .sort((a, b) =>
@@ -158,7 +160,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="h-4" />
+      <Separator />
 
       <div className="screen-line-before screen-line-after flex flex-wrap items-center gap-2 p-4">
         <span className="font-mono text-xs text-muted-foreground">
@@ -180,5 +182,18 @@ export default function Page() {
 
       <div className="h-4" />
     </div>
+  );
+}
+
+function Separator({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "relative flex h-8 w-full",
+        "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
+        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56",
+        className
+      )}
+    />
   );
 }
