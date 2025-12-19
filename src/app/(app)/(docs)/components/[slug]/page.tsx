@@ -5,15 +5,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { BlogPosting as PageSchema, WithContext } from "schema-dts";
 
+import {
+  TooltipContent,
+  TooltipProvider,
+  TooltipRoot,
+  TooltipTrigger,
+} from "@/components/base/ui/tooltip";
 import { InlineTOC } from "@/components/inline-toc";
 import { MDX } from "@/components/mdx";
 import { Button } from "@/components/ui/button";
 import { Kbd } from "@/components/ui/kbd";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Prose } from "@/components/ui/typography";
 import { SITE_INFO } from "@/config/site";
 import { PostKeyboardShortcuts } from "@/features/blog/components/post-keyboard-shortcuts";
@@ -162,49 +163,55 @@ export default async function Page({
 
           <PostShareMenu url={`/components/${post.slug}`} />
 
-          {previous && (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="secondary" size="icon-sm" asChild>
-                  <Link href={`/components/${previous.slug}`}>
-                    <ArrowLeftIcon />
-                    <span className="sr-only">Previous</span>
-                  </Link>
-                </Button>
-              </TooltipTrigger>
+          <TooltipProvider>
+            {previous && (
+              <TooltipRoot>
+                <TooltipTrigger
+                  render={
+                    <Button variant="secondary" size="icon-sm" asChild>
+                      <Link href={`/components/${previous.slug}`} />
+                    </Button>
+                  }
+                >
+                  <ArrowLeftIcon />
+                  <span className="sr-only">Previous</span>
+                </TooltipTrigger>
 
-              <TooltipContent className="pr-2 pl-3">
-                <div className="flex items-center gap-3">
-                  Previous Component
-                  <Kbd>
-                    <ArrowLeftIcon />
-                  </Kbd>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          )}
+                <TooltipContent className="pr-2 pl-3">
+                  <div className="flex items-center gap-3">
+                    Previous Component
+                    <Kbd>
+                      <ArrowLeftIcon />
+                    </Kbd>
+                  </div>
+                </TooltipContent>
+              </TooltipRoot>
+            )}
 
-          {next && (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="secondary" size="icon-sm" asChild>
-                  <Link href={`/components/${next.slug}`}>
-                    <span className="sr-only">Next</span>
-                    <ArrowRightIcon />
-                  </Link>
-                </Button>
-              </TooltipTrigger>
+            {next && (
+              <TooltipRoot>
+                <TooltipTrigger
+                  render={
+                    <Button variant="secondary" size="icon-sm" asChild>
+                      <Link href={`/components/${next.slug}`} />
+                    </Button>
+                  }
+                >
+                  <span className="sr-only">Next</span>
+                  <ArrowRightIcon />
+                </TooltipTrigger>
 
-              <TooltipContent className="pr-2 pl-3">
-                <div className="flex items-center gap-3">
-                  Next Component
-                  <Kbd>
-                    <ArrowRightIcon />
-                  </Kbd>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          )}
+                <TooltipContent className="pr-2 pl-3">
+                  <div className="flex items-center gap-3">
+                    Next Component
+                    <Kbd>
+                      <ArrowRightIcon />
+                    </Kbd>
+                  </div>
+                </TooltipContent>
+              </TooltipRoot>
+            )}
+          </TooltipProvider>
         </div>
       </div>
 
