@@ -52,7 +52,7 @@ export default function Page() {
                   dangerouslySetInnerHTML={{ __html: item.logo }}
                 />
               ) : (
-                <div className="grid grid-cols-[auto_1fr] items-center gap-x-3">
+                <div className="grid grid-cols-[auto_1fr] items-center gap-x-3 px-4">
                   <div className="relative row-span-2 size-10 shrink-0">
                     <Image
                       className="size-10 rounded-full select-none"
@@ -64,10 +64,10 @@ export default function Page() {
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-black/10 ring-inset dark:ring-white/15" />
                   </div>
-                  <div className="text-base leading-5 font-semibold text-foreground">
+                  <div className="translate-y-px truncate text-base leading-5 font-semibold text-foreground">
                     {item.name}
                   </div>
-                  <div className="text-xs leading-5 text-muted-foreground">
+                  <div className="translate-y-px truncate text-xs leading-5 text-muted-foreground">
                     {item.tagline}
                   </div>
                 </div>
