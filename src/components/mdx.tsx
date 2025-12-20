@@ -34,8 +34,8 @@ import { cn } from "@/lib/utils";
 import {
   Testimonial,
   TestimonialAuthor,
-  TestimonialAuthorBio,
   TestimonialAuthorName,
+  TestimonialAuthorTagline,
   TestimonialAvatar,
   TestimonialAvatarImg,
   TestimonialAvatarRing,
@@ -169,7 +169,7 @@ const components: MDXRemoteProps["components"] = {
   FramedImage,
   Testimonial,
   TestimonialAuthor,
-  TestimonialAuthorBio,
+  TestimonialAuthorTagline,
   TestimonialAuthorName,
   TestimonialAvatar,
   TestimonialAvatarImg,

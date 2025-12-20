@@ -3,8 +3,8 @@ export type Testimonial = {
   authorAvatar: string;
   /** Full display name of the person giving the testimonial */
   authorName: string;
-  /** Short biography or professional title of the person */
-  authorBio: string;
+  /** Short tagline, title, or description of the person */
+  authorTagline: string;
   /** Link to the person's profile, website, or social media page */
   url: string;
   /** The testimonial text content or recommendation message */

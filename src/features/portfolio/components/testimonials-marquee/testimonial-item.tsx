@@ -1,8 +1,8 @@
 import {
   Testimonial,
   TestimonialAuthor,
-  TestimonialAuthorBio,
   TestimonialAuthorName,
+  TestimonialAuthorTagline,
   TestimonialAvatar,
   TestimonialAvatarImg,
   TestimonialAvatarRing,
@@ -14,7 +14,7 @@ import type { Testimonial as TestimonialType } from "../../types/testimonials";
 export function TestimonialItem({
   authorAvatar,
   authorName,
-  authorBio,
+  authorTagline,
   url,
   quote,
 }: TestimonialType) {
@@ -38,7 +38,7 @@ export function TestimonialItem({
 
           <TestimonialAuthorName>{authorName}</TestimonialAuthorName>
 
-          <TestimonialAuthorBio>{authorBio}</TestimonialAuthorBio>
+          <TestimonialAuthorTagline>{authorTagline}</TestimonialAuthorTagline>
         </TestimonialAuthor>
       </Testimonial>
     </a>
