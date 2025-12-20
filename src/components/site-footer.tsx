@@ -1,4 +1,5 @@
 import { RssIcon } from "lucide-react";
+import Link from "next/link";
 
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site";
 
@@ -36,6 +37,15 @@ export function SiteFooter() {
 
         <div className="screen-line-before screen-line-after flex w-full before:z-1 after:z-1">
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-edge bg-background px-4">
+            <Link
+              className="flex font-mono text-xs font-medium text-muted-foreground"
+              href="/sponsors"
+            >
+              Sponsors
+            </Link>
+
+            <Separator />
+
             <a
               className="flex font-mono text-xs font-medium text-muted-foreground"
               href={`${SITE_INFO.url}/llms.txt`}
