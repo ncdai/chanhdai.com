@@ -27,7 +27,7 @@ export function TestimonialItem({
     >
       <Testimonial>
         <TestimonialQuote className="not-italic">
-          <p>{quote}</p>
+          <p className="line-clamp-3">{quote}</p>
         </TestimonialQuote>
 
         <TestimonialAuthor>
