@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react";
 
+import { Separator } from "@/components/ui/separator";
 import type { Bookmark } from "@/features/portfolio/types/bookmarks";
 import { cn } from "@/lib/utils";
 
@@ -37,12 +38,26 @@ export function BookmarkItem({
           {bookmark.title}
         </h3>
 
-        <div className="text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+          {bookmark.author && (
+            <>
+              <dl>
+                <dt className="sr-only">Author</dt>
+                <dd>{bookmark.author}</dd>
+              </dl>
+
+              <Separator
+                className="data-[orientation=vertical]:h-4"
+                orientation="vertical"
+              />
+            </>
+          )}
+
           <dl>
-            <dt className="sr-only">Created on</dt>
+            <dt className="sr-only">Bookmarked on</dt>
             <dd>
-              <time dateTime={new Date(bookmark.createdAt).toISOString()}>
-                {format(new Date(bookmark.createdAt), "dd.MM.yyyy")}
+              <time dateTime={new Date(bookmark.bookmarkedAt).toISOString()}>
+                {format(new Date(bookmark.bookmarkedAt), "dd.MM.yyyy")}
               </time>
             </dd>
           </dl>
