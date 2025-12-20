@@ -22,8 +22,22 @@ export function PostKeyboardShortcuts({
     }
   };
 
-  useHotkeys("ArrowRight", () => navigate(next));
-  useHotkeys("ArrowLeft", () => navigate(previous));
+  useHotkeys("ArrowRight", (event) => {
+    // A native interaction was prevented on this event, someone else took ownership of it, ignore.
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    navigate(next);
+  });
+  useHotkeys("ArrowLeft", (event) => {
+    // A native interaction was prevented on this event, someone else took ownership of it, ignore.
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    navigate(previous);
+  });
 
   return null;
 }
