@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { SPONSORSHIP_URL } from "@/config/site";
-import sponsors from "@/features/sponsors/sponsors.json";
+import { sponsors } from "@/features/sponsors/data";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -39,16 +40,38 @@ export default function Page() {
                 "max-sm:screen-line-before max-sm:screen-line-after",
                 "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
               )}
-              href={item.homepage}
+              href={item.website}
               target="_blank"
               rel="noopener sponsored"
             >
-              <div
-                className="[&_svg]:pointer-events-none [&_svg]:h-6 [&_svg]:w-auto"
-                role="img"
-                aria-label={`${item.name} logo`}
-                dangerouslySetInnerHTML={{ __html: item.logo }}
-              />
+              {item.type === "organization" ? (
+                <div
+                  className="[&_svg]:pointer-events-none [&_svg]:h-6 [&_svg]:w-auto"
+                  role="img"
+                  aria-label={`${item.name} logo`}
+                  dangerouslySetInnerHTML={{ __html: item.logo }}
+                />
+              ) : (
+                <div className="grid grid-cols-[auto_1fr] items-center gap-x-3">
+                  <div className="relative row-span-2 size-10 shrink-0">
+                    <Image
+                      className="size-10 rounded-full select-none"
+                      src={item.avatar}
+                      alt={item.name}
+                      width={40}
+                      height={40}
+                      unoptimized
+                    />
+                    <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-black/10 ring-inset dark:ring-white/15" />
+                  </div>
+                  <div className="text-base leading-5 font-semibold text-foreground">
+                    {item.name}
+                  </div>
+                  <div className="text-xs leading-5 text-muted-foreground">
+                    {item.tagline}
+                  </div>
+                </div>
+              )}
             </a>
           ))}
 
