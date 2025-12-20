@@ -9,6 +9,8 @@ import {
   BriefcaseBusinessIcon,
   CornerDownLeftIcon,
   DownloadIcon,
+  FileTextIcon,
+  HeartIcon,
   LayersIcon,
   MoonStarIcon,
   QuoteIcon,
@@ -130,6 +132,26 @@ const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({
   iconImage: item.icon,
   openInNewTab: true,
 }));
+
+const OTHER_LINK_ITEMS: CommandLinkItem[] = [
+  {
+    title: "Sponsors",
+    href: "/sponsors",
+    icon: HeartIcon,
+  },
+  {
+    title: "llms.txt",
+    href: "/llms.txt",
+    icon: FileTextIcon,
+    openInNewTab: true,
+  },
+  {
+    title: "RSS Feed",
+    href: "/rss",
+    icon: RssIcon,
+    openInNewTab: true,
+  },
+];
 
 export function CommandMenu({ posts }: { posts: Post[] }) {
   const router = useRouter();
@@ -369,6 +391,12 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
               Auto
             </CommandItem>
           </CommandGroup>
+
+          <CommandLinkGroup
+            heading="Other"
+            links={OTHER_LINK_ITEMS}
+            onLinkSelect={handleOpenLink}
+          />
         </CommandList>
 
         <CommandMenuFooter />
