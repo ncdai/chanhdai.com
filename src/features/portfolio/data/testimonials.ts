@@ -84,7 +84,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   },
   {
     authorAvatar:
-      "https://pbs.twimg.com/profile_images/1913274259985854464/rWnStpCJ_400x400.jpg",
+      "https://pbs.twimg.com/profile_images/2000818902339870722/d0ncPi7-_400x400.jpg",
     authorName: "Max Prilutskiy",
     authorTagline: "Creator of Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
@@ -92,7 +92,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   },
   {
     authorAvatar:
-      "https://pbs.twimg.com/profile_images/1988148531018743808/bjS19FOd_400x400.jpg",
+      "https://pbs.twimg.com/profile_images/2001654841299369985/GcVYVPuU_400x400.png",
     authorName: "Aaron",
     authorTagline: "Founding Design Engineer @Mail0",
     url: "https://x.com/aaronmahlke/status/1955606729657344490",
