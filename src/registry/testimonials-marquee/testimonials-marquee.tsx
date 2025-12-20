@@ -122,14 +122,14 @@ export function TestimonialAuthorName({
   );
 }
 
-export function TestimonialAuthorBio({
+export function TestimonialAuthorTagline({
   className,
   children,
   ...props
 }: React.ComponentProps<"div">) {
   return (
     <div
-      data-slot="author-bio"
+      data-slot="author-tagline"
       className={cn(
         "text-xs leading-4 text-balance text-muted-foreground",
         className
