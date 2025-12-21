@@ -271,6 +271,14 @@ export const Icons = {
       />
     </svg>
   ),
+  resend: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" {...props}>
+      <path
+        d="M14.232 2c3.874 0 6.178 2.304 6.178 5.362 0 3.058-2.304 5.362-6.178 5.362h-1.957L22 22h-6.87l-7.401-7.034c-.53-.489-.775-1.06-.775-1.549 0-.693.49-1.305 1.427-1.57l3.813-1.02c1.447-.387 2.446-1.508 2.446-2.976 0-1.794-1.468-2.834-3.282-2.834H2V2h12.232Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
 
   // Source: https://ui.shadcn.com
   contrast: (props: IconProps) => (
