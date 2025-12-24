@@ -14,4 +14,11 @@ export const sponsors: Sponsor[] = [
     website: "https://github.com/DavidHDev",
     avatar: "https://avatars.githubusercontent.com/u/48634587?v=4",
   },
+  {
+    type: "individual",
+    name: "Ajay Patel",
+    tagline: "shadcn/studio",
+    website: "https://github.com/ajaypatelaj",
+    avatar: "https://avatars.githubusercontent.com/u/749684?v=4",
+  },
 ];
