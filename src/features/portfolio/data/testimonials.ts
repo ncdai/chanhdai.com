@@ -71,6 +71,15 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "This is super cool, Full circle moment (the prototype for c15t actually used shadcn). Would love to get this in our docs also and shared in our discord!",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1957717329397141507/7ctDgOuc_400x400.jpg",
+    authorName: "Ajay Patel",
+    authorTagline: "Creator of shadcnstudio.com",
+    url: "https://x.com/ajaypatel_aj/status/2003723039029231737",
+    quote:
+      "Perfect iOS-like wheel picker for the web 🙌 Natural touch physics, infinite looping, and unstyled components with shadcn CLI support.",
+  },
 ];
 
 export const TESTIMONIALS_2: Testimonial[] = [
