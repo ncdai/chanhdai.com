@@ -36,7 +36,6 @@ export const EXPERIENCES: Experience[] = [
           "Research",
           "Problem-solving",
         ],
-        isExpanded: true,
       },
       {
         id: "cedd7adb-4118-4085-9983-ae00530b49e2",
@@ -96,7 +95,6 @@ In-house Project: [ZaDark](https://zadark.com)
           "Figma",
           "Research",
         ],
-        isExpanded: true,
       },
       {
         id: "991692c4-7d02-4666-8d31-933c4831768d",
