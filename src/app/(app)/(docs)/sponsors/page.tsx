@@ -36,7 +36,7 @@ export default function Page() {
             <a
               key={item.name}
               className={cn(
-                "flex min-h-20 items-center justify-center gap-4 transition-[background-color] ease-out hover:bg-accent2",
+                "flex min-h-20 items-center gap-4 px-4 transition-[background-color] ease-out hover:bg-accent2",
                 "max-sm:screen-line-before max-sm:screen-line-after",
                 "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
               )}
@@ -46,13 +46,13 @@ export default function Page() {
             >
               {item.type === "organization" ? (
                 <div
-                  className="[&_svg]:pointer-events-none [&_svg]:h-6 [&_svg]:w-auto"
+                  className="flex-1 [&_svg]:pointer-events-none [&_svg]:mx-auto [&_svg]:h-6 [&_svg]:w-auto"
                   role="img"
                   aria-label={`${item.name} logo`}
                   dangerouslySetInnerHTML={{ __html: item.logo }}
                 />
               ) : (
-                <div className="grid grid-cols-[auto_1fr] items-center gap-x-3 px-4">
+                <div className="grid flex-1 grid-cols-[auto_1fr] items-center gap-x-4">
                   <div className="relative row-span-2 size-10 shrink-0">
                     <Image
                       className="size-10 rounded-full select-none"
@@ -64,9 +64,11 @@ export default function Page() {
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-black/10 ring-inset dark:ring-white/15" />
                   </div>
+
                   <div className="translate-y-px truncate text-base leading-5 font-semibold text-foreground">
                     {item.name}
                   </div>
+
                   <div className="translate-y-px truncate text-xs leading-5 text-muted-foreground">
                     {item.tagline}
                   </div>
