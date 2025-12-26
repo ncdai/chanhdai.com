@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import { Tag } from "@/components/ui/tag";
 import { SPONSORSHIP_URL } from "@/config/site";
 import { sponsors } from "@/features/sponsors/data";
 import { cn } from "@/lib/utils";
@@ -65,11 +66,16 @@ export default function Page() {
                     <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-black/10 ring-inset dark:ring-white/15" />
                   </div>
 
-                  <div className="translate-y-px truncate text-base leading-5 font-semibold text-foreground">
+                  <div className="flex items-center gap-2 text-base leading-5 font-semibold text-foreground">
                     {item.name}
+                    {item.tier && (
+                      <Tag className="h-5 rounded-md font-normal capitalize">
+                        {item.tier}
+                      </Tag>
+                    )}
                   </div>
 
-                  <div className="translate-y-px truncate text-xs leading-5 text-muted-foreground">
+                  <div className="translate-y-px text-xs leading-5 text-muted-foreground">
                     {item.tagline}
                   </div>
                 </div>

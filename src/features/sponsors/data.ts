@@ -9,6 +9,7 @@ export const sponsors: Sponsor[] = [
   // },
   {
     type: "individual",
+    tier: "silver",
     name: "Ajay Patel",
     tagline: "shadcn/studio",
     website: "https://github.com/ajaypatelaj",

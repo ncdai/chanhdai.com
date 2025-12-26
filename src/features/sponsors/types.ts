@@ -1,6 +1,9 @@
+export type SponsorTier = "silver" | "gold" | "platinum";
+
 type SponsorBase = {
   name: string;
   website: string;
+  tier?: SponsorTier;
 };
 
 export type OrganizationSponsor = SponsorBase & {
