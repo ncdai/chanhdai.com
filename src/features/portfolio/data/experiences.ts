@@ -39,7 +39,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         id: "cedd7adb-4118-4085-9983-ae00530b49e2",
-        title: "UI Design Lead",
+        title: "UI Lead",
         employmentPeriod: {
           start: "10.2022",
         },
