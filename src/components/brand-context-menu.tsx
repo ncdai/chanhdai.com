@@ -23,7 +23,7 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
     <ContextMenu>
       <ContextMenuTrigger asChild>{children}</ContextMenuTrigger>
 
-      <ContextMenuContent className="w-64 duration-0">
+      <ContextMenuContent className="w-64">
         <ContextMenuItem
           onClick={() => {
             const svg = getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff");
