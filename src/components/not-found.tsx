@@ -26,7 +26,9 @@ export function NotFound({ className }: { className?: string }) {
         />
       </svg>
 
-      <h1 className="mt-8 mb-6 font-mono text-8xl font-medium">404</h1>
+      <h1 className="my-6 text-8xl font-medium tracking-tighter tabular-nums">
+        404
+      </h1>
 
       <Button variant="default" asChild>
         <Link href="/">
