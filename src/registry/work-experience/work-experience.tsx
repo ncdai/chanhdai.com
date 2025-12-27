@@ -193,17 +193,17 @@ export function ExperiencePositionItem({
               <ReactMarkdown>{position.description}</ReactMarkdown>
             </Prose>
           )}
-
-          {Array.isArray(position.skills) && position.skills.length > 0 && (
-            <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-9">
-              {position.skills.map((skill, index) => (
-                <li key={index} className="flex">
-                  <Skill>{skill}</Skill>
-                </li>
-              ))}
-            </ul>
-          )}
         </CollapsibleContent>
+
+        {Array.isArray(position.skills) && position.skills.length > 0 && (
+          <ul className="not-prose flex flex-wrap gap-1.5 pt-3 pl-9">
+            {position.skills.map((skill, index) => (
+              <li key={index} className="flex">
+                <Skill>{skill}</Skill>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </Collapsible>
   );
