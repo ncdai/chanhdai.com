@@ -85,7 +85,7 @@ export async function generateGitHubAvatarsSVG({
   usernames,
   size = 64,
   perRow = 10,
-  spacing = 4,
+  spacing = 8,
 }: GenerateGitHubAvatarsSVGOptions): Promise<string> {
   const rows = Math.ceil(usernames.length / perRow);
   const width = Math.min(usernames.length, perRow) * (size + spacing) - spacing;

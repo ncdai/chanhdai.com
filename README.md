@@ -74,13 +74,13 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 ![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
 
-<!-- ### Contributors
+### Contributors
 
-[![Contributors](https://chanhdai.com/svg/contributors?v=1)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+[![Contributors](https://chanhdai.com/svg/contributors?v=2)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
 
 ### Sponsors
 
-[![Sponsors](https://chanhdai.com/svg/sponsors?v=1)](https://github.com/sponsors/ncdai) -->
+[![Sponsors](https://chanhdai.com/svg/sponsors?v=2)](https://github.com/sponsors/ncdai)
 
 ### Star History
 
