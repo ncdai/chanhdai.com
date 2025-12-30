@@ -1,6 +1,4 @@
-import { sponsors } from "@/features/sponsors/data";
-
-async function fetchAvatarAsBase64(
+export async function fetchAvatarAsBase64(
   username: string,
   size = 128
 ): Promise<string | null> {
@@ -20,55 +18,25 @@ async function fetchAvatarAsBase64(
   }
 }
 
-export async function GET() {
-  const usernames = sponsors
-    .filter((s) => s.type === "individual")
-    .map((s) => s.username);
+type GenerateAvatarsSVGOptions = {
+  usernames: string[];
+  avatarDataUrls: (string | null)[];
+  size: number;
+  perRow: number;
+  spacing: number;
+  width: number;
+  height: number;
+};
 
-  if (usernames.length === 0) {
-    return new Response("No sponsors found", { status: 404 });
-  }
-
-  const size = 64;
-  const perRow = 10;
-  const spacing = 4;
-
-  const rows = Math.ceil(usernames.length / perRow);
-  const width = Math.min(usernames.length, perRow) * (size + spacing) - spacing;
-  const height = rows * (size + spacing) - spacing;
-
-  const avatarPromises = usernames.map((username) =>
-    fetchAvatarAsBase64(username)
-  );
-  const avatarDataUrls = await Promise.all(avatarPromises);
-
-  const svg = generateAvatarsSVG(
-    usernames,
-    avatarDataUrls,
-    size,
-    perRow,
-    spacing,
-    width,
-    height
-  );
-
-  return new Response(svg, {
-    headers: {
-      "Content-Type": "image/svg+xml",
-      "Cache-Control": "public, max-age=3600",
-    },
-  });
-}
-
-function generateAvatarsSVG(
-  usernames: string[],
-  avatarDataUrls: (string | null)[],
-  size: number,
-  perRow: number,
-  spacing: number,
-  width: number,
-  height: number
-): string {
+export function generateAvatarsSVG({
+  usernames,
+  avatarDataUrls,
+  size,
+  perRow,
+  spacing,
+  width,
+  height,
+}: GenerateAvatarsSVGOptions): string {
   let clipPaths = "";
   let avatarsContent = "";
 
@@ -104,4 +72,37 @@ function generateAvatarsSVG(
   <defs>${clipPaths}
   </defs>${avatarsContent}
 </svg>`;
+}
+
+type GenerateGitHubAvatarsSVGOptions = {
+  usernames: string[];
+  size?: number;
+  perRow?: number;
+  spacing?: number;
+};
+
+export async function generateGitHubAvatarsSVG({
+  usernames,
+  size = 64,
+  perRow = 10,
+  spacing = 4,
+}: GenerateGitHubAvatarsSVGOptions): Promise<string> {
+  const rows = Math.ceil(usernames.length / perRow);
+  const width = Math.min(usernames.length, perRow) * (size + spacing) - spacing;
+  const height = rows * (size + spacing) - spacing;
+
+  const avatarPromises = usernames.map((username) =>
+    fetchAvatarAsBase64(username)
+  );
+  const avatarDataUrls = await Promise.all(avatarPromises);
+
+  return generateAvatarsSVG({
+    usernames,
+    avatarDataUrls,
+    size,
+    perRow,
+    spacing,
+    width,
+    height,
+  });
 }
