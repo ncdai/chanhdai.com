@@ -78,7 +78,7 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 ## Sponsors
 
-[![Sponsors](https://chanhdai.com/sponsors/svg?v=2)](https://github.com/sponsors/ncdai)
+[![Sponsors](https://chanhdai.com/sponsors/svg?v=3)](https://github.com/sponsors/ncdai)
 
 ## Stats
 
