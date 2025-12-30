@@ -76,6 +76,10 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 > Made with [contrib.rocks](https://contrib.rocks)
 
+## Sponsors
+
+[![Sponsors](https://chanhdai.com/sponsors/svg)](https://github.com/sponsors/ncdai)
+
 ## Stats
 
 ![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")

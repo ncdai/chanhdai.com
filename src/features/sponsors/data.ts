@@ -11,15 +11,13 @@ export const sponsors: Sponsor[] = [
     type: "individual",
     tier: "silver",
     name: "Ajay Patel",
+    username: "ajaypatelaj",
     tagline: "shadcn/studio",
-    website: "https://github.com/ajaypatelaj",
-    avatar: "https://avatars.githubusercontent.com/u/749684?v=4",
   },
   {
     type: "individual",
     name: "David Haz",
+    username: "DavidHDev",
     tagline: "React Bits",
-    website: "https://github.com/DavidHDev",
-    avatar: "https://avatars.githubusercontent.com/u/48634587?v=4",
   },
 ];

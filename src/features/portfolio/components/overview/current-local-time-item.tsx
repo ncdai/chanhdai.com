@@ -19,6 +19,12 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/base/ui/tooltip";
+
 import { IntroItem, IntroItemContent, IntroItemIcon } from "./intro-item";
 
 const CLOCK_ICONS: Record<number, LucideIcon> = {
@@ -102,7 +108,14 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
       </IntroItemIcon>
 
       <IntroItemContent aria-label={`Current local time: ${timeString}`}>
-        <span>{timeString}</span>
+        <Tooltip>
+          <TooltipTrigger render={<span className="cursor-default" />}>
+            {timeString}
+          </TooltipTrigger>
+
+          <TooltipContent>{timeZone}</TooltipContent>
+        </Tooltip>
+
         <span className="text-muted-foreground" aria-hidden="true">
           {diffText}
         </span>

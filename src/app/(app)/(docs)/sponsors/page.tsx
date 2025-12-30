@@ -41,7 +41,11 @@ export default function Page() {
                 "max-sm:screen-line-before max-sm:screen-line-after",
                 "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
               )}
-              href={item.website}
+              href={
+                item.type === "individual"
+                  ? `https://github.com/${item.username}`
+                  : item.website
+              }
               target="_blank"
               rel="noopener sponsored"
             >
@@ -57,8 +61,8 @@ export default function Page() {
                   <div className="relative row-span-2 size-10 shrink-0">
                     <Image
                       className="size-10 rounded-full select-none"
-                      src={item.avatar}
-                      alt={item.name}
+                      src={`https://github.com/${item.username}.png`}
+                      alt={item.username}
                       width={40}
                       height={40}
                       unoptimized
