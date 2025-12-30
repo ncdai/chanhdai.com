@@ -70,21 +70,19 @@ Licensed under the [MIT license](./LICENSE).
 
 You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
 
-## Contributors
-
-[![Contributors](https://contrib.rocks/image?repo=ncdai/chanhdai.com)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
-
-> Made with [contrib.rocks](https://contrib.rocks)
-
-## Sponsors
-
-[![Sponsors](https://chanhdai.com/sponsors/svg?v=3)](https://github.com/sponsors/ncdai)
-
 ## Stats
 
 ![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
 
-## Star History
+<!-- ### Contributors
+
+[![Contributors](https://chanhdai.com/svg/contributors?v=1)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+
+### Sponsors
+
+[![Sponsors](https://chanhdai.com/svg/sponsors?v=1)](https://github.com/sponsors/ncdai) -->
+
+### Star History
 
 [![Star History](https://starchart.cc/ncdai/chanhdai.com.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/ncdai/chanhdai.com)
 
