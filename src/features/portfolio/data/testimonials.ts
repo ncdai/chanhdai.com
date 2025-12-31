@@ -80,6 +80,15 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "Perfect iOS-like wheel picker for the web 🙌 Natural touch physics, infinite looping, and unstyled components with shadcn CLI support.",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1996462702110162944/jY4GKvoA_400x400.jpg",
+    authorName: "Francesco Ciulla",
+    authorTagline: "Developer Advocate @daily.dev",
+    url: "https://x.com/FrancescoCiull4/status/2006332479536529608",
+    quote:
+      "your portfolio is stunning. i created mine some weeks ago but this is another planet.",
+  },
 ];
 
 export const TESTIMONIALS_2: Testimonial[] = [
