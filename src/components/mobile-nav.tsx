@@ -30,8 +30,8 @@ export function MobileNav({
           )}
           size="icon"
         >
-          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:translate-y-[3px] group-data-[state=open]/toggle:rotate-45" />
-          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:translate-y-[-3px] group-data-[state=open]/toggle:-rotate-45" />
+          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:translate-y-0.75 group-data-[state=open]/toggle:rotate-45" />
+          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:-translate-y-0.75 group-data-[state=open]/toggle:-rotate-45" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </DropdownMenuTrigger>
