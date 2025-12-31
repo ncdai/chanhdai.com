@@ -59,6 +59,18 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
+              href="https://x.com/iamncdai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icons.x className="size-4" />
+              <span className="sr-only">X</span>
+            </a>
+
+            <Separator />
+
+            <a
+              className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
               href={`${SITE_INFO.url}/rss`}
               target="_blank"
               rel="noopener noreferrer"
@@ -78,7 +90,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icons.dmca className="h-5 w-auto" />
+              <Icons.dmca className="h-4 w-auto sm:h-5" />
               <span className="sr-only">DMCA.com Protection Status</span>
             </a>
           </div>
