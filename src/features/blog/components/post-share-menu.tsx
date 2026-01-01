@@ -1,6 +1,6 @@
 "use client";
 
-import { LinkIcon, ShareIcon } from "lucide-react";
+import { EllipsisIcon, LinkIcon, ShareIcon } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components//ui/button";
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { copyText } from "@/utils/copy";
 
-export function PostShareMenu({ url }: { url: string }) {
+export function PostShareMenu({ title, url }: { title: string; url: string }) {
   const absoluteUrl = url.startsWith("http")
     ? url
     : typeof window !== "undefined"
@@ -69,6 +69,18 @@ export function PostShareMenu({ url }: { url: string }) {
             Share on LinkedIn
           </a>
         </DropdownMenuItem>
+
+        {typeof navigator !== "undefined" && "share" in navigator && (
+          <DropdownMenuItem
+            onClick={(e) => {
+              e.preventDefault(); // Prevent the menu from closing
+              navigator.share({ title, url: absoluteUrl }).catch(() => {});
+            }}
+          >
+            <EllipsisIcon />
+            Other app
+          </DropdownMenuItem>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
