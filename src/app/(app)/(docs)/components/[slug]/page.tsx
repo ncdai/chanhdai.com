@@ -161,7 +161,10 @@ export default async function Page({
             isComponent
           />
 
-          <PostShareMenu url={`/components/${post.slug}`} />
+          <PostShareMenu
+            title={post.metadata.title}
+            url={`/components/${post.slug}`}
+          />
 
           <TooltipProvider>
             {previous && (

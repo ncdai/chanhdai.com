@@ -147,7 +147,7 @@ export default async function Page({
             isComponent={post.metadata.category === "components"}
           />
 
-          <PostShareMenu url={getPostUrl(post)} />
+          <PostShareMenu title={post.metadata.title} url={getPostUrl(post)} />
 
           <TooltipProvider>
             {previous && (
