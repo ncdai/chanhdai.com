@@ -41,7 +41,7 @@ export function SiteFooter() {
             Sponsors
           </Link>
 
-          <span>•</span>
+          <span className="opacity-50">•</span>
 
           <a
             className="font-medium"
