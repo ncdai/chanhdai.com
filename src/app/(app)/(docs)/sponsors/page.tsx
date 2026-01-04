@@ -1,3 +1,4 @@
+import { HeartIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 
@@ -98,7 +99,8 @@ export default function Page() {
       <div className="flex justify-center p-2">
         <Button asChild>
           <a href={SPONSORSHIP_URL} target="_blank" rel="noopener noreferrer">
-            Become a Sponsor
+            <HeartIcon />
+            Sponsor My Work
           </a>
         </Button>
       </div>
