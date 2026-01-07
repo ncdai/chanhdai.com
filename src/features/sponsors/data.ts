@@ -17,9 +17,10 @@ export const sponsors: Sponsor[] = [
     logoDark: "https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg",
   },
   {
-    type: "individual",
-    name: "David Haz",
-    username: "DavidHDev",
-    tagline: "React Bits",
+    type: "organization",
+    name: "reactbits",
+    website: "https://reactbits.com",
+    logo: "https://assets.chanhdai.com/images/sponsors/reactbits.svg",
+    logoDark: "https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg",
   },
 ];

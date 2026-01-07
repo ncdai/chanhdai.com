@@ -28,47 +28,18 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="screen-line-before p-4">
-        <h2 className="font-mono text-sm leading-none">
-          Organization Sponsors
-        </h2>
-      </div>
-
-      <div className="screen-line-before relative mb-4">
+      <div className="screen-line-before screen-line-after relative py-4">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-edge" />
           <div className="border-l border-edge" />
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {sponsors
-            .filter((item) => item.type === "organization")
-            .map((item) => renderSponsorItem(item))}
+          {sponsors.map((item) => renderSponsorItem(item))}
         </div>
       </div>
 
-      <div className="mb-4 px-4">
-        <h2 className="font-mono text-sm leading-none">Individual Sponsors</h2>
-      </div>
-
-      <div className="screen-line-before relative">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge" />
-          <div className="border-l border-edge" />
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {sponsors
-            .filter((item) => item.type === "individual")
-            .map((item) => renderSponsorItem(item))}
-
-          <PlaceholderLogo />
-          <PlaceholderLogo />
-          <PlaceholderLogo />
-        </div>
-      </div>
-
-      <div className="flex justify-center p-4">
+      <div className="flex justify-center p-2">
         <Button asChild>
           <a href={SPONSORSHIP_URL} target="_blank" rel="noopener noreferrer">
             <HeartIcon />
@@ -141,18 +112,5 @@ function renderSponsorItem(item: Sponsor) {
         </div>
       )}
     </a>
-  );
-}
-
-function PlaceholderLogo() {
-  return (
-    <div
-      className={cn(
-        "flex min-h-20",
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
-      )}
-      aria-hidden
-    />
   );
 }
