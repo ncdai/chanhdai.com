@@ -70,19 +70,25 @@ Licensed under the [MIT license](./LICENSE).
 
 You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
 
+## Contributors
+
+[![Contributors](https://chanhdai.com/svg/contributors?v=2)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+
+## Sponsors
+
+### Organization
+
+[![shadcnstudio.com](https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only)](https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-light-mode-only) [![shadcnstudio.com](https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only)](https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-dark-mode-only) [![shadcraft.com](https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only)](https://shadcraft.com#gh-light-mode-only) [![shadcraft.com](https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only)](https://shadcraft.com#gh-dark-mode-only)
+
+### Individual
+
+[![Individual Sponsors](https://chanhdai.com/svg/sponsors?v=2)](https://github.com/sponsors/ncdai)
+
 ## Stats
 
 ![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
 
-### Contributors
-
-[![Contributors](https://chanhdai.com/svg/contributors?v=2)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
-
-### Sponsors
-
-[![Sponsors](https://chanhdai.com/svg/sponsors?v=2)](https://github.com/sponsors/ncdai)
-
-### Star History
+## Star History
 
 [![Star History](https://starchart.cc/ncdai/chanhdai.com.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/ncdai/chanhdai.com)
 
