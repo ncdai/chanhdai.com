@@ -76,13 +76,13 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 ## Sponsors
 
-### Organization
+### Organization Sponsors
 
 [![shadcnstudio.com](https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only)](https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-light-mode-only) [![shadcnstudio.com](https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only)](https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-dark-mode-only) [![shadcraft.com](https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only)](https://shadcraft.com#gh-light-mode-only) [![shadcraft.com](https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only)](https://shadcraft.com#gh-dark-mode-only)
 
-### Individual
+### Individual Sponsors
 
-[![Individual Sponsors](https://chanhdai.com/svg/sponsors?v=2)](https://github.com/sponsors/ncdai)
+[![Individual Sponsors](https://chanhdai.com/svg/sponsors?v=3)](https://github.com/sponsors/ncdai)
 
 ## Stats
 

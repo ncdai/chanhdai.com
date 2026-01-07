@@ -29,7 +29,9 @@ export default function Page() {
       </div>
 
       <div className="screen-line-before p-4">
-        <h2 className="font-mono text-sm leading-none">Organization</h2>
+        <h2 className="font-mono text-sm leading-none">
+          Organization Sponsors
+        </h2>
       </div>
 
       <div className="screen-line-before relative mb-4">
@@ -46,7 +48,7 @@ export default function Page() {
       </div>
 
       <div className="mb-4 px-4">
-        <h2 className="font-mono text-sm leading-none">Individual</h2>
+        <h2 className="font-mono text-sm leading-none">Individual Sponsors</h2>
       </div>
 
       <div className="screen-line-before relative">
