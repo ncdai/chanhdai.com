@@ -8,6 +8,7 @@ type SponsorBase = {
 export type OrganizationSponsor = SponsorBase & {
   type: "organization";
   logo: string;
+  logoDark: string;
   website: string;
 };
 
