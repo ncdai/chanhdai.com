@@ -54,6 +54,11 @@ export default function Page() {
 }
 
 function renderSponsorItem(item: Sponsor) {
+  const website =
+    item.type === "individual"
+      ? `https://github.com/${item.username}`
+      : item.website;
+
   return (
     <a
       key={item.name}
@@ -62,11 +67,7 @@ function renderSponsorItem(item: Sponsor) {
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}
-      href={
-        item.type === "individual"
-          ? `https://github.com/${item.username}`
-          : item.website
-      }
+      href={`${website}?utm_source=chanhdai.com&utm_medium=sponsor&utm_campaign=portfolio`}
       target="_blank"
       rel="noopener sponsored"
     >
@@ -75,7 +76,7 @@ function renderSponsorItem(item: Sponsor) {
           <img
             className="hidden [html.light_&]:block"
             src={item.logo}
-            alt={`${item.name} light logo`}
+            alt={`${item.name} logo light`}
           />
           <img
             className="hidden [html.dark_&]:block"
