@@ -125,7 +125,7 @@ This project is proudly supported by:
   </tbody>
 </table>
 
-<!-- [![shadcnstudio.com](https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only)](https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-light-mode-only) [![shadcnstudio.com](https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only)](https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-dark-mode-only) [![shadcraft.com](https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only)](https://shadcraft.com#gh-light-mode-only) [![shadcraft.com](https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only)](https://shadcraft.com#gh-dark-mode-only) [![reactbits.com](https://assets.chanhdai.com/images/sponsors/reactbits.svg?v=1#gh-light-mode-only)](https://reactbits.com#gh-light-mode-only) [![reactbits.com](https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only)](https://reactbits.com#gh-dark-mode-only) -->
+> Found this project useful? [Sponsor me](https://github.com/sponsors/ncdai) to help with support and maintenance.
 
 ## Stats
 
