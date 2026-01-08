@@ -76,6 +76,8 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 ## Sponsors
 
+This project is proudly supported by:
+
 <table>
   <tbody>
     <tr>
