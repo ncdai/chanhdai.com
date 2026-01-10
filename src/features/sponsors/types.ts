@@ -1,20 +1,21 @@
+import type { JSX } from "react";
+
 export type SponsorTier = "silver" | "gold" | "platinum";
 
 type SponsorBase = {
   name: string;
+  url: string;
   tier?: SponsorTier;
 };
 
 export type OrganizationSponsor = SponsorBase & {
   type: "organization";
-  logo: string;
-  logoDark: string;
-  website: string;
+  logo: (props: React.ComponentProps<"svg">) => JSX.Element;
 };
 
 export type IndividualSponsor = SponsorBase & {
   type: "individual";
-  username: string;
+  avatar: string;
   tagline: string;
 };
 

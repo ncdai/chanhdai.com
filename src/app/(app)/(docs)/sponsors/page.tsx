@@ -54,43 +54,30 @@ export default function Page() {
 }
 
 function renderSponsorItem(item: Sponsor) {
-  const website =
-    item.type === "individual"
-      ? `https://github.com/${item.username}`
-      : item.website;
-
   return (
     <a
       key={item.name}
       className={cn(
-        "flex min-h-20 items-center gap-4 px-4 transition-[background-color] ease-out hover:bg-accent2",
+        "flex min-h-20 items-center justify-center transition-[background-color] ease-out hover:bg-accent2",
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}
-      href={`${website}?utm_source=chanhdai.com&utm_medium=sponsor&utm_campaign=portfolio`}
+      href={`${item.url}?utm_source=chanhdai.com&utm_medium=sponsor&utm_campaign=portfolio`}
       target="_blank"
       rel="noopener sponsored"
     >
       {item.type === "organization" ? (
-        <div className="flex-1 [&_img]:mx-auto [&_img]:w-full [&_img]:max-w-80">
-          <img
-            className="hidden [html.light_&]:block"
-            src={item.logo}
-            alt={`${item.name} logo light`}
-          />
-          <img
-            className="hidden [html.dark_&]:block"
-            src={item.logoDark}
-            alt={`${item.name} logo dark`}
-          />
-        </div>
+        <item.logo
+          className="w-full max-w-80"
+          aria-label={`${item.name} logo`}
+        />
       ) : (
-        <div className="grid flex-1 grid-cols-[auto_1fr] items-center gap-x-4">
+        <div className="grid grid-cols-[auto_1fr] items-center gap-x-4 px-4">
           <div className="relative row-span-2 size-10 shrink-0">
             <Image
               className="size-10 rounded-full select-none"
-              src={`https://github.com/${item.username}.png`}
-              alt={item.username}
+              src={item.avatar}
+              alt={`${item.name} avatar`}
               width={40}
               height={40}
               unoptimized
@@ -107,7 +94,7 @@ function renderSponsorItem(item: Sponsor) {
             )}
           </div>
 
-          <div className="translate-y-px text-xs leading-5 text-muted-foreground">
+          <div className="text-xs leading-5 text-muted-foreground">
             {item.tagline}
           </div>
         </div>
