@@ -2,6 +2,32 @@ import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
   {
+    id: "shadcraft",
+    companyName: "Shadcraft",
+    companyLogo: "https://assets.chanhdai.com/images/companies/shadcraft.svg",
+    positions: [
+      {
+        id: "0C741FC7-A4C2-4B1D-857B-F3058CE8D9CE",
+        title: "Design Engineer",
+        employmentPeriod: {
+          start: "01.2026",
+        },
+        employmentType: "Part-time",
+        icon: "code",
+        description: "Work on the registry and React component library.",
+        skills: [
+          "TypeScript",
+          "Next.js",
+          "Tailwind CSS",
+          "shadcn/registry",
+          "Figma",
+        ],
+        isExpanded: true,
+      },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
     id: "simplamo",
     companyName: "Simplamo Enterprise JSC",
     companyLogo: "https://assets.chanhdai.com/images/companies/simplamo.webp",
