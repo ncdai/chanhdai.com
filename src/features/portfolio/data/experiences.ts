@@ -2,6 +2,32 @@ import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
   {
+    id: "shadcraft",
+    companyName: "Shadcraft",
+    companyLogo: "https://assets.chanhdai.com/images/companies/shadcraft.svg",
+    positions: [
+      {
+        id: "0C741FC7-A4C2-4B1D-857B-F3058CE8D9CE",
+        title: "Design Engineer",
+        employmentPeriod: {
+          start: "01.2026",
+        },
+        employmentType: "Part-time",
+        icon: "code",
+        description: "Work on the registry and React component library.",
+        skills: [
+          "TypeScript",
+          "Next.js",
+          "Tailwind CSS",
+          "shadcn/registry",
+          "Figma",
+        ],
+        isExpanded: true,
+      },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
     id: "simplamo",
     companyName: "Simplamo Enterprise JSC",
     companyLogo: "https://assets.chanhdai.com/images/companies/simplamo.webp",
@@ -14,7 +40,8 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `- Develop [AI Chat](https://help.simplamo.com/features/simplamo-ai/ai-chat/guide_simplamo_ai_chat?ref=IN-926722) and [AI Assistant](https://help.simplamo.com/features/simplamo-ai/ai-expert/aiexpert-rockdiscribe?ref=IN-926722) features.
+        description: `- Build Tree & Gantt views features to improve goal organization, visibility, and progress tracking.
+- Develop [AI Chat](https://help.simplamo.com/features/simplamo-ai/ai-chat/guide_simplamo_ai_chat?ref=IN-926722) and [AI Assistant](https://help.simplamo.com/features/simplamo-ai/ai-expert/aiexpert-rockdiscribe?ref=IN-926722) features.
 - Develop [Whiteboards](https://help.simplamo.com/features/whiteboard/overview?ref=IN-926722) with real-time collaboration.
 - Build and maintain the [Zalo Mini App](https://zalo.me/s/1736112917405511258/) for Simplamo with seamless integration.
 - Develop interactive chart and analytics widgets for the [Dashboard](https://help.simplamo.com/features/dashboard/overview) to enhance data visualization.

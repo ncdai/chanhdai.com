@@ -29,6 +29,11 @@ export const USER = {
       company: "Quaric",
       website: "https://quaric.com",
     },
+    {
+      title: "Design Engineer",
+      company: "Shadcraft",
+      website: "https://shadcraft.com",
+    },
   ],
   //   about: `
   // Hello, World! I am Chánh Đại — a Design Engineer passionate about creating high-performance, user-centric software solutions with intuitive and engaging designs.
