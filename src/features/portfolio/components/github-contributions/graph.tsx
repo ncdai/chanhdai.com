@@ -19,7 +19,8 @@ import {
   ContributionGraphLegend,
   ContributionGraphTotalCount,
 } from "@/components/kibo-ui/contribution-graph";
-import { GITHUB_USERNAME } from "@/config/site";
+import { GITHUB_USERNAME, UTM_PARAMS } from "@/config/site";
+import { addQueryParams } from "@/utils/url";
 
 export function GitHubContributionGraph({
   contributions,
@@ -68,7 +69,10 @@ export function GitHubContributionGraph({
                 {totalCount.toLocaleString("en")} contributions in {year} on{" "}
                 <a
                   className="font-medium underline underline-offset-4"
-                  href={`https://github.com/${GITHUB_USERNAME}`}
+                  href={addQueryParams(
+                    `https://github.com/${GITHUB_USERNAME}`,
+                    UTM_PARAMS
+                  )}
                   target="_blank"
                   rel="noopener"
                 >

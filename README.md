@@ -82,23 +82,23 @@ This project is proudly supported by:
   <tbody>
     <tr>
       <td>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
+        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
           <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only" alt="shadcnstudio.com" />
         </a>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai&utm_medium=banner&utm_campaign=github#gh-dark-mode-only">
+        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-dark-mode-only">
           <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only" alt="shadcnstudio.com" />
         </a>
       </td>
     </tr>
     <tr>
       <td>
-        <a href="https://shadcraft.com#gh-light-mode-only">
+        <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only"
             alt="shadcraft.com"
           />
         </a>
-        <a href="https://shadcraft.com#gh-dark-mode-only">
+        <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only"
             alt="shadcraft.com"
@@ -108,13 +108,13 @@ This project is proudly supported by:
     </tr>
     <tr>
       <td>
-        <a href="https://reactbits.com#gh-light-mode-only">
+        <a href="https://reactbits.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/reactbits.svg?v=1#gh-light-mode-only"
             alt="reactbits.com"
           />
         </a>
-        <a href="https://reactbits.com#gh-dark-mode-only">
+        <a href="https://reactbits.com?utm_source=chanhdai.com#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only"
             alt="reactbits.com"

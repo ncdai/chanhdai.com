@@ -4,10 +4,11 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
-import { SPONSORSHIP_URL } from "@/config/site";
+import { SPONSORSHIP_URL, UTM_PARAMS } from "@/config/site";
 import { sponsors } from "@/features/sponsors/data";
 import type { Sponsor } from "@/features/sponsors/types";
 import { cn } from "@/lib/utils";
+import { addQueryParams } from "@/utils/url";
 
 export const metadata: Metadata = {
   title: "Sponsors",
@@ -62,7 +63,7 @@ function renderSponsorItem(item: Sponsor) {
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}
-      href={`${item.url}?utm_source=chanhdai.com&utm_medium=sponsor&utm_campaign=portfolio`}
+      href={addQueryParams(item.url, UTM_PARAMS)}
       target="_blank"
       rel="noopener sponsored"
     >

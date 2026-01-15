@@ -4,6 +4,8 @@ import {
   TooltipTrigger,
 } from "@/components/base/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import { UTM_PARAMS } from "@/config/site";
+import { addQueryParams } from "@/utils/url";
 
 type GitHubStarsProps = {
   repo: string;
@@ -17,7 +19,7 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
         render={
           <Button className="gap-1.5 pr-1.5 pl-2" variant="ghost" asChild>
             <a
-              href={`https://github.com/${repo}`}
+              href={addQueryParams(`https://github.com/${repo}`, UTM_PARAMS)}
               target="_blank"
               rel="noopener noreferrer"
             />

@@ -77,7 +77,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
-              href="https://x.com/iamncdai"
+              href="https://x.com/iamncdai?utm_source=chanhdai.com"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -89,7 +89,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
-              href="https://github.com/ncdai"
+              href="https://github.com/ncdai?utm_source=chanhdai.com"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -101,7 +101,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
-              href="https://www.linkedin.com/in/ncdai"
+              href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
               target="_blank"
               rel="noopener noreferrer"
             >
