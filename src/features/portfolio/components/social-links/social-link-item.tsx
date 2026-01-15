@@ -1,8 +1,10 @@
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 
+import { UTM_PARAMS } from "@/config/site";
 import type { SocialLink } from "@/features/portfolio/types/social-links";
 import { cn } from "@/lib/utils";
+import { addQueryParams } from "@/utils/url";
 
 export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
   return (
@@ -12,7 +14,7 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}
-      href={href}
+      href={addQueryParams(href, UTM_PARAMS)}
       target="_blank"
       rel="noopener"
     >

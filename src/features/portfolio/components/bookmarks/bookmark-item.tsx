@@ -3,8 +3,10 @@ import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react";
 
 import { getIcon } from "@/components/icons";
 import { Separator } from "@/components/ui/separator";
+import { UTM_PARAMS } from "@/config/site";
 import type { Bookmark } from "@/features/portfolio/types/bookmarks";
 import { cn } from "@/lib/utils";
+import { addQueryParams } from "@/utils/url";
 
 export function BookmarkItem({
   className,
@@ -19,7 +21,7 @@ export function BookmarkItem({
         "group/bookmark flex items-center pr-2 hover:bg-accent2",
         className
       )}
-      href={bookmark.url}
+      href={addQueryParams(bookmark.url, UTM_PARAMS)}
       target="_blank"
       rel="noopener"
     >

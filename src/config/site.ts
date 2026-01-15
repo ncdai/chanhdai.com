@@ -41,6 +41,4 @@ export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai";
 
 export const UTM_PARAMS = {
   utm_source: "chanhdai.com",
-  utm_medium: "referral",
-  utm_campaign: "portfolio",
 };

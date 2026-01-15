@@ -17,8 +17,10 @@ import {
 } from "@/components/ui/dialog";
 import { Tag } from "@/components/ui/tag";
 import { registryConfig } from "@/config/registry";
+import { UTM_PARAMS } from "@/config/site";
 import { getPostsByCategory } from "@/features/blog/data/posts";
 import { cn } from "@/lib/utils";
+import { addQueryParams } from "@/utils/url";
 
 export const metadata: Metadata = {
   title: "Components",
@@ -47,7 +49,10 @@ export default function Page() {
           {metadata.description} <span className="max-md:block" />
           <a
             className="whitespace-nowrap underline-offset-4 hover:underline"
-            href={`https://ui.shadcn.com/docs/directory?q=${registryConfig.namespace}&utm_source=chanhdai.com&utm_medium=referral&utm_campaign=components`}
+            href={addQueryParams(`https://ui.shadcn.com/docs/directory`, {
+              q: registryConfig.namespace,
+              ...UTM_PARAMS,
+            })}
             target="_blank"
             rel="noopener noreferrer"
           >
