@@ -426,7 +426,7 @@ function CommandMenuInput() {
 
   return (
     <CommandInput
-      placeholder="Type a command or search..."
+      placeholder="Type a command or search…"
       value={searchValue}
       onValueChange={setSearchValue}
     />

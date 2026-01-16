@@ -43,7 +43,7 @@ export function PostSearchInput() {
       </InputGroupAddon>
 
       <InputGroupInput
-        placeholder="Search Blog"
+        placeholder="Search Blog…"
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
