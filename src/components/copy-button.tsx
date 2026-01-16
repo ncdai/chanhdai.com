@@ -2,7 +2,7 @@
 
 import { CheckIcon, CircleXIcon, CopyIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import React, { useOptimistic, useTransition } from "react";
+import { useOptimistic, useTransition } from "react";
 
 import type { Event } from "@/lib/events";
 import { trackEvent } from "@/lib/events";

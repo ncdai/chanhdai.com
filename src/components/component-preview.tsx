@@ -87,7 +87,8 @@ export function ComponentPreview({
                         size="icon-sm"
                         onClick={() => setReplay((v) => v + 1)}
                       >
-                        <RepeatIcon />
+                        <RepeatIcon aria-hidden />
+                        <span className="sr-only">Replay</span>
                       </Button>
                     </TooltipTrigger>
 
@@ -109,7 +110,7 @@ export function ComponentPreview({
               <React.Suspense
                 fallback={
                   <div className="flex items-center justify-center text-sm text-muted-foreground">
-                    Loading...
+                    Loading…
                   </div>
                 }
               >
