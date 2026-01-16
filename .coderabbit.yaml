@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+reviews:
+  path_filters:
+    - "!.claude/**"
+    - "!.cursor/**"
