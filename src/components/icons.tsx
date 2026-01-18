@@ -1,9 +1,9 @@
 import {
   BriefcaseBusinessIcon,
   FileIcon,
-  GalleryHorizontalEndIcon,
-  GalleryVerticalIcon,
   MoonStarIcon,
+  MouseIcon,
+  QuoteIcon,
   TerminalSquareIcon,
   ZapIcon,
 } from "lucide-react";
@@ -405,13 +405,13 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
       );
 
     case "testimonials-marquee":
-      return <GalleryHorizontalEndIcon {...props} />;
+      return <QuoteIcon {...props} />;
 
     case "github-stars":
       return <Icons.github {...props} />;
 
     case "scroll-fade-effect":
-      return <GalleryVerticalIcon {...props} />;
+      return <MouseIcon {...props} />;
 
     case "consent-manager":
       return (
