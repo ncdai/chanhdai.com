@@ -1,31 +1,20 @@
 import { HeartIcon } from "lucide-react";
-import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/button";
 import { SPONSORSHIP_URL } from "@/config/site";
 import { SponsorItem } from "@/features/sponsors/components/sponsor-item";
 import { sponsors } from "@/features/sponsors/data";
 
-export const metadata: Metadata = {
-  title: "Sponsors",
-  description:
-    "Grateful for the support that helps me grow and maintain high-quality projects.",
-};
+import { Panel, PanelHeader, PanelTitle } from "./panel";
 
-export default function Page() {
+export function Sponsors() {
   return (
-    <div className="min-h-svh">
-      <div className="screen-line-after px-4">
-        <h1 className="text-3xl font-semibold">Sponsors</h1>
-      </div>
+    <Panel id="sponsors">
+      <PanelHeader>
+        <PanelTitle>Sponsors</PanelTitle>
+      </PanelHeader>
 
-      <div className="p-4">
-        <p className="font-mono text-sm text-balance text-muted-foreground">
-          {metadata.description}
-        </p>
-      </div>
-
-      <div className="screen-line-before screen-line-after relative py-4">
+      <div className="relative py-4">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-edge" />
           <div className="border-l border-edge" />
@@ -38,7 +27,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="flex justify-center p-2">
+      <div className="screen-line-before flex justify-center py-2">
         <Button asChild>
           <a href={SPONSORSHIP_URL} target="_blank" rel="noopener noreferrer">
             <HeartIcon />
@@ -46,8 +35,6 @@ export default function Page() {
           </a>
         </Button>
       </div>
-
-      <div className="screen-line-before h-4" />
-    </div>
+    </Panel>
   );
 }
