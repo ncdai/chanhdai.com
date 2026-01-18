@@ -1,5 +1,5 @@
 import {
-  GlobeIcon,
+  LinkIcon,
   MapPinIcon,
   MarsIcon,
   NonBinaryIcon,
@@ -62,7 +62,7 @@ export function Overview() {
 
           <IntroItem>
             <IntroItemIcon>
-              <GlobeIcon />
+              <LinkIcon />
             </IntroItemIcon>
             <IntroItemContent>
               <IntroItemLink
