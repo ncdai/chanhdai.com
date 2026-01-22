@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { TECH_STACK } from "../data/tech-stack";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
 
-export function TeckStack() {
+export function TechStack() {
   return (
     <Panel id="stack">
       <PanelHeader>
