@@ -5,6 +5,7 @@ export const EXPERIENCES: Experience[] = [
     id: "shadcraft",
     companyName: "Shadcraft",
     companyLogo: "https://assets.chanhdai.com/images/companies/shadcraft.svg",
+    companyWebsite: "https://shadcraft.com",
     positions: [
       {
         id: "0C741FC7-A4C2-4B1D-857B-F3058CE8D9CE",
@@ -31,6 +32,7 @@ export const EXPERIENCES: Experience[] = [
     id: "simplamo",
     companyName: "Simplamo Enterprise JSC",
     companyLogo: "https://assets.chanhdai.com/images/companies/simplamo.webp",
+    companyWebsite: "https://simplamo.com",
     positions: [
       {
         id: "20f8bfe5-b6a3-4b0d-ac2f-6fccd50d417e",
@@ -84,6 +86,7 @@ export const EXPERIENCES: Experience[] = [
     id: "quaric",
     companyName: "Quaric Co., Ltd.",
     companyLogo: "https://assets.chanhdai.com/images/companies/quaric.svg",
+    companyWebsite: "https://quaric.com",
     positions: [
       {
         id: "30d3a9fb-021d-452a-9d27-83655369b4b9",
@@ -267,11 +270,11 @@ In-house Project: [ZaDark](https://zadark.com)
         title: "University of Science — VNUHCM",
         employmentPeriod: {
           start: "08.2018",
-          end: "2026",
+          end: "10.2026",
         },
         icon: "education",
         description: `- Currently studying for a Bachelor's degree in Information Systems.
-- Language Proficiency: B1 English Level.
+- Language Proficiency: B1 level in English (CEFR).
 - Achieved several awards, including:
   - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
   - 2nd Prize — Business Startup Competition 2019`,
