@@ -140,7 +140,7 @@ export function ExperiencePositionItem({
       <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
         <CollapsibleTrigger
           className={cn(
-            "group/experience not-prose block w-full text-left select-none",
+            "group not-prose block w-full text-left select-none",
             "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:rounded-lg hover:before:bg-muted/50"
           )}
         >
@@ -160,8 +160,8 @@ export function ExperiencePositionItem({
               className="shrink-0 text-muted-foreground [&_svg]:size-4"
               aria-hidden
             >
-              <ChevronsDownUpIcon className="hidden group-data-[state=open]/experience:block" />
-              <ChevronsUpDownIcon className="hidden group-data-[state=closed]/experience:block" />
+              <ChevronsDownUpIcon className="hidden group-data-[state=open]:block" />
+              <ChevronsUpDownIcon className="hidden group-data-[state=closed]:block" />
             </div>
           </div>
 

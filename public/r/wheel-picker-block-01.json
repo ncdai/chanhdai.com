@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "wheel-picker-block-01",
-  "type": "registry:block",
   "registryDependencies": [
     "@ncdai/wheel-picker"
   ],
@@ -11,5 +10,6 @@
       "content": "import type { WheelPickerOption } from \"@/registry/wheel-picker\";\nimport { WheelPicker, WheelPickerWrapper } from \"@/registry/wheel-picker\";\n\nconst createArray = (length: number, add = 0): WheelPickerOption<number>[] =>\n  Array.from({ length }, (_, i) => {\n    const value = i + add;\n    return {\n      label: value.toString().padStart(2, \"0\"),\n      value: value,\n    };\n  });\n\nconst hourOptions = createArray(12, 1);\nconst minuteOptions = createArray(60);\nconst meridiemOptions: WheelPickerOption[] = [\n  { label: \"AM\", value: \"AM\" },\n  { label: \"PM\", value: \"PM\" },\n];\n\nexport default function WheelPickerDemo() {\n  return (\n    <div className=\"w-56\">\n      <WheelPickerWrapper>\n        <WheelPicker options={hourOptions} defaultValue={9} infinite />\n        <WheelPicker options={minuteOptions} defaultValue={41} infinite />\n        <WheelPicker options={meridiemOptions} defaultValue=\"AM\" />\n      </WheelPickerWrapper>\n    </div>\n  );\n}\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

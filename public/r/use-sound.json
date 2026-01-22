@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-sound",
-  "type": "registry:hook",
   "title": "Sound Hook",
   "description": "Custom React hook to load and play a sound from a given URL using the Web Audio API.",
   "files": [
@@ -10,5 +9,6 @@
       "content": "import { useCallback, useEffect, useRef } from \"react\";\n\n/**\n * Custom React hook to load and play a sound from a given URL using the Web Audio API.\n *\n * This hook fetches the audio file at the specified URL, decodes it, and prepares it for playback.\n * It returns a `play` function that can be called to play the loaded sound.\n *\n * @param url - The URL of the audio file to load and play.\n * @returns A function that, when called, plays the loaded sound.\n *\n * @remarks\n * - If the Web Audio API is not supported in the browser, a warning is logged and playback is disabled.\n * - The audio context and buffer are managed internally using React refs.\n * - Errors during fetching or decoding the audio are logged to the console.\n *\n * @example\n * ```tsx\n * const playClick = useSound('/sounds/click.mp3');\n * // Later in an event handler:\n * playClick();\n * ```\n */\nexport function useSound(url: string) {\n  const audioCtxRef = useRef<AudioContext | null>(null);\n  const bufferRef = useRef<AudioBuffer | null>(null);\n\n  useEffect(() => {\n    const AudioContextClass =\n      window.AudioContext ||\n      (window as unknown as { webkitAudioContext: typeof AudioContext })\n        .webkitAudioContext;\n\n    if (!AudioContextClass) {\n      console.warn(\"Web Audio API is not supported in this browser.\");\n      return;\n    }\n\n    const audioCtx = new AudioContextClass();\n    audioCtxRef.current = audioCtx;\n\n    fetch(url)\n      .then((res) => res.arrayBuffer())\n      .then((data) => audioCtx.decodeAudioData(data))\n      .then((decoded) => {\n        bufferRef.current = decoded;\n      })\n      .catch((err) => {\n        console.log(`Failed to load click sound from ${url}:`, err);\n      });\n  }, [url]);\n\n  const play = useCallback((volume: number = 1) => {\n    if (audioCtxRef.current && bufferRef.current) {\n      const source = audioCtxRef.current.createBufferSource();\n      const gainNode = audioCtxRef.current.createGain();\n\n      source.buffer = bufferRef.current;\n      gainNode.gain.value = volume;\n\n      source.connect(gainNode);\n      gainNode.connect(audioCtxRef.current.destination);\n      source.start(0);\n    }\n  }, []);\n\n  return play;\n}\n",
       "type": "registry:hook"
     }
-  ]
+  ],
+  "type": "registry:hook"
 }

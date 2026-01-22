@@ -4,7 +4,6 @@ import { About } from "@/features/portfolio/components/about";
 import { Awards } from "@/features/portfolio/components/awards";
 import { Blog } from "@/features/portfolio/components/blog";
 import { Bookmarks } from "@/features/portfolio/components/bookmarks";
-import { Brand } from "@/features/portfolio/components/brand";
 import { Certifications } from "@/features/portfolio/components/certifications";
 import { Components } from "@/features/portfolio/components/components";
 import { Experiences } from "@/features/portfolio/components/experiences";
@@ -77,8 +76,8 @@ export default function Page() {
         <Sponsors />
         <Separator />
 
-        <Brand />
-        <Separator />
+        {/* <Brand /> */}
+        {/* <Separator /> */}
       </div>
     </>
   );

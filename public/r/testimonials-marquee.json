@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "testimonials-marquee",
-  "type": "registry:component",
   "title": "Testimonials Marquee",
   "author": "ncdai <dai@chanhdai.com>",
   "description": "A testimonials marquee component for showcasing user feedback in a scrolling format.",
@@ -16,5 +15,6 @@
       "type": "registry:component"
     }
   ],
-  "docs": "https://chanhdai.com/components/testimonials-marquee"
+  "docs": "https://chanhdai.com/components/testimonials-marquee",
+  "type": "registry:component"
 }

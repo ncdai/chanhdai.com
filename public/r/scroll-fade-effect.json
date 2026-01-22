@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scroll-fade-effect",
-  "type": "registry:component",
   "title": "Scroll Fade Effect",
   "author": "ncdai <dai@chanhdai.com>",
   "description": "A React component that adds a fade effect to content as you scroll.",
@@ -88,5 +87,6 @@
       "animation-range": "0 var(--scroll-buffer), calc(100% - var(--scroll-buffer)) 100%",
       "animation-fill-mode": "both"
     }
-  }
+  },
+  "type": "registry:component"
 }

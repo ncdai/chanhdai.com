@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slide-to-unlock-block-02",
-  "type": "registry:block",
   "registryDependencies": [
     "@ncdai/slide-to-unlock"
   ],
@@ -11,5 +10,6 @@
       "content": "\"use client\";\n\nimport { toast } from \"sonner\";\n\nimport { ShimmeringText } from \"@/registry/shimmering-text\";\nimport {\n  SlideToUnlock,\n  SlideToUnlockHandle,\n  SlideToUnlockText,\n  SlideToUnlockTrack,\n} from \"@/registry/slide-to-unlock\";\n\nexport default function SlideToUnlockDemo2() {\n  return (\n    <>\n      <SlideToUnlock\n        className=\"bg-linear-to-b from-zinc-800 to-zinc-900\"\n        onUnlock={() => {\n          const myPromise = new Promise((resolve) => {\n            setTimeout(() => {\n              resolve(true);\n            }, 1000);\n          });\n\n          toast.promise(myPromise, {\n            loading: \"Connecting...\",\n            success: () => `Connected`,\n            error: ({ message }) => `Error: ${message}`,\n          });\n        }}\n      >\n        <SlideToUnlockTrack>\n          <SlideToUnlockText>\n            {({ isDragging }) => (\n              <ShimmeringText\n                className=\"[--color:var(--color-zinc-600)] [--shimmering-color:var(--color-zinc-50)]\"\n                text=\"slide to answer\"\n                isStopped={isDragging}\n              />\n            )}\n          </SlideToUnlockText>\n\n          <SlideToUnlockHandle className=\"bg-linear-to-b from-emerald-500 to-emerald-700 text-white\" />\n        </SlideToUnlockTrack>\n      </SlideToUnlock>\n    </>\n  );\n}\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

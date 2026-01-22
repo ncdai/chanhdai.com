@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "wheel-picker-block-02",
-  "type": "registry:block",
   "dependencies": [
     "react-hook-form",
     "@hookform/resolvers",
@@ -19,5 +18,6 @@
       "content": "\"use client\";\n\nimport { zodResolver } from \"@hookform/resolvers/zod\";\nimport type { SubmitHandler } from \"react-hook-form\";\nimport { useForm } from \"react-hook-form\";\nimport { toast } from \"sonner\";\nimport { z } from \"zod\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Form,\n  FormControl,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/components/ui/form\";\nimport type { WheelPickerOption } from \"@/registry/wheel-picker\";\nimport { WheelPicker, WheelPickerWrapper } from \"@/registry/wheel-picker\";\n\nconst formSchema = z.object({\n  framework: z.string(),\n});\n\ntype FormSchema = z.infer<typeof formSchema>;\n\nconst options: WheelPickerOption[] = [\n  {\n    label: \"Vite\",\n    value: \"vite\",\n  },\n  {\n    label: \"Laravel\",\n    value: \"laravel\",\n  },\n  {\n    label: \"React Router\",\n    value: \"react-router\",\n  },\n  {\n    label: \"Next.js\",\n    value: \"nextjs\",\n  },\n  {\n    label: \"Astro\",\n    value: \"astro\",\n  },\n  {\n    label: \"TanStack Start\",\n    value: \"tanstack-start\",\n  },\n  {\n    label: \"TanStack Router\",\n    value: \"tanstack-router\",\n  },\n  {\n    label: \"Gatsby\",\n    value: \"gatsby\",\n  },\n];\n\nexport default function WheelPickerFormDemo() {\n  const form = useForm<FormSchema>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      framework: \"nextjs\",\n    },\n  });\n\n  const onSubmit: SubmitHandler<FormSchema> = (values) => {\n    toast(\"You submitted the following values:\", {\n      description: (\n        <pre className=\"mt-2 w-80 rounded-lg bg-zinc-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(values, null, 2)}</code>\n        </pre>\n      ),\n    });\n  };\n\n  return (\n    <Form {...form}>\n      <form\n        onSubmit={form.handleSubmit(onSubmit)}\n        className=\"w-56 max-w-full space-y-4\"\n      >\n        <FormField\n          control={form.control}\n          name=\"framework\"\n          render={({ field }) => (\n            <FormItem>\n              <FormLabel>Framework</FormLabel>\n\n              <FormControl>\n                <WheelPickerWrapper>\n                  <WheelPicker\n                    options={options}\n                    value={field.value}\n                    onValueChange={field.onChange}\n                  />\n                </WheelPickerWrapper>\n              </FormControl>\n\n              <FormMessage />\n            </FormItem>\n          )}\n        />\n\n        <div className=\"flex justify-center\">\n          <Button type=\"submit\">Submit</Button>\n        </div>\n      </form>\n    </Form>\n  );\n}\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

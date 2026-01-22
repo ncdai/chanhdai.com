@@ -18,7 +18,7 @@ export function PostItem({
     <Link
       href={`/blog/${post.slug}`}
       className={cn(
-        "group/post flex flex-col gap-2 p-2",
+        "group flex flex-col gap-2 p-2",
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}
@@ -47,7 +47,7 @@ export function PostItem({
       )}
 
       <div className="flex flex-col gap-1 p-2">
-        <h3 className="text-lg leading-snug font-medium text-balance underline-offset-4 group-hover/post:underline">
+        <h3 className="text-lg leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
           {post.metadata.title}
           {post.metadata.new && (
             <span className="ml-2 inline-block size-2 -translate-y-px rounded-full bg-info">

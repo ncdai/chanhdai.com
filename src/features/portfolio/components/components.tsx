@@ -32,7 +32,7 @@ export function Components() {
               key={post.slug}
               href={`/components/${post.slug}`}
               className={cn(
-                "group/post flex items-center gap-4 p-4 transition-[background-color] ease-out hover:bg-accent2",
+                "group flex items-center gap-4 p-4 transition-[background-color] ease-out hover:bg-accent2",
                 "max-sm:screen-line-before max-sm:screen-line-after",
                 "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
               )}
@@ -47,7 +47,7 @@ export function Components() {
                 />
               </div>
 
-              <h2 className="leading-snug font-medium text-balance underline-offset-4 group-hover/post:underline">
+              <h2 className="leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
                 {post.metadata.title}
               </h2>
 

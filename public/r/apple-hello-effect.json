@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "apple-hello-effect",
-  "type": "registry:component",
   "title": "Apple Hello Effect",
   "author": "ncdai <dai@chanhdai.com>",
   "description": "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
@@ -18,5 +17,6 @@
       "type": "registry:component"
     }
   ],
-  "docs": "https://chanhdai.com/components/apple-hello-effect"
+  "docs": "https://chanhdai.com/components/apple-hello-effect",
+  "type": "registry:component"
 }

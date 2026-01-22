@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slide-to-unlock-block-01",
-  "type": "registry:block",
   "registryDependencies": [
     "@ncdai/slide-to-unlock",
     "@ncdai/use-sound"
@@ -12,5 +11,6 @@
       "content": "\"use client\";\n\nimport { toast } from \"sonner\";\n\nimport { useSound } from \"@/hooks/use-sound\";\nimport { ShimmeringText } from \"@/registry/shimmering-text\";\nimport {\n  SlideToUnlock,\n  SlideToUnlockHandle,\n  SlideToUnlockText,\n  SlideToUnlockTrack,\n} from \"@/registry/slide-to-unlock\";\n\nexport default function SlideToUnlockDemo1() {\n  const playSound = useSound(\"/audio/ui-sounds/unlock.wav\");\n\n  return (\n    <SlideToUnlock\n      onUnlock={() => {\n        playSound();\n        toast.success(\"Unlocked\");\n      }}\n    >\n      <SlideToUnlockTrack>\n        <SlideToUnlockText>\n          {({ isDragging }) => (\n            <ShimmeringText text=\"slide to unlock\" isStopped={isDragging} />\n          )}\n        </SlideToUnlockText>\n        <SlideToUnlockHandle />\n      </SlideToUnlockTrack>\n    </SlideToUnlock>\n  );\n}\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

@@ -17,10 +17,7 @@ export function BookmarkItem({
 }) {
   return (
     <a
-      className={cn(
-        "group/bookmark flex items-center pr-2 hover:bg-accent2",
-        className
-      )}
+      className={cn("group flex items-center pr-2 hover:bg-accent2", className)}
       href={addQueryParams(bookmark.url, UTM_PARAMS)}
       target="_blank"
       rel="noopener"
@@ -37,7 +34,7 @@ export function BookmarkItem({
       </div>
 
       <div className="flex-1 space-y-1 border-l border-dashed border-edge p-4 pr-2">
-        <h3 className="leading-snug font-medium text-balance underline-offset-4 group-hover/bookmark:underline">
+        <h3 className="leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
           {bookmark.title}
         </h3>
 
@@ -67,7 +64,10 @@ export function BookmarkItem({
         </div>
       </div>
 
-      <ArrowUpRightIcon className="size-4 text-muted-foreground" aria-hidden />
+      <ArrowUpRightIcon
+        className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45"
+        aria-hidden
+      />
     </a>
   );
 }

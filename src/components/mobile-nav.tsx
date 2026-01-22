@@ -25,13 +25,13 @@ export function MobileNav({
         <Button
           variant="ghost"
           className={cn(
-            "group/toggle flex flex-col gap-1 data-[state=open]:bg-accent",
+            "group flex flex-col gap-1 data-[state=open]:bg-accent",
             className
           )}
           size="icon"
         >
-          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:translate-y-0.75 group-data-[state=open]/toggle:rotate-45" />
-          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:-translate-y-0.75 group-data-[state=open]/toggle:-rotate-45" />
+          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]:translate-y-0.75 group-data-[state=open]:rotate-45" />
+          <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]:-translate-y-0.75 group-data-[state=open]:-rotate-45" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </DropdownMenuTrigger>
