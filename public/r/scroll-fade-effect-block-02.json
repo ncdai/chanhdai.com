@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scroll-fade-effect-block-02",
-  "type": "registry:block",
   "registryDependencies": [
     "@ncdai/scroll-fade-effect"
   ],
@@ -11,5 +10,6 @@
       "content": "import Image from \"next/image\";\n\nimport { ScrollFadeEffect } from \"@/registry/scroll-fade-effect\";\n\ninterface Artwork {\n  artist: string;\n  art: string;\n}\n\nconst works: Artwork[] = [\n  {\n    artist: \"Ornella Binni\",\n    art: \"https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80\",\n  },\n  {\n    artist: \"Tom Byrom\",\n    art: \"https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80\",\n  },\n  {\n    artist: \"Vladimir Malyavko\",\n    art: \"https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80\",\n  },\n];\n\nexport default function ScrollFadeEffectHorizontalDemo() {\n  return (\n    <div className=\"rounded-lg border\">\n      <ScrollFadeEffect className=\"w-72 sm:w-96\" orientation=\"horizontal\">\n        <div className=\"flex w-max gap-4 p-4\">\n          {works.map((artwork) => (\n            <figure key={artwork.artist} className=\"shrink-0\">\n              <Image\n                src={artwork.art}\n                alt={`Photo by ${artwork.artist}`}\n                className=\"aspect-3/4 h-fit w-fit rounded-sm object-cover\"\n                width={300}\n                height={400}\n              />\n\n              <figcaption className=\"pt-2 text-xs text-muted-foreground\">\n                Photo by{\" \"}\n                <span className=\"font-semibold text-foreground\">\n                  {artwork.artist}\n                </span>\n              </figcaption>\n            </figure>\n          ))}\n        </div>\n      </ScrollFadeEffect>\n    </div>\n  );\n}\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

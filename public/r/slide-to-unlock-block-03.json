@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slide-to-unlock-block-03",
-  "type": "registry:block",
   "registryDependencies": [
     "@ncdai/slide-to-unlock"
   ],
@@ -11,5 +10,6 @@
       "content": "\"use client\";\n\nimport { toast } from \"sonner\";\n\nimport { ShimmeringText } from \"@/registry/shimmering-text\";\nimport {\n  SlideToUnlock,\n  SlideToUnlockHandle,\n  SlideToUnlockText,\n  SlideToUnlockTrack,\n} from \"@/registry/slide-to-unlock\";\n\nexport default function SlideToUnlockDemo3() {\n  return (\n    <SlideToUnlock\n      className=\"w-[180px] rounded-full ring-0\"\n      handleWidth={40}\n      onUnlock={() => toast.success(\"Stopped\")}\n    >\n      <SlideToUnlockTrack>\n        <SlideToUnlockText className=\"pl-0\">\n          {({ isDragging }) => (\n            <ShimmeringText text=\"slide to stop\" isStopped={isDragging} />\n          )}\n        </SlideToUnlockText>\n\n        <SlideToUnlockHandle className=\"w-10 rounded-full dark:bg-zinc-700\">\n          <svg\n            className=\"size-5 dark:text-white\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n            viewBox=\"0 0 256 256\"\n          >\n            <path\n              d=\"M216,56V200a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40H200A16,16,0,0,1,216,56Z\"\n              fill=\"currentColor\"\n            />\n          </svg>\n        </SlideToUnlockHandle>\n      </SlideToUnlockTrack>\n    </SlideToUnlock>\n  );\n}\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme-switcher",
-  "type": "registry:component",
   "title": "Theme Switcher",
   "author": "ncdai <dai@chanhdai.com>",
   "description": "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
@@ -20,5 +19,6 @@
       "type": "registry:component"
     }
   ],
-  "docs": "https://chanhdai.com/components/theme-switcher-component"
+  "docs": "https://chanhdai.com/components/theme-switcher-component",
+  "type": "registry:component"
 }
