@@ -52,7 +52,7 @@ export const sponsors: Sponsor[] = [
   {
     type: "organization",
     name: "Reactbits",
-    url: "https://reactbits.com",
+    url: "https://reactbits.dev",
     logo: function (props: React.ComponentProps<"svg">) {
       return (
         <svg viewBox="0 0 320 96" fill="currentColor" {...props}>
