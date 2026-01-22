@@ -72,7 +72,9 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 ## Contributors
 
-[![Contributors](https://chanhdai.com/svg/contributors?v=2)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=ncdai/chanhdai.com)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+
+> Made with [contrib.rocks](https://contrib.rocks)
 
 ## Sponsors
 
