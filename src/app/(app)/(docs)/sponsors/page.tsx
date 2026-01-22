@@ -1,9 +1,7 @@
-import { HeartIcon } from "lucide-react";
 import type { Metadata } from "next";
 
-import { Button } from "@/components/ui/button";
-import { SPONSORSHIP_URL } from "@/config/site";
 import { SponsorItem } from "@/features/sponsors/components/sponsor-item";
+import { SponsorItemPlus } from "@/features/sponsors/components/sponsor-item-plus";
 import { sponsors } from "@/features/sponsors/data";
 
 export const metadata: Metadata = {
@@ -25,7 +23,7 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="screen-line-before screen-line-after relative py-4">
+      <div className="screen-line-before relative pt-4">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-edge" />
           <div className="border-l border-edge" />
@@ -35,19 +33,12 @@ export default function Page() {
           {sponsors.map((item) => (
             <SponsorItem key={item.name} item={item} />
           ))}
+
+          <SponsorItemPlus />
         </div>
       </div>
 
-      <div className="flex justify-center p-2">
-        <Button asChild>
-          <a href={SPONSORSHIP_URL} target="_blank" rel="noopener noreferrer">
-            <HeartIcon />
-            Sponsor My Work
-          </a>
-        </Button>
-      </div>
-
-      <div className="screen-line-before h-4" />
+      <div className="h-4" />
     </div>
   );
 }
