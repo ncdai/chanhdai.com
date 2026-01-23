@@ -7,6 +7,9 @@ import { VerifiedIcon } from "./verified-icon";
 export function ProfileHeader() {
   return (
     <div className="screen-line-after flex border-x border-edge">
+      <div className="absolute top-[-3.5px] left-[-4.5px] size-2 rounded-xs border bg-popover" />
+      <div className="absolute top-[-3.5px] right-[-4.5px] size-2 rounded-xs border bg-popover" />
+
       <div className="shrink-0 border-r border-edge">
         <div className="mx-0.5 my-0.75">
           <img
@@ -17,13 +20,12 @@ export function ProfileHeader() {
           />
         </div>
 
-        <a
+        {/* <a
           href="https://vietnam.gov.vn/about-viet-nam"
           target="_blank"
           rel="noreferrer"
           className="absolute top-0 -left-px"
         >
-          {/* Flag of Viet Nam */}
           <svg
             className="h-8 sm:h-9"
             viewBox="0 0 30 20"
@@ -36,7 +38,7 @@ export function ProfileHeader() {
               fill="#FFEB00"
             />
           </svg>
-        </a>
+        </a> */}
       </div>
 
       <div className="flex flex-1 flex-col">
