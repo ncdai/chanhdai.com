@@ -45,6 +45,7 @@
     "@date-fns/tz": "^1.4.1",
     "@hookform/resolvers": "^4.1.0",
     "@ncdai/react-wheel-picker": "^1.1.0",
+    "@openpanel/web": "^1.0.7",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.7.1",
