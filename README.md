@@ -97,13 +97,29 @@ This project is proudly supported by:
         <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only"
-            alt="shadcraft.com"
+            alt="Shadcraft"
           />
         </a>
         <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only"
-            alt="shadcraft.com"
+            alt="Shadcraft"
+          />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
+            alt="UI Rules"
+          />
+        </a>
+        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
+            alt="UI Rules"
           />
         </a>
       </td>
@@ -113,13 +129,13 @@ This project is proudly supported by:
         <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/reactbits.svg?v=1#gh-light-mode-only"
-            alt="reactbits.dev"
+            alt="React Bits"
           />
         </a>
         <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only"
-            alt="reactbits.dev"
+            alt="React Bits"
           />
         </a>
       </td>
