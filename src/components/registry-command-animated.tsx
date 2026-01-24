@@ -39,7 +39,7 @@ export function RegistryCommandAnimated() {
 
   const packageManager = config.packageManager || "pnpm";
 
-  const currentItemRef = useRef("");
+  const currentItemRef = useRef(registryItemNames[0]);
 
   return (
     <div className="relative overflow-hidden">
@@ -114,7 +114,7 @@ export function RegistryCommandAnimated() {
         className="absolute top-1.5 right-1.5 size-7 rounded-lg [&_svg]:size-3.5"
         getValue={() => {
           const baseCommand = pmCommands[packageManager] || pmCommands["pnpm"];
-          return `${baseCommand} ${registryConfig.namespace}/${currentItemRef.current}`;
+          return `${baseCommand} shadcn add ${registryConfig.namespace}/${currentItemRef.current}`;
         }}
         event="copy_npm_command"
       />
