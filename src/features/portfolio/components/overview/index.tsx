@@ -8,6 +8,7 @@ import {
 
 import { USER } from "@/features/portfolio/data/user";
 import type { User } from "@/features/portfolio/types/user";
+import { cn } from "@/lib/utils";
 import { urlToName } from "@/utils/url";
 
 import { Panel, PanelContent } from "../panel";
@@ -39,7 +40,12 @@ export function Overview() {
           );
         })}
 
-        <div className="grid gap-x-12 gap-y-2.5 sm:grid-cols-2">
+        <div
+          className={cn(
+            "relative grid gap-x-4 gap-y-2.5 sm:grid-cols-2",
+            "before:absolute before:-top-4 before:-right-8 before:w-[calc(50%+var(--spacing)*14)] before:border-t before:border-dashed before:border-edge/80 max-sm:before:content-none"
+          )}
+        >
           <IntroItem>
             <IntroItemIcon>
               <MapPinIcon />
@@ -82,6 +88,8 @@ export function Overview() {
           </IntroItem>
         </div>
       </PanelContent>
+
+      <div className="absolute top-0 left-[calc(50%-var(--spacing)*2-1px)] -z-1 h-full border-r border-edge/80 max-sm:hidden" />
     </Panel>
   );
 }
