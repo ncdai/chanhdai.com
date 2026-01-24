@@ -41,10 +41,10 @@ export default function Page() {
         <Separator />
 
         <About />
-        <Separator />
+        <div className="flex h-4 w-full border-x border-edge" />
 
         <TestimonialsMarquee />
-        <Separator />
+        <div className="flex h-4 w-full border-x border-edge" />
 
         <GitHubContributions />
         <Separator />
@@ -75,9 +75,6 @@ export default function Page() {
 
         <Sponsors />
         <Separator />
-
-        {/* <Brand /> */}
-        {/* <Separator /> */}
       </div>
     </>
   );
