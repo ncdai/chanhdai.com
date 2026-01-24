@@ -59,7 +59,7 @@ export const USER = {
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
   ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-light.png?v=4",
+    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=5",
   namePronunciationUrl: "/audio/chanhdai.mp3",
   timeZone: "Asia/Ho_Chi_Minh",
   keywords: [
