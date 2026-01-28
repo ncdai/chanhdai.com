@@ -2,5 +2,7 @@
 language: "en-US"
 reviews:
   path_filters:
+    - "!.agents/**"
     - "!.claude/**"
     - "!.cursor/**"
+    - "!.github/skills/**"
