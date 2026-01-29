@@ -64,7 +64,7 @@ export const USER = {
   affiliateBadge: {
     name: "Shadcraft",
     url: "https://shadcraft.com",
-    logo: "https://assets.chanhdai.com/images/companies/shadcraft.svg",
+    logo: "https://assets.chanhdai.com/images/companies/shadcraft.svg?v=2",
   },
   timeZone: "Asia/Ho_Chi_Minh",
   keywords: [
