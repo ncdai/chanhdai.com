@@ -12,7 +12,7 @@ export function SponsorItem({ item }: { item: Sponsor }) {
     <a
       key={item.name}
       className={cn(
-        "flex min-h-20 items-center justify-center transition-[background-color] ease-out hover:bg-accent2",
+        "flex min-h-20 items-center justify-center transition-[background-color] ease-out hover:bg-accent-muted",
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}

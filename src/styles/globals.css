@@ -34,7 +34,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-popover-border: var(--popover-border);
   --color-accent: var(--accent);
-  --color-accent2: var(--accent2);
+  --color-accent-muted: var(--accent-muted);
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-edge: var(--edge);
@@ -158,7 +158,7 @@
   /* zinc-100 */
   --accent: oklch(0.967 0.001 286.375);
 
-  --accent2: color-mix(in oklab, var(--accent) 50%, transparent);
+  --accent-muted: color-mix(in oklab, var(--accent) 50%, transparent);
 
   /* zinc-900 */
   --accent-foreground: oklch(0.21 0.006 285.885);
@@ -249,7 +249,7 @@
   /* zinc-800 */
   --accent: oklch(0.274 0.006 286.033);
 
-  --accent2: color-mix(in oklab, var(--accent) 20%, transparent);
+  --accent-muted: color-mix(in oklab, var(--accent) 20%, transparent);
 
   /* zinc-50 */
   --accent-foreground: oklch(0.985 0 0);
