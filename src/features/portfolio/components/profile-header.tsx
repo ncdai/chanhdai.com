@@ -1,5 +1,14 @@
+import Image from "next/image";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/base/ui/tooltip";
+import { UTM_PARAMS } from "@/config/site";
 import { USER } from "@/features/portfolio/data/user";
 import { FlipSentences } from "@/registry/flip-sentences";
+import { addQueryParams } from "@/utils/url";
 
 import { PronounceMyName } from "./pronounce-my-name";
 import { VerifiedIcon } from "./verified-icon";
@@ -61,6 +70,44 @@ export function ProfileHeader() {
               className="size-4.5 text-info select-none"
               aria-label="Verified"
             />
+
+            {USER.affiliateBadge && (
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <a
+                      className="relative flex after:absolute after:inset-0 after:ring after:ring-black/10 after:ring-inset dark:after:ring-white/15"
+                      href={addQueryParams(USER.affiliateBadge.url, UTM_PARAMS)}
+                      target="_blank"
+                      rel="noopener"
+                    />
+                  }
+                >
+                  <Image
+                    src={USER.affiliateBadge.logo}
+                    alt={USER.affiliateBadge.name}
+                    width={20}
+                    height={20}
+                    quality={100}
+                    unoptimized
+                  />
+                </TooltipTrigger>
+
+                <TooltipContent>
+                  <p>
+                    An affiliate of{" "}
+                    <a
+                      className="font-medium underline-offset-4 hover:underline"
+                      href={addQueryParams(USER.affiliateBadge.url, UTM_PARAMS)}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      {USER.affiliateBadge.name}
+                    </a>
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            )}
 
             {USER.namePronunciationUrl && (
               <PronounceMyName
