@@ -30,7 +30,7 @@ export function AwardItem({
   return (
     <CollapsibleWithContext disabled={!canExpand} asChild>
       <div className={className}>
-        <div className="flex items-center hover:bg-accent2">
+        <div className="flex items-center hover:bg-accent-muted">
           <div
             className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background"
             aria-hidden

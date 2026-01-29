@@ -17,7 +17,10 @@ export function CertificationItem({
 }) {
   return (
     <a
-      className={cn("group flex items-center pr-2 hover:bg-accent2", className)}
+      className={cn(
+        "group flex items-center pr-2 hover:bg-accent-muted",
+        className
+      )}
       href={certification.credentialURL}
       target="_blank"
       rel="noopener"
