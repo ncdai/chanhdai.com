@@ -35,6 +35,12 @@ export type User = {
   ogImage: string;
   /** Audio URL for name pronunciation */
   namePronunciationUrl: string;
+  /** Affiliate badge displayed to the right of displayName */
+  affiliateBadge?: {
+    name: string;
+    url: string;
+    logo: string;
+  };
   /** SEO keywords list for metadata */
   keywords: string[];
   /** Time zone in IANA format (e.g., "Asia/Ho_Chi_Minh") */
