@@ -6,3 +6,5 @@ reviews:
     - "!.claude/**"
     - "!.cursor/**"
     - "!.github/skills/**"
+    - "!src/__registry__/**"
+    - "!public/**"
