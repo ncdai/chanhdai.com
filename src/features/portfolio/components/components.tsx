@@ -63,7 +63,7 @@ export function Components() {
       </div>
 
       <div className="screen-line-before flex justify-center py-2">
-        <Button variant="default" asChild>
+        <Button className="px-3" variant="default" asChild>
           <Link href="/components">
             All Components
             <ArrowRightIcon />

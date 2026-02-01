@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
@@ -13,6 +15,11 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
 } from "@/registry/testimonials-marquee";
+
+export const metadata: Metadata = {
+  title: "Loved by Devs Worldwide",
+  description: "See what developers are saying about my work and projects.",
+};
 
 const TESTIMONIALS = [
   ...TESTIMONIALS_1.slice().sort((a, b) =>
