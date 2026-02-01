@@ -103,6 +103,14 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/EphraimDuncan_/status/2008254368806826312",
     quote: "great work on your portfolio, you deserve it",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1907258802032017408/P_dJGcQ1_400x400.jpg",
+    authorName: "Megh",
+    authorTagline: "Creator of patterncraft.fun",
+    url: "https://x.com/meghtrix/status/2017658774530781471",
+    quote: "The best looking website I’ve ever seen?\n@iamncdai portfolio!",
+  },
 ];
 
 // Short quotes (50 characters or fewer)
