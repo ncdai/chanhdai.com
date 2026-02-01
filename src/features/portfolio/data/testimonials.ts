@@ -111,6 +111,22 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/meghtrix/status/2017658774530781471",
     quote: "The best looking website I’ve ever seen?\n@iamncdai portfolio!",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1946867973655822336/G8Wg8aXf_400x400.jpg",
+    authorName: "Shadcraft",
+    authorTagline: "shadcn/ui kit for Figma and React",
+    url: "https://x.com/shadcraft_/status/2017091317244055988",
+    quote: "Love your work Dai! You're a great talent :-)",
+  },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/2009239880006815748/Ifmg-K9S_400x400.jpg",
+    authorName: "Kartikey",
+    authorTagline: "Engineer",
+    url: "https://x.com/KartikeyStack/status/2016717957938974963",
+    quote: "best portfolio I've ever seen, minimal, clean and sick 🙌🏼",
+  },
 ];
 
 // Short quotes (50 characters or fewer)
