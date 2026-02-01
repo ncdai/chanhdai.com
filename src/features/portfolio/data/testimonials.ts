@@ -195,4 +195,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
     quote: "This Portfolio is something else 😍",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1927474594102784000/Al0g-I6o_400x400.jpg",
+    authorName: "David Haz",
+    authorTagline: "Creator of reactbits.dev",
+    url: "https://x.com/davidhdev/status/2017868986969444511",
+    quote: "Simple and clean, love it! 🌟",
+  },
 ];
