@@ -56,7 +56,7 @@ export default function TestimonialsPage() {
               rel="noopener"
             >
               <Testimonial>
-                <TestimonialQuote className="not-italic">
+                <TestimonialQuote>
                   <p>{item.quote}</p>
                 </TestimonialQuote>
 

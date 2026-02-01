@@ -25,7 +25,7 @@ export function TestimonialQuote({
     <blockquote
       data-slot="quote"
       className={cn(
-        "grow px-4 py-3 text-base text-balance text-foreground italic",
+        "grow px-4 py-3 text-base text-balance text-foreground",
         className
       )}
       {...props}
