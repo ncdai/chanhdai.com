@@ -109,7 +109,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Megh",
     authorTagline: "Creator of patterncraft.fun",
     url: "https://x.com/meghtrix/status/2017658774530781471",
-    quote: "The best looking website I’ve ever seen?\n@iamncdai portfolio!",
+    quote: "The best looking website I’ve ever seen? @iamncdai portfolio!",
   },
   {
     authorAvatar:
@@ -161,7 +161,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "jordwalke",
     authorTagline: "Creator of React",
     url: "https://x.com/jordwalke/status/1937165909778657589",
-    quote: "Looks great.\nAlso, cool wheel picker!",
+    quote: "Looks great. Also, cool wheel picker!",
   },
   {
     authorAvatar:
