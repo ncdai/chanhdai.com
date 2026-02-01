@@ -24,6 +24,7 @@ export const PROJECTS: Project[] = [
 - 🖱️ Mouse drag and scroll support for desktop
 - 🔄 Infinite loop scrolling
 - 🎨 Unstyled components for complete style customization
+- ⌨️ Full keyboard navigation and type-ahead search
 - ⚡️ Easy installation via shadcn CLI
 `,
     logo: "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
