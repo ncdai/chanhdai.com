@@ -19,6 +19,7 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@kibo-ui": "https://kibo-ui.com/r/{name}.json"
+    "@kibo-ui": "https://kibo-ui.com/r/{name}.json",
+    "@react-bits": "https://reactbits.dev/r/{name}.json"
   }
 }
