@@ -14,6 +14,7 @@ import {
   HeartIcon,
   LayersIcon,
   MoonStarIcon,
+  MousePointer2Icon,
   QuoteIcon,
   RssIcon,
   SunMediumIcon,
@@ -39,6 +40,7 @@ import {
 } from "@/components/ui/command";
 import type { Post } from "@/features/blog/types/post";
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
+import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility";
 import { useSound } from "@/hooks/use-sound";
 import { trackEvent } from "@/lib/events";
 import { copyText } from "@/utils/copy";
@@ -162,6 +164,8 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
 
   const playClick = useSound("/audio/ui-sounds/click.wav");
 
+  const [, setIsDuckFollowerVisible] = useDuckFollowerVisibility();
+
   useHotkeys("mod+k, slash", (e) => {
     e.preventDefault();
 
@@ -240,6 +244,18 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
     },
     [playClick, setTheme]
   );
+
+  const handleToggleDuckFollower = useCallback(() => {
+    setOpen(false);
+    setIsDuckFollowerVisible((isVisible) => !isVisible);
+
+    trackEvent({
+      name: "command_menu_action",
+      properties: {
+        action: "toggle_duck_follower",
+      },
+    });
+  }, [setIsDuckFollowerVisible]);
 
   const { componentLinks, blogLinks } = useMemo(
     () => ({
@@ -389,6 +405,13 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
             >
               <Icons.contrast />
               Auto
+            </CommandItem>
+          </CommandGroup>
+
+          <CommandGroup heading="Interactive Features">
+            <CommandItem onSelect={handleToggleDuckFollower}>
+              <MousePointer2Icon />
+              Toggle Duck Follower
             </CommandItem>
           </CommandGroup>
 

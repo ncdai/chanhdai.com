@@ -3,6 +3,7 @@
 import { useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility";
 import { useIsClient } from "@/hooks/use-is-client";
 
 type Position = {
@@ -26,7 +27,7 @@ const CONFIG = {
   gutter: 5,
   renderedWidth: 64,
   renderedHeight: 64,
-  spriteSheet: "https://assets.chanhdai.com/images/sprites/duck.webp",
+  spriteSheet: "https://assets.chanhdai.com/images/sprites/duck.webp?v=2",
   animations: {
     walking: {
       row: 0,
@@ -397,11 +398,13 @@ function Duck() {
 export function DuckFollower() {
   const isClient = useIsClient();
 
-  const shouldReduceMotion = useReducedMotion();
-  const checkTouchDevice = isTouchDevice();
-  const shouldRender = !shouldReduceMotion && !checkTouchDevice;
+  const [isDuckFollowerVisible] = useDuckFollowerVisibility();
 
-  if (!isClient) return null;
+  const shouldReduceMotion = useReducedMotion();
+  const isTouch = isTouchDevice();
+
+  const shouldRender =
+    isClient && isDuckFollowerVisible && !shouldReduceMotion && !isTouch;
 
   if (!shouldRender) return null;
 
