@@ -1,5 +1,6 @@
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
+import { DuckFollower } from "@/components/duck-follower";
 import { About } from "@/features/portfolio/components/about";
 import { Awards } from "@/features/portfolio/components/awards";
 import { Blog } from "@/features/portfolio/components/blog";
@@ -76,6 +77,8 @@ export default function Page() {
         <Sponsors />
         <Separator />
       </div>
+
+      <DuckFollower />
     </>
   );
 }

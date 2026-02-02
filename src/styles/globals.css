@@ -389,6 +389,21 @@
       clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
     }
   } */
+
+  .duck-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+
+    pointer-events: none;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+
+    will-change: transform;
+    transition: none;
+  }
 }
 
 @layer components {
