@@ -203,4 +203,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/davidhdev/status/2017868986969444511",
     quote: "Simple and clean, love it! 🌟",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1689659361726263298/wBOYRobp_400x400.png",
+    authorName: "JohnPhamous",
+    authorTagline: "Design Engineer @Vercel",
+    url: "https://x.com/JohnPhamous/status/2018355370855674244",
+    quote: "nice",
+  },
 ];
