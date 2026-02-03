@@ -2,7 +2,7 @@
 
 import { Volume2Icon } from "lucide-react";
 
-import { useSound } from "@/hooks/use-sound";
+import { useSoundLazy } from "@/hooks/use-sound";
 import { trackEvent } from "@/lib/events";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +13,7 @@ export function PronounceMyName({
   className?: string;
   namePronunciationUrl: string;
 }) {
-  const play = useSound(namePronunciationUrl);
+  const { play, preload } = useSoundLazy(namePronunciationUrl);
 
   return (
     <button
@@ -22,6 +22,7 @@ export function PronounceMyName({
         "after:absolute after:-inset-1",
         className
       )}
+      onPointerEnter={() => preload()}
       onClick={() => {
         play();
         trackEvent({
