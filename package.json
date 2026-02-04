@@ -39,7 +39,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@base-ui/react": "^1.0.0",
+    "@base-ui/react": "^1.1.0",
     "@bprogress/next": "^3.2.12",
     "@c15t/nextjs": "^1.8.1",
     "@date-fns/tz": "^1.4.1",
