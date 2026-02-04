@@ -411,8 +411,7 @@
     @apply relative my-[1.25em] rounded-xl bg-code text-code-foreground;
 
     pre {
-      @apply overflow-x-auto overscroll-x-none px-4 py-4 has-data-line-numbers:px-0;
-      /* @apply supports-timeline-scroll:scroll-fade-effect-x supports-timeline-scroll:[--mask-offset-right:-1px] supports-timeline-scroll:[--mask-width:24px] supports-timeline-scroll:has-data-line-numbers:[--mask-offset-left:calc(var(--spacing)*16-4px)]; */
+      @apply no-scrollbar overflow-x-auto overscroll-x-contain px-4 py-4 has-data-line-numbers:px-0;
     }
 
     code {

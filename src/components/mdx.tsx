@@ -49,7 +49,7 @@ import { CodeTabs } from "./code-tabs";
 import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2";
 import { CopyButton } from "./copy-button";
 import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed";
-import { getIconForLanguageExtension, Icons } from "./icons";
+import { getIconForLanguageExtension } from "./icons";
 
 const components: MDXRemoteProps["components"] = {
   h1: (props: React.ComponentProps<"h1">) => <Heading as="h1" {...props} />,
@@ -152,15 +152,8 @@ const components: MDXRemoteProps["components"] = {
   TabsContent,
   TabsListInstallType: () => (
     <TabsList>
-      <TabsTrigger className="pr-2.5 pl-2" value="cli">
-        <Icons.shadcn />
-        CLI
-      </TabsTrigger>
-
-      <TabsTrigger className="px-2.5" value="manual">
-        Manual
-      </TabsTrigger>
-
+      <TabsTrigger value="cli">Command</TabsTrigger>
+      <TabsTrigger value="manual">Manual</TabsTrigger>
       <TabsIndicator />
     </TabsList>
   ),
