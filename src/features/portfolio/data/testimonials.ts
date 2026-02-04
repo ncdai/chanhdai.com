@@ -127,6 +127,14 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/KartikeyStack/status/2016717957938974963",
     quote: "best portfolio I've ever seen, minimal, clean and sick 🙌🏼",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1756766826736893952/6Gvg6jha_400x400.jpg",
+    authorName: "OrcDev",
+    authorTagline: "Creator of 8bitcn.com",
+    url: "https://x.com/orcdev/status/2011373509310878010",
+    quote: "@iamncdai is one of the best design engineers!",
+  },
 ];
 
 // Short quotes (50 characters or fewer)
@@ -161,7 +169,15 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "jordwalke",
     authorTagline: "Creator of React",
     url: "https://x.com/jordwalke/status/1937165909778657589",
-    quote: "Looks great. Also, cool wheel picker!",
+    quote: "Looks great.",
+  },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1333329963383103489/ee7VrWQy_400x400.jpg",
+    authorName: "jordwalke",
+    authorTagline: "Creator of React",
+    url: "https://x.com/jordwalke/status/1937166049868439854",
+    quote: "Also, cool wheel picker!",
   },
   {
     authorAvatar:
@@ -210,5 +226,13 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorTagline: "Design Engineer @Vercel",
     url: "https://x.com/JohnPhamous/status/2018355370855674244",
     quote: "nice",
+  },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1593304942210478080/TUYae5z7_400x400.jpg",
+    authorName: "shadcn",
+    authorTagline: "Creator of shadcn/ui",
+    url: "https://x.com/shadcn/status/2011452657702154747",
+    quote: "Congrats. Way to go.",
   },
 ];
