@@ -87,7 +87,7 @@ function Heading<T extends HeadingTypes = "h1">({
       </a>
 
       <LinkIcon
-        className="size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity peer-hover:opacity-100"
+        className="size-4 shrink-0 translate-y-px text-muted-foreground opacity-0 transition-opacity peer-hover:opacity-100"
         aria-label="Link to section"
       />
     </Comp>
