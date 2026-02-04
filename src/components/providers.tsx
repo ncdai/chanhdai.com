@@ -4,6 +4,7 @@ import { AppProgressProvider } from "@bprogress/next";
 import { Provider as JotaiProvider } from "jotai";
 import { ThemeProvider } from "next-themes";
 
+import { TooltipProvider } from "./base/ui/tooltip";
 import { Toaster } from "./ui/sonner";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -23,7 +24,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           delay={500}
           options={{ showSpinner: false }}
         >
-          {children}
+          <TooltipProvider>{children}</TooltipProvider>
         </AppProgressProvider>
 
         <Toaster position="top-center" />

@@ -6,9 +6,8 @@ import { notFound } from "next/navigation";
 import type { BlogPosting as PageSchema, WithContext } from "schema-dts";
 
 import {
+  Tooltip,
   TooltipContent,
-  TooltipProvider,
-  TooltipRoot,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip";
 import { InlineTOC } from "@/components/inline-toc";
@@ -166,55 +165,53 @@ export default async function Page({
             url={`/components/${post.slug}`}
           />
 
-          <TooltipProvider>
-            {previous && (
-              <TooltipRoot>
-                <TooltipTrigger
-                  render={
-                    <Button variant="secondary" size="icon-sm" asChild>
-                      <Link href={`/components/${previous.slug}`} />
-                    </Button>
-                  }
-                >
-                  <ArrowLeftIcon />
-                  <span className="sr-only">Previous</span>
-                </TooltipTrigger>
+          {previous && (
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <Button variant="secondary" size="icon-sm" asChild>
+                    <Link href={`/components/${previous.slug}`} />
+                  </Button>
+                }
+              >
+                <ArrowLeftIcon />
+                <span className="sr-only">Previous</span>
+              </TooltipTrigger>
 
-                <TooltipContent className="pr-2 pl-3">
-                  <div className="flex items-center gap-3">
-                    Previous Component
-                    <Kbd>
-                      <ArrowLeftIcon />
-                    </Kbd>
-                  </div>
-                </TooltipContent>
-              </TooltipRoot>
-            )}
+              <TooltipContent className="pr-2 pl-3">
+                <div className="flex items-center gap-3">
+                  Previous Component
+                  <Kbd>
+                    <ArrowLeftIcon />
+                  </Kbd>
+                </div>
+              </TooltipContent>
+            </Tooltip>
+          )}
 
-            {next && (
-              <TooltipRoot>
-                <TooltipTrigger
-                  render={
-                    <Button variant="secondary" size="icon-sm" asChild>
-                      <Link href={`/components/${next.slug}`} />
-                    </Button>
-                  }
-                >
-                  <span className="sr-only">Next</span>
-                  <ArrowRightIcon />
-                </TooltipTrigger>
+          {next && (
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <Button variant="secondary" size="icon-sm" asChild>
+                    <Link href={`/components/${next.slug}`} />
+                  </Button>
+                }
+              >
+                <span className="sr-only">Next</span>
+                <ArrowRightIcon />
+              </TooltipTrigger>
 
-                <TooltipContent className="pr-2 pl-3">
-                  <div className="flex items-center gap-3">
-                    Next Component
-                    <Kbd>
-                      <ArrowRightIcon />
-                    </Kbd>
-                  </div>
-                </TooltipContent>
-              </TooltipRoot>
-            )}
-          </TooltipProvider>
+              <TooltipContent className="pr-2 pl-3">
+                <div className="flex items-center gap-3">
+                  Next Component
+                  <Kbd>
+                    <ArrowRightIcon />
+                  </Kbd>
+                </div>
+              </TooltipContent>
+            </Tooltip>
+          )}
         </div>
       </div>
 
