@@ -16,8 +16,8 @@ import { VerifiedIcon } from "./verified-icon"
 export function ProfileHeader() {
   return (
     <div className="screen-line-after flex border-x border-edge">
-      <div className="absolute top-[-3.5px] left-[-4.5px] size-2 rounded-xs border bg-popover" />
-      <div className="absolute top-[-3.5px] right-[-4.5px] size-2 rounded-xs border bg-popover" />
+      {/* <div className="absolute top-[-3.5px] left-[-4.5px] size-2 rounded-xs border bg-popover" /> */}
+      {/* <div className="absolute top-[-3.5px] right-[-4.5px] size-2 rounded-xs border bg-popover" /> */}
 
       <div className="shrink-0 border-r border-edge">
         <div className="mx-0.5 my-0.75">
@@ -28,26 +28,6 @@ export function ProfileHeader() {
             fetchPriority="high"
           />
         </div>
-
-        {/* <a
-          href="https://vietnam.gov.vn/about-viet-nam"
-          target="_blank"
-          rel="noreferrer"
-          className="absolute top-0 -left-px"
-        >
-          <svg
-            className="h-8 sm:h-9"
-            viewBox="0 0 30 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Flag of Viet Nam</title>
-            <rect width="30" height="20" fill="#F00" />
-            <polygon
-              points="15,4 11.47,14.85 20.71,8.15 9.29,8.15 18.53,14.85"
-              fill="#FFEB00"
-            />
-          </svg>
-        </a> */}
       </div>
 
       <div className="flex flex-1 flex-col">

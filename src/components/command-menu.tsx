@@ -292,7 +292,7 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
         <Icons.search aria-hidden />
 
         <span className="font-sans text-sm/4 font-medium sm:hidden">
-          Search
+          Search…
         </span>
 
         <KbdGroup className="hidden sm:in-[.os-macos_&]:flex">
