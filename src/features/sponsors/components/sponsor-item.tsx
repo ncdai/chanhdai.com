@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image from "next/image"
 
-import { Tag } from "@/components/ui/tag";
-import { UTM_PARAMS } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { addQueryParams } from "@/utils/url";
+import { Tag } from "@/components/ui/tag"
+import { UTM_PARAMS } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { addQueryParams } from "@/utils/url"
 
-import type { Sponsor } from "../types";
+import type { Sponsor } from "../types"
 
 export function SponsorItem({ item }: { item: Sponsor }) {
   return (
@@ -54,5 +54,5 @@ export function SponsorItem({ item }: { item: Sponsor }) {
         </div>
       )}
     </a>
-  );
+  )
 }

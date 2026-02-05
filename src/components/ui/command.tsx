@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { Command as CommandPrimitive } from "cmdk";
-import * as React from "react";
+import { Command as CommandPrimitive } from "cmdk"
+import * as React from "react"
 
 import {
   Dialog,
@@ -9,8 +9,8 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/dialog"
+import { cn } from "@/lib/utils"
 
 function Command({
   className,
@@ -25,7 +25,7 @@ function Command({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function CommandDialog({
@@ -34,8 +34,8 @@ function CommandDialog({
   children,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }) {
   return (
     <Dialog {...props}>
@@ -65,7 +65,7 @@ function CommandDialog({
         </Command>
       </DialogContent>
     </Dialog>
-  );
+  )
 }
 
 function CommandInput({
@@ -101,7 +101,7 @@ function CommandInput({
         {...props}
       />
     </div>
-  );
+  )
 }
 
 function CommandList({
@@ -117,7 +117,7 @@ function CommandList({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function CommandEmpty({
@@ -129,7 +129,7 @@ function CommandEmpty({
       className="py-8 text-center font-mono text-sm"
       {...props}
     />
-  );
+  )
 }
 
 function CommandGroup({
@@ -146,7 +146,7 @@ function CommandGroup({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function CommandSeparator({
@@ -159,7 +159,7 @@ function CommandSeparator({
       className={cn("h-px bg-border", className)}
       {...props}
     />
-  );
+  )
 }
 
 function CommandItem({
@@ -175,7 +175,7 @@ function CommandItem({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function CommandShortcut({
@@ -191,7 +191,7 @@ function CommandShortcut({
       )}
       {...props}
     />
-  );
+  )
 }
 
 export {
@@ -204,4 +204,4 @@ export {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-};
+}

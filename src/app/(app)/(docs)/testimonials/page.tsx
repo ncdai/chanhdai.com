@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
-} from "@/features/portfolio/data/testimonials";
-import { cn } from "@/lib/utils";
+} from "@/features/portfolio/data/testimonials"
+import { cn } from "@/lib/utils"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -14,12 +14,12 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
-} from "@/registry/testimonials-marquee";
+} from "@/registry/testimonials-marquee"
 
 export const metadata: Metadata = {
   title: "Loved by Devs Worldwide",
   description: "See what developers are saying about my work and projects.",
-};
+}
 
 const TESTIMONIALS = [
   ...TESTIMONIALS_1.slice().sort((a, b) =>
@@ -28,7 +28,7 @@ const TESTIMONIALS = [
   ...TESTIMONIALS_2.slice().sort((a, b) =>
     a.authorName.localeCompare(b.authorName)
   ),
-];
+]
 
 export default function TestimonialsPage() {
   return (
@@ -91,5 +91,5 @@ export default function TestimonialsPage() {
 
       <div className="h-4" />
     </div>
-  );
+  )
 }

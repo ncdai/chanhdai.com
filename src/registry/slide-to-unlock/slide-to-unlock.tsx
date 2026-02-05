@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   animate,
@@ -6,7 +6,7 @@ import {
   type MotionValue,
   useMotionValue,
   useTransform,
-} from "motion/react";
+} from "motion/react"
 import {
   type ComponentPropsWithoutRef,
   createContext,
@@ -14,38 +14,38 @@ import {
   useContext,
   useRef,
   useState,
-} from "react";
+} from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 type SlideToUnlockContextValue = {
-  x: MotionValue<number>;
-  trackRef: React.RefObject<HTMLDivElement | null>;
-  isDragging: boolean;
-  handleWidth: number;
-  textOpacity: MotionValue<number>;
-  onDragStart: () => void;
-  onDragEnd: () => void;
-};
+  x: MotionValue<number>
+  trackRef: React.RefObject<HTMLDivElement | null>
+  isDragging: boolean
+  handleWidth: number
+  textOpacity: MotionValue<number>
+  onDragStart: () => void
+  onDragEnd: () => void
+}
 
 const SlideToUnlockContext = createContext<SlideToUnlockContextValue | null>(
   null
-);
+)
 
 function useSlideToUnlock() {
-  const context = useContext(SlideToUnlockContext);
+  const context = useContext(SlideToUnlockContext)
   if (!context) {
     throw new Error(
       `SlideToUnlock components must be used within SlideToUnlock`
-    );
+    )
   }
-  return context;
+  return context
 }
 
 export type SlideToUnlockRootProps = React.ComponentProps<"div"> & {
-  handleWidth?: number;
-  onUnlock?: () => void;
-};
+  handleWidth?: number
+  onUnlock?: () => void
+}
 
 export function SlideToUnlock({
   className,
@@ -54,29 +54,29 @@ export function SlideToUnlock({
   onUnlock,
   ...props
 }: SlideToUnlockRootProps) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const x = useMotionValue(0);
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const x = useMotionValue(0)
 
-  const fadeDistance = handleWidth;
-  const textOpacity = useTransform(x, [0, fadeDistance], [1, 0]);
+  const fadeDistance = handleWidth
+  const textOpacity = useTransform(x, [0, fadeDistance], [1, 0])
 
   const handleDragStart = useCallback(() => {
-    setIsDragging(true);
-  }, []);
+    setIsDragging(true)
+  }, [])
 
   const handleDragEnd = useCallback(() => {
-    setIsDragging(false);
+    setIsDragging(false)
 
-    const trackWidth = trackRef.current?.offsetWidth || 0;
-    const maxX = trackWidth - handleWidth;
+    const trackWidth = trackRef.current?.offsetWidth || 0
+    const maxX = trackWidth - handleWidth
 
     if (x.get() >= maxX) {
-      onUnlock?.();
+      onUnlock?.()
     } else {
-      animate(x, 0, { type: "spring", bounce: 0, duration: 0.25 });
+      animate(x, 0, { type: "spring", bounce: 0, duration: 0.25 })
     }
-  }, [x, onUnlock, handleWidth]);
+  }, [x, onUnlock, handleWidth])
 
   return (
     <SlideToUnlockContext.Provider
@@ -101,17 +101,17 @@ export function SlideToUnlock({
         {children}
       </div>
     </SlideToUnlockContext.Provider>
-  );
+  )
 }
 
-export type SlideToUnlockTrackProps = React.ComponentProps<"div">;
+export type SlideToUnlockTrackProps = React.ComponentProps<"div">
 
 export function SlideToUnlockTrack({
   className,
   children,
   ...props
 }: SlideToUnlockTrackProps) {
-  const { trackRef } = useSlideToUnlock();
+  const { trackRef } = useSlideToUnlock()
 
   return (
     <div
@@ -125,7 +125,7 @@ export function SlideToUnlockTrack({
     >
       {children}
     </div>
-  );
+  )
 }
 
 export type SlideToUnlockTextProps = Omit<
@@ -134,8 +134,8 @@ export type SlideToUnlockTextProps = Omit<
 > & {
   children:
     | React.ReactNode
-    | ((props: { isDragging: boolean }) => React.ReactNode);
-};
+    | ((props: { isDragging: boolean }) => React.ReactNode)
+}
 
 export function SlideToUnlockText({
   className,
@@ -143,7 +143,7 @@ export function SlideToUnlockText({
   style,
   ...props
 }: SlideToUnlockTextProps) {
-  const { handleWidth, textOpacity, isDragging } = useSlideToUnlock();
+  const { handleWidth, textOpacity, isDragging } = useSlideToUnlock()
 
   return (
     <motion.div
@@ -155,12 +155,12 @@ export function SlideToUnlockText({
     >
       {typeof children === "function" ? children({ isDragging }) : children}
     </motion.div>
-  );
+  )
 }
 
 export type SlideToUnlockHandleProps = ComponentPropsWithoutRef<
   typeof motion.div
->;
+>
 
 export function SlideToUnlockHandle({
   className,
@@ -174,7 +174,7 @@ export function SlideToUnlockHandle({
     onDragStart,
     onDragEnd,
     handleWidth: width,
-  } = useSlideToUnlock();
+  } = useSlideToUnlock()
 
   return (
     <motion.div
@@ -207,5 +207,5 @@ export function SlideToUnlockHandle({
         </svg>
       )}
     </motion.div>
-  );
+  )
 }

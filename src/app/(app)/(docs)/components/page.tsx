@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from "next"
+import Link from "next/link"
 
-import { ComponentIcon, Icons } from "@/components/icons";
-import { MDX } from "@/components/mdx";
-import { RegistryCommandAnimated } from "@/components/registry-command-animated";
-import { Button } from "@/components/ui/button";
+import { ComponentIcon, Icons } from "@/components/icons"
+import { MDX } from "@/components/mdx"
+import { RegistryCommandAnimated } from "@/components/registry-command-animated"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -14,18 +14,18 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Tag } from "@/components/ui/tag";
-import { registryConfig } from "@/config/registry";
-import { UTM_PARAMS } from "@/config/site";
-import { getPostsByCategory } from "@/features/blog/data/posts";
-import { cn } from "@/lib/utils";
-import { addQueryParams } from "@/utils/url";
+} from "@/components/ui/dialog"
+import { Tag } from "@/components/ui/tag"
+import { registryConfig } from "@/config/registry"
+import { UTM_PARAMS } from "@/config/site"
+import { getPostsByCategory } from "@/features/blog/data/posts"
+import { cn } from "@/lib/utils"
+import { addQueryParams } from "@/utils/url"
 
 export const metadata: Metadata = {
   title: "Components",
   description: "A collection of reusable components.",
-};
+}
 
 const componentsJSON = `\`\`\`json title="components.json" showLineNumbers {3}
 {
@@ -33,10 +33,10 @@ const componentsJSON = `\`\`\`json title="components.json" showLineNumbers {3}
     "${registryConfig.namespace}": "${registryConfig.namespaceUrl}"
   }
 }
-\`\`\``;
+\`\`\``
 
 export default function Page() {
-  const posts = getPostsByCategory("components");
+  const posts = getPostsByCategory("components")
 
   return (
     <div className="min-h-svh">
@@ -187,7 +187,7 @@ export default function Page() {
 
       <div className="h-4" />
     </div>
-  );
+  )
 }
 
 function Separator({ className }: { className?: string }) {
@@ -200,5 +200,5 @@ function Separator({ className }: { className?: string }) {
         className
       )}
     />
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import type { Testimonial } from "../types/testimonials";
+import type { Testimonial } from "../types/testimonials"
 
 /**
  * TESTIMONIALS_1: Long quotes (more than 50 characters)
@@ -135,7 +135,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/orcdev/status/2011373509310878010",
     quote: "@iamncdai is one of the best design engineers!",
   },
-];
+]
 
 // Short quotes (50 characters or fewer)
 export const TESTIMONIALS_2: Testimonial[] = [
@@ -235,4 +235,4 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/shadcn/status/2011452657702154747",
     quote: "Congrats. Way to go.",
   },
-];
+]

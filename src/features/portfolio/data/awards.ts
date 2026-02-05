@@ -1,4 +1,4 @@
-import type { Award } from "../types/awards";
+import type { Award } from "../types/awards"
 
 export const AWARDS: Award[] = [
   {
@@ -285,4 +285,4 @@ export const AWARDS: Award[] = [
     referenceLink:
       "https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker",
   },
-];
+]

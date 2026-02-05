@@ -3,7 +3,7 @@ import {
   MarqueeContent,
   MarqueeFade,
   MarqueeItem,
-} from "@/components/kibo-ui/marquee";
+} from "@/components/kibo-ui/marquee"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -14,7 +14,7 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/testimonials-marquee";
+} from "@/registry/testimonials-marquee"
 
 export default function TestimonialsMarqueeDemo2() {
   return (
@@ -64,7 +64,7 @@ export default function TestimonialsMarqueeDemo2() {
         </Marquee>
       ))}
     </div>
-  );
+  )
 }
 
 const TESTIMONIALS_1 = [
@@ -129,7 +129,7 @@ const TESTIMONIALS_1 = [
     quote:
       "Everything you'd want in a picker, minus the styling headaches. Awesome job!",
   },
-];
+]
 
 export const TESTIMONIALS_2 = [
   {
@@ -180,4 +180,4 @@ export const TESTIMONIALS_2 = [
     url: "https://x.com/zaidmukaddam/status/1984599685974409374",
     quote: "super clean",
   },
-];
+]

@@ -1,16 +1,16 @@
-import { format } from "date-fns";
-import Image from "next/image";
-import Link from "next/link";
+import { format } from "date-fns"
+import Image from "next/image"
+import Link from "next/link"
 
-import type { Post } from "@/features/blog/types/post";
-import { cn } from "@/lib/utils";
+import type { Post } from "@/features/blog/types/post"
+import { cn } from "@/lib/utils"
 
 export function PostItem({
   post,
   shouldPreloadImage,
 }: {
-  post: Post;
-  shouldPreloadImage?: boolean;
+  post: Post
+  shouldPreloadImage?: boolean
 }) {
   return (
     <Link
@@ -64,5 +64,5 @@ export function PostItem({
         </dl>
       </div>
     </Link>
-  );
+  )
 }

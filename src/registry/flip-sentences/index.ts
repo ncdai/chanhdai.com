@@ -1,1 +1,1 @@
-export * from "./flip-sentences";
+export * from "./flip-sentences"

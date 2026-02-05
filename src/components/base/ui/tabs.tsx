@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
+import { Tabs as TabsPrimitive } from "@base-ui/react/tabs"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 function Tabs({ className, ...props }: TabsPrimitive.Root.Props) {
   return (
@@ -11,7 +11,7 @@ function Tabs({ className, ...props }: TabsPrimitive.Root.Props) {
       className={cn("flex flex-col gap-2", className)}
       {...props}
     />
-  );
+  )
 }
 
 function TabsList({ className, ...props }: TabsPrimitive.List.Props) {
@@ -25,7 +25,7 @@ function TabsList({ className, ...props }: TabsPrimitive.List.Props) {
       )}
       {...props}
     />
-  );
+  )
 }
 
 function TabsIndicator({ className, ...props }: TabsPrimitive.Indicator.Props) {
@@ -38,7 +38,7 @@ function TabsIndicator({ className, ...props }: TabsPrimitive.Indicator.Props) {
       )}
       {...props}
     />
-  );
+  )
 }
 
 function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
@@ -51,7 +51,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
       )}
       {...props}
     />
-  );
+  )
 }
 
 function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {
@@ -61,7 +61,7 @@ function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {
       className={cn("flex-1 outline-none", className)}
       {...props}
     />
-  );
+  )
 }
 
-export { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger };
+export { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger }

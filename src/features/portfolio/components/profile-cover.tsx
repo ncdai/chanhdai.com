@@ -1,7 +1,7 @@
-import { BrandContextMenu } from "@/components/brand-context-menu";
-import { ChanhDaiMark } from "@/components/chanhdai-mark";
-import { Magnet } from "@/components/react-bits/magnet";
-import { cn } from "@/lib/utils";
+import { BrandContextMenu } from "@/components/brand-context-menu"
+import { ChanhDaiMark } from "@/components/chanhdai-mark"
+import { Magnet } from "@/components/react-bits/magnet"
+import { cn } from "@/lib/utils"
 
 export function ProfileCover() {
   return (
@@ -22,5 +22,5 @@ export function ProfileCover() {
         </Magnet>
       </div>
     </BrandContextMenu>
-  );
+  )
 }

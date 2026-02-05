@@ -1,30 +1,30 @@
-import dynamic from "next/dynamic";
-import Link from "next/link";
+import dynamic from "next/dynamic"
+import Link from "next/link"
 
-import { DesktopNav } from "@/components/desktop-nav";
-import { NavItemGitHub } from "@/components/nav-item-github";
-import { MAIN_NAV } from "@/config/site";
-import { getAllPosts } from "@/features/blog/data/posts";
-import { cn } from "@/lib/utils";
+import { DesktopNav } from "@/components/desktop-nav"
+import { NavItemGitHub } from "@/components/nav-item-github"
+import { MAIN_NAV } from "@/config/site"
+import { getAllPosts } from "@/features/blog/data/posts"
+import { cn } from "@/lib/utils"
 
-import { SiteHeaderMark } from "./site-header-mark";
-import { SiteHeaderWrapper } from "./site-header-wrapper";
-import { ThemeToggle } from "./theme-toggle";
+import { SiteHeaderMark } from "./site-header-mark"
+import { SiteHeaderWrapper } from "./site-header-wrapper"
+import { ThemeToggle } from "./theme-toggle"
 
 const BrandContextMenu = dynamic(() =>
   import("@/components/brand-context-menu").then((mod) => mod.BrandContextMenu)
-);
+)
 
 const CommandMenu = dynamic(() =>
   import("@/components/command-menu").then((mod) => mod.CommandMenu)
-);
+)
 
 const MobileNav = dynamic(() =>
   import("@/components/mobile-nav").then((mod) => mod.MobileNav)
-);
+)
 
 export function SiteHeader() {
-  const posts = getAllPosts();
+  const posts = getAllPosts()
 
   return (
     <SiteHeaderWrapper
@@ -62,5 +62,5 @@ export function SiteHeader() {
         </div>
       </div>
     </SiteHeaderWrapper>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import { RssIcon } from "lucide-react";
-import Link from "next/link";
+import { RssIcon } from "lucide-react"
+import Link from "next/link"
 
-import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site";
-import { cn } from "@/lib/utils";
+import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site"
+import { cn } from "@/lib/utils"
 
-import { Icons } from "./icons";
+import { Icons } from "./icons"
 
 export function SiteFooter() {
   return (
@@ -145,9 +145,9 @@ export function SiteFooter() {
         <div className="flex h-2" />
       </div>
     </footer>
-  );
+  )
 }
 
 function Separator({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("flex h-11 w-px bg-edge", className)} {...props} />;
+  return <div className={cn("flex h-11 w-px bg-edge", className)} {...props} />
 }

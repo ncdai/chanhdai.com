@@ -81,7 +81,7 @@ import {
   WheelPicker,
   WheelPickerWrapper,
   type WheelPickerOption,
-} from "@/components/ncdai/wheel-picker";
+} from "@/components/ncdai/wheel-picker"
 ```
 
 ```tsx
@@ -102,16 +102,16 @@ const options: WheelPickerOption[] = [
     label: "Svelte",
     value: "svelte",
   },
-];
+]
 
 export function WheelPickerDemo() {
-  const [value, setValue] = useState("react");
+  const [value, setValue] = useState("react")
 
   return (
     <WheelPickerWrapper>
       <WheelPicker options={options} value={value} onValueChange={setValue} />
     </WheelPickerWrapper>
-  );
+  )
 }
 ```
 

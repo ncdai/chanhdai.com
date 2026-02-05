@@ -1,17 +1,17 @@
-import { Maximize2Icon } from "lucide-react";
-import Link from "next/link";
+import { Maximize2Icon } from "lucide-react"
+import Link from "next/link"
 
 import {
   Marquee,
   MarqueeContent,
   MarqueeFade,
   MarqueeItem,
-} from "@/components/kibo-ui/marquee";
-import { Button } from "@/components/ui/button";
+} from "@/components/kibo-ui/marquee"
+import { Button } from "@/components/ui/button"
 
-import { TESTIMONIALS_1, TESTIMONIALS_2 } from "../../data/testimonials";
-import { Panel } from "../panel";
-import { TestimonialItem } from "./testimonial-item";
+import { TESTIMONIALS_1, TESTIMONIALS_2 } from "../../data/testimonials"
+import { Panel } from "../panel"
+import { TestimonialItem } from "./testimonial-item"
 
 export function TestimonialsMarquee() {
   return (
@@ -70,5 +70,5 @@ export function TestimonialsMarquee() {
         </Link>
       </Button>
     </Panel>
-  );
+  )
 }

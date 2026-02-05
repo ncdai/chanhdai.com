@@ -1,4 +1,4 @@
-import type { SocialLink } from "../types/social-links";
+import type { SocialLink } from "../types/social-links"
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
@@ -37,4 +37,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
     description: "@ncdai",
     href: "https://www.youtube.com/@ncdai",
   },
-];
+]

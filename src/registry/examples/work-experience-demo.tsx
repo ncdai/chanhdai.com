@@ -1,5 +1,5 @@
-import type { ExperienceItemType } from "@/registry/work-experience";
-import { WorkExperience } from "@/registry/work-experience";
+import type { ExperienceItemType } from "@/registry/work-experience"
+import { WorkExperience } from "@/registry/work-experience"
 
 const WORK_EXPERIENCE: ExperienceItemType[] = [
   {
@@ -64,8 +64,8 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
     ],
     isCurrentEmployer: true,
   },
-];
+]
 
 export default function WorkExperienceDemo() {
-  return <WorkExperience className="w-full" experiences={WORK_EXPERIENCE} />;
+  return <WorkExperience className="w-full" experiences={WORK_EXPERIENCE} />
 }

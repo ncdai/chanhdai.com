@@ -1,1 +1,1 @@
-export * from "./scroll-fade-effect";
+export * from "./scroll-fade-effect"

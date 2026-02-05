@@ -1,17 +1,17 @@
-import Image from "next/image";
+import Image from "next/image"
 
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip";
-import { UTM_PARAMS } from "@/config/site";
-import { USER } from "@/features/portfolio/data/user";
-import { FlipSentences } from "@/registry/flip-sentences";
-import { addQueryParams } from "@/utils/url";
+} from "@/components/base/ui/tooltip"
+import { UTM_PARAMS } from "@/config/site"
+import { USER } from "@/features/portfolio/data/user"
+import { FlipSentences } from "@/registry/flip-sentences"
+import { addQueryParams } from "@/utils/url"
 
-import { PronounceMyName } from "./pronounce-my-name";
-import { VerifiedIcon } from "./verified-icon";
+import { PronounceMyName } from "./pronounce-my-name"
+import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
   return (
@@ -131,5 +131,5 @@ export function ProfileHeader() {
         </div>
       </div>
     </div>
-  );
+  )
 }

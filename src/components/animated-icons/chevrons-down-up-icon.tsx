@@ -1,27 +1,27 @@
-"use client";
+"use client"
 
-import { motion, useAnimation } from "motion/react";
-import { forwardRef, useImperativeHandle } from "react";
+import { motion, useAnimation } from "motion/react"
+import { forwardRef, useImperativeHandle } from "react"
 
 export type ChevronsDownUpIconHandle = {
-  startAnimation: () => void;
-  stopAnimation: () => void;
-};
+  startAnimation: () => void
+  stopAnimation: () => void
+}
 
-export type ChevronsDownUpIconProps = React.ComponentProps<"svg">;
+export type ChevronsDownUpIconProps = React.ComponentProps<"svg">
 
 const ChevronsDownUpIcon = forwardRef<
   ChevronsDownUpIconHandle,
   ChevronsDownUpIconProps
 >((props, ref) => {
-  const controls = useAnimation();
+  const controls = useAnimation()
 
   useImperativeHandle(ref, () => {
     return {
       startAnimation: () => controls.start("animate"),
       stopAnimation: () => controls.start("normal"),
-    };
-  });
+    }
+  })
 
   return (
     <svg
@@ -69,9 +69,9 @@ const ChevronsDownUpIcon = forwardRef<
         }}
       />
     </svg>
-  );
-});
+  )
+})
 
-ChevronsDownUpIcon.displayName = "ChevronsDownUpIcon";
+ChevronsDownUpIcon.displayName = "ChevronsDownUpIcon"
 
-export { ChevronsDownUpIcon };
+export { ChevronsDownUpIcon }

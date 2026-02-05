@@ -1,11 +1,11 @@
-import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import rehypeExternalLinks from "rehype-external-links";
-import type { LineElement } from "rehype-pretty-code";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeSlug from "rehype-slug";
-import remarkGfm from "remark-gfm";
-import { visit } from "unist-util-visit";
+import type { MDXRemoteProps } from "next-mdx-remote/rsc"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import rehypeExternalLinks from "rehype-external-links"
+import type { LineElement } from "rehype-pretty-code"
+import rehypePrettyCode from "rehype-pretty-code"
+import rehypeSlug from "rehype-slug"
+import remarkGfm from "remark-gfm"
+import { visit } from "unist-util-visit"
 
 import {
   Tabs,
@@ -13,9 +13,9 @@ import {
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/components/base/ui/tabs";
-import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
-import { ComponentSource } from "@/components/component-source";
+} from "@/components/base/ui/tabs"
+import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
+import { ComponentSource } from "@/components/component-source"
 import {
   Table,
   TableBody,
@@ -23,14 +23,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Code, Heading } from "@/components/ui/typography";
-import { UTM_PARAMS } from "@/config/site";
-import { rehypeAddQueryParams } from "@/lib/rehype-add-query-params";
-import { rehypeComponent } from "@/lib/rehype-component";
-import { rehypeNpmCommand } from "@/lib/rehype-npm-command";
-import { remarkCodeImport } from "@/lib/remark-code-import";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/table"
+import { Code, Heading } from "@/components/ui/typography"
+import { UTM_PARAMS } from "@/config/site"
+import { rehypeAddQueryParams } from "@/lib/rehype-add-query-params"
+import { rehypeComponent } from "@/lib/rehype-component"
+import { rehypeNpmCommand } from "@/lib/rehype-npm-command"
+import { remarkCodeImport } from "@/lib/remark-code-import"
+import { cn } from "@/lib/utils"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -41,15 +41,15 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/testimonials-marquee";
-import type { NpmCommands } from "@/types/unist";
+} from "@/registry/testimonials-marquee"
+import type { NpmCommands } from "@/types/unist"
 
-import { CodeBlockCommand } from "./code-block-command";
-import { CodeTabs } from "./code-tabs";
-import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2";
-import { CopyButton } from "./copy-button";
-import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed";
-import { getIconForLanguageExtension } from "./icons";
+import { CodeBlockCommand } from "./code-block-command"
+import { CodeTabs } from "./code-tabs"
+import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2"
+import { CopyButton } from "./copy-button"
+import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed"
+import { getIconForLanguageExtension } from "./icons"
 
 const components: MDXRemoteProps["components"] = {
   h1: (props: React.ComponentProps<"h1">) => <Heading as="h1" {...props} />,
@@ -65,29 +65,29 @@ const components: MDXRemoteProps["components"] = {
   th: TableHead,
   td: TableCell,
   figure({ className, ...props }: React.ComponentProps<"figure">) {
-    const hasPrettyCode = "data-rehype-pretty-code-figure" in props;
+    const hasPrettyCode = "data-rehype-pretty-code-figure" in props
 
     return (
       <figure
         className={cn(hasPrettyCode && "not-prose", className)}
         {...props}
       />
-    );
+    )
   },
   figcaption: ({ children, ...props }: React.ComponentProps<"figcaption">) => {
     const iconExtension =
       "data-language" in props && typeof props["data-language"] === "string"
         ? getIconForLanguageExtension(props["data-language"])
-        : null;
+        : null
 
-    const hasCodeTitle = "data-rehype-pretty-code-title" in props;
+    const hasCodeTitle = "data-rehype-pretty-code-title" in props
 
     return (
       <figcaption {...props}>
         {iconExtension}
         {hasCodeTitle ? <p className="truncate">{children}</p> : children}
       </figcaption>
-    );
+    )
   },
   pre({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -101,10 +101,10 @@ const components: MDXRemoteProps["components"] = {
 
     ...props
   }: React.ComponentProps<"pre"> & {
-    __withMeta__?: boolean;
-    __rawString__?: string;
+    __withMeta__?: boolean
+    __rawString__?: string
   } & NpmCommands) {
-    const isNpmCommand = __pnpm__ && __yarn__ && __npm__ && __bun__;
+    const isNpmCommand = __pnpm__ && __yarn__ && __npm__ && __bun__
 
     if (isNpmCommand) {
       return (
@@ -114,7 +114,7 @@ const components: MDXRemoteProps["components"] = {
           __npm__={__npm__}
           __bun__={__bun__}
         />
-      );
+      )
     }
 
     return (
@@ -129,7 +129,7 @@ const components: MDXRemoteProps["components"] = {
           />
         )}
       </>
-    );
+    )
   },
   code: Code,
   ComponentPreview,
@@ -169,7 +169,7 @@ const components: MDXRemoteProps["components"] = {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-};
+}
 
 const options: MDXRemoteProps["options"] = {
   mdxOptions: {
@@ -184,14 +184,14 @@ const options: MDXRemoteProps["options"] = {
       () => (tree) => {
         visit(tree, (node) => {
           if (node?.type === "element" && node?.tagName === "pre") {
-            const [codeEl] = node.children;
+            const [codeEl] = node.children
             if (codeEl.tagName !== "code") {
-              return;
+              return
             }
 
-            node.__rawString__ = codeEl.children?.[0].value;
+            node.__rawString__ = codeEl.children?.[0].value
           }
-        });
+        })
       },
       [
         rehypePrettyCode,
@@ -205,7 +205,7 @@ const options: MDXRemoteProps["options"] = {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
-              node.children = [{ type: "text", value: " " }];
+              node.children = [{ type: "text", value: " " }]
             }
           },
         },
@@ -214,26 +214,26 @@ const options: MDXRemoteProps["options"] = {
         visit(tree, (node) => {
           if (node?.type === "element" && node?.tagName === "figure") {
             if (!("data-rehype-pretty-code-figure" in node.properties)) {
-              return;
+              return
             }
 
-            const preElement = node.children.at(-1);
+            const preElement = node.children.at(-1)
             if (preElement.tagName !== "pre") {
-              return;
+              return
             }
 
             preElement.properties["__withMeta__"] =
-              node.children.at(0).tagName === "figcaption";
-            preElement.properties["__rawString__"] = node.__rawString__;
+              node.children.at(0).tagName === "figcaption"
+            preElement.properties["__rawString__"] = node.__rawString__
           }
-        });
+        })
       },
       rehypeNpmCommand,
       [rehypeAddQueryParams, UTM_PARAMS],
     ],
   },
-};
+}
 
 export function MDX({ code }: { code: string }) {
-  return <MDXRemote source={code} components={components} options={options} />;
+  return <MDXRemote source={code} components={components} options={options} />
 }

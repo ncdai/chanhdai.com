@@ -1,28 +1,28 @@
-"use client";
+"use client"
 
-import { ArrowUpIcon } from "lucide-react";
-import { useMotionValueEvent, useScroll } from "motion/react";
-import { useState } from "react";
+import { ArrowUpIcon } from "lucide-react"
+import { useMotionValueEvent, useScroll } from "motion/react"
+import { useState } from "react"
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 export function ScrollToTop({
   className,
   ...props
 }: React.ComponentProps<"button">) {
-  const { scrollY } = useScroll();
+  const { scrollY } = useScroll()
 
-  const [visible, setVisible] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState<"up" | "down">("down");
+  const [visible, setVisible] = useState(false)
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down">("down")
 
   useMotionValueEvent(scrollY, "change", (latestValue) => {
-    setVisible(latestValue >= 400);
+    setVisible(latestValue >= 400)
 
-    const prev = scrollY.getPrevious() ?? 0;
-    const diff = latestValue - prev;
-    setScrollDirection(diff > 0 ? "down" : "up");
-  });
+    const prev = scrollY.getPrevious() ?? 0
+    const diff = latestValue - prev
+    setScrollDirection(diff > 0 ? "down" : "up")
+  })
 
   return (
     <Button
@@ -43,5 +43,5 @@ export function ScrollToTop({
       <ArrowUpIcon className="size-5" />
       <span className="sr-only">Scroll to top</span>
     </Button>
-  );
+  )
 }

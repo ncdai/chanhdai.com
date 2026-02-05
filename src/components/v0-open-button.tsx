@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 
-import { Icons } from "./icons";
+import { Icons } from "./icons"
 
 export function OpenInV0Button({ url }: { url: string }) {
   return (
@@ -20,5 +20,5 @@ export function OpenInV0Button({ url }: { url: string }) {
         <Icons.v0 className="size-5" />
       </a>
     </Button>
-  );
+  )
 }

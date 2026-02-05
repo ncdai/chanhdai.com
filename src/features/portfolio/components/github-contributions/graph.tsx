@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { format } from "date-fns";
-import { LoaderIcon } from "lucide-react";
-import { use } from "react";
+import { format } from "date-fns"
+import { LoaderIcon } from "lucide-react"
+import { use } from "react"
 
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip";
-import type { Activity } from "@/components/kibo-ui/contribution-graph";
+} from "@/components/base/ui/tooltip"
+import type { Activity } from "@/components/kibo-ui/contribution-graph"
 import {
   ContributionGraph,
   ContributionGraphBlock,
@@ -17,16 +17,16 @@ import {
   ContributionGraphFooter,
   ContributionGraphLegend,
   ContributionGraphTotalCount,
-} from "@/components/kibo-ui/contribution-graph";
-import { GITHUB_USERNAME, UTM_PARAMS } from "@/config/site";
-import { addQueryParams } from "@/utils/url";
+} from "@/components/kibo-ui/contribution-graph"
+import { GITHUB_USERNAME, UTM_PARAMS } from "@/config/site"
+import { addQueryParams } from "@/utils/url"
 
 export function GitHubContributionGraph({
   contributions,
 }: {
-  contributions: Promise<Activity[]>;
+  contributions: Promise<Activity[]>
 }) {
-  const data = use(contributions);
+  const data = use(contributions)
 
   return (
     <ContributionGraph
@@ -84,7 +84,7 @@ export function GitHubContributionGraph({
         <ContributionGraphLegend />
       </ContributionGraphFooter>
     </ContributionGraph>
-  );
+  )
 }
 
 export function GitHubContributionFallback() {
@@ -92,5 +92,5 @@ export function GitHubContributionFallback() {
     <div className="flex h-40.5 w-full items-center justify-center">
       <LoaderIcon className="animate-spin text-muted-foreground" />
     </div>
-  );
+  )
 }

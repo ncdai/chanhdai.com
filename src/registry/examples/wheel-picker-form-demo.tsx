@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import type { SubmitHandler } from "react-hook-form";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod"
+import type { SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import { z } from "zod"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -14,15 +14,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import type { WheelPickerOption } from "@/registry/wheel-picker";
-import { WheelPicker, WheelPickerWrapper } from "@/registry/wheel-picker";
+} from "@/components/ui/form"
+import type { WheelPickerOption } from "@/registry/wheel-picker"
+import { WheelPicker, WheelPickerWrapper } from "@/registry/wheel-picker"
 
 const formSchema = z.object({
   framework: z.string(),
-});
+})
 
-type FormSchema = z.infer<typeof formSchema>;
+type FormSchema = z.infer<typeof formSchema>
 
 const options: WheelPickerOption[] = [
   {
@@ -57,7 +57,7 @@ const options: WheelPickerOption[] = [
     label: "Gatsby",
     value: "gatsby",
   },
-];
+]
 
 export default function WheelPickerFormDemo() {
   const form = useForm<FormSchema>({
@@ -65,7 +65,7 @@ export default function WheelPickerFormDemo() {
     defaultValues: {
       framework: "nextjs",
     },
-  });
+  })
 
   const onSubmit: SubmitHandler<FormSchema> = (values) => {
     toast("You submitted the following values:", {
@@ -74,8 +74,8 @@ export default function WheelPickerFormDemo() {
           <code className="text-white">{JSON.stringify(values, null, 2)}</code>
         </pre>
       ),
-    });
-  };
+    })
+  }
 
   return (
     <Form {...form}>
@@ -110,5 +110,5 @@ export default function WheelPickerFormDemo() {
         </div>
       </form>
     </Form>
-  );
+  )
 }

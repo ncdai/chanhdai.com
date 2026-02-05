@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react"
 
 /**
  * Cache storage for loaded audio buffers to prevent duplicate network requests and memory usage.
@@ -7,35 +7,35 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const audioCache = new Map<
   string,
   {
-    buffer: AudioBuffer;
-    loading: Promise<AudioBuffer>;
+    buffer: AudioBuffer
+    loading: Promise<AudioBuffer>
   } | null
->();
+>()
 
 /**
  * Shared AudioContext instance to avoid creating multiple contexts.
  * Multiple AudioContexts can cause performance issues and resource exhaustion.
  */
-let sharedAudioContext: AudioContext | null = null;
+let sharedAudioContext: AudioContext | null = null
 
 /**
  * Gets or creates a shared AudioContext instance.
  */
 function getAudioContext(): AudioContext | null {
-  if (sharedAudioContext) return sharedAudioContext;
+  if (sharedAudioContext) return sharedAudioContext
 
   const AudioContextClass =
     window.AudioContext ||
     (window as unknown as { webkitAudioContext: typeof AudioContext })
-      .webkitAudioContext;
+      .webkitAudioContext
 
   if (!AudioContextClass) {
-    console.warn("Web Audio API is not supported in this browser.");
-    return null;
+    console.warn("Web Audio API is not supported in this browser.")
+    return null
   }
 
-  sharedAudioContext = new AudioContextClass();
-  return sharedAudioContext;
+  sharedAudioContext = new AudioContextClass()
+  return sharedAudioContext
 }
 
 /**
@@ -61,32 +61,32 @@ function getAudioContext(): AudioContext | null {
  * ```
  */
 export function useSound(url: string) {
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const bufferRef = useRef<AudioBuffer | null>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null)
+  const bufferRef = useRef<AudioBuffer | null>(null)
 
   useEffect(() => {
-    const audioCtx = getAudioContext();
-    if (!audioCtx) return;
+    const audioCtx = getAudioContext()
+    if (!audioCtx) return
 
-    audioCtxRef.current = audioCtx;
+    audioCtxRef.current = audioCtx
 
     // Check if already cached
-    const cached = audioCache.get(url);
+    const cached = audioCache.get(url)
     if (cached?.buffer) {
-      bufferRef.current = cached.buffer;
-      return;
+      bufferRef.current = cached.buffer
+      return
     }
 
     // Check if already loading
     if (cached?.loading) {
       cached.loading
         .then((decoded) => {
-          bufferRef.current = decoded;
+          bufferRef.current = decoded
         })
         .catch(() => {
           // Error already logged during fetch
-        });
-      return;
+        })
+      return
     }
 
     // Start loading
@@ -95,36 +95,36 @@ export function useSound(url: string) {
       .then((data) => audioCtx.decodeAudioData(data))
       .then((decoded) => {
         // Store in cache
-        audioCache.set(url, { buffer: decoded, loading: loadingPromise });
-        bufferRef.current = decoded;
-        return decoded;
+        audioCache.set(url, { buffer: decoded, loading: loadingPromise })
+        bufferRef.current = decoded
+        return decoded
       })
       .catch((err) => {
-        console.log(`Failed to load sound from ${url}:`, err);
+        console.log(`Failed to load sound from ${url}:`, err)
         // Mark as failed in cache
-        audioCache.set(url, null);
-        throw err;
-      });
+        audioCache.set(url, null)
+        throw err
+      })
 
     // Mark as loading in cache
-    audioCache.set(url, { buffer: null!, loading: loadingPromise });
-  }, [url]);
+    audioCache.set(url, { buffer: null!, loading: loadingPromise })
+  }, [url])
 
   const play = useCallback((volume: number = 1) => {
     if (audioCtxRef.current && bufferRef.current) {
-      const source = audioCtxRef.current.createBufferSource();
-      const gainNode = audioCtxRef.current.createGain();
+      const source = audioCtxRef.current.createBufferSource()
+      const gainNode = audioCtxRef.current.createGain()
 
-      source.buffer = bufferRef.current;
-      gainNode.gain.value = volume;
+      source.buffer = bufferRef.current
+      gainNode.gain.value = volume
 
-      source.connect(gainNode);
-      gainNode.connect(audioCtxRef.current.destination);
-      source.start(0);
+      source.connect(gainNode)
+      gainNode.connect(audioCtxRef.current.destination)
+      source.start(0)
     }
-  }, []);
+  }, [])
 
-  return play;
+  return play
 }
 
 /**
@@ -159,144 +159,144 @@ export function useSound(url: string) {
  * ```
  */
 export function useSoundLazy(url: string) {
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const bufferRef = useRef<AudioBuffer | null>(null);
-  const loadingPromiseRef = useRef<Promise<AudioBuffer | void> | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const audioCtxRef = useRef<AudioContext | null>(null)
+  const bufferRef = useRef<AudioBuffer | null>(null)
+  const loadingPromiseRef = useRef<Promise<AudioBuffer | void> | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [isLoaded, setIsLoaded] = useState(() => {
     // Check if already cached on initial render
-    const cached = audioCache.get(url);
-    return !!cached?.buffer;
-  });
+    const cached = audioCache.get(url)
+    return !!cached?.buffer
+  })
 
   useEffect(() => {
     // Initialize AudioContext reference
-    const audioCtx = getAudioContext();
+    const audioCtx = getAudioContext()
     if (audioCtx) {
-      audioCtxRef.current = audioCtx;
+      audioCtxRef.current = audioCtx
     }
 
     // Check if already cached (e.g., loaded by another component)
-    const cached = audioCache.get(url);
+    const cached = audioCache.get(url)
     if (cached?.buffer) {
-      bufferRef.current = cached.buffer;
+      bufferRef.current = cached.buffer
     }
-  }, [url]);
+  }, [url])
 
   const load = useCallback(() => {
     // Early return if already loaded
     if (bufferRef.current) {
-      return Promise.resolve(bufferRef.current);
+      return Promise.resolve(bufferRef.current)
     }
 
     // Return existing loading promise if already loading
     if (loadingPromiseRef.current) {
-      return loadingPromiseRef.current;
+      return loadingPromiseRef.current
     }
 
-    const audioCtx = getAudioContext();
+    const audioCtx = getAudioContext()
     if (!audioCtx) {
-      return Promise.reject(new Error("Web Audio API not supported"));
+      return Promise.reject(new Error("Web Audio API not supported"))
     }
 
-    audioCtxRef.current = audioCtx;
+    audioCtxRef.current = audioCtx
 
     // Check cache
-    const cached = audioCache.get(url);
+    const cached = audioCache.get(url)
     if (cached?.buffer) {
-      bufferRef.current = cached.buffer;
-      setIsLoaded(true);
-      return Promise.resolve(cached.buffer);
+      bufferRef.current = cached.buffer
+      setIsLoaded(true)
+      return Promise.resolve(cached.buffer)
     }
 
     // Check if already loading by another component
     if (cached?.loading) {
-      setIsLoading(true);
+      setIsLoading(true)
       const promise = cached.loading
         .then((decoded) => {
-          bufferRef.current = decoded;
-          setIsLoaded(true);
-          return decoded;
+          bufferRef.current = decoded
+          setIsLoaded(true)
+          return decoded
         })
         .catch((err) => {
           // Error already logged during fetch
-          throw err;
+          throw err
         })
         .finally(() => {
-          setIsLoading(false);
-          loadingPromiseRef.current = null;
-        });
+          setIsLoading(false)
+          loadingPromiseRef.current = null
+        })
 
-      loadingPromiseRef.current = promise;
-      return promise;
+      loadingPromiseRef.current = promise
+      return promise
     }
 
     // Start new load
-    setIsLoading(true);
+    setIsLoading(true)
     const loadingPromise = fetch(url)
       .then((res) => res.arrayBuffer())
       .then((data) => audioCtx.decodeAudioData(data))
       .then((decoded) => {
-        audioCache.set(url, { buffer: decoded, loading: loadingPromise });
-        bufferRef.current = decoded;
-        setIsLoaded(true);
-        return decoded;
+        audioCache.set(url, { buffer: decoded, loading: loadingPromise })
+        bufferRef.current = decoded
+        setIsLoaded(true)
+        return decoded
       })
       .catch((err) => {
-        console.log(`Failed to load sound from ${url}:`, err);
-        audioCache.set(url, null);
-        throw err;
+        console.log(`Failed to load sound from ${url}:`, err)
+        audioCache.set(url, null)
+        throw err
       })
       .finally(() => {
-        setIsLoading(false);
-        loadingPromiseRef.current = null;
-      });
+        setIsLoading(false)
+        loadingPromiseRef.current = null
+      })
 
     // Mark as loading in cache
-    audioCache.set(url, { buffer: null!, loading: loadingPromise });
-    loadingPromiseRef.current = loadingPromise;
-    return loadingPromise;
-  }, [url]);
+    audioCache.set(url, { buffer: null!, loading: loadingPromise })
+    loadingPromiseRef.current = loadingPromise
+    return loadingPromise
+  }, [url])
 
   const preload = useCallback(() => {
     load().catch(() => {
       // Error already logged in load()
-    });
-  }, [load]);
+    })
+  }, [load])
 
   const play = useCallback(
     (volume: number = 1) => {
       const playSound = () => {
         if (audioCtxRef.current && bufferRef.current) {
-          const source = audioCtxRef.current.createBufferSource();
-          const gainNode = audioCtxRef.current.createGain();
+          const source = audioCtxRef.current.createBufferSource()
+          const gainNode = audioCtxRef.current.createGain()
 
-          source.buffer = bufferRef.current;
-          gainNode.gain.value = volume;
+          source.buffer = bufferRef.current
+          gainNode.gain.value = volume
 
-          source.connect(gainNode);
-          gainNode.connect(audioCtxRef.current.destination);
-          source.start(0);
+          source.connect(gainNode)
+          gainNode.connect(audioCtxRef.current.destination)
+          source.start(0)
         }
-      };
+      }
 
       // If already loaded, play immediately
       if (bufferRef.current) {
-        playSound();
-        return;
+        playSound()
+        return
       }
 
       // Auto-load fallback: load then play
       load()
         .then(() => {
-          playSound();
+          playSound()
         })
         .catch(() => {
           // Error already logged in load()
-        });
+        })
     },
     [load]
-  );
+  )
 
-  return { play, preload, isLoading, isLoaded };
+  return { play, preload, isLoading, isLoaded }
 }

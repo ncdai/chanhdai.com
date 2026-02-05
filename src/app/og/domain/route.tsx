@@ -1,21 +1,21 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { readFile } from "node:fs/promises"
+import { join } from "node:path"
 
-import { ImageResponse } from "next/og";
+import { ImageResponse } from "next/og"
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+  const { searchParams } = new URL(request.url)
 
-  const domain = searchParams.get("domain");
-  const isForSale = searchParams.get("sale") === "true";
+  const domain = searchParams.get("domain")
+  const isForSale = searchParams.get("sale") === "true"
 
   const magistralMedium = await readFile(
     join(process.cwd(), "src/assets/fonts/Magistral-Medium.ttf")
-  );
+  )
 
   const robotoMedium = await readFile(
     join(process.cwd(), "src/assets/fonts/Roboto-Medium.ttf")
-  );
+  )
 
   return new ImageResponse(
     (
@@ -86,5 +86,5 @@ export async function GET(request: Request) {
         },
       ],
     }
-  );
+  )
 }

@@ -9,13 +9,13 @@
  */
 export type TechStack = {
   /** Unique identifier used to resolve icon files. */
-  key: string;
+  key: string
   /** Display name of the technology. */
-  title: string;
+  title: string
   /** Official website URL. */
-  href: string;
+  href: string
   /** Category tags used for grouping/filtering. */
-  categories: string[];
+  categories: string[]
   /** If true, use theme-specific icons for dark/light mode. */
-  theme?: boolean;
-};
+  theme?: boolean
+}

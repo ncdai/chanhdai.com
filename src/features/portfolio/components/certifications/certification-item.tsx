@@ -1,19 +1,19 @@
-import { format } from "date-fns";
-import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react";
-import Image from "next/image";
+import { format } from "date-fns"
+import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react"
+import Image from "next/image"
 
-import { getIcon } from "@/components/icons";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+import { getIcon } from "@/components/icons"
+import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 
-import type { Certification } from "../../types/certifications";
+import type { Certification } from "../../types/certifications"
 
 export function CertificationItem({
   className,
   certification,
 }: {
-  className?: string;
-  certification: Certification;
+  className?: string
+  certification: Certification
 }) {
   return (
     <a
@@ -86,5 +86,5 @@ export function CertificationItem({
         />
       )}
     </a>
-  );
+  )
 }

@@ -1,19 +1,19 @@
-import { format } from "date-fns";
-import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react";
+import { format } from "date-fns"
+import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react"
 
-import { getIcon } from "@/components/icons";
-import { Separator } from "@/components/ui/separator";
-import { UTM_PARAMS } from "@/config/site";
-import type { Bookmark } from "@/features/portfolio/types/bookmarks";
-import { cn } from "@/lib/utils";
-import { addQueryParams } from "@/utils/url";
+import { getIcon } from "@/components/icons"
+import { Separator } from "@/components/ui/separator"
+import { UTM_PARAMS } from "@/config/site"
+import type { Bookmark } from "@/features/portfolio/types/bookmarks"
+import { cn } from "@/lib/utils"
+import { addQueryParams } from "@/utils/url"
 
 export function BookmarkItem({
   className,
   bookmark,
 }: {
-  className?: string;
-  bookmark: Bookmark;
+  className?: string
+  bookmark: Bookmark
 }) {
   return (
     <a
@@ -72,5 +72,5 @@ export function BookmarkItem({
         aria-hidden
       />
     </a>
-  );
+  )
 }

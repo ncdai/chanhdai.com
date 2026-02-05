@@ -1,15 +1,15 @@
-import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react"
+import Link from "next/link"
 
-import { ComponentIcon } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import { getPostsByCategory } from "@/features/blog/data/posts";
-import { cn } from "@/lib/utils";
+import { ComponentIcon } from "@/components/icons"
+import { Button } from "@/components/ui/button"
+import { getPostsByCategory } from "@/features/blog/data/posts"
+import { cn } from "@/lib/utils"
 
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel";
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Components() {
-  const posts = getPostsByCategory("components");
+  const posts = getPostsByCategory("components")
 
   return (
     <Panel id="components">
@@ -71,5 +71,5 @@ export function Components() {
         </Button>
       </div>
     </Panel>
-  );
+  )
 }

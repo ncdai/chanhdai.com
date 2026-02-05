@@ -2,15 +2,15 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip";
-import { Button } from "@/components/ui/button";
-import { UTM_PARAMS } from "@/config/site";
-import { addQueryParams } from "@/utils/url";
+} from "@/components/base/ui/tooltip"
+import { Button } from "@/components/ui/button"
+import { UTM_PARAMS } from "@/config/site"
+import { addQueryParams } from "@/utils/url"
 
 type GitHubStarsProps = {
-  repo: string;
-  stargazersCount: number;
-};
+  repo: string
+  stargazersCount: number
+}
 
 export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
   return (
@@ -46,5 +46,5 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
         {new Intl.NumberFormat("en-US").format(stargazersCount)} stars
       </TooltipContent>
     </Tooltip>
-  );
+  )
 }

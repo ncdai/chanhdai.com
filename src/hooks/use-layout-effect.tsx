@@ -1,5 +1,5 @@
 // This code comes from https://github.com/radix-ui/primitives/blob/main/packages/react/use-layout-effect/src/use-layout-effect.tsx
-import * as React from "react";
+import * as React from "react"
 
 /**
  * On the server, React emits a warning when calling `useLayoutEffect`.
@@ -8,6 +8,6 @@ import * as React from "react";
  *
  * See: https://reactjs.org/docs/hooks-reference.html#uselayouteffect
  */
-const useLayoutEffect = globalThis?.document ? React.useLayoutEffect : () => {};
+const useLayoutEffect = globalThis?.document ? React.useLayoutEffect : () => {}
 
-export { useLayoutEffect };
+export { useLayoutEffect }

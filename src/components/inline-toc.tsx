@@ -1,14 +1,14 @@
-import type { TOCItemType } from "fumadocs-core/toc";
-import { TextIcon } from "lucide-react";
+import type { TOCItemType } from "fumadocs-core/toc"
+import { TextIcon } from "lucide-react"
 
-import type { Collapsible } from "@/components/ui/collapsible";
+import type { Collapsible } from "@/components/ui/collapsible"
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-} from "@/components/ui/collapsible";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/collapsible"
+import { cn } from "@/lib/utils"
 
 export function InlineTOC({
   items,
@@ -16,10 +16,10 @@ export function InlineTOC({
   children,
   ...props
 }: React.ComponentProps<typeof Collapsible> & {
-  items: TOCItemType[];
+  items: TOCItemType[]
 }) {
   if (!items.length) {
-    return null;
+    return null
   }
 
   return (
@@ -56,5 +56,5 @@ export function InlineTOC({
         </ul>
       </CollapsibleContent>
     </CollapsibleWithContext>
-  );
+  )
 }

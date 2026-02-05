@@ -1,17 +1,17 @@
-import { format } from "date-fns";
+import { format } from "date-fns"
 
-import { SITE_INFO } from "@/config/site";
-import { getAllPosts } from "@/features/blog/data/posts";
-import { getLLMText } from "@/features/blog/lib/get-llm-text";
-import { AWARDS } from "@/features/portfolio/data/awards";
-import { CERTIFICATIONS } from "@/features/portfolio/data/certifications";
-import { EXPERIENCES } from "@/features/portfolio/data/experiences";
-import { PROJECTS } from "@/features/portfolio/data/projects";
-import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
-import { TECH_STACK } from "@/features/portfolio/data/tech-stack";
-import { USER } from "@/features/portfolio/data/user";
+import { SITE_INFO } from "@/config/site"
+import { getAllPosts } from "@/features/blog/data/posts"
+import { getLLMText } from "@/features/blog/lib/get-llm-text"
+import { AWARDS } from "@/features/portfolio/data/awards"
+import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
+import { EXPERIENCES } from "@/features/portfolio/data/experiences"
+import { PROJECTS } from "@/features/portfolio/data/projects"
+import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
+import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
+import { USER } from "@/features/portfolio/data/user"
 
-const allPosts = getAllPosts();
+const allPosts = getAllPosts()
 
 const aboutText = `## About
 
@@ -31,37 +31,37 @@ ${SOCIAL_LINKS.map((item) => `- [${item.title}](${item.href})`).join("\n")}
 
 ### Tech Stack
 
-${TECH_STACK.map((item) => `- [${item.title}](${item.href})`).join("\n")}\n`;
+${TECH_STACK.map((item) => `- [${item.title}](${item.href})`).join("\n")}\n`
 
 const experienceText = `## Experience
 
 ${EXPERIENCES.map((item) =>
   item.positions
     .map((position) => {
-      const skills = position.skills?.map((skill) => skill).join(", ") || "N/A";
-      return `### ${position.title} | ${item.companyName}\n\nDuration: ${position.employmentPeriod.start} - ${position.employmentPeriod.end || "Present"}\n\nSkills: ${skills}\n\n${position.description?.trim()}`;
+      const skills = position.skills?.map((skill) => skill).join(", ") || "N/A"
+      return `### ${position.title} | ${item.companyName}\n\nDuration: ${position.employmentPeriod.start} - ${position.employmentPeriod.end || "Present"}\n\nSkills: ${skills}\n\n${position.description?.trim()}`
     })
     .join("\n\n")
 ).join("\n\n")}
-`;
+`
 
 const projectsText = `## Projects
 
 ${PROJECTS.map((item) => {
-  const skills = `\n\nSkills: ${item.skills.join(", ")}`;
-  const description = item.description ? `\n\n${item.description.trim()}` : "";
-  return `### ${item.title}\n\nProject URL: ${item.link}${skills}${description}`;
+  const skills = `\n\nSkills: ${item.skills.join(", ")}`
+  const description = item.description ? `\n\n${item.description.trim()}` : ""
+  return `### ${item.title}\n\nProject URL: ${item.link}${skills}${description}`
 }).join("\n\n")}
-`;
+`
 
 const awardsText = `## Awards
 
 ${AWARDS.map((item) => `### ${item.prize} | ${item.title}\n\n${item.description}`).join("\n\n")}
-`;
+`
 
 const certificationsText = `## Certifications
 
-${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join("\n")}`;
+${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join("\n")}`
 
 async function getBlogContent() {
   const text = await Promise.all(
@@ -69,8 +69,8 @@ async function getBlogContent() {
       async (item) =>
         `---\ntitle: "${item.metadata.title}"\ndescription: "${item.metadata.description}"\nlast_updated: "${format(new Date(item.metadata.updatedAt), "MMMM d, yyyy")}"\nsource: "${SITE_INFO.url}/blog/${item.slug}"\n---\n\n${await getLLMText(item)}`
     )
-  );
-  return text.join("\n\n");
+  )
+  return text.join("\n\n")
 }
 
 async function getContent() {
@@ -88,15 +88,15 @@ ${certificationsText}
 
 ## Blog
 
-${await getBlogContent()}`;
+${await getBlogContent()}`
 }
 
-export const dynamic = "force-static";
+export const dynamic = "force-static"
 
 export async function GET() {
   return new Response(await getContent(), {
     headers: {
       "Content-Type": "text/markdown;charset=utf-8",
     },
-  });
+  })
 }

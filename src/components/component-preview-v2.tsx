@@ -1,17 +1,17 @@
-"use client";
+"use client"
 
-import { RepeatIcon } from "lucide-react";
-import { useTheme } from "next-themes";
-import React, { useMemo, useState } from "react";
+import { RepeatIcon } from "lucide-react"
+import { useTheme } from "next-themes"
+import React, { useMemo, useState } from "react"
 
-import { Index } from "@/__registry__/index";
-import { cn } from "@/lib/utils";
+import { Index } from "@/__registry__/index"
+import { cn } from "@/lib/utils"
 
-import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper";
-import { Button } from "./ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import { Code as CodeInline } from "./ui/typography";
-import { OpenInV0Button } from "./v0-open-button";
+import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper"
+import { Button } from "./ui/button"
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
+import { Code as CodeInline } from "./ui/typography"
+import { OpenInV0Button } from "./v0-open-button"
 
 export function ComponentPreviewV2({
   className,
@@ -24,33 +24,33 @@ export function ComponentPreviewV2({
   children,
   ...props
 }: React.ComponentProps<"div"> & {
-  name: string;
-  openInV0Url?: string;
-  canReplay?: boolean;
-  notProse?: boolean;
-  codeCollapsible?: boolean;
-  remountOnThemeChange?: boolean;
+  name: string
+  openInV0Url?: string
+  canReplay?: boolean
+  notProse?: boolean
+  codeCollapsible?: boolean
+  remountOnThemeChange?: boolean
 }) {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme()
 
-  const [replay, setReplay] = useState(0);
+  const [replay, setReplay] = useState(0)
 
-  const Codes = React.Children.toArray(children) as React.ReactElement[];
-  const Code = Codes[0];
+  const Codes = React.Children.toArray(children) as React.ReactElement[]
+  const Code = Codes[0]
 
   const Preview = useMemo(() => {
-    const Component = Index[name]?.component;
+    const Component = Index[name]?.component
 
     if (!Component) {
       return (
         <p className="text-sm text-muted-foreground">
           Component <CodeInline>{name}</CodeInline> not found in registry.
         </p>
-      );
+      )
     }
 
-    return <Component />;
-  }, [name]);
+    return <Component />
+  }, [name])
 
   return (
     <div
@@ -114,5 +114,5 @@ export function ComponentPreviewV2({
         )}
       </div>
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
 export const copyText = async (text: string) => {
   try {
-    await navigator.clipboard.writeText(text);
+    await navigator.clipboard.writeText(text)
   } catch {}
-};
+}

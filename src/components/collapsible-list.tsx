@@ -1,15 +1,15 @@
-import { ChevronDownIcon } from "lucide-react";
-import { Slot as SlotPrimitive } from "radix-ui";
-import React from "react";
+import { ChevronDownIcon } from "lucide-react"
+import { Slot as SlotPrimitive } from "radix-ui"
+import React from "react"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from "@/components/ui/collapsible"
 
-const Slot = SlotPrimitive.Slot;
+const Slot = SlotPrimitive.Slot
 
 export function CollapsibleList<T>({
   items,
@@ -18,11 +18,11 @@ export function CollapsibleList<T>({
   keyExtractor,
   renderItem,
 }: {
-  items: T[];
-  max?: number;
+  items: T[]
+  max?: number
 
-  keyExtractor?: (item: T) => string;
-  renderItem: (item: T) => React.ReactNode;
+  keyExtractor?: (item: T) => string
+  renderItem: (item: T) => React.ReactNode
 }) {
   return (
     <Collapsible>
@@ -74,5 +74,5 @@ export function CollapsibleList<T>({
         </div>
       )}
     </Collapsible>
-  );
+  )
 }

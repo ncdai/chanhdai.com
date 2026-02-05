@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 export function IntroItem({
   className,
@@ -9,7 +9,7 @@ export function IntroItem({
       className={cn("flex items-center gap-4 font-mono text-sm", className)}
       {...props}
     />
-  );
+  )
 }
 
 export function IntroItemIcon({
@@ -26,14 +26,14 @@ export function IntroItemIcon({
       aria-hidden="true"
       {...props}
     />
-  );
+  )
 }
 
 export function IntroItemContent({
   className,
   ...props
 }: React.ComponentProps<"p">) {
-  return <p className={cn("text-balance", className)} {...props} />;
+  return <p className={cn("text-balance", className)} {...props} />
 }
 
 export function IntroItemLink({
@@ -47,5 +47,5 @@ export function IntroItemLink({
       rel="noopener noreferrer"
       {...props}
     />
-  );
+  )
 }

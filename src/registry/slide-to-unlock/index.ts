@@ -1,1 +1,1 @@
-export * from "./slide-to-unlock";
+export * from "./slide-to-unlock"

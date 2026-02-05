@@ -3,7 +3,7 @@ import {
   MarqueeContent,
   MarqueeFade,
   MarqueeItem,
-} from "@/components/kibo-ui/marquee";
+} from "@/components/kibo-ui/marquee"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -14,7 +14,7 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/testimonials-marquee";
+} from "@/registry/testimonials-marquee"
 
 export default function TestimonialsMarqueeDemo1() {
   return (
@@ -62,7 +62,7 @@ export default function TestimonialsMarqueeDemo1() {
         </MarqueeContent>
       </Marquee>
     </div>
-  );
+  )
 }
 
 const TESTIMONIALS = [
@@ -127,4 +127,4 @@ const TESTIMONIALS = [
     quote:
       "Everything you'd want in a picker, minus the styling headaches. Awesome job!",
   },
-];
+]

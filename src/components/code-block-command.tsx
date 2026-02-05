@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { useMemo } from "react";
+import { useMemo } from "react"
 
 import {
   Tabs,
@@ -8,13 +8,13 @@ import {
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/components/base/ui/tabs";
-import type { PackageManager } from "@/hooks/use-config";
-import { useConfig } from "@/hooks/use-config";
-import type { NpmCommands } from "@/types/unist";
+} from "@/components/base/ui/tabs"
+import type { PackageManager } from "@/hooks/use-config"
+import { useConfig } from "@/hooks/use-config"
+import type { NpmCommands } from "@/types/unist"
 
-import { CopyButton } from "./copy-button";
-import { getIconForPackageManager } from "./icons";
+import { CopyButton } from "./copy-button"
+import { getIconForPackageManager } from "./icons"
 
 export function CodeBlockCommand({
   __pnpm__,
@@ -22,9 +22,9 @@ export function CodeBlockCommand({
   __npm__,
   __bun__,
 }: NpmCommands) {
-  const [config, setConfig] = useConfig();
+  const [config, setConfig] = useConfig()
 
-  const packageManager = config.packageManager || "pnpm";
+  const packageManager = config.packageManager || "pnpm"
 
   const tabs = useMemo(() => {
     return {
@@ -32,8 +32,8 @@ export function CodeBlockCommand({
       yarn: __yarn__,
       npm: __npm__,
       bun: __bun__,
-    };
-  }, [__pnpm__, __yarn__, __npm__, __bun__]);
+    }
+  }, [__pnpm__, __yarn__, __npm__, __bun__])
 
   return (
     <div className="relative overflow-hidden rounded-xl bg-code">
@@ -44,7 +44,7 @@ export function CodeBlockCommand({
           setConfig((prev) => ({
             ...prev,
             packageManager: value as PackageManager,
-          }));
+          }))
         }}
       >
         <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-border">
@@ -60,7 +60,7 @@ export function CodeBlockCommand({
                 >
                   {key}
                 </TabsTrigger>
-              );
+              )
             })}
 
             <TabsIndicator className="h-0.5 translate-y-0 rounded-none bg-foreground shadow-none dark:bg-foreground" />
@@ -80,7 +80,7 @@ export function CodeBlockCommand({
                 </code>
               </pre>
             </TabsContent>
-          );
+          )
         })}
       </Tabs>
 
@@ -90,5 +90,5 @@ export function CodeBlockCommand({
         event="copy_npm_command"
       />
     </div>
-  );
+  )
 }

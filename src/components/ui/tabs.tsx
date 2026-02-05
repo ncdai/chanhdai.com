@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { Tabs as TabsPrimitive } from "radix-ui";
-import * as React from "react";
+import { Tabs as TabsPrimitive } from "radix-ui"
+import * as React from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 function Tabs({
   className,
@@ -15,7 +15,7 @@ function Tabs({
       className={cn("flex flex-col gap-2", className)}
       {...props}
     />
-  );
+  )
 }
 
 function TabsList({
@@ -32,7 +32,7 @@ function TabsList({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function TabsTrigger({
@@ -49,7 +49,7 @@ function TabsTrigger({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function TabsContent({
@@ -62,7 +62,7 @@ function TabsContent({
       className={cn("flex-1 outline-none", className)}
       {...props}
     />
-  );
+  )
 }
 
-export { Tabs, TabsContent, TabsList, TabsTrigger };
+export { Tabs, TabsContent, TabsList, TabsTrigger }

@@ -5,70 +5,70 @@ import {
   CodeXmlIcon,
   DraftingCompassIcon,
   GraduationCapIcon,
-} from "lucide-react";
-import Image from "next/image";
-import React from "react";
-import ReactMarkdown from "react-markdown";
+} from "lucide-react"
+import Image from "next/image"
+import React from "react"
+import ReactMarkdown from "react-markdown"
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/collapsible"
+import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 
 const iconMap = {
   code: CodeXmlIcon,
   design: DraftingCompassIcon,
   business: BriefcaseBusinessIcon,
   education: GraduationCapIcon,
-} as const;
+} as const
 
 /**
  * Represents the valid keys of the `iconMap` object, used to specify the type of icon
  * associated with an experience position.
  */
-export type ExperiencePositionIconType = keyof typeof iconMap;
+export type ExperiencePositionIconType = keyof typeof iconMap
 
 export type ExperiencePositionItemType = {
   /** Unique identifier for the position */
-  id: string;
+  id: string
   /** The job title or position name */
-  title: string;
+  title: string
   /** The period during which the position was held (e.g., "Jan 2020 - Dec 2021") */
-  employmentPeriod: string;
+  employmentPeriod: string
   /** The type of employment (e.g., "Full-time", "Part-time", "Contract") */
-  employmentType?: string;
+  employmentType?: string
   /** A brief description of the position or responsibilities */
-  description?: string;
+  description?: string
   /** An icon representing the position */
-  icon?: ExperiencePositionIconType;
+  icon?: ExperiencePositionIconType
   /** A list of skills associated with the position */
-  skills?: string[];
+  skills?: string[]
   /** Indicates if the position details are expanded in the UI */
-  isExpanded?: boolean;
-};
+  isExpanded?: boolean
+}
 
 export type ExperienceItemType = {
   /** Unique identifier for the experience item */
-  id: string;
+  id: string
   /** Name of the company where the experience was gained */
-  companyName: string;
+  companyName: string
   /** URL or path to the company's logo image */
-  companyLogo?: string;
+  companyLogo?: string
   /** List of positions held at the company */
-  positions: ExperiencePositionItemType[];
+  positions: ExperiencePositionItemType[]
   /** Indicates if this is the user's current employer */
-  isCurrentEmployer?: boolean;
-};
+  isCurrentEmployer?: boolean
+}
 
 export function WorkExperience({
   className,
   experiences,
 }: {
-  className?: string;
-  experiences: ExperienceItemType[];
+  className?: string
+  experiences: ExperienceItemType[]
 }) {
   return (
     <div className={cn("bg-background px-4", className)}>
@@ -76,13 +76,13 @@ export function WorkExperience({
         <ExperienceItem key={experience.id} experience={experience} />
       ))}
     </div>
-  );
+  )
 }
 
 export function ExperienceItem({
   experience,
 }: {
-  experience: ExperienceItemType;
+  experience: ExperienceItemType
 }) {
   return (
     <div className="space-y-4 py-4">
@@ -125,15 +125,15 @@ export function ExperienceItem({
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 export function ExperiencePositionItem({
   position,
 }: {
-  position: ExperiencePositionItemType;
+  position: ExperiencePositionItemType
 }) {
-  const ExperienceIcon = iconMap[position.icon || "business"];
+  const ExperienceIcon = iconMap[position.icon || "business"]
 
   return (
     <Collapsible defaultOpen={position.isExpanded} asChild>
@@ -206,7 +206,7 @@ export function ExperiencePositionItem({
         )}
       </div>
     </Collapsible>
-  );
+  )
 }
 
 function Prose({ className, ...props }: React.ComponentProps<"div">) {
@@ -220,7 +220,7 @@ function Prose({ className, ...props }: React.ComponentProps<"div">) {
       )}
       {...props}
     />
-  );
+  )
 }
 
 function Skill({ className, ...props }: React.ComponentProps<"span">) {
@@ -232,5 +232,5 @@ function Skill({ className, ...props }: React.ComponentProps<"span">) {
       )}
       {...props}
     />
-  );
+  )
 }

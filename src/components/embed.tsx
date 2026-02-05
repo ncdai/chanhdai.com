@@ -1,13 +1,13 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-import { ImageZoom } from "./kibo-ui/image-zoom";
+import { ImageZoom } from "./kibo-ui/image-zoom"
 
 export function YouTubeEmbed({
   videoId,
   title,
 }: {
-  videoId: string;
-  title: string;
+  videoId: string
+  title: string
 }) {
   return (
     <div className="relative my-[1.25em]">
@@ -22,7 +22,7 @@ export function YouTubeEmbed({
 
       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
     </div>
-  );
+  )
 }
 
 export function IframeEmbed({
@@ -38,17 +38,17 @@ export function IframeEmbed({
 
       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
     </div>
-  );
+  )
 }
 
 export function FramedImage({
   canZoom = true,
   ...props
 }: React.ComponentProps<"img"> & {
-  canZoom?: boolean;
+  canZoom?: boolean
 }) {
   // eslint-disable-next-line jsx-a11y/alt-text
-  const image = <img {...props} />;
+  const image = <img {...props} />
 
   return (
     <figure className="relative [&_img]:rounded-xl">
@@ -56,5 +56,5 @@ export function FramedImage({
 
       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
     </figure>
-  );
+  )
 }

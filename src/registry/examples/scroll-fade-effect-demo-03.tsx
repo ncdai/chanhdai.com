@@ -1,12 +1,12 @@
-import * as React from "react";
+import * as React from "react"
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `v1.2.0-beta.${a.length - i}`
-);
+)
 
 export default function ScrollAreaDemo() {
   return (
@@ -28,5 +28,5 @@ export default function ScrollAreaDemo() {
         ))}
       </div>
     </ScrollArea>
-  );
+  )
 }

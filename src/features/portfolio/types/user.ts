@@ -1,50 +1,50 @@
 export type User = {
-  firstName: string;
-  lastName: string;
+  firstName: string
+  lastName: string
   /** Preferred public-facing name */
-  displayName: string;
+  displayName: string
   /** Handle/username used in links or mentions */
-  username: string;
-  gender: "male" | "female" | "non-binary";
+  username: string
+  gender: "male" | "female" | "non-binary"
   /** e.g. "he/him", "she/her", "they/them" */
-  pronouns: string;
-  bio: string;
+  pronouns: string
+  bio: string
   /** Short phrases rotated in UI (e.g., homepage flip effect) */
-  flipSentences: string[];
+  flipSentences: string[]
   /** General location for display */
-  address: string;
+  address: string
   /** E.164 format, base64 encoded (https://t.io.vn/base64-string-converter) */
-  phoneNumber: string;
+  phoneNumber: string
   /** base64 encoded (https://t.io.vn/base64-string-converter) */
-  email: string;
+  email: string
   /** Personal/homepage URL */
-  website: string;
+  website: string
   /** Primary/current role shown on profile */
-  jobTitle: string;
+  jobTitle: string
   /** Work history entries */
   jobs: {
-    title: string;
-    company: string;
-    website: string;
-  }[];
+    title: string
+    company: string
+    website: string
+  }[]
   /** Rich about section; supports Markdown */
-  about: string;
+  about: string
   /** Public URL to avatar image */
-  avatar: string;
+  avatar: string
   /** Open Graph image URL for social sharing */
-  ogImage: string;
+  ogImage: string
   /** Audio URL for name pronunciation */
-  namePronunciationUrl: string;
+  namePronunciationUrl: string
   /** Affiliate badge displayed to the right of displayName */
   affiliateBadge?: {
-    name: string;
-    url: string;
-    logo: string;
-  };
+    name: string
+    url: string
+    logo: string
+  }
   /** SEO keywords list for metadata */
-  keywords: string[];
+  keywords: string[]
   /** Time zone in IANA format (e.g., "Asia/Ho_Chi_Minh") */
-  timeZone: string;
+  timeZone: string
   /** Profile/site start date in YYYY-MM-DD */
-  dateCreated: string;
-};
+  dateCreated: string
+}

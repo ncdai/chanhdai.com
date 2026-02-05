@@ -1,31 +1,31 @@
-import { format } from "date-fns";
-import { AwardIcon, FileCheckIcon } from "lucide-react";
+import { format } from "date-fns"
+import { AwardIcon, FileCheckIcon } from "lucide-react"
 
-import { Markdown } from "@/components/markdown";
+import { Markdown } from "@/components/markdown"
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-} from "@/components/ui/collapsible";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/collapsible"
+import { Separator } from "@/components/ui/separator"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { ProseMono } from "@/components/ui/typography";
+} from "@/components/ui/tooltip"
+import { ProseMono } from "@/components/ui/typography"
 
-import type { Award } from "../../types/awards";
+import type { Award } from "../../types/awards"
 
 export function AwardItem({
   className,
   award,
 }: {
-  className?: string;
-  award: Award;
+  className?: string
+  award: Award
 }) {
-  const canExpand = !!award.description;
+  const canExpand = !!award.description
 
   return (
     <CollapsibleWithContext disabled={!canExpand} asChild>
@@ -123,5 +123,5 @@ export function AwardItem({
         )}
       </div>
     </CollapsibleWithContext>
-  );
+  )
 }

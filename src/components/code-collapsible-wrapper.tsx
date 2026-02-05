@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button";
-import type { Collapsible } from "@/components/ui/collapsible";
+import { Button } from "@/components/ui/button"
+import type { Collapsible } from "@/components/ui/collapsible"
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-} from "@/components/ui/collapsible";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/collapsible"
+import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 
 export function CodeCollapsibleWrapper({
   className,
@@ -46,5 +46,5 @@ export function CodeCollapsibleWrapper({
         Expand
       </CollapsibleTrigger>
     </CollapsibleWithContext>
-  );
+  )
 }
