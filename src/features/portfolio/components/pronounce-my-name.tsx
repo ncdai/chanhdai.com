@@ -1,7 +1,9 @@
 "use client"
 
-import { Volume2Icon } from "lucide-react"
+import { useRef } from "react"
 
+import type { VolumeIconHandle } from "@/components/animated-icons/volume"
+import { VolumeIcon } from "@/components/animated-icons/volume"
 import { useSoundLazy } from "@/hooks/use-sound"
 import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
@@ -15,6 +17,8 @@ export function PronounceMyName({
 }) {
   const { play, preload } = useSoundLazy(namePronunciationUrl)
 
+  const volumeIconRef = useRef<VolumeIconHandle>(null)
+
   return (
     <button
       className={cn(
@@ -24,13 +28,14 @@ export function PronounceMyName({
       )}
       onPointerEnter={() => preload()}
       onClick={() => {
+        volumeIconRef.current?.startAnimation()
         play()
         trackEvent({
           name: "play_name_pronunciation",
         })
       }}
     >
-      <Volume2Icon className="size-4.5" />
+      <VolumeIcon ref={volumeIconRef} className="size-4.5" />
       <span className="sr-only">Pronounce my name</span>
     </button>
   )

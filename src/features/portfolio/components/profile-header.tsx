@@ -62,7 +62,7 @@ export function ProfileHeader() {
 
         <div className="border-t border-edge">
           <div className="flex items-center gap-2 pl-4">
-            <h1 className="-translate-y-px text-3xl font-semibold">
+            <h1 className="-translate-y-px text-3xl font-semibold tracking-tight">
               {USER.displayName}
             </h1>
 
@@ -76,7 +76,7 @@ export function ProfileHeader() {
                 <TooltipTrigger
                   render={
                     <a
-                      className="relative flex after:absolute after:inset-0 after:ring after:ring-black/10 after:ring-inset dark:after:ring-white/15"
+                      className="relative flex after:absolute after:inset-0 after:rounded-sm after:ring after:ring-black/10 after:ring-inset dark:after:ring-white/15"
                       href={addQueryParams(USER.affiliateBadge.url, UTM_PARAMS)}
                       target="_blank"
                       rel="noopener"
@@ -84,6 +84,7 @@ export function ProfileHeader() {
                   }
                 >
                   <Image
+                    className="rounded-sm"
                     src={USER.affiliateBadge.logo}
                     alt={USER.affiliateBadge.name}
                     width={20}
