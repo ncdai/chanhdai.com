@@ -7,9 +7,9 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
-} from "@/registry/testimonials-marquee";
+} from "@/registry/testimonials-marquee"
 
-import type { Testimonial as TestimonialType } from "../../types/testimonials";
+import type { Testimonial as TestimonialType } from "../../types/testimonials"
 
 export function TestimonialItem({
   authorAvatar,
@@ -42,5 +42,5 @@ export function TestimonialItem({
         </TestimonialAuthor>
       </Testimonial>
     </a>
-  );
+  )
 }

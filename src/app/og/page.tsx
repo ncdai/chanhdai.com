@@ -1,6 +1,6 @@
-import { Overview } from "@/features/portfolio/components/overview";
-import { ProfileHeader } from "@/features/portfolio/components/profile-header";
-import { cn } from "@/lib/utils";
+import { Overview } from "@/features/portfolio/components/overview"
+import { ProfileHeader } from "@/features/portfolio/components/profile-header"
+import { cn } from "@/lib/utils"
 
 export default function Page() {
   return (
@@ -18,7 +18,7 @@ export default function Page() {
         <div className="grow border-x border-edge" />
       </div>
     </>
-  );
+  )
 }
 
 function Separator({ className }: { className?: string }) {
@@ -31,5 +31,5 @@ function Separator({ className }: { className?: string }) {
         className
       )}
     />
-  );
+  )
 }

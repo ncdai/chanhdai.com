@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
-import { MailIcon } from "lucide-react";
+import { MailIcon } from "lucide-react"
 
-import { useIsClient } from "@/hooks/use-is-client";
-import { decodeEmail } from "@/utils/string";
+import { useIsClient } from "@/hooks/use-is-client"
+import { decodeEmail } from "@/utils/string"
 
 import {
   IntroItem,
   IntroItemContent,
   IntroItemIcon,
   IntroItemLink,
-} from "./intro-item";
+} from "./intro-item"
 
 type EmailItemProps = {
-  email: string;
-};
+  email: string
+}
 
 export function EmailItem({ email }: EmailItemProps) {
-  const isClient = useIsClient();
-  const emailDecoded = decodeEmail(email);
+  const isClient = useIsClient()
+  const emailDecoded = decodeEmail(email)
 
   return (
     <IntroItem>
@@ -37,5 +37,5 @@ export function EmailItem({ email }: EmailItemProps) {
         </IntroItemLink>
       </IntroItemContent>
     </IntroItem>
-  );
+  )
 }

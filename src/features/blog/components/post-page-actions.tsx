@@ -1,42 +1,42 @@
 // Thanks @fumadocs
 
-"use client";
+"use client"
 
 import {
   CheckIcon,
   ChevronDownIcon,
   CopyIcon,
   TriangleAlertIcon,
-} from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useMemo, useOptimistic, useTransition } from "react";
+} from "lucide-react"
+import { AnimatePresence, motion } from "motion/react"
+import { useMemo, useOptimistic, useTransition } from "react"
 
-import { motionIconProps } from "@/components/copy-button";
-import { Icons } from "@/components/icons";
-import { buttonVariants } from "@/components/ui/button";
+import { motionIconProps } from "@/components/copy-button"
+import { Icons } from "@/components/icons"
+import { buttonVariants } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/dropdown-menu"
+import { cn } from "@/lib/utils"
 
-const cache = new Map<string, string>();
+const cache = new Map<string, string>()
 
 export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
-  const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle");
-  const [, startTransition] = useTransition();
+  const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle")
+  const [, startTransition] = useTransition()
 
   const handleCopy = () => {
     startTransition(async () => {
       try {
-        setState("copied");
+        setState("copied")
 
-        const cached = cache.get(markdownUrl);
+        const cached = cache.get(markdownUrl)
         if (cached) {
-          await navigator.clipboard.writeText(cached);
-          return;
+          await navigator.clipboard.writeText(cached)
+          return
         }
 
         await navigator.clipboard.write([
@@ -44,18 +44,18 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
             "text/plain": fetch(markdownUrl)
               .then((res) => res.text())
               .then((content) => {
-                cache.set(markdownUrl, content);
-                return content;
+                cache.set(markdownUrl, content)
+                return content
               }),
           }),
-        ]);
+        ])
       } catch {
-        setState("failed");
+        setState("failed")
       } finally {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 1500))
       }
-    });
-  };
+    })
+  }
 
   return (
     <button
@@ -79,7 +79,7 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
       </AnimatePresence>
       MDX
     </button>
-  );
+  )
 }
 
 function getPrompt(url: string, isComponent?: boolean) {
@@ -87,26 +87,26 @@ function getPrompt(url: string, isComponent?: boolean) {
     return `I'm looking at this component documentation: ${url}
 I want to use it in a React (TypeScript) project.
 Help me understand how to use it step-by-step, including explaining key concepts, showing practical examples with TypeScript code, and pointing out common pitfalls.
-Be ready to answer follow-up questions and help debug issues based on the documentation.`;
+Be ready to answer follow-up questions and help debug issues based on the documentation.`
   }
 
-  return `Read ${url}, I want to ask questions about it.`;
+  return `Read ${url}, I want to ask questions about it.`
 }
 
 export function ViewOptions({
   markdownUrl,
   isComponent = false,
 }: {
-  markdownUrl: string;
-  isComponent?: boolean;
+  markdownUrl: string
+  isComponent?: boolean
 }) {
   const items = useMemo(() => {
     const fullMarkdownUrl =
       typeof window !== "undefined"
         ? new URL(markdownUrl, window.location.origin).toString()
-        : markdownUrl;
+        : markdownUrl
 
-    const q = getPrompt(fullMarkdownUrl, isComponent);
+    const q = getPrompt(fullMarkdownUrl, isComponent)
 
     const _items = [
       {
@@ -136,7 +136,7 @@ export function ViewOptions({
         })}`,
         icon: Icons.scira,
       },
-    ];
+    ]
 
     if (isComponent) {
       _items.splice(1, 0, {
@@ -145,11 +145,11 @@ export function ViewOptions({
           q,
         })}`,
         icon: Icons.v0,
-      });
+      })
     }
 
-    return _items;
-  }, [markdownUrl, isComponent]);
+    return _items
+  }, [markdownUrl, isComponent])
 
   return (
     <DropdownMenu>
@@ -174,15 +174,15 @@ export function ViewOptions({
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }
 
 export function LLMCopyButtonWithViewOptions({
   markdownUrl,
   isComponent = false,
 }: {
-  markdownUrl: string;
-  isComponent?: boolean;
+  markdownUrl: string
+  isComponent?: boolean
 }) {
   return (
     <div
@@ -198,5 +198,5 @@ export function LLMCopyButtonWithViewOptions({
       <LLMCopyButton markdownUrl={markdownUrl} />
       <ViewOptions markdownUrl={markdownUrl} isComponent={isComponent} />
     </div>
-  );
+  )
 }

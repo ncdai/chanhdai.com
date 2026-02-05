@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import type { HTMLMotionProps, Variants } from "motion/react";
-import { motion } from "motion/react";
-import * as React from "react";
+import type { HTMLMotionProps, Variants } from "motion/react"
+import { motion } from "motion/react"
+import * as React from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 export type ShimmeringTextProps = Omit<HTMLMotionProps<"span">, "children"> & {
-  text: string;
-  duration?: number;
-  isStopped?: boolean;
-};
+  text: string
+  duration?: number
+  isStopped?: boolean
+}
 
 export function ShimmeringText({
   text,
@@ -41,7 +41,7 @@ export function ShimmeringText({
       },
     }),
     [duration, text.length]
-  );
+  )
 
   return (
     <motion.span
@@ -65,5 +65,5 @@ export function ShimmeringText({
         </motion.span>
       ))}
     </motion.span>
-  );
+  )
 }

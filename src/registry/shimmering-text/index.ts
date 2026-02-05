@@ -1,1 +1,1 @@
-export * from "./shimmering-text";
+export * from "./shimmering-text"

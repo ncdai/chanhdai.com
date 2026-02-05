@@ -1,9 +1,9 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 export default function DocsLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <div className="mx-auto border-x border-edge md:max-w-3xl">
@@ -18,5 +18,5 @@ export default function DocsLayout({
 
       {children}
     </div>
-  );
+  )
 }

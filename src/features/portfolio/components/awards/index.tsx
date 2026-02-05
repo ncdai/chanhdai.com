@@ -1,14 +1,14 @@
-import { compareDesc } from "date-fns";
+import { compareDesc } from "date-fns"
 
-import { CollapsibleList } from "@/components/collapsible-list";
+import { CollapsibleList } from "@/components/collapsible-list"
 
-import { AWARDS } from "../../data/awards";
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel";
-import { AwardItem } from "./award-item";
+import { AWARDS } from "../../data/awards"
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
+import { AwardItem } from "./award-item"
 
 const SORTED_AWARDS = [...AWARDS].sort((a, b) => {
-  return compareDesc(new Date(a.date), new Date(b.date));
-});
+  return compareDesc(new Date(a.date), new Date(b.date))
+})
 
 export function Awards() {
   return (
@@ -27,5 +27,5 @@ export function Awards() {
         renderItem={(item) => <AwardItem award={item} />}
       />
     </Panel>
-  );
+  )
 }

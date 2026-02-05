@@ -1,13 +1,13 @@
-import type { LucideProps } from "lucide-react";
+import type { LucideProps } from "lucide-react"
 import {
   BriefcaseBusinessIcon,
   CodeXmlIcon,
   DraftingCompassIcon,
   GraduationCapIcon,
   LightbulbIcon,
-} from "lucide-react";
+} from "lucide-react"
 
-import type { ExperiencePositionIcon } from "../../types/experiences";
+import type { ExperiencePositionIcon } from "../../types/experiences"
 
 const iconMap: Record<
   ExperiencePositionIcon,
@@ -18,14 +18,14 @@ const iconMap: Record<
   education: GraduationCapIcon,
   business: BriefcaseBusinessIcon,
   idea: LightbulbIcon,
-};
+}
 
 export function ExperienceIcon({
   icon,
   ...props
 }: {
-  icon: ExperiencePositionIcon | undefined;
+  icon: ExperiencePositionIcon | undefined
 } & LucideProps) {
-  const IconComponent = icon ? iconMap[icon] : BriefcaseBusinessIcon;
-  return <IconComponent {...props} />;
+  const IconComponent = icon ? iconMap[icon] : BriefcaseBusinessIcon
+  return <IconComponent {...props} />
 }

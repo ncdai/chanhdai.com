@@ -1,8 +1,8 @@
-import { SponsorItem } from "@/features/sponsors/components/sponsor-item";
-import { SponsorItemPlus } from "@/features/sponsors/components/sponsor-item-plus";
-import { sponsors } from "@/features/sponsors/data";
+import { SponsorItem } from "@/features/sponsors/components/sponsor-item"
+import { SponsorItemPlus } from "@/features/sponsors/components/sponsor-item-plus"
+import { sponsors } from "@/features/sponsors/data"
 
-import { Panel, PanelHeader, PanelTitle } from "./panel";
+import { Panel, PanelHeader, PanelTitle } from "./panel"
 
 export function Sponsors() {
   return (
@@ -26,5 +26,5 @@ export function Sponsors() {
         </div>
       </div>
     </Panel>
-  );
+  )
 }

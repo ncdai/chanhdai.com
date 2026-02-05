@@ -1,35 +1,35 @@
-import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react";
-import Image from "next/image";
+import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
+import Image from "next/image"
 
-import { Markdown } from "@/components/markdown";
+import { Markdown } from "@/components/markdown"
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-} from "@/components/ui/collapsible";
-import { Tag } from "@/components/ui/tag";
+} from "@/components/ui/collapsible"
+import { Tag } from "@/components/ui/tag"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { ProseMono } from "@/components/ui/typography";
-import { UTM_PARAMS } from "@/config/site";
-import { addQueryParams } from "@/utils/url";
+} from "@/components/ui/tooltip"
+import { ProseMono } from "@/components/ui/typography"
+import { UTM_PARAMS } from "@/config/site"
+import { addQueryParams } from "@/utils/url"
 
-import type { Project } from "../../types/projects";
+import type { Project } from "../../types/projects"
 
 export function ProjectItem({
   className,
   project,
 }: {
-  className?: string;
-  project: Project;
+  className?: string
+  project: Project
 }) {
-  const { start, end } = project.period;
-  const isOngoing = !end;
-  const isSinglePeriod = end === start;
+  const { start, end } = project.period
+  const isOngoing = !end
+  const isSinglePeriod = end === start
 
   return (
     <CollapsibleWithContext defaultOpen={project.isExpanded} asChild>
@@ -137,5 +137,5 @@ export function ProjectItem({
         </CollapsibleContent>
       </div>
     </CollapsibleWithContext>
-  );
+  )
 }

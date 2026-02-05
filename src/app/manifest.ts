@@ -1,6 +1,6 @@
-import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next"
 
-import { SITE_INFO } from "@/config/site";
+import { SITE_INFO } from "@/config/site"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -63,5 +63,5 @@ export default function manifest(): MetadataRoute.Manifest {
         form_factor: "wide",
       },
     ],
-  };
+  }
 }

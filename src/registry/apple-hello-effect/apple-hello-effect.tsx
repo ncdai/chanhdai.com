@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
-import type { TargetAndTransition } from "motion/react";
-import { motion } from "motion/react";
+import type { TargetAndTransition } from "motion/react"
+import { motion } from "motion/react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 const initialProps: TargetAndTransition = {
   pathLength: 0,
   opacity: 0,
-};
+}
 
 const animateProps: TargetAndTransition = {
   pathLength: 1,
   opacity: 1,
-};
+}
 
 type Props = React.ComponentProps<typeof motion.svg> & {
-  speed?: number;
-  onAnimationComplete?: () => void;
-};
+  speed?: number
+  onAnimationComplete?: () => void
+}
 
 function AppleHelloVietnameseEffect({
   className,
@@ -26,7 +26,7 @@ function AppleHelloVietnameseEffect({
   onAnimationComplete,
   ...props
 }: Props) {
-  const calc = (x: number) => x * speed;
+  const calc = (x: number) => x * speed
 
   return (
     <motion.svg
@@ -184,7 +184,7 @@ function AppleHelloVietnameseEffect({
         onAnimationComplete={onAnimationComplete}
       />
     </motion.svg>
-  );
+  )
 }
 
 function AppleHelloEnglishEffect({
@@ -193,7 +193,7 @@ function AppleHelloEnglishEffect({
   onAnimationComplete,
   ...props
 }: Props) {
-  const calc = (x: number) => x * speed;
+  const calc = (x: number) => x * speed
 
   return (
     <motion.svg
@@ -238,7 +238,7 @@ function AppleHelloEnglishEffect({
         onAnimationComplete={onAnimationComplete}
       />
     </motion.svg>
-  );
+  )
 }
 
-export { AppleHelloEnglishEffect, AppleHelloVietnameseEffect };
+export { AppleHelloEnglishEffect, AppleHelloVietnameseEffect }

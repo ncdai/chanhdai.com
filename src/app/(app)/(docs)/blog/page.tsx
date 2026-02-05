@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
-import { Suspense } from "react";
+import type { Metadata } from "next"
+import { Suspense } from "react"
 
-import { PostList } from "@/features/blog/components/post-list";
-import { PostListWithSearch } from "@/features/blog/components/post-list-with-search";
-import { PostSearchInput } from "@/features/blog/components/post-search-input";
-import { getAllPosts } from "@/features/blog/data/posts";
+import { PostList } from "@/features/blog/components/post-list"
+import { PostListWithSearch } from "@/features/blog/components/post-list-with-search"
+import { PostSearchInput } from "@/features/blog/components/post-search-input"
+import { getAllPosts } from "@/features/blog/data/posts"
 
 export const metadata: Metadata = {
   title: "Blog",
   description: "A collection of articles on development, design, and ideas.",
-};
+}
 
 export default function Page() {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts()
 
   return (
     <div className="min-h-svh">
@@ -42,5 +42,5 @@ export default function Page() {
 
       <div className="h-4" />
     </div>
-  );
+  )
 }

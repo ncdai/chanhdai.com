@@ -1,5 +1,5 @@
-import type { Post } from "../types/post";
-import { PostItem } from "./post-item";
+import type { Post } from "../types/post"
+import { PostItem } from "./post-item"
 
 export function PostList({ posts }: { posts: Post[] }) {
   return (
@@ -25,5 +25,5 @@ export function PostList({ posts }: { posts: Post[] }) {
         )}
       </div>
     </div>
-  );
+  )
 }

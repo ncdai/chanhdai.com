@@ -1,16 +1,16 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { readFile } from "node:fs/promises"
+import { join } from "node:path"
 
-import { ImageResponse } from "next/og";
+import { ImageResponse } from "next/og"
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+  const { searchParams } = new URL(request.url)
 
-  const title = searchParams.get("title");
+  const title = searchParams.get("title")
 
   const robotoCondensedMedium = await readFile(
     join(process.cwd(), "src/assets/fonts/RobotoCondensed-Medium.ttf")
-  );
+  )
 
   return new ImageResponse(
     (
@@ -89,5 +89,5 @@ export async function GET(request: Request) {
         },
       ],
     }
-  );
+  )
 }

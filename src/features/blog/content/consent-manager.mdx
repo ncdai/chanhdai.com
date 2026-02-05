@@ -110,7 +110,7 @@ npm install clsx tailwind-merge @c15t/nextjs
 Wrap your app with the `ConsentManager` component:
 
 ```tsx title="app/layout.tsx" showLineNumbers {1,7}
-import { ConsentManager } from "@/components/ncdai/consent-manager";
+import { ConsentManager } from "@/components/ncdai/consent-manager"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -119,7 +119,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <ConsentManager>{children}</ConsentManager>
       </body>
     </html>
-  );
+  )
 }
 ```
 

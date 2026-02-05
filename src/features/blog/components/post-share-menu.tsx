@@ -1,26 +1,26 @@
-"use client";
+"use client"
 
-import { EllipsisIcon, LinkIcon, ShareIcon } from "lucide-react";
-import { toast } from "sonner";
+import { EllipsisIcon, LinkIcon, ShareIcon } from "lucide-react"
+import { toast } from "sonner"
 
-import { Button } from "@/components//ui/button";
-import { Icons } from "@/components/icons";
+import { Button } from "@/components//ui/button"
+import { Icons } from "@/components/icons"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { copyText } from "@/utils/copy";
+} from "@/components/ui/dropdown-menu"
+import { copyText } from "@/utils/copy"
 
 export function PostShareMenu({ title, url }: { title: string; url: string }) {
   const absoluteUrl = url.startsWith("http")
     ? url
     : typeof window !== "undefined"
       ? new URL(url, window.location.origin).toString()
-      : url;
+      : url
 
-  const urlEncoded = encodeURIComponent(absoluteUrl);
+  const urlEncoded = encodeURIComponent(absoluteUrl)
 
   return (
     <DropdownMenu>
@@ -40,8 +40,8 @@ export function PostShareMenu({ title, url }: { title: string; url: string }) {
       >
         <DropdownMenuItem
           onClick={() => {
-            copyText(absoluteUrl);
-            toast.success("Copied link");
+            copyText(absoluteUrl)
+            toast.success("Copied link")
           }}
         >
           <LinkIcon />
@@ -73,8 +73,8 @@ export function PostShareMenu({ title, url }: { title: string; url: string }) {
         {typeof navigator !== "undefined" && "share" in navigator && (
           <DropdownMenuItem
             onClick={(e) => {
-              e.preventDefault(); // Prevent the menu from closing
-              navigator.share({ title, url: absoluteUrl }).catch(() => {});
+              e.preventDefault() // Prevent the menu from closing
+              navigator.share({ title, url: absoluteUrl }).catch(() => {})
             }}
           >
             <EllipsisIcon />
@@ -83,5 +83,5 @@ export function PostShareMenu({ title, url }: { title: string; url: string }) {
         )}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

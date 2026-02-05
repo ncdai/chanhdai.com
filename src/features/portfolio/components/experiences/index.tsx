@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import { EXPERIENCES } from "../../data/experiences";
-import { Panel, PanelHeader, PanelTitle } from "../panel";
-import { ExperienceItem } from "./experience-item";
+import { EXPERIENCES } from "../../data/experiences"
+import { Panel, PanelHeader, PanelTitle } from "../panel"
+import { ExperienceItem } from "./experience-item"
 
 export function Experiences() {
   return (
@@ -17,5 +17,5 @@ export function Experiences() {
         ))}
       </div>
     </Panel>
-  );
+  )
 }

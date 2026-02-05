@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip"
 
 type GitHubStarsProps = {
-  repo: string;
-  stargazersCount: number;
-};
+  repo: string
+  stargazersCount: number
+}
 
 export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
   return (
@@ -42,5 +42,5 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
         {new Intl.NumberFormat("en-US").format(stargazersCount)} stars
       </TooltipContent>
     </Tooltip>
-  );
+  )
 }

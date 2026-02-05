@@ -2,12 +2,12 @@ import {
   ConsentManagerDialog,
   ConsentManagerProvider,
   CookieBanner,
-} from "@c15t/nextjs";
+} from "@c15t/nextjs"
 
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
-import { ConsentManagerClient } from "./consent-manager-client";
+import { ConsentManagerClient } from "./consent-manager-client"
 
 export function ConsentManager({ children }: { children: React.ReactNode }) {
   return (
@@ -166,5 +166,5 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
 
       <ConsentManagerClient>{children}</ConsentManagerClient>
     </ConsentManagerProvider>
-  );
+  )
 }

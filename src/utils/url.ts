@@ -1,5 +1,5 @@
 export function urlToName(url: string) {
-  return url.replace(/(^\w+:|^)\/\//, "");
+  return url.replace(/(^\w+:|^)\/\//, "")
 }
 
 export function addQueryParams(
@@ -7,14 +7,14 @@ export function addQueryParams(
   query: Record<string, string>
 ): string {
   try {
-    const url = new URL(urlString);
+    const url = new URL(urlString)
 
     for (const [key, value] of Object.entries(query)) {
-      url.searchParams.set(key, value);
+      url.searchParams.set(key, value)
     }
 
-    return url.toString();
+    return url.toString()
   } catch {
-    return urlString;
+    return urlString
   }
 }

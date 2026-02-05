@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 export function ScrollFadeEffect({
   className,
   orientation = "vertical",
   ...props
 }: React.ComponentProps<"div"> & {
-  orientation?: "horizontal" | "vertical";
+  orientation?: "horizontal" | "vertical"
 }) {
   return (
     <div
@@ -19,5 +19,5 @@ export function ScrollFadeEffect({
       )}
       {...props}
     />
-  );
+  )
 }

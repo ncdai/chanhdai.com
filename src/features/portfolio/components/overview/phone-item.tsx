@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
-import { PhoneIcon } from "lucide-react";
+import { PhoneIcon } from "lucide-react"
 
-import { useIsClient } from "@/hooks/use-is-client";
-import { decodePhoneNumber, formatPhoneNumber } from "@/utils/string";
+import { useIsClient } from "@/hooks/use-is-client"
+import { decodePhoneNumber, formatPhoneNumber } from "@/utils/string"
 
 import {
   IntroItem,
   IntroItemContent,
   IntroItemIcon,
   IntroItemLink,
-} from "./intro-item";
+} from "./intro-item"
 
 type PhoneItemProps = {
-  phoneNumber: string;
-};
+  phoneNumber: string
+}
 
 export function PhoneItem({ phoneNumber }: PhoneItemProps) {
-  const isClient = useIsClient();
-  const phoneNumberDecoded = decodePhoneNumber(phoneNumber);
+  const isClient = useIsClient()
+  const phoneNumberDecoded = decodePhoneNumber(phoneNumber)
 
   return (
     <IntroItem>
@@ -41,5 +41,5 @@ export function PhoneItem({ phoneNumber }: PhoneItemProps) {
         </IntroItemLink>
       </IntroItemContent>
     </IntroItem>
-  );
+  )
 }

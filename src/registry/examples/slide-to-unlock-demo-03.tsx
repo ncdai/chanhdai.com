@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { toast } from "sonner";
+import { toast } from "sonner"
 
-import { ShimmeringText } from "@/registry/shimmering-text";
+import { ShimmeringText } from "@/registry/shimmering-text"
 import {
   SlideToUnlock,
   SlideToUnlockHandle,
   SlideToUnlockText,
   SlideToUnlockTrack,
-} from "@/registry/slide-to-unlock";
+} from "@/registry/slide-to-unlock"
 
 export default function SlideToUnlockDemo3() {
   return (
@@ -38,5 +38,5 @@ export default function SlideToUnlockDemo3() {
         </SlideToUnlockHandle>
       </SlideToUnlockTrack>
     </SlideToUnlock>
-  );
+  )
 }

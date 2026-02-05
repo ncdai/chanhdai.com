@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image from "next/image"
 
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { cn } from "@/lib/utils";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { cn } from "@/lib/utils"
 
 interface Artwork {
-  artist: string;
-  art: string;
+  artist: string
+  art: string
 }
 
 const works: Artwork[] = [
@@ -21,7 +21,7 @@ const works: Artwork[] = [
     artist: "Vladimir Malyavko",
     art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
   },
-];
+]
 
 export default function ScrollAreaHorizontalDemo() {
   return (
@@ -55,5 +55,5 @@ export default function ScrollAreaHorizontalDemo() {
       </div>
       <ScrollBar orientation="horizontal" />
     </ScrollArea>
-  );
+  )
 }

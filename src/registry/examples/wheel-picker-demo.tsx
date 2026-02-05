@@ -1,21 +1,21 @@
-import type { WheelPickerOption } from "@/registry/wheel-picker";
-import { WheelPicker, WheelPickerWrapper } from "@/registry/wheel-picker";
+import type { WheelPickerOption } from "@/registry/wheel-picker"
+import { WheelPicker, WheelPickerWrapper } from "@/registry/wheel-picker"
 
 const createArray = (length: number, add = 0): WheelPickerOption<number>[] =>
   Array.from({ length }, (_, i) => {
-    const value = i + add;
+    const value = i + add
     return {
       label: value.toString().padStart(2, "0"),
       value: value,
-    };
-  });
+    }
+  })
 
-const hourOptions = createArray(12, 1);
-const minuteOptions = createArray(60);
+const hourOptions = createArray(12, 1)
+const minuteOptions = createArray(60)
 const meridiemOptions: WheelPickerOption[] = [
   { label: "AM", value: "AM" },
   { label: "PM", value: "PM" },
-];
+]
 
 export default function WheelPickerDemo() {
   return (
@@ -26,5 +26,5 @@ export default function WheelPickerDemo() {
         <WheelPicker options={meridiemOptions} defaultValue="AM" />
       </WheelPickerWrapper>
     </div>
-  );
+  )
 }

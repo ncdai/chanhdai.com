@@ -1,28 +1,28 @@
-import { InfinityIcon } from "lucide-react";
-import React from "react";
+import { InfinityIcon } from "lucide-react"
+import React from "react"
 
-import { Markdown } from "@/components/markdown";
+import { Markdown } from "@/components/markdown"
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-} from "@/components/ui/collapsible";
-import { Separator } from "@/components/ui/separator";
-import { Tag } from "@/components/ui/tag";
-import { ProseMono } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/collapsible"
+import { Separator } from "@/components/ui/separator"
+import { Tag } from "@/components/ui/tag"
+import { ProseMono } from "@/components/ui/typography"
+import { cn } from "@/lib/utils"
 
-import type { ExperiencePosition } from "../../types/experiences";
-import { ExperienceIcon } from "./experience-position-icon";
+import type { ExperiencePosition } from "../../types/experiences"
+import { ExperienceIcon } from "./experience-position-icon"
 
 export function ExperiencePositionItem({
   position,
 }: {
-  position: ExperiencePosition;
+  position: ExperiencePosition
 }) {
-  const { start, end } = position.employmentPeriod;
-  const isOngoing = !end;
+  const { start, end } = position.employmentPeriod
+  const isOngoing = !end
 
   return (
     <CollapsibleWithContext defaultOpen={position.isExpanded} asChild>
@@ -112,5 +112,5 @@ export function ExperiencePositionItem({
         )}
       </div>
     </CollapsibleWithContext>
-  );
+  )
 }

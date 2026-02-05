@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 function Tag({ className, ...props }: React.ComponentProps<"span">) {
   return (
@@ -13,7 +13,7 @@ function Tag({ className, ...props }: React.ComponentProps<"span">) {
       )}
       {...props}
     />
-  );
+  )
 }
 
-export { Tag };
+export { Tag }

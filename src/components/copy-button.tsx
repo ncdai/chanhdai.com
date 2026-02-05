@@ -1,34 +1,34 @@
-"use client";
+"use client"
 
-import { CheckIcon, CircleXIcon, CopyIcon } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useOptimistic, useTransition } from "react";
+import { CheckIcon, CircleXIcon, CopyIcon } from "lucide-react"
+import { AnimatePresence, motion } from "motion/react"
+import { useOptimistic, useTransition } from "react"
 
-import type { Event } from "@/lib/events";
-import { trackEvent } from "@/lib/events";
-import { cn } from "@/lib/utils";
+import type { Event } from "@/lib/events"
+import { trackEvent } from "@/lib/events"
+import { cn } from "@/lib/utils"
 
-import { Button } from "./ui/button";
+import { Button } from "./ui/button"
 
 export function copyToClipboardWithEvent(value: string, event?: Event) {
   if (event) {
-    trackEvent(event);
+    trackEvent(event)
   }
-  return navigator.clipboard.writeText(value);
+  return navigator.clipboard.writeText(value)
 }
 
 export const motionIconVariants = {
   initial: { opacity: 0, scale: 0.8, filter: "blur(2px)" },
   animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
   exit: { opacity: 0, scale: 0.8 },
-};
+}
 
 export const motionIconProps = {
   variants: motionIconVariants,
   initial: "initial",
   animate: "animate",
   exit: "exit",
-};
+}
 
 export function CopyButton({
   value,
@@ -37,19 +37,19 @@ export function CopyButton({
   className,
   ...props
 }: {
-  value?: string;
-  getValue?: () => string;
-  event?: Event["name"];
-  className?: string;
+  value?: string
+  getValue?: () => string
+  event?: Event["name"]
+  className?: string
 }) {
-  const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle");
-  const [, startTransition] = useTransition();
+  const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle")
+  const [, startTransition] = useTransition()
 
   const getValueToCopy = () => {
-    if (getValue) return getValue();
-    if (value) return value;
-    return "";
-  };
+    if (getValue) return getValue()
+    if (value) return value
+    return ""
+  }
 
   return (
     <Button
@@ -59,8 +59,8 @@ export function CopyButton({
       onClick={() => {
         startTransition(async () => {
           try {
-            setState("copied");
-            const value = getValueToCopy();
+            setState("copied")
+            const value = getValueToCopy()
             copyToClipboardWithEvent(
               value,
               event
@@ -71,12 +71,12 @@ export function CopyButton({
                     },
                   }
                 : undefined
-            );
+            )
           } catch {
-            setState("failed");
+            setState("failed")
           }
-          await new Promise((resolve) => setTimeout(resolve, 1500));
-        });
+          await new Promise((resolve) => setTimeout(resolve, 1500))
+        })
       }}
       {...props}
     >
@@ -97,5 +97,5 @@ export function CopyButton({
       </AnimatePresence>
       <span className="sr-only">Copy</span>
     </Button>
-  );
+  )
 }

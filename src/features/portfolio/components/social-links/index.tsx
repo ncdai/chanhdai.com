@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import { SOCIAL_LINKS } from "../../data/social-links";
-import { Panel } from "../panel";
-import { SocialLinkItem } from "./social-link-item";
+import { SOCIAL_LINKS } from "../../data/social-links"
+import { Panel } from "../panel"
+import { SocialLinkItem } from "./social-link-item"
 
 export function SocialLinks() {
   return (
@@ -17,10 +17,10 @@ export function SocialLinks() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {SOCIAL_LINKS.map((link, index) => {
-            return <SocialLinkItem key={index} {...link} />;
+            return <SocialLinkItem key={index} {...link} />
           })}
         </div>
       </div>
     </Panel>
-  );
+  )
 }

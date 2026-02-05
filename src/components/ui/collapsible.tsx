@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { Collapsible as CollapsiblePrimitive } from "radix-ui";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { Collapsible as CollapsiblePrimitive } from "radix-ui"
+import { createContext, useContext, useEffect, useRef, useState } from "react"
 
-import type { ChevronsDownUpIconHandle } from "../animated-icons/chevrons-down-up-icon";
-import { ChevronsDownUpIcon } from "../animated-icons/chevrons-down-up-icon";
+import type { ChevronsDownUpIconHandle } from "../animated-icons/chevrons-down-up-icon"
+import { ChevronsDownUpIcon } from "../animated-icons/chevrons-down-up-icon"
 
 function Collapsible(
   props: React.ComponentProps<typeof CollapsiblePrimitive.Root>
 ) {
-  return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
+  return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />
 }
 
 function CollapsibleTrigger(
@@ -20,7 +20,7 @@ function CollapsibleTrigger(
       data-slot="collapsible-trigger"
       {...props}
     />
-  );
+  )
 }
 
 function CollapsibleContent(
@@ -31,57 +31,57 @@ function CollapsibleContent(
       data-slot="collapsible-content"
       {...props}
     />
-  );
+  )
 }
 
 type CollapsibleContextType = {
-  open: boolean;
-};
+  open: boolean
+}
 
-const CollapsibleContext = createContext<CollapsibleContextType | null>(null);
+const CollapsibleContext = createContext<CollapsibleContextType | null>(null)
 
 const useCollapsible = () => {
-  const context = useContext(CollapsibleContext);
+  const context = useContext(CollapsibleContext)
 
   if (!context) {
     throw new Error(
       "Collapsible components must be used within a CollapsibleWithContext"
-    );
+    )
   }
 
-  return context;
-};
+  return context
+}
 
 function CollapsibleWithContext({
   defaultOpen,
   ...props
 }: React.ComponentProps<typeof Collapsible>) {
-  const [open, setOpen] = useState(defaultOpen ?? false);
+  const [open, setOpen] = useState(defaultOpen ?? false)
 
   return (
     <CollapsibleContext.Provider value={{ open }}>
       <Collapsible open={open} onOpenChange={setOpen} {...props} />
     </CollapsibleContext.Provider>
-  );
+  )
 }
 
 function CollapsibleChevronsIcon() {
-  const { open } = useCollapsible();
+  const { open } = useCollapsible()
 
-  const ref = useRef<ChevronsDownUpIconHandle>(null);
+  const ref = useRef<ChevronsDownUpIconHandle>(null)
 
   useEffect(() => {
-    const controls = ref.current;
-    if (!controls) return;
+    const controls = ref.current
+    if (!controls) return
 
     if (open) {
-      controls.startAnimation();
+      controls.startAnimation()
     } else {
-      controls.stopAnimation();
+      controls.stopAnimation()
     }
-  }, [open]);
+  }, [open])
 
-  return <ChevronsDownUpIcon ref={ref} />;
+  return <ChevronsDownUpIcon ref={ref} />
 }
 
 export {
@@ -90,4 +90,4 @@ export {
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-};
+}

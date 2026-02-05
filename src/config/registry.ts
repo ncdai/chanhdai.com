@@ -14,4 +14,4 @@ export const registryConfig = {
    */
   namespaceUrl:
     process.env.REGISTRY_NAMESPACE_URL || "https://chanhdai.com/r/{name}.json",
-};
+}

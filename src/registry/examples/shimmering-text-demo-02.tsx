@@ -1,4 +1,4 @@
-import { ShimmeringText } from "@/registry/shimmering-text";
+import { ShimmeringText } from "@/registry/shimmering-text"
 
 export default function ShimmeringTextDemo2() {
   return (
@@ -6,5 +6,5 @@ export default function ShimmeringTextDemo2() {
       className="font-medium [--color:#fbbf24] [--shimmering-color:#ca8a04] dark:[--color:#f59e0b] dark:[--shimmering-color:#fcd34d]"
       text="Processing your request with AI ..."
     />
-  );
+  )
 }

@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { TZDate, tzOffset } from "@date-fns/tz";
-import { format } from "date-fns";
+import { TZDate, tzOffset } from "@date-fns/tz"
+import { format } from "date-fns"
 import {
   Clock1Icon,
   Clock2Icon,
@@ -16,16 +16,16 @@ import {
   Clock11Icon,
   Clock12Icon,
   type LucideIcon,
-} from "lucide-react";
-import { useEffect, useState } from "react";
+} from "lucide-react"
+import { useEffect, useState } from "react"
 
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip";
+} from "@/components/base/ui/tooltip"
 
-import { IntroItem, IntroItemContent, IntroItemIcon } from "./intro-item";
+import { IntroItem, IntroItemContent, IntroItemIcon } from "./intro-item"
 
 const CLOCK_ICONS: Record<number, LucideIcon> = {
   1: Clock1Icon,
@@ -40,54 +40,54 @@ const CLOCK_ICONS: Record<number, LucideIcon> = {
   10: Clock10Icon,
   11: Clock11Icon,
   12: Clock12Icon,
-};
+}
 
 type CurrentLocalTimeItemProps = {
-  timeZone: string;
-};
+  timeZone: string
+}
 
 export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
-  const [timeString, setTimeString] = useState<string>("");
-  const [diffText, setDiffText] = useState<string>("");
-  const [ClockIcon, setClockIcon] = useState<LucideIcon>(Clock12Icon);
+  const [timeString, setTimeString] = useState<string>("")
+  const [diffText, setDiffText] = useState<string>("")
+  const [ClockIcon, setClockIcon] = useState<LucideIcon>(Clock12Icon)
 
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
+      const now = new Date()
 
       // Get time in target timezone using TZDate
-      const targetTime = TZDate.tz(timeZone);
-      const formattedTime = format(targetTime, "HH:mm");
-      setTimeString(formattedTime);
+      const targetTime = TZDate.tz(timeZone)
+      const formattedTime = format(targetTime, "HH:mm")
+      setTimeString(formattedTime)
 
       // Get hour for clock icon (1-12)
-      const hour = targetTime.getHours();
-      const hour12 = hour % 12 || 12;
-      setClockIcon(CLOCK_ICONS[hour12]);
+      const hour = targetTime.getHours()
+      const hour12 = hour % 12 || 12
+      setClockIcon(CLOCK_ICONS[hour12])
 
       // Calculate timezone offset difference using tzOffset
-      const viewerOffset = -now.getTimezoneOffset(); // in minutes
-      const targetOffset = tzOffset(timeZone, now); // in minutes
+      const viewerOffset = -now.getTimezoneOffset() // in minutes
+      const targetOffset = tzOffset(timeZone, now) // in minutes
 
-      const minutesDiff = Math.abs(targetOffset - viewerOffset);
-      const hoursDiff = minutesDiff / 60;
+      const minutesDiff = Math.abs(targetOffset - viewerOffset)
+      const hoursDiff = minutesDiff / 60
 
-      let diff = "";
+      let diff = ""
       if (hoursDiff < 1) {
-        diff = " // same time";
+        diff = " // same time"
       } else {
-        const hours = Math.floor(hoursDiff);
-        const isAhead = targetOffset > viewerOffset;
-        diff = ` // ${hours}h ${isAhead ? "ahead" : "behind"}`;
+        const hours = Math.floor(hoursDiff)
+        const isAhead = targetOffset > viewerOffset
+        diff = ` // ${hours}h ${isAhead ? "ahead" : "behind"}`
       }
-      setDiffText(diff);
-    };
+      setDiffText(diff)
+    }
 
-    updateTime();
-    const interval = setInterval(updateTime, 60000);
+    updateTime()
+    const interval = setInterval(updateTime, 60000)
 
-    return () => clearInterval(interval);
-  }, [timeZone]);
+    return () => clearInterval(interval)
+  }, [timeZone])
 
   if (!timeString) {
     return (
@@ -98,7 +98,7 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
 
         <IntroItemContent>00:00</IntroItemContent>
       </IntroItem>
-    );
+    )
   }
 
   return (
@@ -121,5 +121,5 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
         </span>
       </IntroItemContent>
     </IntroItem>
-  );
+  )
 }

@@ -1,19 +1,19 @@
-import { LinkIcon } from "lucide-react";
-import { Slot as SlotPrimitive } from "radix-ui";
-import React from "react";
+import { LinkIcon } from "lucide-react"
+import { Slot as SlotPrimitive } from "radix-ui"
+import React from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-const Slot = SlotPrimitive.Slot;
+const Slot = SlotPrimitive.Slot
 
 function Prose({
   className,
   asChild = false,
   ...props
 }: React.ComponentProps<"div"> & {
-  asChild?: boolean;
+  asChild?: boolean
 }) {
-  const Comp = asChild ? Slot : "div";
+  const Comp = asChild ? Slot : "div"
 
   return (
     <Comp
@@ -30,7 +30,7 @@ function Prose({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function ProseMono({
@@ -42,11 +42,11 @@ function ProseMono({
       className={cn("prose-sm font-mono text-foreground", className)}
       {...props}
     />
-  );
+  )
 }
 
 function Code({ className, ...props }: React.ComponentProps<"code">) {
-  const isCodeBlock = "data-language" in props;
+  const isCodeBlock = "data-language" in props
 
   return (
     <code
@@ -58,23 +58,23 @@ function Code({ className, ...props }: React.ComponentProps<"code">) {
       )}
       {...props}
     />
-  );
+  )
 }
 
-type HeadingTypes = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type HeadingTypes = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 type HeadingProps<T extends HeadingTypes> = React.ComponentProps<T> & {
-  as?: T;
-};
+  as?: T
+}
 
 function Heading<T extends HeadingTypes = "h1">({
   as,
   className,
   ...props
 }: HeadingProps<T>): React.ReactElement {
-  const Comp = as ?? "h1";
+  const Comp = as ?? "h1"
 
   if (!props.id) {
-    return <Comp className={className} {...props} />;
+    return <Comp className={className} {...props} />
   }
 
   return (
@@ -91,7 +91,7 @@ function Heading<T extends HeadingTypes = "h1">({
         aria-label="Link to section"
       />
     </Comp>
-  );
+  )
 }
 
-export { Code, Heading, Prose, ProseMono };
+export { Code, Heading, Prose, ProseMono }

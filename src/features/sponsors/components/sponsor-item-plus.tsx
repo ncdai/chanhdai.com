@@ -1,6 +1,6 @@
-import { PlusIcon } from "@/components/animated-icons/plus";
-import { SPONSORSHIP_URL } from "@/config/site";
-import { cn } from "@/lib/utils";
+import { PlusIcon } from "@/components/animated-icons/plus"
+import { SPONSORSHIP_URL } from "@/config/site"
+import { cn } from "@/lib/utils"
 
 export function SponsorItemPlus() {
   return (
@@ -21,5 +21,5 @@ export function SponsorItemPlus() {
       />
       <span className="sr-only">Sponsor My Work</span>
     </a>
-  );
+  )
 }

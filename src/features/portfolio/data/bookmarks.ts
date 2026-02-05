@@ -1,4 +1,4 @@
-import type { Bookmark } from "../types/bookmarks";
+import type { Bookmark } from "../types/bookmarks"
 
 export const BOOKMARKS: Bookmark[] = [
   {
@@ -60,4 +60,4 @@ export const BOOKMARKS: Bookmark[] = [
     iconName: "resend",
     bookmarkedAt: "2025-12-20",
   },
-];
+]

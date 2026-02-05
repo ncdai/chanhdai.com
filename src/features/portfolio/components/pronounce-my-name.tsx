@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { Volume2Icon } from "lucide-react";
+import { Volume2Icon } from "lucide-react"
 
-import { useSoundLazy } from "@/hooks/use-sound";
-import { trackEvent } from "@/lib/events";
-import { cn } from "@/lib/utils";
+import { useSoundLazy } from "@/hooks/use-sound"
+import { trackEvent } from "@/lib/events"
+import { cn } from "@/lib/utils"
 
 export function PronounceMyName({
   className,
   namePronunciationUrl,
 }: {
-  className?: string;
-  namePronunciationUrl: string;
+  className?: string
+  namePronunciationUrl: string
 }) {
-  const { play, preload } = useSoundLazy(namePronunciationUrl);
+  const { play, preload } = useSoundLazy(namePronunciationUrl)
 
   return (
     <button
@@ -24,14 +24,14 @@ export function PronounceMyName({
       )}
       onPointerEnter={() => preload()}
       onClick={() => {
-        play();
+        play()
         trackEvent({
           name: "play_name_pronunciation",
-        });
+        })
       }}
     >
       <Volume2Icon className="size-4.5" />
       <span className="sr-only">Pronounce my name</span>
     </button>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { AppProgressProvider } from "@bprogress/next";
-import { Provider as JotaiProvider } from "jotai";
-import { ThemeProvider } from "next-themes";
+import { AppProgressProvider } from "@bprogress/next"
+import { Provider as JotaiProvider } from "jotai"
+import { ThemeProvider } from "next-themes"
 
-import { TooltipProvider } from "./base/ui/tooltip";
-import { Toaster } from "./ui/sonner";
+import { TooltipProvider } from "./base/ui/tooltip"
+import { Toaster } from "./ui/sonner"
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -30,5 +30,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <Toaster position="top-center" />
       </ThemeProvider>
     </JotaiProvider>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import { Suspense } from "react";
+import { Suspense } from "react"
 
-import { getGitHubContributions } from "../../data/github-contributions";
-import { Panel } from "../panel";
-import { GitHubContributionFallback, GitHubContributionGraph } from "./graph";
+import { getGitHubContributions } from "../../data/github-contributions"
+import { Panel } from "../panel"
+import { GitHubContributionFallback, GitHubContributionGraph } from "./graph"
 
 export function GitHubContributions() {
-  const contributions = getGitHubContributions();
+  const contributions = getGitHubContributions()
 
   return (
     <Panel>
@@ -15,5 +15,5 @@ export function GitHubContributions() {
         <GitHubContributionGraph contributions={contributions} />
       </Suspense>
     </Panel>
-  );
+  )
 }

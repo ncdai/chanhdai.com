@@ -1,15 +1,15 @@
-import "@ncdai/react-wheel-picker/style.css";
+import "@ncdai/react-wheel-picker/style.css"
 
-import * as WheelPickerPrimitive from "@ncdai/react-wheel-picker";
+import * as WheelPickerPrimitive from "@ncdai/react-wheel-picker"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-type WheelPickerValue = WheelPickerPrimitive.WheelPickerValue;
+type WheelPickerValue = WheelPickerPrimitive.WheelPickerValue
 
 type WheelPickerOption<T extends WheelPickerValue = string> =
-  WheelPickerPrimitive.WheelPickerOption<T>;
+  WheelPickerPrimitive.WheelPickerOption<T>
 
-type WheelPickerClassNames = WheelPickerPrimitive.WheelPickerClassNames;
+type WheelPickerClassNames = WheelPickerPrimitive.WheelPickerClassNames
 
 function WheelPickerWrapper({
   className,
@@ -25,7 +25,7 @@ function WheelPickerWrapper({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function WheelPicker<T extends WheelPickerValue = string>({
@@ -44,8 +44,8 @@ function WheelPicker<T extends WheelPickerValue = string>({
       }}
       {...props}
     />
-  );
+  )
 }
 
-export { WheelPicker, WheelPickerWrapper };
-export type { WheelPickerClassNames, WheelPickerOption };
+export { WheelPicker, WheelPickerWrapper }
+export type { WheelPickerClassNames, WheelPickerOption }

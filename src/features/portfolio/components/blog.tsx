@@ -1,15 +1,15 @@
-import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import { ArrowRightIcon } from "lucide-react"
+import Link from "next/link"
+import React from "react"
 
-import { Button } from "@/components/ui/button";
-import { PostItem } from "@/features/blog/components/post-item";
-import { getAllPosts } from "@/features/blog/data/posts";
+import { Button } from "@/components/ui/button"
+import { PostItem } from "@/features/blog/components/post-item"
+import { getAllPosts } from "@/features/blog/data/posts"
 
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel";
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Blog() {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts()
 
   return (
     <Panel id="blog">
@@ -42,5 +42,5 @@ export function Blog() {
         </Button>
       </div>
     </Panel>
-  );
+  )
 }

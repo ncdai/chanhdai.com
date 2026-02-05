@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
-import { toast } from "sonner";
+import { toast } from "sonner"
 
-import { useSound } from "@/hooks/use-sound";
-import { ShimmeringText } from "@/registry/shimmering-text";
+import { useSound } from "@/hooks/use-sound"
+import { ShimmeringText } from "@/registry/shimmering-text"
 import {
   SlideToUnlock,
   SlideToUnlockHandle,
   SlideToUnlockText,
   SlideToUnlockTrack,
-} from "@/registry/slide-to-unlock";
+} from "@/registry/slide-to-unlock"
 
 export default function SlideToUnlockDemo1() {
-  const playSound = useSound("/audio/ui-sounds/unlock.wav");
+  const playSound = useSound("/audio/ui-sounds/unlock.wav")
 
   return (
     <SlideToUnlock
       onUnlock={() => {
-        playSound();
-        toast.success("Unlocked");
+        playSound()
+        toast.success("Unlocked")
       }}
     >
       <SlideToUnlockTrack>
@@ -30,5 +30,5 @@ export default function SlideToUnlockDemo1() {
         <SlideToUnlockHandle />
       </SlideToUnlockTrack>
     </SlideToUnlock>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { ClientSideOptionsProvider } from "@c15t/nextjs/client";
+import { ClientSideOptionsProvider } from "@c15t/nextjs/client"
 
 export function ConsentManagerClient({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <ClientSideOptionsProvider
@@ -21,5 +21,5 @@ export function ConsentManagerClient({
     >
       {children}
     </ClientSideOptionsProvider>
-  );
+  )
 }
