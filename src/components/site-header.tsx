@@ -8,7 +8,6 @@ import { getAllPosts } from "@/features/blog/data/posts"
 import { cn } from "@/lib/utils"
 
 import { SiteHeaderMark } from "./site-header-mark"
-import { SiteHeaderWrapper } from "./site-header-wrapper"
 import { ThemeToggle } from "./theme-toggle"
 
 const BrandContextMenu = dynamic(() =>
@@ -27,12 +26,12 @@ export function SiteHeader() {
   const posts = getAllPosts()
 
   return (
-    <SiteHeaderWrapper
+    <header
       className={cn(
-        "sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background px-2 pt-2",
-        "data-[affix=true]:shadow-[0_0_16px_0_black]/8 dark:data-[affix=true]:shadow-[0_0_16px_0_black]",
-        "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",
-        "transition-shadow duration-300"
+        "sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background px-2 pt-2"
+        // "data-[affix=true]:shadow-[0_0_16px_0_black]/8 dark:data-[affix=true]:shadow-[0_0_16px_0_black]",
+        // "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",
+        // "transition-shadow duration-300"
       )}
     >
       <div
@@ -61,6 +60,6 @@ export function SiteHeader() {
           <MobileNav items={MAIN_NAV} />
         </div>
       </div>
-    </SiteHeaderWrapper>
+    </header>
   )
 }

@@ -136,9 +136,6 @@ export function SiteFooter() {
               <span className="sr-only">DMCA.com Protection Status</span>
             </a>
           </div>
-
-          <div className="absolute top-[-3.5px] left-[-4.5px] z-1 size-2 rounded-xs border bg-popover" />
-          <div className="absolute top-[-3.5px] right-[-4.5px] z-1 size-2 rounded-xs border bg-popover" />
         </div>
       </div>
       <div className="pb-[env(safe-area-inset-bottom,0px)]">

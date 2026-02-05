@@ -43,7 +43,7 @@ export const USER = {
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
   ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=5",
+    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=6",
   namePronunciationUrl: "/audio/chanhdai.mp3",
   affiliateBadge: {
     name: "Shadcraft",
