@@ -62,6 +62,18 @@ export default function Page() {
         </p>
       </div>
 
+      <div className="screen-line-before flex items-center gap-2 p-4 *:data-[slot=tag]:gap-1.5">
+        <Tag>
+          <Icons.react />
+          React 19
+        </Tag>
+
+        <Tag>
+          <Icons.tailwindcss />
+          Tailwind CSS v4
+        </Tag>
+      </div>
+
       <div className="screen-line-before screen-line-after relative">
         <RegistryCommandAnimated />
 
@@ -116,7 +128,7 @@ export default function Page() {
 
       <Separator />
 
-      <div className="relative pb-2">
+      <div className="relative">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
           <div className="border-r border-edge" />
           <div className="border-l border-edge md:border-x" />
@@ -164,24 +176,6 @@ export default function Page() {
                 )}
               </Link>
             ))}
-        </div>
-      </div>
-
-      <div className="screen-line-before screen-line-after flex flex-wrap items-center justify-center gap-2 p-4">
-        <span className="font-mono text-xs text-muted-foreground">
-          Built for
-        </span>
-
-        <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
-          <Tag>
-            <Icons.react />
-            React 19
-          </Tag>
-
-          <Tag>
-            <Icons.tailwindcss />
-            Tailwind CSS v4
-          </Tag>
         </div>
       </div>
 
