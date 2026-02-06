@@ -7,7 +7,7 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
-} from "@/registry/testimonials-marquee"
+} from "@/registry/testimonial"
 
 import type { Testimonial as TestimonialType } from "../../types/testimonials"
 

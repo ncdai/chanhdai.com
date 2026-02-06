@@ -217,16 +217,27 @@
       "author": "ncdai <dai@chanhdai.com>",
       "description": "A testimonials marquee component for showcasing user feedback in a scrolling format.",
       "registryDependencies": [
-        "@ncdai/utils",
-        "@kibo-ui/marquee"
+        "@kibo-ui/marquee",
+        "@ncdai/testimonial"
+      ],
+      "docs": "https://chanhdai.com/components/testimonials-marquee",
+      "type": "registry:component",
+      "files": []
+    },
+    {
+      "name": "testimonial",
+      "title": "Testimonial",
+      "author": "ncdai <dai@chanhdai.com>",
+      "description": "A testimonial component for displaying user feedback with author information and verified badge.",
+      "registryDependencies": [
+        "@ncdai/utils"
       ],
       "files": [
         {
-          "path": "src/registry/testimonials-marquee/testimonials-marquee.tsx",
+          "path": "src/registry/testimonial/testimonial.tsx",
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/testimonials-marquee",
       "type": "registry:component"
     },
     {

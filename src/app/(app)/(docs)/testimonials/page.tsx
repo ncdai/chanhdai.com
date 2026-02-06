@@ -14,7 +14,7 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
-} from "@/registry/testimonials-marquee"
+} from "@/registry/testimonial"
 
 export const metadata: Metadata = {
   title: "Loved by Devs Worldwide",

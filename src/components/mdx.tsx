@@ -41,7 +41,7 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/testimonials-marquee"
+} from "@/registry/testimonial"
 import type { NpmCommands } from "@/types/unist"
 
 import { CodeBlockCommand } from "./code-block-command"
