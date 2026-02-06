@@ -141,14 +141,23 @@ export const components: Registry["items"] = [
       "A testimonials marquee component for showcasing user feedback in a scrolling format.",
     title: "Testimonials Marquee",
     author: "ncdai <dai@chanhdai.com>",
-    registryDependencies: ["@ncdai/utils", "@kibo-ui/marquee"],
+    registryDependencies: ["@kibo-ui/marquee", "@ncdai/testimonial"],
+    docs: "https://chanhdai.com/components/testimonials-marquee",
+  },
+  {
+    name: "testimonial",
+    type: "registry:component",
+    description:
+      "A testimonial component for displaying user feedback with author information and verified badge.",
+    title: "Testimonial",
+    author: "ncdai <dai@chanhdai.com>",
+    registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "testimonials-marquee/testimonials-marquee.tsx",
+        path: "testimonial/testimonial.tsx",
         type: "registry:component",
       },
     ],
-    docs: "https://chanhdai.com/components/testimonials-marquee",
   },
   {
     name: "github-stars",

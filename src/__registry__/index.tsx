@@ -100,12 +100,12 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
-  "testimonials-marquee": {
-    name: "testimonials-marquee",
-    description: "A testimonials marquee component for showcasing user feedback in a scrolling format.",
+  "testimonial": {
+    name: "testimonial",
+    description: "A testimonial component for displaying user feedback with author information and verified badge.",
     type: "registry:component",
     files: [{
-      path: "src/registry/testimonials-marquee/testimonials-marquee.tsx",
+      path: "src/registry/testimonial/testimonial.tsx",
       type: "registry:component",
     }],
   },
