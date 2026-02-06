@@ -21,20 +21,22 @@ export function Components() {
       </PanelHeader>
 
       <div className="relative py-4">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge"></div>
-          <div className="border-l border-edge"></div>
+        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
+          <div className="border-r border-edge" />
+          <div className="border-l border-edge md:border-x" />
+          <div className="border-l border-edge max-md:hidden" />
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {posts.slice(0, 6).map((post) => (
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+          {posts.slice(0, 9).map((post) => (
             <Link
               key={post.slug}
               href={`/components/${post.slug}`}
               className={cn(
-                "group flex items-center gap-4 p-4 transition-[background-color] ease-out hover:bg-accent-muted",
+                "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
                 "max-sm:screen-line-before max-sm:screen-line-after",
-                "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+                "sm:max-md:nth-[2n+1]:screen-line-before sm:max-md:nth-[2n+1]:screen-line-after",
+                "md:nth-[3n+1]:screen-line-before md:nth-[3n+1]:screen-line-after"
               )}
             >
               <div
