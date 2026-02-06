@@ -53,6 +53,7 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-mono-pixel: var(--font-mono-pixel);
 
   --shadow-popover: var(--shadow-popover);
 

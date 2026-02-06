@@ -10,7 +10,8 @@ import { DuckFollower } from "@/components/duck-follower"
 import { Providers } from "@/components/providers"
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
-import { fontMono, fontSans } from "@/lib/fonts"
+import { fontMono, fontPixel, fontSans } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -112,7 +113,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
+      className={cn(fontSans.variable, fontMono.variable, fontPixel.variable)}
       suppressHydrationWarning
     >
       <head>
