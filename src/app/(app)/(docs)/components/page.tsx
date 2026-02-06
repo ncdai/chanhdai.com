@@ -116,7 +116,7 @@ export default function Page() {
 
       <Separator />
 
-      <div className="relative">
+      <div className="relative pb-2">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
           <div className="border-r border-edge" />
           <div className="border-l border-edge md:border-x" />
@@ -167,9 +167,7 @@ export default function Page() {
         </div>
       </div>
 
-      <Separator />
-
-      <div className="screen-line-before screen-line-after flex flex-wrap items-center gap-2 p-4">
+      <div className="screen-line-before screen-line-after flex flex-wrap items-center justify-center gap-2 p-4">
         <span className="font-mono text-xs text-muted-foreground">
           Built for
         </span>
@@ -187,7 +185,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="h-4" />
+      <div className="h-2" />
     </div>
   )
 }
