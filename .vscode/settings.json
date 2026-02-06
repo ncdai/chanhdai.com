@@ -35,4 +35,26 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/page.*": "${dirname}.${extname}",
+    "**/layout.*": "${dirname}/layout.${extname}",
+    "**/default.*": "${dirname}/default.${extname}",
+    "**/error.*": "${dirname}/error.${extname}",
+    "**/forbidden.*": "${dirname}/forbidden.${extname}",
+    "**/instrumentation.*": "${dirname}/instrumentation.${extname}",
+    "**/instrumentation-client.*": "${dirname}/instrumentation-client.${extname}",
+    "**/loading.*": "${dirname}/loading.${extname}",
+    "**/mdx-components.*": "${dirname}/mdx-components.${extname}",
+    "**/not-found.*": "${dirname}/not-found.${extname}",
+    "**/proxy.*": "${dirname}/proxy.${extname}",
+    "**/middleware.*": "${dirname}/middleware.${extname}",
+    "**/route.*": "${dirname}/route.${extname}",
+    "**/template.*": "${dirname}/template.${extname}",
+    "**/unauthorized.*": "${dirname}/unauthorized.${extname}",
+    "**/index.*": "${dirname(1)}/${dirname}",
+    "**/index.module.css": "${dirname(1)}/${dirname}",
+    "**/index.ts": "${dirname(1)}/${dirname}",
+    "**/index.tsx": "${dirname(1)}/${dirname}"
+  },
 }

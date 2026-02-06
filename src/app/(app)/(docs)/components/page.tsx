@@ -117,12 +117,13 @@ export default function Page() {
       <Separator />
 
       <div className="relative">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge"></div>
-          <div className="border-l border-edge"></div>
+        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
+          <div className="border-r border-edge" />
+          <div className="border-l border-edge md:border-x" />
+          <div className="border-l border-edge max-md:hidden" />
         </div>
 
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
           {posts
             .slice()
             .sort((a, b) =>
@@ -135,9 +136,10 @@ export default function Page() {
                 key={post.slug}
                 href={`/components/${post.slug}`}
                 className={cn(
-                  "group flex items-center gap-4 p-4 transition-[background-color] ease-out hover:bg-accent-muted",
+                  "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
                   "max-sm:screen-line-before max-sm:screen-line-after",
-                  "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+                  "sm:max-md:nth-[2n+1]:screen-line-before sm:max-md:nth-[2n+1]:screen-line-after",
+                  "md:nth-[3n+1]:screen-line-before md:nth-[3n+1]:screen-line-after"
                 )}
               >
                 <div
@@ -150,7 +152,7 @@ export default function Page() {
                   />
                 </div>
 
-                <h2 className="leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+                <h2 className="line-clamp-1 leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
                   {post.metadata.title}
                 </h2>
 
