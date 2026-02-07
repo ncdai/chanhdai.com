@@ -25,12 +25,17 @@ export function ExperiencePositionItem({
   const isOngoing = !end
 
   return (
-    <CollapsibleWithContext defaultOpen={position.isExpanded} asChild>
+    <CollapsibleWithContext
+      defaultOpen={position.isExpanded}
+      disabled={!position.description}
+      asChild
+    >
       <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
         <CollapsibleTrigger
           className={cn(
-            "block w-full text-left",
-            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg before:transition-[background-color] before:ease-out hover:before:bg-accent-muted"
+            "group block w-full text-left",
+            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg before:transition-[background-color] before:ease-out hover:before:bg-accent-muted",
+            "data-disabled:before:content-none"
           )}
         >
           <div className="relative z-1 mb-1 flex items-center gap-3">
@@ -50,7 +55,7 @@ export function ExperiencePositionItem({
             </h4>
 
             <div
-              className="shrink-0 text-muted-foreground [&_svg]:size-4"
+              className="shrink-0 text-muted-foreground group-disabled:hidden [&_svg]:size-4"
               aria-hidden
             >
               <CollapsibleChevronsIcon />
