@@ -51,7 +51,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "fumadocs-core": "^16.0.0",
-    "geist": "^1.5.1",
+    "geist": "^1.7.0",
     "jotai": "^2.12.5",
     "libphonenumber-js": "^1.12.4",
     "lucide-react": "^0.544.0",

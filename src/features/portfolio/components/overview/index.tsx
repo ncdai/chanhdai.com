@@ -43,7 +43,7 @@ export function Overview() {
         <div
           className={cn(
             "relative grid gap-x-4 gap-y-2.5 sm:grid-cols-2",
-            "before:absolute before:-top-4 before:-right-8 before:w-[calc(50%+var(--spacing)*14)] before:border-t before:border-dashed before:border-edge/80 max-sm:before:content-none"
+            "before:absolute before:-top-4 before:-right-4 before:w-[calc(50%+var(--spacing)*6)] before:border-t before:border-edge/50 max-sm:before:content-none"
           )}
         >
           <IntroItem>
@@ -89,7 +89,7 @@ export function Overview() {
         </div>
       </PanelContent>
 
-      <div className="absolute top-0 left-[calc(50%-var(--spacing)*2-1px)] -z-1 h-full border-r border-edge/80 max-sm:hidden" />
+      <div className="absolute top-0 left-[calc(50%-var(--spacing)*2-1px)] -z-1 h-full border-r border-edge/50 max-sm:hidden" />
     </Panel>
   )
 }
