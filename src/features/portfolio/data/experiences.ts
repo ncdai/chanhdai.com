@@ -81,9 +81,6 @@ In-house Project: [ZaDark](https://zadark.com)
         },
         employmentType: "Part-time",
         icon: "idea",
-        description: `- Lead and manage the company's strategy.
-- Oversee technical teams and product development.
-- Manage relationships with customers and partners.`,
         skills: ["Business Ownership", "Business Law", "Business Tax"],
       },
     ],
