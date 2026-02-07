@@ -87,7 +87,7 @@ export function RegistryCommandAnimated() {
                 >
                   <span className="select-none">$ </span>
                   {command} shadcn add{" "}
-                  <span className="sm:hidden" aria-hidden="true">
+                  <span className="select-none sm:hidden" aria-hidden="true">
                     \
                   </span>
                 </TabsContent>
