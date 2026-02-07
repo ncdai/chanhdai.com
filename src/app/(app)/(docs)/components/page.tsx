@@ -44,7 +44,7 @@ export default function Page() {
         <h1 className="text-3xl font-semibold">Components</h1>
       </div>
 
-      <div className="p-4">
+      <div className="space-y-4 p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {metadata.description} <span className="max-md:block" />
           <a
@@ -60,18 +60,18 @@ export default function Page() {
           </a>{" "}
           for shadcn/ui.
         </p>
-      </div>
 
-      <div className="screen-line-before flex items-center gap-2 p-4 *:data-[slot=tag]:gap-1.5">
-        <Tag>
-          <Icons.react />
-          React 19
-        </Tag>
+        <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
+          <Tag className="font-sans">
+            <Icons.react />
+            React 19
+          </Tag>
 
-        <Tag>
-          <Icons.tailwindcss />
-          Tailwind CSS v4
-        </Tag>
+          <Tag className="font-sans">
+            <Icons.tailwindcss />
+            Tailwind CSS v4
+          </Tag>
+        </div>
       </div>
 
       <div className="screen-line-before screen-line-after relative">
