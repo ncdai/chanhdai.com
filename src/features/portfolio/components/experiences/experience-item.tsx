@@ -28,7 +28,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
           )}
         </div>
 
-        <h3 className="text-lg leading-snug font-medium">
+        <h3 className="text-lg leading-snug font-semibold">
           {experience.companyWebsite ? (
             <a
               className="underline-offset-4 hover:underline"
