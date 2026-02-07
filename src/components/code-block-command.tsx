@@ -74,9 +74,9 @@ export function CodeBlockCommand({
                 <code
                   data-slot="code-block"
                   data-language="bash"
-                  className="font-pixel-square text-sm leading-none text-code-foreground"
+                  className="font-pixel-square text-sm leading-none text-muted-foreground"
                 >
-                  <span className="text-muted-foreground select-none">$ </span>
+                  <span className="select-none">$ </span>
                   {value}
                 </code>
               </pre>
