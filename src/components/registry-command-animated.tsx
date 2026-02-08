@@ -21,7 +21,7 @@ import { getIconForPackageManager } from "./icons"
 
 const pmCommands = {
   pnpm: "pnpm dlx",
-  yarn: "npx",
+  yarn: "yarn",
   npm: "npx",
   bun: "bunx --bun",
 }

@@ -68,7 +68,7 @@ export function rehypeNpmCommand() {
       ) {
         const npmCommand = node.properties?.["__rawString__"]
         node.properties["__pnpm__"] = npmCommand.replace("npx", "pnpm dlx")
-        node.properties["__yarn__"] = npmCommand
+        node.properties["__yarn__"] = npmCommand.replace("npx", "yarn")
         node.properties["__npm__"] = npmCommand
         node.properties["__bun__"] = npmCommand.replace("npx", "bunx --bun")
       }
