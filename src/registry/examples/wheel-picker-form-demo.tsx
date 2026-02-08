@@ -32,6 +32,7 @@ const options: WheelPickerOption[] = [
   {
     label: "Laravel",
     value: "laravel",
+    disabled: true,
   },
   {
     label: "React Router",
