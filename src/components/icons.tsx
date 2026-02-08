@@ -1,6 +1,7 @@
 import {
   BriefcaseBusinessIcon,
   FileIcon,
+  GalleryHorizontalEndIcon,
   MoonStarIcon,
   MouseIcon,
   QuoteIcon,
@@ -404,8 +405,11 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
         </svg>
       )
 
-    case "testimonials-marquee":
+    case "testimonial":
       return <QuoteIcon {...props} />
+
+    case "testimonials-marquee":
+      return <GalleryHorizontalEndIcon {...props} />
 
     case "github-stars":
       return <Icons.github {...props} />
