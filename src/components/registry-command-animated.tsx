@@ -4,8 +4,8 @@ import { motion } from "motion/react"
 import { useRef } from "react"
 
 import { registryConfig } from "@/config/registry"
-import type { PackageManager } from "@/hooks/use-config"
-import { useConfig } from "@/hooks/use-config"
+import type { PackageManager } from "@/hooks/use-package-manager"
+import { usePackageManager } from "@/hooks/use-package-manager"
 import { FlipSentences } from "@/registry/flip-sentences"
 import { components } from "@/registry/registry-components"
 
@@ -35,9 +35,7 @@ const registryItemNames = components
   )
 
 export function RegistryCommandAnimated() {
-  const [config, setConfig] = useConfig()
-
-  const packageManager = config.packageManager || "pnpm"
+  const [packageManager, setPackageManager] = usePackageManager()
 
   const currentItemRef = useRef(registryItemNames[0])
 
@@ -47,10 +45,7 @@ export function RegistryCommandAnimated() {
         className="gap-0"
         value={packageManager}
         onValueChange={(value) => {
-          setConfig((prev) => ({
-            ...prev,
-            packageManager: value as PackageManager,
-          }))
+          setPackageManager(value as PackageManager)
         }}
       >
         <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-edge">

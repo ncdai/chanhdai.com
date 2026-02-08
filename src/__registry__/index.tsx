@@ -149,6 +149,9 @@ export const Index: Record<string, any> = {
     },{
       path: "src/registry/src/components/base/ui/tabs.tsx",
       type: "registry:component",
+    },{
+      path: "src/registry/src/hooks/use-package-manager.ts",
+      type: "registry:hook",
     }],
   },
   "apple-hello-effect-vi-demo": {

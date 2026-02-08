@@ -7,7 +7,7 @@ import {
   TerminalSquareIcon,
 } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
-import { useMemo, useOptimistic, useState, useTransition } from "react"
+import { useMemo, useOptimistic, useTransition } from "react"
 
 import {
   Tabs,
@@ -17,19 +17,28 @@ import {
   TabsTrigger,
 } from "@/components/base/ui/tabs"
 import { Button } from "@/components/ui/button"
+import {
+  type PackageManager,
+  usePackageManager,
+} from "@/hooks/use-package-manager"
 import { cn } from "@/lib/utils"
 
-type PackageManager = "pnpm" | "yarn" | "npm" | "bun"
-
-type NpmCommands = {
+export function CodeBlockCommand({
+  pnpm,
+  yarn,
+  npm,
+  bun,
+  onCopy,
+  onCopyError,
+}: {
   pnpm?: string
   yarn?: string
   npm?: string
   bun?: string
-}
-
-export function CodeBlockCommand({ pnpm, yarn, npm, bun }: NpmCommands) {
-  const [packageManager, setPackageManager] = useState<PackageManager>("pnpm")
+  onCopy?: (data: { packageManager: PackageManager; command: string }) => void
+  onCopyError?: (error: Error) => void
+}) {
+  const [packageManager, setPackageManager] = usePackageManager()
 
   const tabs = useMemo(() => {
     return {
@@ -90,6 +99,13 @@ export function CodeBlockCommand({ pnpm, yarn, npm, bun }: NpmCommands) {
       <CopyButton
         className="absolute top-2 right-2"
         value={tabs[packageManager] || ""}
+        onCopySuccess={(copiedCommand) => {
+          onCopy?.({
+            packageManager,
+            command: copiedCommand,
+          })
+        }}
+        onCopyError={onCopyError}
       />
     </div>
   )
@@ -154,9 +170,13 @@ const motionIconProps = {
 function CopyButton({
   className,
   value,
-}: {
-  className?: string
+  onCopySuccess,
+  onCopyError,
+  ...props
+}: React.ComponentProps<typeof Button> & {
   value: string
+  onCopySuccess?: (value: string) => void
+  onCopyError?: (error: Error) => void
 }) {
   const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle")
   const [, startTransition] = useTransition()
@@ -165,31 +185,39 @@ function CopyButton({
     <Button
       size="icon"
       variant="secondary"
-      className={cn("z-10 size-6 rounded-md", className)}
+      className={cn(
+        "z-10 size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
+        className
+      )}
       onClick={() => {
         startTransition(async () => {
           try {
             setState("copied")
-            navigator.clipboard.writeText(value)
-          } catch {
+            await navigator.clipboard.writeText(value)
+            onCopySuccess?.(value)
+          } catch (error) {
             setState("failed")
+            onCopyError?.(
+              error instanceof Error ? error : new Error("Copy failed")
+            )
           }
           await new Promise((resolve) => setTimeout(resolve, 1500))
         })
       }}
+      {...props}
     >
       <AnimatePresence mode="popLayout" initial={false}>
         {state === "idle" ? (
           <motion.span key="idle" {...motionIconProps}>
-            <CopyIcon className="size-3" />
+            <CopyIcon />
           </motion.span>
         ) : state === "copied" ? (
           <motion.span key="copied" {...motionIconProps}>
-            <CheckIcon className="size-3" strokeWidth={3} />
+            <CheckIcon strokeWidth={3} />
           </motion.span>
         ) : state === "failed" ? (
           <motion.span key="failed" {...motionIconProps}>
-            <CircleXIcon className="size-3" />
+            <CircleXIcon />
           </motion.span>
         ) : null}
       </AnimatePresence>

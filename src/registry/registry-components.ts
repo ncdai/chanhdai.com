@@ -313,7 +313,7 @@ export const components: Registry["items"] = [
       "A code block command component for displaying installation commands with copy functionality.",
     title: "Code Block Command",
     author: "ncdai <dai@chanhdai.com>",
-    dependencies: ["@base-ui/react", "lucide-react", "motion"],
+    dependencies: ["@base-ui/react", "lucide-react", "motion", "jotai"],
     registryDependencies: ["@ncdai/utils", "button"],
     files: [
       {
@@ -325,6 +325,10 @@ export const components: Registry["items"] = [
         path: "src/components/base/ui/tabs.tsx",
         target: "components/ncdai/base/tabs.tsx",
         type: "registry:component",
+      },
+      {
+        path: "src/hooks/use-package-manager.ts",
+        type: "registry:hook",
       },
     ],
     cssVars: {
