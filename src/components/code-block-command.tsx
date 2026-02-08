@@ -9,7 +9,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/base/ui/tabs"
-import type { PackageManager } from "@/hooks/use-config"
+import type { PackageManager } from "@/hooks/use-package-manager"
 import { usePackageManager } from "@/hooks/use-package-manager"
 import type { NpmCommands } from "@/types/unist"
 
