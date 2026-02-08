@@ -7,6 +7,7 @@ import {
   QuoteIcon,
   SquareTerminalIcon,
   TerminalSquareIcon,
+  ToggleLeftIcon,
   ZapIcon,
 } from "lucide-react"
 
@@ -100,9 +101,6 @@ export const Icons = {
     <svg viewBox="0 0 24 24" {...props}>
       <path d="m12 3 10 17H2L12 3Z" fill="currentColor" />
     </svg>
-    // <svg viewBox="0 0 24 24" {...props}>
-    //   <path d="m12 1.608 12 20.784H0Z" fill="currentColor" />
-    // </svg>
   ),
   meta: (props: IconProps) => (
     <svg viewBox="0 0 24 24" {...props}>
@@ -127,12 +125,6 @@ export const Icons = {
         fill="currentColor"
       />
     </svg>
-    // <svg viewBox="0 0 24 24" {...props}>
-    //   <path
-    //     d="M0 0v11.408h11.408V0zm12.594 0v11.408H24V0zM0 12.594V24h11.408V12.594zm12.594 0V24H24V12.594z"
-    //     fill="currentColor"
-    //   />
-    // </svg>
   ),
   accenture: (props: IconProps) => (
     <svg viewBox="0 0 24 24" {...props}>
@@ -141,12 +133,6 @@ export const Icons = {
         fill="currentColor"
       />
     </svg>
-    // <svg viewBox="0 0 24 24" {...props}>
-    //   <path
-    //     d="m.66 16.95 13.242-4.926L.66 6.852V0l22.68 9.132v5.682L.66 24Z"
-    //     fill="currentColor"
-    //   />
-    // </svg>
   ),
   coursera: (props: IconProps) => (
     <svg viewBox="0 0 24 24" {...props}>
@@ -393,18 +379,7 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
       return <ZapIcon {...props} />
 
     case "slide-to-unlock":
-      return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-          {...props}
-        >
-          <path
-            d="M237.66,133.66l-96,96A8,8,0,0,1,128,224V184H48a16,16,0,0,1-16-16V88A16,16,0,0,1,48,72h80V32a8,8,0,0,1,13.66-5.66l96,96A8,8,0,0,1,237.66,133.66Z"
-            fill="currentColor"
-          />
-        </svg>
-      )
+      return <ToggleLeftIcon {...props} />
 
     case "testimonial":
       return <QuoteIcon {...props} />
