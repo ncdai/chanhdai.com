@@ -154,26 +154,23 @@ export default function Page() {
                   "md:nth-[3n+1]:screen-line-before md:nth-[3n+1]:screen-line-after"
                 )}
               >
-                <div
-                  className="flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background"
-                  aria-hidden
-                >
+                <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background">
                   <ComponentIcon
                     className="pointer-events-none size-4 text-muted-foreground"
                     variant={post.metadata.icon}
+                    aria-hidden="true"
                   />
+                  {post.metadata.new && (
+                    <span className="absolute -top-1 -right-1 flex items-center justify-center">
+                      <span className="flex size-2 rounded-sm bg-info ring-1 ring-background" />
+                      <span className="sr-only">New</span>
+                    </span>
+                  )}
                 </div>
 
                 <h2 className="line-clamp-1 leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
                   {post.metadata.title}
                 </h2>
-
-                {post.metadata.new && (
-                  <span className="flex -translate-x-1 translate-y-px items-center justify-center">
-                    <span className="flex size-2 rounded-sm bg-info" />
-                    <span className="sr-only">New</span>
-                  </span>
-                )}
               </Link>
             ))}
         </div>

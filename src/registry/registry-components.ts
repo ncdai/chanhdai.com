@@ -306,4 +306,40 @@ export const components: Registry["items"] = [
       },
     },
   },
+  {
+    name: "code-block-command",
+    type: "registry:component",
+    description:
+      "A code block command component for displaying installation commands with copy functionality.",
+    title: "Code Block Command",
+    author: "ncdai <dai@chanhdai.com>",
+    dependencies: ["@base-ui/react", "lucide-react", "motion"],
+    registryDependencies: ["@ncdai/utils", "button"],
+    files: [
+      {
+        path: "code-block-command/code-block-command.tsx",
+        target: "components/ncdai/code-block-command.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/components/base/ui/tabs.tsx",
+        target: "components/ncdai/base/tabs.tsx",
+        type: "registry:component",
+      },
+    ],
+    cssVars: {
+      light: {
+        code: "oklch(0.985 0 0)",
+        "code-foreground": "oklch(0.141 0.005 285.823)",
+      },
+      dark: {
+        code: "oklch(0.21 0.006 285.885)",
+        "code-foreground": "oklch(0.985 0 0)",
+      },
+      theme: {
+        "color-code": "var(--code)",
+        "color-code-foreground": "var(--code-foreground)",
+      },
+    },
+  },
 ]

@@ -1,0 +1,92 @@
+---
+title: Code Block Command
+description: A code block command component for displaying installation commands with copy functionality.
+image: https://assets.chanhdai.com/images/blog/code-block-command.webp
+category: components
+icon: code-block-command
+new: true
+createdAt: 2026-02-08
+updatedAt: 2026-02-08
+---
+
+<ComponentPreview
+  name="code-block-command-demo"
+  openInV0Url="https://chanhdai.com/r/code-block-command.json"
+  codeCollapsible
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn add @ncdai/code-block-command
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge class-variance-authority lucide-react motion radix-ui @base-ui/react
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible={false}
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/components/ui/button.tsx"
+  title="components/ui/button.tsx"
+  showLineNumbers
+/>
+
+<ComponentSource
+  src="src/components/base/ui/tabs.tsx"
+  title="components/ncdai/base/tabs.tsx"
+  showLineNumbers
+/>
+
+<ComponentSource
+  name="code-block-command"
+  title="components/ncdai/code-block-command.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
+```
+
+```tsx
+<CodeBlockCommand
+  pnpm="pnpm dlx shadcn add @ncdai/code-block-command"
+  yarn="npx shadcn add @ncdai/code-block-command"
+  npm="npx shadcn add @ncdai/code-block-command"
+  bun="bunx --bun shadcn add @ncdai/code-block-command"
+/>
+```

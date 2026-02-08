@@ -139,6 +139,18 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "code-block-command": {
+    name: "code-block-command",
+    description: "A code block command component for displaying installation commands with copy functionality.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/code-block-command/code-block-command.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/src/components/base/ui/tabs.tsx",
+      type: "registry:component",
+    }],
+  },
   "apple-hello-effect-vi-demo": {
     name: "apple-hello-effect-vi-demo",
     description: "",
@@ -328,5 +340,15 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/scroll-fade-effect-demo-04.tsx")),
+  },
+  "code-block-command-demo": {
+    name: "code-block-command-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/code-block-command-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/code-block-command-demo.tsx")),
   },
 }

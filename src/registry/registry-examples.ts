@@ -219,4 +219,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "code-block-command-demo",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/code-block-command"],
+    files: [
+      {
+        path: "examples/code-block-command-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

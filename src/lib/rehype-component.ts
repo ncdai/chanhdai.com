@@ -56,7 +56,11 @@ export function rehypeComponent() {
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.
           // For now a simple regex should do.
-          source = source.replaceAll(`@/registry/`, "@/components/ncdai/")
+          source = source.replaceAll("@/registry/", "@/components/ncdai/")
+          source = source.replaceAll(
+            "@/components/base/ui/",
+            "@/components/ncdai/base/"
+          )
           source = source.replaceAll("export default", "export")
 
           const title = getNodeAttributeByName(node, "title")
