@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils"
 
 export function Testimonial({
   className,
-  children,
   ...props
 }: React.ComponentProps<"figure">) {
   return (
@@ -10,15 +9,12 @@ export function Testimonial({
       data-slot="testimonial"
       className={cn("flex h-full flex-col", className)}
       {...props}
-    >
-      {children}
-    </figure>
+    />
   )
 }
 
 export function TestimonialQuote({
   className,
-  children,
   ...props
 }: React.ComponentProps<"blockquote">) {
   return (
@@ -29,15 +25,12 @@ export function TestimonialQuote({
         className
       )}
       {...props}
-    >
-      {children}
-    </blockquote>
+    />
   )
 }
 
 export function TestimonialAuthor({
   className,
-  children,
   ...props
 }: React.ComponentProps<"figcaption">) {
   return (
@@ -48,15 +41,12 @@ export function TestimonialAuthor({
         className
       )}
       {...props}
-    >
-      {children}
-    </figcaption>
+    />
   )
 }
 
 export function TestimonialAvatar({
   className,
-  children,
   ...props
 }: React.ComponentProps<"div">) {
   return (
@@ -64,9 +54,7 @@ export function TestimonialAvatar({
       data-slot="avatar"
       className={cn("relative row-span-2 size-8 shrink-0", className)}
       {...props}
-    >
-      {children}
-    </div>
+    />
   )
 }
 
@@ -105,7 +93,6 @@ export function TestimonialAvatarRing({
 
 export function TestimonialAuthorName({
   className,
-  children,
   ...props
 }: React.ComponentProps<"div">) {
   return (
@@ -116,15 +103,12 @@ export function TestimonialAuthorName({
         className
       )}
       {...props}
-    >
-      {children}
-    </div>
+    />
   )
 }
 
 export function TestimonialAuthorTagline({
   className,
-  children,
   ...props
 }: React.ComponentProps<"div">) {
   return (
@@ -135,9 +119,7 @@ export function TestimonialAuthorTagline({
         className
       )}
       {...props}
-    >
-      {children}
-    </div>
+    />
   )
 }
 
