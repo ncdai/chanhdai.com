@@ -15,6 +15,12 @@ updatedAt: 2026-02-08
   codeCollapsible
 />
 
+## Features
+
+- Switch between pnpm, yarn, npm, and bun with a single click.
+- Automatically saves the user's preferred package manager for future visits.
+- Copy commands instantly with smooth animations showing success or failure states.
+
 ## Installation
 
 <CodeTabs>
@@ -63,6 +69,12 @@ npm install clsx tailwind-merge class-variance-authority lucide-react motion rad
 />
 
 <ComponentSource
+  src="src/hooks/use-package-manager.ts"
+  title="hooks/use-package-manager.ts"
+  showLineNumbers
+/>
+
+<ComponentSource
   name="code-block-command"
   title="components/ncdai/code-block-command.tsx"
   showLineNumbers
@@ -89,4 +101,62 @@ import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
   npm="npx shadcn add @ncdai/code-block-command"
   bun="bunx --bun shadcn add @ncdai/code-block-command"
 />
+```
+
+## API Reference
+
+### Props
+
+| Prop          | Type                                                                  | Description                                               |
+| ------------- | --------------------------------------------------------------------- | --------------------------------------------------------- |
+| `pnpm`        | `string`                                                              | Command for pnpm package manager                          |
+| `yarn`        | `string`                                                              | Command for yarn package manager                          |
+| `npm`         | `string`                                                              | Command for npm package manager                           |
+| `bun`         | `string`                                                              | Command for bun package manager                           |
+| `onCopy`      | `(data: { packageManager: PackageManager; command: string }) => void` | Callback when command is successfully copied to clipboard |
+| `onCopyError` | `(error: Error) => void`                                              | Callback when copy operation fails                        |
+
+### Types
+
+```ts
+type PackageManager = "pnpm" | "yarn" | "npm" | "bun"
+```
+
+## Examples
+
+### Analytics Tracking
+
+Track user interactions with analytics services like [PostHog](https://posthog.com), [OpenPanel](https://openpanel.dev), or [Google Analytics](https://analytics.google.com).
+
+```tsx showLineNumbers
+"use client"
+
+import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
+import { trackEvent } from "@/lib/events"
+
+export function InstallCommand() {
+  return (
+    <CodeBlockCommand
+      pnpm="pnpm dlx shadcn add @ncdai/code-block-command"
+      yarn="yarn shadcn add @ncdai/code-block-command"
+      npm="npx shadcn add @ncdai/code-block-command"
+      bun="bunx --bun shadcn add @ncdai/code-block-command"
+      onCopy={({ packageManager, command }) => {
+        trackEvent({
+          name: "command_copied",
+          properties: {
+            packageManager,
+            command,
+          },
+        })
+      }}
+      onCopyError={(error) => {
+        trackEvent({
+          name: "command_copy_failed",
+          properties: { error: error.message },
+        })
+      }}
+    />
+  )
+}
 ```

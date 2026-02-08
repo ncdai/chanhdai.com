@@ -10,7 +10,7 @@ import {
   TabsTrigger,
 } from "@/components/base/ui/tabs"
 import type { PackageManager } from "@/hooks/use-config"
-import { useConfig } from "@/hooks/use-config"
+import { usePackageManager } from "@/hooks/use-package-manager"
 import type { NpmCommands } from "@/types/unist"
 
 import { CopyButton } from "./copy-button"
@@ -22,9 +22,7 @@ export function CodeBlockCommand({
   __npm__,
   __bun__,
 }: NpmCommands) {
-  const [config, setConfig] = useConfig()
-
-  const packageManager = config.packageManager || "pnpm"
+  const [packageManager, setPackageManager] = usePackageManager()
 
   const tabs = useMemo(() => {
     return {
@@ -41,10 +39,7 @@ export function CodeBlockCommand({
         className="gap-0"
         value={packageManager}
         onValueChange={(value) => {
-          setConfig((prev) => ({
-            ...prev,
-            packageManager: value as PackageManager,
-          }))
+          setPackageManager(value as PackageManager)
         }}
       >
         <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-border">

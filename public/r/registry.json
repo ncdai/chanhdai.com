@@ -393,7 +393,8 @@
       "dependencies": [
         "@base-ui/react",
         "lucide-react",
-        "motion"
+        "motion",
+        "jotai"
       ],
       "registryDependencies": [
         "@ncdai/utils",
@@ -409,6 +410,10 @@
           "path": "src/components/base/ui/tabs.tsx",
           "type": "registry:component",
           "target": "components/ncdai/base/tabs.tsx"
+        },
+        {
+          "path": "src/hooks/use-package-manager.ts",
+          "type": "registry:hook"
         }
       ],
       "cssVars": {
