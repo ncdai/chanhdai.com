@@ -235,4 +235,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/shadcn/status/2011452657702154747",
     quote: "Congrats. Way to go.",
   },
+  {
+    authorAvatar:
+      "https://pbs.twimg.com/profile_images/1825629130852859904/TvP7rOsK_400x400.jpg",
+    authorName: "nuqs",
+    authorTagline: "Type-safe URL State for React",
+    url: "https://x.com/nuqs47ng/status/2020417206103023847",
+    quote: "Looks great!",
+  },
 ]
