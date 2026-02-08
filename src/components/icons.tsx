@@ -5,6 +5,7 @@ import {
   MoonStarIcon,
   MouseIcon,
   QuoteIcon,
+  SquareTerminalIcon,
   TerminalSquareIcon,
   ZapIcon,
 } from "lucide-react"
@@ -428,6 +429,9 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
           />
         </svg>
       )
+
+    case "code-block-command":
+      return <SquareTerminalIcon {...props} />
 
     default:
       return <Icons.react {...props} />
