@@ -123,6 +123,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "testimonial-demo",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/testimonial"],
+    files: [
+      {
+        path: "examples/testimonial-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "testimonials-marquee-demo-01",
     type: "registry:example",
     registryDependencies: ["@ncdai/testimonials-marquee"],

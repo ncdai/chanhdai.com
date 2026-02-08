@@ -1,0 +1,109 @@
+---
+title: Testimonial
+description: A testimonial component for displaying user feedback with author information and verified badge.
+image: https://assets.chanhdai.com/images/blog/testimonial.webp
+category: components
+icon: testimonial
+new: true
+createdAt: 2026-02-08
+updatedAt: 2026-02-08
+---
+
+<ComponentPreview
+  name="testimonial-demo"
+  openInV0Url="https://chanhdai.com/r/testimonial.json"
+  codeCollapsible
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn add @ncdai/testimonial
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible={false}
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="testimonial"
+  title="components/ncdai/testimonial.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Testimonial,
+  TestimonialAuthor,
+  TestimonialAuthorTagline,
+  TestimonialAuthorInfo,
+  TestimonialAuthorName,
+  TestimonialAvatar,
+  TestimonialAvatarImg,
+  TestimonialAvatarRing,
+  TestimonialQuote,
+  TestimonialVerifiedBadge,
+} from "@/components/ncdai/testimonial"
+```
+
+```tsx
+<MarqueeItem>
+  <Testimonial>
+    <TestimonialQuote />
+
+    <TestimonialAuthor>
+      <TestimonialAvatar>
+        <TestimonialAvatarImg />
+        <TestimonialAvatarRing />
+      </TestimonialAvatar>
+
+      <TestimonialAuthorName>
+        <TestimonialVerifiedBadge />
+      </TestimonialAuthorName>
+
+      <TestimonialAuthorTagline />
+    </TestimonialAuthor>
+  </Testimonial>
+</MarqueeItem>
+```
+
+## Examples
+
+### Testimonials Marquee
+
+https://chanhdai.com/components/testimonials-marquee
