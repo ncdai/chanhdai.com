@@ -6,6 +6,7 @@ import {
   CopyIcon,
   TerminalSquareIcon,
 } from "lucide-react"
+import type { HTMLMotionProps, Variants } from "motion/react"
 import { AnimatePresence, motion } from "motion/react"
 import { useMemo, useOptimistic, useTransition } from "react"
 
@@ -154,17 +155,18 @@ function getIconForPackageManager(manager: PackageManager) {
   }
 }
 
-const motionIconVariants = {
+const motionIconVariants: Variants = {
   initial: { opacity: 0, scale: 0.8, filter: "blur(2px)" },
   animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
   exit: { opacity: 0, scale: 0.8 },
 }
 
-const motionIconProps = {
+const motionIconProps: HTMLMotionProps<"span"> = {
   variants: motionIconVariants,
   initial: "initial",
   animate: "animate",
   exit: "exit",
+  transition: { duration: 0.15, ease: "easeOut" },
 }
 
 function CopyButton({

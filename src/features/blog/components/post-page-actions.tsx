@@ -59,7 +59,7 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
 
   return (
     <button
-      className="flex h-7 items-center gap-1.5 rounded-l-full pr-2 pl-2.5 text-sm font-medium disabled:pointer-events-none disabled:opacity-50"
+      className="flex h-7 items-center gap-1.5 rounded-l-full pr-2 pl-2.5 text-sm font-medium will-change-transform disabled:pointer-events-none disabled:opacity-50"
       onClick={handleCopy}
     >
       <AnimatePresence mode="popLayout" initial={false}>
