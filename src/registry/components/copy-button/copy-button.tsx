@@ -29,12 +29,12 @@ export function CopyStateIcon({ state }: { state: CopyState }) {
         <motion.span key="idle" {...motionIconProps}>
           <CopyIcon />
         </motion.span>
-      ) : state === "copied" ? (
-        <motion.span key="copied" {...motionIconProps}>
+      ) : state === "done" ? (
+        <motion.span key="done" {...motionIconProps}>
           <CheckIcon strokeWidth={3} />
         </motion.span>
-      ) : state === "failed" ? (
-        <motion.span key="failed" {...motionIconProps}>
+      ) : state === "error" ? (
+        <motion.span key="error" {...motionIconProps}>
           <CircleXIcon />
         </motion.span>
       ) : null}

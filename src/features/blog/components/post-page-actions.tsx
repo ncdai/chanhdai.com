@@ -26,11 +26,10 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
   const handleCopy = () => {
     startTransition(async () => {
       try {
-        setState("copied")
-
         const cached = cache.get(markdownUrl)
         if (cached) {
           await navigator.clipboard.writeText(cached)
+          setState("done")
           return
         }
 
@@ -44,8 +43,9 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
               }),
           }),
         ])
+        setState("done")
       } catch {
-        setState("failed")
+        setState("error")
       } finally {
         await new Promise((resolve) => setTimeout(resolve, 1500))
         setState("idle")
