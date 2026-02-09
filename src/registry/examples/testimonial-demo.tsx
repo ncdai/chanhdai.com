@@ -28,7 +28,7 @@ export default function TestimonialDemo() {
         <TestimonialAuthor>
           <TestimonialAvatar>
             <TestimonialAvatarImg
-              src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg"
+              src="https://unavatar.io/x/rauchg"
               alt="Guillermo Rauch"
             />
             <TestimonialAvatarRing />
