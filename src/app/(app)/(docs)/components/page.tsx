@@ -62,12 +62,12 @@ export default function Page() {
         </p>
 
         <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
-          <Tag className="font-sans">
+          <Tag className="font-sans font-medium">
             <Icons.react />
             React 19
           </Tag>
 
-          <Tag className="font-sans">
+          <Tag className="font-sans font-medium">
             <Icons.tailwindcss />
             Tailwind CSS v4
           </Tag>

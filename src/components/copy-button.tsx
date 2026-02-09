@@ -1,6 +1,7 @@
 "use client"
 
 import { CheckIcon, CircleXIcon, CopyIcon } from "lucide-react"
+import type { HTMLMotionProps, Variants } from "motion/react"
 import { AnimatePresence, motion } from "motion/react"
 import { useOptimistic, useTransition } from "react"
 
@@ -17,17 +18,18 @@ export function copyToClipboardWithEvent(value: string, event?: Event) {
   return navigator.clipboard.writeText(value)
 }
 
-export const motionIconVariants = {
+const motionIconVariants: Variants = {
   initial: { opacity: 0, scale: 0.8, filter: "blur(2px)" },
   animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
   exit: { opacity: 0, scale: 0.8 },
 }
 
-export const motionIconProps = {
+export const motionIconProps: HTMLMotionProps<"span"> = {
   variants: motionIconVariants,
   initial: "initial",
   animate: "animate",
   exit: "exit",
+  transition: { duration: 0.15, ease: "easeOut" },
 }
 
 export function CopyButton({
