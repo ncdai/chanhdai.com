@@ -12,7 +12,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "theme-switcher/theme-switcher.tsx",
+        path: "components/theme-switcher/theme-switcher.tsx",
         type: "registry:component",
       },
     ],
@@ -27,7 +27,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "flip-sentences/flip-sentences.tsx",
+        path: "components/flip-sentences/flip-sentences.tsx",
         type: "registry:component",
       },
     ],
@@ -43,7 +43,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "apple-hello-effect/apple-hello-effect.tsx",
+        path: "components/apple-hello-effect/apple-hello-effect.tsx",
         type: "registry:component",
       },
     ],
@@ -60,7 +60,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "wheel-picker/wheel-picker.tsx",
+        path: "components/wheel-picker/wheel-picker.tsx",
         type: "registry:component",
       },
     ],
@@ -78,7 +78,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils", "collapsible", "separator"],
     files: [
       {
-        path: "work-experience/work-experience.tsx",
+        path: "components/work-experience/work-experience.tsx",
         type: "registry:component",
       },
     ],
@@ -112,7 +112,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "shimmering-text/shimmering-text.tsx",
+        path: "components/shimmering-text/shimmering-text.tsx",
         type: "registry:component",
       },
     ],
@@ -128,7 +128,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils", "@ncdai/shimmering-text"],
     files: [
       {
-        path: "slide-to-unlock/slide-to-unlock.tsx",
+        path: "components/slide-to-unlock/slide-to-unlock.tsx",
         type: "registry:component",
       },
     ],
@@ -154,7 +154,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "testimonial/testimonial.tsx",
+        path: "components/testimonial/testimonial.tsx",
         type: "registry:component",
       },
     ],
@@ -169,7 +169,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["button", "tooltip"],
     files: [
       {
-        path: "github-stars/github-stars.tsx",
+        path: "components/github-stars/github-stars.tsx",
         type: "registry:component",
       },
     ],
@@ -184,7 +184,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils"],
     files: [
       {
-        path: "scroll-fade-effect/scroll-fade-effect.tsx",
+        path: "components/scroll-fade-effect/scroll-fade-effect.tsx",
         type: "registry:component",
       },
     ],
@@ -286,7 +286,7 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
       {
-        path: "consent-manager/consent-manager-client.tsx",
+        path: "components/consent-manager/consent-manager-client.tsx",
         type: "registry:component",
       },
     ],
@@ -317,7 +317,7 @@ export const components: Registry["items"] = [
     registryDependencies: ["@ncdai/utils", "button"],
     files: [
       {
-        path: "code-block-command/code-block-command.tsx",
+        path: "components/code-block-command/code-block-command.tsx",
         target: "components/ncdai/code-block-command.tsx",
         type: "registry:component",
       },

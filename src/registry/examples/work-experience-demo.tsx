@@ -1,5 +1,5 @@
-import type { ExperienceItemType } from "@/registry/work-experience"
-import { WorkExperience } from "@/registry/work-experience"
+import type { ExperienceItemType } from "@/registry/components/work-experience"
+import { WorkExperience } from "@/registry/components/work-experience"
 
 const WORK_EXPERIENCE: ExperienceItemType[] = [
   {

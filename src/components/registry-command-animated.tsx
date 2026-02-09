@@ -6,8 +6,8 @@ import { useRef } from "react"
 import { registryConfig } from "@/config/registry"
 import type { PackageManager } from "@/hooks/use-package-manager"
 import { usePackageManager } from "@/hooks/use-package-manager"
-import { FlipSentences } from "@/registry/flip-sentences"
-import { components } from "@/registry/registry-components"
+import { components } from "@/registry/components/_registry"
+import { FlipSentences } from "@/registry/components/flip-sentences"
 
 import {
   Tabs,

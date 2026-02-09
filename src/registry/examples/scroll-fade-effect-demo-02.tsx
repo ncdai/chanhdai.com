@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { ScrollFadeEffect } from "@/registry/scroll-fade-effect"
+import { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
 
 interface Artwork {
   artist: string

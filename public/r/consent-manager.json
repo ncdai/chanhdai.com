@@ -18,7 +18,7 @@
       "type": "registry:component"
     },
     {
-      "path": "src/registry/consent-manager/consent-manager-client.tsx",
+      "path": "src/registry/components/consent-manager/consent-manager-client.tsx",
       "content": "\"use client\"\n\nimport { ClientSideOptionsProvider } from \"@c15t/nextjs/client\"\n\nexport function ConsentManagerClient({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  return (\n    <ClientSideOptionsProvider\n      callbacks={{\n        onConsentSet({ preferences }) {\n          if (preferences.measurement) {\n            // Enable measurement tracking\n          } else {\n            // Disable measurement tracking\n          }\n        },\n      }}\n    >\n      {children}\n    </ClientSideOptionsProvider>\n  )\n}\n",
       "type": "registry:component"
     }

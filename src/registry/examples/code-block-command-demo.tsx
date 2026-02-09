@@ -1,4 +1,4 @@
-import { CodeBlockCommand } from "@/registry/code-block-command"
+import { CodeBlockCommand } from "@/registry/components/code-block-command"
 
 export default function CodeBlockCommandDemo() {
   return (
