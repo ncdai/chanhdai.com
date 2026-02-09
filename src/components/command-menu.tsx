@@ -38,7 +38,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
-import type { Post } from "@/features/blog/types/post"
+import type { PostPreview } from "@/features/blog/types/post"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { useSound } from "@/hooks/use-sound"
@@ -156,7 +156,7 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
   },
 ]
 
-export function CommandMenu({ posts }: { posts: Post[] }) {
+export function CommandMenu({ posts }: { posts: PostPreview[] }) {
   const router = useRouter()
 
   const { setTheme, resolvedTheme } = useTheme()
@@ -261,15 +261,15 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
   const { componentLinks, blogLinks } = useMemo(
     () => ({
       componentLinks: posts
-        .filter((post) => post.metadata?.category === "components")
+        .filter((post) => post.category === "components")
         .sort((a, b) =>
-          a.metadata.title.localeCompare(b.metadata.title, "en", {
+          a.title.localeCompare(b.title, "en", {
             sensitivity: "base",
           })
         )
         .map(postToCommandLinkItem),
       blogLinks: posts
-        .filter((post) => post.metadata?.category !== "components")
+        .filter((post) => post.category !== "components")
         .map(postToCommandLinkItem),
     }),
     [posts]
@@ -576,17 +576,15 @@ function CommandMenuFooter() {
   )
 }
 
-function postToCommandLinkItem(post: Post): CommandLinkItem {
-  const isComponent = post.metadata?.category === "components"
+function postToCommandLinkItem(post: PostPreview): CommandLinkItem {
+  const isComponent = post.category === "components"
 
   const IconComponent = isComponent
-    ? (props: LucideProps) => (
-        <ComponentIcon {...props} variant={post.metadata.icon} />
-      )
+    ? (props: LucideProps) => <ComponentIcon {...props} variant={post.icon} />
     : undefined
 
   return {
-    title: post.metadata.title,
+    title: post.title,
     href: isComponent ? `/components/${post.slug}` : `/blog/${post.slug}`,
     keywords: isComponent ? ["component"] : undefined,
     icon: IconComponent,

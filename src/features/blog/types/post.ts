@@ -41,3 +41,14 @@ export type Post = {
   /** MDX content body without frontmatter. */
   content: string
 }
+
+/**
+ * Minimal post data for client components that don't need the full content.
+ * Reduces serialization overhead and bundle size.
+ */
+export type PostPreview = {
+  slug: string
+  title: string
+  category?: string
+  icon?: string
+}

@@ -1,6 +1,7 @@
 import fs from "fs"
 import matter from "gray-matter"
 import path from "path"
+import { cache } from "react"
 
 import type { Post, PostMetadata } from "@/features/blog/types/post"
 
@@ -38,7 +39,7 @@ function getMDXData(dir: string) {
   })
 }
 
-export function getAllPosts() {
+export const getAllPosts = cache(() => {
   return getMDXData(path.join(process.cwd(), "src/features/blog/content")).sort(
     (a, b) => {
       if (a.metadata.pinned && !b.metadata.pinned) return -1
@@ -50,7 +51,7 @@ export function getAllPosts() {
       )
     }
   )
-}
+})
 
 export function getPostBySlug(slug: string) {
   return getAllPosts().find((post) => post.slug === slug)
