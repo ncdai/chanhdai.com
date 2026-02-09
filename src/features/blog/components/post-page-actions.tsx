@@ -11,7 +11,6 @@ import {
 import { AnimatePresence, motion } from "motion/react"
 import { useMemo, useOptimistic, useTransition } from "react"
 
-import { motionIconProps } from "@/components/copy-button"
 import { Icons } from "@/components/icons"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -21,6 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
+import { motionIconProps } from "@/registry/components/copy-button"
 
 const cache = new Map<string, string>()
 

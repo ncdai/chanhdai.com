@@ -1,14 +1,7 @@
 "use client"
 
-import {
-  CheckIcon,
-  CircleXIcon,
-  CopyIcon,
-  TerminalSquareIcon,
-} from "lucide-react"
-import type { HTMLMotionProps, Variants } from "motion/react"
-import { AnimatePresence, motion } from "motion/react"
-import { useMemo, useOptimistic, useTransition } from "react"
+import { TerminalSquareIcon } from "lucide-react"
+import { useMemo } from "react"
 
 import {
   Tabs,
@@ -17,28 +10,32 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/base/ui/tabs"
-import { Button } from "@/components/ui/button"
 import {
   type PackageManager,
   usePackageManager,
 } from "@/hooks/use-package-manager"
-import { cn } from "@/lib/utils"
+import { CopyButton } from "@/registry/components/copy-button"
+
+export type CodeBlockCommandProps = {
+  pnpm?: string
+  yarn?: string
+  npm?: string
+  bun?: string
+  onCopySuccess?: (data: {
+    packageManager: PackageManager
+    command: string
+  }) => void
+  onCopyError?: (error: Error) => void
+}
 
 export function CodeBlockCommand({
   pnpm,
   yarn,
   npm,
   bun,
-  onCopy,
+  onCopySuccess,
   onCopyError,
-}: {
-  pnpm?: string
-  yarn?: string
-  npm?: string
-  bun?: string
-  onCopy?: (data: { packageManager: PackageManager; command: string }) => void
-  onCopyError?: (error: Error) => void
-}) {
+}: CodeBlockCommandProps) {
   const [packageManager, setPackageManager] = usePackageManager()
 
   const tabs = useMemo(() => {
@@ -98,10 +95,12 @@ export function CodeBlockCommand({
       </Tabs>
 
       <CopyButton
-        className="absolute top-2 right-2"
-        value={tabs[packageManager] || ""}
+        className="absolute top-2 right-2 z-10"
+        variant="secondary"
+        size="icon-xs"
+        text={tabs[packageManager] || ""}
         onCopySuccess={(copiedCommand) => {
-          onCopy?.({
+          onCopySuccess?.({
             packageManager,
             command: copiedCommand,
           })
@@ -153,77 +152,4 @@ function getIconForPackageManager(manager: PackageManager) {
     default:
       return <TerminalSquareIcon />
   }
-}
-
-const motionIconVariants: Variants = {
-  initial: { opacity: 0, scale: 0.8, filter: "blur(2px)" },
-  animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
-  exit: { opacity: 0, scale: 0.8 },
-}
-
-const motionIconProps: HTMLMotionProps<"span"> = {
-  variants: motionIconVariants,
-  initial: "initial",
-  animate: "animate",
-  exit: "exit",
-  transition: { duration: 0.15, ease: "easeOut" },
-}
-
-function CopyButton({
-  className,
-  value,
-  onCopySuccess,
-  onCopyError,
-  ...props
-}: React.ComponentProps<typeof Button> & {
-  value: string
-  onCopySuccess?: (value: string) => void
-  onCopyError?: (error: Error) => void
-}) {
-  const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle")
-  const [, startTransition] = useTransition()
-
-  return (
-    <Button
-      size="icon"
-      variant="secondary"
-      className={cn(
-        "z-10 size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
-        className
-      )}
-      onClick={() => {
-        startTransition(async () => {
-          try {
-            setState("copied")
-            await navigator.clipboard.writeText(value)
-            onCopySuccess?.(value)
-          } catch (error) {
-            setState("failed")
-            onCopyError?.(
-              error instanceof Error ? error : new Error("Copy failed")
-            )
-          }
-          await new Promise((resolve) => setTimeout(resolve, 1500))
-        })
-      }}
-      {...props}
-    >
-      <AnimatePresence mode="popLayout" initial={false}>
-        {state === "idle" ? (
-          <motion.span key="idle" {...motionIconProps}>
-            <CopyIcon />
-          </motion.span>
-        ) : state === "copied" ? (
-          <motion.span key="copied" {...motionIconProps}>
-            <CheckIcon strokeWidth={3} />
-          </motion.span>
-        ) : state === "failed" ? (
-          <motion.span key="failed" {...motionIconProps}>
-            <CircleXIcon />
-          </motion.span>
-        ) : null}
-      </AnimatePresence>
-      <span className="sr-only">Copy</span>
-    </Button>
-  )
 }

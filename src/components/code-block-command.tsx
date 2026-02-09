@@ -81,8 +81,8 @@ export function CodeBlockCommand({
       </Tabs>
 
       <CopyButton
-        className="absolute top-2 right-2"
-        value={tabs[packageManager] || ""}
+        className="absolute top-2 right-2 z-10"
+        text={tabs[packageManager] || ""}
         event="copy_npm_command"
       />
     </div>

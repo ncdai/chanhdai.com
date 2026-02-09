@@ -24,8 +24,8 @@ export function CodeCollapsibleWrapper({
     >
       <CollapsibleTrigger asChild>
         <div className="absolute top-2 right-10 z-10 flex items-center gap-2">
-          <Button className="size-6 rounded-md" variant="secondary" size="icon">
-            <CollapsibleChevronsIcon />
+          <Button variant="secondary" size="icon-xs">
+            <CollapsibleChevronsIcon className="size-4" />
           </Button>
 
           <Separator
