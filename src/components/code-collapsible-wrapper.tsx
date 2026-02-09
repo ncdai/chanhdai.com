@@ -42,9 +42,11 @@ export function CodeCollapsibleWrapper({
         {children}
       </CollapsibleContent>
 
-      <CollapsibleTrigger className="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-linear-to-t from-code from-25% to-transparent pb-4 text-sm font-medium text-muted-foreground group-data-[state=open]/collapsible:hidden">
-        Expand
-      </CollapsibleTrigger>
+      <div className="absolute inset-x-0 bottom-0 flex h-32 items-end justify-center bg-linear-to-t from-code from-50% to-transparent pb-4 group-data-[state=open]/collapsible:hidden">
+        <CollapsibleTrigger asChild>
+          <Button variant="outline">Expand</Button>
+        </CollapsibleTrigger>
+      </div>
     </CollapsibleWithContext>
   )
 }

@@ -33,7 +33,7 @@ export default function TestimonialsMarqueeDemo1() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-full"
+                className="block h-full transition-[background-color] ease-out hover:bg-accent/20"
               >
                 <Testimonial>
                   <TestimonialQuote>
@@ -67,8 +67,7 @@ export default function TestimonialsMarqueeDemo1() {
 
 const TESTIMONIALS = [
   {
-    authorAvatar:
-      "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
+    authorAvatar: "https://unavatar.io/x/rauchg",
     authorName: "Guillermo Rauch",
     authorTagline: "CEO @Vercel",
     url: "https://x.com/rauchg/status/1978913158514237669",
@@ -76,11 +75,10 @@ const TESTIMONIALS = [
       "awesome. Love the components, especially slide-to-unlock. Great job",
   },
   {
-    authorAvatar:
-      "https://pbs.twimg.com/profile_images/1756766826736893952/6Gvg6jha_400x400.jpg",
+    authorAvatar: "https://unavatar.io/x/orcdev",
     authorName: "OrcDev",
     authorTagline: "Creator of 8bitcn.com",
-    url: "https://x.com/theorcdev/status/1980378575170859446",
+    url: "https://x.com/orcdev/status/1980378575170859446",
     quote:
       "Seriously, this is one of the best portfolio templates I've ever seen.",
   },
@@ -94,24 +92,21 @@ const TESTIMONIALS = [
       "remember seeing it on @mannupaaji's review. it's one of the best looking ones I've seen",
   },
   {
-    authorAvatar:
-      "https://pbs.twimg.com/profile_images/1923813473240203264/owJG92AC_400x400.jpg",
+    authorAvatar: "https://unavatar.io/x/steventey",
     authorName: "Steven Tey",
     authorTagline: "Founder @Dub.co",
     url: "https://x.com/steventey/status/1936934909370830924",
     quote: "whoa, this is really dope – needs to get added to @shadcn UI 👀",
   },
   {
-    authorAvatar:
-      "https://pbs.twimg.com/profile_images/1868745200010428416/jKSU2o_W_400x400.jpg",
+    authorAvatar: "https://unavatar.io/x/kapehe_ok",
     authorName: "Kap",
     authorTagline: "Head of Developer Community @Vercel",
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
     quote: "one of my favorite projects that submitted! you are crushing it!",
   },
   {
-    authorAvatar:
-      "https://pbs.twimg.com/profile_images/1962676904013492224/crWj9Gfa_400x400.jpg",
+    authorAvatar: "https://unavatar.io/x/initjean",
     authorName: "Jean P.D. Meijer",
     authorTagline: "Building analog.now",
     url: "https://x.com/initjean/status/1948159885960438151",
@@ -119,8 +114,7 @@ const TESTIMONIALS = [
       "congrats you deserve it! react wheel picker is so smooth, its insane 🐐",
   },
   {
-    authorAvatar:
-      "https://pbs.twimg.com/profile_images/1679831765744259073/hoVtsOZ9_400x400.jpg",
+    authorAvatar: "https://unavatar.io/x/GithubProjects",
     authorName: "GitHub Projects Community",
     authorTagline: "UNOFFICIAL, but followed by @github",
     url: "https://x.com/GithubProjects/status/1931034244337271044",
