@@ -65,7 +65,7 @@ function CollapsibleWithContext({
   )
 }
 
-function CollapsibleChevronsIcon() {
+function CollapsibleChevronsIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   const { open } = useCollapsible()
 
   const ref = useRef<ChevronsDownUpIconHandle>(null)
@@ -81,7 +81,7 @@ function CollapsibleChevronsIcon() {
     }
   }, [open])
 
-  return <ChevronsDownUpIcon ref={ref} />
+  return <ChevronsDownUpIcon ref={ref} {...props} />
 }
 
 export {

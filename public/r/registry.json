@@ -386,6 +386,30 @@
       "type": "registry:component"
     },
     {
+      "name": "copy-button",
+      "title": "Copy Button",
+      "author": "ncdai <dai@chanhdai.com>",
+      "description": "A reusable Copy to Clipboard button component with visual feedback for success and failure states.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/copy-button/copy-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/hooks/use-copy-to-clipboard.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "code-block-command",
       "title": "Code Block Command",
       "author": "ncdai <dai@chanhdai.com>",
@@ -398,7 +422,7 @@
       ],
       "registryDependencies": [
         "@ncdai/utils",
-        "button"
+        "@ncdai/copy-button"
       ],
       "files": [
         {

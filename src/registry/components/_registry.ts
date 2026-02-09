@@ -307,6 +307,26 @@ export const components: Registry["items"] = [
     },
   },
   {
+    name: "copy-button",
+    type: "registry:component",
+    description:
+      "A reusable Copy to Clipboard button component with visual feedback for success and failure states.",
+    title: "Copy Button",
+    author: "ncdai <dai@chanhdai.com>",
+    dependencies: ["lucide-react", "motion"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "components/copy-button/copy-button.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/hooks/use-copy-to-clipboard.ts",
+        type: "registry:hook",
+      },
+    ],
+  },
+  {
     name: "code-block-command",
     type: "registry:component",
     description:
@@ -314,7 +334,7 @@ export const components: Registry["items"] = [
     title: "Code Block Command",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["@base-ui/react", "lucide-react", "motion", "jotai"],
-    registryDependencies: ["@ncdai/utils", "button"],
+    registryDependencies: ["@ncdai/utils", "@ncdai/copy-button"],
     files: [
       {
         path: "components/code-block-command/code-block-command.tsx",

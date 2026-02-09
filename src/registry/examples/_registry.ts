@@ -225,4 +225,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "copy-button-demo",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/copy-button"],
+    files: [
+      {
+        path: "examples/copy-button-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

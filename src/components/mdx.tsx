@@ -123,8 +123,8 @@ const components: MDXRemoteProps["components"] = {
 
         {__rawString__ && (
           <CopyButton
-            className="absolute top-2 right-2"
-            value={__rawString__}
+            className="absolute top-2 right-2 z-10"
+            text={__rawString__}
             event="copy_code_block"
           />
         )}

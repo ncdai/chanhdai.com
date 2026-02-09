@@ -139,6 +139,18 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "copy-button": {
+    name: "copy-button",
+    description: "A reusable Copy to Clipboard button component with visual feedback for success and failure states.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/copy-button/copy-button.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/src/hooks/use-copy-to-clipboard.ts",
+      type: "registry:hook",
+    }],
+  },
   "code-block-command": {
     name: "code-block-command",
     description: "A code block command component for displaying installation commands with copy functionality.",
@@ -353,5 +365,15 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/code-block-command-demo.tsx")),
+  },
+  "copy-button-demo": {
+    name: "copy-button-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/copy-button-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/copy-button-demo.tsx")),
   },
 }
