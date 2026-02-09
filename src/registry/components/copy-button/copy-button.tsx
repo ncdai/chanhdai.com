@@ -5,6 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react"
 import { AnimatePresence, motion } from "motion/react"
 
 import { Button } from "@/components/ui/button"
+import type { CopyState } from "@/hooks/use-copy-to-clipboard"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 
 export const motionIconVariants: Variants = {
@@ -19,6 +20,26 @@ export const motionIconProps: HTMLMotionProps<"span"> = {
   animate: "animate",
   exit: "exit",
   transition: { duration: 0.15, ease: "easeOut" },
+}
+
+export function CopyStateIcon({ state }: { state: CopyState }) {
+  return (
+    <AnimatePresence mode="popLayout" initial={false}>
+      {state === "idle" ? (
+        <motion.span key="idle" {...motionIconProps}>
+          <CopyIcon />
+        </motion.span>
+      ) : state === "copied" ? (
+        <motion.span key="copied" {...motionIconProps}>
+          <CheckIcon strokeWidth={3} />
+        </motion.span>
+      ) : state === "failed" ? (
+        <motion.span key="failed" {...motionIconProps}>
+          <CircleXIcon />
+        </motion.span>
+      ) : null}
+    </AnimatePresence>
+  )
 }
 
 export type CopyButtonProps = React.ComponentProps<typeof Button> & {
@@ -50,21 +71,7 @@ export function CopyButton({
       }}
       {...props}
     >
-      <AnimatePresence mode="popLayout" initial={false}>
-        {state === "idle" ? (
-          <motion.span key="idle" {...motionIconProps}>
-            <CopyIcon />
-          </motion.span>
-        ) : state === "copied" ? (
-          <motion.span key="copied" {...motionIconProps}>
-            <CheckIcon strokeWidth={3} />
-          </motion.span>
-        ) : state === "failed" ? (
-          <motion.span key="failed" {...motionIconProps}>
-            <CircleXIcon />
-          </motion.span>
-        ) : null}
-      </AnimatePresence>
+      <CopyStateIcon state={state} />
       {children}
     </Button>
   )
