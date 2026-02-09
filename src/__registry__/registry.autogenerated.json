@@ -61,7 +61,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/theme-switcher/theme-switcher.tsx",
+          "path": "src/registry/components/theme-switcher/theme-switcher.tsx",
           "type": "registry:component"
         }
       ],
@@ -80,7 +80,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/flip-sentences/flip-sentences.tsx",
+          "path": "src/registry/components/flip-sentences/flip-sentences.tsx",
           "type": "registry:component"
         }
       ],
@@ -99,7 +99,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/apple-hello-effect/apple-hello-effect.tsx",
+          "path": "src/registry/components/apple-hello-effect/apple-hello-effect.tsx",
           "type": "registry:component"
         }
       ],
@@ -119,7 +119,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/wheel-picker/wheel-picker.tsx",
+          "path": "src/registry/components/wheel-picker/wheel-picker.tsx",
           "type": "registry:component"
         }
       ],
@@ -146,7 +146,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/work-experience/work-experience.tsx",
+          "path": "src/registry/components/work-experience/work-experience.tsx",
           "type": "registry:component"
         }
       ],
@@ -184,7 +184,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/shimmering-text/shimmering-text.tsx",
+          "path": "src/registry/components/shimmering-text/shimmering-text.tsx",
           "type": "registry:component"
         }
       ],
@@ -204,7 +204,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/slide-to-unlock/slide-to-unlock.tsx",
+          "path": "src/registry/components/slide-to-unlock/slide-to-unlock.tsx",
           "type": "registry:component"
         }
       ],
@@ -234,7 +234,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/testimonial/testimonial.tsx",
+          "path": "src/registry/components/testimonial/testimonial.tsx",
           "type": "registry:component"
         }
       ],
@@ -251,7 +251,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/github-stars/github-stars.tsx",
+          "path": "src/registry/components/github-stars/github-stars.tsx",
           "type": "registry:component"
         }
       ],
@@ -267,7 +267,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/scroll-fade-effect/scroll-fade-effect.tsx",
+          "path": "src/registry/components/scroll-fade-effect/scroll-fade-effect.tsx",
           "type": "registry:component"
         }
       ],
@@ -365,7 +365,7 @@
           "type": "registry:component"
         },
         {
-          "path": "src/registry/consent-manager/consent-manager-client.tsx",
+          "path": "src/registry/components/consent-manager/consent-manager-client.tsx",
           "type": "registry:component"
         }
       ],
@@ -402,7 +402,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/code-block-command/code-block-command.tsx",
+          "path": "src/registry/components/code-block-command/code-block-command.tsx",
           "type": "registry:component",
           "target": "components/ncdai/code-block-command.tsx"
         },

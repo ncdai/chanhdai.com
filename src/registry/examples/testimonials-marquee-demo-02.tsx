@@ -14,7 +14,7 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/testimonial"
+} from "@/registry/components/testimonial"
 
 export default function TestimonialsMarqueeDemo2() {
   return (

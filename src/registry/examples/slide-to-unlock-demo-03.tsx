@@ -2,13 +2,13 @@
 
 import { toast } from "sonner"
 
-import { ShimmeringText } from "@/registry/shimmering-text"
+import { ShimmeringText } from "@/registry/components/shimmering-text"
 import {
   SlideToUnlock,
   SlideToUnlockHandle,
   SlideToUnlockText,
   SlideToUnlockTrack,
-} from "@/registry/slide-to-unlock"
+} from "@/registry/components/slide-to-unlock"
 
 export default function SlideToUnlockDemo3() {
   return (

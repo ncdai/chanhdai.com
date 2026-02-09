@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { Separator } from "@/components/ui/separator"
-import { ScrollFadeEffect } from "@/registry/scroll-fade-effect"
+import { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `v1.2.0-beta.${a.length - i}`

@@ -9,7 +9,7 @@
   ],
   "files": [
     {
-      "path": "src/registry/scroll-fade-effect/scroll-fade-effect.tsx",
+      "path": "src/registry/components/scroll-fade-effect/scroll-fade-effect.tsx",
       "content": "import React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport function ScrollFadeEffect({\n  className,\n  orientation = \"vertical\",\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  orientation?: \"horizontal\" | \"vertical\"\n}) {\n  return (\n    <div\n      data-orientation={orientation}\n      className={cn(\n        \"data-[orientation=horizontal]:overflow-x-auto data-[orientation=vertical]:overflow-y-auto\",\n        \"data-[orientation=horizontal]:scroll-fade-effect-x data-[orientation=vertical]:scroll-fade-effect-y\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n",
       "type": "registry:component"
     }

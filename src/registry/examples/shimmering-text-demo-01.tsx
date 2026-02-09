@@ -1,4 +1,4 @@
-import { ShimmeringText } from "@/registry/shimmering-text"
+import { ShimmeringText } from "@/registry/components/shimmering-text"
 
 export default function ShimmeringTextDemo1() {
   return (

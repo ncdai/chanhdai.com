@@ -15,8 +15,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import type { WheelPickerOption } from "@/registry/wheel-picker"
-import { WheelPicker, WheelPickerWrapper } from "@/registry/wheel-picker"
+import type { WheelPickerOption } from "@/registry/components/wheel-picker"
+import {
+  WheelPicker,
+  WheelPickerWrapper,
+} from "@/registry/components/wheel-picker"
 
 const formSchema = z.object({
   framework: z.string(),
