@@ -1,6 +1,6 @@
 "use client"
 
-import { useOptimistic, useTransition } from "react"
+import { useState, useTransition } from "react"
 
 export type CopyState = "idle" | "copied" | "failed"
 
@@ -15,7 +15,7 @@ export function useCopyToClipboard({
   onCopyError,
   resetDelay = 1500,
 }: UseCopyToClipboardOptions = {}) {
-  const [state, setState] = useOptimistic<CopyState>("idle")
+  const [state, setState] = useState<CopyState>("idle")
   const [, startTransition] = useTransition()
 
   const copy = (text: string | (() => string)) => {
@@ -28,8 +28,10 @@ export function useCopyToClipboard({
       } catch (error) {
         setState("failed")
         onCopyError?.(error instanceof Error ? error : new Error("Copy failed"))
+      } finally {
+        await new Promise((resolve) => setTimeout(resolve, resetDelay))
+        setState("idle")
       }
-      await new Promise((resolve) => setTimeout(resolve, resetDelay))
     })
   }
 

@@ -3,7 +3,7 @@
 "use client"
 
 import { ChevronDownIcon } from "lucide-react"
-import { useMemo, useOptimistic, useTransition } from "react"
+import { useMemo, useState, useTransition } from "react"
 
 import { Icons } from "@/components/icons"
 import { buttonVariants } from "@/components/ui/button"
@@ -20,7 +20,7 @@ import { CopyStateIcon } from "@/registry/components/copy-button"
 const cache = new Map<string, string>()
 
 export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
-  const [state, setState] = useOptimistic<CopyState>("idle")
+  const [state, setState] = useState<CopyState>("idle")
   const [, startTransition] = useTransition()
 
   const handleCopy = () => {
@@ -48,6 +48,7 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
         setState("failed")
       } finally {
         await new Promise((resolve) => setTimeout(resolve, 1500))
+        setState("idle")
       }
     })
   }
