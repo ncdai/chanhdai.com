@@ -2,14 +2,8 @@
 
 "use client"
 
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  CopyIcon,
-  TriangleAlertIcon,
-} from "lucide-react"
-import { AnimatePresence, motion } from "motion/react"
-import { useMemo, useOptimistic, useTransition } from "react"
+import { ChevronDownIcon } from "lucide-react"
+import { useMemo, useState, useTransition } from "react"
 
 import { Icons } from "@/components/icons"
 import { buttonVariants } from "@/components/ui/button"
@@ -19,23 +13,23 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import type { CopyState } from "@/hooks/use-copy-to-clipboard"
 import { cn } from "@/lib/utils"
-import { motionIconProps } from "@/registry/components/copy-button"
+import { CopyStateIcon } from "@/registry/components/copy-button"
 
 const cache = new Map<string, string>()
 
 export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
-  const [state, setState] = useOptimistic<"idle" | "copied" | "failed">("idle")
+  const [state, setState] = useState<CopyState>("idle")
   const [, startTransition] = useTransition()
 
   const handleCopy = () => {
     startTransition(async () => {
       try {
-        setState("copied")
-
         const cached = cache.get(markdownUrl)
         if (cached) {
           await navigator.clipboard.writeText(cached)
+          setState("done")
           return
         }
 
@@ -49,10 +43,12 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
               }),
           }),
         ])
+        setState("done")
       } catch {
-        setState("failed")
+        setState("error")
       } finally {
         await new Promise((resolve) => setTimeout(resolve, 1500))
+        setState("idle")
       }
     })
   }
@@ -62,21 +58,7 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
       className="flex h-7 items-center gap-1.5 rounded-l-full pr-2 pl-2.5 text-sm font-medium will-change-transform disabled:pointer-events-none disabled:opacity-50"
       onClick={handleCopy}
     >
-      <AnimatePresence mode="popLayout" initial={false}>
-        {state === "idle" ? (
-          <motion.span key="idle" {...motionIconProps}>
-            <CopyIcon />
-          </motion.span>
-        ) : state === "copied" ? (
-          <motion.span key="copied" {...motionIconProps}>
-            <CheckIcon strokeWidth={3} />
-          </motion.span>
-        ) : state === "failed" ? (
-          <motion.span key="failed" {...motionIconProps}>
-            <TriangleAlertIcon />
-          </motion.span>
-        ) : null}
-      </AnimatePresence>
+      <CopyStateIcon state={state} />
       MDX
     </button>
   )
