@@ -3,7 +3,7 @@
   "name": "copy-button",
   "title": "Copy Button",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "A reusable Copy to Clipboard button component with visual feedback for success and failure states.",
+  "description": "Copy text to clipboard with visual feedback and animation.",
   "dependencies": [
     "lucide-react",
     "motion"

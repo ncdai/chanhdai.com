@@ -1,0 +1,108 @@
+---
+title: Copy Button
+description: Copy text to clipboard with visual feedback and animation.
+image: https://assets.chanhdai.com/images/blog/copy-button.webp
+category: components
+icon: copy-button
+new: true
+createdAt: 2026-02-09
+updatedAt: 2026-02-09
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-40"
+  name="copy-button-demo"
+  openInV0Url="https://chanhdai.com/r/copy-button.json"
+/>
+
+## Features
+
+- **Smooth icon transitions**: Animated state changes using Motion
+- **Visual feedback**: Three distinct states - idle, success, error
+- **Flexible text input**: String or function for dynamic content
+- **Callback support**: Handlers for success and error events
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn add @ncdai/copy-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge class-variance-authority lucide-react motion radix-ui
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible={false}
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/components/ui/button.tsx"
+  title="components/ui/button.tsx"
+  showLineNumbers
+/>
+
+<ComponentSource
+  src="src/hooks/use-copy-to-clipboard.ts"
+  title="hooks/use-copy-to-clipboard.ts"
+  showLineNumbers
+/>
+
+<ComponentSource
+  name="copy-button"
+  title="components/ncdai/copy-button.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CopyButton } from "@/components/ncdai/copy-button"
+```
+
+```tsx
+<CopyButton text="Some text to copy" />
+```
+
+## API Reference
+
+### CopyButton
+
+Extends [Button](https://ui.shadcn.com/docs/components/radix/button) with clipboard functionality. Accepts all Button props plus:
+
+| Prop            | Type                       | Description                                                                         |
+| --------------- | -------------------------- | ----------------------------------------------------------------------------------- |
+| `text`          | `string \| (() => string)` | The text to copy to clipboard. Can be a string or a function that returns a string. |
+| `onCopySuccess` | `(text: string) => void`   | Optional callback function called when copy succeeds. Receives the copied text.     |
+| `onCopyError`   | `(error: Error) => void`   | Optional callback function called when copy fails. Receives the error object.       |
+
+See [Button API Reference](https://ui.shadcn.com/docs/components/radix/button#api-reference) for additional props.

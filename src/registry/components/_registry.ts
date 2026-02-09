@@ -309,8 +309,7 @@ export const components: Registry["items"] = [
   {
     name: "copy-button",
     type: "registry:component",
-    description:
-      "A reusable Copy to Clipboard button component with visual feedback for success and failure states.",
+    description: "Copy text to clipboard with visual feedback and animation.",
     title: "Copy Button",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["lucide-react", "motion"],
