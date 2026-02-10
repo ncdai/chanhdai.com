@@ -110,7 +110,7 @@ In-house Project: [ZaDark](https://zadark.com)
 - Developed and maintained core features to enhance functionality and user experience.
 - Ensured UI/UX consistency and adherence to standards.
 - Implemented robust frontend solutions for web and mobile platforms.
-- Analyzed technical capabilities and provide optimal solutions.`,
+- Analyzed technical capabilities and provided optimal solutions.`,
         skills: [
           "TypeScript",
           "Next.js",
