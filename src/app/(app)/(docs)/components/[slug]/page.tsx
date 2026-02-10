@@ -226,7 +226,7 @@ export default async function Page({
       </div>
 
       <Prose className="px-4">
-        <h1 className="screen-line-after text-3xl font-semibold">
+        <h1 className="screen-line-after text-3xl font-semibold tracking-tight">
           {post.metadata.title}
         </h1>
 

@@ -34,7 +34,9 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-svh">
       <div className="screen-line-after px-4">
-        <h1 className="text-3xl font-semibold">Loved by Devs Worldwide</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Loved by Devs Worldwide
+        </h1>
       </div>
 
       <div className="p-4">

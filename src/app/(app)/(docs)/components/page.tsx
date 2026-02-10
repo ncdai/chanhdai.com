@@ -41,7 +41,7 @@ export default function Page() {
   return (
     <div className="min-h-svh">
       <div className="screen-line-after px-4">
-        <h1 className="text-3xl font-semibold">Components</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">Components</h1>
       </div>
 
       <div className="space-y-4 p-4">
