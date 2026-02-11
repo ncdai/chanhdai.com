@@ -28,7 +28,7 @@ export const sponsors: Sponsor[] = [
         </svg>
       )
     },
-    tier: "silver",
+    tier: "gold",
   },
   {
     name: "Shadcn Space",
@@ -46,7 +46,7 @@ export const sponsors: Sponsor[] = [
         </svg>
       )
     },
-    tier: "silver",
+    tier: "gold",
   },
   {
     type: "organization",
@@ -82,6 +82,7 @@ export const sponsors: Sponsor[] = [
         </svg>
       )
     },
+    tier: "silver",
   },
   {
     type: "organization",
