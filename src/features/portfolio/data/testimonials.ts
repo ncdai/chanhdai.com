@@ -24,8 +24,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
       "Seriously, this is one of the best portfolio templates I've ever seen.",
   },
   {
-    authorAvatar:
-      "https://pbs.twimg.com/profile_images/1954573702768504833/LW-j7iTr_400x400.jpg",
+    authorAvatar: "https://unavatar.io/x/iamsahaj_xyz",
     authorName: "Sahaj",
     authorTagline: "Creator of tweakcn.com",
     url: "https://x.com/iamsahaj_xyz/status/1982814244501381239",
