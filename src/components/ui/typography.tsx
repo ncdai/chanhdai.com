@@ -1,10 +1,8 @@
 import { LinkIcon } from "lucide-react"
-import { Slot as SlotPrimitive } from "radix-ui"
+import { Slot } from "radix-ui"
 import React from "react"
 
 import { cn } from "@/lib/utils"
-
-const Slot = SlotPrimitive.Slot
 
 function Prose({
   className,
@@ -13,7 +11,7 @@ function Prose({
 }: React.ComponentProps<"div"> & {
   asChild?: boolean
 }) {
-  const Comp = asChild ? Slot : "div"
+  const Comp = asChild ? Slot.Root : "div"
 
   return (
     <Comp
