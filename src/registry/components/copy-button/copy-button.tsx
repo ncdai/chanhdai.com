@@ -69,6 +69,7 @@ export function CopyButton({
         copy(text)
         onClick?.(e)
       }}
+      aria-label="Copy"
       {...props}
     >
       <CopyStateIcon state={state} />
