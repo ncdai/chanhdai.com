@@ -3,6 +3,7 @@
 import { MailIcon } from "lucide-react"
 
 import { useIsClient } from "@/hooks/use-is-client"
+import { CopyButton } from "@/registry/components/copy-button"
 import { decodeEmail } from "@/utils/string"
 
 import {
@@ -21,7 +22,7 @@ export function EmailItem({ email }: EmailItemProps) {
   const emailDecoded = decodeEmail(email)
 
   return (
-    <IntroItem>
+    <IntroItem className="group">
       <IntroItemIcon>
         <MailIcon />
       </IntroItemIcon>
@@ -36,6 +37,15 @@ export function EmailItem({ email }: EmailItemProps) {
           {isClient ? emailDecoded : "[Email protected]"}
         </IntroItemLink>
       </IntroItemContent>
+
+      <div className="-translate-x-2 translate-y-px opacity-0 transition-opacity group-hover:opacity-100">
+        <CopyButton
+          className="text-muted-foreground"
+          variant="ghost"
+          size="icon-xs"
+          text={isClient ? emailDecoded : "[Email protected]"}
+        />
+      </div>
     </IntroItem>
   )
 }
