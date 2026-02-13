@@ -11,7 +11,6 @@
     "jotai"
   ],
   "registryDependencies": [
-    "@ncdai/utils",
     "@ncdai/copy-button"
   ],
   "files": [

@@ -9,9 +9,6 @@
     "lucide-react",
     "motion"
   ],
-  "registryDependencies": [
-    "@ncdai/utils"
-  ],
   "files": [
     {
       "path": "src/registry/components/theme-switcher/theme-switcher.tsx",

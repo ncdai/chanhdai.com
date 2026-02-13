@@ -4,9 +4,6 @@
   "title": "Scroll Fade Effect",
   "author": "ncdai <dai@chanhdai.com>",
   "description": "A React component that adds a fade effect to content as you scroll.",
-  "registryDependencies": [
-    "@ncdai/utils"
-  ],
   "files": [
     {
       "path": "src/registry/components/scroll-fade-effect/scroll-fade-effect.tsx",

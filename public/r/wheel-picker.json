@@ -7,9 +7,6 @@
   "dependencies": [
     "@ncdai/react-wheel-picker"
   ],
-  "registryDependencies": [
-    "@ncdai/utils"
-  ],
   "files": [
     {
       "path": "src/registry/components/wheel-picker/wheel-picker.tsx",

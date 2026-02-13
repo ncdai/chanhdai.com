@@ -7,9 +7,6 @@
   "dependencies": [
     "motion"
   ],
-  "registryDependencies": [
-    "@ncdai/utils"
-  ],
   "files": [
     {
       "path": "src/registry/components/shimmering-text/shimmering-text.tsx",

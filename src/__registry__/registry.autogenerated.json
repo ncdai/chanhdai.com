@@ -56,9 +56,6 @@
         "lucide-react",
         "motion"
       ],
-      "registryDependencies": [
-        "@ncdai/utils"
-      ],
       "files": [
         {
           "path": "src/registry/components/theme-switcher/theme-switcher.tsx",
@@ -74,9 +71,6 @@
       "author": "ncdai <dai@chanhdai.com>",
       "dependencies": [
         "motion"
-      ],
-      "registryDependencies": [
-        "@ncdai/utils"
       ],
       "files": [
         {
@@ -94,9 +88,6 @@
       "dependencies": [
         "motion"
       ],
-      "registryDependencies": [
-        "@ncdai/utils"
-      ],
       "files": [
         {
           "path": "src/registry/components/apple-hello-effect/apple-hello-effect.tsx",
@@ -113,9 +104,6 @@
       "description": "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
       "dependencies": [
         "@ncdai/react-wheel-picker"
-      ],
-      "registryDependencies": [
-        "@ncdai/utils"
       ],
       "files": [
         {
@@ -136,11 +124,9 @@
         "lucide-react"
       ],
       "devDependencies": [
-        "@tailwindcss/typography",
-        "tw-animate-css"
+        "@tailwindcss/typography"
       ],
       "registryDependencies": [
-        "@ncdai/utils",
         "collapsible",
         "separator"
       ],
@@ -150,22 +136,7 @@
           "type": "registry:component"
         }
       ],
-      "cssVars": {
-        "light": {
-          "background": "oklch(1 0 0)",
-          "muted": "oklch(0.967 0.001 286.375)",
-          "muted-foreground": "oklch(0.552 0.016 285.938)",
-          "border": "oklch(0.92 0.004 286.32)"
-        },
-        "dark": {
-          "background": "oklch(0.141 0.005 285.823)",
-          "muted": "oklch(0.274 0.006 286.033)",
-          "muted-foreground": "oklch(0.705 0.015 286.067)",
-          "border": "oklch(0.274 0.006 286.033)"
-        }
-      },
       "css": {
-        "@import \"tw-animate-css\"": {},
         "@plugin @tailwindcss/typography": {}
       },
       "docs": "https://chanhdai.com/components/work-experience",
@@ -178,9 +149,6 @@
       "description": "Smooth shimmering text animation built with Motion.",
       "dependencies": [
         "motion"
-      ],
-      "registryDependencies": [
-        "@ncdai/utils"
       ],
       "files": [
         {
@@ -199,7 +167,6 @@
         "motion"
       ],
       "registryDependencies": [
-        "@ncdai/utils",
         "@ncdai/shimmering-text"
       ],
       "files": [
@@ -229,9 +196,6 @@
       "title": "Testimonial",
       "author": "ncdai <dai@chanhdai.com>",
       "description": "A testimonial component for displaying user feedback with author information and verified badge.",
-      "registryDependencies": [
-        "@ncdai/utils"
-      ],
       "files": [
         {
           "path": "src/registry/components/testimonial/testimonial.tsx",
@@ -262,9 +226,6 @@
       "title": "Scroll Fade Effect",
       "author": "ncdai <dai@chanhdai.com>",
       "description": "A React component that adds a fade effect to content as you scroll.",
-      "registryDependencies": [
-        "@ncdai/utils"
-      ],
       "files": [
         {
           "path": "src/registry/components/scroll-fade-effect/scroll-fade-effect.tsx",
@@ -356,7 +317,6 @@
         "@c15t/nextjs"
       ],
       "registryDependencies": [
-        "@ncdai/utils",
         "button"
       ],
       "files": [
@@ -421,7 +381,6 @@
         "jotai"
       ],
       "registryDependencies": [
-        "@ncdai/utils",
         "@ncdai/copy-button"
       ],
       "files": [

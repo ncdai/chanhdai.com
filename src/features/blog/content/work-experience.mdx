@@ -12,7 +12,6 @@ updatedAt: 2026-02-12
   className="**:data-[slot=component-preview]:min-h-0"
   name="work-experience-demo"
   openInV0Url="https://chanhdai.com/r/work-experience.json"
-  notProse={false}
   codeCollapsible
 />
 
@@ -38,6 +37,9 @@ npx shadcn add @ncdai/work-experience
 
 ```bash
 npm install clsx tailwind-merge react-markdown lucide-react
+```
+
+```bash
 npm install -D @tailwindcss/typography tw-animate-css
 ```
 
@@ -81,49 +83,15 @@ import { WorkExperience } from "@/components/ncdai/work-experience"
 import type { ExperienceItemType } from "@/components/ncdai/work-experience"
 ```
 
-<CodeCollapsibleWrapper>
-
 ```tsx
-const WORK_EXPERIENCE: ExperienceItemType[] = [
-  {
-    id: "1",
-    companyName: "Acme Inc.",
-    companyLogo: "https://assets.chanhdai.com/images/companies/quaric.svg",
-    isCurrentEmployer: true,
-    positions: [
-      {
-        id: "1-1",
-        title: "Senior Software Engineer",
-        employmentPeriod: "Jan 2022 - Present",
-        employmentType: "Full-time",
-        description:
-          "Leading a team of developers to build scalable web applications.",
-        icon: "code",
-        skills: ["JavaScript", "React", "Node.js"],
-        isExpanded: true,
-      },
-      {
-        id: "1-2",
-        title: "Software Engineer",
-        employmentPeriod: "Jan 2020 - Dec 2021",
-        employmentType: "Full-time",
-        description:
-          "Developed and maintained web applications using modern technologies.",
-        icon: "code",
-        skills: ["HTML", "CSS", "JavaScript"],
-      },
-    ],
-  },
-]
+const experiences: ExperienceItemType[] = []
+
+<WorkExperience experiences={experiences} />
 ```
 
-</CodeCollapsibleWrapper>
+## API Reference
 
-```tsx
-<WorkExperience experiences={WORK_EXPERIENCE} />
-```
-
-## Props
+### Props
 
 Props for the `WorkExperience` component:
 
@@ -132,7 +100,7 @@ Props for the `WorkExperience` component:
 | `experiences` | `ExperienceItemType[]` | An array of work experience items to display. Each item includes company details and positions held. |
 | `className`   | `string`               | Additional CSS classes to apply to the root element.                                                 |
 
-## Types
+### Types
 
 ```ts
 type ExperiencePositionIconType = "design" | "code" | "business" | "education"

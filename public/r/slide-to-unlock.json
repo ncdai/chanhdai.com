@@ -8,7 +8,6 @@
     "motion"
   ],
   "registryDependencies": [
-    "@ncdai/utils",
     "@ncdai/shimmering-text"
   ],
   "files": [
