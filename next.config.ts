@@ -37,12 +37,19 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/blog/:slug.mdx",
+        source: "/:section(blog|components)/:slug.mdx",
         destination: "/blog.mdx/:slug",
       },
       {
-        source: "/components/:slug.mdx",
+        source: "/:section(blog|components)/:slug",
         destination: "/blog.mdx/:slug",
+        has: [
+          {
+            type: "header",
+            key: "accept",
+            value: "(?<accept>.*text/markdown.*)",
+          },
+        ],
       },
       {
         source: "/rss",
