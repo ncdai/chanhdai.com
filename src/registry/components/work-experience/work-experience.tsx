@@ -86,7 +86,7 @@ export function ExperienceItem({
 }) {
   return (
     <div className="space-y-4 py-4">
-      <div className="not-prose flex items-center gap-3">
+      <div className="flex items-center gap-3">
         <div
           className="flex size-6 shrink-0 items-center justify-center"
           aria-hidden
@@ -136,17 +136,26 @@ export function ExperiencePositionItem({
   const ExperienceIcon = iconMap[position.icon || "business"]
 
   return (
-    <Collapsible defaultOpen={position.isExpanded} asChild>
+    <Collapsible
+      defaultOpen={position.isExpanded}
+      disabled={!position.description}
+      asChild
+    >
       <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
         <CollapsibleTrigger
           className={cn(
-            "group not-prose block w-full text-left select-none",
-            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:rounded-lg hover:before:bg-muted/50"
+            "group block w-full text-left select-none",
+            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:rounded-lg hover:before:bg-muted/30",
+            "data-disabled:before:content-none"
           )}
         >
           <div className="relative z-1 mb-1 flex items-center gap-3">
             <div
-              className="flex size-6 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground"
+              className={cn(
+                "flex size-6 shrink-0 items-center justify-center rounded-lg",
+                "bg-muted text-muted-foreground",
+                "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background"
+              )}
               aria-hidden
             >
               <ExperienceIcon className="size-4" />
@@ -157,7 +166,7 @@ export function ExperiencePositionItem({
             </h4>
 
             <div
-              className="shrink-0 text-muted-foreground [&_svg]:size-4"
+              className="shrink-0 text-muted-foreground group-disabled:hidden [&_svg]:size-4"
               aria-hidden
             >
               <ChevronsDownUpIcon className="hidden group-data-[state=open]:block" />
@@ -196,7 +205,7 @@ export function ExperiencePositionItem({
         </CollapsibleContent>
 
         {Array.isArray(position.skills) && position.skills.length > 0 && (
-          <ul className="not-prose flex flex-wrap gap-1.5 pt-3 pl-9">
+          <ul className="flex flex-wrap gap-1.5 pt-3 pl-9">
             {position.skills.map((skill, index) => (
               <li key={index} className="flex">
                 <Skill>{skill}</Skill>

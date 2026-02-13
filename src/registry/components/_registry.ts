@@ -9,7 +9,6 @@ export const components: Registry["items"] = [
     title: "Theme Switcher",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["next-themes", "lucide-react", "motion"],
-    registryDependencies: ["@ncdai/utils"],
     files: [
       {
         path: "components/theme-switcher/theme-switcher.tsx",
@@ -24,7 +23,6 @@ export const components: Registry["items"] = [
     title: "Flip Sentences",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
-    registryDependencies: ["@ncdai/utils"],
     files: [
       {
         path: "components/flip-sentences/flip-sentences.tsx",
@@ -40,7 +38,6 @@ export const components: Registry["items"] = [
     title: "Apple Hello Effect",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
-    registryDependencies: ["@ncdai/utils"],
     files: [
       {
         path: "components/apple-hello-effect/apple-hello-effect.tsx",
@@ -57,7 +54,6 @@ export const components: Registry["items"] = [
     title: "Wheel Picker",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["@ncdai/react-wheel-picker"],
-    registryDependencies: ["@ncdai/utils"],
     files: [
       {
         path: "components/wheel-picker/wheel-picker.tsx",
@@ -74,30 +70,15 @@ export const components: Registry["items"] = [
     title: "Work Experience",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["react-markdown", "lucide-react"],
-    devDependencies: ["@tailwindcss/typography", "tw-animate-css"],
-    registryDependencies: ["@ncdai/utils", "collapsible", "separator"],
+    devDependencies: ["@tailwindcss/typography"],
+    registryDependencies: ["collapsible", "separator"],
     files: [
       {
         path: "components/work-experience/work-experience.tsx",
         type: "registry:component",
       },
     ],
-    cssVars: {
-      light: {
-        background: "oklch(1 0 0)",
-        muted: "oklch(0.967 0.001 286.375)",
-        "muted-foreground": "oklch(0.552 0.016 285.938)",
-        border: "oklch(0.92 0.004 286.32)",
-      },
-      dark: {
-        background: "oklch(0.141 0.005 285.823)",
-        muted: "oklch(0.274 0.006 286.033)",
-        "muted-foreground": "oklch(0.705 0.015 286.067)",
-        border: "oklch(0.274 0.006 286.033)",
-      },
-    },
     css: {
-      '@import "tw-animate-css"': {},
       "@plugin @tailwindcss/typography": {},
     },
     docs: "https://chanhdai.com/components/work-experience",
@@ -109,7 +90,6 @@ export const components: Registry["items"] = [
     title: "Shimmering Text",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
-    registryDependencies: ["@ncdai/utils"],
     files: [
       {
         path: "components/shimmering-text/shimmering-text.tsx",
@@ -125,7 +105,7 @@ export const components: Registry["items"] = [
     title: "Slide to Unlock",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
-    registryDependencies: ["@ncdai/utils", "@ncdai/shimmering-text"],
+    registryDependencies: ["@ncdai/shimmering-text"],
     files: [
       {
         path: "components/slide-to-unlock/slide-to-unlock.tsx",
@@ -151,7 +131,6 @@ export const components: Registry["items"] = [
       "A testimonial component for displaying user feedback with author information and verified badge.",
     title: "Testimonial",
     author: "ncdai <dai@chanhdai.com>",
-    registryDependencies: ["@ncdai/utils"],
     files: [
       {
         path: "components/testimonial/testimonial.tsx",
@@ -181,7 +160,6 @@ export const components: Registry["items"] = [
       "A React component that adds a fade effect to content as you scroll.",
     title: "Scroll Fade Effect",
     author: "ncdai <dai@chanhdai.com>",
-    registryDependencies: ["@ncdai/utils"],
     files: [
       {
         path: "components/scroll-fade-effect/scroll-fade-effect.tsx",
@@ -279,7 +257,7 @@ export const components: Registry["items"] = [
     title: "Consent Manager",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["@c15t/nextjs"],
-    registryDependencies: ["@ncdai/utils", "button"],
+    registryDependencies: ["button"],
     files: [
       {
         path: "src/components/consent-manager.tsx",
@@ -333,7 +311,7 @@ export const components: Registry["items"] = [
     title: "Code Block Command",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["@base-ui/react", "lucide-react", "motion", "jotai"],
-    registryDependencies: ["@ncdai/utils", "@ncdai/copy-button"],
+    registryDependencies: ["@ncdai/copy-button"],
     files: [
       {
         path: "components/code-block-command/code-block-command.tsx",
