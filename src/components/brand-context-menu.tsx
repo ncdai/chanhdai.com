@@ -28,7 +28,7 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
           onClick={() => {
             const svg = getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff")
             copyText(svg)
-            toast.success("Copied Mark as SVG")
+            toast.success("Mark as SVG copied")
           }}
         >
           <ChanhDaiMark />
@@ -41,7 +41,7 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
               resolvedTheme === "light" ? "#000" : "#fff"
             )
             copyText(svg)
-            toast.success("Copied Logotype as SVG")
+            toast.success("Logotype as SVG copied")
           }}
         >
           <TypeIcon />
