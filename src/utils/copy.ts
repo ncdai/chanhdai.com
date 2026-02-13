@@ -4,7 +4,10 @@ import { trackEvent } from "@/lib/events"
 export const copyText = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text)
-  } catch {}
+    return true
+  } catch {
+    return false
+  }
 }
 
 export function copyToClipboardWithEvent(value: string, event?: Event) {
