@@ -16,7 +16,7 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    docs: "https://chanhdai.com/components/theme-switcher-component",
+    docs: "https://chanhdai.com/components/theme-switcher",
   },
   {
     name: "flip-sentences",
@@ -100,7 +100,7 @@ export const components: Registry["items"] = [
       '@import "tw-animate-css"': {},
       "@plugin @tailwindcss/typography": {},
     },
-    docs: "https://chanhdai.com/components/work-experience-component",
+    docs: "https://chanhdai.com/components/work-experience",
   },
   {
     name: "shimmering-text",
