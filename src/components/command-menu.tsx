@@ -44,7 +44,7 @@ import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { useSound } from "@/hooks/use-sound"
 import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
-import { copyText } from "@/utils/copy"
+import { copyToClipboardWithEvent } from "@/utils/copy"
 
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
 import { getWordmarkSVG } from "./chanhdai-wordmark"
@@ -208,16 +208,13 @@ export function CommandMenu({ posts }: { posts: PostPreview[] }) {
 
   const handleCopyText = useCallback((text: string, message: string) => {
     setOpen(false)
-
-    trackEvent({
+    copyToClipboardWithEvent(text, {
       name: "command_menu_action",
       properties: {
         action: "copy",
         text: text,
       },
     })
-
-    copyText(text)
     toast.success(message)
   }, [])
 
@@ -353,7 +350,7 @@ export function CommandMenu({ posts }: { posts: PostPreview[] }) {
               onSelect={() => {
                 handleCopyText(
                   getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Mark as SVG"
+                  "Mark as SVG copied"
                 )
               }}
             >
@@ -365,7 +362,7 @@ export function CommandMenu({ posts }: { posts: PostPreview[] }) {
               onSelect={() => {
                 handleCopyText(
                   getWordmarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Logotype as SVG"
+                  "Logotype as SVG copied"
                 )
               }}
             >

@@ -5,13 +5,6 @@ import { trackEvent } from "@/lib/events"
 import type { CopyButtonProps } from "@/registry/components/copy-button"
 import { CopyButton as CopyButtonPrimitive } from "@/registry/components/copy-button"
 
-export function copyToClipboardWithEvent(value: string, event?: Event) {
-  if (event) {
-    trackEvent(event)
-  }
-  return navigator.clipboard.writeText(value)
-}
-
 export function CopyButton({
   size = "icon-xs",
   event,

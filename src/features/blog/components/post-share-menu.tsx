@@ -41,7 +41,7 @@ export function PostShareMenu({ title, url }: { title: string; url: string }) {
         <DropdownMenuItem
           onClick={() => {
             copyText(absoluteUrl)
-            toast.success("Copied link")
+            toast.success("Link copied")
           }}
         >
           <LinkIcon />
