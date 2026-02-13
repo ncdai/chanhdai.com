@@ -65,7 +65,7 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/theme-switcher-component",
+      "docs": "https://chanhdai.com/components/theme-switcher",
       "type": "registry:component"
     },
     {
@@ -168,7 +168,7 @@
         "@import \"tw-animate-css\"": {},
         "@plugin @tailwindcss/typography": {}
       },
-      "docs": "https://chanhdai.com/components/work-experience-component",
+      "docs": "https://chanhdai.com/components/work-experience",
       "type": "registry:component"
     },
     {

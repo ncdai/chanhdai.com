@@ -27,9 +27,18 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source:
-          "/:section(blog|components)/writing-effect-inspired-by-apple:extension(.mdx)?",
-        destination: "/:section/apple-hello-effect:extension",
+        source: "/:section(blog|components)/writing-effect-inspired-by-apple",
+        destination: "/:section/apple-hello-effect",
+        permanent: true,
+      },
+      {
+        source: "/:section(blog|components)/work-experience-component",
+        destination: "/:section/work-experience",
+        permanent: true,
+      },
+      {
+        source: "/:section(blog|components)/theme-switcher-component",
+        destination: "/:section/theme-switcher",
         permanent: true,
       },
     ]
