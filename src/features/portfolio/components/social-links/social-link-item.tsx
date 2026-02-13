@@ -6,7 +6,7 @@ import type { SocialLink } from "@/features/portfolio/types/social-links"
 import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
-export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
+export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
   return (
     <a
       className={cn(
@@ -36,8 +36,8 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
           {title}
         </h3>
 
-        {description && (
-          <p className="text-sm text-muted-foreground">{description}</p>
+        {subtitle && (
+          <p className="text-sm text-muted-foreground">{subtitle}</p>
         )}
       </div>
 
