@@ -150,7 +150,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "jordwalke",
     authorTagline: "Creator of React",
     url: "https://x.com/jordwalke/status/1937165909778657589",
-    quote: "Looks great.",
+    quote: "Looks great",
   },
   {
     authorAvatar: "https://unavatar.io/x/jordwalke",
