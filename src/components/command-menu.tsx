@@ -43,6 +43,7 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { useSound } from "@/hooks/use-sound"
 import { trackEvent } from "@/lib/events"
+import { SOUNDS } from "@/lib/sounds"
 import { cn } from "@/lib/utils"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
@@ -163,7 +164,7 @@ export function CommandMenu({ posts }: { posts: PostPreview[] }) {
 
   const [open, setOpen] = useState(false)
 
-  const playClick = useSound("/audio/ui-sounds/click.wav")
+  const playClick = useSound(SOUNDS.click)
 
   const [, setIsDuckFollowerVisible] = useDuckFollowerVisibility()
 
