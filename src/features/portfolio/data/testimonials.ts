@@ -36,7 +36,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Steven Tey",
     authorTagline: "Founder @Dub.co",
     url: "https://x.com/steventey/status/1936934909370830924",
-    quote: "whoa, this is really dope – needs to get added to @shadcn UI 👀",
+    quote: "whoa, this is really dope – needs to get added to @shadcn UI",
   },
   {
     authorAvatar: "https://unavatar.io/x/kapehe_ok",
@@ -51,7 +51,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Building analog.now",
     url: "https://x.com/initjean/status/1948159885960438151",
     quote:
-      "congrats you deserve it! react wheel picker is so smooth, its insane 🐐",
+      "congrats you deserve it! react wheel picker is so smooth, its insane",
   },
   {
     authorAvatar: "https://unavatar.io/x/GithubProjects",
@@ -75,7 +75,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Creator of shadcnstudio.com",
     url: "https://x.com/ajaypatel_aj/status/2003723039029231737",
     quote:
-      "Perfect iOS-like wheel picker for the web 🙌 Natural touch physics, infinite looping, and unstyled components with shadcn CLI support.",
+      "Perfect iOS-like wheel picker for the web. Natural touch physics, infinite looping, and unstyled components with shadcn CLI support.",
   },
   {
     authorAvatar: "https://unavatar.io/x/FrancescoCiull4",
@@ -111,7 +111,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Kartikey",
     authorTagline: "Engineer",
     url: "https://x.com/KartikeyStack/status/2016717957938974963",
-    quote: "best portfolio I've ever seen, minimal, clean and sick 🙌🏼",
+    quote: "best portfolio I've ever seen, minimal, clean and sick",
   },
   {
     authorAvatar: "https://unavatar.io/x/orcdev",
@@ -185,14 +185,14 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "Ajay Patel",
     authorTagline: "Creator of shadcnstudio.com",
     url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
-    quote: "This Portfolio is something else 😍",
+    quote: "This Portfolio is something else",
   },
   {
     authorAvatar: "https://unavatar.io/x/davidhdev",
     authorName: "David Haz",
     authorTagline: "Creator of reactbits.dev",
     url: "https://x.com/davidhdev/status/2017868986969444511",
-    quote: "Simple and clean, love it! 🌟",
+    quote: "Simple and clean, love it!",
   },
   {
     authorAvatar: "https://unavatar.io/x/JohnPhamous",
@@ -214,5 +214,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorTagline: "Type-safe URL State for React",
     url: "https://x.com/nuqs47ng/status/2020417206103023847",
     quote: "Looks great!",
+  },
+  {
+    authorAvatar: "https://unavatar.io/x/uixmat",
+    authorName: "Matt",
+    authorTagline: "Building bklit.com & ui.bklit.com",
+    url: "https://x.com/uixmat/status/2023145872771436904",
+    quote: "great work bro",
   },
 ]
