@@ -71,7 +71,7 @@ export function RegistryCommandAnimated() {
         <pre className="-translate-y-px p-4">
           <code
             data-language="bash"
-            className="block font-pixel-square text-sm text-muted-foreground max-sm:leading-6"
+            className="block font-mono text-sm text-muted-foreground max-sm:leading-6"
           >
             {Object.entries(pmCommands).map(([key, command]) => {
               return (
