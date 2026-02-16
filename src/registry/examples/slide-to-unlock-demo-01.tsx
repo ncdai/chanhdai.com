@@ -3,6 +3,7 @@
 import { toast } from "sonner"
 
 import { useSound } from "@/hooks/use-sound"
+import { SOUNDS } from "@/lib/sounds"
 import { ShimmeringText } from "@/registry/components/shimmering-text"
 import {
   SlideToUnlock,
@@ -12,7 +13,7 @@ import {
 } from "@/registry/components/slide-to-unlock"
 
 export default function SlideToUnlockDemo1() {
-  const playSound = useSound("/audio/ui-sounds/unlock.wav")
+  const playSound = useSound(SOUNDS.unlock)
 
   return (
     <SlideToUnlock
