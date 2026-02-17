@@ -1,6 +1,11 @@
 import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
 import Image from "next/image"
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/base/ui/tooltip"
 import { Markdown } from "@/components/markdown"
 import {
   CollapsibleChevronsIcon,
@@ -9,11 +14,6 @@ import {
   CollapsibleWithContext,
 } from "@/components/ui/collapsible"
 import { Tag } from "@/components/ui/tag"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { ProseMono } from "@/components/ui/typography"
 import { UTM_PARAMS } from "@/config/site"
 import { addQueryParams } from "@/utils/url"
@@ -87,16 +87,18 @@ export function ProjectItem({
               </div>
 
               <Tooltip>
-                <TooltipTrigger asChild>
-                  <a
-                    className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
-                    href={addQueryParams(project.link, UTM_PARAMS)}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <LinkIcon className="pointer-events-none size-4" />
-                    <span className="sr-only">Open Project Link</span>
-                  </a>
+                <TooltipTrigger
+                  render={
+                    <a
+                      className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
+                      href={addQueryParams(project.link, UTM_PARAMS)}
+                      target="_blank"
+                      rel="noopener"
+                    />
+                  }
+                >
+                  <LinkIcon className="pointer-events-none size-4" />
+                  <span className="sr-only">Open Project Link</span>
                 </TooltipTrigger>
 
                 <TooltipContent>
