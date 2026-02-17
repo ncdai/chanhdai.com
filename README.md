@@ -199,9 +199,3 @@ This project is proudly supported by:
 - [OpenPanel](https://openpanel.dev)
 - [c15t](https://c15t.com)
 - And many other open-source libraries used in `package.json`
-
-## GitAds Sponsored
-
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=ncdai/chanhdai.com@github)](https://gitads.dev/v1/ad-track?source=ncdai/chanhdai.com@github)
-
-<!-- GitAds-Verify: QICCAB4PFWV9MHUGPGPN5B2I8SAXLAOK -->
