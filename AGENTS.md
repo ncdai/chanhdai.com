@@ -52,19 +52,19 @@ The project features a custom component registry built on top of shadcn/ui:
 
 ### Registry Structure
 
-- **Components** (`src/registry/registry-components.ts`) - UI components
-- **Hooks** (`src/registry/registry-hook.ts`) - Custom React hooks
-- **Blocks** (`src/registry/registry-blocks.ts`) - Pre-built blocks and sections
-- **Examples** (`src/registry/registry-examples.ts`) - Component demos
-- **Lib** (`src/registry/registry-lib.ts`) - Utility functions
+- **Components** (`src/registry/components/_registry.ts`) - UI components
+- **Hooks** (`src/registry/hooks/_registry.ts`) - Custom React hooks
+- **Blocks** (`src/registry/blocks/registry-blocks.ts`) - Pre-built blocks and sections
+- **Examples** (`src/registry/examples/_registry.ts`) - Component demos
+- **Lib** (`src/registry/lib/_registry.ts`) - Utility functions
 
 ### Registry Types
 
-- `registry:component` - Reusable UI components (`src/registry/registry-components.ts`)
-- `registry:hook` - Custom React hooks (`src/registry/registry-hook.ts`)
-- `registry:block` - Pre-built blocks and sections (`src/registry/registry-blocks.ts`)
-- `registry:example` - Component examples/demos (`src/registry/registry-examples.ts`)
-- `registry:lib` - Utility libraries (`src/registry/registry-lib.ts`)
+- `registry:component` - Reusable UI components (`src/registry/components/_registry.ts`)
+- `registry:hook` - Custom React hooks (`src/registry/hooks/_registry.ts`)
+- `registry:block` - Pre-built blocks and sections (`src/registry/blocks/registry-blocks.ts`)
+- `registry:example` - Component examples/demos (`src/registry/examples/_registry.ts`)
+- `registry:lib` - Utility libraries (`src/registry/lib/_registry.ts`)
 
 ### Registry Build Process
 
