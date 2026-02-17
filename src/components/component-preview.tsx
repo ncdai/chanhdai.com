@@ -7,10 +7,10 @@ import React, { useMemo, useState } from "react"
 import { Index } from "@/__registry__/index"
 import { cn } from "@/lib/utils"
 
+import { Tooltip, TooltipContent, TooltipTrigger } from "./base/ui/tooltip"
 import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper"
 import { Button } from "./ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 import { Code as CodeInline } from "./ui/typography"
 import { OpenInV0Button } from "./v0-open-button"
 
@@ -80,18 +80,19 @@ export function ComponentPreview({
               <div data-slot="buttons" className="mb-2 flex justify-end gap-2">
                 {canReplay && (
                   <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        className="rounded-md"
-                        variant="secondary"
-                        size="icon-sm"
-                        onClick={() => setReplay((v) => v + 1)}
-                      >
-                        <RepeatIcon aria-hidden />
-                        <span className="sr-only">Replay</span>
-                      </Button>
-                    </TooltipTrigger>
-
+                    <TooltipTrigger
+                      render={
+                        <Button
+                          className="rounded-md"
+                          variant="secondary"
+                          size="icon-sm"
+                          onClick={() => setReplay((v) => v + 1)}
+                        >
+                          <RepeatIcon aria-hidden />
+                          <span className="sr-only">Replay</span>
+                        </Button>
+                      }
+                    />
                     <TooltipContent>
                       <p>Replay</p>
                     </TooltipContent>

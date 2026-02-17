@@ -60,20 +60,19 @@ export function ProfileHeader() {
                       href={addQueryParams(USER.affiliateBadge.url, UTM_PARAMS)}
                       target="_blank"
                       rel="noopener"
-                    />
+                    >
+                      <Image
+                        className="rounded-sm"
+                        src={USER.affiliateBadge.logo}
+                        alt={USER.affiliateBadge.name}
+                        width={20}
+                        height={20}
+                        quality={100}
+                        unoptimized
+                      />
+                    </a>
                   }
-                >
-                  <Image
-                    className="rounded-sm"
-                    src={USER.affiliateBadge.logo}
-                    alt={USER.affiliateBadge.name}
-                    width={20}
-                    height={20}
-                    quality={100}
-                    unoptimized
-                  />
-                </TooltipTrigger>
-
+                />
                 <TooltipContent>
                   <p>
                     An affiliate of{" "}
