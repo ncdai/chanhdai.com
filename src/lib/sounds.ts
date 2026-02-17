@@ -1,4 +1,4 @@
 export const SOUNDS = {
-  click: "/audio/ui-sounds/click.mp3",
-  unlock: "/audio/ui-sounds/unlock.mp3",
+  click: "https://assets.chanhdai.com/audio/ui-sounds/click.mp3?v=1",
+  unlock: "https://assets.chanhdai.com/audio/ui-sounds/unlock.mp3?v=1",
 }
