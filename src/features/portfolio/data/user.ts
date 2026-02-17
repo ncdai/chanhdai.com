@@ -45,11 +45,6 @@ export const USER = {
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=6",
   namePronunciationUrl: "/audio/chanhdai.mp3",
-  affiliateBadge: {
-    name: "Shadcraft",
-    url: "https://shadcraft.com",
-    logo: "https://assets.chanhdai.com/images/companies/shadcraft.svg?v=2",
-  },
   timeZone: "Asia/Ho_Chi_Minh",
   keywords: [
     "ncdai",
