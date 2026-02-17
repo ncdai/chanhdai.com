@@ -86,16 +86,17 @@ export function AwardItem({
                         href={award.referenceLink}
                         target="_blank"
                         rel="noopener"
-                      />
+                      >
+                        <FileCheckIcon
+                          className="pointer-events-none size-4"
+                          aria-hidden
+                        />
+                        <span className="sr-only">
+                          Open Reference Attachment
+                        </span>
+                      </a>
                     }
-                  >
-                    <FileCheckIcon
-                      className="pointer-events-none size-4"
-                      aria-hidden
-                    />
-                    <span className="sr-only">Open Reference Attachment</span>
-                  </TooltipTrigger>
-
+                  />
                   <TooltipContent>
                     <p>Open Reference Attachment</p>
                   </TooltipContent>

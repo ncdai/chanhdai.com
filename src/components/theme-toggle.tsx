@@ -46,14 +46,13 @@ export function ThemeToggle() {
             //   if (!document.startViewTransition) switchTheme();
             //   document.startViewTransition(switchTheme);
             // }}
-          />
+          >
+            <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
+            <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
+            <span className="sr-only">Theme Toggle</span>
+          </Button>
         }
-      >
-        <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
-        <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
-        <span className="sr-only">Theme Toggle</span>
-      </TooltipTrigger>
-
+      />
       <TooltipContent className="pr-2 pl-3">
         <div className="flex items-center gap-3">
           Toggle Mode

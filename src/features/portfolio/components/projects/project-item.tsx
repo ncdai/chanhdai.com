@@ -94,13 +94,12 @@ export function ProjectItem({
                       href={addQueryParams(project.link, UTM_PARAMS)}
                       target="_blank"
                       rel="noopener"
-                    />
+                    >
+                      <LinkIcon className="pointer-events-none size-4" />
+                      <span className="sr-only">Open Project Link</span>
+                    </a>
                   }
-                >
-                  <LinkIcon className="pointer-events-none size-4" />
-                  <span className="sr-only">Open Project Link</span>
-                </TooltipTrigger>
-
+                />
                 <TooltipContent>
                   <p>Open Project Link</p>
                 </TooltipContent>
