@@ -7,18 +7,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@custom-variant supports-timeline-scroll {
-  @supports (animation-timeline: scroll()) {
-    @slot;
-  }
-}
-
-@custom-variant supports-corner-shape {
-  @supports (corner-shape: initial) {
-    @slot;
-  }
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -56,35 +44,6 @@
   --font-pixel-square: var(--font-geist-pixel-square);
 
   --shadow-popover: var(--shadow-popover);
-
-  --animate-fade-in: fade-in var(--tw-duration, 200ms) ease-out;
-  --animate-fade-out: fade-out var(--tw-duration, 200ms) ease-out;
-
-  --animate-collapsible-fade-down:
-    collapsible-down var(--tw-duration, 200ms) ease-out,
-    fade-in var(--tw-duration, 200ms) ease-out;
-
-  --animate-collapsible-fade-up:
-    collapsible-up var(--tw-duration, 200ms) ease-out,
-    fade-out var(--tw-duration, 200ms) ease-out;
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
 }
 
 @utility no-scrollbar {
@@ -448,5 +407,31 @@
 
   [data-highlighted-line] {
     @apply bg-code-highlight;
+  }
+}
+
+@custom-variant supports-timeline-scroll {
+  @supports (animation-timeline: scroll()) {
+    @slot;
+  }
+}
+
+@custom-variant supports-corner-shape {
+  @supports (corner-shape: initial) {
+    @slot;
+  }
+}
+
+@custom-variant data-open {
+  &:where([data-state="open"]),
+  &:where([data-open]:not([data-open="false"])) {
+    @slot;
+  }
+}
+
+@custom-variant data-closed {
+  &:where([data-state="closed"]),
+  &:where([data-closed]:not([data-closed="false"])) {
+    @slot;
   }
 }
