@@ -115,25 +115,23 @@ export function ProjectItem({
           </div>
         </div>
 
-        <CollapsibleContent className="group overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-          <div className="border-t border-edge">
-            <div className="space-y-4 p-4 duration-300 group-data-[state=closed]:animate-fade-out group-data-[state=open]:animate-fade-in">
-              {project.description && (
-                <ProseMono>
-                  <Markdown>{project.description}</Markdown>
-                </ProseMono>
-              )}
+        <CollapsibleContent className="overflow-hidden duration-300 data-open:animate-collapsible-down data-closed:animate-collapsible-up">
+          <div className="space-y-4 border-t border-edge p-4">
+            {project.description && (
+              <ProseMono>
+                <Markdown>{project.description}</Markdown>
+              </ProseMono>
+            )}
 
-              {project.skills.length > 0 && (
-                <ul className="flex flex-wrap gap-1.5">
-                  {project.skills.map((skill, index) => (
-                    <li key={index} className="flex">
-                      <Tag>{skill}</Tag>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            {project.skills.length > 0 && (
+              <ul className="flex flex-wrap gap-1.5">
+                {project.skills.map((skill, index) => (
+                  <li key={index} className="flex">
+                    <Tag>{skill}</Tag>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </CollapsibleContent>
       </div>

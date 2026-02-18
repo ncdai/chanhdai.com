@@ -116,12 +116,10 @@ export function AwardItem({
         </div>
 
         {canExpand && (
-          <CollapsibleContent className="group overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-            <div className="border-t border-edge">
-              <ProseMono className="p-4 duration-300 group-data-[state=closed]:animate-fade-out group-data-[state=open]:animate-fade-in">
-                <Markdown>{award.description}</Markdown>
-              </ProseMono>
-            </div>
+          <CollapsibleContent className="overflow-hidden duration-300 data-open:animate-collapsible-down data-closed:animate-collapsible-up">
+            <ProseMono className="border-t border-edge p-4">
+              <Markdown>{award.description}</Markdown>
+            </ProseMono>
           </CollapsibleContent>
         )}
       </div>
