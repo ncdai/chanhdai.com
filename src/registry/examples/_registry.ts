@@ -2,6 +2,17 @@ import type { Registry } from "shadcn/schema"
 
 export const examples: Registry["items"] = [
   {
+    name: "text-flip-demo",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/text-flip"],
+    files: [
+      {
+        path: "examples/text-flip-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "apple-hello-effect-vi-demo",
     type: "registry:example",
     registryDependencies: ["@ncdai/apple-hello-effect"],

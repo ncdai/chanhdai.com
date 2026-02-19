@@ -18,17 +18,20 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/theme-switcher",
   },
   {
-    name: "flip-sentences",
+    name: "text-flip",
     type: "registry:component",
-    title: "Flip Sentences",
+    title: "Text Flip",
+    description:
+      "Animated text component that cycles through items with a smooth flip transition built with Motion for React.",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
     files: [
       {
-        path: "components/flip-sentences/flip-sentences.tsx",
+        path: "components/text-flip/text-flip.tsx",
         type: "registry:component",
       },
     ],
+    docs: "https://chanhdai.com/components/text-flip",
   },
   {
     name: "apple-hello-effect",
