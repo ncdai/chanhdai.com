@@ -130,7 +130,7 @@ export default async function Page({
 
       <div className="flex items-center justify-between p-2 pl-4">
         <Button
-          className="h-7 gap-2 rounded-lg px-0 font-mono text-muted-foreground"
+          className="h-7 gap-2 rounded-lg px-0 font-mono text-muted-foreground transition-[color] hover:text-foreground"
           variant="link"
           asChild
         >
