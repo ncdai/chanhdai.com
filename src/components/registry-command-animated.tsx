@@ -7,7 +7,7 @@ import { registryConfig } from "@/config/registry"
 import type { PackageManager } from "@/hooks/use-package-manager"
 import { usePackageManager } from "@/hooks/use-package-manager"
 import { components } from "@/registry/components/_registry"
-import { FlipSentences } from "@/registry/components/flip-sentences"
+import { TextFlip } from "@/registry/components/text-flip"
 
 import {
   Tabs,
@@ -91,7 +91,7 @@ export function RegistryCommandAnimated() {
 
             <span>{registryConfig.namespace}/</span>
 
-            <FlipSentences
+            <TextFlip
               className="text-foreground"
               as={motion.span}
               variants={{
@@ -104,7 +104,7 @@ export function RegistryCommandAnimated() {
               }}
             >
               {registryItemNames}
-            </FlipSentences>
+            </TextFlip>
           </code>
         </pre>
       </Tabs>

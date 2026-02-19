@@ -46,12 +46,12 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
-  "flip-sentences": {
-    name: "flip-sentences",
-    description: "",
+  "text-flip": {
+    name: "text-flip",
+    description: "Animated text component that cycles through items with a smooth flip transition built with Motion for React.",
     type: "registry:component",
     files: [{
-      path: "src/registry/components/flip-sentences/flip-sentences.tsx",
+      path: "src/registry/components/text-flip/text-flip.tsx",
       type: "registry:component",
     }],
   },
@@ -165,6 +165,16 @@ export const Index: Record<string, any> = {
       path: "src/registry/src/hooks/use-package-manager.ts",
       type: "registry:hook",
     }],
+  },
+  "text-flip-demo": {
+    name: "text-flip-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/text-flip-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/text-flip-demo.tsx")),
   },
   "apple-hello-effect-vi-demo": {
     name: "apple-hello-effect-vi-demo",

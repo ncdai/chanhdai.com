@@ -1,0 +1,102 @@
+---
+title: Text Flip
+description: Animated text component that cycles through items with a smooth flip transition built with Motion for React.
+image: https://assets.chanhdai.com/images/blog/text-flip.webp
+category: components
+icon: text-flip
+new: true
+createdAt: 2026-02-19
+updatedAt: 2026-02-19
+---
+
+<ComponentPreview
+  name="text-flip-demo"
+  openInV0Url="https://chanhdai.com/r/text-flip.json"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn add @ncdai/text-flip
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible={false}
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="text-flip"
+  title="components/ncdai/text-flip.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TextFlip } from "@/components/ncdai/text-flip"
+```
+
+```tsx
+<TextFlip>
+  <span>Developer</span>
+  <span>Designer</span>
+  <span>Creator</span>
+</TextFlip>
+```
+
+## API Reference
+
+| Prop            | Type                      | Default             | Description                                                  |
+| --------------- | ------------------------- | ------------------- | ------------------------------------------------------------ |
+| `as`            | `MotionElement`           | `motion.p`          | The motion element type to render.                           |
+| `className`     | `string`                  |                     | Additional CSS classes applied to the rendered element.      |
+| `children`      | `ReactNode[]`             |                     | List of items to cycle through.                              |
+| `interval`      | `number`                  | `2`                 | Time in seconds between each flip.                           |
+| `transition`    | `Transition`              | `defaultTransition` | Motion transition config for the flip animation.             |
+| `variants`      | `Variants`                | `defaultVariants`   | Motion variants for `initial`, `animate`, and `exit` states. |
+| `onIndexChange` | `(index: number) => void` |                     | Callback fired whenever the active item index changes.       |
+
+```tsx
+const defaultTransition = {
+  duration: 0.3,
+}
+
+const defaultVariants = {
+  initial: { y: -8, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  exit: { y: 8, opacity: 0 },
+}
+```
