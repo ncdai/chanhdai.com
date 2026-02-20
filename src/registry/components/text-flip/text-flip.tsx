@@ -14,15 +14,30 @@ const defaultVariants: Variants = {
 
 type MotionElement = typeof motion.p | typeof motion.span | typeof motion.code
 
-type Props = {
+export type TextFlipProps = {
+  /**
+   * Motion element to render.
+   * @defaultValue motion.p
+   * */
   as?: MotionElement
   className?: string
+  /** Array of children to cycle through. */
   children: React.ReactNode[]
 
+  /**
+   * Time in seconds between each flip.
+   * @defaultValue 2
+   * */
   interval?: number
+  /**
+   * Motion transition configuration.
+   * @defaultValue { duration: 0.3 }
+   * */
   transition?: Transition
+  /** Motion variants for enter/exit animations. */
   variants?: Variants
 
+  /** Called with the new index after each flip. */
   onIndexChange?: (index: number) => void
 }
 
@@ -36,7 +51,7 @@ export function TextFlip({
   variants = defaultVariants,
 
   onIndexChange,
-}: Props) {
+}: TextFlipProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const items = Children.toArray(children)

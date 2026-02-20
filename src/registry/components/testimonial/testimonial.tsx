@@ -1,9 +1,8 @@
+import type { ComponentProps } from "react"
+
 import { cn } from "@/lib/utils"
 
-export function Testimonial({
-  className,
-  ...props
-}: React.ComponentProps<"figure">) {
+export function Testimonial({ className, ...props }: ComponentProps<"figure">) {
   return (
     <figure
       data-slot="testimonial"
@@ -16,7 +15,7 @@ export function Testimonial({
 export function TestimonialQuote({
   className,
   ...props
-}: React.ComponentProps<"blockquote">) {
+}: ComponentProps<"blockquote">) {
   return (
     <blockquote
       data-slot="quote"
@@ -32,7 +31,7 @@ export function TestimonialQuote({
 export function TestimonialAuthor({
   className,
   ...props
-}: React.ComponentProps<"figcaption">) {
+}: ComponentProps<"figcaption">) {
   return (
     <figcaption
       data-slot="author"
@@ -48,7 +47,7 @@ export function TestimonialAuthor({
 export function TestimonialAvatar({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentProps<"div">) {
   return (
     <div
       data-slot="avatar"
@@ -63,7 +62,7 @@ export function TestimonialAvatarImg({
   src,
   alt,
   ...props
-}: React.ComponentProps<"img">) {
+}: ComponentProps<"img">) {
   return (
     <img
       data-slot="avatar-img"
@@ -78,7 +77,7 @@ export function TestimonialAvatarImg({
 export function TestimonialAvatarRing({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentProps<"div">) {
   return (
     <div
       data-slot="avatar-ring"
@@ -94,7 +93,7 @@ export function TestimonialAvatarRing({
 export function TestimonialAuthorName({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentProps<"div">) {
   return (
     <div
       data-slot="author-name"
@@ -110,7 +109,7 @@ export function TestimonialAuthorName({
 export function TestimonialAuthorTagline({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentProps<"div">) {
   return (
     <div
       data-slot="author-tagline"
@@ -126,7 +125,7 @@ export function TestimonialAuthorTagline({
 export function TestimonialVerifiedBadge({
   className,
   ...props
-}: React.ComponentProps<"svg">) {
+}: ComponentProps<"svg">) {
   return (
     <svg
       data-slot="verified-badge"

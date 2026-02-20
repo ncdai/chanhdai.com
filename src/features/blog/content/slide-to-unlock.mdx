@@ -5,7 +5,7 @@ image: https://assets.chanhdai.com/images/blog/slide-to-unlock.webp
 category: components
 icon: slide-to-unlock
 createdAt: 2025-10-08
-updatedAt: 2025-11-23
+updatedAt: 2026-02-20
 ---
 
 <ComponentPreview
@@ -122,50 +122,17 @@ import { ShimmeringText } from "@/component/ncdai/shimmering-text"
 
 ### SlideToUnlock
 
-The root component that provides context for all child components.
-
-| Prop          | Type         | Default | Description                                                  |
-| ------------- | ------------ | ------- | ------------------------------------------------------------ |
-| `handleWidth` | `number`     | `56`    | Width of the draggable handle in pixels.                     |
-| `onUnlock`    | `() => void` |         | Callback function triggered when the handle reaches the end. |
-| `className`   | `string`     |         | Additional CSS classes to apply to the root element.         |
-
-### SlideToUnlockTrack
-
-The container that holds the text and handle components.
-
-| Prop        | Type     | Description                                           |
-| ----------- | -------- | ----------------------------------------------------- |
-| `className` | `string` | Additional CSS classes to apply to the track element. |
+<AutoTypeTable
+  path="src/registry/components/slide-to-unlock/slide-to-unlock.tsx"
+  name="SlideToUnlockRootOwnProps"
+/>
 
 ### SlideToUnlockText
 
-The text label that fades out as the handle is dragged.
-
-| Prop        | Type                                                         | Description                                                   |
-| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------- |
-| `children`  | `ReactNode \| (props: { isDragging: boolean }) => ReactNode` | Text content or render function that receives dragging state. |
-| `className` | `string`                                                     | Additional CSS classes to apply to the text element.          |
-
-### SlideToUnlockHandle
-
-The draggable handle element.
-
-| Prop        | Type        | Default      | Description                                            |
-| ----------- | ----------- | ------------ | ------------------------------------------------------ |
-| `children`  | `ReactNode` | `ArrowRight` | Custom icon or content to display inside the handle.   |
-| `className` | `string`    |              | Additional CSS classes to apply to the handle element. |
-
-### ShimmeringText
-
-An animated text component that creates a shimmering effect by sequentially animating each character's color.
-
-| Prop        | Type      | Default | Description                                                                                  |
-| ----------- | --------- | ------- | -------------------------------------------------------------------------------------------- |
-| `text`      | `string`  |         | The text content to display with the shimmering effect.                                      |
-| `duration`  | `number`  | `1`     | The duration (in seconds) for each character's shimmer animation cycle.                      |
-| `isStopped` | `boolean` | `false` | Controls whether the animation is stopped. When true, characters return to their base color. |
-| `className` | `string`  |         | Additional CSS classes to apply to the root span element.                                    |
+<AutoTypeTable
+  path="src/registry/components/slide-to-unlock/slide-to-unlock.tsx"
+  name="SlideToUnlockTextOwnProps"
+/>
 
 ## Examples
 

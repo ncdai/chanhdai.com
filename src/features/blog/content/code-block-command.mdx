@@ -117,22 +117,12 @@ import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
 
 ## API Reference
 
-### Props
+### CodeBlockCommand
 
-| Prop            | Type                                                                  | Description                                               |
-| --------------- | --------------------------------------------------------------------- | --------------------------------------------------------- |
-| `pnpm`          | `string`                                                              | Command for pnpm package manager                          |
-| `yarn`          | `string`                                                              | Command for yarn package manager                          |
-| `npm`           | `string`                                                              | Command for npm package manager                           |
-| `bun`           | `string`                                                              | Command for bun package manager                           |
-| `onCopySuccess` | `(data: { packageManager: PackageManager; command: string }) => void` | Callback when command is successfully copied to clipboard |
-| `onCopyError`   | `(error: Error) => void`                                              | Callback when copy operation fails                        |
-
-### Types
-
-```ts
-type PackageManager = "pnpm" | "yarn" | "npm" | "bun"
-```
+<AutoTypeTable
+  path="src/registry/components/code-block-command/code-block-command.tsx"
+  name="CodeBlockCommandProps"
+/>
 
 ## Examples
 

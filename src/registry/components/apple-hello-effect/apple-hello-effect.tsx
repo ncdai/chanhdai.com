@@ -2,6 +2,7 @@
 
 import type { TargetAndTransition } from "motion/react"
 import { motion } from "motion/react"
+import type { ComponentProps } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -15,18 +16,26 @@ const animateProps: TargetAndTransition = {
   opacity: 1,
 }
 
-type Props = React.ComponentProps<typeof motion.svg> & {
+export type AppleHelloEffectOwnProps = {
+  /**
+   * Animation speed multiplier (higher = faster).
+   * @defaultValue 1
+   * */
   speed?: number
+  /** Called when the full handwriting animation completes. */
   onAnimationComplete?: () => void
 }
+
+export type AppleHelloEffectProps = ComponentProps<typeof motion.svg> &
+  AppleHelloEffectOwnProps
 
 function AppleHelloVietnameseEffect({
   className,
   speed = 1,
   onAnimationComplete,
   ...props
-}: Props) {
-  const calc = (x: number) => x * speed
+}: AppleHelloEffectProps) {
+  const calc = (x: number) => x / speed
 
   return (
     <motion.svg
@@ -192,7 +201,7 @@ function AppleHelloEnglishEffect({
   speed = 1,
   onAnimationComplete,
   ...props
-}: Props) {
+}: AppleHelloEffectProps) {
   const calc = (x: number) => x * speed
 
   return (

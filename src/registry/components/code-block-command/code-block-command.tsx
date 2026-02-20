@@ -16,15 +16,72 @@ import {
 } from "@/hooks/use-package-manager"
 import { CopyButton } from "@/registry/components/copy-button"
 
+/**
+ * Props for the CodeBlockCommand component.
+ */
 export type CodeBlockCommandProps = {
+  /**
+   * Command to execute with pnpm package manager.
+   */
   pnpm?: string
+
+  /**
+   * Command to execute with yarn package manager.
+   */
   yarn?: string
+
+  /**
+   * Command to execute with npm package manager.
+   */
   npm?: string
+
+  /**
+   * Command to execute with bun package manager.
+   */
   bun?: string
+
+  /**
+   * Callback invoked when a command is successfully copied to clipboard.
+   *
+   * Receives an object containing the selected package manager and the copied command text.
+   * Useful for tracking user interactions or showing custom success notifications.
+   *
+   * @param data - Object containing copy operation details
+   * @param data.packageManager - The package manager that was selected when copying
+   * @param data.command - The actual command text that was copied
+   *
+   * @example
+   * ```tsx
+   * <CodeBlockCommand
+   *   pnpm="pnpm add react"
+   *   onCopySuccess={({ packageManager, command }) => {
+   *     console.log(`Copied ${command} for ${packageManager}`)
+   *   }}
+   * />
+   * ```
+   */
   onCopySuccess?: (data: {
     packageManager: PackageManager
     command: string
   }) => void
+
+  /**
+   * Callback invoked when copying to clipboard fails.
+   *
+   * Receives the error object for debugging or showing custom error messages.
+   *
+   * @param error - The error that occurred during the copy operation
+   *
+   * @example
+   * ```tsx
+   * <CodeBlockCommand
+   *   pnpm="pnpm add react"
+   *   onCopyError={(error) => {
+   *     console.error('Copy failed:', error)
+   *   }}
+   * />
+   * ```
+   */
   onCopyError?: (error: Error) => void
 }
 

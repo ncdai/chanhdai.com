@@ -6,11 +6,21 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-export type ShimmeringTextProps = Omit<HTMLMotionProps<"span">, "children"> & {
+export type ShimmeringTextOwnProps = {
+  /** The text to render with the shimmering effect. */
   text: string
+  /**
+   * Duration in seconds for one shimmer cycle.
+   * @defaultValue 1 */
   duration?: number
+  /**
+   * Whether the shimmer animation is paused.
+   * @defaultValue false */
   isStopped?: boolean
 }
+
+export type ShimmeringTextProps = Omit<HTMLMotionProps<"span">, "children"> &
+  ShimmeringTextOwnProps
 
 export function ShimmeringText({
   text,

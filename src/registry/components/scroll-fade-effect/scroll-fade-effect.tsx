@@ -1,14 +1,23 @@
-import React from "react"
+import type { ComponentProps } from "react"
 
 import { cn } from "@/lib/utils"
+
+export type ScrollFadeEffectOwnProps = {
+  /**
+   * Scroll direction to apply the fade effect.
+   * @defaultValue "vertical"
+   * */
+  orientation?: "horizontal" | "vertical"
+}
+
+export type ScrollFadeEffectProps = ComponentProps<"div"> &
+  ScrollFadeEffectOwnProps
 
 export function ScrollFadeEffect({
   className,
   orientation = "vertical",
   ...props
-}: React.ComponentProps<"div"> & {
-  orientation?: "horizontal" | "vertical"
-}) {
+}: ScrollFadeEffectProps) {
   return (
     <div
       data-orientation={orientation}

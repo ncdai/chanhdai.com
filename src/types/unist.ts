@@ -15,6 +15,7 @@ export interface UnistNode extends Node {
     type?: string
   }[]
   children?: UnistNode[]
+  __rawString__?: string
 }
 
 export interface UnistTree extends Node {
