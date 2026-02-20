@@ -137,7 +137,7 @@ export type SlideToUnlockTextOwnProps = {
    * @example
    * ```tsx
    * <SlideToUnlockText>
-   *   {({ isDragging }) => (isDragging ? "Release..." : "Slide to unlock")}
+   *   {({ isDragging }) => <span>{isDragging ? "Release..." : "Slide to unlock"}</span>}
    * </SlideToUnlockText>
    * ```
    */
