@@ -106,7 +106,7 @@ function Item({
       id={id}
       className="rounded-lg ring-border ring-inset data-open:bg-background data-open:ring-1 data-open:not-last:mb-0.75"
     >
-      <CollapsibleTrigger className="group not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-sm ring-border outline-none ring-inset hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] data-open:rounded-b-none data-open:ring-1">
+      <CollapsibleTrigger className="group not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-[0.8125rem] ring-border outline-none ring-inset hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] data-open:rounded-b-none data-open:ring-1">
         <code
           className={cn(
             "[--shiki-dark:#79B8FF] [--shiki-light:#005CC5]",
@@ -133,7 +133,7 @@ function Item({
       </CollapsibleTrigger>
 
       <CollapsibleContent className="overflow-hidden">
-        <div className="no-scrollbar grid grid-cols-[1fr_3fr] gap-y-3 overflow-auto p-3 text-sm">
+        <div className="grid grid-cols-[1fr_3fr] gap-y-3 p-3 text-sm">
           <CustomProse className="col-span-full empty:hidden">
             {description}
           </CustomProse>
@@ -185,7 +185,7 @@ function Item({
               <p className="not-prose pe-3 leading-6 text-muted-foreground">
                 Example
               </p>
-              <CustomProse className="my-auto">{example}</CustomProse>
+              <CustomProse className="overflow-hidden">{example}</CustomProse>
             </>
           )}
 
@@ -207,7 +207,7 @@ function CustomProse({ className, ...props }: ComponentProps<typeof Prose>) {
   return (
     <Prose
       className={cn(
-        "prose-sm prose-no-margin prose-code:py-[1.5px] prose-code:text-[13px]",
+        "prose-sm prose-no-margin prose-code:py-[1.5px] prose-code:text-[0.8125rem]",
         className
       )}
       {...props}
