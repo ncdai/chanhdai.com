@@ -18,7 +18,7 @@ const animateProps: TargetAndTransition = {
 
 export type AppleHelloEffectOwnProps = {
   /**
-   * Animation speed multiplier.
+   * Animation speed multiplier (higher = faster).
    * @defaultValue 1
    * */
   speed?: number
@@ -35,7 +35,7 @@ function AppleHelloVietnameseEffect({
   onAnimationComplete,
   ...props
 }: AppleHelloEffectProps) {
-  const calc = (x: number) => x * speed
+  const calc = (x: number) => x / speed
 
   return (
     <motion.svg
