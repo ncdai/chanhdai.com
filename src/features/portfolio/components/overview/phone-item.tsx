@@ -53,9 +53,9 @@ export function PhoneItem({ phoneNumber }: PhoneItemProps) {
         </IntroItemLink>
       </IntroItemContent>
 
-      <div className="-translate-x-2 translate-y-px opacity-0 transition-opacity group-hover:opacity-100">
+      <div className="-translate-x-3 opacity-0 transition-opacity ease-out group-hover:opacity-100">
         <CopyButton
-          className="text-muted-foreground"
+          className="text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5"
           variant="ghost"
           size="icon-xs"
           text={isClient ? phoneNumberDecoded : "[Phone protected]"}
