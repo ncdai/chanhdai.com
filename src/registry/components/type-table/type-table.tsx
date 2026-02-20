@@ -138,7 +138,7 @@ function Item({
             {description}
           </CustomProse>
 
-          {typeDescription && (
+          {typeDescription != null && (
             <>
               <p className="not-prose pe-3 leading-5 text-muted-foreground">
                 Type
@@ -147,7 +147,7 @@ function Item({
             </>
           )}
 
-          {defaultValue && (
+          {defaultValue != null && (
             <>
               <p className="not-prose pe-3 leading-6 text-muted-foreground">
                 Default
@@ -180,7 +180,7 @@ function Item({
             </>
           )}
 
-          {example && (
+          {example != null && (
             <>
               <p className="not-prose pe-3 leading-6 text-muted-foreground">
                 Example
@@ -189,7 +189,7 @@ function Item({
             </>
           )}
 
-          {returns && (
+          {returns != null && (
             <>
               <p className="not-prose pe-3 leading-6 text-muted-foreground">
                 Returns
