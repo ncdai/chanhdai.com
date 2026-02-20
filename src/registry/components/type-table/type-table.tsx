@@ -47,6 +47,8 @@ export interface TypeNode {
    */
   parameters?: ParameterNode[]
 
+  example?: ReactNode
+
   returns?: ReactNode
 }
 
@@ -89,6 +91,7 @@ function Item({
     default: defaultValue,
     type,
     typeDescriptionLink,
+    example,
     returns,
   },
 }: {
@@ -108,7 +111,7 @@ function Item({
           className={cn(
             "[--shiki-dark:#79B8FF] [--shiki-light:#005CC5]",
             "w-1/4 min-w-fit pe-2 font-mono font-medium text-(--shiki-light) dark:text-(--shiki-dark)",
-            deprecated && "text-primary/50 line-through"
+            deprecated && "line-through opacity-50"
           )}
         >
           {name}
@@ -130,47 +133,67 @@ function Item({
       </CollapsibleTrigger>
 
       <CollapsibleContent className="overflow-hidden">
-        <div className="grid grid-cols-[1fr_3fr] gap-y-3 p-3 text-sm">
+        <div className="no-scrollbar grid grid-cols-[1fr_3fr] gap-y-3 overflow-auto p-3 text-sm">
           <CustomProse className="col-span-full empty:hidden">
             {description}
           </CustomProse>
 
           {typeDescription && (
             <>
-              <p className="not-prose pe-2 text-muted-foreground">Type</p>
+              <p className="not-prose pe-3 leading-5 text-muted-foreground">
+                Type
+              </p>
               <p className="not-prose my-auto">{typeDescription}</p>
             </>
           )}
 
           {defaultValue && (
             <>
-              <p className="not-prose pe-2 text-muted-foreground">Default</p>
+              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+                Default
+              </p>
               <p className="not-prose my-auto">{defaultValue}</p>
             </>
           )}
 
           {parameters.length > 0 && (
             <>
-              <p className="not-prose pe-2 text-muted-foreground">Parameters</p>
-              <div className="flex flex-col gap-2">
+              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+                Parameters
+              </p>
+              <div className="grid gap-3">
                 {parameters.map((param) => (
                   <div
                     key={param.name}
-                    className="inline-flex flex-wrap items-center gap-1"
+                    className="flex flex-wrap items-center gap-1"
                   >
-                    <p className="not-prose font-medium text-nowrap">
-                      {param.name} –
+                    <p className="not-prose leading-6 font-medium text-nowrap">
+                      {param.name}
+                      <span className="ml-1 font-normal">–</span>
                     </p>
-                    <CustomProse>{param.description}</CustomProse>
+                    <CustomProse className="flex-1">
+                      {param.description}
+                    </CustomProse>
                   </div>
                 ))}
               </div>
             </>
           )}
 
+          {example && (
+            <>
+              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+                Example
+              </p>
+              <CustomProse className="my-auto">{example}</CustomProse>
+            </>
+          )}
+
           {returns && (
             <>
-              <p className="not-prose pe-2 text-muted-foreground">Returns</p>
+              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+                Returns
+              </p>
               <CustomProse className="my-auto">{returns}</CustomProse>
             </>
           )}

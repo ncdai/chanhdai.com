@@ -11,6 +11,7 @@ interface ParameterTag {
 interface TypedTags {
   default?: string
   params?: ParameterTag[]
+  example?: string
   returns?: string
 }
 
@@ -34,6 +35,11 @@ export function parseTags(tags: RawTag[]): TypedTags {
         name: param.trim(),
         description: description.trim(),
       })
+      continue
+    }
+
+    if (key === "example") {
+      typed.example = text
       continue
     }
 

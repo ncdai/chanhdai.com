@@ -121,6 +121,9 @@ export async function AutoTypeTable({
             parameters: paramNodes,
             required: entry.required,
             deprecated: entry.deprecated,
+            example: tags.example
+              ? await renderMarkdown!(tags.example)
+              : undefined,
             returns: tags.returns
               ? await renderMarkdown!(tags.returns)
               : undefined,

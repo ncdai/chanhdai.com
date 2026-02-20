@@ -356,11 +356,16 @@
 
 @utility prose-no-margin {
   & > :first-child {
-    margin-top: 0;
+    @apply mt-0;
   }
 
   & > :last-child {
-    margin-bottom: 0;
+    @apply mb-0;
+  }
+
+  :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)),
+  :where([data-rehype-pretty-code-figure]) {
+    @apply mt-3 mb-3;
   }
 }
 
