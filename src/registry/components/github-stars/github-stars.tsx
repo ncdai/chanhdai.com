@@ -5,8 +5,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-type GitHubStarsProps = {
+export type GitHubStarsProps = {
+  /** GitHub repository in `owner/repo` format. */
   repo: string
+  /** Number of stars to display. */
   stargazersCount: number
 }
 

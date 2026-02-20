@@ -57,19 +57,25 @@ export type ExperienceItemType = {
   companyName: string
   /** URL or path to the company's logo image */
   companyLogo?: string
-  /** List of positions held at the company */
+  /**
+   * List of positions held at the company
+   * @fumadocsHref #experiencepositionitemtype
+   * */
   positions: ExperiencePositionItemType[]
   /** Indicates if this is the user's current employer */
   isCurrentEmployer?: boolean
 }
 
+export type WorkExperienceProps = {
+  className?: string
+  /** @fumadocsHref #experienceitemtype */
+  experiences: ExperienceItemType[]
+}
+
 export function WorkExperience({
   className,
   experiences,
-}: {
-  className?: string
-  experiences: ExperienceItemType[]
-}) {
+}: WorkExperienceProps) {
   return (
     <div className={cn("bg-background px-4", className)}>
       {experiences.map((experience) => (
@@ -79,11 +85,11 @@ export function WorkExperience({
   )
 }
 
-export function ExperienceItem({
-  experience,
-}: {
+export type ExperienceItemProps = {
   experience: ExperienceItemType
-}) {
+}
+
+export function ExperienceItem({ experience }: ExperienceItemProps) {
   return (
     <div className="space-y-4 py-4">
       <div className="flex items-center gap-3">
@@ -128,11 +134,13 @@ export function ExperienceItem({
   )
 }
 
+export type ExperiencePositionItemProps = {
+  position: ExperiencePositionItemType
+}
+
 export function ExperiencePositionItem({
   position,
-}: {
-  position: ExperiencePositionItemType
-}) {
+}: ExperiencePositionItemProps) {
   const ExperienceIcon = iconMap[position.icon || "business"]
 
   return (

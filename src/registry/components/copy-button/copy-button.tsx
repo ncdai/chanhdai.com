@@ -42,11 +42,17 @@ export function CopyStateIcon({ state }: { state: CopyState }) {
   )
 }
 
-export type CopyButtonProps = React.ComponentProps<typeof Button> & {
+export type CopyButtonOwnProps = {
+  /** The text to copy, or a function that returns the text. */
   text: string | (() => string)
+  /** Called with the copied text on successful copy. */
   onCopySuccess?: (text: string) => void
+  /** Called with the error if the copy operation fails. */
   onCopyError?: (error: Error) => void
 }
+
+export type CopyButtonProps = React.ComponentProps<typeof Button> &
+  CopyButtonOwnProps
 
 export function CopyButton({
   size = "icon",

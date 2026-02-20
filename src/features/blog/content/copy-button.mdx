@@ -6,7 +6,7 @@ category: components
 icon: copy-button
 new: true
 createdAt: 2026-02-09
-updatedAt: 2026-02-09
+updatedAt: 2026-02-20
 ---
 
 <ComponentPreview
@@ -95,12 +95,13 @@ import { CopyButton } from "@/components/ncdai/copy-button"
 
 ## API Reference
 
-Extends [Button](https://ui.shadcn.com/docs/components/radix/button) with clipboard functionality. Accepts all Button props plus:
+### CopyButton
 
-| Prop            | Type                       | Description                                                                         |
-| --------------- | -------------------------- | ----------------------------------------------------------------------------------- |
-| `text`          | `string \| (() => string)` | The text to copy to clipboard. Can be a string or a function that returns a string. |
-| `onCopySuccess` | `(text: string) => void`   | Optional callback function called when copy succeeds. Receives the copied text.     |
-| `onCopyError`   | `(error: Error) => void`   | Optional callback function called when copy fails. Receives the error object.       |
+Extends [Button](https://ui.shadcn.com/docs/components/radix/button) with clipboard functionality.
+
+<AutoTypeTable
+  path="src/registry/components/copy-button/copy-button.tsx"
+  name="CopyButtonOwnProps"
+/>
 
 See [shadcn/ui](https://ui.shadcn.com/docs/components/radix/button#api-reference) documentation for more information.
