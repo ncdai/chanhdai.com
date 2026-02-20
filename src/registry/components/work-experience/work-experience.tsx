@@ -7,7 +7,7 @@ import {
   GraduationCapIcon,
 } from "lucide-react"
 import Image from "next/image"
-import React from "react"
+import type { ComponentProps } from "react"
 import ReactMarkdown from "react-markdown"
 
 import {
@@ -226,7 +226,7 @@ export function ExperiencePositionItem({
   )
 }
 
-function Prose({ className, ...props }: React.ComponentProps<"div">) {
+function Prose({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       className={cn(
@@ -240,7 +240,7 @@ function Prose({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function Skill({ className, ...props }: React.ComponentProps<"span">) {
+function Skill({ className, ...props }: ComponentProps<"span">) {
   return (
     <span
       className={cn(

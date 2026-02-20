@@ -203,10 +203,7 @@ function Item({
   )
 }
 
-function CustomProse({
-  className,
-  ...props
-}: React.ComponentProps<typeof Prose>) {
+function CustomProse({ className, ...props }: ComponentProps<typeof Prose>) {
   return (
     <Prose
       className={cn(

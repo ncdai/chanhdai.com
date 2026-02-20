@@ -7,15 +7,8 @@ import {
   useMotionValue,
   useTransform,
 } from "motion/react"
-import type { JSX } from "react"
-import {
-  type ComponentPropsWithoutRef,
-  createContext,
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from "react"
+import type { ComponentProps, ComponentPropsWithoutRef, JSX } from "react"
+import { createContext, useCallback, useContext, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -53,7 +46,7 @@ export type SlideToUnlockRootOwnProps = {
   onUnlock?: () => void
 }
 
-export type SlideToUnlockRootProps = React.ComponentProps<"div"> &
+export type SlideToUnlockRootProps = ComponentProps<"div"> &
   SlideToUnlockRootOwnProps
 
 export function SlideToUnlock({
@@ -113,7 +106,7 @@ export function SlideToUnlock({
   )
 }
 
-export type SlideToUnlockTrackProps = React.ComponentProps<"div">
+export type SlideToUnlockTrackProps = ComponentProps<"div">
 
 export function SlideToUnlockTrack({
   className,

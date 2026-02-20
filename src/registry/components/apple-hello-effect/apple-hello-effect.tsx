@@ -2,6 +2,7 @@
 
 import type { TargetAndTransition } from "motion/react"
 import { motion } from "motion/react"
+import type { ComponentProps } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -25,7 +26,7 @@ export type AppleHelloEffectOwnProps = {
   onAnimationComplete?: () => void
 }
 
-export type AppleHelloEffectProps = React.ComponentProps<typeof motion.svg> &
+export type AppleHelloEffectProps = ComponentProps<typeof motion.svg> &
   AppleHelloEffectOwnProps
 
 function AppleHelloVietnameseEffect({

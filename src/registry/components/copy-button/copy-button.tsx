@@ -3,6 +3,7 @@
 import { CheckIcon, CircleXIcon, CopyIcon } from "lucide-react"
 import type { HTMLMotionProps, Variants } from "motion/react"
 import { AnimatePresence, motion } from "motion/react"
+import type { ComponentProps } from "react"
 
 import { Button } from "@/components/ui/button"
 import type { CopyState } from "@/hooks/use-copy-to-clipboard"
@@ -51,8 +52,7 @@ export type CopyButtonOwnProps = {
   onCopyError?: (error: Error) => void
 }
 
-export type CopyButtonProps = React.ComponentProps<typeof Button> &
-  CopyButtonOwnProps
+export type CopyButtonProps = ComponentProps<typeof Button> & CopyButtonOwnProps
 
 export function CopyButton({
   size = "icon",
