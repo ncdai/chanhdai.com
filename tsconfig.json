@@ -39,6 +39,5 @@
   "exclude": [
     "node_modules",
     "./src/__registry__",
-    "packages"
   ]
 }
