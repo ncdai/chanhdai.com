@@ -11,11 +11,6 @@ export type PostMetadata = {
    */
   category?: string
   /**
-   * Custom icon name or a Lucide icon name.
-   * Used to visually represent the post in lists or navigation.
-   */
-  icon?: string
-  /**
    * Flag to show a "New" badge/highlight in the UI.
    */
   new?: boolean
@@ -50,5 +45,4 @@ export type PostPreview = {
   slug: string
   title: string
   category?: string
-  icon?: string
 }
