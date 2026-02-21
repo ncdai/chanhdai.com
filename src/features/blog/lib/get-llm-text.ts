@@ -1,12 +1,18 @@
 import { format } from "date-fns"
+import { remarkAutoTypeTable } from "fumadocs-typescript"
 import { remark } from "remark"
 import remarkGfm from "remark-gfm"
 import remarkMdx from "remark-mdx"
 
 import type { Post } from "@/features/blog/types/post"
+import { generator } from "@/lib/auto-type-table"
 import { remarkComponent } from "@/lib/remark-component"
 
-const processor = remark().use(remarkMdx).use(remarkComponent).use(remarkGfm)
+const processor = remark()
+  .use(remarkMdx)
+  .use(remarkGfm)
+  .use(remarkComponent)
+  .use(remarkAutoTypeTable, { generator })
 
 export async function getLLMText(post: Post) {
   const processed = await processor.process({
