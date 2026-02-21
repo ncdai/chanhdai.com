@@ -1,7 +1,3 @@
-import {
-  createFileSystemGeneratorCache,
-  createGenerator,
-} from "fumadocs-typescript"
 import type { MDXRemoteProps } from "next-mdx-remote/rsc"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import rehypeExternalLinks from "rehype-external-links"
@@ -27,6 +23,7 @@ import {
 } from "@/components/ui/table"
 import { Code, Heading } from "@/components/ui/typography"
 import { UTM_PARAMS } from "@/config/site"
+import { generator } from "@/lib/auto-type-table"
 import { rehypeAddQueryParams } from "@/lib/rehype-add-query-params"
 import {
   rehypeCodeRawString,
@@ -54,10 +51,6 @@ import { CodeTabs } from "./code-tabs"
 import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2"
 import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed"
 import { mdxCodeBlockComponents } from "./mdx-code-block"
-
-const generator = createGenerator({
-  cache: createFileSystemGeneratorCache(".next/fumadocs-typescript"),
-})
 
 const components: MDXRemoteProps["components"] = {
   h1: (props: React.ComponentProps<"h1">) => <Heading as="h1" {...props} />,
