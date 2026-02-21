@@ -108,7 +108,7 @@ export function AwardItem({
                   className="shrink-0 text-muted-foreground [&_svg]:size-4"
                   aria-hidden
                 >
-                  <CollapsibleChevronsIcon />
+                  <CollapsibleChevronsIcon duration={0.15} />
                 </div>
               )}
             </CollapsibleTrigger>
@@ -116,7 +116,7 @@ export function AwardItem({
         </div>
 
         {canExpand && (
-          <CollapsibleContent className="overflow-hidden duration-300 data-open:animate-collapsible-down data-closed:animate-collapsible-up">
+          <CollapsibleContent className="overflow-hidden">
             <ProseMono className="border-t border-edge p-4">
               <Markdown>{award.description}</Markdown>
             </ProseMono>

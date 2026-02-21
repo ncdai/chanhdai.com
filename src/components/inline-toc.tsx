@@ -31,11 +31,11 @@ export function InlineTOC({
         <TextIcon className="-translate-x-0.5" />
         {children ?? "On this page"}
         <div className="ml-auto shrink-0 text-muted-foreground" aria-hidden>
-          <CollapsibleChevronsIcon />
+          <CollapsibleChevronsIcon duration={0.15} />
         </div>
       </CollapsibleTrigger>
 
-      <CollapsibleContent className="overflow-hidden duration-300 data-open:animate-collapsible-down data-closed:animate-collapsible-up">
+      <CollapsibleContent className="overflow-hidden">
         <ul className="flex flex-col px-4 pb-2 text-sm text-muted-foreground">
           {items.map((item) => (
             <li

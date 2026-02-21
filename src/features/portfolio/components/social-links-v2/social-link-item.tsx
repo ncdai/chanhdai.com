@@ -28,7 +28,7 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
           quality={100}
           unoptimized
         />
-        <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/10 corner-squircle ring-inset dark:ring-white/10 supports-corner-shape:rounded-[50%]" />
+        <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/10 corner-squircle ring-inset dark:ring-white/15 supports-corner-shape:rounded-[50%]" />
       </div>
 
       <h3 className="flex-1 font-medium underline-offset-4 group-hover:underline">

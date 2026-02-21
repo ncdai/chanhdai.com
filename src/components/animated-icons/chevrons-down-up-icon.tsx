@@ -8,12 +8,14 @@ export type ChevronsDownUpIconHandle = {
   stopAnimation: () => void
 }
 
-export type ChevronsDownUpIconProps = React.ComponentProps<"svg">
+export type ChevronsDownUpIconProps = React.ComponentProps<"svg"> & {
+  duration?: number
+}
 
 const ChevronsDownUpIcon = forwardRef<
   ChevronsDownUpIconHandle,
   ChevronsDownUpIconProps
->((props, ref) => {
+>(({ duration = 0.3, ...props }, ref) => {
   const controls = useAnimation()
 
   useImperativeHandle(ref, () => {
@@ -49,7 +51,7 @@ const ChevronsDownUpIcon = forwardRef<
         initial="normal"
         animate={controls}
         transition={{
-          duration: 0.3,
+          duration,
         }}
       />
       <motion.path
@@ -65,7 +67,7 @@ const ChevronsDownUpIcon = forwardRef<
         initial="normal"
         animate={controls}
         transition={{
-          duration: 0.3,
+          duration,
         }}
       />
     </svg>
