@@ -31,7 +31,6 @@ export function SiteHeader() {
     slug: post.slug,
     title: post.metadata.title,
     category: post.metadata.category,
-    icon: post.metadata.icon,
   }))
 
   return (

@@ -578,7 +578,7 @@ function postToCommandLinkItem(post: PostPreview): CommandLinkItem {
   const isComponent = post.category === "components"
 
   const IconComponent = isComponent
-    ? (props: LucideProps) => <ComponentIcon {...props} variant={post.icon} />
+    ? (props: LucideProps) => <ComponentIcon {...props} variant={post.slug} />
     : undefined
 
   return {
