@@ -171,9 +171,7 @@ function Item({
                       {param.name}
                       <span className="ml-1 font-normal">–</span>
                     </p>
-                    <CustomProse className="flex-1">
-                      {param.description}
-                    </CustomProse>
+                    <CustomProse>{param.description}</CustomProse>
                   </div>
                 ))}
               </div>
