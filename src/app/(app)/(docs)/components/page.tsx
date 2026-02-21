@@ -157,7 +157,7 @@ export default function Page() {
                 <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background">
                   <ComponentIcon
                     className="pointer-events-none size-4 text-muted-foreground"
-                    variant={post.metadata.icon}
+                    variant={post.slug}
                     aria-hidden="true"
                   />
                   {post.metadata.new && (
