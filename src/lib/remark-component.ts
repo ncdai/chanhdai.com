@@ -9,11 +9,6 @@ import type { UnistNode, UnistTree } from "@/types/unist"
 export function remarkComponent() {
   return async (tree: UnistTree) => {
     visit(tree, (node: UnistNode, index, parent) => {
-      if (node.name === "AutoTypeTable") {
-        node.name = "auto-type-table"
-        return
-      }
-
       // src prop overrides both name and fileName.
       const { value: srcPath } =
         (getNodeAttributeByName(node, "src") as {

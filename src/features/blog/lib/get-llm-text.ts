@@ -12,7 +12,7 @@ const processor = remark()
   .use(remarkMdx)
   .use(remarkGfm)
   .use(remarkComponent)
-  .use(remarkAutoTypeTable, { generator })
+  .use(remarkAutoTypeTable, { name: "AutoTypeTable", generator })
 
 export async function getLLMText(post: Post) {
   const processed = await processor.process({
