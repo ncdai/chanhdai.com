@@ -6,7 +6,7 @@ category: components
 icon: code-block-command
 new: true
 createdAt: 2026-02-08
-updatedAt: 2026-02-08
+updatedAt: 2026-02-21
 ---
 
 <ComponentPreview
@@ -20,6 +20,7 @@ updatedAt: 2026-02-08
 - Switch between pnpm, yarn, npm, and bun with a single click.
 - Automatically saves the user's preferred package manager for future visits.
 - Copy commands instantly with smooth animations showing success or failure states.
+- `convertNpmCommand` utility to auto-convert a standard npm command to all package managers.
 
 ## Installation
 
@@ -103,7 +104,10 @@ npm install clsx tailwind-merge class-variance-authority lucide-react motion jot
 ## Usage
 
 ```tsx
-import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
+import {
+  CodeBlockCommand,
+  convertNpmCommand,
+} from "@/components/ncdai/code-block-command"
 ```
 
 ```tsx
@@ -112,6 +116,14 @@ import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
   yarn="yarn shadcn add @ncdai/code-block-command"
   npm="npx shadcn add @ncdai/code-block-command"
   bun="bunx --bun shadcn add @ncdai/code-block-command"
+/>
+```
+
+Or use `convertNpmCommand` to auto-convert from a standard npm command:
+
+```tsx
+<CodeBlockCommand
+  {...convertNpmCommand("npx shadcn add @ncdai/code-block-command")}
 />
 ```
 
@@ -124,7 +136,36 @@ import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
   name="CodeBlockCommandProps"
 />
 
+### convertNpmCommand
+
+Converts a standard npm/npx command into equivalent commands for all package managers. The result can be spread directly into `CodeBlockCommand` props.
+
+<AutoTypeTable
+  path="src/registry/components/code-block-command/code-block-command.tsx"
+  name="ConvertNpmCommandResult"
+/>
+
+Supported command patterns:
+
+<div data-table-nowrap="">
+
+| npm command         | pnpm                 | yarn                 | bun                        |
+| ------------------- | -------------------- | -------------------- | -------------------------- |
+| `npm install`       | `pnpm add`           | `yarn add`           | `bun add`                  |
+| `npx create-<name>` | `pnpm create <name>` | `yarn create <name>` | `bunx --bun create-<name>` |
+| `npm create`        | `pnpm create`        | `yarn create`        | `bun create`               |
+| `npx`               | `pnpm dlx`           | `yarn`               | `bunx --bun`               |
+| `npm run`           | `pnpm`               | `yarn`               | `bun`                      |
+
+</div>
+
 ## Examples
+
+### Convert from npm
+
+Use `convertNpmCommand` to avoid manually writing commands for each package manager.
+
+<ComponentPreview name="code-block-command-convert-demo" />
 
 ### Analytics Tracking
 
@@ -133,16 +174,16 @@ Track user interactions with analytics services like [PostHog](https://posthog.c
 ```tsx showLineNumbers
 "use client"
 
-import { CodeBlockCommand } from "@/components/ncdai/code-block-command"
+import {
+  CodeBlockCommand,
+  convertNpmCommand,
+} from "@/components/ncdai/code-block-command"
 import { trackEvent } from "@/lib/events"
 
 export function InstallCommand() {
   return (
     <CodeBlockCommand
-      pnpm="pnpm dlx shadcn add @ncdai/code-block-command"
-      yarn="yarn shadcn add @ncdai/code-block-command"
-      npm="npx shadcn add @ncdai/code-block-command"
-      bun="bunx --bun shadcn add @ncdai/code-block-command"
+      {...convertNpmCommand("npx shadcn add @ncdai/code-block-command")}
       onCopySuccess={({ packageManager, command }) => {
         trackEvent({
           name: "command_copied",

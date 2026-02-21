@@ -376,6 +376,16 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/examples/code-block-command-demo.tsx")),
   },
+  "code-block-command-convert-demo": {
+    name: "code-block-command-convert-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/code-block-command-convert-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/code-block-command-convert-demo.tsx")),
+  },
   "copy-button-demo": {
     name: "copy-button-demo",
     description: "",
