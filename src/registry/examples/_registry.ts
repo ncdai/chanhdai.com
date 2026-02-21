@@ -237,6 +237,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "code-block-command-convert-demo",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/code-block-command"],
+    files: [
+      {
+        path: "examples/code-block-command-convert-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "copy-button-demo",
     type: "registry:example",
     registryDependencies: ["@ncdai/copy-button"],
