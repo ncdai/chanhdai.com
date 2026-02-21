@@ -58,7 +58,7 @@ export function ExperiencePositionItem({
               className="shrink-0 text-muted-foreground group-disabled:hidden [&_svg]:size-4"
               aria-hidden
             >
-              <CollapsibleChevronsIcon />
+              <CollapsibleChevronsIcon duration={0.15} />
             </div>
           </div>
 
@@ -98,7 +98,7 @@ export function ExperiencePositionItem({
           </div>
         </CollapsibleTrigger>
 
-        <CollapsibleContent className="overflow-hidden duration-300 data-open:animate-collapsible-down data-closed:animate-collapsible-up">
+        <CollapsibleContent className="overflow-hidden">
           {position.description && (
             <ProseMono className="pt-2 pl-9">
               <Markdown>{position.description}</Markdown>

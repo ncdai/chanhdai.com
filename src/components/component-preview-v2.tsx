@@ -18,7 +18,7 @@ export function ComponentPreviewV2({
   name,
   openInV0Url,
   canReplay = false,
-  notProse = true,
+  prose = false,
   codeCollapsible = false,
   remountOnThemeChange = false,
   children,
@@ -27,7 +27,7 @@ export function ComponentPreviewV2({
   name: string
   openInV0Url?: string
   canReplay?: boolean
-  notProse?: boolean
+  prose?: boolean
   codeCollapsible?: boolean
   remountOnThemeChange?: boolean
 }) {
@@ -54,7 +54,7 @@ export function ComponentPreviewV2({
 
   return (
     <div
-      className={cn("my-[1.25em]", notProse && "not-prose", className)}
+      className={cn("my-[1.25em]", prose === false && "not-prose", className)}
       {...props}
     >
       <div data-slot="preview" className="rounded-t-xl border p-2">

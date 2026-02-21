@@ -109,13 +109,13 @@ export function ProjectItem({
                 className="shrink-0 text-muted-foreground [&_svg]:size-4"
                 aria-hidden
               >
-                <CollapsibleChevronsIcon />
+                <CollapsibleChevronsIcon duration={0.15} />
               </div>
             </CollapsibleTrigger>
           </div>
         </div>
 
-        <CollapsibleContent className="overflow-hidden duration-300 data-open:animate-collapsible-down data-closed:animate-collapsible-up">
+        <CollapsibleContent className="overflow-hidden">
           <div className="space-y-4 border-t border-edge p-4">
             {project.description && (
               <ProseMono>
