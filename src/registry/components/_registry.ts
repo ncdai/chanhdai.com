@@ -5,7 +5,7 @@ export const components: Registry["items"] = [
     name: "theme-switcher",
     type: "registry:component",
     description:
-      "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+      "Toggle between system, light, and dark themes in Next.js apps.",
     title: "Theme Switcher",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["next-themes", "lucide-react", "motion"],
@@ -22,7 +22,7 @@ export const components: Registry["items"] = [
     type: "registry:component",
     title: "Text Flip",
     description:
-      "Animated text component that cycles through items with a smooth flip transition built with Motion for React.",
+      "Animated text that cycles through items with a smooth flip transition.",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
     files: [
@@ -36,8 +36,7 @@ export const components: Registry["items"] = [
   {
     name: "apple-hello-effect",
     type: "registry:component",
-    description:
-      "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
     title: "Apple Hello Effect",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
@@ -69,7 +68,7 @@ export const components: Registry["items"] = [
     name: "work-experience",
     type: "registry:component",
     description:
-      "Displays a list of work experiences with role details and durations.",
+      "Display work experiences with role details, company logos, and durations.",
     title: "Work Experience",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["react-markdown", "lucide-react"],
@@ -89,7 +88,7 @@ export const components: Registry["items"] = [
   {
     name: "shimmering-text",
     type: "registry:component",
-    description: "Smooth shimmering text animation built with Motion.",
+    description: "Smooth, light-sweeping shimmer animation for text.",
     title: "Shimmering Text",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
@@ -104,7 +103,7 @@ export const components: Registry["items"] = [
     name: "slide-to-unlock",
     type: "registry:component",
     description:
-      "A sleek, interactive slider inspired by the classic iPhone OS 'slide to unlock' gesture.",
+      "Interactive slider inspired by the classic iPhone 'slide to unlock' gesture.",
     title: "Slide to Unlock",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["motion"],
@@ -120,8 +119,7 @@ export const components: Registry["items"] = [
   {
     name: "testimonials-marquee",
     type: "registry:component",
-    description:
-      "A testimonials marquee component for showcasing user feedback in a scrolling format.",
+    description: "Scrolling marquee to showcase user testimonials.",
     title: "Testimonials Marquee",
     author: "ncdai <dai@chanhdai.com>",
     registryDependencies: ["@kibo-ui/marquee", "@ncdai/testimonial"],
@@ -131,7 +129,7 @@ export const components: Registry["items"] = [
     name: "testimonial",
     type: "registry:component",
     description:
-      "A testimonial component for displaying user feedback with author information and verified badge.",
+      "Display user feedback with author info, avatar, and verified badge.",
     title: "Testimonial",
     author: "ncdai <dai@chanhdai.com>",
     files: [
@@ -145,7 +143,7 @@ export const components: Registry["items"] = [
     name: "github-stars",
     type: "registry:component",
     description:
-      "Display GitHub repository star count with formatted numbers and a tooltip showing the full count.",
+      "Display GitHub repo star count with formatted numbers and full-count tooltip.",
     title: "GitHub Stars",
     author: "ncdai <dai@chanhdai.com>",
     registryDependencies: ["button", "tooltip"],
@@ -160,7 +158,7 @@ export const components: Registry["items"] = [
     name: "scroll-fade-effect",
     type: "registry:component",
     description:
-      "A React component that adds a fade effect to content as you scroll.",
+      "Fade content edges as you scroll, for both vertical and horizontal layouts.",
     title: "Scroll Fade Effect",
     author: "ncdai <dai@chanhdai.com>",
     files: [
@@ -256,7 +254,7 @@ export const components: Registry["items"] = [
     name: "consent-manager",
     type: "registry:component",
     description:
-      "A React component for managing user consent for cookies and tracking in Next.js applications.",
+      "Cookie and tracking consent banner for Next.js, built on c15t.",
     title: "Consent Manager",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["@c15t/nextjs"],
@@ -310,7 +308,7 @@ export const components: Registry["items"] = [
     name: "code-block-command",
     type: "registry:component",
     description:
-      "A code block command component for displaying installation commands with copy functionality.",
+      "Display install commands with package manager switcher and copy button.",
     title: "Code Block Command",
     author: "ncdai <dai@chanhdai.com>",
     dependencies: ["@base-ui/react", "lucide-react", "motion", "jotai"],

@@ -3,7 +3,7 @@
   "name": "code-block-command",
   "title": "Code Block Command",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "A code block command component for displaying installation commands with copy functionality.",
+  "description": "Display install commands with package manager switcher and copy button.",
   "dependencies": [
     "@base-ui/react",
     "lucide-react",

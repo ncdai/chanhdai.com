@@ -3,7 +3,7 @@
   "name": "testimonial",
   "title": "Testimonial",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "A testimonial component for displaying user feedback with author information and verified badge.",
+  "description": "Display user feedback with author info, avatar, and verified badge.",
   "files": [
     {
       "path": "src/registry/components/testimonial/testimonial.tsx",

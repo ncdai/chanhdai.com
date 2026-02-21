@@ -3,7 +3,7 @@
   "name": "text-flip",
   "title": "Text Flip",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "Animated text component that cycles through items with a smooth flip transition built with Motion for React.",
+  "description": "Animated text that cycles through items with a smooth flip transition.",
   "dependencies": [
     "motion"
   ],

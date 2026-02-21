@@ -3,7 +3,7 @@
   "name": "consent-manager",
   "title": "Consent Manager",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "A React component for managing user consent for cookies and tracking in Next.js applications.",
+  "description": "Cookie and tracking consent banner for Next.js, built on c15t.",
   "dependencies": [
     "@c15t/nextjs"
   ],
