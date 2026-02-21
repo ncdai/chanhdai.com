@@ -3,7 +3,7 @@
   "name": "github-stars",
   "title": "GitHub Stars",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "Display GitHub repository star count with formatted numbers and a tooltip showing the full count.",
+  "description": "Display GitHub repo star count with formatted numbers and full-count tooltip.",
   "registryDependencies": [
     "button",
     "tooltip"

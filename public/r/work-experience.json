@@ -3,7 +3,7 @@
   "name": "work-experience",
   "title": "Work Experience",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "Displays a list of work experiences with role details and durations.",
+  "description": "Display work experiences with role details, company logos, and durations.",
   "dependencies": [
     "react-markdown",
     "lucide-react"

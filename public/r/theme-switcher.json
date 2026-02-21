@@ -3,7 +3,7 @@
   "name": "theme-switcher",
   "title": "Theme Switcher",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+  "description": "Toggle between system, light, and dark themes in Next.js apps.",
   "dependencies": [
     "next-themes",
     "lucide-react",

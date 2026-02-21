@@ -39,7 +39,7 @@ export const Index: Record<string, any> = {
   },
   "theme-switcher": {
     name: "theme-switcher",
-    description: "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    description: "Toggle between system, light, and dark themes in Next.js apps.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/theme-switcher/theme-switcher.tsx",
@@ -48,7 +48,7 @@ export const Index: Record<string, any> = {
   },
   "text-flip": {
     name: "text-flip",
-    description: "Animated text component that cycles through items with a smooth flip transition built with Motion for React.",
+    description: "Animated text that cycles through items with a smooth flip transition.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/text-flip/text-flip.tsx",
@@ -57,7 +57,7 @@ export const Index: Record<string, any> = {
   },
   "apple-hello-effect": {
     name: "apple-hello-effect",
-    description: "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/apple-hello-effect/apple-hello-effect.tsx",
@@ -75,7 +75,7 @@ export const Index: Record<string, any> = {
   },
   "work-experience": {
     name: "work-experience",
-    description: "Displays a list of work experiences with role details and durations.",
+    description: "Display work experiences with role details, company logos, and durations.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/work-experience/work-experience.tsx",
@@ -84,7 +84,7 @@ export const Index: Record<string, any> = {
   },
   "shimmering-text": {
     name: "shimmering-text",
-    description: "Smooth shimmering text animation built with Motion.",
+    description: "Smooth, light-sweeping shimmer animation for text.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/shimmering-text/shimmering-text.tsx",
@@ -93,7 +93,7 @@ export const Index: Record<string, any> = {
   },
   "slide-to-unlock": {
     name: "slide-to-unlock",
-    description: "A sleek, interactive slider inspired by the classic iPhone OS 'slide to unlock' gesture.",
+    description: "Interactive slider inspired by the classic iPhone 'slide to unlock' gesture.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/slide-to-unlock/slide-to-unlock.tsx",
@@ -102,7 +102,7 @@ export const Index: Record<string, any> = {
   },
   "testimonial": {
     name: "testimonial",
-    description: "A testimonial component for displaying user feedback with author information and verified badge.",
+    description: "Display user feedback with author info, avatar, and verified badge.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/testimonial/testimonial.tsx",
@@ -111,7 +111,7 @@ export const Index: Record<string, any> = {
   },
   "github-stars": {
     name: "github-stars",
-    description: "Display GitHub repository star count with formatted numbers and a tooltip showing the full count.",
+    description: "Display GitHub repo star count with formatted numbers and full-count tooltip.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/github-stars/github-stars.tsx",
@@ -120,7 +120,7 @@ export const Index: Record<string, any> = {
   },
   "scroll-fade-effect": {
     name: "scroll-fade-effect",
-    description: "A React component that adds a fade effect to content as you scroll.",
+    description: "Fade content edges as you scroll, for both vertical and horizontal layouts.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/scroll-fade-effect/scroll-fade-effect.tsx",
@@ -129,7 +129,7 @@ export const Index: Record<string, any> = {
   },
   "consent-manager": {
     name: "consent-manager",
-    description: "A React component for managing user consent for cookies and tracking in Next.js applications.",
+    description: "Cookie and tracking consent banner for Next.js, built on c15t.",
     type: "registry:component",
     files: [{
       path: "src/registry/src/components/consent-manager.tsx",
@@ -153,7 +153,7 @@ export const Index: Record<string, any> = {
   },
   "code-block-command": {
     name: "code-block-command",
-    description: "A code block command component for displaying installation commands with copy functionality.",
+    description: "Display install commands with package manager switcher and copy button.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/code-block-command/code-block-command.tsx",

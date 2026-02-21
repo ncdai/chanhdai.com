@@ -3,7 +3,7 @@
   "name": "shimmering-text",
   "title": "Shimmering Text",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "Smooth shimmering text animation built with Motion.",
+  "description": "Smooth, light-sweeping shimmer animation for text.",
   "dependencies": [
     "motion"
   ],

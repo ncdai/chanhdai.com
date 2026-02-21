@@ -3,7 +3,7 @@
   "name": "apple-hello-effect",
   "title": "Apple Hello Effect",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
+  "description": "SVG writing animation inspired by Apple's Hello screen.",
   "dependencies": [
     "motion"
   ],
