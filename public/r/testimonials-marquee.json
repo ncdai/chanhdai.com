@@ -6,7 +6,7 @@
   "description": "Scrolling marquee to showcase user testimonials.",
   "registryDependencies": [
     "@kibo-ui/marquee",
-    "@ncdai/testimonial"
+    "https://chanhdai.com/r/testimonial.json"
   ],
   "files": [],
   "docs": "https://chanhdai.com/components/testimonials-marquee",

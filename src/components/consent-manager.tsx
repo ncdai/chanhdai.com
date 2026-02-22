@@ -4,10 +4,9 @@ import {
   CookieBanner,
 } from "@c15t/nextjs"
 
+import { ConsentManagerClient } from "@/components/consent-manager-client"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-
-import { ConsentManagerClient } from "./consent-manager-client"
 
 export function ConsentManager({ children }: { children: React.ReactNode }) {
   return (

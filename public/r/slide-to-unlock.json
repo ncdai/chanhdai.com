@@ -8,7 +8,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "@ncdai/shimmering-text"
+    "https://chanhdai.com/r/shimmering-text.json"
   ],
   "files": [
     {

@@ -230,9 +230,7 @@ function Prose({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       className={cn(
-        "prose prose-sm max-w-none font-mono text-foreground prose-zinc dark:prose-invert",
-        "prose-a:font-medium prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:underline-offset-4",
-        "prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none",
+        "prose prose-sm max-w-none prose-ncdai font-mono text-foreground prose-zinc dark:prose-invert",
         className
       )}
       {...props}
