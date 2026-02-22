@@ -4,9 +4,6 @@ import path from "node:path"
 import { rimraf } from "rimraf"
 import { type Registry, registrySchema } from "shadcn/schema"
 
-// Dynamic imports to handle ESM module resolution with tsx in Node v22+
-const { registry } = await import("../registry/index")
-
 const REGISTRY_PATH = path.join(process.cwd(), "src/__registry__")
 const PUBLIC_REGISTRY_PATH = path.join(process.cwd(), "public/r")
 
@@ -105,6 +102,9 @@ export const Index: Record<string, any> = {`
 
 try {
   console.log("💽 Building registry...")
+
+  // Dynamic imports to handle ESM module resolution with tsx in Node v22+
+  const { registry } = await import("../registry/index")
 
   const result = registrySchema.safeParse(registry)
 

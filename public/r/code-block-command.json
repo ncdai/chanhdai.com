@@ -11,7 +11,7 @@
     "jotai"
   ],
   "registryDependencies": [
-    "@ncdai/copy-button"
+    "https://chanhdai.com/r/copy-button.json"
   ],
   "files": [
     {

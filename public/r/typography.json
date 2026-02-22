@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography",
+  "title": "Typography",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "Custom prose styles for headings, links, inline code, and emphasis.",
+  "devDependencies": [
+    "@tailwindcss/typography"
+  ],
+  "files": [],
+  "css": {
+    "@plugin @tailwindcss/typography": {},
+    "@utility prose-ncdai": {
+      "@apply prose-headings:tracking-tight prose-headings:text-balance prose-h2:font-semibold": {},
+      "@apply prose-a:font-medium prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:underline-offset-4": {},
+      "@apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none": {},
+      "@apply prose-strong:font-medium": {}
+    }
+  },
+  "type": "registry:component"
+}
