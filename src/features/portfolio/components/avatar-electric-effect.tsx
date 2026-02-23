@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 
 import { ElectricBorder } from "@/components/react-bits/electric-border"
 
-export function ProfileAvatar({ children }: { children: JSX.Element }) {
+export function AvatarElectricEffect({ children }: { children: JSX.Element }) {
   const [isHovered, setIsHovered] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
