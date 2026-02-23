@@ -14,7 +14,7 @@ export const EXPERIENCES: Experience[] = [
         employmentPeriod: {
           start: "01.2026",
         },
-        employmentType: "Part-time",
+        employmentType: "Full-time",
         icon: "code",
         description:
           "- Work on the registry and React component library.\n- Design and build Pro application components and blocks, from Figma to production-ready React.",
