@@ -9,7 +9,7 @@ export const EXPERIENCES: Experience[] = [
     companyWebsite: "https://shadcraft.com",
     positions: [
       {
-        id: "0C741FC7-A4C2-4B1D-857B-F3058CE8D9CE",
+        id: "1",
         title: "Design Engineer",
         employmentPeriod: {
           start: "01.2026",
@@ -37,7 +37,7 @@ export const EXPERIENCES: Experience[] = [
     companyWebsite: "https://quaric.com",
     positions: [
       {
-        id: "30d3a9fb-021d-452a-9d27-83655369b4b9",
+        id: "2",
         title: "Design Engineer",
         employmentPeriod: {
           start: "03.2024",
@@ -75,7 +75,7 @@ In-house Project: [ZaDark](https://zadark.com)
         ],
       },
       {
-        id: "991692c4-7d02-4666-8d31-933c4831768d",
+        id: "1",
         title: "Founder & Director",
         employmentPeriod: {
           start: "03.2024",
@@ -94,7 +94,7 @@ In-house Project: [ZaDark](https://zadark.com)
     companyWebsite: "https://simplamo.com",
     positions: [
       {
-        id: "20f8bfe5-b6a3-4b0d-ac2f-6fccd50d417e",
+        id: "2",
         title: "Senior Frontend Developer",
         employmentPeriod: {
           start: "10.2022",
@@ -127,7 +127,7 @@ In-house Project: [ZaDark](https://zadark.com)
         ],
       },
       {
-        id: "cedd7adb-4118-4085-9983-ae00530b49e2",
+        id: "1",
         title: "UI Lead",
         employmentPeriod: {
           start: "10.2022",
@@ -148,7 +148,7 @@ In-house Project: [ZaDark](https://zadark.com)
     companyLogo: "https://assets.chanhdai.com/images/companies/tungtung.webp",
     positions: [
       {
-        id: "3e831244-8d8c-41e2-b2ce-7f3946956afd",
+        id: "3",
         title: "Web Developer",
         employmentPeriod: {
           start: "2020",
@@ -170,7 +170,7 @@ In-house Project: [ZaDark](https://zadark.com)
         ],
       },
       {
-        id: "13bd34c3-db84-4fad-8132-a6c89a42957e",
+        id: "2",
         title: "Mobile Developer",
         employmentPeriod: {
           start: "2019",
@@ -195,7 +195,7 @@ In-house Project: [ZaDark](https://zadark.com)
         ],
       },
       {
-        id: "73151add-7adf-4035-a237-b5803ceb5478",
+        id: "1",
         title: "UI/UX Designer",
         employmentPeriod: {
           start: "2018",
@@ -216,7 +216,7 @@ In-house Project: [ZaDark](https://zadark.com)
     companyName: "Freelance",
     positions: [
       {
-        id: "f0becfba-057d-40db-b252-739e1654faa1",
+        id: "2",
         title: "Full-stack Developer",
         employmentPeriod: {
           start: "2018",
@@ -241,7 +241,7 @@ In-house Project: [ZaDark](https://zadark.com)
         ],
       },
       {
-        id: "0eecdfcb-028d-41f4-93e9-1269ba7eff7e",
+        id: "1",
         title: "Graphic & UI/UX Designer",
         employmentPeriod: {
           start: "2018",
@@ -266,7 +266,7 @@ In-house Project: [ZaDark](https://zadark.com)
     companyName: "Education",
     positions: [
       {
-        id: "c47f5903-88ae-4512-8a50-0b91b0cf99b6",
+        id: "3",
         title: "University of Science — VNUHCM",
         employmentPeriod: {
           start: "08.2018",
@@ -294,7 +294,7 @@ In-house Project: [ZaDark](https://zadark.com)
         ],
       },
       {
-        id: "70131ed8-36d9-4e54-8c78-eaed18240eca",
+        id: "2",
         title: "Ly Tu Trong High School for the Gifted — Can Tho City",
         employmentPeriod: {
           start: "08.2015",
@@ -328,7 +328,7 @@ In-house Project: [ZaDark](https://zadark.com)
         ],
       },
       {
-        id: "36c4c6fb-02d0-48c0-8947-fda6e9a24af7",
+        id: "1",
         title: "Thuan Hung Secondary School",
         employmentPeriod: {
           start: "08.2011",
