@@ -13,7 +13,7 @@ import {
 export default function SlideToUnlockDemo3() {
   return (
     <SlideToUnlock
-      className="w-[180px] rounded-full ring-0"
+      className="w-45 rounded-full ring-0"
       handleWidth={40}
       onUnlock={() => toast.success("Stopped")}
     >
