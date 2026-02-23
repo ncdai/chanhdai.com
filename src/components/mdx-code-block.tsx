@@ -40,6 +40,7 @@ export const mdxCodeBlockComponents = {
     __npm__,
     __bun__,
 
+    className,
     ...props
   }: React.ComponentProps<"pre"> & {
     __withMeta__?: boolean
@@ -60,7 +61,13 @@ export const mdxCodeBlockComponents = {
 
     return (
       <>
-        <pre {...props} />
+        <pre
+          className={cn(
+            __rawString__ && !__withMeta__ && "[--code-padding-right:6rem]",
+            className
+          )}
+          {...props}
+        />
 
         {__rawString__ && (
           <>

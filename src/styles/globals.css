@@ -319,11 +319,11 @@
     }
 
     code {
-      @apply font-mono text-sm;
+      @apply w-max pr-(--code-padding-right,0) font-mono text-sm;
     }
 
     [data-line] {
-      @apply py-0.5 pe-4;
+      @apply py-0.5;
     }
   }
 
