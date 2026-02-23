@@ -219,8 +219,7 @@
 
   /* --edge: color-mix(in oklab, var(--border) 64%, var(--background)); */
 
-  /* zinc-800 */
-  --input: oklch(0.274 0.006 286.033);
+  --input: lab(100% 0 0 / 0.15);
 
   /* zinc-500 */
   --ring: oklch(0.552 0.016 285.938);
@@ -380,7 +379,7 @@
 }
 
 @utility code-inline {
-  @apply rounded-md border bg-muted/50 px-1.5 py-0.5 font-mono text-sm whitespace-pre-wrap in-data-table-nowrap:whitespace-nowrap;
+  @apply rounded-md border bg-muted/50 px-1.5 py-0.5 font-mono text-[0.8125rem] whitespace-pre-wrap in-data-table-nowrap:whitespace-nowrap;
 }
 
 @utility prose-no-margin {
