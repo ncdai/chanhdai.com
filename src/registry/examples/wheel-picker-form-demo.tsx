@@ -27,42 +27,6 @@ const formSchema = z.object({
 
 type FormSchema = z.infer<typeof formSchema>
 
-const options: WheelPickerOption[] = [
-  {
-    label: "Vite",
-    value: "vite",
-  },
-  {
-    label: "Laravel",
-    value: "laravel",
-    disabled: true,
-  },
-  {
-    label: "React Router",
-    value: "react-router",
-  },
-  {
-    label: "Next.js",
-    value: "nextjs",
-  },
-  {
-    label: "Astro",
-    value: "astro",
-  },
-  {
-    label: "TanStack Start",
-    value: "tanstack-start",
-  },
-  {
-    label: "TanStack Router",
-    value: "tanstack-router",
-  },
-  {
-    label: "Gatsby",
-    value: "gatsby",
-  },
-]
-
 export default function WheelPickerFormDemo() {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -116,3 +80,39 @@ export default function WheelPickerFormDemo() {
     </Form>
   )
 }
+
+const options: WheelPickerOption[] = [
+  {
+    label: "Vite",
+    value: "vite",
+  },
+  {
+    label: "Laravel",
+    value: "laravel",
+    disabled: true,
+  },
+  {
+    label: "React Router",
+    value: "react-router",
+  },
+  {
+    label: "Next.js",
+    value: "nextjs",
+  },
+  {
+    label: "Astro",
+    value: "astro",
+  },
+  {
+    label: "TanStack Start",
+    value: "tanstack-start",
+  },
+  {
+    label: "TanStack Router",
+    value: "tanstack-router",
+  },
+  {
+    label: "Gatsby",
+    value: "gatsby",
+  },
+]

@@ -12,7 +12,7 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
     companyLogo: "https://assets.chanhdai.com/images/companies/quaric.svg",
     positions: [
       {
-        id: "30d3a9fb-021d-452a-9d27-83655369b4b9",
+        id: "2",
         title: "Design Engineer",
         employmentPeriod: "03.2024 — present",
         employmentType: "Part-time",
@@ -37,7 +37,7 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
         ],
       },
       {
-        id: "991692c4-7d02-4666-8d31-933c4831768d",
+        id: "1",
         title: "Founder & Director",
         employmentPeriod: "03.2024 — present",
         employmentType: "Part-time",

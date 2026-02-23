@@ -319,11 +319,11 @@
     }
 
     code {
-      @apply font-mono text-sm;
+      @apply w-max pr-(--code-padding-right,0) font-mono text-sm;
     }
 
     [data-line] {
-      @apply py-0.5 pe-4;
+      @apply py-0.5;
     }
   }
 
@@ -351,6 +351,23 @@
 
   [data-highlighted-line] {
     @apply bg-code-highlight;
+  }
+
+  [data-fade-overlay] {
+    @apply pointer-events-none absolute top-1 right-0 z-1 h-10 rounded-r-xl;
+
+    width: var(--fade-width, 0px);
+    background: linear-gradient(
+      to right,
+      transparent 0px,
+      color-mix(in oklab, var(--fade-color, var(--background)) 20%, transparent)
+        8px,
+      color-mix(in oklab, var(--fade-color, var(--background)) 50%, transparent)
+        24px,
+      color-mix(in oklab, var(--fade-color, var(--background)) 80%, transparent)
+        32px,
+      var(--fade-color, var(--background)) 48px
+    );
   }
 }
 
