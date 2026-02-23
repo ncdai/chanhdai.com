@@ -120,6 +120,13 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/orcdev/status/2011373509310878010",
     quote: "@iamncdai is one of the best design engineers!",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/khushiirl",
+    authorName: "khushi.vy",
+    authorTagline: "Software Engineer",
+    url: "https://x.com/khushiirl/status/2025894411155206168",
+    quote: "Goated portfolio. I love the whole UI in Vercel style",
+  },
 ]
 
 // Short quotes (50 characters or fewer)
