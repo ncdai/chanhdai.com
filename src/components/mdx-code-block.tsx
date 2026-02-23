@@ -32,7 +32,6 @@ export const mdxCodeBlockComponents = {
     )
   },
   pre({
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     __withMeta__,
     __rawString__,
 
@@ -64,11 +63,26 @@ export const mdxCodeBlockComponents = {
         <pre {...props} />
 
         {__rawString__ && (
-          <CopyButton
-            className="absolute top-2 right-2 z-10"
-            text={__rawString__}
-            event="copy_code_block"
-          />
+          <>
+            <CopyButton
+              className="absolute top-2 right-2 z-10"
+              text={__rawString__}
+              event="copy_code_block"
+            />
+
+            {!__withMeta__ && (
+              <div
+                aria-hidden
+                data-fade-overlay
+                style={
+                  {
+                    "--fade-width": "6rem",
+                    "--fade-color": "var(--code)",
+                  } as React.CSSProperties
+                }
+              />
+            )}
+          </>
         )}
       </>
     )

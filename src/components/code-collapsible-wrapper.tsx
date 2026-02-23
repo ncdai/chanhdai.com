@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button"
-import type { Collapsible } from "@/components/ui/collapsible"
+import { Collapsible } from "@/components/ui/collapsible"
 import {
-  CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
-  CollapsibleWithContext,
 } from "@/components/ui/collapsible"
-import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 
 export function CodeCollapsibleWrapper({
@@ -15,14 +12,14 @@ export function CodeCollapsibleWrapper({
   ...props
 }: React.ComponentProps<typeof Collapsible>) {
   return (
-    <CollapsibleWithContext
+    <Collapsible
       className={cn(
         "group/collapsible not-prose relative my-[1.25em] overflow-hidden rounded-xl",
         className
       )}
       {...props}
     >
-      <CollapsibleTrigger asChild>
+      {/* <CollapsibleTrigger asChild>
         <div className="absolute top-2 right-10 z-10 flex items-center gap-2">
           <Button variant="secondary" size="icon-xs">
             <CollapsibleChevronsIcon className="size-4" duration={0.15} />
@@ -33,7 +30,7 @@ export function CodeCollapsibleWrapper({
             orientation="vertical"
           />
         </div>
-      </CollapsibleTrigger>
+      </CollapsibleTrigger> */}
 
       <CollapsibleContent
         className="overflow-hidden *:data-rehype-pretty-code-figure:my-0 **:data-rehype-pretty-code-figure:rounded-none data-[state=closed]:max-h-80"
@@ -47,6 +44,6 @@ export function CodeCollapsibleWrapper({
           <Button variant="outline">Expand</Button>
         </CollapsibleTrigger>
       </div>
-    </CollapsibleWithContext>
+    </Collapsible>
   )
 }
