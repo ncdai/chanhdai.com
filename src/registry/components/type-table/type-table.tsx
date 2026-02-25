@@ -5,11 +5,11 @@ import type { ComponentProps, ReactNode } from "react"
 import {
   Collapsible,
   CollapsibleChevronDownIcon,
-} from "@/components/collapsible-animated"
+} from "@/components/base/collapsible-animated"
 import {
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/base/ui/collapsible"
 import { Prose } from "@/components/ui/typography"
 import { cn } from "@/lib/utils"
 
@@ -106,9 +106,9 @@ function Item({
   return (
     <Collapsible
       id={id}
-      className="rounded-lg ring-border ring-inset data-open:bg-background data-open:ring-1 data-open:not-last:mb-0.75"
+      className="group/type-item rounded-lg ring-border ring-inset data-open:bg-background data-open:ring-1 data-open:not-last:mb-0.75"
     >
-      <CollapsibleTrigger className="group not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-[0.8125rem] ring-border outline-none ring-inset hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] data-open:rounded-b-none data-open:ring-1 [&_svg]:size-4">
+      <CollapsibleTrigger className="not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-[0.8125rem] ring-border outline-none ring-inset group-data-open/type-item:rounded-b-none group-data-open/type-item:ring-1 hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] [&_svg]:size-4">
         <code
           className={cn(
             "[--shiki-dark:#79B8FF] [--shiki-light:#005CC5]",
@@ -136,7 +136,7 @@ function Item({
         </div>
       </CollapsibleTrigger>
 
-      <CollapsibleContent className="overflow-hidden">
+      <CollapsibleContent>
         <div className="grid grid-cols-[1fr_3fr] gap-y-3 p-3 text-sm">
           <CustomProse className="col-span-full empty:hidden">
             {description}

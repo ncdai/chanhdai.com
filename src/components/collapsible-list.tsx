@@ -2,12 +2,12 @@ import { ChevronDownIcon } from "lucide-react"
 import { Slot } from "radix-ui"
 import React from "react"
 
-import { Button } from "@/components/ui/button"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/base/ui/collapsible"
+import { Button } from "@/components/ui/button"
 
 export function CollapsibleList<T>({
   items,
@@ -23,7 +23,7 @@ export function CollapsibleList<T>({
   renderItem: (item: T) => React.ReactNode
 }) {
   return (
-    <Collapsible>
+    <Collapsible className="group/collapsible">
       {items.slice(0, max).map((award, index) => (
         <Slot.Root
           key={typeof keyExtractor === "function" ? keyExtractor(award) : index}
@@ -50,25 +50,24 @@ export function CollapsibleList<T>({
 
       {items.length > max && (
         <div className="flex h-12 items-center justify-center pb-px">
-          <CollapsibleTrigger asChild>
-            <Button
-              className="group/collapsible-trigger flex px-3"
-              variant="default"
-            >
-              <span className="hidden group-data-[state=closed]/collapsible-trigger:block">
-                Show More
-              </span>
+          <CollapsibleTrigger
+            render={
+              <Button className="flex px-3" variant="default">
+                <span className="hidden group-data-closed/collapsible:block">
+                  Show More
+                </span>
 
-              <span className="hidden group-data-[state=open]/collapsible-trigger:block">
-                Show Less
-              </span>
+                <span className="hidden group-data-open/collapsible:block">
+                  Show Less
+                </span>
 
-              <ChevronDownIcon
-                className="group-data-[state=open]/collapsible-trigger:rotate-180"
-                aria-hidden
-              />
-            </Button>
-          </CollapsibleTrigger>
+                <ChevronDownIcon
+                  className="group-data-open/collapsible:rotate-180"
+                  aria-hidden
+                />
+              </Button>
+            }
+          />
         </div>
       )}
     </Collapsible>

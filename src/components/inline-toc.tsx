@@ -4,11 +4,11 @@ import { TextIcon } from "lucide-react"
 import {
   Collapsible,
   CollapsibleChevronDownIcon,
-} from "@/components/collapsible-animated"
+} from "@/components/base/collapsible-animated"
 import {
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/base/ui/collapsible"
 import { cn } from "@/lib/utils"
 
 export function InlineTOC({
@@ -36,7 +36,7 @@ export function InlineTOC({
         </div>
       </CollapsibleTrigger>
 
-      <CollapsibleContent className="overflow-hidden">
+      <CollapsibleContent>
         <ul className="flex flex-col px-4 pb-2 text-sm text-muted-foreground">
           {items.map((item) => (
             <li
