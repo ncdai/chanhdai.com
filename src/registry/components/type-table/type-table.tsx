@@ -1,10 +1,12 @@
 "use client"
 
-import { ChevronDown } from "lucide-react"
 import type { ComponentProps, ReactNode } from "react"
 
 import {
   Collapsible,
+  CollapsibleChevronDownIcon,
+} from "@/components/collapsible-animated"
+import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
@@ -106,7 +108,7 @@ function Item({
       id={id}
       className="rounded-lg ring-border ring-inset data-open:bg-background data-open:ring-1 data-open:not-last:mb-0.75"
     >
-      <CollapsibleTrigger className="group not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-[0.8125rem] ring-border outline-none ring-inset hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] data-open:rounded-b-none data-open:ring-1">
+      <CollapsibleTrigger className="group not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-[0.8125rem] ring-border outline-none ring-inset hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] data-open:rounded-b-none data-open:ring-1 [&_svg]:size-4">
         <code
           className={cn(
             "[--shiki-dark:#79B8FF] [--shiki-light:#005CC5]",
@@ -129,7 +131,9 @@ function Item({
           <span className="@max-xl:hidden">{type}</span>
         )}
 
-        <ChevronDown className="absolute inset-e-2 size-4 text-muted-foreground group-data-[state=open]:rotate-180" />
+        <div className="ml-auto shrink-0 text-muted-foreground" aria-hidden>
+          <CollapsibleChevronDownIcon duration={0.15} />
+        </div>
       </CollapsibleTrigger>
 
       <CollapsibleContent className="overflow-hidden">
