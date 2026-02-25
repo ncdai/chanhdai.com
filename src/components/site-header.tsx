@@ -20,7 +20,7 @@ const CommandMenu = dynamic(() =>
 )
 
 const MobileNav = dynamic(() =>
-  import("@/components/mobile-nav").then((mod) => mod.MobileNav)
+  import("@/components/mobile-nav-v2").then((mod) => mod.MobileNavV2)
 )
 
 export function SiteHeader() {
