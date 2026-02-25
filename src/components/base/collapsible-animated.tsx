@@ -12,7 +12,7 @@ import type {
   ChevronsDownUpIconProps,
 } from "@/components/animated-icons/chevrons-down-up-icon"
 import { ChevronsDownUpIcon } from "@/components/animated-icons/chevrons-down-up-icon"
-import { Collapsible as CollapsibleRoot } from "@/components/ui/collapsible"
+import { Collapsible as CollapsibleRoot } from "@/components/base/ui/collapsible"
 
 type CollapsibleContextType = {
   open: boolean
@@ -45,11 +45,11 @@ function CollapsibleWithContext({
     <CollapsibleContext.Provider value={{ open }}>
       <CollapsibleRoot
         open={open}
-        onOpenChange={(open) => {
+        onOpenChange={(open, eventDetails) => {
           if (controlledOpen === undefined) {
             setUncontrolledOpen(open)
           }
-          onOpenChange?.(open)
+          onOpenChange?.(open, eventDetails)
         }}
         {...props}
       />
