@@ -397,6 +397,12 @@
   }
 }
 
+@utility extend-touch-target {
+  @media (pointer: coarse) {
+    @apply relative touch-manipulation after:absolute after:-inset-2;
+  }
+}
+
 @custom-variant supports-timeline-scroll {
   @supports (animation-timeline: scroll()) {
     @slot;
