@@ -38,7 +38,7 @@ export function MobileNavV2({ items }: { items: NavItem[] }) {
       <PopoverTrigger asChild>{toggleMenuButton}</PopoverTrigger>
 
       <PopoverContent
-        className="h-(--radix-popper-available-height) w-(--radix-popper-available-width) rounded-none bg-background px-2 py-0 shadow-none ring-0 duration-0"
+        className="h-(--radix-popper-available-height) w-(--radix-popper-available-width) rounded-none bg-background px-2 py-0 shadow-none ring-0 data-open:animate-none"
         sideOffset={8}
       >
         <div className="flex h-full flex-col items-center justify-center gap-4 border-x border-edge mask-b-from-80% mask-b-to-100% px-2 py-6">
