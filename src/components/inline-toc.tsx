@@ -1,12 +1,13 @@
 import type { TOCItemType } from "fumadocs-core/toc"
 import { TextIcon } from "lucide-react"
 
-import type { Collapsible } from "@/components/ui/collapsible"
 import {
+  Collapsible,
   CollapsibleChevronsIcon,
+} from "@/components/collapsible-animated"
+import {
   CollapsibleContent,
   CollapsibleTrigger,
-  CollapsibleWithContext,
 } from "@/components/ui/collapsible"
 import { cn } from "@/lib/utils"
 
@@ -23,7 +24,7 @@ export function InlineTOC({
   }
 
   return (
-    <CollapsibleWithContext
+    <Collapsible
       className={cn("not-prose rounded-xl bg-code font-sans", className)}
       {...props}
     >
@@ -55,6 +56,6 @@ export function InlineTOC({
           ))}
         </ul>
       </CollapsibleContent>
-    </CollapsibleWithContext>
+    </Collapsible>
   )
 }

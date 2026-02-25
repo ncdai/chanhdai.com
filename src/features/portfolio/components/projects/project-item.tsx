@@ -6,12 +6,14 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import {
+  Collapsible,
+  CollapsibleChevronsIcon,
+} from "@/components/collapsible-animated"
 import { Markdown } from "@/components/markdown"
 import {
-  CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
-  CollapsibleWithContext,
 } from "@/components/ui/collapsible"
 import { Tag } from "@/components/ui/tag"
 import { ProseMono } from "@/components/ui/typography"
@@ -32,7 +34,7 @@ export function ProjectItem({
   const isSinglePeriod = end === start
 
   return (
-    <CollapsibleWithContext defaultOpen={project.isExpanded} asChild>
+    <Collapsible defaultOpen={project.isExpanded} asChild>
       <div className={className}>
         <div className="flex items-center hover:bg-accent-muted">
           {project.logo ? (
@@ -135,6 +137,6 @@ export function ProjectItem({
           </div>
         </CollapsibleContent>
       </div>
-    </CollapsibleWithContext>
+    </Collapsible>
   )
 }

@@ -1,12 +1,13 @@
 import { InfinityIcon } from "lucide-react"
-import React from "react"
 
+import {
+  Collapsible,
+  CollapsibleChevronsIcon,
+} from "@/components/collapsible-animated"
 import { Markdown } from "@/components/markdown"
 import {
-  CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
-  CollapsibleWithContext,
 } from "@/components/ui/collapsible"
 import { Separator } from "@/components/ui/separator"
 import { Tag } from "@/components/ui/tag"
@@ -25,7 +26,7 @@ export function ExperiencePositionItem({
   const isOngoing = !end
 
   return (
-    <CollapsibleWithContext
+    <Collapsible
       defaultOpen={position.isExpanded}
       disabled={!position.description}
       asChild
@@ -116,6 +117,6 @@ export function ExperiencePositionItem({
           </ul>
         )}
       </div>
-    </CollapsibleWithContext>
+    </Collapsible>
   )
 }

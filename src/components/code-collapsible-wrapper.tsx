@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { Collapsible } from "@/components/ui/collapsible"
 import {
+  Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"

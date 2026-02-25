@@ -6,12 +6,14 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import {
+  Collapsible,
+  CollapsibleChevronsIcon,
+} from "@/components/collapsible-animated"
 import { Markdown } from "@/components/markdown"
 import {
-  CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
-  CollapsibleWithContext,
 } from "@/components/ui/collapsible"
 import { Separator } from "@/components/ui/separator"
 import { ProseMono } from "@/components/ui/typography"
@@ -28,7 +30,7 @@ export function AwardItem({
   const canExpand = !!award.description
 
   return (
-    <CollapsibleWithContext disabled={!canExpand} asChild>
+    <Collapsible disabled={!canExpand} asChild>
       <div className={className}>
         <div className="flex items-center hover:bg-accent-muted">
           <div
@@ -123,6 +125,6 @@ export function AwardItem({
           </CollapsibleContent>
         )}
       </div>
-    </CollapsibleWithContext>
+    </Collapsible>
   )
 }
