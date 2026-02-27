@@ -53,9 +53,9 @@ export function Components() {
                 )}
               </div>
 
-              <h2 className="leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+              <h3 className="leading-snug font-medium text-balance">
                 {post.metadata.title}
-              </h2>
+              </h3>
             </Link>
           ))}
         </div>

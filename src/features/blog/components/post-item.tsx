@@ -45,7 +45,7 @@ export function PostItem({
       )}
 
       <div className="flex flex-col gap-1 p-2">
-        <h3 className="text-lg leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+        <h3 className="text-lg leading-snug font-medium text-balance">
           {post.metadata.title}
           {post.metadata.new && (
             <span className="ml-2 inline-block size-2 -translate-y-px rounded-full bg-info">

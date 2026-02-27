@@ -49,7 +49,7 @@ export default function Page() {
           {metadata.description} <span className="max-md:block" />
           <a
             className="whitespace-nowrap underline-offset-4 hover:underline"
-            href={addQueryParams(`https://ui.shadcn.com/docs/directory`, {
+            href={addQueryParams("https://ui.shadcn.com/docs/directory", {
               q: registryConfig.namespace,
               ...UTM_PARAMS,
             })}
@@ -168,7 +168,7 @@ export default function Page() {
                   )}
                 </div>
 
-                <h2 className="line-clamp-1 leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+                <h2 className="line-clamp-1 leading-snug font-medium text-balance">
                   {post.metadata.title}
                 </h2>
               </Link>
