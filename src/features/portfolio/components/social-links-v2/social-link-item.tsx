@@ -31,9 +31,7 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
         <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/10 corner-squircle ring-inset dark:ring-white/15 supports-corner-shape:rounded-[50%]" />
       </div>
 
-      <h3 className="flex-1 font-medium underline-offset-4 group-hover:underline">
-        {title}
-      </h3>
+      <h3 className="flex-1 font-medium">{title}</h3>
 
       <ArrowUpRightIcon className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45" />
     </a>

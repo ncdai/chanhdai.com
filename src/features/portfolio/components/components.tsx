@@ -53,7 +53,7 @@ export function Components() {
                 )}
               </div>
 
-              <h2 className="leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+              <h2 className="leading-snug font-medium text-balance">
                 {post.metadata.title}
               </h2>
             </Link>
