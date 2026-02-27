@@ -23,11 +23,13 @@ export const USER = {
       title: "Design Engineer",
       company: "Shadcraft",
       website: "https://shadcraft.com",
+      experienceId: "shadcraft",
     },
     {
       title: "Founder",
       company: "Quaric",
       website: "https://quaric.com",
+      experienceId: "quaric",
     },
   ],
   about: `

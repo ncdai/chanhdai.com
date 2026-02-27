@@ -14,9 +14,15 @@ type JobItemProps = {
   title: string
   company: string
   website: string
+  experienceId?: string
 }
 
-export function JobItem({ title, company, website }: JobItemProps) {
+export function JobItem({
+  title,
+  company,
+  website,
+  experienceId,
+}: JobItemProps) {
   return (
     <IntroItem>
       <IntroItemIcon>{getJobIcon(title)}</IntroItemIcon>
@@ -25,8 +31,15 @@ export function JobItem({ title, company, website }: JobItemProps) {
         {title} @
         <IntroItemLink
           className="ml-0.5 font-medium"
-          href={addQueryParams(website, UTM_PARAMS)}
-          aria-label={`${company} website`}
+          {...(experienceId
+            ? {
+                href: `#experience-${experienceId}`,
+                target: "_self",
+                rel: "",
+              }
+            : {
+                href: addQueryParams(website, UTM_PARAMS),
+              })}
         >
           {company}
         </IntroItemLink>
