@@ -19,12 +19,12 @@ export const TECH_STACK: TechStack[] = [
     href: "https://www.python.org/",
     categories: ["Language"],
   },
-  {
-    key: "php",
-    title: "PHP",
-    href: "https://www.php.net/",
-    categories: ["Language"],
-  },
+  // {
+  //   key: "php",
+  //   title: "PHP",
+  //   href: "https://www.php.net/",
+  //   categories: ["Language"],
+  // },
   {
     key: "java",
     title: "Java",
@@ -127,12 +127,12 @@ export const TECH_STACK: TechStack[] = [
     href: "https://reactnavigation.org/",
     categories: ["Library", "Navigation"],
   },
-  {
-    key: "loopback",
-    title: "LoopBack",
-    href: "https://loopback.io/",
-    categories: ["Framework"],
-  },
+  // {
+  //   key: "loopback",
+  //   title: "LoopBack",
+  //   href: "https://loopback.io/",
+  //   categories: ["Framework"],
+  // },
   {
     key: "laravel",
     title: "Laravel",
@@ -180,6 +180,19 @@ export const TECH_STACK: TechStack[] = [
     title: "Adobe Photoshop",
     href: "https://www.adobe.com/vn_en/products/photoshop.html",
     categories: ["Tools", "Design"],
+  },
+  {
+    key: "claude",
+    title: "Claude",
+    href: "https://claude.ai/",
+    categories: ["Tools", "AI"],
+  },
+  {
+    key: "cursor",
+    title: "Cursor",
+    href: "https://cursor.com/",
+    categories: ["Tools", "AI"],
+    theme: true,
   },
   {
     key: "chatgpt",
