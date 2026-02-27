@@ -26,6 +26,7 @@ export type User = {
     title: string
     company: string
     website: string
+    experienceId?: string
   }[]
   /** Rich about section; supports Markdown */
   about: string
