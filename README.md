@@ -125,22 +125,6 @@ This project is proudly supported by:
         </a>
       </td>
       <td>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/shadcnblocks.svg?v=1#gh-light-mode-only"
@@ -154,6 +138,8 @@ This project is proudly supported by:
           />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
           <img
@@ -165,6 +151,20 @@ This project is proudly supported by:
           <img
             src="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only"
             alt="React Bits"
+          />
+        </a>
+      </td>
+      <td>
+        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
+            alt="UI Rules"
+          />
+        </a>
+        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
+            alt="UI Rules"
           />
         </a>
       </td>
