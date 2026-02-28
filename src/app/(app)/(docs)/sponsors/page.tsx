@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 
-import { SponsorItem } from "@/features/sponsors/components/sponsor-item"
-import { SponsorItemPlus } from "@/features/sponsors/components/sponsor-item-plus"
-import { sponsors } from "@/features/sponsors/data"
+import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
+import { SponsorItemPlus } from "@/features/sponsor/components/sponsor-item-plus"
+import { sponsors } from "@/features/sponsor/data"
 
 export const metadata: Metadata = {
   title: "Sponsors",
