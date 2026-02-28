@@ -41,8 +41,6 @@ export const Magnet: React.FC<MagnetProps> = ({
     if (disabled) return
 
     const targetElement = containerRef?.current ?? window
-    if (containerRef && !containerRef.current) return
-
     const handleMouseMove = (e: Event) => {
       if (!magnetRef.current) return
       if (!(e instanceof MouseEvent)) return
