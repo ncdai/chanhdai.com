@@ -28,7 +28,7 @@ Next.js portfolio, blog, and component registry website with:
 - `src/components/` - Shared UI components
 - `src/registry/` - Component registry source (components, hooks, blocks, examples)
 - `src/__registry__/` - Auto-generated registry files (DO NOT EDIT)
-- `src/features/` - Feature-based modules (blog, portfolio, sponsors)
+- `src/features/` - Feature-based modules (doc, blog, portfolio, sponsors)
 - `src/config/` - Site and registry configuration
 - `src/hooks/` - Custom React hooks
 - `src/lib/` - Utility libraries and helpers
@@ -125,11 +125,23 @@ When writing code for this project, follow these principles:
 
 ## Working with Content
 
+### Document System (`src/features/doc/`)
+
+The `doc` feature is the centralized content and data layer used by both Blog and Components pages:
+
+- `types/document.ts` - Shared types: `Doc`, `DocMetadata`, `DocPreview`
+- `data/documents.ts` - Data fetching: `getAllDocs`, `getDocBySlug`, `getDocsByCategory`, `findNeighbour`
+- `lib/get-llm-text.ts` - MDX processing for LLM consumption
+- `content/` - All MDX content files (blog posts and component docs)
+
+The `blog` feature (`src/features/blog/`) contains only UI components and hooks for rendering (e.g., `PostItem`, `PostList`, `PostListWithSearch`, `PostKeyboardShortcuts`). It imports types and data from `features/doc`.
+
 ### Blog Posts
 
-- Location: `src/features/blog/content/`
+- Location: `src/features/doc/content/`
 - Format: MDX files
 - Supports: Custom components, code blocks, metadata
+- Blog posts and component docs are distinguished by the `category` field in frontmatter
 
 ### User Portfolio
 
@@ -201,8 +213,14 @@ Edit `src/features/portfolio/data/user.ts` with new:
 
 ### Adding Blog Posts
 
-1. Create MDX file in `src/features/blog/content/`
+1. Create MDX file in `src/features/doc/content/`
 2. Include frontmatter metadata
+3. Use custom components for enhanced content
+
+### Adding Component Docs
+
+1. Create MDX file in `src/features/doc/content/`
+2. Include frontmatter metadata with `category: "components"`
 3. Use custom components for enhanced content
 
 ### Styling Guidelines

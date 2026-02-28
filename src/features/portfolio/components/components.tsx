@@ -3,13 +3,13 @@ import Link from "next/link"
 
 import { ComponentIcon } from "@/components/icons"
 import { Button } from "@/components/ui/button"
-import { getPostsByCategory } from "@/features/blog/data/posts"
+import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Components() {
-  const posts = getPostsByCategory("components")
+  const posts = getDocsByCategory("components")
 
   return (
     <Panel id="components">

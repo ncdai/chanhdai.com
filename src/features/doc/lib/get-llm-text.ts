@@ -4,7 +4,7 @@ import { remark } from "remark"
 import remarkGfm from "remark-gfm"
 import remarkMdx from "remark-mdx"
 
-import type { Post } from "@/features/blog/types/post"
+import type { Doc } from "@/features/doc/types/document"
 import { generator } from "@/lib/auto-type-table"
 import { remarkComponent } from "@/lib/remark-component"
 
@@ -14,16 +14,16 @@ const processor = remark()
   .use(remarkComponent)
   .use(remarkAutoTypeTable, { name: "AutoTypeTable", generator })
 
-export async function getLLMText(post: Post) {
+export async function getLLMText(doc: Doc) {
   const processed = await processor.process({
-    value: post.content,
+    value: doc.content,
   })
 
-  return `# ${post.metadata.title}
+  return `# ${doc.metadata.title}
 
-${post.metadata.description}
+${doc.metadata.description}
 
 ${processed.value}
 
-Last updated on ${format(new Date(post.metadata.updatedAt), "MMMM d, yyyy")}`
+Last updated on ${format(new Date(doc.metadata.updatedAt), "MMMM d, yyyy")}`
 }

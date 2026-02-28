@@ -9,7 +9,7 @@ Guide for writing concise, consistent component documentation for this project's
 
 ## Key Files
 
-- Component docs: `src/features/blog/content/{component-name}.mdx`
+- Component docs: `src/features/doc/content/{component-name}.mdx`
 - Registry items: `src/registry/components/_registry.ts`
 - Description must be kept in sync between both files.
 
@@ -23,7 +23,6 @@ title: Component Name
 description: One concise sentence about what the component does.
 image: https://assets.chanhdai.com/images/blog/{component-name}.webp
 category: components
-icon: {component-name}
 createdAt: YYYY-MM-DD
 updatedAt: YYYY-MM-DD
 ---

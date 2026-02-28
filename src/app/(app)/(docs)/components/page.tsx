@@ -18,7 +18,7 @@ import {
 import { Tag } from "@/components/ui/tag"
 import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS } from "@/config/site"
-import { getPostsByCategory } from "@/features/blog/data/posts"
+import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
@@ -36,7 +36,7 @@ const componentsJSON = `\`\`\`json title="components.json" showLineNumbers {3}
 \`\`\``
 
 export default function Page() {
-  const posts = getPostsByCategory("components")
+  const posts = getDocsByCategory("components")
 
   return (
     <div className="min-h-svh">

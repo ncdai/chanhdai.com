@@ -4,12 +4,12 @@ import React from "react"
 
 import { Button } from "@/components/ui/button"
 import { PostItem } from "@/features/blog/components/post-item"
-import { getAllPosts } from "@/features/blog/data/posts"
+import { getAllDocs } from "@/features/doc/data/documents"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Blog() {
-  const allPosts = getAllPosts()
+  const allPosts = getAllDocs()
 
   return (
     <Panel id="blog">
