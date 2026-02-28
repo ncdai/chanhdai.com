@@ -27,13 +27,16 @@ A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase
 - Analytics with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev)
 - Consent management via [c15t](https://c15t.com)
 
-### Blog
+### Content
 
-- Supports MDX & Markdown
+Centralized document system powered by MDX:
+
+- Unified content layer for blog posts and component docs
+- Category-based content organization
 - Raw `.mdx` endpoints for AI readability
-- Syntax highlighting for clear code presentation
+- Syntax highlighting with code blocks
 - Dynamic OG images for rich link previews
-- RSS feed for easy content distribution
+- RSS feed for content distribution
 
 ### Registry
 
@@ -44,24 +47,6 @@ Each entry is well-documented and includes:
 - Live preview & code snippets
 - Beautiful, readable code blocks
 - One-click command blocks (pnpm, npm, yarn, bun)
-
-### Analytics
-
-User behavior tracking with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev) to understand how visitors interact with the site:
-
-- **Copy events** - Track code & command copies
-- **Engagement** - Monitor name pronunciation plays, command menu usage
-- **Search behavior** - Analyze search queries (debounced)
-- **User actions** - Navigation, theme changes, content interactions
-- **Screen views** - Automatic page view tracking (OpenPanel)
-
-Built with privacy in mind:
-
-- Consent management via [c15t](https://c15t.com)
-- Cookieless mode until consent
-- Production-only tracking
-- Type-safe event schema with Zod
-- Dual analytics setup for redundancy and comprehensive insights
 
 ## Development
 
