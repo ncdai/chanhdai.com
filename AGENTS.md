@@ -28,7 +28,7 @@ Next.js portfolio, blog, and component registry website with:
 - `src/components/` - Shared UI components
 - `src/registry/` - Component registry source (components, hooks, blocks, examples)
 - `src/__registry__/` - Auto-generated registry files (DO NOT EDIT)
-- `src/features/` - Feature-based modules (doc, blog, portfolio, sponsors)
+- `src/features/` - Feature-based modules (doc, blog, portfolio, sponsor)
 - `src/config/` - Site and registry configuration
 - `src/hooks/` - Custom React hooks
 - `src/lib/` - Utility libraries and helpers

@@ -150,7 +150,7 @@ export default async function Page({
         >
           <Link href="/components">
             <ArrowLeftIcon />
-            Components
+            UI
           </Link>
         </Button>
 
