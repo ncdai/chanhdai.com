@@ -14,6 +14,7 @@ interface MagnetProps extends HTMLAttributes<HTMLDivElement> {
   inactiveTransition?: string
   wrapperClassName?: string
   innerClassName?: string
+  containerRef?: React.RefObject<HTMLElement | null>
 }
 
 export const Magnet: React.FC<MagnetProps> = ({
@@ -25,6 +26,7 @@ export const Magnet: React.FC<MagnetProps> = ({
   inactiveTransition = "transform 0.5s ease-in-out",
   wrapperClassName = "",
   innerClassName = "",
+  containerRef,
   ...props
 }) => {
   const [isActive, setIsActive] = useState<boolean>(false)
@@ -38,8 +40,10 @@ export const Magnet: React.FC<MagnetProps> = ({
   useEffect(() => {
     if (disabled) return
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const targetElement = containerRef?.current ?? window
+    const handleMouseMove = (e: Event) => {
       if (!magnetRef.current) return
+      if (!(e instanceof MouseEvent)) return
 
       const { left, top, width, height } =
         magnetRef.current.getBoundingClientRect()
@@ -61,12 +65,12 @@ export const Magnet: React.FC<MagnetProps> = ({
       }
     }
 
-    window.addEventListener("mousemove", handleMouseMove)
+    targetElement.addEventListener("mousemove", handleMouseMove)
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
+      targetElement.removeEventListener("mousemove", handleMouseMove)
     }
-  }, [padding, disabled, magnetStrength])
+  }, [padding, disabled, magnetStrength, containerRef])
 
   const finalPosition = disabled ? { x: 0, y: 0 } : position
   const transitionStyle = isActive ? activeTransition : inactiveTransition

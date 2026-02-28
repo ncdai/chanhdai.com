@@ -23,10 +23,10 @@ export const metadata: Metadata = {
 
 const TESTIMONIALS = [
   ...TESTIMONIALS_1.slice().sort((a, b) =>
-    a.authorName.localeCompare(b.authorName)
+    a.date.localeCompare(b.date, undefined, { numeric: true })
   ),
   ...TESTIMONIALS_2.slice().sort((a, b) =>
-    a.authorName.localeCompare(b.authorName)
+    a.date.localeCompare(b.date, undefined, { numeric: true })
   ),
 ]
 
