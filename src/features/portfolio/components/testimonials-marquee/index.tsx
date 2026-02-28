@@ -1,4 +1,4 @@
-import { Maximize2Icon } from "lucide-react"
+import { ArrowUpRightIcon } from "lucide-react"
 import Link from "next/link"
 
 import {
@@ -27,11 +27,14 @@ export function TestimonialsMarquee() {
 
         <MarqueeContent>
           {TESTIMONIALS_1.slice()
-            .sort((a, b) => a.authorName.localeCompare(b.authorName))
+            .sort((a, b) =>
+              a.date.localeCompare(b.date, undefined, { numeric: true })
+            )
             .map((item) => (
               <MarqueeItem
                 key={item.url}
-                className="mx-0 h-full w-xs border-r border-edge"
+                className="mx-0 h-full max-w-xs min-w-2xs border-r border-edge"
+                style={item.style}
               >
                 <TestimonialItem {...item} />
               </MarqueeItem>
@@ -47,11 +50,14 @@ export function TestimonialsMarquee() {
 
         <MarqueeContent direction="right">
           {TESTIMONIALS_2.slice()
-            .sort((a, b) => a.authorName.localeCompare(b.authorName))
+            .sort((a, b) =>
+              a.date.localeCompare(b.date, undefined, { numeric: true })
+            )
             .map((item) => (
               <MarqueeItem
                 key={item.url}
-                className="mx-0 h-full w-xs border-r border-edge"
+                className="mx-0 h-full max-w-xs min-w-2xs border-r border-edge"
+                style={item.style}
               >
                 <TestimonialItem {...item} />
               </MarqueeItem>
@@ -66,7 +72,7 @@ export function TestimonialsMarquee() {
         asChild
       >
         <Link href="/testimonials" aria-label="See all testimonials">
-          <Maximize2Icon />
+          <ArrowUpRightIcon />
         </Link>
       </Button>
     </Panel>
