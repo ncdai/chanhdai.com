@@ -327,7 +327,7 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
           />
 
           <CommandLinkGroup
-            heading="Components"
+            heading="UI"
             links={componentLinks}
             fallbackIcon={Icons.react}
             onLinkSelect={handleOpenLink}
