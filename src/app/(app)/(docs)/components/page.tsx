@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
 export const metadata: Metadata = {
-  title: "Components",
+  title: "UI",
   description: "A collection of reusable components.",
 }
 
