@@ -3,7 +3,7 @@ import { compareDesc } from "date-fns"
 import { CollapsibleList } from "@/components/collapsible-list"
 
 import { BOOKMARKS } from "../../data/bookmarks"
-import { Panel, PanelHeader, PanelTitle } from "../panel"
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
 import { BookmarkItem } from "./bookmark-item"
 
 const SORTED_BOOKMARKS = [...BOOKMARKS].sort((a, b) => {
@@ -14,7 +14,10 @@ export function Bookmarks() {
   return (
     <Panel id="bookmarks">
       <PanelHeader>
-        <PanelTitle>Bookmarks</PanelTitle>
+        <PanelTitle>
+          Bookmarks
+          <PanelTitleSup>({SORTED_BOOKMARKS.length})</PanelTitleSup>
+        </PanelTitle>
       </PanelHeader>
 
       <CollapsibleList

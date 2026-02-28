@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils"
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Components() {
-  const posts = getDocsByCategory("components")
+  const components = getDocsByCategory("components")
 
   return (
     <Panel id="components">
       <PanelHeader>
         <PanelTitle>
-          Components
-          <PanelTitleSup>({posts.length})</PanelTitleSup>
+          UI
+          <PanelTitleSup>({components.length})</PanelTitleSup>
         </PanelTitle>
       </PanelHeader>
 
@@ -28,10 +28,10 @@ export function Components() {
         </div>
 
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
-          {posts.slice(0, 9).map((post) => (
+          {components.slice(0, 9).map((component) => (
             <Link
-              key={post.slug}
-              href={`/components/${post.slug}`}
+              key={component.slug}
+              href={`/components/${component.slug}`}
               className={cn(
                 "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
                 "max-sm:screen-line-before max-sm:screen-line-after",
@@ -42,10 +42,10 @@ export function Components() {
               <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background">
                 <ComponentIcon
                   className="pointer-events-none size-4 text-muted-foreground"
-                  variant={post.slug}
+                  variant={component.slug}
                   aria-hidden
                 />
-                {post.metadata.new && (
+                {component.metadata.new && (
                   <span className="absolute -top-1 -right-1 flex items-center justify-center">
                     <span className="flex size-2 rounded-sm bg-info ring-1 ring-background" />
                     <span className="sr-only">New</span>
@@ -54,7 +54,7 @@ export function Components() {
               </div>
 
               <h3 className="leading-snug font-medium text-balance">
-                {post.metadata.title}
+                {component.metadata.title}
               </h3>
             </Link>
           ))}
