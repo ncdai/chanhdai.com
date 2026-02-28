@@ -38,7 +38,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
-import type { PostPreview } from "@/features/blog/types/post"
+import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { useSound } from "@/hooks/use-sound"
@@ -157,7 +157,7 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
   },
 ]
 
-export function CommandMenu({ posts }: { posts: PostPreview[] }) {
+export function CommandMenu({ posts }: { posts: DocPreview[] }) {
   const router = useRouter()
 
   const { setTheme, resolvedTheme } = useTheme()
@@ -574,7 +574,7 @@ function CommandMenuFooter() {
   )
 }
 
-function postToCommandLinkItem(post: PostPreview): CommandLinkItem {
+function postToCommandLinkItem(post: DocPreview): CommandLinkItem {
   const isComponent = post.category === "components"
 
   const IconComponent = isComponent

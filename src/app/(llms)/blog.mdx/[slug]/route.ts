@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation"
 
-import { getAllPosts } from "@/features/blog/data/posts"
-import { getLLMText } from "@/features/blog/lib/get-llm-text"
+import { getAllDocs } from "@/features/doc/data/documents"
+import { getLLMText } from "@/features/doc/lib/get-llm-text"
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
+  const docs = getAllDocs()
 
-  return posts.map((post) => ({
-    slug: post.slug,
+  return docs.map((doc) => ({
+    slug: doc.slug,
   }))
 }
 
@@ -17,8 +17,8 @@ export async function GET(
 ) {
   const { slug } = await params
 
-  const allPosts = getAllPosts()
-  const post = allPosts.find((post) => post.slug === slug)
+  const allDocs = getAllDocs()
+  const post = allDocs.find((doc) => doc.slug === slug)
 
   if (!post) {
     notFound()

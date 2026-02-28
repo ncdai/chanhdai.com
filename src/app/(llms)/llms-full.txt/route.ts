@@ -1,8 +1,8 @@
 import { format } from "date-fns"
 
 import { SITE_INFO } from "@/config/site"
-import { getAllPosts } from "@/features/blog/data/posts"
-import { getLLMText } from "@/features/blog/lib/get-llm-text"
+import { getAllDocs } from "@/features/doc/data/documents"
+import { getLLMText } from "@/features/doc/lib/get-llm-text"
 import { AWARDS } from "@/features/portfolio/data/awards"
 import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
 import { EXPERIENCES } from "@/features/portfolio/data/experiences"
@@ -11,7 +11,7 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 
-const allPosts = getAllPosts()
+const allPosts = getAllDocs()
 
 const aboutText = `## About
 

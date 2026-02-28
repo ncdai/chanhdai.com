@@ -1,7 +1,7 @@
 import { SITE_INFO } from "@/config/site"
-import { getAllPosts } from "@/features/blog/data/posts"
+import { getAllDocs } from "@/features/doc/data/documents"
 
-const allPosts = getAllPosts()
+const allPosts = getAllDocs()
 
 const content = `# chanhdai.com
 

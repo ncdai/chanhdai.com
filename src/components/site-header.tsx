@@ -4,8 +4,8 @@ import Link from "next/link"
 import { DesktopNav } from "@/components/desktop-nav"
 import { NavItemGitHub } from "@/components/nav-item-github"
 import { MAIN_NAV } from "@/config/site"
-import { getAllPosts } from "@/features/blog/data/posts"
-import type { PostPreview } from "@/features/blog/types/post"
+import { getAllDocs } from "@/features/doc/data/documents"
+import type { DocPreview } from "@/features/doc/types/document"
 import { cn } from "@/lib/utils"
 
 import { SiteHeaderMark } from "./site-header-mark"
@@ -24,10 +24,10 @@ const MobileNav = dynamic(() =>
 )
 
 export function SiteHeader() {
-  const posts = getAllPosts()
+  const posts = getAllDocs()
 
   // Minimize data serialized to client component - only send necessary fields
-  const postPreviews: PostPreview[] = posts.map((post) => ({
+  const postPreviews: DocPreview[] = posts.map((post) => ({
     slug: post.slug,
     title: post.metadata.title,
     category: post.metadata.category,

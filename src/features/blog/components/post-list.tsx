@@ -1,7 +1,8 @@
-import type { Post } from "../types/post"
+import type { Doc } from "@/features/doc/types/document"
+
 import { PostItem } from "./post-item"
 
-export function PostList({ posts }: { posts: Post[] }) {
+export function PostList({ posts }: { posts: Doc[] }) {
   return (
     <div className="relative pt-4">
       <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">

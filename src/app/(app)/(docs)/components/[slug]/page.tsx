@@ -21,17 +21,17 @@ import { LLMCopyButtonWithViewOptions } from "@/features/blog/components/post-pa
 import { PostShareMenu } from "@/features/blog/components/post-share-menu"
 import {
   findNeighbour,
-  getPostBySlug,
-  getPostsByCategory,
-} from "@/features/blog/data/posts"
-import type { Post } from "@/features/blog/types/post"
+  getDocBySlug,
+  getDocsByCategory,
+} from "@/features/doc/data/documents"
+import type { Doc } from "@/features/doc/types/document"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
 export async function generateStaticParams() {
-  const posts = getPostsByCategory("components")
-  return posts.map((post) => ({
-    slug: post.slug,
+  const docs = getDocsByCategory("components")
+  return docs.map((doc) => ({
+    slug: doc.slug,
   }))
 }
 
@@ -41,15 +41,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const slug = (await params).slug
-  const post = getPostBySlug(slug)
+  const doc = getDocBySlug(slug)
 
-  if (!post) {
+  if (!doc) {
     return notFound()
   }
 
-  const { title, description, image, createdAt, updatedAt } = post.metadata
+  const { title, description, image, createdAt, updatedAt } = doc.metadata
 
-  const postUrl = `/components/${post.slug}`
+  const postUrl = `/components/${doc.slug}`
   const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`
 
   return {
@@ -77,18 +77,18 @@ export async function generateMetadata({
   }
 }
 
-function getPageJsonLd(post: Post): WithContext<PageSchema> {
+function getPageJsonLd(doc: Doc): WithContext<PageSchema> {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.metadata.title,
-    description: post.metadata.description,
+    headline: doc.metadata.title,
+    description: doc.metadata.description,
     image:
-      post.metadata.image ||
-      `/og/simple?title=${encodeURIComponent(post.metadata.title)}`,
-    url: `${SITE_INFO.url}/components/${post.slug}`,
-    datePublished: new Date(post.metadata.createdAt).toISOString(),
-    dateModified: new Date(post.metadata.updatedAt).toISOString(),
+      doc.metadata.image ||
+      `/og/simple?title=${encodeURIComponent(doc.metadata.title)}`,
+    url: `${SITE_INFO.url}/components/${doc.slug}`,
+    datePublished: new Date(doc.metadata.createdAt).toISOString(),
+    dateModified: new Date(doc.metadata.updatedAt).toISOString(),
     author: {
       "@type": "Person",
       name: USER.displayName,
@@ -106,33 +106,33 @@ export default async function Page({
   }>
 }) {
   const slug = (await params).slug
-  const post = getPostBySlug(slug)
+  const doc = getDocBySlug(slug)
 
-  if (!post) {
+  if (!doc) {
     notFound()
   }
 
-  if (post.metadata.category !== "components") {
+  if (doc.metadata.category !== "components") {
     notFound()
   }
 
-  const toc = getTableOfContents(post.content)
+  const toc = getTableOfContents(doc.content)
 
-  const allPosts = getPostsByCategory("components")
+  const allDocs = getDocsByCategory("components")
     .slice()
     .sort((a, b) =>
       a.metadata.title.localeCompare(b.metadata.title, "en", {
         sensitivity: "base",
       })
     )
-  const { previous, next } = findNeighbour(allPosts, slug)
+  const { previous, next } = findNeighbour(allDocs, slug)
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getPageJsonLd(post)).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(getPageJsonLd(doc)).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -156,13 +156,13 @@ export default async function Page({
 
         <div className="flex items-center gap-2">
           <LLMCopyButtonWithViewOptions
-            markdownUrl={`/components/${post.slug}.mdx`}
+            markdownUrl={`/components/${doc.slug}.mdx`}
             isComponent
           />
 
           <PostShareMenu
-            title={post.metadata.title}
-            url={`/components/${post.slug}`}
+            title={doc.metadata.title}
+            url={`/components/${doc.slug}`}
           />
 
           {previous && (
@@ -225,15 +225,15 @@ export default async function Page({
 
       <Prose className="px-4">
         <h1 className="screen-line-after text-3xl font-semibold tracking-tight">
-          {post.metadata.title}
+          {doc.metadata.title}
         </h1>
 
-        <p className="text-muted-foreground">{post.metadata.description}</p>
+        <p className="text-muted-foreground">{doc.metadata.description}</p>
 
         <InlineTOC items={toc} />
 
         <div>
-          <MDX code={post.content} />
+          <MDX code={doc.content} />
         </div>
       </Prose>
 

@@ -1,4 +1,4 @@
-export type PostMetadata = {
+export type DocMetadata = {
   title: string
   description: string
   /**
@@ -7,7 +7,7 @@ export type PostMetadata = {
    */
   image?: string
   /**
-   * Category identifier/slug used for filtering (see getPostsByCategory).
+   * Category identifier/slug used for filtering (see getDocsByCategory).
    */
   category?: string
   /**
@@ -28,9 +28,9 @@ export type PostMetadata = {
   updatedAt: string
 }
 
-export type Post = {
+export type Doc = {
   /** Parsed frontmatter metadata from the MDX file. */
-  metadata: PostMetadata
+  metadata: DocMetadata
   /** Slug derived from the MDX filename (without extension). */
   slug: string
   /** MDX content body without frontmatter. */
@@ -38,10 +38,10 @@ export type Post = {
 }
 
 /**
- * Minimal post data for client components that don't need the full content.
+ * Minimal doc data for client components that don't need the full content.
  * Reduces serialization overhead and bundle size.
  */
-export type PostPreview = {
+export type DocPreview = {
   slug: string
   title: string
   category?: string
