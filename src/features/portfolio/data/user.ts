@@ -43,7 +43,7 @@ export const USER: User = {
   - 12k+ weekly downloads on [npm](https://www.npmjs.com/package/@ncdai/react-wheel-picker)*
   - [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker) summer 2025 cohort
 
-\\* Peak metrics recorded; actual current figures may vary.
+<p class="text-muted-foreground">* Peak metrics recorded; actual current figures may vary.</p>
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
   ogImage:
