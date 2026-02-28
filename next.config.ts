@@ -47,11 +47,11 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:section(blog|components)/:slug.mdx",
-        destination: "/blog.mdx/:slug",
+        destination: "/doc.mdx/:slug",
       },
       {
         source: "/:section(blog|components)/:slug",
-        destination: "/blog.mdx/:slug",
+        destination: "/doc.mdx/:slug",
         has: [
           {
             type: "header",

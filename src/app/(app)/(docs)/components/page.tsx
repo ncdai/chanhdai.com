@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 
-import { ComponentIcon, Icons } from "@/components/icons"
+import { ComponentIcon } from "@/components/icons"
 import { MDX } from "@/components/mdx"
 import { RegistryCommandAnimated } from "@/components/registry-command-animated"
 import { Button } from "@/components/ui/button"
@@ -15,7 +15,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Tag } from "@/components/ui/tag"
 import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS } from "@/config/site"
 import { getDocsByCategory } from "@/features/doc/data/documents"
@@ -23,7 +22,7 @@ import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
 export const metadata: Metadata = {
-  title: "Components",
+  title: "UI",
   description: "A collection of reusable components.",
 }
 
@@ -41,10 +40,12 @@ export default function Page() {
   return (
     <div className="min-h-svh">
       <div className="screen-line-after px-4">
-        <h1 className="text-3xl font-semibold tracking-tight">Components</h1>
+        <h1 className="text-3xl leading-none font-semibold tracking-tight">
+          UI
+        </h1>
       </div>
 
-      <div className="space-y-4 p-4">
+      <div className="p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {metadata.description} <span className="max-md:block" />
           <a
@@ -61,7 +62,7 @@ export default function Page() {
           for shadcn/ui.
         </p>
 
-        <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
+        {/* <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
           <Tag className="font-sans font-medium">
             <Icons.react />
             React 19
@@ -71,7 +72,7 @@ export default function Page() {
             <Icons.tailwindcss />
             Tailwind CSS v4
           </Tag>
-        </div>
+        </div> */}
       </div>
 
       <div className="screen-line-before screen-line-after relative">
