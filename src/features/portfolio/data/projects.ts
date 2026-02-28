@@ -20,12 +20,10 @@ export const PROJECTS: Project[] = [
       "GitHub Actions",
     ],
     description: `iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. / Backed by [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker)
-- 📱 Natural touch scrolling with smooth inertia effect
-- 🖱️ Mouse drag and scroll support for desktop
-- 🔄 Infinite loop scrolling
-- 🎨 Unstyled components for complete style customization
-- ⌨️ Full keyboard navigation and type-ahead search
-- ⚡️ Easy installation via shadcn CLI
+- Natural touch scrolling with smooth inertia, mouse drag and scroll for desktop
+- Infinite loop scrolling
+- Unstyled core for complete style customization
+- Full keyboard navigation and type-ahead search
 `,
     logo: "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
     isExpanded: true,
@@ -86,10 +84,13 @@ export const PROJECTS: Project[] = [
       "Docusaurus 3",
     ],
     description: `ZaDark adds Dark Mode, anti-peeking, customizable fonts, backgrounds, and more to Zalo Web and PC.
-- Earned 10M+ VND in net sales from a paid Safari Extension
-- 80k+ downloads on SourceForge (awarded Community Leader badge by SourceForge)
-- 20k+ active users via Chrome Web Store (as of Sep 2025)
-- Bronze Medal — 10th Design, Manufacturing, and Application Award 2022`,
+- Earned 10M+ VND in net sales from a paid Safari Extension*
+- 80k+ downloads on SourceForge* (awarded Community Leader badge by SourceForge)
+- 30k+ active users via Chrome Web Store*
+- Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
+
+\\* Peak metrics recorded; actual current figures may vary.
+`,
     logo: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
   },
   {
