@@ -2,13 +2,16 @@ import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
 import { SponsorItemPlus } from "@/features/sponsor/components/sponsor-item-plus"
 import { sponsors } from "@/features/sponsor/data"
 
-import { Panel, PanelHeader, PanelTitle } from "./panel"
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Sponsors() {
   return (
     <Panel id="sponsors">
       <PanelHeader>
-        <PanelTitle>Sponsors</PanelTitle>
+        <PanelTitle>
+          Sponsors
+          <PanelTitleSup>({sponsors.length})</PanelTitleSup>
+        </PanelTitle>
       </PanelHeader>
 
       <div className="relative pt-4">
