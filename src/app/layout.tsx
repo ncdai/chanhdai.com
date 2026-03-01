@@ -5,13 +5,14 @@ import Script from "next/script"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 import type { WebSite, WithContext } from "schema-dts"
 
-import { ConsentManager } from "@/components/consent-manager"
+import { ConsentManagerClient } from "@/components/consent-manager-client"
 import { DuckFollower } from "@/components/duck-follower"
 import { Providers } from "@/components/providers"
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
 import { fontMono, fontPixelSquare, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { ConsentManager } from "@/registry/components/consent-manager"
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -142,7 +143,7 @@ export default function RootLayout({
         <Providers>
           <NuqsAdapter>
             <ConsentManager>
-              {children}
+              <ConsentManagerClient>{children}</ConsentManagerClient>
               <DuckFollower />
             </ConsentManager>
           </NuqsAdapter>
