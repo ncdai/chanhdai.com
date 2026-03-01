@@ -6,7 +6,7 @@ import { haptic, supportsHaptic } from "@/lib/haptic"
 export default function HapticDemo() {
   return (
     <div className="flex flex-col items-center gap-4">
-      <Button onClick={haptic}>Haptic</Button>
+      <Button onClick={() => haptic()}>Haptic</Button>
 
       {!supportsHaptic && (
         <p className="text-sm text-muted-foreground">
