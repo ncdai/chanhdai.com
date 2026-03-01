@@ -1,0 +1,87 @@
+---
+title: Haptic Feedback
+description: Trigger haptic feedback on mobile devices.
+image: https://assets.chanhdai.com/images/blog/haptic.webp
+category: components
+new: true
+createdAt: 2026-03-01
+updatedAt: 2026-03-01
+---
+
+<ComponentPreview name="haptic-demo" />
+
+## Features
+
+- Automatically detects mobile device support via pointer media query.
+- Uses Vibration API on Android and iOS checkbox trick on iOS.
+- Gracefully degrades on desktop devices.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn add @ncdai/haptic
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/lib/haptic.ts"
+  title="lib/haptic.ts"
+  showLineNumbers
+  collapsible={false}
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { haptic } from "@/lib/haptic"
+```
+
+```tsx
+<Button onClick={haptic}>Haptic</Button>
+```
+
+## API Reference
+
+### haptic()
+
+Triggers a brief haptic feedback (50ms vibration).
+
+```tsx
+function haptic(): void
+```
+
+Automatically detects the device platform and uses the appropriate method:
+
+- Android/modern browsers: Vibration API
+- iOS: Checkbox switch element trick
+
+### supportsHaptic
+
+Boolean constant that checks if the device likely supports haptic feedback.
+
+```tsx
+const supportsHaptic: boolean
+```
+
+Detects mobile devices using the `pointer: coarse` media query.
