@@ -132,10 +132,7 @@ export const Index: Record<string, any> = {
     description: "Cookie and tracking consent banner for Next.js, built on c15t.",
     type: "registry:component",
     files: [{
-      path: "src/registry/src/components/consent-manager.tsx",
-      type: "registry:component",
-    },{
-      path: "src/registry/components/consent-manager/consent-manager-client.tsx",
+      path: "src/registry/components/consent-manager/consent-manager.tsx",
       type: "registry:component",
     }],
   },
