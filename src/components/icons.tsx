@@ -10,6 +10,7 @@ import {
   SquareTerminalIcon,
   TerminalSquareIcon,
   ToggleLeftIcon,
+  VibrateIcon,
   ZapIcon,
 } from "lucide-react"
 
@@ -418,6 +419,9 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
 
     case "text-flip":
       return <SeparatorHorizontalIcon {...props} />
+
+    case "haptic":
+      return <VibrateIcon {...props} />
 
     default:
       return <Icons.react {...props} />

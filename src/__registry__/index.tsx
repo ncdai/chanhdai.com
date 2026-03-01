@@ -16,6 +16,15 @@ export const Index: Record<string, any> = {
       type: "registry:lib",
     }],
   },
+  "haptic": {
+    name: "haptic",
+    description: "Trigger haptic feedback on mobile devices.",
+    type: "registry:lib",
+    files: [{
+      path: "src/registry/src/lib/haptic.ts",
+      type: "registry:lib",
+    }],
+  },
   "use-controllable-state": {
     name: "use-controllable-state",
     description: "",
@@ -392,5 +401,15 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/copy-button-demo.tsx")),
+  },
+  "haptic-demo": {
+    name: "haptic-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/haptic-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/haptic-demo.tsx")),
   },
 }

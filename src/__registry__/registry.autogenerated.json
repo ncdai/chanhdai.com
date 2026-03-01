@@ -20,6 +20,19 @@
       "type": "registry:lib"
     },
     {
+      "name": "haptic",
+      "title": "Haptic Feedback",
+      "author": "ncdai <dai@chanhdai.com>",
+      "description": "Trigger haptic feedback on mobile devices.",
+      "files": [
+        {
+          "path": "src/lib/haptic.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "type": "registry:lib"
+    },
+    {
       "name": "use-controllable-state",
       "title": "Controllable State Hook",
       "files": [
