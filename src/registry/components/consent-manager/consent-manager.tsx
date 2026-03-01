@@ -22,7 +22,7 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
             noStyle: true,
             className: cn(
               "relative w-full max-w-(--banner-max-width) divide-y overflow-hidden rounded-2xl",
-              "bg-popover text-popover-foreground shadow-lg ring ring-foreground/10 dark:ring-foreground/15"
+              "bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10 dark:ring-foreground/15"
             ),
           },
           "banner.header.title": {
@@ -68,7 +68,7 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
               "--dialog-border-color-dark": "var(--border)",
             },
             className:
-              "rounded-2xl border-none bg-background ring ring-foreground/10 dark:ring-foreground/15",
+              "rounded-2xl border-none bg-background ring-1 ring-foreground/10 dark:ring-foreground/15",
           },
           "dialog.overlay": {
             style: {

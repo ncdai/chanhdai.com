@@ -20,7 +20,6 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-popover-border: var(--popover-border);
   --color-accent: var(--accent);
   --color-accent-muted: var(--accent-muted);
   --color-accent-foreground: var(--accent-foreground);
@@ -42,8 +41,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-pixel-square: var(--font-geist-pixel-square);
-
-  --shadow-popover: var(--shadow-popover);
 }
 
 @utility no-scrollbar {
@@ -113,8 +110,6 @@
   /* zinc-950 */
   --popover-foreground: oklch(0.141 0.005 285.823);
 
-  --popover-border: color-mix(in oklab, var(--color-black) 15%, transparent);
-
   /* zinc-100 */
   --accent: oklch(0.967 0.001 286.375);
 
@@ -162,8 +157,6 @@
 
   /* zinc-50 */
   --selection-foreground: oklch(0.985 0 0);
-
-  --shadow-popover: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
 .dark {
@@ -202,9 +195,6 @@
 
   /* zinc-50 */
   --popover-foreground: oklch(0.985 0 0);
-
-  /* zinc-700 */
-  --popover-border: oklch(0.37 0.013 285.805);
 
   /* zinc-800 */
   --accent: oklch(0.274 0.006 286.033);
@@ -250,8 +240,6 @@
 
   /* zinc-950 */
   --selection-foreground: oklch(0.141 0.005 285.823);
-
-  --shadow-popover: 0 0 24px rgba(0, 0, 0, 0.5);
 }
 
 @layer base {
