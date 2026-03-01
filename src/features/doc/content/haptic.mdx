@@ -12,8 +12,9 @@ updatedAt: 2026-03-01
 
 ## Features
 
+- Uses [Vibration API](https://developer.mozilla.org/docs/Web/API/Vibration_API) on Android and iOS checkbox trick on iOS.
+- Supports custom duration and vibration patterns on Android devices.
 - Automatically detects mobile device support via pointer media query.
-- Uses Vibration API on Android and iOS checkbox trick on iOS.
 - Gracefully degrades on desktop devices.
 
 ## Installation
@@ -58,30 +59,27 @@ import { haptic } from "@/lib/haptic"
 ```
 
 ```tsx
-<Button onClick={haptic}>Haptic</Button>
+<Button onClick={() => haptic()}>Haptic</Button>
+```
+
+## Examples
+
+### Custom Duration
+
+```tsx
+// Only work on Android devices.
+<Button onClick={() => haptic(200)}>Long vibration</Button>
+```
+
+### Vibration Pattern
+
+Accepts an array for alternating vibrate/pause patterns. See [Vibration API docs](https://developer.mozilla.org/docs/Web/API/Vibration_API) for details.
+
+```tsx
+// Only work on Android devices.
+<Button onClick={() => haptic([200, 100, 200])}>Pattern</Button>
 ```
 
 ## API Reference
 
-### haptic()
-
-Triggers a brief haptic feedback (50ms vibration).
-
-```tsx
-function haptic(): void
-```
-
-Automatically detects the device platform and uses the appropriate method:
-
-- Android/modern browsers: [Vibration API](https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API)
-- iOS: Checkbox switch element trick
-
-### supportsHaptic
-
-Boolean constant that checks if the device likely supports haptic feedback.
-
-```tsx
-const supportsHaptic: boolean
-```
-
-Detects mobile devices using the `pointer: coarse` media query.
+<AutoTypeTable path="src/types/haptic.ts" name="HapticType" />
