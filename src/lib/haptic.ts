@@ -20,7 +20,7 @@ function hasVibrate(
  * @example
  * import { haptic } from "@/lib/haptic"
  *
- * <button onClick={haptic}>Click me</button>
+ * <Button onClick={haptic}>Haptic</Button>
  */
 export function haptic() {
   try {

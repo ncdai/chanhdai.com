@@ -54,6 +54,14 @@ export function MobileNavV2({ items }: { items: NavItem[] }) {
               {link.title}
             </Link>
           ))}
+
+          <Link
+            href="/sponsors"
+            className="text-2xl font-medium"
+            onClick={() => setOpen(false)}
+          >
+            Sponsors
+          </Link>
         </div>
       </PopoverContent>
     </Popover>
