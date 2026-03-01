@@ -10,6 +10,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { useMediaQuery } from "@/hooks/use-media-query"
+import { haptic } from "@/lib/haptic"
 import type { NavItem } from "@/types/nav"
 
 export function MobileNavV2({ items }: { items: NavItem[] }) {
@@ -22,6 +23,7 @@ export function MobileNavV2({ items }: { items: NavItem[] }) {
       className="group flex touch-manipulation flex-col gap-1 sm:hidden data-open:bg-accent"
       variant="ghost"
       size="icon"
+      onClick={haptic}
     >
       <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]:translate-y-0.75 group-data-[state=open]:rotate-45" />
       <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]:-translate-y-0.75 group-data-[state=open]:-rotate-45" />
