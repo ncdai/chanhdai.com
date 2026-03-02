@@ -43,7 +43,7 @@ export function CopyStateIcon({ state }: { state: CopyState }) {
   )
 }
 
-export type CopyButtonOwnProps = {
+export type CopyButtonProps = ComponentProps<typeof Button> & {
   /** The text to copy, or a function that returns the text. */
   text: string | (() => string)
   /** Called with the copied text on successful copy. */
@@ -51,8 +51,6 @@ export type CopyButtonOwnProps = {
   /** Called with the error if the copy operation fails. */
   onCopyError?: (error: Error) => void
 }
-
-export type CopyButtonProps = ComponentProps<typeof Button> & CopyButtonOwnProps
 
 export function CopyButton({
   size = "icon",

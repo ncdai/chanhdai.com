@@ -36,7 +36,7 @@ function useSlideToUnlock() {
   return context
 }
 
-export type SlideToUnlockRootOwnProps = {
+export type SlideToUnlockRootProps = ComponentProps<"div"> & {
   /**
    * Width of the drag handle in pixels.
    * @defaultValue 56
@@ -45,9 +45,6 @@ export type SlideToUnlockRootOwnProps = {
   /** Called when the handle is dragged fully to the end. */
   onUnlock?: () => void
 }
-
-export type SlideToUnlockRootProps = ComponentProps<"div"> &
-  SlideToUnlockRootOwnProps
 
 export function SlideToUnlock({
   className,
@@ -130,7 +127,10 @@ export function SlideToUnlockTrack({
   )
 }
 
-export type SlideToUnlockTextOwnProps = {
+export type SlideToUnlockTextProps = Omit<
+  ComponentPropsWithoutRef<typeof motion.div>,
+  "children"
+> & {
   /**
    * Accepts a render function as `children` to react to the dragging state.
    *
@@ -143,12 +143,6 @@ export type SlideToUnlockTextOwnProps = {
    */
   children: JSX.Element | ((props: { isDragging: boolean }) => JSX.Element)
 }
-
-export type SlideToUnlockTextProps = Omit<
-  ComponentPropsWithoutRef<typeof motion.div>,
-  "children"
-> &
-  SlideToUnlockTextOwnProps
 
 export function SlideToUnlockText({
   className,
