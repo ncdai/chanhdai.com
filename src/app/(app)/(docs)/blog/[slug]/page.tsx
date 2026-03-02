@@ -29,7 +29,7 @@ import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
 export async function generateStaticParams() {
-  const docs = getAllDocs().filter((doc) => doc.slug !== "work-experience")
+  const docs = getAllDocs()
   return docs.map((doc) => ({ slug: doc.slug }))
 }
 
