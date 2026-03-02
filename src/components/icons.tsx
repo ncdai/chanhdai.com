@@ -347,7 +347,7 @@ type ComponentIconProps = React.ComponentProps<"svg"> & {
 
 export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
   switch (variant) {
-    case "work-experience": {
+    case "work-experience-component": {
       return <BriefcaseBusinessIcon {...props} />
     }
 
