@@ -22,7 +22,7 @@ export const lib: Registry["items"] = [
     description: "Trigger haptic feedback on mobile devices.",
     files: [
       {
-        path: "src/lib/haptic.ts",
+        path: "lib/haptic/haptic.ts",
         type: "registry:lib",
       },
     ],
