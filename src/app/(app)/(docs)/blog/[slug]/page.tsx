@@ -30,11 +30,7 @@ import { cn } from "@/lib/utils"
 
 export async function generateStaticParams() {
   const docs = getAllDocs()
-  return docs
-    .filter((doc) => doc.slug !== "work-experience")
-    .map((doc) => ({
-      slug: doc.slug,
-    }))
+  return docs.map((doc) => ({ slug: doc.slug }))
 }
 
 export async function generateMetadata({
