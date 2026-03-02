@@ -14,8 +14,7 @@ updatedAt: 2026-03-01
 
 - Uses [Vibration API](https://developer.mozilla.org/docs/Web/API/Vibration_API) on Android and iOS checkbox trick on iOS.
 - Supports custom duration and vibration patterns on Android devices.
-- Automatically detects mobile device support via pointer media query.
-- Gracefully degrades on desktop devices.
+- The haptic functionality was inspired by the [Vercel](https://vercel.com) mobile experience.
 
 ## Installation
 
@@ -38,7 +37,7 @@ npx shadcn add @ncdai/haptic
 <Step>Copy and paste the following code into your project</Step>
 
 <ComponentSource
-  src="src/lib/haptic.ts"
+  name="haptic"
   title="lib/haptic.ts"
   showLineNumbers
   collapsible={false}
@@ -62,6 +61,8 @@ import { haptic } from "@/lib/haptic"
 <Button onClick={() => haptic()}>Haptic</Button>
 ```
 
+Haptic feedback should not be used arbitrarily. For best practices, please refer to Apple's Human Interface Guidelines on [Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics).
+
 ## Examples
 
 ### Custom Duration
@@ -82,4 +83,4 @@ Accepts an array for alternating vibrate/pause patterns. See [Vibration API docs
 
 ## API Reference
 
-<AutoTypeTable path="src/types/haptic.ts" name="HapticType" />
+<AutoTypeTable path="src/registry/lib/haptic/types.ts" name="HapticInterface" />

@@ -26,7 +26,7 @@
       "description": "Trigger haptic feedback on mobile devices.",
       "files": [
         {
-          "path": "src/lib/haptic.ts",
+          "path": "src/registry/lib/haptic/haptic.ts",
           "type": "registry:lib"
         }
       ],

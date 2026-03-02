@@ -21,7 +21,7 @@ export const Index: Record<string, any> = {
     description: "Trigger haptic feedback on mobile devices.",
     type: "registry:lib",
     files: [{
-      path: "src/registry/src/lib/haptic.ts",
+      path: "src/registry/lib/haptic/haptic.ts",
       type: "registry:lib",
     }],
   },

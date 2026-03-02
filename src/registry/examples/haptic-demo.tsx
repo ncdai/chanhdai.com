@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { haptic, supportsHaptic } from "@/lib/haptic"
+import { haptic, supportsHaptic } from "@/registry/lib/haptic"
 
 export default function HapticDemo() {
   return (

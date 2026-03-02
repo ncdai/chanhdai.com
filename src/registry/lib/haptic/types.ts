@@ -1,4 +1,4 @@
-export interface HapticType {
+export interface HapticInterface {
   /**
    * Trigger haptic feedback on mobile devices.
    * Uses Vibration API on Android/modern browsers, and iOS checkbox trick on iOS.
