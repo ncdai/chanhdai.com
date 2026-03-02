@@ -6,3 +6,113 @@ category: components
 createdAt: 2025-06-16
 updatedAt: 2026-02-20
 ---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-0"
+  name="work-experience-demo"
+  openInV0Url="https://chanhdai.com/r/work-experience.json"
+  prose
+/>
+
+## Features
+
+- Supports multiple positions per company.
+- Markdown rendering for position descriptions.
+- Company logos and duration display.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn add @ncdai/work-experience
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge react-markdown lucide-react
+```
+
+```bash
+npm install -D @tailwindcss/typography tw-animate-css
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible={false}
+/>
+
+<Step>Add plugin for tailwindcss</Step>
+
+```css title="globals.css" showLineNumbers {2,3}
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="work-experience"
+  title="components/work-experience.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { WorkExperience } from "@/components/work-experience"
+import type { ExperienceItemType } from "@/components/work-experience"
+```
+
+```tsx
+const experiences: ExperienceItemType[] = []
+
+<WorkExperience experiences={experiences} />
+```
+
+## API Reference
+
+### WorkExperience
+
+<AutoTypeTable
+  path="src/registry/components/work-experience/work-experience.tsx"
+  name="WorkExperienceProps"
+/>
+
+### ExperienceItemType
+
+<AutoTypeTable
+  path="src/registry/components/work-experience/work-experience.tsx"
+  name="ExperienceItemType"
+/>
+
+### ExperiencePositionItemType
+
+<AutoTypeTable
+  path="src/registry/components/work-experience/work-experience.tsx"
+  name="ExperiencePositionItemType"
+/>
