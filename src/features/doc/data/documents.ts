@@ -1,6 +1,7 @@
 import fs from "fs"
 import matter from "gray-matter"
 import path from "path"
+import { cache } from "react"
 
 import type { Doc, DocMetadata } from "@/features/doc/types/document"
 
@@ -38,7 +39,7 @@ function getMDXData(dir: string) {
   })
 }
 
-export const getAllDocs = () => {
+export const getAllDocs = cache(() => {
   return getMDXData(path.join(process.cwd(), "src/features/doc/content")).sort(
     (a, b) => {
       if (a.metadata.pinned && !b.metadata.pinned) return -1
@@ -50,7 +51,7 @@ export const getAllDocs = () => {
       )
     }
   )
-}
+})
 
 export function getDocBySlug(slug: string) {
   return getAllDocs().find((doc) => doc.slug === slug)
