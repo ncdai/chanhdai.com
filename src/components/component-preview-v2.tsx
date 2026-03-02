@@ -87,7 +87,15 @@ export function ComponentPreviewV2({
           data-slot="component-preview"
           className="flex min-h-72 items-center justify-center font-sans"
         >
-          <React.Suspense>{Preview}</React.Suspense>
+          <React.Suspense
+            fallback={
+              <div className="flex items-center justify-center text-sm text-muted-foreground">
+                Loading…
+              </div>
+            }
+          >
+            {Preview}
+          </React.Suspense>
         </div>
 
         {(canReplay || openInV0Url) && <div className="mt-2 h-7" />}
