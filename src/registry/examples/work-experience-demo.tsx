@@ -1,5 +1,3 @@
-"use client"
-
 import type { ExperienceItemType } from "@/registry/components/work-experience"
 import { WorkExperience } from "@/registry/components/work-experience"
 
