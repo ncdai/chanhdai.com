@@ -16,7 +16,10 @@ const animateProps: TargetAndTransition = {
   opacity: 1,
 }
 
-export type AppleHelloEffectOwnProps = {
+export type AppleHelloEffectProps = Omit<
+  ComponentProps<typeof motion.svg>,
+  "speed" | "onAnimationComplete"
+> & {
   /**
    * Animation speed multiplier (higher = faster).
    * @defaultValue 1
@@ -25,9 +28,6 @@ export type AppleHelloEffectOwnProps = {
   /** Called when the full handwriting animation completes. */
   onAnimationComplete?: () => void
 }
-
-export type AppleHelloEffectProps = ComponentProps<typeof motion.svg> &
-  AppleHelloEffectOwnProps
 
 function AppleHelloVietnameseEffect({
   className,
