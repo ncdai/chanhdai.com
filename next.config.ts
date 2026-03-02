@@ -33,12 +33,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/:section(blog|components)/work-experience-component",
-        destination: "/:section/experience",
-        permanent: true,
-      },
-      {
-        source: "/:section(blog|components)/work-experience",
-        destination: "/:section/experience",
+        destination: "/:section/work-experience",
         permanent: true,
       },
       {
