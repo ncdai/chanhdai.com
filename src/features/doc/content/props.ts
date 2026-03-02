@@ -10,22 +10,11 @@ import type {
   SlideToUnlock,
   SlideToUnlockText,
 } from "@/registry/components/slide-to-unlock"
-import type {
-  ExperienceItemType,
-  ExperiencePositionItemType,
-  WorkExperienceProps,
-} from "@/registry/components/work-experience"
 
 export type AppleHelloEffectProps = Omit<
   ComponentProps<typeof AppleHelloVietnameseEffect>,
   keyof Omit<ComponentProps<typeof motion.svg>, "speed" | "onAnimationComplete">
 >
-
-export type {
-  ExperienceItemType,
-  ExperiencePositionItemType,
-  WorkExperienceProps,
-}
 
 export type ShimmeringTextProps = Omit<
   ComponentProps<typeof ShimmeringText>,
