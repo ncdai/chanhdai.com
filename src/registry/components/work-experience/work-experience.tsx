@@ -2,12 +2,9 @@ import {
   BriefcaseBusinessIcon,
   ChevronsDownUpIcon,
   ChevronsUpDownIcon,
-  CodeXmlIcon,
-  DraftingCompassIcon,
-  GraduationCapIcon,
 } from "lucide-react"
 import Image from "next/image"
-import type { ComponentProps } from "react"
+import type { ComponentProps, ComponentType } from "react"
 import ReactMarkdown from "react-markdown"
 
 import {
@@ -18,19 +15,10 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 
-const iconMap = {
-  code: CodeXmlIcon,
-  design: DraftingCompassIcon,
-  business: BriefcaseBusinessIcon,
-  education: GraduationCapIcon,
-} as const
-
 /**
  * Represents the valid keys of the `iconMap` object, used to specify the type of icon
  * associated with an experience position.
  */
-export type ExperiencePositionIconType = keyof typeof iconMap
-
 export type ExperiencePositionItemType = {
   /** Unique identifier for the position */
   id: string
@@ -43,7 +31,7 @@ export type ExperiencePositionItemType = {
   /** A brief description of the position or responsibilities */
   description?: string
   /** An icon representing the position */
-  icon?: ExperiencePositionIconType
+  icon?: ComponentType<ComponentProps<"svg">>
   /** A list of skills associated with the position */
   skills?: string[]
   /** Indicates if the position details are expanded in the UI */
@@ -141,7 +129,7 @@ export type ExperiencePositionItemProps = {
 export function ExperiencePositionItem({
   position,
 }: ExperiencePositionItemProps) {
-  const ExperienceIcon = iconMap[position.icon || "business"]
+  const ExperienceIcon = position.icon ?? BriefcaseBusinessIcon // iconMap[position.icon || "business"]
 
   return (
     <Collapsible
