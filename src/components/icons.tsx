@@ -14,8 +14,6 @@ import {
   ZapIcon,
 } from "lucide-react"
 
-import { cn } from "@/lib/utils"
-
 type IconProps = React.HTMLAttributes<SVGElement>
 
 export const Icons = {
@@ -349,10 +347,11 @@ type ComponentIconProps = React.ComponentProps<"svg"> & {
 
 export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
   switch (variant) {
-    case "work-experience":
+    case "work-experience": {
       return <BriefcaseBusinessIcon {...props} />
+    }
 
-    case "react-wheel-picker":
+    case "react-wheel-picker": {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -365,39 +364,41 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
           />
         </svg>
       )
-
-    case "theme-switcher":
-      return <MoonStarIcon {...props} />
-
-    case "apple-hello-effect": {
-      const { className, ...restProps } = props
-      return (
-        <Icons.apple
-          className={cn("-translate-y-px", className)}
-          {...restProps}
-        />
-      )
     }
 
-    case "shimmering-text":
+    case "theme-switcher": {
+      return <MoonStarIcon {...props} />
+    }
+
+    case "apple-hello-effect": {
+      return <Icons.apple {...props} />
+    }
+
+    case "shimmering-text": {
       return <ZapIcon {...props} />
+    }
 
-    case "slide-to-unlock":
+    case "slide-to-unlock": {
       return <ToggleLeftIcon {...props} />
+    }
 
-    case "testimonial":
+    case "testimonial": {
       return <QuoteIcon {...props} />
+    }
 
-    case "testimonials-marquee":
+    case "testimonials-marquee": {
       return <GalleryHorizontalEndIcon {...props} />
+    }
 
-    case "github-stars":
+    case "github-stars": {
       return <Icons.github {...props} />
+    }
 
-    case "scroll-fade-effect":
+    case "scroll-fade-effect": {
       return <MouseIcon {...props} />
+    }
 
-    case "consent-manager":
+    case "consent-manager": {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
           <path
@@ -408,22 +409,26 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
           />
         </svg>
       )
-
-    case "copy-button": {
-      const { className, ...restProps } = props
-      return <CopyIcon className={cn(className, "size-3.5")} {...restProps} />
     }
 
-    case "code-block-command":
+    case "copy-button": {
+      return <CopyIcon {...props} />
+    }
+
+    case "code-block-command": {
       return <SquareTerminalIcon {...props} />
+    }
 
-    case "text-flip":
+    case "text-flip": {
       return <SeparatorHorizontalIcon {...props} />
+    }
 
-    case "haptic":
+    case "haptic": {
       return <VibrateIcon {...props} />
+    }
 
-    default:
+    default: {
       return <Icons.react {...props} />
+    }
   }
 }
