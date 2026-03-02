@@ -49,7 +49,7 @@ import { copyToClipboardWithEvent } from "@/utils/copy"
 
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
 import { getWordmarkSVG } from "./chanhdai-wordmark"
-import { ComponentIcon, Icons } from "./icons"
+import { Icons } from "./icons"
 import { Button } from "./ui/button"
 import { Kbd, KbdGroup } from "./ui/kbd"
 import { Separator } from "./ui/separator"
@@ -577,14 +577,14 @@ function CommandMenuFooter() {
 function postToCommandLinkItem(post: DocPreview): CommandLinkItem {
   const isComponent = post.category === "components"
 
-  const IconComponent = isComponent
-    ? (props: LucideProps) => <ComponentIcon {...props} variant={post.slug} />
-    : undefined
+  // const IconComponent = isComponent
+  //   ? (props: LucideProps) => <ComponentIcon {...props} variant={post.slug} />
+  //   : undefined
 
   return {
     title: post.title,
     href: isComponent ? `/components/${post.slug}` : `/blog/${post.slug}`,
     keywords: isComponent ? ["component"] : undefined,
-    icon: IconComponent,
+    // icon: IconComponent,
   }
 }
