@@ -2,16 +2,16 @@ import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper"
 
 export function ComponentSource({
   className,
-  collapsible = true,
+  collapsible = "true",
   children,
 }: React.ComponentProps<"div"> & {
   name: string
   src?: string
   title?: string
   showLineNumbers?: boolean
-  collapsible?: boolean
+  collapsible?: "true" | "false"
 }) {
-  if (!collapsible) {
+  if (collapsible === "false") {
     return <div className={className}>{children}</div>
   }
 

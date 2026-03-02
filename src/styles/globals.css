@@ -306,7 +306,7 @@
     }
 
     code {
-      @apply w-max pr-(--code-padding-right,0) font-mono text-sm;
+      @apply w-max min-w-full pr-(--code-padding-right,0) font-mono text-sm;
     }
 
     [data-line] {
