@@ -31,11 +31,16 @@ const nextConfig: NextConfig = {
         destination: "/:section/apple-hello-effect",
         permanent: true,
       },
-      // {
-      //   source: "/:section(blog|components)/work-experience-component",
-      //   destination: "/:section/work-experience",
-      //   permanent: true,
-      // },
+      {
+        source: "/:section(blog|components)/work-experience-component",
+        destination: "/:section/experience",
+        permanent: true,
+      },
+      {
+        source: "/:section(blog|components)/work-experience",
+        destination: "/:section/experience",
+        permanent: true,
+      },
       {
         source: "/:section(blog|components)/theme-switcher-component",
         destination: "/:section/theme-switcher",
