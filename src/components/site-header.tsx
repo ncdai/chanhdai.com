@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 
 import { DesktopNav } from "@/components/desktop-nav"
-import { NavItemGitHub } from "@/components/nav-item-github"
+// import { NavItemGitHub } from "@/components/nav-item-github"
 import { MAIN_NAV } from "@/config/site"
 import { getAllDocs } from "@/features/doc/data/documents"
 import type { DocPreview } from "@/features/doc/types/document"
@@ -62,7 +62,7 @@ export function SiteHeader() {
 
         <div className="flex items-center *:first:mr-2">
           <CommandMenu posts={postPreviews} />
-          <NavItemGitHub />
+          {/* <NavItemGitHub /> */}
           <span className="mx-2 flex h-4 w-px bg-border" />
           <ThemeToggle />
           <MobileNav items={MAIN_NAV} />
