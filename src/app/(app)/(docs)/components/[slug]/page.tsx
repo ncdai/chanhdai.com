@@ -29,7 +29,9 @@ import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
 export async function generateStaticParams() {
-  const docs = getDocsByCategory("components")
+  const docs = getDocsByCategory("components").filter(
+    (doc) => doc.slug !== "work-experience" // DEBUG
+  )
   return docs.map((doc) => ({ slug: doc.slug }))
 }
 
