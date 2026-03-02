@@ -1,12 +1,20 @@
 import { format } from "date-fns"
-import { remarkAutoTypeTable } from "fumadocs-typescript"
+import {
+  createFileSystemGeneratorCache,
+  createGenerator,
+  remarkAutoTypeTable,
+} from "fumadocs-typescript"
 import { remark } from "remark"
 import remarkGfm from "remark-gfm"
 import remarkMdx from "remark-mdx"
 
 import type { Doc } from "@/features/doc/types/document"
-import { generator } from "@/lib/auto-type-table"
 import { remarkComponent } from "@/lib/remark-component"
+
+export const generator = createGenerator({
+  // recommended: choose a directory for cache
+  cache: createFileSystemGeneratorCache(".next/fumadocs-typescript"),
+})
 
 const processor = remark()
   .use(remarkMdx)
