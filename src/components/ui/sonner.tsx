@@ -16,9 +16,9 @@ const Toaster = ({ ...props }: ToasterProps) => {
       toastOptions={{
         classNames: {
           toast: cn(
-            "group-[.toaster]:border-none! group-[.toaster]:shadow-md!",
+            "group-[.toaster]:border-none! group-[.toaster]:shadow-lg!",
             "group-[.toaster]:backdrop-blur-md supports-backdrop-filter:group-[.toaster]:bg-popover/90!",
-            "group-[.toaster]:ring-1! group-[.toaster]:ring-black/10! dark:group-[.toaster]:ring-white/15!"
+            "group-[.toaster]:ring-1! group-[.toaster]:ring-foreground/10! dark:group-[.toaster]:ring-foreground/15!"
           ),
         },
       }}
