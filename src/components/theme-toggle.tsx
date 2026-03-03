@@ -23,7 +23,7 @@ export function ThemeToggle() {
   const playClick = useSound(SOUNDS.click)
 
   const switchTheme = useCallback(() => {
-    playClick(0.5)
+    playClick(0.2)
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
     setMetaColor(
       resolvedTheme === "dark"
@@ -38,15 +38,7 @@ export function ThemeToggle() {
     <Tooltip>
       <TooltipTrigger
         render={
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={switchTheme}
-            // onClick={() => {
-            //   if (!document.startViewTransition) switchTheme();
-            //   document.startViewTransition(switchTheme);
-            // }}
-          >
+          <Button variant="ghost" size="icon" onClick={switchTheme}>
             <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
             <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
             <span className="sr-only">Theme Toggle</span>
