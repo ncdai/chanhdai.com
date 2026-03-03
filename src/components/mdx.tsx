@@ -47,6 +47,7 @@ import {
   TestimonialVerifiedBadge,
 } from "@/registry/components/testimonial"
 
+import { Callout } from "./callout"
 import { CodeTabs } from "./code-tabs"
 import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2"
 import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed"
@@ -138,6 +139,7 @@ const components: MDXRemoteProps["components"] = {
   ComponentSource,
   CodeCollapsibleWrapper,
   CodeTabs,
+  Callout,
   Steps: (props) => (
     <div
       className="md:ml-3.5 md:border-l md:pl-7.5 prose-h3:text-lg prose-h3:text-wrap"
