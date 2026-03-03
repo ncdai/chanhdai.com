@@ -1,7 +1,6 @@
 "use client"
 
 import { useTheme } from "next-themes"
-import { useCallback } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 
 import { META_THEME_COLORS } from "@/config/site"
@@ -22,23 +21,23 @@ export function ThemeToggle() {
 
   const playClick = useSound(SOUNDS.click)
 
-  const switchTheme = useCallback(() => {
-    playClick(0.2)
+  const switchTheme = (sound = true) => {
+    if (sound) playClick(0.2)
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
     setMetaColor(
       resolvedTheme === "dark"
         ? META_THEME_COLORS.light
         : META_THEME_COLORS.dark
     )
-  }, [resolvedTheme, setTheme, setMetaColor, playClick])
+  }
 
-  useHotkeys("d", switchTheme)
+  useHotkeys("d", () => switchTheme(false))
 
   return (
     <Tooltip>
       <TooltipTrigger
         render={
-          <Button variant="ghost" size="icon" onClick={switchTheme}>
+          <Button variant="ghost" size="icon" onClick={() => switchTheme()}>
             <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
             <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
             <span className="sr-only">Theme Toggle</span>
