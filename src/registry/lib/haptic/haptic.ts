@@ -1,16 +1,7 @@
-export const supportsHaptic =
+const isTouchDevice =
   typeof window !== "undefined"
     ? window.matchMedia("(pointer: coarse)").matches
     : false
-
-/**
- * Type guard to check if navigator supports vibrate API
- */
-function hasVibrate(
-  nav: Navigator
-): nav is Navigator & { vibrate: (pattern: number | number[]) => boolean } {
-  return "vibrate" in nav && typeof nav.vibrate === "function"
-}
 
 /**
  * Trigger haptic feedback on mobile devices.
@@ -27,9 +18,9 @@ function hasVibrate(
  */
 export function haptic(pattern: number | number[] = 50) {
   try {
-    if (!supportsHaptic) return
+    if (!isTouchDevice) return
 
-    if (hasVibrate(navigator)) {
+    if ("vibrate" in navigator) {
       navigator.vibrate(pattern)
       return
     }

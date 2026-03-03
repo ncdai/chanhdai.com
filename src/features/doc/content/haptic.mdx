@@ -5,7 +5,7 @@ image: https://assets.chanhdai.com/images/blog/haptic.webp
 category: components
 new: true
 createdAt: 2026-03-01
-updatedAt: 2026-03-01
+updatedAt: 2026-03-03
 ---
 
 <ComponentPreview className="**:data-[slot=preview]:p-0" name="haptic-demo" />
@@ -57,24 +57,6 @@ import { haptic } from "@/lib/haptic"
 ```
 
 Haptic feedback should not be used arbitrarily. For best practices, please refer to Apple's Human Interface Guidelines on [Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics).
-
-## Examples
-
-### Custom Duration
-
-```tsx
-// Only work on Android devices.
-<Button onClick={() => haptic(200)}>Long vibration</Button>
-```
-
-### Vibration Pattern
-
-Accepts an array for alternating vibrate/pause patterns. See [Vibration API docs](https://developer.mozilla.org/docs/Web/API/Vibration_API) for details.
-
-```tsx
-// Only work on Android devices.
-<Button onClick={() => haptic([200, 100, 200])}>Pattern</Button>
-```
 
 ## API Reference
 

@@ -59,11 +59,4 @@ export type HapticProps = {
    * ```
    */
   haptic: (pattern?: number | number[]) => void
-
-  /**
-   * Boolean constant that checks if the device likely supports haptic feedback.
-   *
-   * Detects mobile devices using the `pointer: coarse` media query.
-   */
-  supportsHaptic: boolean
 }
