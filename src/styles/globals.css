@@ -31,6 +31,8 @@
   --color-success: var(--success);
   --color-destructive: var(--destructive);
   --color-link: var(--link);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
   --color-code: var(--code);
   --color-code-foreground: var(--code-foreground);
   --color-code-number: var(--code-number);
@@ -142,10 +144,13 @@
   --link: oklch(0.488 0.243 264.376);
 
   /* zinc-50 */
-  --code: oklch(0.985 0 0);
+  --surface: oklch(0.985 0 0);
 
   /* zinc-950 */
-  --code-foreground: oklch(0.141 0.005 285.823);
+  --surface-foreground: oklch(0.141 0.005 285.823);
+
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
 
   /* zinc-400 */
   --code-number: oklch(0.705 0.015 286.067);
@@ -224,10 +229,13 @@
   --link: oklch(0.623 0.214 259.815);
 
   /* zinc-900 */
-  --code: oklch(0.21 0.006 285.885);
+  --surface: oklch(0.21 0.006 285.885);
 
   /* zinc-50 */
-  --code-foreground: oklch(0.985 0 0);
+  --surface-foreground: oklch(0.985 0 0);
+
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
 
   /* zinc-500 */
   --code-number: oklch(0.552 0.016 285.938);
