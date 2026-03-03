@@ -101,7 +101,12 @@ export function ComponentPreviewV2({
         {(canReplay || openInV0Url) && <div className="mt-2 h-7" />}
       </div>
 
-      <div className="*:data-rehype-pretty-code-figure:m-0 *:data-rehype-pretty-code-figure:rounded-t-none *:data-rehype-pretty-code-figure:border-x *:data-rehype-pretty-code-figure:border-b [&_pre]:max-h-80 [&_pre]:rounded-b-2xl">
+      <div
+        className={cn(
+          "*:data-rehype-pretty-code-figure:m-0 *:data-rehype-pretty-code-figure:rounded-t-none *:data-rehype-pretty-code-figure:border-x *:data-rehype-pretty-code-figure:border-b [&_pre]:max-h-80 [&_pre]:rounded-b-2xl",
+          "**:data-fade-overlay:size-28 **:data-fade-overlay:rounded-tr-none **:data-fade-overlay:[--fade-background:var(--fade-radial-gradient)]"
+        )}
+      >
         {Code}
       </div>
     </div>

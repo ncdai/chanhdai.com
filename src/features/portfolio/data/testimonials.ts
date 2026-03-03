@@ -269,4 +269,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     quote: "That’s so cool",
     date: "2026-02-23",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/branmcconnell",
+    authorName: "Brandon McConnell",
+    authorTagline: "Frontend Engineer @mintlify",
+    url: "https://x.com/branmcconnell/status/2028391281198862377",
+    quote: "amazing, such cool libraries",
+    date: "2026-03-02",
+  },
 ]

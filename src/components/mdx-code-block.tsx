@@ -83,7 +83,6 @@ export const mdxCodeBlockComponents = {
                 data-fade-overlay
                 style={
                   {
-                    "--fade-width": "6rem",
                     "--fade-color": "var(--code)",
                   } as React.CSSProperties
                 }

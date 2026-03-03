@@ -341,20 +341,35 @@
   }
 
   [data-fade-overlay] {
-    @apply pointer-events-none absolute top-1 right-0 z-1 h-10 rounded-r-xl;
+    @apply pointer-events-none absolute top-0 right-0 z-1 rounded-tr-xl;
 
-    width: var(--fade-width, 0px);
-    background: linear-gradient(
+    --fade-linear-gradient: linear-gradient(
       to right,
-      transparent 0px,
+      transparent 0,
       color-mix(in oklab, var(--fade-color, var(--background)) 20%, transparent)
-        8px,
+        10px,
       color-mix(in oklab, var(--fade-color, var(--background)) 50%, transparent)
-        24px,
+        25px,
       color-mix(in oklab, var(--fade-color, var(--background)) 80%, transparent)
-        32px,
-      var(--fade-color, var(--background)) 48px
+        35px,
+      var(--fade-color, var(--background)) 45px
     );
+
+    --fade-radial-gradient: radial-gradient(
+      ellipse at top right,
+      var(--fade-color, var(--background)) 30%,
+      color-mix(in oklab, var(--fade-color, var(--background)) 80%, transparent)
+        40%,
+      color-mix(in oklab, var(--fade-color, var(--background)) 50%, transparent)
+        50%,
+      color-mix(in oklab, var(--fade-color, var(--background)) 20%, transparent)
+        60%,
+      transparent 70%
+    );
+
+    width: var(--fade-width, 6rem);
+    height: var(--fade-height, 2.5rem);
+    background: var(--fade-background, var(--fade-linear-gradient));
   }
 }
 
