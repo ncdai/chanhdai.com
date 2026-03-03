@@ -41,9 +41,7 @@ import {
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
-import { useSound } from "@/hooks/use-sound"
 import { trackEvent } from "@/lib/events"
-import { SOUNDS } from "@/lib/sounds"
 import { cn } from "@/lib/utils"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
@@ -164,8 +162,6 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
 
   const [open, setOpen] = useState(false)
 
-  const playClick = useSound(SOUNDS.click)
-
   const [, setIsDuckFollowerVisible] = useDuckFollowerVisibility()
 
   useHotkeys("mod+k, slash", (e) => {
@@ -222,7 +218,6 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
   const createThemeHandler = useCallback(
     (theme: "light" | "dark" | "system") => () => {
       setOpen(false)
-      playClick(0.5)
 
       trackEvent({
         name: "command_menu_action",
@@ -233,15 +228,8 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
       })
 
       setTheme(theme)
-
-      // if (!document.startViewTransition) {
-      //   setTheme(theme);
-      //   return;
-      // }
-
-      // document.startViewTransition(() => setTheme(theme));
     },
-    [playClick, setTheme]
+    [setTheme]
   )
 
   const handleToggleDuckFollower = useCallback(() => {
