@@ -16,16 +16,9 @@ export function ConsentManagerClient({
         onConsentSet({ preferences }) {
           if (preferences.measurement) {
             posthog.opt_in_capturing()
-            op.options.disabled = false
-            op.options.sessionReplay = {
-              enabled: true,
-            }
+            op.ready()
           } else {
             posthog.opt_out_capturing()
-            op.options.disabled = true
-            op.options.sessionReplay = {
-              enabled: false,
-            }
           }
         },
       }}
