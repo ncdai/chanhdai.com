@@ -2,7 +2,7 @@
 
 **Last updated:** March 3, 2026
 
-The website `chanhdai.com` is a personal portfolio, blog, and component registry created and maintained by Chánh Đại (“I”, “me”, or “my”). I respect your privacy and am committed to handling your data in a transparent, minimal, and secure way.
+The website `chanhdai.com` is a personal portfolio, blog, and shadcn registry created and maintained by Chánh Đại (“I”, “me”, or “my”). I respect your privacy and am committed to handling your data in a transparent, minimal, and secure way.
 
 When you visit this website, some data may be collected to operate the site, understand how it is used, and improve your experience. This document explains what is collected, how it is used, and what rights you may have.
 

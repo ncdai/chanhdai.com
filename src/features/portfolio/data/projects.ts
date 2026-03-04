@@ -42,11 +42,11 @@ export const PROJECTS: Project[] = [
       "Radix UI",
       "Motion",
       "shadcn/ui",
-      "Component Registry",
+      "shadcn registry",
       "Vercel",
     ],
     description:
-      "A minimal, pixel-perfect dev portfolio, component registry, and blog.",
+      "A minimal, pixel-perfect dev portfolio, shadcn registry, and blog.",
     logo: "https://assets.chanhdai.com/images/project-logos/chanhdaidotcom.svg",
   },
   {
