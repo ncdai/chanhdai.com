@@ -78,6 +78,11 @@ const MENU_LINKS: CommandLinkItem[] = [
     href: "/blog",
     icon: RssIcon,
   },
+  {
+    title: "Sponsors",
+    href: "/sponsors",
+    icon: HeartIcon,
+  },
 ]
 
 const PORTFOLIO_LINKS: CommandLinkItem[] = [
@@ -136,11 +141,6 @@ const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({
 }))
 
 const OTHER_LINK_ITEMS: CommandLinkItem[] = [
-  {
-    title: "Sponsors",
-    href: "/sponsors",
-    icon: HeartIcon,
-  },
   {
     title: "llms.txt",
     href: "/llms.txt",
