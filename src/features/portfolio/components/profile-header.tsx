@@ -16,7 +16,7 @@ export function ProfileHeader() {
           <AvatarElectricEffect>
             <img
               className="size-30 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
-              alt={`${USER.displayName}'s avatar`}
+              alt="Avatar"
               src={USER.avatar}
               fetchPriority="high"
             />
@@ -26,7 +26,10 @@ export function ProfileHeader() {
 
       <div className="flex flex-1 flex-col">
         <div className="flex grow items-end pb-1 pl-4">
-          <div className="line-clamp-1 font-mono text-xs text-zinc-300 select-none max-sm:hidden dark:text-zinc-800">
+          <div
+            className="line-clamp-1 font-mono text-xs text-zinc-300 select-none max-sm:hidden dark:text-zinc-800"
+            aria-hidden
+          >
             {"text-3xl "}
             <span className="inline dark:hidden">text-zinc-950</span>
             <span className="hidden dark:inline">text-zinc-50</span>
