@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { SITE_INFO } from "@/config/site"
+import { SITE_INFO, X_USERNAME } from "@/config/site"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@iamncdai",
-    creator: "@iamncdai",
+    site: X_USERNAME,
+    creator: X_USERNAME,
     images: [SITE_INFO.ogImage],
   },
 }

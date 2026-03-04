@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Suspense } from "react"
 
-import { SITE_INFO } from "@/config/site"
+import { SITE_INFO, X_USERNAME } from "@/config/site"
 import { PostList } from "@/features/blog/components/post-list"
 import { PostListWithSearch } from "@/features/blog/components/post-list-with-search"
 import { PostSearchInput } from "@/features/blog/components/post-search-input"
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@iamncdai",
-    creator: "@iamncdai",
+    site: X_USERNAME,
+    creator: X_USERNAME,
     images: [SITE_INFO.ogImage],
   },
 }
