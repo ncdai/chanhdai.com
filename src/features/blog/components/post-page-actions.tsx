@@ -3,7 +3,7 @@
 "use client"
 
 import { ChevronDownIcon } from "lucide-react"
-import { useMemo, useState, useTransition } from "react"
+import { useMemo, useRef, useState } from "react"
 
 import { Icons } from "@/components/icons"
 import { buttonVariants } from "@/components/ui/button"
@@ -21,18 +21,23 @@ const cache = new Map<string, string>()
 
 export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
   const [state, setState] = useState<CopyState>("idle")
-  const [, startTransition] = useTransition()
+  const [isCopying, setIsCopying] = useState(false)
+  const operationRef = useRef(false)
 
-  const handleCopy = () => {
-    startTransition(async () => {
-      try {
-        const cached = cache.get(markdownUrl)
-        if (cached) {
-          await navigator.clipboard.writeText(cached)
-          setState("done")
-          return
-        }
+  const handleCopy = async () => {
+    if (operationRef.current) return
 
+    operationRef.current = true
+
+    const loadingTimer = setTimeout(() => {
+      setIsCopying(true)
+    }, 150)
+
+    try {
+      const cached = cache.get(markdownUrl)
+      if (cached) {
+        await navigator.clipboard.writeText(cached)
+      } else {
         await navigator.clipboard.write([
           new ClipboardItem({
             "text/plain": fetch(markdownUrl)
@@ -43,19 +48,24 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
               }),
           }),
         ])
-        setState("done")
-      } catch {
-        setState("error")
-      } finally {
-        await new Promise((resolve) => setTimeout(resolve, 1500))
-        setState("idle")
       }
-    })
+      setState("done")
+    } catch {
+      setState("error")
+    } finally {
+      clearTimeout(loadingTimer)
+      setIsCopying(false)
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+      operationRef.current = false
+      setState("idle")
+    }
   }
 
   return (
     <button
-      className="flex h-7 items-center gap-1.5 rounded-l-full pr-2 pl-2.5 text-sm font-medium will-change-transform disabled:pointer-events-none disabled:opacity-50"
+      className="flex h-7 items-center gap-1.5 rounded-l-full pr-2 pl-2.5 text-sm font-medium transition-opacity will-change-transform disabled:pointer-events-none disabled:opacity-50"
+      aria-busy={isCopying}
+      disabled={isCopying}
       onClick={handleCopy}
     >
       <CopyStateIcon state={state} />
