@@ -324,12 +324,10 @@ export const components: Registry["items"] = [
     files: [
       {
         path: "components/code-block-command/code-block-command.tsx",
-        target: "components/ncdai/code-block-command.tsx",
         type: "registry:component",
       },
       {
         path: "src/components/base/ui/tabs.tsx",
-        target: "components/ncdai/base/tabs.tsx",
         type: "registry:component",
       },
       {
