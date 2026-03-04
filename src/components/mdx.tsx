@@ -35,23 +35,13 @@ import { rehypeNpmCommand } from "@/lib/rehype-npm-command"
 import { remarkCodeImport } from "@/lib/remark-code-import"
 import { cn } from "@/lib/utils"
 import { AutoTypeTable } from "@/registry/components/auto-type-table"
-import {
-  Testimonial,
-  TestimonialAuthor,
-  TestimonialAuthorName,
-  TestimonialAuthorTagline,
-  TestimonialAvatar,
-  TestimonialAvatarImg,
-  TestimonialAvatarRing,
-  TestimonialQuote,
-  TestimonialVerifiedBadge,
-} from "@/registry/components/testimonial"
 
 import { Callout } from "./callout"
 import { CodeTabs } from "./code-tabs"
 import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2"
 import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed"
 import { mdxCodeBlockComponents } from "./mdx-code-block"
+import { Testimonial } from "./testimonial"
 
 const components: MDXRemoteProps["components"] = {
   h1: (props: React.ComponentProps<"h1">) => <Heading as="h1" {...props} />,
@@ -165,14 +155,6 @@ const components: MDXRemoteProps["components"] = {
   IframeEmbed,
   FramedImage,
   Testimonial,
-  TestimonialAuthor,
-  TestimonialAuthorTagline,
-  TestimonialAuthorName,
-  TestimonialAvatar,
-  TestimonialAvatarImg,
-  TestimonialAvatarRing,
-  TestimonialQuote,
-  TestimonialVerifiedBadge,
   AutoTypeTable: (props) => <AutoTypeTable {...props} generator={generator} />,
 }
 
