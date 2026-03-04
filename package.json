@@ -77,6 +77,7 @@
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
     "vcard-creator": "^0.7.2",
+    "web-haptics": "^0.0.6",
     "zod": "^3.25.0"
   },
   "devDependencies": {
