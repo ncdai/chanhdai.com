@@ -25,6 +25,22 @@ import { addQueryParams } from "@/utils/url"
 export const metadata: Metadata = {
   title: "UI",
   description: "A collection of reusable components.",
+  openGraph: {
+    url: "/components",
+    type: "website",
+    images: {
+      url: "https://assets.chanhdai.com/images/ui-og-image-dark.webp",
+      width: 1200,
+      height: 630,
+      alt: "UI",
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@iamncdai", // Twitter username
+    images: ["https://assets.chanhdai.com/images/ui-og-image-dark.webp"],
+    creator: "@iamncdai", // Twitter username
+  },
 }
 
 // const componentsJSON = `\`\`\`json title="components.json" showLineNumbers {3}
