@@ -110,7 +110,7 @@
     "remark-rehype": "^11.1.2",
     "rimraf": "^6.0.1",
     "shadcn": "3.6.3",
-    "shiki": "1.9.1",
+    "shiki": "4.0.1",
     "strip-indent": "^4.0.0",
     "tailwindcss": "^4.2.0",
     "tsx": "^4.20.6",
