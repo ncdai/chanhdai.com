@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Suspense } from "react"
 
+import { SITE_INFO, X_USERNAME } from "@/config/site"
 import { PostList } from "@/features/blog/components/post-list"
 import { PostListWithSearch } from "@/features/blog/components/post-list-with-search"
 import { PostSearchInput } from "@/features/blog/components/post-search-input"
@@ -9,6 +10,25 @@ import { getAllDocs } from "@/features/doc/data/documents"
 export const metadata: Metadata = {
   title: "Blog",
   description: "A collection of articles on development, design, and ideas.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    url: "/blog",
+    type: "website",
+    images: {
+      url: SITE_INFO.ogImage,
+      width: 1200,
+      height: 630,
+      alt: "Blog",
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: X_USERNAME,
+    creator: X_USERNAME,
+    images: [SITE_INFO.ogImage],
+  },
 }
 
 export default function Page() {
