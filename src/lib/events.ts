@@ -16,7 +16,10 @@ const eventSchema = z.object({
     "blog_search",
   ]),
   properties: z
-    .record(z.union([z.string(), z.number(), z.boolean(), z.null()]))
+    .record(
+      z.string(),
+      z.union([z.string(), z.number(), z.boolean(), z.null()])
+    )
     .optional(),
 })
 
