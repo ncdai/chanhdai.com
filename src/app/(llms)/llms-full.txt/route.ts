@@ -78,7 +78,7 @@ async function getContent() {
 
 # chanhdai.com
 
-> A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as a Design Engineer.
+> A minimal, pixel-perfect dev portfolio, shadcn registry, and blog to showcase my work as a Design Engineer.
 
 ${aboutText}
 ${experienceText}
