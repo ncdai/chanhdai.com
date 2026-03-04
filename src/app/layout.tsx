@@ -41,9 +41,6 @@ const darkModeScript = String.raw`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
-  alternates: {
-    canonical: "/",
-  },
   title: {
     template: `%s – ${SITE_INFO.name}`,
     default: `${USER.displayName} – ${USER.jobTitle}`,
@@ -78,8 +75,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@iamncdai", // Twitter username
-    images: [SITE_INFO.ogImage],
     creator: "@iamncdai", // Twitter username
+    images: [SITE_INFO.ogImage],
   },
   icons: {
     icon: [

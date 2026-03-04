@@ -25,6 +25,9 @@ import { addQueryParams } from "@/utils/url"
 export const metadata: Metadata = {
   title: "UI",
   description: "A collection of reusable components.",
+  alternates: {
+    canonical: "/components",
+  },
   openGraph: {
     url: "/components",
     type: "website",
@@ -37,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@iamncdai", // Twitter username
+    site: "@iamncdai",
+    creator: "@iamncdai",
     images: ["https://assets.chanhdai.com/images/ui-og-image-dark.webp"],
-    creator: "@iamncdai", // Twitter username
   },
 }
 
