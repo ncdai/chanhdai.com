@@ -193,7 +193,6 @@ export function SlideToUnlockHandle({
       )}
       style={{ width, x, ...style }}
       drag="x"
-      dragDirectionLock
       dragConstraints={trackRef}
       dragElastic={0}
       dragMomentum={false}
@@ -202,13 +201,9 @@ export function SlideToUnlockHandle({
       {...props}
     >
       {children ?? (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-          aria-hidden
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden>
           <path
-            d="M237.66,133.66l-96,96A8,8,0,0,1,128,224V184H48a16,16,0,0,1-16-16V88A16,16,0,0,1,48,72h80V32a8,8,0,0,1,13.66-5.66l96,96A8,8,0,0,1,237.66,133.66Z"
+            d="M24 12 12.75 3v4.696H0v8.608h12.75V21z"
             fill="currentColor"
           />
         </svg>
