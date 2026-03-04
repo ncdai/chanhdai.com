@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useTransition } from "react"
+import { useCallback, useRef, useState } from "react"
 
 export type CopyState = "idle" | "done" | "error"
 
@@ -16,10 +16,15 @@ export function useCopyToClipboard({
   resetDelay = 1500,
 }: UseCopyToClipboardOptions = {}) {
   const [state, setState] = useState<CopyState>("idle")
-  const [, startTransition] = useTransition()
+  const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const copy = (text: string | (() => string)) => {
-    startTransition(async () => {
+  const copy = useCallback(
+    async (text: string | (() => string)) => {
+      // Clear any pending reset
+      if (resetTimeoutRef.current) {
+        clearTimeout(resetTimeoutRef.current)
+      }
+
       try {
         const finalText = typeof text === "function" ? text() : text
         await navigator.clipboard.writeText(finalText)
@@ -29,11 +34,14 @@ export function useCopyToClipboard({
         setState("error")
         onCopyError?.(error instanceof Error ? error : new Error("Copy failed"))
       } finally {
-        await new Promise((resolve) => setTimeout(resolve, resetDelay))
-        setState("idle")
+        // Schedule reset to idle
+        resetTimeoutRef.current = setTimeout(() => {
+          setState("idle")
+        }, resetDelay)
       }
-    })
-  }
+    },
+    [onCopyError, onCopySuccess, resetDelay]
+  )
 
   return { state, copy } as const
 }

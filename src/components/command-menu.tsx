@@ -266,7 +266,7 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
       <Button
         variant="secondary"
         className={cn(
-          "h-8 gap-1.5 rounded-full border border-input bg-white px-2.5 text-muted-foreground shadow-xs select-none hover:bg-white dark:bg-input/30 dark:hover:bg-input/30"
+          "h-8 gap-1.5 rounded-full border border-input bg-white px-2.5 text-muted-foreground select-none hover:bg-white dark:bg-input/30 dark:hover:bg-input/30"
           // "relative before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:shadow-[0_1px_--theme(--color-black/4%)] dark:before:shadow-[0_-1px_--theme(--color-white/6%)]"
         )}
         onClick={() => {
