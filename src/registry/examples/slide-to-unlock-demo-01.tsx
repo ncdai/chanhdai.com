@@ -18,7 +18,7 @@ export default function SlideToUnlockDemo1() {
   return (
     <SlideToUnlock
       onUnlock={() => {
-        playSound()
+        playSound(0.5)
         toast.success("Unlocked")
       }}
     >
