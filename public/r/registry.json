@@ -427,6 +427,34 @@
         }
       },
       "type": "registry:component"
+    },
+    {
+      "name": "login-01",
+      "title": "Login 01",
+      "description": "A simple login form.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/login-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/login/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/login-01/components/login-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication",
+        "login"
+      ],
+      "type": "registry:block"
     }
   ]
 }

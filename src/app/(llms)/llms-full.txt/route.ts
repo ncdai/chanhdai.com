@@ -91,6 +91,7 @@ ${certificationsText}
 ${await getBlogContent()}`
 }
 
+export const revalidate = false
 export const dynamic = "force-static"
 
 export async function GET() {

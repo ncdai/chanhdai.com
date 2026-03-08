@@ -9,6 +9,7 @@ ${PROJECTS.map((item) => {
 }).join("\n\n")}
 `
 
+export const revalidate = false
 export const dynamic = "force-static"
 
 export async function GET() {

@@ -8,7 +8,7 @@ import type { CopyButtonProps } from "@/registry/components/copy-button"
 import { CopyButton as CopyButtonPrimitive } from "@/registry/components/copy-button"
 
 export function CopyButton({
-  size = "icon-xs",
+  size = "icon-sm",
   event,
   ...props
 }: CopyButtonProps & {

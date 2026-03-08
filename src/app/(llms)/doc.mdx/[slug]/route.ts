@@ -3,6 +3,10 @@ import { notFound } from "next/navigation"
 import { getAllDocs } from "@/features/doc/data/documents"
 import { getLLMText } from "@/features/doc/lib/get-llm-text"
 
+export const revalidate = false
+export const dynamic = "force-static"
+export const dynamicParams = false
+
 export async function generateStaticParams() {
   const docs = getAllDocs()
 

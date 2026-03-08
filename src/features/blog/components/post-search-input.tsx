@@ -37,11 +37,7 @@ export function PostSearchInput() {
   }, [query])
 
   return (
-    <InputGroup className="rounded-lg">
-      <InputGroupAddon className="pl-2">
-        <Icons.search />
-      </InputGroupAddon>
-
+    <InputGroup className="rounded-lg shadow-none">
       <InputGroupInput
         placeholder="Search Blog…"
         value={query}
@@ -50,15 +46,20 @@ export function PostSearchInput() {
         }}
       />
 
+      <InputGroupAddon align="inline-start">
+        <Icons.search />
+      </InputGroupAddon>
+
       <InputGroupAddon
-        className="data-[disabled=true]:hidden"
+        className="pr-2.25 data-[disabled=true]:hidden"
         align="inline-end"
         data-disabled={!query.length}
       >
         <InputGroupButton
-          aria-label="Clear"
-          title="Clear"
+          className="rounded-sm border-none"
           size="icon-xs"
+          title="Clear"
+          aria-label="Clear"
           onClick={() => setQuery(null)}
         >
           <XIcon />

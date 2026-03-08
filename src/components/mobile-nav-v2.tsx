@@ -20,9 +20,9 @@ export function MobileNavV2({ items }: { items: NavItem[] }) {
 
   const toggleMenuButton = (
     <Button
-      className="group flex touch-manipulation flex-col gap-1 sm:hidden data-open:bg-accent"
+      className="group flex touch-manipulation flex-col gap-1 border-none sm:hidden data-open:bg-accent"
       variant="ghost"
-      size="icon"
+      size="icon-sm"
       onClick={() => haptic()}
     >
       <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]:translate-y-0.75 group-data-[state=open]:rotate-45" />

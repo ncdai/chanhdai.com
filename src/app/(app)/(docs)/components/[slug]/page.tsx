@@ -15,7 +15,7 @@ import { MDX } from "@/components/mdx"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import { Prose } from "@/components/ui/typography"
-import { SITE_INFO } from "@/config/site"
+import { SITE_INFO, X_USERNAME } from "@/config/site"
 import { PostKeyboardShortcuts } from "@/features/blog/components/post-keyboard-shortcuts"
 import { LLMCopyButtonWithViewOptions } from "@/features/blog/components/post-page-actions"
 import { PostShareMenu } from "@/features/blog/components/post-share-menu"
@@ -27,6 +27,10 @@ import {
 import type { Doc } from "@/features/doc/types/document"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
+
+export const revalidate = false
+export const dynamic = "force-static"
+export const dynamicParams = false
 
 export async function generateStaticParams() {
   const docs = getDocsByCategory("components")
@@ -48,7 +52,9 @@ export async function generateMetadata({
   const { title, description, image, createdAt, updatedAt } = doc.metadata
 
   const postUrl = `/components/${doc.slug}`
-  const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`
+  const ogImage =
+    image ||
+    `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
   return {
     title,
@@ -70,6 +76,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: X_USERNAME,
+      creator: X_USERNAME,
       images: [ogImage],
     },
   }
@@ -83,7 +91,7 @@ function getPageJsonLd(doc: Doc): WithContext<PageSchema> {
     description: doc.metadata.description,
     image:
       doc.metadata.image ||
-      `/og/simple?title=${encodeURIComponent(doc.metadata.title)}`,
+      `/og/simple?title=${encodeURIComponent(doc.metadata.title)}&description=${encodeURIComponent(doc.metadata.description)}`,
     url: `${SITE_INFO.url}/components/${doc.slug}`,
     datePublished: new Date(doc.metadata.createdAt).toISOString(),
     dateModified: new Date(doc.metadata.updatedAt).toISOString(),
@@ -142,13 +150,14 @@ export default async function Page({
 
       <div className="flex items-center justify-between p-2 pl-4">
         <Button
-          className="h-7 gap-2 rounded-lg px-0 font-mono text-muted-foreground transition-[color] hover:text-foreground"
+          className="h-7 gap-2 border-none px-0 font-mono text-muted-foreground hover:text-foreground"
           variant="link"
+          size="sm"
           asChild
         >
           <Link href="/components">
             <ArrowLeftIcon />
-            UI
+            Components
           </Link>
         </Button>
 
@@ -167,7 +176,12 @@ export default async function Page({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <Button variant="secondary" size="icon-sm" asChild>
+                  <Button
+                    className="size-7 border-none"
+                    variant="secondary"
+                    size="icon-sm"
+                    asChild
+                  >
                     <Link href={`/components/${previous.slug}`}>
                       <ArrowLeftIcon />
                       <span className="sr-only">Previous</span>
@@ -190,7 +204,12 @@ export default async function Page({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <Button variant="secondary" size="icon-sm" asChild>
+                  <Button
+                    className="size-7 border-none"
+                    variant="secondary"
+                    size="icon-sm"
+                    asChild
+                  >
                     <Link href={`/components/${next.slug}`}>
                       <span className="sr-only">Next</span>
                       <ArrowRightIcon />

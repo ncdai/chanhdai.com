@@ -9,12 +9,11 @@ export async function GET(request: Request) {
   const domain = searchParams.get("domain")
   const isForSale = searchParams.get("sale") === "true"
 
-  const magistralMedium = await readFile(
-    join(process.cwd(), "src/assets/fonts/Magistral-Medium.ttf")
+  const geistMedium = await readFile(
+    join(process.cwd(), "src/assets/fonts/Geist-Medium.ttf")
   )
-
-  const robotoMedium = await readFile(
-    join(process.cwd(), "src/assets/fonts/Roboto-Medium.ttf")
+  const geistSemiBold = await readFile(
+    join(process.cwd(), "src/assets/fonts/Geist-SemiBold.ttf")
   )
 
   return new ImageResponse(
@@ -23,10 +22,12 @@ export async function GET(request: Request) {
         <div tw="flex-1 flex flex-col justify-center border-l border-r border-zinc-200">
           <div tw="flex justify-center border-t border-b border-zinc-200">
             <h1
-              tw="mt-8 mb-4 ml-8 mr-8 font-medium"
+              tw="mt-8 mb-4 ml-8 mr-8"
               style={{
-                fontFamily: "Magistral",
+                fontFamily: "GeistSans",
+                fontWeight: 600,
                 fontSize: 88,
+                letterSpacing: "-0.025em",
               }}
             >
               {domain}
@@ -35,9 +36,10 @@ export async function GET(request: Request) {
 
           <div tw="flex justify-center border-b border-zinc-200">
             <p
-              tw="mt-0 mb-0 pt-4 pb-4 pl-8 pr-8 font-medium"
+              tw="mt-0 mb-0 pt-4 pb-4 pl-8 pr-8"
               style={{
-                fontFamily: "Roboto",
+                fontFamily: "GeistSans",
+                fontWeight: 500,
                 fontSize: 32,
                 color: isForSale ? "#22c55e" : "#71717a",
               }}
@@ -56,15 +58,14 @@ export async function GET(request: Request) {
 
         <div tw="absolute flex bottom-16 right-16">
           <svg
-            width={160}
-            height={80}
-            viewBox="0 0 640 320"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 256"
+            width={128}
+            height={64}
           >
             <path
-              d="M192 0H224V64H192V0ZM64 0H192V64H64V0ZM0 64H64V256H0V64ZM64 256H192V320H64V256ZM192 256H224V320H192V256ZM224 192H288V256H224V192ZM288 128H352V192H288V128ZM352 64H416V128H352V64ZM416 0H448V64H416V0ZM448 0H576V64H448V0ZM576 64H640V256H576V64ZM448 256H576V320H448V256ZM416 256H448V320H416V256Z"
               fill="currentColor"
+              d="M192 256H64v-64h128v64ZM448 64H320v128h128v64H256V0h192v64ZM64 192H0V64h64v128ZM512 192h-64V64h64v128ZM192 64H64V0h128v64Z"
             />
           </svg>
         </div>
@@ -75,14 +76,14 @@ export async function GET(request: Request) {
       height: 630,
       fonts: [
         {
-          name: "Magistral",
-          data: magistralMedium,
+          name: "GeistSans",
+          data: geistMedium,
           weight: 500,
         },
         {
-          name: "Roboto",
-          data: robotoMedium,
-          weight: 500,
+          name: "GeistSans",
+          data: geistSemiBold,
+          weight: 600,
         },
       ],
     }

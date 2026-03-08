@@ -30,7 +30,7 @@ export function NotFound({ className }: { className?: string }) {
         404
       </h1>
 
-      <Button variant="default" asChild>
+      <Button asChild>
         <Link href="/">
           Go to Home
           <ArrowRightIcon />
