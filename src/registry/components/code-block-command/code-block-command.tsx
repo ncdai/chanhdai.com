@@ -152,7 +152,7 @@ export function CodeBlockCommand({
       </Tabs>
 
       <CopyButton
-        className="absolute top-2 right-2 z-10"
+        className="absolute top-2 right-2 z-10 rounded-md border-none"
         variant="secondary"
         size="icon-xs"
         text={tabs[packageManager] || ""}

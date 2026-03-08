@@ -13,6 +13,7 @@ import {
   FileTextIcon,
   HeartIcon,
   LayersIcon,
+  LayoutTemplateIcon,
   MoonStarIcon,
   MousePointer2Icon,
   QuoteIcon,
@@ -42,7 +43,6 @@ import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { trackEvent } from "@/lib/events"
-import { cn } from "@/lib/utils"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
@@ -69,9 +69,14 @@ const MENU_LINKS: CommandLinkItem[] = [
     icon: ChanhDaiMark,
   },
   {
-    title: "UI",
+    title: "Components",
     href: "/components",
     icon: Icons.react,
+  },
+  {
+    title: "Blocks",
+    href: "/blocks",
+    icon: LayoutTemplateIcon,
   },
   {
     title: "Blog",
@@ -264,11 +269,9 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
   return (
     <>
       <Button
-        variant="secondary"
-        className={cn(
-          "h-8 gap-1.5 rounded-full border border-input bg-white px-2.5 text-muted-foreground select-none hover:bg-white dark:bg-input/30 dark:hover:bg-input/30"
-          // "relative before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:shadow-[0_1px_--theme(--color-black/4%)] dark:before:shadow-[0_-1px_--theme(--color-white/6%)]"
-        )}
+        className="gap-1.5 rounded-full text-muted-foreground shadow-none select-none hover:bg-background hover:text-muted-foreground dark:hover:bg-input/30"
+        variant="outline"
+        size="sm"
         onClick={() => {
           setOpen(true)
           trackEvent({

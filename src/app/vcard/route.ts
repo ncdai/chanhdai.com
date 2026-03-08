@@ -5,7 +5,9 @@ import VCard from "vcard-creator"
 import { USER } from "@/features/portfolio/data/user"
 import { decodeEmail, decodePhoneNumber } from "@/utils/string"
 
+export const revalidate = false
 export const dynamic = "force-static"
+export const dynamicParams = false
 
 export async function GET() {
   const card = new VCard()

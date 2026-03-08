@@ -15,7 +15,7 @@ export function Components() {
     <Panel id="components">
       <PanelHeader>
         <PanelTitle>
-          UI
+          Components
           <PanelTitleSup>({components.length})</PanelTitleSup>
         </PanelTitle>
       </PanelHeader>
@@ -62,7 +62,7 @@ export function Components() {
       </div>
 
       <div className="-mt-px flex justify-center py-2">
-        <Button className="px-3" variant="default" asChild>
+        <Button className="gap-2 border-none px-3" size="sm" asChild>
           <Link href="/components">
             All Components
             <ArrowRightIcon />

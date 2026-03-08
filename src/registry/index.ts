@@ -1,6 +1,6 @@
 import type { Registry } from "shadcn/schema"
 
-import { blocks } from "./blocks/registry-blocks"
+import { blocks } from "./blocks/_registry"
 import { components } from "./components/_registry"
 import { examples } from "./examples/_registry"
 import { hook } from "./hooks/_registry"

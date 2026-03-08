@@ -4,7 +4,9 @@ import { AppProgressProvider } from "@bprogress/next"
 import { Provider as JotaiProvider } from "jotai"
 import { ThemeProvider } from "next-themes"
 
-import { TooltipProvider } from "./base/ui/tooltip"
+import { TooltipProvider as BaseTooltipProvider } from "@/components/base/ui/tooltip"
+import { TooltipProvider as RadixTooltipProvider } from "@/components/ui/tooltip"
+
 import { Toaster } from "./ui/sonner"
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -24,7 +26,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
           delay={500}
           options={{ showSpinner: false }}
         >
-          <TooltipProvider>{children}</TooltipProvider>
+          <BaseTooltipProvider>
+            <RadixTooltipProvider>{children}</RadixTooltipProvider>
+          </BaseTooltipProvider>
         </AppProgressProvider>
 
         <Toaster position="top-center" />

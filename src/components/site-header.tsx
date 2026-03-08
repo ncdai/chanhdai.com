@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 
 import { SiteHeaderMark } from "./site-header-mark"
 import { ThemeToggle } from "./theme-toggle"
+import { Separator } from "./ui/separator"
 
 const BrandContextMenu = dynamic(() =>
   import("@/components/brand-context-menu").then((mod) => mod.BrandContextMenu)
@@ -23,7 +24,11 @@ const MobileNav = dynamic(() =>
   import("@/components/mobile-nav-v2").then((mod) => mod.MobileNavV2)
 )
 
-export function SiteHeader() {
+export function SiteHeader({
+  width = "default",
+}: {
+  width?: "default" | "wide"
+}) {
   const posts = getAllDocs()
 
   // Minimize data serialized to client component - only send necessary fields
@@ -43,7 +48,9 @@ export function SiteHeader() {
       )}
     >
       <div
-        className="screen-line-before screen-line-after mx-auto flex h-12 items-center justify-between gap-2 border-x border-edge px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
+        data-slot="site-header-container"
+        data-width={width}
+        className="screen-line-before screen-line-after mx-auto flex h-12 items-center justify-between gap-2 border-x border-edge px-2 after:z-1 after:transition-[background-color] data-[width=wide]:container sm:gap-4 data-[width=default]:md:max-w-3xl"
         data-header-container
       >
         <BrandContextMenu>
@@ -63,7 +70,10 @@ export function SiteHeader() {
         <div className="flex items-center *:first:mr-2">
           <CommandMenu posts={postPreviews} />
           <NavItemGitHub />
-          <span className="mx-2 flex h-4 w-px bg-border" />
+          <Separator
+            orientation="vertical"
+            className="mx-2 data-vertical:h-4 data-vertical:self-center"
+          />
           <ThemeToggle />
           <MobileNav items={MAIN_NAV} />
         </div>

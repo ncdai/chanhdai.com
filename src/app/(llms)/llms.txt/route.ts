@@ -18,6 +18,7 @@ const content = `# chanhdai.com
 ${allPosts.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/blog/${item.slug}.mdx): ${item.metadata.description}`).join("\n")}
 `
 
+export const revalidate = false
 export const dynamic = "force-static"
 
 export async function GET() {

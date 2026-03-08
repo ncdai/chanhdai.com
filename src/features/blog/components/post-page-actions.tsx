@@ -6,7 +6,8 @@ import { ChevronDownIcon } from "lucide-react"
 import { useMemo, useRef, useState } from "react"
 
 import { Icons } from "@/components/icons"
-import { buttonVariants } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +15,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import type { CopyState } from "@/hooks/use-copy-to-clipboard"
-import { cn } from "@/lib/utils"
 import { CopyStateIcon } from "@/registry/components/copy-button"
 
 const cache = new Map<string, string>()
@@ -62,15 +62,17 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
   }
 
   return (
-    <button
-      className="flex h-7 items-center gap-1.5 rounded-l-full pr-2 pl-2.5 text-sm font-medium transition-opacity will-change-transform disabled:pointer-events-none disabled:opacity-50"
+    <Button
+      className="h-7 gap-1.5 border-none pr-2 pl-2.5 active:scale-none"
+      variant="secondary"
+      size="sm"
       aria-busy={isCopying}
       disabled={isCopying}
       onClick={handleCopy}
     >
       <CopyStateIcon state={state} />
-      MDX
-    </button>
+      <span className="max-[28rem]:hidden">Copy Page</span>
+    </Button>
   )
 }
 
@@ -146,13 +148,18 @@ export function ViewOptions({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="flex size-7 items-center justify-center gap-2 rounded-r-full text-sm">
+        <Button
+          className="size-7 border-none active:scale-none"
+          variant="secondary"
+          size="icon-sm"
+        >
           <ChevronDownIcon className="mt-0.5 size-4" />
           <span className="sr-only">View Options</span>
-        </button>
+        </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
+        className="w-fit"
         align="end"
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
@@ -177,18 +184,10 @@ export function LLMCopyButtonWithViewOptions({
   isComponent?: boolean
 }) {
   return (
-    <div
-      className={cn(
-        buttonVariants({
-          size: "sm",
-          variant: "secondary",
-          className:
-            "gap-0 divide-x px-0 font-sans active:scale-none dark:divide-white/10",
-        })
-      )}
-    >
+    <ButtonGroup>
       <LLMCopyButton markdownUrl={markdownUrl} />
+      <ButtonGroupSeparator className="dark:bg-white/20 data-vertical:my-0" />
       <ViewOptions markdownUrl={markdownUrl} isComponent={isComponent} />
-    </div>
+    </ButtonGroup>
   )
 }

@@ -110,11 +110,11 @@ export function RegistryCommandAnimated() {
       </Tabs>
 
       <CopyButton
-        className="absolute top-1.5 right-1.5 z-10"
+        className="absolute top-1.5 right-1.5 z-10 size-7 border-none [&_svg:not([class*='size-'])]:size-3.5"
         size="icon-sm"
         text={() => {
           const baseCommand = pmCommands[packageManager] || pmCommands["pnpm"]
-          return `${baseCommand} shadcn add ${registryConfig.namespace}/${currentItemRef.current}`
+          return `${baseCommand} shadcn@latest add ${registryConfig.namespace}/${currentItemRef.current}`
         }}
         event="copy_npm_command"
       />

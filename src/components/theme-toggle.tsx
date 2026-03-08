@@ -37,7 +37,12 @@ export function ThemeToggle() {
     <Tooltip>
       <TooltipTrigger
         render={
-          <Button variant="ghost" size="icon" onClick={() => switchTheme()}>
+          <Button
+            className="border-none"
+            variant="ghost"
+            size="icon-sm"
+            onClick={() => switchTheme()}
+          >
             <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
             <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
             <span className="sr-only">Theme Toggle</span>

@@ -7,6 +7,7 @@ const eventSchema = z.object({
   name: z.enum([
     "copy_npm_command",
     "copy_code_block",
+    "copy_block_code",
     "copy_email",
     "copy_phone_number",
     "play_name_pronunciation",
@@ -15,11 +16,9 @@ const eventSchema = z.object({
     "command_menu_action",
     "blog_search",
   ]),
+  // declare type AllowedPropertyValues = string | number | boolean | null
   properties: z
-    .record(
-      z.string(),
-      z.union([z.string(), z.number(), z.boolean(), z.null()])
-    )
+    .record(z.union([z.string(), z.number(), z.boolean(), z.null()]))
     .optional(),
 })
 

@@ -58,7 +58,7 @@ export function EmailItem({ email }: EmailItemProps) {
 
       <div className="-translate-x-3 translate-y-px opacity-0 transition-opacity ease-out group-hover:opacity-100">
         <CopyButton
-          className="text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5"
+          className="rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5"
           variant="ghost"
           size="icon-xs"
           text={isClient ? emailDecoded : "[Email protected]"}
