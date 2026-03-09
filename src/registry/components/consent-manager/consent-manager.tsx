@@ -22,12 +22,12 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
             noStyle: true,
             className: cn(
               "relative w-full max-w-(--banner-max-width) divide-y overflow-hidden rounded-2xl",
-              "bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10 dark:ring-foreground/15"
+              "bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10"
             ),
           },
           "banner.header.title": {
             noStyle: true,
-            className: "text-lg font-semibold text-foreground",
+            className: "text-base leading-none font-medium text-foreground",
           },
           "banner.header.description": {
             noStyle: true,
@@ -57,36 +57,48 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
       <ConsentManagerDialog
         theme={{
           "dialog.root": {
-            noStyle: true,
             style: {
-              "--dialog-card-radius": "1rem",
+              "--dialog-height": "100%",
+              "--dialog-font-family": "var(--font-sans)",
 
               "--dialog-background-color": "var(--background)",
               "--dialog-background-color-dark": "var(--background)",
 
+              "--dialog-border-width": "0",
               "--dialog-border-color": "var(--border)",
               "--dialog-border-color-dark": "var(--border)",
+
+              "--dialog-card-radius": "1rem",
+              "--dialog-card-shadow":
+                "0 0 0 1px color-mix(in oklab, var(--foreground) var(--dialog-card-shadow-opacity, 10%), transparent)",
             },
-            className:
-              "rounded-2xl border-none bg-background ring-1 ring-foreground/10 dark:ring-foreground/15",
+            // className: "[html.c15t-dark_&]:[--dialog-card-shadow-opacity:15%]",
           },
           "dialog.overlay": {
             style: {
               "--dialog-overlay-background-color": "lab(0% 0 0 / 0.2)",
-              "--dialog-overlay-background-color-dark": "lab(0% 0 0 / 0.7)",
+              "--dialog-overlay-background-color-dark": "lab(0% 0 0 / 0.4)",
             },
           },
           "dialog.title": {
             noStyle: true,
             className:
-              "text-lg leading-none font-semibold text-foreground tracking-tight",
+              "text-base leading-none font-medium tracking-tight text-foreground",
           },
           "dialog.description": {
             noStyle: true,
             className: "text-sm text-muted-foreground",
           },
+          "dialog.header": {
+            style: {
+              "--dialog-header-gap": "0.5rem",
+              "--dialog-card-gap": "0",
+            },
+          },
           "dialog.footer": {
             style: {
+              "--dialog-border-width": "1px",
+
               "--dialog-stroke-color": "var(--border)",
               "--dialog-stroke-color-dark": "var(--border)",
 
@@ -113,7 +125,7 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
           "widget.accordion.trigger-inner": {
             noStyle: true,
             className: cn(
-              "flex flex-1 items-center rounded-lg px-4 py-3 text-sm font-semibold text-foreground **:[svg]:hidden",
+              "flex flex-1 items-center rounded-lg px-4 py-3 text-sm font-medium text-foreground **:[svg]:hidden",
               "outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
             ),
           },
@@ -142,7 +154,7 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
           "widget.switch.thumb": {
             noStyle: true,
             className: cn(
-              "pointer-events-none block size-4 rounded-full bg-background ring-0 transition-transform",
+              "pointer-events-none block size-4 rounded-full bg-background ring-0 transition-[translate,background-color]",
               "data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0 dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground"
             ),
           },
