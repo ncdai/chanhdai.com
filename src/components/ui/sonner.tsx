@@ -17,7 +17,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
         classNames: {
           toast: cn(
             "group-[.toaster]:border-none! group-[.toaster]:shadow-lg!",
-            "group-[.toaster]:ring-1! group-[.toaster]:ring-foreground/10! dark:group-[.toaster]:ring-foreground/15!"
+            "group-[.toaster]:ring-1! group-[.toaster]:ring-foreground/10! dark:group-[.toaster]:ring-border!"
           ),
         },
       }}
