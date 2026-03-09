@@ -2,12 +2,12 @@ import { ChevronDownIcon } from "lucide-react"
 import { Slot } from "radix-ui"
 import React from "react"
 
+import { Button } from "@/components/base/ui/button"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/base/ui/collapsible"
-import { Button } from "@/components/ui/button"
 
 export function CollapsibleList<T>({
   items,
