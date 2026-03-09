@@ -43,7 +43,6 @@ export function Components() {
                 <ComponentIcon
                   className="pointer-events-none size-4 text-muted-foreground"
                   variant={component.slug}
-                  aria-hidden
                 />
                 {component.metadata.new && (
                   <span className="absolute -top-1 -right-1 flex items-center justify-center">

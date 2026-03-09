@@ -45,13 +45,10 @@ export function ProjectItem({
             quality={100}
             className="mx-4 flex size-6 shrink-0 select-none dark:grayscale"
             unoptimized
-            aria-hidden="true"
+            aria-hidden
           />
         ) : (
-          <div
-            className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none"
-            aria-hidden="true"
-          >
+          <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none">
             <BoxIcon className="size-4" />
           </div>
         )}
@@ -72,10 +69,7 @@ export function ProjectItem({
                       <span className="font-mono">—</span>
                       {isOngoing ? (
                         <>
-                          <InfinityIcon
-                            className="size-4.5 translate-y-[0.5px]"
-                            aria-hidden
-                          />
+                          <InfinityIcon className="size-4.5 translate-y-[0.5px]" />
                           <span className="sr-only">Present</span>
                         </>
                       ) : (
@@ -106,10 +100,7 @@ export function ProjectItem({
               </TooltipContent>
             </Tooltip>
 
-            <div
-              className="shrink-0 text-muted-foreground [&_svg]:size-4"
-              aria-hidden
-            >
+            <div className="shrink-0 text-muted-foreground [&_svg]:size-4">
               <CollapsibleChevronsIcon duration={0.15} />
             </div>
           </CollapsibleTrigger>

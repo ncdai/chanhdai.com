@@ -131,7 +131,7 @@ function Item({
           <span className="@max-xl:hidden">{type}</span>
         )}
 
-        <div className="ml-auto shrink-0 text-muted-foreground" aria-hidden>
+        <div className="ml-auto shrink-0 text-muted-foreground">
           <CollapsibleChevronDownIcon duration={0.15} />
         </div>
       </CollapsibleTrigger>

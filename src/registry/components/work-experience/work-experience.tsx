@@ -81,10 +81,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
   return (
     <div className="space-y-4 py-4">
       <div className="not-prose flex items-center gap-3">
-        <div
-          className="flex size-6 shrink-0 items-center justify-center"
-          aria-hidden
-        >
+        <div className="flex size-6 shrink-0 items-center justify-center">
           {experience.companyLogo ? (
             <Image
               src={experience.companyLogo}
@@ -93,6 +90,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
               height={24}
               quality={100}
               className="rounded-full"
+              aria-hidden
               unoptimized
             />
           ) : (
@@ -152,7 +150,6 @@ export function ExperiencePositionItem({
                 "bg-muted text-muted-foreground",
                 "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background"
               )}
-              aria-hidden
             >
               <ExperienceIcon className="size-4" />
             </div>
@@ -161,10 +158,7 @@ export function ExperiencePositionItem({
               {position.title}
             </h4>
 
-            <div
-              className="shrink-0 text-muted-foreground group-disabled:hidden [&_svg]:size-4"
-              aria-hidden
-            >
+            <div className="shrink-0 text-muted-foreground group-disabled:hidden [&_svg]:size-4">
               <ChevronsDownUpIcon className="hidden group-data-[state=open]:block" />
               <ChevronsUpDownIcon className="hidden group-data-[state=closed]:block" />
             </div>

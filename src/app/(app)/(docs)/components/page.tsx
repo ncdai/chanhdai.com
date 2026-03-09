@@ -178,7 +178,6 @@ export default function Page() {
                   <ComponentIcon
                     className="pointer-events-none size-4 text-muted-foreground"
                     variant={post.slug}
-                    aria-hidden="true"
                   />
                   {post.metadata.new && (
                     <span className="absolute -top-1 -right-1 flex items-center justify-center">

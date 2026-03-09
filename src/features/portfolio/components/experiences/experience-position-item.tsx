@@ -46,17 +46,13 @@ export function ExperiencePositionItem({
               "bg-muted text-muted-foreground",
               "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background"
             )}
-            aria-hidden
           >
             <ExperienceIcon className="size-4" icon={position.icon} />
           </div>
 
           <h4 className="flex-1 font-medium text-balance">{position.title}</h4>
 
-          <div
-            className="shrink-0 text-muted-foreground group-data-disabled:hidden [&_svg]:size-4"
-            aria-hidden
-          >
+          <div className="shrink-0 text-muted-foreground group-data-disabled:hidden [&_svg]:size-4">
             <CollapsibleChevronsIcon duration={0.15} />
           </div>
         </div>
@@ -83,10 +79,7 @@ export function ExperiencePositionItem({
               <span className="font-mono">—</span>
               {isOngoing ? (
                 <>
-                  <InfinityIcon
-                    className="size-4.5 translate-y-[0.5px]"
-                    aria-hidden
-                  />
+                  <InfinityIcon className="size-4.5 translate-y-[0.5px]" />
                   <span className="sr-only">Present</span>
                 </>
               ) : (

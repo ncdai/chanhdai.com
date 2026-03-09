@@ -43,7 +43,6 @@ export function CertificationItem({
             "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background",
             "bg-muted text-muted-foreground [&_svg]:size-4"
           )}
-          aria-hidden
         >
           {getIcon(certification.issuerIconName) ?? <CircleCheckBigIcon />}
         </div>
@@ -80,10 +79,7 @@ export function CertificationItem({
       </div>
 
       {certification.credentialURL && (
-        <ArrowUpRightIcon
-          className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45"
-          aria-hidden
-        />
+        <ArrowUpRightIcon className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45" />
       )}
     </a>
   )

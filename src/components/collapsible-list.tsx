@@ -61,10 +61,7 @@ export function CollapsibleList<T>({
                   Show Less
                 </span>
 
-                <ChevronDownIcon
-                  className="group-data-open/collapsible:rotate-180"
-                  aria-hidden
-                />
+                <ChevronDownIcon className="group-data-open/collapsible:rotate-180" />
               </Button>
             }
           />
