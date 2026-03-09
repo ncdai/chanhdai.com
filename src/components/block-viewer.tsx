@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckIcon, ChevronRightIcon } from "lucide-react"
+import { CheckIcon, ChevronRightIcon, TerminalIcon } from "lucide-react"
 import React, {
   createContext,
   useContext,
@@ -266,7 +266,7 @@ function BlockViewerToolbar() {
             })
           }}
         >
-          {state === "done" ? <CheckIcon /> : <Icons.shadcn />}
+          {state === "done" ? <CheckIcon /> : <TerminalIcon />}
           <span>
             <span className="text-muted-foreground">npx shadcn add</span>{" "}
             {getRegistryItemNamespace(item.name)}

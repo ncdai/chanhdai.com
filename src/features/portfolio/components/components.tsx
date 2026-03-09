@@ -1,8 +1,8 @@
 import { ArrowRightIcon } from "lucide-react"
 import Link from "next/link"
 
+import { Button } from "@/components/base/ui/button"
 import { ComponentIcon } from "@/components/icons"
-import { Button } from "@/components/ui/button"
 import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
 
@@ -43,7 +43,6 @@ export function Components() {
                 <ComponentIcon
                   className="pointer-events-none size-4 text-muted-foreground"
                   variant={component.slug}
-                  aria-hidden
                 />
                 {component.metadata.new && (
                   <span className="absolute -top-1 -right-1 flex items-center justify-center">
@@ -62,11 +61,14 @@ export function Components() {
       </div>
 
       <div className="-mt-px flex justify-center py-2">
-        <Button className="gap-2 border-none px-3" size="sm" asChild>
-          <Link href="/components">
-            All Components
-            <ArrowRightIcon />
-          </Link>
+        <Button
+          className="gap-2 border-none px-3"
+          size="sm"
+          nativeButton={false}
+          render={<Link href="/components" />}
+        >
+          All Components
+          <ArrowRightIcon />
         </Button>
       </div>
     </Panel>

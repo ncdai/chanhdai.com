@@ -2,19 +2,17 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import type { SubmitHandler } from "react-hook-form"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field"
 import type { WheelPickerOption } from "@/registry/components/wheel-picker"
 import {
   WheelPicker,
@@ -28,7 +26,11 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>
 
 export default function WheelPickerFormDemo() {
-  const form = useForm<FormSchema>({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       framework: "nextjs",
@@ -38,46 +40,45 @@ export default function WheelPickerFormDemo() {
   const onSubmit: SubmitHandler<FormSchema> = (values) => {
     toast("You submitted the following values:", {
       description: (
-        <pre className="mt-2 w-80 rounded-lg bg-zinc-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+        <pre className="mt-2 w-full rounded-md border p-4">
+          <code>{JSON.stringify(values, null, 2)}</code>
         </pre>
       ),
+      classNames: {
+        content: "flex-1",
+      },
     })
   }
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="w-56 max-w-full space-y-4"
-      >
-        <FormField
-          control={form.control}
+    <form onSubmit={handleSubmit(onSubmit)} className="w-56 max-w-full">
+      <FieldGroup>
+        <Controller
+          control={control}
           name="framework"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Framework</FormLabel>
+            <Field data-invalid={!!errors.framework}>
+              <FieldLabel>Framework</FieldLabel>
 
-              <FormControl>
-                <WheelPickerWrapper>
-                  <WheelPicker
-                    options={options}
-                    value={field.value}
-                    onValueChange={field.onChange}
-                  />
-                </WheelPickerWrapper>
-              </FormControl>
+              <WheelPickerWrapper>
+                <WheelPicker
+                  options={options}
+                  value={field.value}
+                  onValueChange={field.onChange}
+                />
+              </WheelPickerWrapper>
 
-              <FormMessage />
-            </FormItem>
+              {errors.framework && (
+                <FieldError>{errors.framework.message}</FieldError>
+              )}
+            </Field>
           )}
         />
-
-        <div className="flex justify-center">
+        <Field>
           <Button type="submit">Submit</Button>
-        </div>
-      </form>
-    </Form>
+        </Field>
+      </FieldGroup>
+    </form>
   )
 }
 

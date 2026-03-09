@@ -23,7 +23,6 @@ export function IntroItemIcon({
         "[&_svg]:pointer-events-none [&_svg]:text-muted-foreground [&_svg:not([class*='size-'])]:size-4",
         className
       )}
-      aria-hidden="true"
       {...props}
     />
   )

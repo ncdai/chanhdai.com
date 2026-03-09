@@ -23,20 +23,44 @@ export const motionIconProps: HTMLMotionProps<"span"> = {
   transition: { duration: 0.15, ease: "easeOut" },
 }
 
-export function CopyStateIcon({ state }: { state: CopyState }) {
+export type CopyStateIconProps = {
+  state: CopyState
+  /**
+   * Custom icon for idle state.
+   * @defaultValue CopyIcon
+   * */
+  idleIcon?: React.ReactNode
+  /**
+   * Custom icon for done state.
+   * @defaultValue CheckIcon
+   * */
+  doneIcon?: React.ReactNode
+  /**
+   * Custom icon for error state.
+   * @defaultValue CircleXIcon
+   * */
+  errorIcon?: React.ReactNode
+}
+
+export function CopyStateIcon({
+  state,
+  idleIcon,
+  doneIcon,
+  errorIcon,
+}: CopyStateIconProps) {
   return (
     <AnimatePresence mode="popLayout" initial={false}>
       {state === "idle" ? (
         <motion.span key="idle" {...motionIconProps}>
-          <CopyIcon />
+          {idleIcon ?? <CopyIcon />}
         </motion.span>
       ) : state === "done" ? (
         <motion.span key="done" {...motionIconProps}>
-          <CheckIcon strokeWidth={3} />
+          {doneIcon ?? <CheckIcon strokeWidth={3} />}
         </motion.span>
       ) : state === "error" ? (
         <motion.span key="error" {...motionIconProps}>
-          <CircleXIcon />
+          {errorIcon ?? <CircleXIcon />}
         </motion.span>
       ) : null}
     </AnimatePresence>
@@ -50,15 +74,18 @@ export type CopyButtonProps = ComponentProps<typeof Button> & {
   onCopySuccess?: (text: string) => void
   /** Called with the error if the copy operation fails. */
   onCopyError?: (error: Error) => void
-}
+} & Pick<CopyStateIconProps, "idleIcon" | "doneIcon" | "errorIcon">
 
 export function CopyButton({
   size = "icon",
   children,
   text,
+  idleIcon,
+  doneIcon,
+  errorIcon,
+  onClick,
   onCopySuccess,
   onCopyError,
-  onClick,
   ...props
 }: CopyButtonProps) {
   const { state, copy } = useCopyToClipboard({
@@ -76,7 +103,12 @@ export function CopyButton({
       aria-label="Copy"
       {...props}
     >
-      <CopyStateIcon state={state} />
+      <CopyStateIcon
+        state={state}
+        idleIcon={idleIcon}
+        doneIcon={doneIcon}
+        errorIcon={errorIcon}
+      />
       {children}
     </Button>
   )

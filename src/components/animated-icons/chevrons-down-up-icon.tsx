@@ -36,6 +36,7 @@ const ChevronsDownUpIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden
       {...props}
     >
       <motion.path

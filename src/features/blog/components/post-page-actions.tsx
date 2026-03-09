@@ -63,7 +63,7 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
 
   return (
     <Button
-      className="h-7 gap-1.5 border-none pr-2 pl-2.5 active:scale-none"
+      className="h-7 gap-1.5 border-none pr-2 pl-2.5 text-[0.8125rem] active:scale-none [&_svg:not([class*='size-'])]:size-3.5"
       variant="secondary"
       size="sm"
       aria-busy={isCopying}
@@ -186,7 +186,7 @@ export function LLMCopyButtonWithViewOptions({
   return (
     <ButtonGroup>
       <LLMCopyButton markdownUrl={markdownUrl} />
-      <ButtonGroupSeparator className="dark:bg-white/20 data-vertical:my-0" />
+      <ButtonGroupSeparator className="border-y-4 border-secondary dark:bg-white/20 data-vertical:my-0" />
       <ViewOptions markdownUrl={markdownUrl} isComponent={isComponent} />
     </ButtonGroup>
   )

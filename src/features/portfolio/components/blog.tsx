@@ -1,8 +1,7 @@
 import { ArrowRightIcon } from "lucide-react"
 import Link from "next/link"
-import React from "react"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/base/ui/button"
 import { PostItem } from "@/features/blog/components/post-item"
 import { getAllDocs } from "@/features/doc/data/documents"
 
@@ -34,11 +33,14 @@ export function Blog() {
       </div>
 
       <div className="screen-line-before flex justify-center py-2">
-        <Button className="gap-2 border-none px-3" size="sm" asChild>
-          <Link href="/blog">
-            All Posts
-            <ArrowRightIcon />
-          </Link>
+        <Button
+          className="gap-2 border-none px-3"
+          size="sm"
+          nativeButton={false}
+          render={<Link href="/blog" />}
+        >
+          All Posts
+          <ArrowRightIcon />
         </Button>
       </div>
     </Panel>

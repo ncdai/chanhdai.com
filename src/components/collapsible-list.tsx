@@ -2,12 +2,12 @@ import { ChevronDownIcon } from "lucide-react"
 import { Slot } from "radix-ui"
 import React from "react"
 
+import { Button } from "@/components/base/ui/button"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/base/ui/collapsible"
-import { Button } from "@/components/ui/button"
 
 export function CollapsibleList<T>({
   items,
@@ -61,10 +61,7 @@ export function CollapsibleList<T>({
                   Show Less
                 </span>
 
-                <ChevronDownIcon
-                  className="group-data-open/collapsible:rotate-180"
-                  aria-hidden
-                />
+                <ChevronDownIcon className="group-data-open/collapsible:rotate-180" />
               </Button>
             }
           />

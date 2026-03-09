@@ -88,7 +88,7 @@ export function ComponentPreview({
                           size="icon-sm"
                           onClick={() => setReplay((v) => v + 1)}
                         >
-                          <RepeatIcon aria-hidden />
+                          <RepeatIcon />
                           <span className="sr-only">Replay</span>
                         </Button>
                       }

@@ -380,7 +380,7 @@ export default function DuckFollowerCore() {
         className="duck-follower dark:drop-shadow-sm dark:drop-shadow-amber-300"
         style={{ ...animationStyle, transform }}
         onAnimationEnd={onAnimationEnd}
-        aria-hidden="true"
+        aria-hidden
       />
     </>
   )

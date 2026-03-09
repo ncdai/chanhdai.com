@@ -31,7 +31,6 @@ export function BookmarkItem({
           "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background",
           "bg-muted text-muted-foreground [&_svg]:size-4"
         )}
-        aria-hidden
       >
         {getIcon(bookmark.iconName) ?? <BookmarkIcon />}
       </div>
@@ -50,7 +49,7 @@ export function BookmarkItem({
               </dl>
 
               <Separator
-                className="data-[orientation=vertical]:h-4"
+                className="data-vertical:h-4 data-vertical:self-center"
                 orientation="vertical"
               />
             </>
@@ -67,10 +66,7 @@ export function BookmarkItem({
         </div>
       </div>
 
-      <ArrowUpRightIcon
-        className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45"
-        aria-hidden
-      />
+      <ArrowUpRightIcon className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45" />
     </a>
   )
 }

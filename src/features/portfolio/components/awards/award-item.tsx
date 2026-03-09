@@ -32,10 +32,7 @@ export function AwardItem({
   return (
     <Collapsible className={className} disabled={!canExpand}>
       <div className="flex items-center hover:bg-accent-muted">
-        <div
-          className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background"
-          aria-hidden
-        >
+        <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background">
           <AwardIcon className="pointer-events-none size-4 text-muted-foreground" />
         </div>
 
@@ -53,7 +50,7 @@ export function AwardItem({
                 </dl>
 
                 <Separator
-                  className="data-[orientation=vertical]:h-4"
+                  className="data-vertical:h-4 data-vertical:self-center"
                   orientation="vertical"
                 />
 
@@ -67,7 +64,7 @@ export function AwardItem({
                 </dl>
 
                 <Separator
-                  className="data-[orientation=vertical]:h-4"
+                  className="data-vertical:h-4 data-vertical:self-center"
                   orientation="vertical"
                 />
 
@@ -88,10 +85,7 @@ export function AwardItem({
                       target="_blank"
                       rel="noopener"
                     >
-                      <FileCheckIcon
-                        className="pointer-events-none size-4"
-                        aria-hidden
-                      />
+                      <FileCheckIcon className="pointer-events-none size-4" />
                       <span className="sr-only">Open Reference Attachment</span>
                     </a>
                   }
@@ -103,10 +97,7 @@ export function AwardItem({
             )}
 
             {canExpand && (
-              <div
-                className="shrink-0 text-muted-foreground [&_svg]:size-4"
-                aria-hidden
-              >
+              <div className="shrink-0 text-muted-foreground [&_svg]:size-4">
                 <CollapsibleChevronsIcon duration={0.15} />
               </div>
             )}

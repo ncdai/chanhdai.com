@@ -4,7 +4,7 @@ import { ArrowUpIcon } from "lucide-react"
 import { useMotionValueEvent, useScroll } from "motion/react"
 import { useState } from "react"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/base/ui/button"
 import { cn } from "@/lib/utils"
 
 export function ScrollToTop({
@@ -36,7 +36,7 @@ export function ScrollToTop({
         className
       )}
       variant="secondary"
-      size="icon-lg"
+      size="icon"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       {...props}
     >

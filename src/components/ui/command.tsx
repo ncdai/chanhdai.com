@@ -9,7 +9,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/components/base/ui/dialog"
 import { cn } from "@/lib/utils"
 
 function Command({
@@ -20,7 +20,7 @@ function Command({
     <CommandPrimitive
       data-slot="command"
       className={cn(
-        "flex h-full w-full flex-col overflow-hidden text-popover-foreground",
+        "flex size-full flex-col overflow-hidden text-popover-foreground",
         className
       )}
       {...props}
@@ -36,29 +36,26 @@ function CommandDialog({
 }: React.ComponentProps<typeof Dialog> & {
   title?: string
   description?: string
+  children: React.ReactNode
 }) {
   return (
     <Dialog {...props}>
       <DialogHeader className="sr-only">
-        <DialogTitle asChild>
-          <p>{title}</p>
-        </DialogTitle>
-        <DialogDescription asChild>
-          <p>{description}</p>
-        </DialogDescription>
+        <DialogTitle>{title}</DialogTitle>
+        <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
 
       <DialogContent
-        className="bg-popover p-0 max-sm:top-16 max-sm:translate-y-0"
+        className="bg-popover p-0 max-sm:top-16 max-sm:translate-y-0 sm:max-w-lg"
         data-slot="command-dialog-content"
-        overlay={false}
+        showCloseButton={false}
       >
         <Command
           className={cn(
-            "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 **:[[cmdk-input]]:h-10",
+            "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:size-5 **:[[cmdk-input]]:h-10",
             "**:[[cmdk-group]]:px-2",
             "**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground",
-            "[&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-2"
+            "[&_[cmdk-item]_svg]:size-5 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-2"
           )}
         >
           {children}
@@ -112,7 +109,7 @@ function CommandList({
     <CommandPrimitive.List
       data-slot="command-list"
       className={cn(
-        "max-h-80 scroll-py-0 overflow-x-hidden overflow-y-auto",
+        "no-scrollbar max-h-80 scroll-py-2 overflow-x-hidden overflow-y-auto",
         className
       )}
       {...props}

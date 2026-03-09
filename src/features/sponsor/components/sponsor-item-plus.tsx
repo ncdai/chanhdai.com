@@ -17,7 +17,6 @@ export function SponsorItemPlus() {
       <PlusIcon
         className="flex size-full items-center justify-center text-muted-foreground"
         size={24}
-        aria-hidden="true"
       />
       <span className="sr-only">Sponsor My Work</span>
     </a>
