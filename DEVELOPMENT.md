@@ -19,13 +19,21 @@ git clone https://github.com/ncdai/chanhdai.com.git minimal-dev-portfolio
 cd minimal-dev-portfolio
 ```
 
-### 2. Install dependencies
+### 2. Install Portless
+
+Documentation: [port1355.dev](https://port1355.dev)
+
+```bash
+npm install -g portless
+```
+
+### 3. Install dependencies
 
 ```bash
 pnpm i
 ```
 
-### 3. Configure Environment Variables
+### 4. Configure Environment Variables
 
 Create a `.env.local` file based on `.env.example`:
 
@@ -35,13 +43,13 @@ cp .env.example .env.local
 
 Then, update the necessary environment variables inside `.env.local`.
 
-### 4. Run the development server
+### 5. Run the development server
 
 ```bash
 pnpm dev
 ```
 
-The application should now be available at http://localhost:1408
+The application should now be available at http://ncdai.localhost:1355
 
 ## Building for Production
 
