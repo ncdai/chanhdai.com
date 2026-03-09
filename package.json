@@ -41,7 +41,7 @@
   "dependencies": {
     "@base-ui/react": "^1.1.0",
     "@bprogress/next": "^3.2.12",
-    "@c15t/nextjs": "^1.8.1",
+    "@c15t/nextjs": "^1.8.3",
     "@date-fns/tz": "^1.4.1",
     "@hookform/resolvers": "^4.1.0",
     "@ncdai/react-wheel-picker": "^1.2.0",
