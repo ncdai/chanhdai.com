@@ -2,10 +2,7 @@ import { PlusIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 
-import { ComponentIcon } from "@/components/icons"
-import { MDX } from "@/components/mdx"
-import { RegistryCommandAnimated } from "@/components/registry-command-animated"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/base/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -15,7 +12,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/base/ui/dialog"
+import { ComponentIcon } from "@/components/icons"
+import { MDX } from "@/components/mdx"
+import { RegistryCommandAnimated } from "@/components/registry-command-animated"
 import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS, X_USERNAME } from "@/config/site"
 import { getDocsByCategory } from "@/features/doc/data/documents"
@@ -102,16 +102,18 @@ export default function Page() {
         <RegistryCommandAnimated />
 
         <Dialog>
-          <DialogTrigger asChild>
-            <Button
-              className="absolute top-1.5 right-10 h-7 gap-1.5 border-none pr-2.5 pl-2"
-              variant="secondary"
-              size="sm"
-            >
-              <PlusIcon className="size-3.5" />
-              Add
-            </Button>
-          </DialogTrigger>
+          <DialogTrigger
+            render={
+              <Button
+                className="absolute top-1.5 right-10 h-7 gap-1.5 border-none pr-2.5 pl-2"
+                variant="secondary"
+                size="sm"
+              >
+                <PlusIcon className="size-3.5" />
+                Add
+              </Button>
+            }
+          />
 
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>
@@ -138,9 +140,7 @@ export default function Page() {
             </div>
 
             <DialogFooter>
-              <DialogClose asChild>
-                <Button>Done</Button>
-              </DialogClose>
+              <DialogClose render={<Button>Done</Button>} />
             </DialogFooter>
           </DialogContent>
         </Dialog>
