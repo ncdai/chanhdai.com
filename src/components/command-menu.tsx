@@ -555,7 +555,7 @@ function CommandMenuFooter() {
           </Kbd>
           <Separator
             orientation="vertical"
-            className="data-[orientation=vertical]:h-4"
+            className="data-vertical:h-4 data-vertical:self-center"
           />
           <span className="text-muted-foreground">Exit</span>
           <Kbd>Esc</Kbd>

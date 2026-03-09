@@ -63,7 +63,7 @@ export function CertificationItem({
           </dl>
 
           <Separator
-            className="data-[orientation=vertical]:h-4"
+            className="data-vertical:h-4 data-vertical:self-center"
             orientation="vertical"
           />
 

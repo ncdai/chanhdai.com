@@ -50,7 +50,7 @@ export function AwardItem({
                 </dl>
 
                 <Separator
-                  className="data-[orientation=vertical]:h-4"
+                  className="data-vertical:h-4 data-vertical:self-center"
                   orientation="vertical"
                 />
 
@@ -64,7 +64,7 @@ export function AwardItem({
                 </dl>
 
                 <Separator
-                  className="data-[orientation=vertical]:h-4"
+                  className="data-vertical:h-4 data-vertical:self-center"
                   orientation="vertical"
                 />
 
