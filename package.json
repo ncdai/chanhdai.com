@@ -21,10 +21,10 @@
     "url": "git+https://github.com/ncdai/chanhdai.com.git"
   },
   "scripts": {
-    "dev": "next dev -p 1408",
+    "dev": "portless ncdai next dev",
     "build": "next build",
     "start": "next start",
-    "preview": "next build && next start -p 1408",
+    "preview": "next build && portless ncdai next start",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "check-types": "tsc --noEmit --pretty",
