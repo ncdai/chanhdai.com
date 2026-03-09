@@ -22,7 +22,7 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
             noStyle: true,
             className: cn(
               "relative w-full max-w-(--banner-max-width) divide-y overflow-hidden rounded-2xl",
-              "bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10"
+              "bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10 dark:ring-border"
             ),
           },
           "banner.header.title": {
@@ -70,9 +70,10 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
 
               "--dialog-card-radius": "1rem",
               "--dialog-card-shadow":
-                "0 0 0 1px color-mix(in oklab, var(--foreground) var(--dialog-card-shadow-opacity, 10%), transparent)",
+                "0 0 0 1px var(--dialog-card-shadow-color)",
             },
-            // className: "[html.c15t-dark_&]:[--dialog-card-shadow-opacity:15%]",
+            className:
+              "[--dialog-card-shadow-color:var(--foreground)]/10 dark:[--dialog-card-shadow-color:var(--border)]",
           },
           "dialog.overlay": {
             style: {
