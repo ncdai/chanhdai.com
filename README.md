@@ -93,8 +93,6 @@ This project is proudly supported by:
           />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
@@ -109,6 +107,8 @@ This project is proudly supported by:
           />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
@@ -123,8 +123,6 @@ This project is proudly supported by:
           />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
           <img
@@ -170,6 +168,7 @@ This project is proudly supported by:
         </a>
       </td>
       <td></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -184,22 +183,3 @@ This project is proudly supported by:
 
 [![RepoStars-dark](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)
 [![RepoStars-light](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)
-
-## Acknowledgments
-
-- [React](https://react.dev)
-- [Next.js](https://nextjs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Radix UI](https://www.radix-ui.com)
-- [Base UI](https://base-ui.com)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Kibo UI](https://www.kibo-ui.com)
-- [Aceternity UI](https://ui.aceternity.com)
-- [React Bits](https://reactbits.dev)
-- [Motion](https://motion.dev)
-- [Lucide](https://lucide.dev)
-- [Fumadocs](https://fumadocs.dev)
-- [PostHog](https://posthog.com)
-- [OpenPanel](https://openpanel.dev)
-- [c15t](https://c15t.com)
-- And many other open-source libraries used in `package.json`
