@@ -93,8 +93,6 @@ This project is proudly supported by:
           />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
@@ -109,6 +107,8 @@ This project is proudly supported by:
           />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
@@ -123,8 +123,6 @@ This project is proudly supported by:
           />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
           <img
@@ -169,6 +167,7 @@ This project is proudly supported by:
           />
         </a>
       </td>
+      <td></td>
       <td></td>
     </tr>
   </tbody>
