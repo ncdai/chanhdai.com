@@ -1,13 +1,13 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from "node:fs"
+import path from "node:path"
 
-import type { Browser } from "puppeteer-core";
-import puppeteer from "puppeteer-core";
+import type { Browser } from "puppeteer-core"
+import puppeteer from "puppeteer-core"
 
 const executablePath =
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const url = process.env.URL || "http://localhost:1408";
-const outputDir = path.join(process.cwd(), ".ncdai/screenshots");
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+const url = process.env.URL || "https://ncdai.localhost:3004"
+const outputDir = path.join(process.cwd(), ".ncdai/screenshots")
 
 const SIZE = {
   // Full HD
@@ -25,9 +25,9 @@ const SIZE = {
     width: 1200,
     height: 630,
   },
-} as const;
+} as const
 
-type Theme = "light" | "dark";
+type Theme = "light" | "dark"
 
 async function captureScreenshot({
   browser,
@@ -36,50 +36,50 @@ async function captureScreenshot({
   themes = ["light"],
   type = "webp",
 }: {
-  browser: Browser;
-  url: string;
-  size: keyof typeof SIZE;
-  themes?: Theme[];
-  type?: "webp" | "png" | "jpeg";
+  browser: Browser
+  url: string
+  size: keyof typeof SIZE
+  themes?: Theme[]
+  type?: "webp" | "png" | "jpeg"
 }) {
   // Ensure the output directory exists
-  await fs.promises.mkdir(outputDir, { recursive: true });
+  await fs.promises.mkdir(outputDir, { recursive: true })
 
-  const page = await browser.newPage();
+  const page = await browser.newPage()
 
-  const { width, height } = SIZE[size];
-  await page.setViewport({ width, height });
+  const { width, height } = SIZE[size]
+  await page.setViewport({ width, height })
 
-  await page.goto(url, { waitUntil: "networkidle2" });
+  await page.goto(url, { waitUntil: "networkidle2" })
 
   for (const theme of themes) {
     await page.emulateMediaFeatures([
       { name: "prefers-color-scheme", value: theme },
-    ]);
+    ])
 
-    await page.reload({ waitUntil: "networkidle0" });
+    await page.reload({ waitUntil: "networkidle0" })
 
     const filePath = path.join(
       outputDir,
       `screenshot-${size}-${theme}.${type}`
-    ) as `${string}.webp` | `${string}.png` | `${string}.jpeg`;
+    ) as `${string}.webp` | `${string}.png` | `${string}.jpeg`
 
     await page.screenshot({
       path: filePath,
       type,
       quality: type !== "png" ? 90 : undefined,
-    });
+    })
 
-    console.log(`✅ Screenshot saved:`, filePath);
+    console.log(`✅ Screenshot saved:`, filePath)
   }
 
-  await page.close();
+  await page.close()
 }
 
 async function main() {
   const browser = await puppeteer.launch({
     executablePath,
-  });
+  })
 
   try {
     await captureScreenshot({
@@ -87,14 +87,14 @@ async function main() {
       url,
       size: "desktop",
       themes: ["light", "dark"],
-    });
+    })
 
     await captureScreenshot({
       browser,
       url,
       size: "mobile",
       themes: ["light", "dark"],
-    });
+    })
 
     await captureScreenshot({
       browser,
@@ -102,14 +102,14 @@ async function main() {
       size: "og-image",
       themes: ["light", "dark"],
       type: "png",
-    });
+    })
 
-    console.log("✅ All screenshots captured successfully.");
+    console.log("✅ All screenshots captured successfully.")
   } catch (error) {
-    console.error("⛔️ Error capturing screenshots:", error);
+    console.error("⛔️ Error capturing screenshots:", error)
   } finally {
-    await browser.close();
+    await browser.close()
   }
 }
 
-main();
+main()
