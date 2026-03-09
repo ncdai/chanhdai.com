@@ -66,7 +66,7 @@ export function TestimonialsMarquee() {
       </Marquee>
 
       <div className="absolute right-0 bottom-0 z-10 -translate-x-1 -translate-y-[calc(var(--spacing)+1px)] rounded-lg bg-background ring-1 ring-background">
-        <Button variant="outline" size="icon-sm" asChild>
+        <Button className="size-7" variant="outline" size="icon-sm" asChild>
           <Link href="/testimonials" aria-label="See all testimonials">
             <ArrowUpRightIcon />
           </Link>
