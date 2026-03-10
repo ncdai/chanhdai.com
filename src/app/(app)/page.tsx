@@ -46,10 +46,10 @@ export default function Page() {
         <Separator />
 
         <About />
-        <div className="flex h-4 w-full border-x border-edge" />
+        <div className="flex h-2 w-full border-x border-edge" />
 
         <TestimonialsMarquee />
-        <div className="flex h-4 w-full border-x border-edge" />
+        <div className="flex h-2 w-full border-x border-edge" />
 
         <GitHubContributions />
         <Separator />
