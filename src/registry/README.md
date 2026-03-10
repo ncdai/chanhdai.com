@@ -1,17 +1,10 @@
 # Registry
 
-[Trusted registry](https://ui.shadcn.com/docs/directory?q=ncdai) for shadcn/ui.
+A beautifully designed collection of reusable components and production-ready blocks. [Trusted registry](https://ui.shadcn.com/docs/directory?q=ncdai) for shadcn/ui.
 
-## Components
+→ Browse components and blocks:
 
-A collection of reusable components.
-
-→ Check out the live site: https://chanhdai.com/components
+- https://chanhdai.com/components
+- https://chanhdai.com/blocks
 
 [![screenshot](https://assets.chanhdai.com/images/ui-og-image-dark.webp)](https://chanhdai.com/components)
-
-## Blocks
-
-A collection of beautifully designed, production-ready blocks.
-
-→ Check out the live site: https://chanhdai.com/blocks
