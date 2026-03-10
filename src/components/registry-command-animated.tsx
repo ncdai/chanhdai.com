@@ -99,6 +99,7 @@ export function RegistryCommandAnimated() {
                 animate: { y: 0, opacity: 1 },
                 exit: { y: 12, opacity: 0 },
               }}
+              interval={1.5}
               onIndexChange={(index: number) => {
                 currentItemRef.current = registryItemNames[index]
               }}
