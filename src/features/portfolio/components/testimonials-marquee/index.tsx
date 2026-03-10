@@ -17,7 +17,7 @@ export function TestimonialsMarquee() {
   return (
     <Panel
       id="testimonials"
-      className="before:z-11 after:z-10 [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!"
+      className="before:content-none after:content-none [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!"
     >
       <h2 className="sr-only">Testimonials</h2>
 
@@ -33,7 +33,7 @@ export function TestimonialsMarquee() {
             .map((item) => (
               <MarqueeItem
                 key={item.url}
-                className="mx-0 h-full max-w-xs min-w-2xs border-r border-edge"
+                className="mx-1 h-full max-w-xs min-w-2xs"
                 style={item.style}
               >
                 <TestimonialItem {...item} />
@@ -42,7 +42,7 @@ export function TestimonialsMarquee() {
         </MarqueeContent>
       </Marquee>
 
-      <div className="screen-line-before screen-line-after relative flex h-4 w-full" />
+      <div className="flex h-2 w-full" />
 
       <Marquee>
         <MarqueeFade side="left" />
@@ -56,7 +56,7 @@ export function TestimonialsMarquee() {
             .map((item) => (
               <MarqueeItem
                 key={item.url}
-                className="mx-0 h-full max-w-xs min-w-2xs border-r border-edge"
+                className="mx-1 h-full max-w-xs min-w-2xs"
                 style={item.style}
               >
                 <TestimonialItem {...item} />
@@ -65,7 +65,7 @@ export function TestimonialsMarquee() {
         </MarqueeContent>
       </Marquee>
 
-      <div className="absolute right-0 bottom-0 z-10 -translate-x-1 -translate-y-[calc(var(--spacing)+1px)] rounded-lg bg-background ring-1 ring-background">
+      <div className="absolute right-0 bottom-0 z-10 -translate-x-2 rounded-lg bg-background ring-1 ring-background">
         <Button className="size-7" variant="outline" size="icon-sm" asChild>
           <Link href="/testimonials" aria-label="See all testimonials">
             <ArrowUpRightIcon />
