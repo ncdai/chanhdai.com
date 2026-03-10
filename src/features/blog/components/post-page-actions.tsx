@@ -109,6 +109,11 @@ export function ViewOptions({
         icon: Icons.markdown,
       },
       {
+        title: "Open in GitHub",
+        href: `https://github.com/ncdai/chanhdai.com/blob/main/src/features/doc/content/${markdownUrl.split("/").slice(-1).join("/")}`,
+        icon: Icons.github,
+      },
+      {
         title: "Open in ChatGPT",
         href: `https://chatgpt.com/?${new URLSearchParams({
           hints: "search",
@@ -124,6 +129,20 @@ export function ViewOptions({
         icon: Icons.claude,
       },
       {
+        title: "Open in Cursor",
+        href: `https://cursor.com/link/prompt?${new URLSearchParams({
+          text: q,
+        })}`,
+        icon: Icons.cursor,
+      },
+      {
+        title: "Open in Grok",
+        href: `https://grok.com/?${new URLSearchParams({
+          q,
+        })}`,
+        icon: Icons.grok,
+      },
+      {
         title: "Open in Scira AI",
         href: `https://scira.ai/?${new URLSearchParams({
           q,
@@ -133,7 +152,7 @@ export function ViewOptions({
     ]
 
     if (isComponent) {
-      _items.splice(1, 0, {
+      _items.splice(2, 0, {
         title: "Open in v0",
         href: `https://v0.app/?${new URLSearchParams({
           q,
