@@ -91,7 +91,6 @@ In-house Project: [ZaDark](https://zadark.com)
     id: "simplamo",
     companyName: "Simplamo",
     companyLogo: "https://assets.chanhdai.com/images/companies/simplamo.webp",
-    companyWebsite: "https://simplamo.com",
     positions: [
       {
         id: "2",
