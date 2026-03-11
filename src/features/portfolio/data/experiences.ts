@@ -281,15 +281,13 @@ In-house Project: [ZaDark](https://zadark.com)
           "C++",
           "Java",
           "Python",
-          "Data Structures",
-          "Algorithms",
+          "PHP",
+          "DSA",
           "Advanced Databases",
           "Systems Design",
           "Distributed Systems",
           "Software Engineering",
-          "Self-learning",
           "Teamwork",
-          "Presentation",
         ],
       },
       {
@@ -323,7 +321,6 @@ In-house Project: [ZaDark](https://zadark.com)
           "Laravel",
           "Node.js",
           "Pandoc",
-          "Self-learning",
         ],
       },
       {
@@ -341,14 +338,7 @@ In-house Project: [ZaDark](https://zadark.com)
   - 1st Prize — Can Tho City Young Informatics Contest 2014
 - Achieved the title of Outstanding Student from Grade 6-9.
 - Developed websites using the open-source NukeViet CMS.`,
-        skills: [
-          "Pascal",
-          "NukeViet",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Self-learning",
-        ],
+        skills: ["Pascal", "NukeViet", "HTML", "CSS", "JavaScript"],
       },
     ],
   },
