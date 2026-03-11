@@ -40,7 +40,7 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
       },
       {
         id: "1",
-        title: "Founder & Director",
+        title: "Founder",
         employmentPeriod: "03.2024 — present",
         employmentType: "Part-time",
         icon: BriefcaseBusinessIcon,

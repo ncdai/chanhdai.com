@@ -76,7 +76,7 @@ In-house Project: [ZaDark](https://zadark.com)
       },
       {
         id: "1",
-        title: "Founder & Director",
+        title: "Founder",
         employmentPeriod: {
           start: "03.2024",
         },
