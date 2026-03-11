@@ -43,7 +43,7 @@ export function ProjectItem({
             width={32}
             height={32}
             quality={100}
-            className="mx-4 flex size-6 shrink-0 select-none dark:grayscale"
+            className="mx-4 flex size-6 shrink-0 select-none"
             unoptimized
             aria-hidden
           />

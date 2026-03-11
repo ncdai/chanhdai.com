@@ -65,7 +65,7 @@ export function CodeBlockCommand({
         {Object.entries(tabs).map(([key, value]) => {
           return (
             <TabsContent key={key} value={key}>
-              <pre>
+              <pre className="scroll-fade-effect-x">
                 <code
                   data-slot="code-block"
                   data-language="bash"

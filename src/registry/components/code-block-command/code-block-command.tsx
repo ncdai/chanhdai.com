@@ -136,7 +136,7 @@ export function CodeBlockCommand({
         {Object.entries(tabs).map(([key, value]) => {
           return (
             <TabsContent key={key} value={key}>
-              <pre className="overflow-x-auto overscroll-x-contain p-4">
+              <pre className="overflow-x-auto overscroll-x-contain scroll-fade-effect-x p-4">
                 <code
                   data-slot="code-block"
                   data-language="bash"

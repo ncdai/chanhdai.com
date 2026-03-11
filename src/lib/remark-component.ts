@@ -6,6 +6,8 @@ import { visit } from "unist-util-visit"
 import { Index } from "@/__registry__/index"
 import type { UnistNode, UnistTree } from "@/types/unist"
 
+import { fixImport } from "./registry"
+
 export function remarkComponent() {
   return async (tree: UnistTree) => {
     visit(tree, (node: UnistNode, index, parent) => {
@@ -54,9 +56,10 @@ export function remarkComponent() {
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.
           // For now a simple regex should do.
-          source = source.replaceAll("@/registry/", "@/")
-          source = source.replaceAll("@/components/base/ui/", "@/components/")
-          source = source.replaceAll("export default", "export")
+          // source = source.replaceAll("@/registry/", "@/")
+          // source = source.replaceAll("@/components/base/ui/", "@/components/")
+          // source = source.replaceAll("export default", "export")
+          source = fixImport(source)
 
           const title = getNodeAttributeByName(node, "title")
           const showLineNumbers = getNodeAttributeByName(
@@ -101,9 +104,10 @@ export function remarkComponent() {
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.
           // For now a simple regex should do.
-          source = source.replaceAll("@/registry/", "@/")
-          source = source.replaceAll("@/components/base/ui/", "@/components/")
-          source = source.replaceAll("export default", "export")
+          // source = source.replaceAll("@/registry/", "@/")
+          // source = source.replaceAll("@/components/base/ui/", "@/components/")
+          // source = source.replaceAll("export default", "export")
+          source = fixImport(source)
 
           const codeBlock = {
             type: "code",
