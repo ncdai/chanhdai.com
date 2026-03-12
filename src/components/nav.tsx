@@ -18,7 +18,7 @@ export function Nav({
       data-active-id={activeId}
       className={cn("flex items-center gap-4", className)}
     >
-      {items.map(({ title, href }) => {
+      {items.map(({ title, href, className }) => {
         const active =
           activeId === href ||
           (href === "/" // Home page
@@ -26,7 +26,7 @@ export function Nav({
             : activeId?.startsWith(href))
 
         return (
-          <NavItem key={href} href={href} active={active}>
+          <NavItem key={href} className={className} href={href} active={active}>
             {title}
           </NavItem>
         )
@@ -36,6 +36,7 @@ export function Nav({
 }
 
 export function NavItem({
+  className,
   active,
   ...props
 }: React.ComponentProps<typeof Link> & {
@@ -45,7 +46,8 @@ export function NavItem({
     <Link
       className={cn(
         "font-mono text-sm font-medium text-muted-foreground transition-[color] hover:text-foreground",
-        active && "text-foreground"
+        active && "text-foreground",
+        className
       )}
       {...props}
     />
