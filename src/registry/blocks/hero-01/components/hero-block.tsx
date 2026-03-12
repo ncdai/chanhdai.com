@@ -1,20 +1,18 @@
+import { Volume2Icon } from "lucide-react"
 import type { JSX } from "react"
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { BrandPronunciation } from "@/registry/blocks/hero-01/components/brand-pronunciation"
 
 export function HeroBlock() {
   return (
-    <div className="relative mb-8 w-screen overflow-hidden pb-8">
+    <div className="relative w-screen overflow-hidden pb-8">
       <div className="container mx-auto max-sm:px-2">
-        <div className="h-2 w-full border-x" />
-
         <div
           className={cn(
-            "relative border-x md:hidden",
-            "after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border",
-            "before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-border"
+            "relative border-x border-border/50 md:hidden",
+            "after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border/50",
+            "before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-border/50"
           )}
         >
           <svg
@@ -122,9 +120,9 @@ export function HeroBlock() {
 
         <div
           className={cn(
-            "relative hidden border-x md:block",
-            "before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-border",
-            "after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border"
+            "relative hidden border-x border-border/50 md:block",
+            "before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-border/50",
+            "after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border/50"
           )}
         >
           <svg
@@ -229,13 +227,17 @@ function MainContent({ className }: { className?: string }) {
       </h1>
 
       <p className="mb-6 text-base leading-normal! text-muted-foreground sm:mb-8 sm:text-xl sm:text-balance md:text-lg lg:text-xl">
-        Quaric{" "}
-        <BrandPronunciation audioUrl="https://assets.quaric.com/audio/quaric.mp3" />{" "}
+        Acme{" "}
+        <button
+          className="relative top-0.75 inline-flex transition-[scale] outline-none active:scale-[0.97] sm:top-1"
+          aria-label="Pronunciation"
+        >
+          <Volume2Icon className="size-[1em]" />
+        </button>{" "}
         provides{" "}
         <strong className="font-normal text-foreground">professional</strong>,{" "}
         <strong className="font-normal text-foreground">high-quality</strong>{" "}
-        Web, iOS, and Android application design and development services based
-        on your ideas.
+        software design and development services based on your ideas.
       </p>
 
       <div className="mb-6 grid grid-cols-2 items-center gap-4 sm:mb-8 sm:flex">
