@@ -31,10 +31,11 @@ export const MAIN_NAV: NavItem[] = [
     title: "Blog",
     href: "/blog",
   },
-  // {
-  //   title: "Sponsors",
-  //   href: "/sponsors",
-  // },
+  {
+    title: "Sponsors",
+    href: "/sponsors",
+    className: "sm:max-md:hidden",
+  },
 ]
 
 export const X_USERNAME = "@iamncdai"

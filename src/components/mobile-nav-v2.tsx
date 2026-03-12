@@ -10,6 +10,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { useMediaQuery } from "@/hooks/use-media-query"
+import { cn } from "@/lib/utils"
 import { haptic } from "@/registry/lib/haptic"
 import type { NavItem } from "@/types/nav"
 
@@ -48,20 +49,12 @@ export function MobileNavV2({ items }: { items: NavItem[] }) {
             <Link
               key={link.href}
               href={link.href}
-              className="text-2xl font-medium"
+              className={cn("text-2xl font-medium", link.className)}
               onClick={() => setOpen(false)}
             >
               {link.title}
             </Link>
           ))}
-
-          <Link
-            href="/sponsors"
-            className="text-2xl font-medium"
-            onClick={() => setOpen(false)}
-          >
-            Sponsors
-          </Link>
         </div>
       </PopoverContent>
     </Popover>
