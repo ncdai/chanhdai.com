@@ -122,7 +122,7 @@ function BlockViewerProvider({
     >
       <div
         id={item.name}
-        className="flex min-w-0 scroll-mt-[calc(--spacing(24)-1px)] flex-col-reverse items-stretch gap-2 p-2 md:flex-col lg:pr-0"
+        className="flex min-w-0 scroll-mt-14 flex-col-reverse items-stretch gap-2 p-2 md:flex-col lg:pr-0"
         style={
           {
             "--height": item.meta?.iframeHeight ?? "768px",
