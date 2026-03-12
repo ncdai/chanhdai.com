@@ -456,6 +456,35 @@
         "login"
       ],
       "type": "registry:block"
+    },
+    {
+      "name": "hero-01",
+      "title": "Hero 01",
+      "description": "A hero section with a golden spiral background.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/hero/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/hero-01/components/hero-block.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/registry/blocks/hero-01/components/brand-pronunciation.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "layout",
+        "hero"
+      ],
+      "type": "registry:block"
     }
   ]
 }
