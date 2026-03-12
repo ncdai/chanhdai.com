@@ -277,4 +277,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     quote: "amazing, such cool libraries",
     date: "2026-03-02",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/kapish_dima?t=zzx7M",
+    authorName: "KapishDima",
+    authorTagline: "Creator of soundcn.xyz",
+    url: "https://x.com/kapish_dima/status/2028094092366807227",
+    quote: "As always, brilliant",
+    date: "2026-03-01",
+  },
 ]
