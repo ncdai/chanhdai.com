@@ -20,4 +20,27 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["authentication", "login"],
   },
+  {
+    name: "hero-01",
+    title: "Hero 01",
+    description: "A hero section with a golden spiral background.",
+    type: "registry:block",
+    registryDependencies: ["button", "tooltip"],
+    files: [
+      {
+        path: "blocks/hero-01/page.tsx",
+        target: "app/hero/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/hero-01/components/hero-block.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/hero-01/components/brand-pronunciation.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["layout", "hero"],
+  },
 ]

@@ -297,6 +297,29 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
   },
+  "hero-01": {
+    name: "hero-01",
+    description: "A hero section with a golden spiral background.",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/blocks/hero-01/page.tsx",
+      type: "registry:page",
+      target: "app/hero/page.tsx",
+    },{
+      path: "src/registry/blocks/hero-01/components/hero-block.tsx",
+      type: "registry:component",
+      target: "",
+    },{
+      path: "src/registry/blocks/hero-01/components/brand-pronunciation.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/blocks/hero-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+  },
   "text-flip-demo": {
     name: "text-flip-demo",
     description: "",
