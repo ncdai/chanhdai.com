@@ -462,8 +462,7 @@
       "title": "Hero 01",
       "description": "A hero section with a golden spiral background.",
       "registryDependencies": [
-        "button",
-        "tooltip"
+        "button"
       ],
       "files": [
         {
@@ -473,10 +472,6 @@
         },
         {
           "path": "src/registry/blocks/hero-01/components/hero-block.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "src/registry/blocks/hero-01/components/brand-pronunciation.tsx",
           "type": "registry:component"
         }
       ],
