@@ -511,7 +511,7 @@ function BlockViewerMobile() {
   return (
     <div className="flex flex-col gap-2 lg:hidden">
       <div className="flex items-center gap-2 px-2">
-        <div className="line-clamp-1 text-sm font-medium">
+        <div className="line-clamp-2 text-sm font-medium text-balance">
           {item.description?.replace(/\.$/, "")}
         </div>
 
