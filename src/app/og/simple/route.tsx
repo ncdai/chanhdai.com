@@ -1,20 +1,21 @@
-import { readFile } from "node:fs/promises"
+import { readFileSync } from "node:fs"
 import { join } from "node:path"
 
 import { ImageResponse } from "next/og"
+
+const geistMedium = readFileSync(
+  join(process.cwd(), "src/assets/fonts/Geist-Medium.ttf")
+)
+
+const geistSemiBold = readFileSync(
+  join(process.cwd(), "src/assets/fonts/Geist-SemiBold.ttf")
+)
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
   const title = searchParams.get("title")
   const description = searchParams.get("description")
-
-  const geistMedium = await readFile(
-    join(process.cwd(), "src/assets/fonts/Geist-Medium.ttf")
-  )
-  const geistSemiBold = await readFile(
-    join(process.cwd(), "src/assets/fonts/Geist-SemiBold.ttf")
-  )
 
   return new ImageResponse(
     (
