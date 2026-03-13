@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckIcon, ChevronRightIcon, TerminalIcon } from "lucide-react"
+import { CheckIcon, ChevronRightIcon } from "lucide-react"
 import React, {
   createContext,
   useContext,
@@ -268,7 +268,7 @@ function BlockViewerToolbar() {
         >
           <CopyStateIcon
             state={state}
-            idleIcon={<TerminalIcon />}
+            idleIcon={<Icons.terminal />}
             doneIcon={<CheckIcon />}
           />
           <span>
