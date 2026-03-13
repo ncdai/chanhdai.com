@@ -12,9 +12,7 @@ import {
   CornerDownLeftIcon,
   DownloadIcon,
   FileTextIcon,
-  HeartIcon,
   LayersIcon,
-  LayoutTemplateIcon,
   MoonStarIcon,
   MousePointer2Icon,
   QuoteIcon,
@@ -77,17 +75,17 @@ const MENU_LINKS: CommandLinkItem[] = [
   {
     title: "Blocks",
     href: "/blocks",
-    icon: LayoutTemplateIcon,
+    icon: Icons.gridView,
   },
   {
     title: "Blog",
     href: "/blog",
-    icon: RssIcon,
+    icon: Icons.news,
   },
   {
     title: "Sponsors",
     href: "/sponsors",
-    icon: HeartIcon,
+    icon: Icons.favourite,
   },
 ]
 
