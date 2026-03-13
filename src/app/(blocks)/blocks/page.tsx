@@ -19,7 +19,11 @@ export default async function BlocksPage() {
         </Fragment>
       ))}
 
-      <div className="h-8" />
+      <div className="p-2">
+        <div className="rounded-xl border p-4">
+          <p className="text-sm font-medium">More blocks on the way…</p>
+        </div>
+      </div>
     </>
   )
 }
