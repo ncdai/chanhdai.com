@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-01",
+  "title": "Blog 01",
+  "description": "A simple blog section with a grid layout.",
+  "dependencies": [
+    "date-fns"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/blog-01/page.tsx",
+      "content": "import { ChevronRightIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { ArticleItem } from \"@/registry/blocks/blog-01/components/article-item\"\n\nexport default function Page() {\n  return (\n    <div className=\"container mx-auto flex flex-col gap-8 px-4 py-8\">\n      <h2 className=\"ml-4 text-4xl leading-snug font-medium tracking-tight md:text-5xl\">\n        Blog\n      </h2>\n\n      <div className=\"grid gap-4 md:grid-cols-2 lg:grid-cols-3\">\n        {articles.map((article) => (\n          <a key={article.id} className=\"block h-full\" href=\"#\">\n            <ArticleItem\n              title={article.title}\n              coverUrl={article.coverUrl}\n              createdAt={article.createdAt}\n            />\n          </a>\n        ))}\n      </div>\n\n      <div className=\"flex justify-center\">\n        <Button className=\"gap-2 px-3\" size=\"lg\" asChild>\n          <a href=\"#\">\n            View All\n            <ChevronRightIcon />\n          </a>\n        </Button>\n      </div>\n    </div>\n  )\n}\n\ntype Article = {\n  id: string\n  title: string\n  coverUrl: string\n  createdAt: string\n}\n\nconst articles: Article[] = [\n  {\n    id: \"1\",\n    title:\n      \"Apple unveils iPhone 17 Pro: Aluminum frame returns, new colors, upgraded camera\",\n    coverUrl:\n      \"https://assets.chanhdai.com/registry/images/blocks/blog-01/1.webp\",\n    createdAt: \"2025-09-13\",\n  },\n  {\n    id: \"2\",\n    title:\n      'While the world is expecting AGI, François Chollet is showing just how \"naive\" AI can be',\n    coverUrl:\n      \"https://assets.chanhdai.com/registry/images/blocks/blog-01/2.webp\",\n    createdAt: \"2025-04-21\",\n  },\n  {\n    id: \"3\",\n    title:\n      \"Apple introduces iPhone 16e: A powerful new model for the iPhone 16 lineup\",\n    coverUrl:\n      \"https://assets.chanhdai.com/registry/images/blocks/blog-01/3.webp\",\n    createdAt: \"2025-02-20\",\n  },\n  {\n    id: \"4\",\n    title:\n      \"Apple unveils MacBook Pro M4: Same design, base model now with 16GB RAM, priced from $1,599\",\n    coverUrl:\n      \"https://assets.chanhdai.com/registry/images/blocks/blog-01/4.webp\",\n    createdAt: \"2024-10-31\",\n  },\n  {\n    id: \"5\",\n    title:\n      \"Apple unveils new Mac mini M4: Smaller, 16GB RAM on the base model, priced from $599\",\n    coverUrl:\n      \"https://assets.chanhdai.com/registry/images/blocks/blog-01/5.webp\",\n    createdAt: \"2024-10-31\",\n  },\n  {\n    id: \"6\",\n    title:\n      \"Apple unveils iMac M4: Unchanged design, more powerful M4 chip, RAM starts at 16GB, priced from $1,299\",\n    coverUrl:\n      \"https://assets.chanhdai.com/registry/images/blocks/blog-01/6.webp\",\n    createdAt: \"2024-10-29\",\n  },\n]\n",
+      "type": "registry:page",
+      "target": "app/blog/page.tsx"
+    },
+    {
+      "path": "src/registry/blocks/blog-01/components/article-item.tsx",
+      "content": "import { format } from \"date-fns\"\n\nexport type ArticleItemProps = {\n  title: string\n  coverUrl: string\n  createdAt: string\n}\n\nexport function ArticleItem({ title, coverUrl, createdAt }: ArticleItemProps) {\n  return (\n    <article className=\"h-full rounded-2xl border bg-card text-card-foreground shadow-xs\">\n      <div className=\"p-1 pb-0\">\n        <div className=\"relative aspect-video\">\n          <img\n            className=\"size-full rounded-xl object-cover\"\n            src={coverUrl}\n            alt={title}\n          />\n          <div className=\"pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/15\" />\n        </div>\n      </div>\n\n      <div className=\"flex flex-col gap-2 px-4 pt-4 pb-6\">\n        <time\n          className=\"block text-sm text-muted-foreground\"\n          dateTime={new Date(createdAt).toISOString()}\n        >\n          {format(new Date(createdAt), \"MMMM d, yyyy\")}\n        </time>\n\n        <h3 className=\"text-lg leading-tight font-medium text-balance\">\n          {title}\n        </h3>\n      </div>\n    </article>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "layout",
+    "blog"
+  ],
+  "type": "registry:block"
+}

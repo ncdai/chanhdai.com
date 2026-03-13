@@ -39,4 +39,24 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["layout", "hero"],
   },
+  {
+    name: "blog-01",
+    title: "Blog 01",
+    description: "A simple blog section with a grid layout.",
+    type: "registry:block",
+    dependencies: ["date-fns"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "blocks/blog-01/page.tsx",
+        target: "app/blog/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/blog-01/components/article-item.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["layout", "blog"],
+  },
 ]
