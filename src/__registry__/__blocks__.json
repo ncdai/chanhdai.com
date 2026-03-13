@@ -1,0 +1,14 @@
+[
+  {
+    "name": "login-01",
+    "description": "A simple login form."
+  },
+  {
+    "name": "hero-01",
+    "description": "A hero section with a golden spiral background."
+  },
+  {
+    "name": "blog-01",
+    "description": "A simple blog section with a grid layout."
+  }
+]
