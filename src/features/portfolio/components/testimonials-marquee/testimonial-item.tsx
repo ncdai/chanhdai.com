@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -12,18 +13,22 @@ import {
 import type { Testimonial as TestimonialType } from "../../types/testimonials"
 
 export function TestimonialItem({
+  className,
   authorAvatar,
   authorName,
   authorTagline,
   url,
   quote,
-}: TestimonialType) {
+}: TestimonialType & { className?: string }) {
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block h-full rounded-xl border border-edge transition-[background-color] ease-out hover:bg-accent-muted"
+      className={cn(
+        "block h-full rounded-xl border border-edge transition-[background-color] ease-out hover:bg-accent-muted",
+        className
+      )}
     >
       <Testimonial>
         <TestimonialQuote className="text-pretty">

@@ -49,6 +49,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "awesome. Love the components, especially slide-to-unlock. Great job",
     date: "2025-10-17",
+    isFeatured: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/orcdev",
@@ -292,5 +293,6 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/shadcn/status/2032193591133495700",
     quote: "You’re doing amazing work.",
     date: "2026-03-13",
+    isFeatured: true,
   },
 ]
