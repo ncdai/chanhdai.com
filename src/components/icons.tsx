@@ -468,6 +468,24 @@ export const Icons = {
       />
     </svg>
   ),
+  terminal: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+      {...props}
+    >
+      <path
+        d="M3.29301 4.29301C3.68354 3.90249 4.31655 3.90249 4.70708 4.29301L10.7071 10.293C11.0976 10.6835 11.0976 11.3166 10.7071 11.7071L4.70708 17.7071C4.31655 18.0976 3.68353 18.0976 3.29301 17.7071C2.90252 17.3166 2.90252 16.6835 3.29301 16.293L8.58598 11L3.29301 5.70708C2.90249 5.31655 2.90249 4.68354 3.29301 4.29301Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20 18C20.5523 18 21 18.4477 21 19C21 19.5523 20.5523 20 20 20H12C11.4477 20 11 19.5523 11 19C11 18.4477 11.4477 18 12 18H20Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
 }
 
 export function getIconForLanguageExtension(language: string) {
