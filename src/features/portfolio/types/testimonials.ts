@@ -13,4 +13,6 @@ export type Testimonial = {
   date: string
   /** Optional CSS styles to apply to the testimonial component */
   style?: React.CSSProperties
+  /** Flag to indicate if this testimonial should be highlighted as featured */
+  isFeatured?: boolean
 }
