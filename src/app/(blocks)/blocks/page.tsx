@@ -1,20 +1,18 @@
 import { Fragment } from "react"
 
+import blocks from "@/__registry__/__blocks__.json"
 import { BlockDisplay } from "@/components/block-display"
-import { getAllBlockIds } from "@/lib/blocks"
 import { cn } from "@/lib/utils"
 
 export const dynamic = "force-static"
 export const revalidate = false
 
-export default async function BlocksPage() {
-  const blocks = await getAllBlockIds()
-
+export default function BlocksPage() {
   return (
     <>
-      {blocks.map((name) => (
-        <Fragment key={name}>
-          <BlockDisplay name={name} />
+      {blocks.map((block) => (
+        <Fragment key={block.name}>
+          <BlockDisplay name={block.name} />
           <Separator />
         </Fragment>
       ))}

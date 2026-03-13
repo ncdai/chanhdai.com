@@ -8,6 +8,7 @@ import {
   BoxIcon,
   BriefcaseBusinessIcon,
   CircleCheckBigIcon,
+  CircleDashedIcon,
   CornerDownLeftIcon,
   DownloadIcon,
   FileTextIcon,
@@ -160,7 +161,18 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
   },
 ]
 
-export function CommandMenu({ posts }: { posts: DocPreview[] }) {
+type BlockItem = {
+  name: string
+  description: string
+}
+
+export function CommandMenu({
+  posts,
+  blocks,
+}: {
+  posts: DocPreview[]
+  blocks: BlockItem[]
+}) {
   const router = useRouter()
 
   const { setTheme, resolvedTheme } = useTheme()
@@ -266,6 +278,16 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
     [posts]
   )
 
+  const blockLinks = useMemo(
+    () =>
+      blocks.map((block) => ({
+        title: block.name,
+        href: `/blocks#${block.name}`,
+        keywords: ["block"],
+      })),
+    [blocks]
+  )
+
   return (
     <>
       <Button
@@ -318,9 +340,16 @@ export function CommandMenu({ posts }: { posts: DocPreview[] }) {
           />
 
           <CommandLinkGroup
-            heading="UI"
+            heading="Components"
             links={componentLinks}
             fallbackIcon={Icons.react}
+            onLinkSelect={handleOpenLink}
+          />
+
+          <CommandLinkGroup
+            heading="Blocks"
+            links={blockLinks}
+            fallbackIcon={CircleDashedIcon}
             onLinkSelect={handleOpenLink}
           />
 

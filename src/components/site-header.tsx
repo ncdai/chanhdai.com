@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
+import blocks from "@/__registry__/__blocks__.json"
 import { DesktopNav } from "@/components/desktop-nav"
 import { NavItemGitHub } from "@/components/nav-item-github"
 import { MAIN_NAV } from "@/config/site"
@@ -68,7 +69,7 @@ export function SiteHeader({
         <DesktopNav items={MAIN_NAV} />
 
         <div className="flex items-center *:first:mr-2">
-          <CommandMenu posts={postPreviews} />
+          <CommandMenu posts={postPreviews} blocks={blocks} />
           <NavItemGitHub />
           <Separator
             orientation="vertical"
