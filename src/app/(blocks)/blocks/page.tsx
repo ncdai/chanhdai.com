@@ -20,8 +20,10 @@ export default async function BlocksPage() {
       ))}
 
       <div className="p-2">
-        <div className="rounded-xl border p-4">
-          <p className="text-sm font-medium">More blocks on the way…</p>
+        <div className="rounded-xl border border-dashed p-4">
+          <p className="font-mono text-sm text-muted-foreground">
+            {"//"} More blocks on the way…
+          </p>
         </div>
       </div>
     </>
