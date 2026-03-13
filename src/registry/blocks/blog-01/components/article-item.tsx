@@ -8,7 +8,7 @@ export type ArticleItemProps = {
 
 export function ArticleItem({ title, coverUrl, createdAt }: ArticleItemProps) {
   return (
-    <article className="h-full rounded-2xl border bg-card text-card-foreground shadow-xs">
+    <article className="h-full rounded-2xl bg-card text-card-foreground shadow-xs ring-1 ring-foreground/10 dark:ring-border">
       <div className="p-1 pb-0">
         <div className="relative aspect-video">
           <img
