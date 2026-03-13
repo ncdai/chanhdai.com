@@ -285,4 +285,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     quote: "As always, brilliant",
     date: "2026-03-01",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/shadcn",
+    authorName: "shadcn",
+    authorTagline: "Creator of shadcn/ui",
+    url: "https://x.com/shadcn/status/2032193591133495700",
+    quote: "You’re doing amazing work.",
+    date: "2026-03-13",
+  },
 ]
