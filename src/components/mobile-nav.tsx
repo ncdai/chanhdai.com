@@ -63,14 +63,14 @@ function MobileNavTrigger(
 ) {
   return (
     <Button
-      className="group flex touch-manipulation flex-col gap-1 border-none data-open:bg-accent"
+      className="group extend-touch-target flex flex-col gap-1 border-none data-open:bg-accent"
       variant="ghost"
       size="icon-sm"
+      aria-label="Toggle Menu"
       {...props}
     >
       <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]:translate-y-0.75 group-data-[state=open]:rotate-45" />
       <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]:-translate-y-0.75 group-data-[state=open]:-rotate-45" />
-      <span className="sr-only">Toggle Menu</span>
     </Button>
   )
 }
