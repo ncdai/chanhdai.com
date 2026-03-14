@@ -119,7 +119,7 @@ export function SiteFooter({
         </div>
       </div>
       <div className="pb-[env(safe-area-inset-bottom,0px)]">
-        <div className="flex h-2" />
+        <div className="flex h-16 sm:h-2" />
       </div>
     </footer>
   )

@@ -167,9 +167,11 @@ type BlockItem = {
 export function CommandMenu({
   posts,
   blocks,
+  enabledHotkeys = false,
 }: {
   posts: DocPreview[]
   blocks: BlockItem[]
+  enabledHotkeys?: boolean
 }) {
   const router = useRouter()
 
@@ -179,22 +181,26 @@ export function CommandMenu({
 
   const [, setIsDuckFollowerVisible] = useDuckFollowerVisibility()
 
-  useHotkeys("mod+k, slash", (e) => {
-    e.preventDefault()
+  useHotkeys(
+    "mod+k, slash",
+    (e) => {
+      e.preventDefault()
 
-    setOpen((open) => {
-      if (!open) {
-        trackEvent({
-          name: "open_command_menu",
-          properties: {
-            method: "keyboard",
-            key: e.key === "/" ? "/" : e.metaKey ? "cmd+k" : "ctrl+k",
-          },
-        })
-      }
-      return !open
-    })
-  })
+      setOpen((open) => {
+        if (!open) {
+          trackEvent({
+            name: "open_command_menu",
+            properties: {
+              method: "keyboard",
+              key: e.key === "/" ? "/" : e.metaKey ? "cmd+k" : "ctrl+k",
+            },
+          })
+        }
+        return !open
+      })
+    },
+    { enabled: enabledHotkeys }
+  )
 
   const handleOpenLink = useCallback(
     (href: string, openInNewTab = false) => {
@@ -288,10 +294,7 @@ export function CommandMenu({
 
   return (
     <>
-      <Button
-        className="gap-1.5 rounded-full text-muted-foreground shadow-none select-none hover:bg-background hover:text-muted-foreground dark:hover:bg-input/30"
-        variant="outline"
-        size="sm"
+      <CommandMenuTrigger
         onClick={() => {
           setOpen(true)
           trackEvent({
@@ -301,23 +304,7 @@ export function CommandMenu({
             },
           })
         }}
-      >
-        <Icons.search />
-
-        <span className="font-sans text-sm/4 font-medium sm:hidden">
-          Search…
-        </span>
-
-        <KbdGroup className="hidden sm:in-[.os-macos_&]:flex">
-          <Kbd className="w-5 min-w-5">⌘</Kbd>
-          <Kbd className="w-5 min-w-5">K</Kbd>
-        </KbdGroup>
-
-        <KbdGroup className="hidden sm:not-[.os-macos_&]:flex">
-          <Kbd>Ctrl</Kbd>
-          <Kbd className="w-5 min-w-5">K</Kbd>
-        </KbdGroup>
-      </Button>
+      />
 
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandMenuInput />
@@ -445,6 +432,32 @@ export function CommandMenu({
         <CommandMenuFooter />
       </CommandDialog>
     </>
+  )
+}
+
+function CommandMenuTrigger({ ...props }: React.ComponentProps<typeof Button>) {
+  return (
+    <Button
+      data-slot="command-menu-trigger"
+      className="gap-1.5 rounded-full text-muted-foreground shadow-none select-none hover:bg-background hover:text-muted-foreground dark:hover:bg-input/30"
+      variant="outline"
+      size="sm"
+      {...props}
+    >
+      <Icons.search />
+
+      <span className="font-sans text-sm/4 font-medium sm:hidden">Search…</span>
+
+      <KbdGroup className="hidden sm:in-[.os-macos_&]:flex">
+        <Kbd className="w-5 min-w-5">⌘</Kbd>
+        <Kbd className="w-5 min-w-5">K</Kbd>
+      </KbdGroup>
+
+      <KbdGroup className="hidden sm:not-[.os-macos_&]:flex">
+        <Kbd>Ctrl</Kbd>
+        <Kbd className="w-5 min-w-5">K</Kbd>
+      </KbdGroup>
+    </Button>
   )
 }
 
