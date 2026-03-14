@@ -47,7 +47,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
               key={link.href}
               href={link.href}
               className={cn("text-base font-medium", link.className)}
-              onClick={() => setOpen(false)}
+              onClick={() => handleOpenChange(false)}
             >
               {link.title}
             </Link>
