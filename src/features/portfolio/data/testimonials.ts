@@ -295,4 +295,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     date: "2026-03-13",
     isFeatured: true,
   },
+  {
+    authorAvatar: "https://unavatar.io/x/orcdev",
+    authorName: "OrcDev",
+    authorTagline: "Creator of 8bitcn.com",
+    url: "https://x.com/orcdev/status/2032398810035417582",
+    quote: "Đại is amazing",
+    date: "2026-03-13",
+  },
 ]
