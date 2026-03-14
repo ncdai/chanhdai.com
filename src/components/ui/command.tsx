@@ -9,7 +9,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/base/ui/dialog"
+} from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 
 function Command({
@@ -46,9 +46,10 @@ function CommandDialog({
       </DialogHeader>
 
       <DialogContent
-        className="bg-popover p-0 max-sm:top-16 max-sm:translate-y-0 sm:max-w-lg"
         data-slot="command-dialog-content"
+        className="bg-popover p-0 max-sm:top-16 max-sm:translate-y-0 sm:max-w-lg"
         showCloseButton={false}
+        showOverlay={false}
       >
         <Command
           className={cn(
