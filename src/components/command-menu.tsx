@@ -8,7 +8,6 @@ import {
   BoxIcon,
   BriefcaseBusinessIcon,
   CircleCheckBigIcon,
-  CircleDashedIcon,
   CornerDownLeftIcon,
   DownloadIcon,
   FileTextIcon,
@@ -18,7 +17,6 @@ import {
   QuoteIcon,
   RssIcon,
   SunMediumIcon,
-  TextIcon,
   TextInitialIcon,
   TriangleDashedIcon,
   TypeIcon,
@@ -334,14 +332,14 @@ export function CommandMenu({
           <CommandLinkGroup
             heading="Blocks"
             links={blockLinks}
-            fallbackIcon={CircleDashedIcon}
+            fallbackIcon={Icons.gridView}
             onLinkSelect={handleOpenLink}
           />
 
           <CommandLinkGroup
             heading="Blog"
             links={blogLinks}
-            fallbackIcon={TextIcon}
+            fallbackIcon={Icons.news}
             onLinkSelect={handleOpenLink}
           />
 
@@ -588,7 +586,7 @@ function CommandMenuFooter() {
       <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 rounded-b-2xl border-t px-4 text-xs font-medium">
         <ChanhDaiMark className="size-6 text-muted-foreground" />
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2 max-sm:hidden">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
           <Kbd>
             <CornerDownLeftIcon />
