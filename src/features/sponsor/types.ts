@@ -1,6 +1,6 @@
 import type { JSX } from "react"
 
-export type SponsorTier = "oss" | "silver" | "gold" | "platinum"
+export type SponsorTier = "osp" | "silver" | "gold" | "platinum"
 
 type SponsorBase = {
   name: string

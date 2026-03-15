@@ -15,7 +15,7 @@ export const sponsors: Sponsor[] = [
         </svg>
       )
     },
-    tier: "oss",
+    tier: "osp",
   },
   {
     type: "organization",
@@ -165,6 +165,6 @@ export const sponsors: Sponsor[] = [
         </svg>
       )
     },
-    tier: "oss",
+    tier: "osp",
   },
 ]
