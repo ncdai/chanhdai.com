@@ -22,7 +22,7 @@ export function ConsentManager({ children }: { children: React.ReactNode }) {
             noStyle: true,
             className: cn(
               "relative w-full max-w-(--banner-max-width) divide-y overflow-hidden rounded-2xl",
-              "bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10 dark:ring-border"
+              "bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10 dark:ring-foreground/20"
             ),
           },
           "banner.header.title": {
