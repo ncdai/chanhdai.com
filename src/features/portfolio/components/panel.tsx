@@ -54,10 +54,32 @@ function PanelTitleSup({ className, ...props }: React.ComponentProps<"sup">) {
   )
 }
 
+function PanelDescription({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
+  return (
+    <div
+      className={cn(
+        "screen-line-before py-2 font-mono text-sm text-balance text-muted-foreground",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
 function PanelContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div data-slot="panel-body" className={cn("p-4", className)} {...props} />
   )
 }
 
-export { Panel, PanelContent, PanelHeader, PanelTitle, PanelTitleSup }
+export {
+  Panel,
+  PanelContent,
+  PanelDescription,
+  PanelHeader,
+  PanelTitle,
+  PanelTitleSup,
+}
