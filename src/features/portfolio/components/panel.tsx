@@ -20,7 +20,10 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"header">) {
   return (
     <header
       data-slot="panel-header"
-      className={cn("screen-line-after px-4", className)}
+      className={cn(
+        "screen-line-after px-4 has-data-[slot=panel-description]:*:data-[slot=panel-title]:screen-line-after",
+        className
+      )}
       {...props}
     />
   )
@@ -60,8 +63,9 @@ function PanelDescription({
 }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="panel-description"
       className={cn(
-        "screen-line-before py-2 font-mono text-sm text-balance text-muted-foreground",
+        "py-4 font-mono text-sm text-balance text-muted-foreground",
         className
       )}
       {...props}

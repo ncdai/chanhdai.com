@@ -52,7 +52,7 @@ export function CollapsibleList<T>({
         <div className="flex h-12 items-center justify-center pb-px">
           <CollapsibleTrigger
             render={
-              <Button className="gap-2 border-none px-3" size="sm">
+              <Button className="gap-2 border-none pr-2.5 pl-3" size="sm">
                 <span className="hidden group-data-closed/collapsible:block">
                   Show More
                 </span>

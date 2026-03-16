@@ -62,7 +62,7 @@ export function Components() {
 
       <div className="-mt-px flex justify-center py-2">
         <Button
-          className="gap-2 border-none px-3"
+          className="gap-2 border-none pr-2.5 pl-3"
           size="sm"
           nativeButton={false}
           render={<Link href="/components" />}
