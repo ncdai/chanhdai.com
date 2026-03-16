@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "@bprogress/next/app"
 import { useCommandState } from "cmdk"
 import type { LucideProps } from "lucide-react"
 import {
@@ -22,7 +23,6 @@ import {
   TypeIcon,
 } from "lucide-react"
 import Image from "next/image"
-import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
