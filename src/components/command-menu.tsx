@@ -521,7 +521,7 @@ function CommandLinkGroup({
             ) : (
               <Icon />
             )}
-            {link.title}
+            <p className="line-clamp-1">{link.title}</p>
           </CommandItem>
         )
       })}

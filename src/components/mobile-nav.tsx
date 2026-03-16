@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useCallback, useState } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -19,6 +20,8 @@ export function MobileNav({ items }: { items: NavItem[] }) {
 
   const isDesktop = useMediaQuery("(min-width: 40rem)") // sm breakpoint
 
+  const pathname = usePathname()
+
   const handleOpenChange = useCallback((open: boolean) => {
     haptic()
     setOpen(open)
@@ -35,23 +38,35 @@ export function MobileNav({ items }: { items: NavItem[] }) {
       </PopoverTrigger>
 
       <PopoverContent
-        className="w-48 rounded-xl px-5"
+        className="w-48 rounded-xl p-1"
         side="top"
         align="center"
         sideOffset={8}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col gap-3">
-          {items.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn("text-base font-medium", link.className)}
-              onClick={() => handleOpenChange(false)}
-            >
-              {link.title}
-            </Link>
-          ))}
+        <div className="flex flex-col">
+          {items.map((link) => {
+            const active =
+              pathname === link.href ||
+              (link.href === "/" // Home page
+                ? ["/", "/index"].includes(pathname || "")
+                : pathname?.startsWith(link.href))
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                data-active={active}
+                className={cn(
+                  "rounded-lg px-3 py-1.5 text-base data-active:bg-accent",
+                  link.className
+                )}
+                onClick={() => handleOpenChange(false)}
+              >
+                {link.title}
+              </Link>
+            )
+          })}
         </div>
       </PopoverContent>
     </Popover>
