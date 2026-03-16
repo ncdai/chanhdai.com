@@ -179,7 +179,9 @@ export function ViewOptions({
 
       <DropdownMenuContent
         className="w-fit"
-        align="end"
+        align="start"
+        alignOffset={-6}
+        collisionPadding={8}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
         {items.map(({ title, href, icon: Icon }) => (
