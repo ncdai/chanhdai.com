@@ -61,7 +61,7 @@ export function getDocsByCategory(category: string) {
   return getAllDocs().filter((doc) => doc.metadata?.category === category)
 }
 
-export function getBlogDocs() {
+export function getBlogDocs(): Doc[] {
   return getAllDocs().filter((doc) => doc.metadata.category !== "components")
 }
 
