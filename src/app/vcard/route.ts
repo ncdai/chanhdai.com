@@ -21,7 +21,7 @@ export async function GET() {
 
   const photo = await getVCardPhoto(USER.avatar)
   if (photo) {
-    card.addPhoto(photo.image, photo.mine)
+    card.addPhoto(photo.image, photo.mime)
   }
 
   if (USER.jobs.length > 0) {
@@ -61,7 +61,7 @@ async function getVCardPhoto(url: string) {
 
     return {
       image,
-      mine: "jpeg",
+      mime: "jpeg",
     }
   } catch {
     return null
