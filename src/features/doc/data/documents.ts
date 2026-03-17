@@ -61,6 +61,10 @@ export function getDocsByCategory(category: string) {
   return getAllDocs().filter((doc) => doc.metadata?.category === category)
 }
 
+export function getBlogDocs() {
+  return getAllDocs().filter((doc) => doc.metadata.category !== "components")
+}
+
 export function findNeighbour(docs: Doc[], slug: string) {
   const len = docs.length
 

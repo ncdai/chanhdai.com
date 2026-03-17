@@ -3,12 +3,12 @@ import Link from "next/link"
 
 import { Button } from "@/components/base/ui/button"
 import { PostItem } from "@/features/blog/components/post-item"
-import { getAllDocs } from "@/features/doc/data/documents"
+import { getBlogDocs } from "@/features/doc/data/documents"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Blog() {
-  const allPosts = getAllDocs()
+  const allPosts = getBlogDocs()
 
   return (
     <Panel id="blog">
