@@ -9,8 +9,7 @@ import { DuckFollower } from "@/components/duck-follower"
 import { Providers } from "@/components/providers"
 import { META_THEME_COLORS, SITE_INFO, X_USERNAME } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
-import { fontMono, fontPixelSquare, fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
+import { fontVariables } from "@/lib/fonts"
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -108,15 +107,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={cn(
-        fontSans.variable,
-        fontMono.variable,
-        fontPixelSquare.variable
-      )}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
         <script
           type="text/javascript"

@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 
 import blocks from "@/__registry__/__blocks__.json"
-import { BlockDisplay } from "@/components/block-display"
+import { BlockDisplay } from "@/app/(preview)/components/block-display"
 import { cn } from "@/lib/utils"
 
 export const dynamic = "force-static"
