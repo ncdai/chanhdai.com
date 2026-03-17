@@ -45,7 +45,7 @@ export async function generateMetadata({
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
-  if (!doc) {
+  if (!doc || doc.metadata.category !== "components") {
     return notFound()
   }
 
