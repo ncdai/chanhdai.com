@@ -3,6 +3,8 @@ import { notFound } from "next/navigation"
 import { cache } from "react"
 
 import { Index } from "@/__registry__"
+import { PreviewProvider } from "@/app/(preview)/components/preview-provider"
+import { getCachedThemes } from "@/app/(preview)/lib/get-themes"
 import { X_USERNAME } from "@/config/site"
 import { getRegistryItem } from "@/lib/registry"
 
@@ -49,7 +51,7 @@ export async function generateMetadata({
   const title = item.name
   const description = item.description
 
-  const blockUrl = `/view/${item.name}`
+  const blockUrl = `/preview/${item.name}`
   const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
   return {
@@ -90,12 +92,19 @@ export default async function BlockPage({
 }) {
   const name = (await params).name
 
-  const item = await getCachedRegistryItem(name)
+  const [item, themes] = await Promise.all([
+    getCachedRegistryItem(name),
+    getCachedThemes(),
+  ])
   const Component = Index[name]?.component
 
   if (!item || !Component) {
     return notFound()
   }
 
-  return <Component />
+  return (
+    <PreviewProvider themes={themes}>
+      <Component />
+    </PreviewProvider>
+  )
 }

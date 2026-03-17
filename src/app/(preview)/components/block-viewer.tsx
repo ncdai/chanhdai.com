@@ -4,14 +4,22 @@ import { CheckIcon, ChevronRightIcon } from "lucide-react"
 import React, {
   createContext,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
 } from "react"
 import type { PanelImperativeHandle } from "react-resizable-panels"
-import type { registryItemFileSchema, registryItemSchema } from "shadcn/schema"
+import type {
+  RegistryItem,
+  registryItemFileSchema,
+  registryItemSchema,
+} from "shadcn/schema"
 import type { z } from "zod"
 
+import { sendToIframe } from "@/app/(preview)/hooks/use-iframe-sync"
+import type { PreviewSearchParams } from "@/app/(preview)/lib/search-params"
+import { serializePreviewSearchParams } from "@/app/(preview)/lib/search-params"
 import {
   Tabs,
   TabsContent,
@@ -20,6 +28,11 @@ import {
   TabsTrigger,
 } from "@/components/base/ui/tabs"
 import { ToggleGroup, ToggleGroupItem } from "@/components/base/ui/toggle-group"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/base/ui/tooltip"
 import { getIconForLanguageExtension, Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import {
@@ -27,6 +40,19 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import {
   ResizableHandle,
   ResizablePanel,
@@ -76,6 +102,10 @@ type BlockViewerContext = {
   setIframeKey?: React.Dispatch<React.SetStateAction<number>>
 
   resizablePanelRef: React.RefObject<PanelImperativeHandle | null> | null
+
+  themes: Map<string, RegistryItem>
+  theme: PreviewSearchParams["theme"]
+  setTheme: (theme: PreviewSearchParams["theme"]) => void
 }
 
 const BlockViewerContext = createContext<BlockViewerContext | null>(null)
@@ -92,11 +122,13 @@ function BlockViewerProvider({
   item,
   tree,
   highlightedFiles,
+  themes,
   children,
-}: Pick<BlockViewerContext, "item" | "tree" | "highlightedFiles"> & {
+}: Pick<BlockViewerContext, "item" | "tree" | "highlightedFiles" | "themes"> & {
   children: React.ReactNode
 }) {
   const [view, setView] = useState<View>("preview")
+  const [theme, setTheme] = useState<PreviewSearchParams["theme"]>(null)
 
   const [activeFile, setActiveFile] = useState<
     BlockViewerContext["activeFile"]
@@ -118,6 +150,9 @@ function BlockViewerProvider({
         iframeKey,
         setIframeKey,
         resizablePanelRef,
+        themes,
+        theme,
+        setTheme,
       }}
     >
       <div
@@ -139,13 +174,14 @@ function BlockViewerProvider({
 
 type BlockViewerProps = Pick<
   BlockViewerContext,
-  "item" | "tree" | "highlightedFiles"
+  "item" | "tree" | "highlightedFiles" | "themes"
 >
 
 export function BlockViewer({
   item,
   tree,
   highlightedFiles,
+  themes,
   ...props
 }: BlockViewerProps) {
   return (
@@ -153,6 +189,7 @@ export function BlockViewer({
       item={item}
       tree={tree}
       highlightedFiles={highlightedFiles}
+      themes={themes}
       {...props}
     >
       <BlockViewerToolbar />
@@ -165,7 +202,8 @@ export function BlockViewer({
 }
 
 function BlockViewerToolbar() {
-  const { setView, item, resizablePanelRef, setIframeKey } = useBlockViewer()
+  const { setView, item, resizablePanelRef, setIframeKey, theme } =
+    useBlockViewer()
 
   const { state, copy } = useCopyToClipboard()
 
@@ -190,13 +228,15 @@ function BlockViewerToolbar() {
       </a>
 
       <div className="ml-auto flex items-center gap-2">
+        <ThemePicker />
+
         <div className="flex h-8 items-center gap-0.75 rounded-lg border p-0.75">
           <ToggleGroup
             className="gap-0.75 *:data-[slot=toggle-group-item]:h-6 *:data-[slot=toggle-group-item]:min-w-6 *:data-[slot=toggle-group-item]:rounded-sm! *:data-[slot=toggle-group-item]:px-0"
             defaultValue={["100%"]}
             onValueChange={([value]) => {
               setView("preview")
-              resizablePanelRef?.current?.resize(value as string)
+              resizablePanelRef?.current?.resize(value || "100%")
             }}
           >
             <ToggleGroupItem aria-label="Mobile" value="30%">
@@ -223,7 +263,12 @@ function BlockViewerToolbar() {
             size="icon-xs"
             asChild
           >
-            <a href={`/view/${item.name}`} target="_blank">
+            <a
+              href={serializePreviewSearchParams(`/preview/${item.name}`, {
+                theme,
+              })}
+              target="_blank"
+            >
               <Icons.fullScreen className="size-4" />
               <span className="sr-only">Open in New Tab</span>
             </a>
@@ -303,11 +348,12 @@ function BlockViewerView() {
         <ResizablePanelGroup orientation="horizontal">
           <ResizablePanel
             panelRef={resizablePanelRef}
-            className="relative overflow-hidden rounded-xl border"
+            className="relative overflow-hidden rounded-xl"
             minSize="30%"
             defaultSize="100%"
           >
             <BlockViewerIframe />
+            <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-foreground/10 ring-inset" />
           </ResizablePanel>
 
           <ResizableHandle className="relative w-2 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-12 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all hover:after:bg-zinc-300 dark:hover:after:bg-zinc-700" />
@@ -320,13 +366,49 @@ function BlockViewerView() {
 }
 
 function BlockViewerIframe({ className }: { className?: string }) {
-  const { iframeKey, item } = useBlockViewer()
+  const { iframeKey, item, theme } = useBlockViewer()
+
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    const iframe = iframeRef.current
+    if (!iframe) {
+      return
+    }
+
+    const sendParams = () => {
+      sendToIframe(iframe, "preview-params", { theme })
+    }
+
+    if (iframe.contentWindow) {
+      sendParams()
+    }
+
+    iframe.addEventListener("load", sendParams)
+    return () => {
+      iframe.removeEventListener("load", sendParams)
+    }
+  }, [theme])
+
+  const iframeSrc = useMemo(
+    () => {
+      // The iframe src needs to include the serialized preview params
+      // for the initial load, but not be reactive to them as it would cause
+      // full-iframe reloads on every param change (flashes & loss of state).
+      // Further updates of the search params will be sent to the iframe
+      // via a postMessage channel, for it to sync its own history onto the host's.
+      return serializePreviewSearchParams(`/preview/${item.name}`, { theme })
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [iframeKey]
+  )
 
   return (
     <iframe
       key={iframeKey}
+      ref={iframeRef}
       className={cn("no-scrollbar w-full bg-background", className)}
-      src={`/view/${item.name}`}
+      src={iframeSrc}
       loading="lazy"
       height={item.meta?.iframeHeight ?? 768}
     />
@@ -525,6 +607,100 @@ function BlockViewerMobile() {
       <div className="relative overflow-hidden rounded-xl border">
         <BlockViewerIframe />
       </div>
+    </div>
+  )
+}
+
+function ThemePicker() {
+  const { themes, theme, setTheme } = useBlockViewer()
+
+  const themeItem = theme ? themes.get(theme) : null
+
+  return (
+    <Popover modal>
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <PopoverTrigger asChild>
+              <Button
+                className="bg-transparent px-1.75 shadow-none dark:border-border dark:bg-transparent dark:aria-expanded:bg-input/50"
+                variant="outline"
+                size="sm"
+                aria-label="Theme"
+              >
+                <ThemePalette cssVars={themeItem?.cssVars} />
+              </Button>
+            </PopoverTrigger>
+          }
+        />
+        <TooltipContent>
+          {themeItem?.title || themeItem?.name || "Default"}
+        </TooltipContent>
+      </Tooltip>
+
+      <PopoverContent className="rounded-2xl p-0">
+        <Command
+          className={cn(
+            "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:size-5 **:[[cmdk-input]]:h-10",
+            "**:[[cmdk-group]]:px-2",
+            "**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground",
+            "[&_[cmdk-item]_svg]:size-5 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-2"
+          )}
+        >
+          <CommandInput placeholder="Search theme…" />
+
+          <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-effect-y">
+            <CommandEmpty>No results found.</CommandEmpty>
+
+            <CommandGroup heading="chanhdai.com">
+              <CommandItem onSelect={() => setTheme(null)}>
+                <ThemePalette />
+                Default
+                {!theme && <CheckIcon className="ml-auto" strokeWidth={3} />}
+              </CommandItem>
+            </CommandGroup>
+
+            <CommandGroup heading="tweakcn themes">
+              {Array.from(themes.values()).map((item) => (
+                <CommandItem
+                  key={item.name}
+                  onSelect={() => setTheme(item.name)}
+                >
+                  <ThemePalette cssVars={item.cssVars} />
+                  {item.title || item.name}
+                  {theme === item.name && (
+                    <CheckIcon className="ml-auto" strokeWidth={3} />
+                  )}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
+const THEME_PALETTE_KEYS = ["primary", "accent", "muted", "secondary"] as const
+
+function ThemePalette({ cssVars }: { cssVars?: RegistryItem["cssVars"] }) {
+  return (
+    <div className="flex shrink-0 gap-0.5">
+      {THEME_PALETTE_KEYS.map((key) => (
+        <div
+          key={key}
+          className={cn(
+            "flex h-4 w-2.5 shrink-0 rounded-xs ring-1 ring-foreground/15 ring-inset",
+            "bg-(--color-palette) dark:bg-(--color-palette-dark)"
+          )}
+          style={
+            {
+              "--color-palette": cssVars?.light?.[key] ?? `var(--${key})`,
+              "--color-palette-dark": cssVars?.dark?.[key] ?? `var(--${key})`,
+            } as React.CSSProperties
+          }
+        />
+      ))}
     </div>
   )
 }
