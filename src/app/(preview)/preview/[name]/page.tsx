@@ -103,8 +103,10 @@ export default async function BlockPage({
   }
 
   return (
-    <PreviewProvider themes={themes}>
-      <Component />
-    </PreviewProvider>
+    <div>
+      <PreviewProvider themes={themes}>
+        <Component />
+      </PreviewProvider>
+    </div>
   )
 }
