@@ -223,7 +223,11 @@ function BlockViewerToolbar() {
             size="icon-xs"
             asChild
           >
-            <a href={`/view/${item.name}`} target="_blank">
+            <a
+              href={`/view/${item.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icons.fullScreen className="size-4" />
               <span className="sr-only">Open in New Tab</span>
             </a>
