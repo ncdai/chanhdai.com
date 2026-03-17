@@ -74,6 +74,10 @@ export async function generateMetadata({
       creator: X_USERNAME,
       images: [ogImage],
     },
+    robots: {
+      index: false,
+      follow: false,
+    },
   }
 }
 
