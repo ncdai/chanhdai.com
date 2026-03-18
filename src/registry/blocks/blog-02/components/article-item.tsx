@@ -19,7 +19,7 @@ export function ArticleItem({
     <a
       href={url}
       className={cn(
-        "flex flex-col gap-2 p-2 transition-[background-color] ease-out hover:bg-accent-muted",
+        "flex flex-col gap-2 p-2 transition-[background-color] ease-out hover:bg-accent/30",
         "max-sm:line-x-t max-sm:line-x-b",
         "sm:max-md:nth-[2n+1]:line-x-t sm:max-md:nth-[2n+1]:line-x-b",
         "md:nth-[3n+1]:line-x-t md:nth-[3n+1]:line-x-b"
