@@ -634,7 +634,7 @@ function ThemePicker() {
           }
         />
         <TooltipContent>
-          {themeItem?.title || themeItem?.name || "Default"}
+          {themeItem?.title || themeItem?.name || "Zinc"}
         </TooltipContent>
       </Tooltip>
 
@@ -652,15 +652,15 @@ function ThemePicker() {
           <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-effect-y">
             <CommandEmpty>No results found.</CommandEmpty>
 
-            <CommandGroup heading="chanhdai.com">
+            <CommandGroup heading="Current theme">
               <CommandItem onSelect={() => setTheme(null)}>
                 <ThemePalette />
-                Default
+                Zinc
                 {!theme && <CheckIcon className="ml-auto" strokeWidth={3} />}
               </CommandItem>
             </CommandGroup>
 
-            <CommandGroup heading="tweakcn themes">
+            <CommandGroup heading={`tweakcn themes (${themes.size})`}>
               {Array.from(themes.values()).map((item) => (
                 <CommandItem
                   key={item.name}
