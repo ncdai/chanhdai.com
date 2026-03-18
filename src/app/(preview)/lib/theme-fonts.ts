@@ -17,6 +17,9 @@ const GENERIC_FONTS = [
   "ui-sans-serif",
   "ui-serif",
   "ui-monospace",
+  "georgia",
+  "courier new",
+  "times new roman",
 ] as const
 
 export function extractFontVarsFromTheme(
