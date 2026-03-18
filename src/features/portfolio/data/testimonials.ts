@@ -303,4 +303,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     quote: "Đại is amazing",
     date: "2026-03-13",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/davidhdev",
+    authorName: "David Haz",
+    authorTagline: "Creator of pro.reactbits.dev",
+    url: "https://x.com/davidhdev/status/2034191466281513275",
+    quote: "Looks incredible!",
+    date: "2026-03-18",
+  },
 ]
