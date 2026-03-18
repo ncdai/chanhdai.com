@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./ncdai.css";
 @import "./scroll-fade-effect.css";
 
 @plugin "@tailwindcss/typography";

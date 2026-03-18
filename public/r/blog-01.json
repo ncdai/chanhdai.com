@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "blog-01",
   "title": "Blog 01",
-  "description": "A simple blog section with a grid layout.",
+  "description": "A blog section with a grid layout.",
   "dependencies": [
     "date-fns"
   ],

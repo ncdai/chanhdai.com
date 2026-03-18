@@ -42,7 +42,7 @@ export const blocks: Registry["items"] = [
   {
     name: "blog-01",
     title: "Blog 01",
-    description: "A simple blog section with a grid layout.",
+    description: "A blog section with a grid layout.",
     type: "registry:block",
     dependencies: ["date-fns"],
     registryDependencies: ["button"],
@@ -57,6 +57,36 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
+    categories: ["layout", "blog"],
+  },
+  {
+    name: "blog-02",
+    title: "Blog 02",
+    description: "A blog section with a lined grid layout.",
+    type: "registry:block",
+    dependencies: ["date-fns"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "blocks/blog-02/page.tsx",
+        target: "app/blog/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/blog-02/components/article-item.tsx",
+        type: "registry:component",
+      },
+    ],
+    css: {
+      "@utility line-x-t": {
+        "@apply relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-border/80":
+          {},
+      },
+      "@utility line-x-b": {
+        "@apply relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border/80":
+          {},
+      },
+    },
     categories: ["layout", "blog"],
   },
 ]
