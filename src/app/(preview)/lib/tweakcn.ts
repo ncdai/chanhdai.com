@@ -13,7 +13,9 @@ export async function getTweakcnThemes(): Promise<RegistryItem[]> {
     const parsed = registrySchema.safeParse(jsonData)
     if (!parsed.success) return []
 
-    return parsed.data.items.filter(isRegistryThemeItem)
+    return parsed.data.items
+      .filter(isRegistryThemeItem)
+      .sort((a, b) => a.name.localeCompare(b.name))
   } catch {
     return []
   }
