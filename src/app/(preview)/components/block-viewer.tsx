@@ -348,12 +348,11 @@ function BlockViewerView() {
         <ResizablePanelGroup orientation="horizontal">
           <ResizablePanel
             panelRef={resizablePanelRef}
-            className="relative overflow-hidden rounded-xl"
+            className="relative overflow-hidden rounded-xl after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:ring-1 after:ring-foreground/10 after:ring-inset"
             minSize="30%"
             defaultSize="100%"
           >
             <BlockViewerIframe />
-            <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-foreground/10 ring-inset" />
           </ResizablePanel>
 
           <ResizableHandle className="relative w-2 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-12 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all hover:after:bg-zinc-300 dark:hover:after:bg-zinc-700" />
