@@ -9,6 +9,10 @@
   },
   {
     "name": "blog-01",
-    "description": "A simple blog section with a grid layout."
+    "description": "A blog section with a grid layout."
+  },
+  {
+    "name": "blog-02",
+    "description": "A blog section with a lined grid layout."
   }
 ]
