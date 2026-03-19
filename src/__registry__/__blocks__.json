@@ -1,18 +1,34 @@
 [
   {
     "name": "login-01",
-    "description": "A simple login form."
+    "description": "A simple login form.",
+    "categories": [
+      "authentication",
+      "login"
+    ]
   },
   {
     "name": "hero-01",
-    "description": "A hero section with a golden spiral background."
+    "description": "A hero section with a golden spiral background.",
+    "categories": [
+      "layout",
+      "hero"
+    ]
   },
   {
     "name": "blog-01",
-    "description": "A blog section with a grid layout."
+    "description": "A blog section with a grid layout.",
+    "categories": [
+      "layout",
+      "blog"
+    ]
   },
   {
     "name": "blog-02",
-    "description": "A blog section with a lined grid layout."
+    "description": "A blog section with a lined grid layout.",
+    "categories": [
+      "layout",
+      "blog"
+    ]
   }
 ]

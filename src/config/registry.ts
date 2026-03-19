@@ -16,3 +16,14 @@ export const registryConfig = {
     process.env.NEXT_PUBLIC_REGISTRY_NAMESPACE_URL ||
     "https://chanhdai.com/r/{name}.json",
 }
+
+export const registryCategories = [
+  {
+    name: "Login",
+    slug: "login",
+  },
+  {
+    name: "Layout",
+    slug: "layout",
+  },
+]
