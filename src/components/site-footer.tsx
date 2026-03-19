@@ -1,21 +1,13 @@
 import { RssIcon } from "lucide-react"
 
+import { Icons } from "@/components/icons"
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { cn } from "@/lib/utils"
 
-import { Icons } from "./icons"
-
-export function SiteFooter({
-  width = "default",
-}: {
-  width?: "default" | "wide"
-}) {
+export function SiteFooter() {
   return (
     <footer className="max-w-screen overflow-x-hidden px-2">
-      <div
-        data-width={width}
-        className="screen-line-before mx-auto border-x border-edge pt-4 data-[width=wide]:container data-[width=default]:md:max-w-3xl"
-      >
+      <div className="screen-line-before mx-auto border-x border-edge pt-4 group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
         <p className="mb-1 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
           Inspired by tailwindcss.com & ui.shadcn.com
         </p>
