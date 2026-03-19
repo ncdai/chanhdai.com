@@ -27,7 +27,7 @@ export function TechStack() {
                       <a
                         href={tech.href}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         aria-label={tech.title}
                       >
                         {tech.theme ? (

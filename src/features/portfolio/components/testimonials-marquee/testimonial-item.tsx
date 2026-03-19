@@ -24,7 +24,7 @@ export function TestimonialItem({
     <a
       href={url}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
       className={cn(
         "block h-full rounded-xl border border-edge transition-[background-color] ease-out hover:bg-accent-muted",
         className

@@ -70,19 +70,6 @@ export default function Page() {
       <div className="p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {metadata.description}
-          {/* <span className="max-md:block" />
-          <a
-            className="whitespace-nowrap underline-offset-4 hover:underline"
-            href={addQueryParams("https://ui.shadcn.com/docs/directory", {
-              q: registryConfig.namespace,
-              ...UTM_PARAMS,
-            })}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Trusted registry
-          </a>{" "}
-          for shadcn/ui. */}
         </p>
 
         {/* <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
@@ -127,7 +114,7 @@ export default function Page() {
                     ...UTM_PARAMS,
                   })}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                 >
                   {registryConfig.namespace}
                 </a>{" "}
