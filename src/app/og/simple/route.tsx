@@ -54,7 +54,7 @@ export async function GET(request: Request) {
 
           {description && (
             <div
-              tw="flex-grow-1 mt-4 text-zinc-400"
+              tw="grow mt-4 text-zinc-400"
               style={{
                 fontFamily: "GeistSans",
                 fontWeight: 500,
