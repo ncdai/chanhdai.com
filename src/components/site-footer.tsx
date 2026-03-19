@@ -40,7 +40,7 @@ export function SiteFooter() {
               className="flex font-mono text-xs font-medium text-muted-foreground transition-[color] hover:text-foreground max-sm:hidden"
               href={`${SITE_INFO.url}/llms.txt`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               llms.txt
             </a>
@@ -51,7 +51,7 @@ export function SiteFooter() {
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
               href="https://x.com/iamncdai?utm_source=chanhdai.com"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <Icons.x className="size-4" />
               <span className="sr-only">X</span>
@@ -63,7 +63,7 @@ export function SiteFooter() {
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
               href="https://github.com/ncdai?utm_source=chanhdai.com"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <Icons.github className="size-4" />
               <span className="sr-only">GitHub</span>
@@ -75,7 +75,7 @@ export function SiteFooter() {
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
               href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <Icons.linkedin className="size-4" />
               <span className="sr-only">LinkedIn</span>
@@ -87,7 +87,7 @@ export function SiteFooter() {
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
               href={`${SITE_INFO.url}/rss`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <RssIcon className="size-4" />
               <span className="sr-only">RSS</span>
@@ -102,7 +102,7 @@ export function SiteFooter() {
                 "https://www.dmca.com/ProtectionPro.aspx"
               }
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <Icons.dmca className="h-4.5 w-auto" />
               <span className="sr-only">DMCA.com Protection Status</span>

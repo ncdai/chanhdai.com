@@ -23,7 +23,7 @@ export function markdownRenderer(shiki = configDefault): MarkdownRenderer {
     .use(remarkRehype)
     .use(rehypeExternalLinks, {
       target: "_blank",
-      rel: "nofollow noopener noreferrer",
+      rel: "nofollow noopener",
     })
     // Code highlighting and raw string extraction for copy button
     .use(rehypeCodeRawString)

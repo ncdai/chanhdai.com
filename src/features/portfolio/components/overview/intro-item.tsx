@@ -43,7 +43,7 @@ export function IntroItemLink({
     <a
       className={cn("underline-offset-4 hover:underline", className)}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
       {...props}
     />
   )

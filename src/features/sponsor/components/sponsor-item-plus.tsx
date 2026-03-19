@@ -12,7 +12,7 @@ export function SponsorItemPlus() {
       )}
       href={SPONSORSHIP_URL}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
     >
       <PlusIcon
         className="flex size-full items-center justify-center text-muted-foreground"

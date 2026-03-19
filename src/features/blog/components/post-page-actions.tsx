@@ -186,7 +186,7 @@ export function ViewOptions({
       >
         {items.map(({ title, href, icon: Icon }) => (
           <DropdownMenuItem key={href} asChild>
-            <a href={href} rel="noreferrer noopener" target="_blank">
+            <a href={href} rel="noopener" target="_blank">
               <Icon />
               {title}
             </a>

@@ -268,7 +268,7 @@ function BlockViewerToolbar() {
                 theme,
               })}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <Icons.fullScreen className="size-4" />
               <span className="sr-only">Open in New Tab</span>

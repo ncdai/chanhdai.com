@@ -26,7 +26,7 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
             <a
               href={addQueryParams(`https://github.com/${repo}`, UTM_PARAMS)}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <svg className="-translate-y-px" viewBox="0 0 24 24">
                 <path
