@@ -48,12 +48,12 @@ export function ProjectItem({
             aria-hidden
           />
         ) : (
-          <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none">
+          <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background select-none">
             <BoxIcon className="size-4" />
           </div>
         )}
 
-        <div className="flex-1 border-l border-dashed border-edge">
+        <div className="flex-1 border-l border-dashed border-line">
           <CollapsibleTrigger className="flex w-full items-center gap-2 p-4 pr-2 text-left">
             <div className="flex-1">
               <h3 className="mb-1 leading-snug font-medium text-balance">
@@ -108,7 +108,7 @@ export function ProjectItem({
       </div>
 
       <CollapsibleContent className="overflow-hidden">
-        <div className="space-y-4 border-t border-edge p-4">
+        <div className="space-y-4 border-t border-line p-4">
           {project.description && (
             <ProseMono>
               <Markdown>{project.description}</Markdown>

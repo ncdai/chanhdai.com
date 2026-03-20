@@ -17,8 +17,8 @@ export function PostItem({
       href={`/blog/${post.slug}`}
       className={cn(
         "group flex flex-col gap-2 p-2 transition-[background-color] ease-out hover:bg-accent-muted",
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+        "max-sm:screen-line-top max-sm:screen-line-bottom",
+        "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom"
       )}
     >
       {post.metadata.image && (

@@ -36,7 +36,7 @@ export default function Page() {
 
   return (
     <div className="min-h-svh">
-      <div className="screen-line-after px-4">
+      <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
           Blog
         </h1>
@@ -48,7 +48,7 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="screen-line-before screen-line-after p-2">
+      <div className="screen-line-top screen-line-bottom p-2">
         <Suspense
           fallback={
             <div className="flex h-9 w-full rounded-lg border border-input dark:bg-input/30" />

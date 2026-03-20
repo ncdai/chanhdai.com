@@ -44,19 +44,19 @@ export default function BlocksLayout({
     <>
       <div
         className={cn(
-          "screen-line-after h-8",
+          "screen-line-bottom h-8",
           "before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
-          "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56"
+          "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56"
         )}
       />
 
-      <div className="screen-line-after px-4">
+      <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
           {title}
         </h1>
       </div>
 
-      <div className="screen-line-after p-4">
+      <div className="screen-line-bottom p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {description}
         </p>
@@ -66,11 +66,11 @@ export default function BlocksLayout({
         <BlocksNav />
       </div>
 
-      <div className="screen-line-before screen-line-after">
+      <div className="screen-line-top screen-line-bottom">
         <div
           className={cn(
             "h-8 before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
-            "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56"
+            "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56"
           )}
         />
       </div>

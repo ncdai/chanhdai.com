@@ -53,7 +53,7 @@ const TESTIMONIALS = [
 export default function TestimonialsPage() {
   return (
     <div className="min-h-svh">
-      <div className="screen-line-after px-4">
+      <div className="screen-line-bottom px-4">
         <h1 className="text-3xl font-semibold tracking-tight">
           Loved by Devs Worldwide
         </h1>
@@ -65,10 +65,10 @@ export default function TestimonialsPage() {
         </p>
       </div>
 
-      <div className="screen-line-before relative pt-4">
+      <div className="screen-line-top relative pt-4">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge" />
-          <div className="border-l border-edge" />
+          <div className="border-r border-line" />
+          <div className="border-l border-line" />
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -77,8 +77,8 @@ export default function TestimonialsPage() {
               key={item.url}
               className={cn(
                 "block transition-[background-color] ease-out hover:bg-accent-muted",
-                "max-sm:screen-line-before max-sm:screen-line-after",
-                "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+                "max-sm:screen-line-top max-sm:screen-line-bottom",
+                "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom"
               )}
               href={item.url}
               target="_blank"

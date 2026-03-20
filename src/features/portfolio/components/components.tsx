@@ -22,9 +22,9 @@ export function Components() {
 
       <div className="relative pt-2">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
-          <div className="border-r border-edge" />
-          <div className="border-l border-edge md:border-x" />
-          <div className="border-l border-edge max-md:hidden" />
+          <div className="border-r border-line" />
+          <div className="border-l border-line md:border-x" />
+          <div className="border-l border-line max-md:hidden" />
         </div>
 
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
@@ -34,12 +34,12 @@ export function Components() {
               href={`/components/${component.slug}`}
               className={cn(
                 "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
-                "max-sm:screen-line-before max-sm:screen-line-after",
-                "sm:max-md:nth-[2n+1]:screen-line-before sm:max-md:nth-[2n+1]:screen-line-after",
-                "md:nth-[3n+1]:screen-line-before md:nth-[3n+1]:screen-line-after"
+                "max-sm:screen-line-top max-sm:screen-line-bottom",
+                "sm:max-md:nth-[2n+1]:screen-line-top sm:max-md:nth-[2n+1]:screen-line-bottom",
+                "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
               )}
             >
-              <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background">
+              <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-line ring-offset-1 ring-offset-background">
                 <ComponentIcon
                   className="pointer-events-none size-4 text-muted-foreground"
                   variant={component.slug}

@@ -16,7 +16,7 @@ export function Testimonial({
       target="_blank"
       rel="noopener"
       className={cn(
-        "not-prose block h-full rounded-xl border ring-1 ring-edge ring-offset-2 ring-offset-background transition-[background-color] ease-out hover:bg-accent-muted",
+        "not-prose block h-full rounded-xl border ring-1 ring-line ring-offset-2 ring-offset-background transition-[background-color] ease-out hover:bg-accent-muted",
         className
       )}
     >

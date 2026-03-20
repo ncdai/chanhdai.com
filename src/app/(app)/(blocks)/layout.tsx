@@ -6,7 +6,7 @@ export default function AppLayoutWide({
   return (
     <div
       data-slot="layout-wide"
-      className="container mx-auto border-x border-edge"
+      className="container mx-auto border-x border-line"
     >
       {children}
     </div>

@@ -8,14 +8,14 @@ export function HeroBlock() {
   return (
     <div className="relative w-screen overflow-hidden pb-8">
       <div className="container mx-auto max-sm:px-2">
-        <div className="screen-line-before screen-line-after border-x border-edge md:hidden">
+        <div className="screen-line-top screen-line-bottom border-x border-line md:hidden">
           <svg
-            className="pointer-events-none absolute inset-0 overflow-visible text-edge"
+            className="pointer-events-none absolute inset-0 overflow-visible text-line"
             viewBox="0 0 210 340"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g className="text-edge">
+            <g className="text-line">
               <path
                 d="M380.853 105.099L-201.625 464.632"
                 stroke="currentColor"
@@ -112,14 +112,14 @@ export function HeroBlock() {
           </div>
         </div>
 
-        <div className="screen-line-before screen-line-after hidden border-x border-edge md:block">
+        <div className="screen-line-top screen-line-bottom hidden border-x border-line md:block">
           <svg
-            className="pointer-events-none absolute inset-0 overflow-visible text-edge"
+            className="pointer-events-none absolute inset-0 overflow-visible text-line"
             viewBox="0 0 340 210"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g className="text-edge">
+            <g className="text-line">
               <path
                 d="M105.1 -170.853L464.633 411.625"
                 stroke="currentColor"

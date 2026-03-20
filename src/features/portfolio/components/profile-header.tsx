@@ -7,11 +7,11 @@ import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
   return (
-    <div className="screen-line-after flex border-x border-edge">
+    <div className="screen-line-bottom flex border-x border-line">
       {/* <div className="absolute top-[-3.5px] left-[-4.5px] size-2 rounded-xs border bg-popover" /> */}
       {/* <div className="absolute top-[-3.5px] right-[-4.5px] size-2 rounded-xs border bg-popover" /> */}
 
-      <div className="shrink-0 border-r border-edge">
+      <div className="shrink-0 border-r border-line">
         <div className="mx-0.5 my-0.75">
           <AvatarElectricEffect>
             <img
@@ -37,7 +37,7 @@ export function ProfileHeader() {
           </div>
         </div>
 
-        <div className="border-t border-edge">
+        <div className="border-t border-line">
           <div className="flex items-center gap-2 pl-4">
             <h1 className="-translate-y-px text-3xl font-semibold tracking-tight">
               {USER.displayName}
@@ -55,7 +55,7 @@ export function ProfileHeader() {
             )}
           </div>
 
-          <div className="h-12.5 border-t border-edge py-1 pl-4 sm:h-9">
+          <div className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">
             <TextFlip
               className="font-pixel-square text-sm text-balance text-muted-foreground"
               variants={{

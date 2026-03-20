@@ -61,7 +61,7 @@ export default function Page() {
 
   return (
     <div className="min-h-svh">
-      <div className="screen-line-after px-4">
+      <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
           {title}
         </h1>
@@ -85,7 +85,7 @@ export default function Page() {
         </div> */}
       </div>
 
-      <div className="screen-line-before screen-line-after relative">
+      <div className="screen-line-top screen-line-bottom relative">
         <RegistryCommandAnimated />
 
         <Dialog>
@@ -137,9 +137,9 @@ export default function Page() {
 
       <div className="relative">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
-          <div className="border-r border-edge" />
-          <div className="border-l border-edge md:border-x" />
-          <div className="border-l border-edge max-md:hidden" />
+          <div className="border-r border-line" />
+          <div className="border-l border-line md:border-x" />
+          <div className="border-l border-line max-md:hidden" />
         </div>
 
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
@@ -156,12 +156,12 @@ export default function Page() {
                 href={`/components/${post.slug}`}
                 className={cn(
                   "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
-                  "max-sm:screen-line-before max-sm:screen-line-after",
-                  "sm:max-md:nth-[2n+1]:screen-line-before sm:max-md:nth-[2n+1]:screen-line-after",
-                  "md:nth-[3n+1]:screen-line-before md:nth-[3n+1]:screen-line-after"
+                  "max-sm:screen-line-top max-sm:screen-line-bottom",
+                  "sm:max-md:nth-[2n+1]:screen-line-top sm:max-md:nth-[2n+1]:screen-line-bottom",
+                  "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
                 )}
               >
-                <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-edge ring-offset-1 ring-offset-background">
+                <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-line ring-offset-1 ring-offset-background">
                   <ComponentIcon
                     className="pointer-events-none size-4 text-muted-foreground"
                     variant={post.slug}
@@ -193,7 +193,7 @@ function Separator({ className }: { className?: string }) {
       className={cn(
         "relative flex h-8 w-full",
         "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
-        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56",
+        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56",
         className
       )}
     />

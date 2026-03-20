@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-svh">
-      <div className="screen-line-after px-4">
+      <div className="screen-line-bottom px-4">
         <h1 className="text-3xl font-semibold tracking-tight">Sponsors</h1>
       </div>
 
@@ -43,10 +43,10 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="screen-line-before relative pt-4">
+      <div className="screen-line-top relative pt-4">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge" />
-          <div className="border-l border-edge" />
+          <div className="border-r border-line" />
+          <div className="border-l border-line" />
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
