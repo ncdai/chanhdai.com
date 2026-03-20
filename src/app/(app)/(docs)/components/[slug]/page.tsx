@@ -230,17 +230,17 @@ export default async function Page({
         </div>
       </div>
 
-      <div className="screen-line-before screen-line-after">
+      <div className="screen-line-top screen-line-bottom">
         <div
           className={cn(
             "h-8 before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
-            "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56"
+            "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56"
           )}
         />
       </div>
 
       <Prose className="px-4">
-        <h1 className="screen-line-after text-3xl font-semibold tracking-tight">
+        <h1 className="screen-line-bottom text-3xl font-semibold tracking-tight">
           {doc.metadata.title}
         </h1>
 
@@ -253,7 +253,7 @@ export default async function Page({
         </div>
       </Prose>
 
-      <div className="screen-line-before h-4 w-full" />
+      <div className="screen-line-top h-4 w-full" />
     </>
   )
 }

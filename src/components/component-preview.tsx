@@ -73,7 +73,7 @@ export function ComponentPreview({
         <TabsContent value="preview">
           <div
             data-slot="preview"
-            className="rounded-xl border border-edge p-2"
+            className="rounded-xl border border-line p-2"
             // className="bg-zinc-950/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] [--pattern-foreground:var(--color-zinc-950)]/5 dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5"
           >
             {(canReplay || openInV0Url) && (

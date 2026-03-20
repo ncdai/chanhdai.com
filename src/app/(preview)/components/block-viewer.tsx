@@ -193,7 +193,7 @@ export function BlockViewer({
       {...props}
     >
       <BlockViewerToolbar />
-      <div className="screen-line-before h-px max-lg:hidden" />
+      <div className="screen-line-top h-px max-lg:hidden" />
       <BlockViewerView />
       <BlockViewerCode />
       <BlockViewerMobile />
@@ -602,7 +602,7 @@ function BlockViewerMobile() {
         </div>
       </div>
 
-      <div className="screen-line-before h-px" />
+      <div className="screen-line-top h-px" />
 
       <div className="relative overflow-hidden rounded-xl border">
         <BlockViewerIframe />

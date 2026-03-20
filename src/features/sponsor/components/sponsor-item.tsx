@@ -13,8 +13,8 @@ export function SponsorItem({ item }: { item: Sponsor }) {
       key={item.name}
       className={cn(
         "flex min-h-20 items-center justify-center transition-[background-color] ease-out hover:bg-accent-muted",
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+        "max-sm:screen-line-top max-sm:screen-line-bottom",
+        "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom"
       )}
       href={addQueryParams(item.url, UTM_PARAMS)}
       target="_blank"

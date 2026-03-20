@@ -24,7 +24,7 @@
   --color-accent-muted: var(--accent-muted);
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
-  --color-edge: var(--edge);
+  --color-line: var(--line);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-info: var(--info);
@@ -59,18 +59,18 @@
   @apply font-medium underline underline-offset-4;
 }
 
-@utility screen-line-before {
-  @apply relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-edge;
+@utility screen-line-top {
+  @apply before:bg-line relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw];
 }
 
-@utility screen-line-after {
-  @apply relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-edge;
+@utility screen-line-bottom {
+  @apply after:bg-line relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw];
 }
 
 @utility step {
   counter-increment: step;
   &::before {
-    @apply mr-2 inline-flex size-7 items-center justify-center rounded-full border border-muted-foreground/15 bg-muted text-center -indent-px text-sm font-medium text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background md:absolute md:-mt-0.5 md:-ml-11.5 md:size-8;
+    @apply ring-line mr-2 inline-flex size-7 items-center justify-center rounded-full border border-muted-foreground/15 bg-muted text-center -indent-px text-sm font-medium text-muted-foreground ring-1 ring-offset-1 ring-offset-background md:absolute md:-mt-0.5 md:-ml-11.5 md:size-8;
     content: counter(step);
   }
 }
@@ -124,7 +124,7 @@
   --border: oklch(0.92 0.004 286.32);
 
   /* color-mix */
-  --edge: color-mix(in oklab, var(--border) 64%, var(--background));
+  --line: color-mix(in oklab, var(--border) 64%, var(--background));
 
   /* zinc-200 */
   --input: oklch(0.92 0.004 286.32);
@@ -221,7 +221,7 @@
   /* zinc-800 */
   --border: oklch(0.274 0.006 286.033);
 
-  /* --edge: color-mix(in oklab, var(--border) 64%, var(--background)); */
+  /* --line: color-mix(in oklab, var(--border) 64%, var(--background)); */
 
   --input: lab(100% 0 0 / 0.15);
 
@@ -404,7 +404,7 @@
   @apply prose-a:font-medium prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:underline-offset-4;
   @apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none;
   @apply prose-strong:font-medium;
-  @apply prose-hr:border-edge;
+  @apply prose-hr:border-line;
   @apply prose-blockquote:border-s-2 prose-blockquote:font-normal prose-blockquote:text-muted-foreground prose-blockquote:not-italic prose-blockquote:[&_p:first-of-type]:before:content-none prose-blockquote:[&_p:last-of-type]:after:content-none;
 }
 

@@ -8,7 +8,7 @@ function Panel({ className, ...props }: React.ComponentProps<"section">) {
     <section
       data-slot="panel"
       className={cn(
-        "screen-line-before screen-line-after border-x border-edge",
+        "screen-line-top screen-line-bottom border-x border-line",
         className
       )}
       {...props}
@@ -21,7 +21,7 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"header">) {
     <header
       data-slot="panel-header"
       className={cn(
-        "screen-line-after px-4 has-data-[slot=panel-description]:*:data-[slot=panel-title]:screen-line-after",
+        "screen-line-bottom px-4 has-data-[slot=panel-description]:*:data-[slot=panel-title]:screen-line-bottom",
         className
       )}
       {...props}

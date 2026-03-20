@@ -19,7 +19,7 @@ import {
 export default function TestimonialsMarqueeDemo1() {
   return (
     <div className="w-full bg-background">
-      <Marquee className="border-y border-edge [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!">
+      <Marquee className="border-y border-line [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!">
         <MarqueeFade side="left" />
         <MarqueeFade side="right" />
 
@@ -27,7 +27,7 @@ export default function TestimonialsMarqueeDemo1() {
           {TESTIMONIALS.map((item) => (
             <MarqueeItem
               key={item.url}
-              className="mx-0 h-full w-xs border-r border-edge"
+              className="mx-0 h-full w-xs border-r border-line"
             >
               <a
                 href={item.url}

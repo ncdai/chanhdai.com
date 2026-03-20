@@ -21,8 +21,8 @@ export function Blog() {
 
       <div className="relative py-4">
         <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge"></div>
-          <div className="border-l border-edge"></div>
+          <div className="border-r border-line"></div>
+          <div className="border-l border-line"></div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -32,7 +32,7 @@ export function Blog() {
         </div>
       </div>
 
-      <div className="screen-line-before flex justify-center py-2">
+      <div className="screen-line-top flex justify-center py-2">
         <Button
           className="gap-2 border-none pr-2.5 pl-3"
           size="sm"

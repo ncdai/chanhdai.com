@@ -20,9 +20,9 @@ export function ArticleItem({
       href={url}
       className={cn(
         "flex flex-col gap-2 p-2 transition-[background-color] ease-out hover:bg-accent/30",
-        "max-sm:line-x-t max-sm:line-x-b",
-        "sm:max-md:nth-[2n+1]:line-x-t sm:max-md:nth-[2n+1]:line-x-b",
-        "md:nth-[3n+1]:line-x-t md:nth-[3n+1]:line-x-b"
+        "max-sm:screen-line-top max-sm:screen-line-bottom",
+        "sm:max-md:nth-[2n+1]:screen-line-top sm:max-md:nth-[2n+1]:screen-line-bottom",
+        "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
       )}
     >
       <div className="relative aspect-video">
