@@ -6,10 +6,10 @@ export const styles: Registry["items"] = [
     type: "registry:style",
     cssVars: {
       light: {
-        "--edge": "color-mix(in oklab, var(--border) 64%, var(--background))",
+        edge: "color-mix(in oklab, var(--border) 64%, var(--background))",
       },
       theme: {
-        "--color-edge": "var(--edge)",
+        "color-edge": "var(--edge)",
       },
     },
     css: {
