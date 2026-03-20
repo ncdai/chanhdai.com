@@ -103,7 +103,7 @@ export default async function BlockPage({
   }
 
   return (
-    <div>
+    <div className={item?.meta?.previewClassName}>
       <PreviewProvider themes={themes}>
         <Component />
       </PreviewProvider>

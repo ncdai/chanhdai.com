@@ -430,6 +430,22 @@
       "type": "registry:component"
     },
     {
+      "name": "testimonial-spotlight",
+      "title": "Testimonial Spotlight",
+      "author": "ncdai <dai@chanhdai.com>",
+      "description": "Testimonial card with spotlight effect on hover.",
+      "registryDependencies": [
+        "https://chanhdai.com/r/testimonial.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/testimonial-spotlight/testimonial-spotlight.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",
@@ -452,7 +468,7 @@
         }
       ],
       "categories": [
-        "authentication",
+        "application",
         "login"
       ],
       "type": "registry:block"
@@ -477,7 +493,7 @@
         }
       ],
       "categories": [
-        "layout",
+        "marketing",
         "hero"
       ],
       "type": "registry:block"
@@ -504,7 +520,7 @@
         }
       ],
       "categories": [
-        "layout",
+        "content",
         "blog"
       ],
       "type": "registry:block"
@@ -532,8 +548,35 @@
         }
       ],
       "categories": [
-        "layout",
+        "content",
         "blog"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "testimonials-01",
+      "title": "Testimonials 01",
+      "description": "A testimonials section with dual marquees.",
+      "registryDependencies": [
+        "https://www.kibo-ui.com/r/marquee.json",
+        "https://chanhdai.com/r/testimonial-spotlight.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/testimonials-01/testimonials-01.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/registry/blocks/testimonials-01/components/testimonial-list.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "previewClassName": "container mx-auto flex min-h-svh flex-col justify-center"
+      },
+      "categories": [
+        "marketing",
+        "testimonials"
       ],
       "type": "registry:block"
     },

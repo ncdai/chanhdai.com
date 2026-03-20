@@ -312,6 +312,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "testimonial-spotlight": {
+    name: "testimonial-spotlight",
+    description: "Testimonial card with spotlight effect on hover.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/testimonial-spotlight/testimonial-spotlight.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/testimonial-spotlight/testimonial-spotlight.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -330,7 +347,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["authentication","login"],
+    categories: ["application","login"],
     meta: undefined,
   },
   "hero-01": {
@@ -351,7 +368,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["layout","hero"],
+    categories: ["marketing","hero"],
     meta: undefined,
   },
   "blog-01": {
@@ -372,7 +389,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["layout","blog"],
+    categories: ["content","blog"],
     meta: undefined,
   },
   "blog-02": {
@@ -393,8 +410,29 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["layout","blog"],
+    categories: ["content","blog"],
     meta: undefined,
+  },
+  "testimonials-01": {
+    name: "testimonials-01",
+    description: "A testimonials section with dual marquees.",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/blocks/testimonials-01/testimonials-01.tsx",
+      type: "registry:component",
+      target: "",
+    },{
+      path: "src/registry/blocks/testimonials-01/components/testimonial-list.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/blocks/testimonials-01/testimonials-01.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["marketing","testimonials"],
+    meta: {"previewClassName":"container mx-auto flex min-h-svh flex-col justify-center"},
   },
   "text-flip-demo": {
     name: "text-flip-demo",

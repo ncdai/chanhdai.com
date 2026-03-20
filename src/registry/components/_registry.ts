@@ -353,4 +353,18 @@ export const components: Registry["items"] = [
       },
     },
   },
+  {
+    name: "testimonial-spotlight",
+    type: "registry:component",
+    title: "Testimonial Spotlight",
+    author: "ncdai <dai@chanhdai.com>",
+    description: "Testimonial card with spotlight effect on hover.",
+    registryDependencies: [getRegistryItemUrl("testimonial")],
+    files: [
+      {
+        path: "components/testimonial-spotlight/testimonial-spotlight.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ]

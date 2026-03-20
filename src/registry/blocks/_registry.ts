@@ -20,7 +20,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["authentication", "login"],
+    categories: ["application", "login"],
   },
   {
     name: "hero-01",
@@ -39,7 +39,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["layout", "hero"],
+    categories: ["marketing", "hero"],
   },
   {
     name: "blog-01",
@@ -59,7 +59,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["layout", "blog"],
+    categories: ["content", "blog"],
   },
   {
     name: "blog-02",
@@ -79,6 +79,31 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["layout", "blog"],
+    categories: ["content", "blog"],
+  },
+  {
+    name: "testimonials-01",
+    title: "Testimonials 01",
+    description: "A testimonials section with dual marquees.",
+    type: "registry:block",
+    registryDependencies: [
+      "https://www.kibo-ui.com/r/marquee.json",
+      getRegistryItemUrl("testimonial-spotlight"),
+    ],
+    files: [
+      {
+        path: "blocks/testimonials-01/testimonials-01.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/testimonials-01/components/testimonial-list.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["marketing", "testimonials"],
+    meta: {
+      previewClassName:
+        "container mx-auto flex min-h-svh flex-col justify-center",
+    },
   },
 ]
