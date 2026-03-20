@@ -13,6 +13,7 @@ import { TESTIMONIALS_1, TESTIMONIALS_2 } from "../../data/testimonials"
 import type { Testimonial } from "../../types/testimonials"
 import { Panel } from "../panel"
 import { TestimonialItem } from "./testimonial-item"
+import { TestimonialSpotlight } from "./testimonial-spotlight"
 
 function compareFn(a: Testimonial, b: Testimonial) {
   return a.date.localeCompare(b.date, undefined, { numeric: true })
@@ -33,11 +34,7 @@ export function TestimonialsMarquee() {
 
       <div className="grid gap-2 px-2 sm:grid-cols-2">
         {FEATURED_TESTIMONIALS.map((item) => (
-          <TestimonialItem
-            key={item.url}
-            className="border-border bg-accent-muted"
-            {...item}
-          />
+          <TestimonialSpotlight key={item.url} {...item} />
         ))}
       </div>
 
