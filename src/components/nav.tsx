@@ -8,10 +8,12 @@ export function Nav({
   items,
   activeId,
   className,
+  exactMatch = false,
 }: {
   items: NavItem[]
   activeId?: string
   className?: string
+  exactMatch?: boolean
 }) {
   return (
     <nav
@@ -19,11 +21,12 @@ export function Nav({
       className={cn("flex items-center gap-4", className)}
     >
       {items.map(({ title, href, className }) => {
-        const active =
-          activeId === href ||
-          (href === "/" // Home page
-            ? ["/", "/index"].includes(activeId || "")
-            : activeId?.startsWith(href))
+        const active = exactMatch
+          ? activeId === href
+          : activeId === href ||
+            (href === "/" // Home page
+              ? ["/", "/index"].includes(activeId || "")
+              : activeId?.startsWith(href))
 
         return (
           <NavItem key={href} className={className} href={href} active={active}>

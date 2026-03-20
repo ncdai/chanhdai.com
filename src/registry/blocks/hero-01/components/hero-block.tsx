@@ -8,20 +8,14 @@ export function HeroBlock() {
   return (
     <div className="relative w-screen overflow-hidden pb-8">
       <div className="container mx-auto max-sm:px-2">
-        <div
-          className={cn(
-            "relative border-x border-border/50 md:hidden",
-            "after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border/50",
-            "before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-border/50"
-          )}
-        >
+        <div className="screen-line-before screen-line-after border-x border-edge md:hidden">
           <svg
-            className="pointer-events-none absolute inset-0 overflow-visible text-border/50"
+            className="pointer-events-none absolute inset-0 overflow-visible text-edge"
             viewBox="0 0 210 340"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g className="text-border/50">
+            <g className="text-edge">
               <path
                 d="M380.853 105.099L-201.625 464.632"
                 stroke="currentColor"
@@ -118,20 +112,14 @@ export function HeroBlock() {
           </div>
         </div>
 
-        <div
-          className={cn(
-            "relative hidden border-x border-border/50 md:block",
-            "before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-border/50",
-            "after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border/50"
-          )}
-        >
+        <div className="screen-line-before screen-line-after hidden border-x border-edge md:block">
           <svg
-            className="pointer-events-none absolute inset-0 overflow-visible text-border/50"
+            className="pointer-events-none absolute inset-0 overflow-visible text-edge"
             viewBox="0 0 340 210"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g className="text-border/50">
+            <g className="text-edge">
               <path
                 d="M105.1 -170.853L464.633 411.625"
                 stroke="currentColor"
@@ -222,7 +210,7 @@ function MainContent({ className }: { className?: string }) {
         className
       )}
     >
-      <h1 className="mb-4 text-[2.5rem] leading-none font-semibold tracking-tight text-foreground sm:mb-6 sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl">
+      <h1 className="mb-4 font-heading text-[2.5rem] leading-none font-semibold tracking-tight text-foreground sm:mb-6 sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl">
         Plan. Build. Ship.
       </h1>
 
