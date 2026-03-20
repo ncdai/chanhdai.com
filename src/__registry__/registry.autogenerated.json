@@ -463,7 +463,7 @@
       "description": "A hero section with a golden spiral background.",
       "registryDependencies": [
         "button",
-        "https://chanhdai.com/r/line.json"
+        "https://chanhdai.com/r/style.json"
       ],
       "files": [
         {
@@ -518,7 +518,7 @@
       ],
       "registryDependencies": [
         "button",
-        "https://chanhdai.com/r/line.json"
+        "https://chanhdai.com/r/style.json"
       ],
       "files": [
         {
@@ -538,13 +538,10 @@
       "type": "registry:block"
     },
     {
-      "name": "line",
+      "name": "style",
       "cssVars": {
         "theme": {
-          "color-edge": "var(--edge)"
-        },
-        "light": {
-          "edge": "color-mix(in oklab, var(--border) 64%, var(--background))"
+          "color-edge": "color-mix(in oklab, var(--border) 64%, var(--background))"
         }
       },
       "css": {

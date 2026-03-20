@@ -27,7 +27,7 @@ export const blocks: Registry["items"] = [
     title: "Hero 01",
     description: "A hero section with a golden spiral background.",
     type: "registry:block",
-    registryDependencies: ["button", getRegistryItemUrl("line")],
+    registryDependencies: ["button", getRegistryItemUrl("style")],
     files: [
       {
         path: "blocks/hero-01/page.tsx",
@@ -67,7 +67,7 @@ export const blocks: Registry["items"] = [
     description: "A blog section with a lined grid layout.",
     type: "registry:block",
     dependencies: ["date-fns"],
-    registryDependencies: ["button", getRegistryItemUrl("line")],
+    registryDependencies: ["button", getRegistryItemUrl("style")],
     files: [
       {
         path: "blocks/blog-02/page.tsx",
