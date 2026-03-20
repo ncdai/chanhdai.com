@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 export const dynamic = "force-static"
 export const revalidate = false
 
-const FEATURED_BLOCKS = ["hero-01", "blog-02", "blog-01"]
+const FEATURED_BLOCKS = ["hero-01", "blog-02", "blog-01", "testimonials-01"]
 
 export default function BlocksPage() {
   return (

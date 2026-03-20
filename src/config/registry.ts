@@ -19,11 +19,18 @@ export const registryConfig = {
 
 export const registryCategories = [
   {
-    name: "Layout",
-    slug: "layout",
+    name: "Marketing",
+    slug: "marketing",
+    description: "Hero sections, landing pages, testimonials, CTAs",
   },
   {
-    name: "Login",
-    slug: "login",
+    name: "Content",
+    slug: "content",
+    description: "Blog layouts, article pages, documentation",
+  },
+  {
+    name: "Application",
+    slug: "application",
+    description: "Dashboards, login, signup, app layouts, sidebars",
   },
 ]

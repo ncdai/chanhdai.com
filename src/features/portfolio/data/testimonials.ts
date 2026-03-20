@@ -146,6 +146,15 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote: "Goated portfolio. I love the whole UI in Vercel style",
     date: "2026-02-23",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/dimicx",
+    authorName: "dimi",
+    authorTagline: "Design Engineer",
+    url: "https://x.com/dimicx/status/2035018694053577149",
+    quote:
+      "i like this subtle version a lot more than the over-the-top examples i see everywhere, very nice",
+    date: "2026-03-20",
+  },
 ]
 
 // Short quotes (50 characters or fewer), ordered by date ascending
