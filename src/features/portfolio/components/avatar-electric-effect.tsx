@@ -39,7 +39,7 @@ export function AvatarElectricEffect({ children }: { children: JSX.Element }) {
 
   return (
     <ElectricBorder
-      chaos={0.06}
+      chaos={0.03}
       borderRadius={999}
       color="#fbbf24"
       active={isHovered}
