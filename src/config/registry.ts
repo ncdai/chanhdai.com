@@ -19,11 +19,11 @@ export const registryConfig = {
 
 export const registryCategories = [
   {
-    name: "Login",
-    slug: "login",
-  },
-  {
     name: "Layout",
     slug: "layout",
+  },
+  {
+    name: "Login",
+    slug: "login",
   },
 ]
