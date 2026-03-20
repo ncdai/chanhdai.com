@@ -2,14 +2,12 @@ import type { Registry } from "shadcn/schema"
 
 export const styles: Registry["items"] = [
   {
-    name: "line",
+    name: "style",
     type: "registry:style",
     cssVars: {
-      light: {
-        edge: "color-mix(in oklab, var(--border) 64%, var(--background))",
-      },
       theme: {
-        "color-edge": "var(--edge)",
+        "color-edge":
+          "color-mix(in oklab, var(--border) 64%, var(--background))",
       },
     },
     css: {
