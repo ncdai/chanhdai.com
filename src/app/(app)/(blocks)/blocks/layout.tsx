@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { X_USERNAME } from "@/config/site"
 import { cn } from "@/lib/utils"
 
+import { BlocksNav } from "./blocks-nav"
+
 const title = "Blocks"
 const description =
   "A collection of beautifully designed, production-ready blocks."
@@ -54,10 +56,14 @@ export default function BlocksLayout({
         </h1>
       </div>
 
-      <div className="p-4">
+      <div className="screen-line-after p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {description}
         </p>
+      </div>
+
+      <div className="p-4">
+        <BlocksNav />
       </div>
 
       <div className="screen-line-before screen-line-after">

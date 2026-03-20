@@ -1,5 +1,7 @@
 import type { Registry } from "shadcn/schema"
 
+import { getRegistryItemUrl } from "@/utils/registry"
+
 export const blocks: Registry["items"] = [
   {
     name: "login-01",
@@ -25,7 +27,7 @@ export const blocks: Registry["items"] = [
     title: "Hero 01",
     description: "A hero section with a golden spiral background.",
     type: "registry:block",
-    registryDependencies: ["button"],
+    registryDependencies: ["button", getRegistryItemUrl("line")],
     files: [
       {
         path: "blocks/hero-01/page.tsx",
@@ -65,7 +67,7 @@ export const blocks: Registry["items"] = [
     description: "A blog section with a lined grid layout.",
     type: "registry:block",
     dependencies: ["date-fns"],
-    registryDependencies: ["button"],
+    registryDependencies: ["button", getRegistryItemUrl("line")],
     files: [
       {
         path: "blocks/blog-02/page.tsx",
@@ -77,16 +79,6 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    css: {
-      "@utility line-x-t": {
-        "@apply relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-border/80":
-          {},
-      },
-      "@utility line-x-b": {
-        "@apply relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border/80":
-          {},
-      },
-    },
     categories: ["layout", "blog"],
   },
 ]

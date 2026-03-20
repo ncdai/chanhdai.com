@@ -1,18 +1,19 @@
 import { Fragment } from "react"
 
-import blocks from "@/__registry__/__blocks__.json"
 import { BlockDisplay } from "@/app/(preview)/components/block-display"
 import { cn } from "@/lib/utils"
 
 export const dynamic = "force-static"
 export const revalidate = false
 
+const FEATURED_BLOCKS = ["hero-01", "blog-02", "blog-01"]
+
 export default function BlocksPage() {
   return (
     <>
-      {blocks.map((block) => (
-        <Fragment key={block.name}>
-          <BlockDisplay name={block.name} />
+      {FEATURED_BLOCKS.map((name) => (
+        <Fragment key={name}>
+          <BlockDisplay name={name} />
           <Separator />
         </Fragment>
       ))}

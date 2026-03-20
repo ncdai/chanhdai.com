@@ -6,7 +6,7 @@ import { ArticleItem } from "@/registry/blocks/blog-01/components/article-item"
 export default function Page() {
   return (
     <div className="container mx-auto flex flex-col gap-8 px-4 py-8">
-      <h2 className="ml-4 text-4xl leading-snug font-medium tracking-tight md:text-5xl">
+      <h2 className="ml-4 font-heading text-4xl leading-snug font-medium tracking-tight md:text-5xl">
         Blog
       </h2>
 

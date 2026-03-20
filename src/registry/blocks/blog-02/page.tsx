@@ -7,8 +7,8 @@ export default function Page() {
   return (
     <div className="max-w-screen overflow-x-hidden">
       <div className="container mx-auto px-4 py-8">
-        <div className="border-x border-border/80">
-          <h2 className="line-x-t line-x-b ml-4 text-4xl leading-snug font-medium tracking-tight md:text-5xl">
+        <div className="border-x border-edge">
+          <h2 className="screen-line-before screen-line-after ml-4 font-heading text-4xl leading-snug font-medium tracking-tight md:text-5xl">
             Blog
           </h2>
 
@@ -16,11 +16,11 @@ export default function Page() {
             A collection of articles on development, design, and ideas.
           </p>
 
-          <div className="line-x-t relative py-4">
+          <div className="screen-line-before relative py-4">
             <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
-              <div className="border-r border-border/80" />
-              <div className="border-l border-border/80 md:border-x" />
-              <div className="border-l border-border/80 max-md:hidden" />
+              <div className="border-r border-edge" />
+              <div className="border-l border-edge md:border-x" />
+              <div className="border-l border-edge max-md:hidden" />
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -36,7 +36,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="line-x-t line-x-b flex justify-center py-2">
+          <div className="screen-line-before screen-line-after flex justify-center py-2">
             <Button className="gap-2 px-3" size="lg" asChild>
               <a href="#">
                 View All

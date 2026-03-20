@@ -462,7 +462,8 @@
       "title": "Hero 01",
       "description": "A hero section with a golden spiral background.",
       "registryDependencies": [
-        "button"
+        "button",
+        "https://chanhdai.com/r/line.json"
       ],
       "files": [
         {
@@ -516,7 +517,8 @@
         "date-fns"
       ],
       "registryDependencies": [
-        "button"
+        "button",
+        "https://chanhdai.com/r/line.json"
       ],
       "files": [
         {
@@ -529,19 +531,32 @@
           "type": "registry:component"
         }
       ],
-      "css": {
-        "@utility line-x-t": {
-          "@apply relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-border/80": {}
-        },
-        "@utility line-x-b": {
-          "@apply relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-border/80": {}
-        }
-      },
       "categories": [
         "layout",
         "blog"
       ],
       "type": "registry:block"
+    },
+    {
+      "name": "line",
+      "cssVars": {
+        "theme": {
+          "--color-edge": "var(--edge)"
+        },
+        "light": {
+          "--edge": "color-mix(in oklab, var(--border) 64%, var(--background))"
+        }
+      },
+      "css": {
+        "@utility screen-line-before": {
+          "@apply relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-edge": {}
+        },
+        "@utility screen-line-after": {
+          "@apply relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw] after:bg-edge": {}
+        }
+      },
+      "type": "registry:style",
+      "files": []
     }
   ]
 }
