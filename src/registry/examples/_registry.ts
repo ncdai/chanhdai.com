@@ -277,4 +277,26 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "testimonial-spotlight-demo-01",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("testimonial-spotlight")],
+    files: [
+      {
+        path: "examples/testimonial-spotlight-demo-01.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "testimonial-spotlight-demo-02",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("testimonial-spotlight")],
+    files: [
+      {
+        path: "examples/testimonial-spotlight-demo-02.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

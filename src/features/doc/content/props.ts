@@ -10,6 +10,7 @@ import type {
   SlideToUnlock,
   SlideToUnlockText,
 } from "@/registry/components/slide-to-unlock"
+import type { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 export type AppleHelloEffectProps = Omit<
   ComponentProps<typeof AppleHelloVietnameseEffect>,
@@ -60,3 +61,7 @@ export type HapticProps = {
    */
   haptic: (pattern?: number | number[]) => void
 }
+
+export type TestimonialSpotlightProps = ComponentProps<
+  typeof TestimonialSpotlight
+>

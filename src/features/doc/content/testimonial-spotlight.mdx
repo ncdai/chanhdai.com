@@ -1,0 +1,96 @@
+---
+title: Testimonial Spotlight
+description: Testimonial card with spotlight effect on hover.
+image: https://assets.chanhdai.com/images/blog/testimonial-spotlight.webp
+category: components
+createdAt: 2026-03-21
+updatedAt: 2026-03-21
+---
+
+<ComponentPreview name="testimonial-spotlight-demo-01" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/testimonial-spotlight
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="testimonial"
+  title="components/testimonial.tsx"
+  showLineNumbers
+/>
+
+<ComponentSource
+  name="testimonial-spotlight"
+  title="components/testimonial-spotlight.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TestimonialSpotlight } from "@/components/testimonial-spotlight"
+```
+
+```tsx
+<TestimonialSpotlight
+  authorAvatar="https://unavatar.io/x/shadcn"
+  authorName="shadcn"
+  authorTagline="Creator of shadcn/ui"
+  url="https://x.com/shadcn/status/2032193591133495700"
+  quote="You’re doing amazing work."
+/>
+```
+
+## API Reference
+
+### TestimonialSpotlight
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestimonialSpotlightProps"
+/>
+
+## Examples
+
+### Custom color
+
+<ComponentPreview name="testimonial-spotlight-demo-02" data-code-meta="{7}" />
