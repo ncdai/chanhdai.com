@@ -21,9 +21,9 @@ export const USER: User = {
   jobs: [
     {
       title: "Design Engineer",
-      company: "Shadcraft",
-      website: "https://shadcraft.com",
-      experienceId: "shadcraft",
+      company: "shadcncraft",
+      website: "https://shadcncraft.com",
+      experienceId: "shadcncraft",
     },
     {
       title: "Founder",

@@ -50,9 +50,9 @@ const TESTIMONIALS_1: TestimonialType[] = [
     quote: "@iamncdai is one of the best design engineers!",
   },
   {
-    authorAvatar: "https://unavatar.io/x/shadcncraft",
-    authorName: "Shadcraft",
-    authorTagline: "shadcn/ui kit for Figma and React",
+    authorAvatar: "https://unavatar.io/x/shadcncraft?v=2",
+    authorName: "shadcncraft",
+    authorTagline: "shadcncraft.com",
     url: "https://x.com/shadcncraft/status/2017091317244055988",
     quote: "Love your work Dai! You're a great talent :-)",
   },
