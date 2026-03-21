@@ -62,7 +62,7 @@ export default function BlocksLayout({
         </p>
       </div>
 
-      <div className="p-4">
+      <div className="no-scrollbar max-w-full overflow-x-auto scroll-fade-effect-x p-4 whitespace-nowrap">
         <BlocksNav />
       </div>
 
