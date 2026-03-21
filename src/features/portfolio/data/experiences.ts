@@ -4,8 +4,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "shadcncraft",
     companyName: "shadcncraft",
-    companyLogo:
-      "https://assets.chanhdai.com/images/companies/shadcncraft.svg?v=2",
+    companyLogo: "https://assets.chanhdai.com/images/companies/shadcncraft.svg",
     companyWebsite: "https://shadcncraft.com",
     positions: [
       {
