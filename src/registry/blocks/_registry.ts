@@ -52,9 +52,8 @@ export const blocks: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "blocks/blog-01/page.tsx",
-        target: "app/blog/page.tsx",
-        type: "registry:page",
+        path: "blocks/blog-01/blog-01.tsx",
+        type: "registry:component",
       },
       {
         path: "blocks/blog-01/components/article-item.tsx",
@@ -72,9 +71,8 @@ export const blocks: Registry["items"] = [
     registryDependencies: ["button", getRegistryItemUrl("style")],
     files: [
       {
-        path: "blocks/blog-02/page.tsx",
-        target: "app/blog/page.tsx",
-        type: "registry:page",
+        path: "blocks/blog-02/blog-02.tsx",
+        type: "registry:component",
       },
       {
         path: "blocks/blog-02/components/article-item.tsx",

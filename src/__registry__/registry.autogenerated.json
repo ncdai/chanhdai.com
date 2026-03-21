@@ -512,9 +512,8 @@
       ],
       "files": [
         {
-          "path": "src/registry/blocks/blog-01/page.tsx",
-          "type": "registry:page",
-          "target": "app/blog/page.tsx"
+          "path": "src/registry/blocks/blog-01/blog-01.tsx",
+          "type": "registry:component"
         },
         {
           "path": "src/registry/blocks/blog-01/components/article-item.tsx",
@@ -540,9 +539,8 @@
       ],
       "files": [
         {
-          "path": "src/registry/blocks/blog-02/page.tsx",
-          "type": "registry:page",
-          "target": "app/blog/page.tsx"
+          "path": "src/registry/blocks/blog-02/blog-02.tsx",
+          "type": "registry:component"
         },
         {
           "path": "src/registry/blocks/blog-02/components/article-item.tsx",
