@@ -117,6 +117,7 @@ export const sponsors: Sponsor[] = [
         </svg>
       )
     },
+    tier: "silver",
   },
   {
     type: "organization",
