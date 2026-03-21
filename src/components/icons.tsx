@@ -7,6 +7,7 @@ import {
   MouseIcon,
   QuoteIcon,
   SeparatorHorizontalIcon,
+  SpotlightIcon,
   SquareTerminalIcon,
   TerminalSquareIcon,
   ToggleLeftIcon,
@@ -714,6 +715,10 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
 
     case "haptic": {
       return <VibrateIcon {...props} />
+    }
+
+    case "testimonial-spotlight": {
+      return <SpotlightIcon {...props} />
     }
 
     default: {
