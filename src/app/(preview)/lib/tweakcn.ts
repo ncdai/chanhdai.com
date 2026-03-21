@@ -1,7 +1,7 @@
 import type { RegistryItem } from "shadcn/schema"
 import { registrySchema } from "shadcn/schema"
 
-import { isRegistryThemeItem } from "./theme-item"
+import { isRegistryThemeItem, withThemeSource } from "./theme-item"
 
 export async function getTweakcnThemes(): Promise<RegistryItem[]> {
   try {
@@ -15,6 +15,7 @@ export async function getTweakcnThemes(): Promise<RegistryItem[]> {
 
     return parsed.data.items
       .filter(isRegistryThemeItem)
+      .map((item) => withThemeSource(item, "tweakcn"))
       .sort((a, b) => a.name.localeCompare(b.name))
   } catch {
     return []

@@ -1,9 +1,6 @@
 import type { RegistryItem } from "shadcn/schema"
 
-import {
-  extractFontVarsFromTheme,
-  FONT_VAR_KEYS,
-} from "@/app/(preview)/lib/theme-fonts"
+import { extractFontVarsFromTheme, FONT_VAR_KEYS } from "./theme-fonts"
 
 export const THEME_VARS_STYLE_ID = "theme-vars"
 

@@ -616,6 +616,14 @@ function ThemePicker() {
 
   const themeItem = theme ? themes.get(theme) : null
 
+  const { shadcnThemes, tweakcnThemes } = useMemo(() => {
+    const themesArray = Array.from(themes.values())
+    return {
+      shadcnThemes: themesArray.filter((t) => t.meta?.source === "shadcn"),
+      tweakcnThemes: themesArray.filter((t) => t.meta?.source === "tweakcn"),
+    }
+  }, [themes])
+
   return (
     <Popover modal>
       <Tooltip>
@@ -634,7 +642,7 @@ function ThemePicker() {
           }
         />
         <TooltipContent>
-          {themeItem?.title || themeItem?.name || "Zinc"}
+          {themeItem?.title || themeItem?.name || "Default"}
         </TooltipContent>
       </Tooltip>
 
@@ -655,29 +663,54 @@ function ThemePicker() {
             <CommandGroup heading="Current theme">
               <CommandItem onSelect={() => setTheme(null)}>
                 <ThemePalette />
-                Zinc
+                Default
                 {!theme && <CheckIcon className="ml-auto" strokeWidth={3} />}
               </CommandItem>
             </CommandGroup>
 
-            <CommandGroup heading={`tweakcn themes (${themes.size})`}>
-              {Array.from(themes.values()).map((item) => (
-                <CommandItem
-                  key={item.name}
-                  onSelect={() => setTheme(item.name)}
-                >
-                  <ThemePalette cssVars={item.cssVars} />
-                  {item.title || item.name}
-                  {theme === item.name && (
-                    <CheckIcon className="ml-auto" strokeWidth={3} />
-                  )}
-                </CommandItem>
-              ))}
-            </CommandGroup>
+            <ThemePickerGroup
+              title="shadcn/ui"
+              themes={shadcnThemes}
+              activeTheme={theme}
+              onThemeSelect={setTheme}
+            />
+
+            <ThemePickerGroup
+              title="tweakcn"
+              themes={tweakcnThemes}
+              activeTheme={theme}
+              onThemeSelect={setTheme}
+            />
           </CommandList>
         </Command>
       </PopoverContent>
     </Popover>
+  )
+}
+
+function ThemePickerGroup({
+  title,
+  themes,
+  activeTheme,
+  onThemeSelect,
+}: {
+  title: string
+  themes: RegistryItem[]
+  activeTheme: PreviewSearchParams["theme"]
+  onThemeSelect: (theme: PreviewSearchParams["theme"]) => void
+}) {
+  return (
+    <CommandGroup heading={`${title} themes (${themes.length})`}>
+      {themes.map((item) => (
+        <CommandItem key={item.name} onSelect={() => onThemeSelect(item.name)}>
+          <ThemePalette cssVars={item.cssVars} />
+          {item.title || item.name}
+          {activeTheme === item.name && (
+            <CheckIcon className="ml-auto" strokeWidth={3} />
+          )}
+        </CommandItem>
+      ))}
+    </CommandGroup>
   )
 }
 
