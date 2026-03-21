@@ -355,37 +355,37 @@ export const Index: Record<string, any> = {
     description: "A hero section with a golden spiral background.",
     type: "registry:block",
     files: [{
-      path: "src/registry/blocks/hero-01/page.tsx",
-      type: "registry:page",
-      target: "app/hero/page.tsx",
+      path: "src/registry/blocks/hero-01/hero-01.tsx",
+      type: "registry:component",
+      target: "",
     },{
-      path: "src/registry/blocks/hero-01/components/hero-block.tsx",
+      path: "src/registry/blocks/hero-01/components/hero-01-icons.tsx",
       type: "registry:component",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/blocks/hero-01/page.tsx")
+      const mod = await import("@/registry/blocks/hero-01/hero-01.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["marketing","hero"],
-    meta: undefined,
+    meta: {"previewClassName":"flex min-h-svh flex-col items-center pt-8"},
   },
   "blog-01": {
     name: "blog-01",
     description: "A blog section with a grid layout.",
     type: "registry:block",
     files: [{
-      path: "src/registry/blocks/blog-01/page.tsx",
-      type: "registry:page",
-      target: "app/blog/page.tsx",
+      path: "src/registry/blocks/blog-01/blog-01.tsx",
+      type: "registry:component",
+      target: "",
     },{
       path: "src/registry/blocks/blog-01/components/article-item.tsx",
       type: "registry:component",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/blocks/blog-01/page.tsx")
+      const mod = await import("@/registry/blocks/blog-01/blog-01.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -397,16 +397,16 @@ export const Index: Record<string, any> = {
     description: "A blog section with a lined grid layout.",
     type: "registry:block",
     files: [{
-      path: "src/registry/blocks/blog-02/page.tsx",
-      type: "registry:page",
-      target: "app/blog/page.tsx",
+      path: "src/registry/blocks/blog-02/blog-02.tsx",
+      type: "registry:component",
+      target: "",
     },{
       path: "src/registry/blocks/blog-02/components/article-item.tsx",
       type: "registry:component",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/blocks/blog-02/page.tsx")
+      const mod = await import("@/registry/blocks/blog-02/blog-02.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

@@ -3,7 +3,7 @@ import { ChevronRightIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ArticleItem } from "@/registry/blocks/blog-02/components/article-item"
 
-export default function Page() {
+export function Blog02() {
   return (
     <div className="max-w-screen overflow-x-hidden">
       <div className="container mx-auto px-4 py-8">

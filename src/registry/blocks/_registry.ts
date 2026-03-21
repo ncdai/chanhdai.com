@@ -30,16 +30,18 @@ export const blocks: Registry["items"] = [
     registryDependencies: ["button", getRegistryItemUrl("style")],
     files: [
       {
-        path: "blocks/hero-01/page.tsx",
-        target: "app/hero/page.tsx",
-        type: "registry:page",
+        path: "blocks/hero-01/hero-01.tsx",
+        type: "registry:component",
       },
       {
-        path: "blocks/hero-01/components/hero-block.tsx",
+        path: "blocks/hero-01/components/hero-01-icons.tsx",
         type: "registry:component",
       },
     ],
     categories: ["marketing", "hero"],
+    meta: {
+      previewClassName: "flex min-h-svh flex-col items-center pt-8",
+    },
   },
   {
     name: "blog-01",
@@ -50,9 +52,8 @@ export const blocks: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "blocks/blog-01/page.tsx",
-        target: "app/blog/page.tsx",
-        type: "registry:page",
+        path: "blocks/blog-01/blog-01.tsx",
+        type: "registry:component",
       },
       {
         path: "blocks/blog-01/components/article-item.tsx",
@@ -70,9 +71,8 @@ export const blocks: Registry["items"] = [
     registryDependencies: ["button", getRegistryItemUrl("style")],
     files: [
       {
-        path: "blocks/blog-02/page.tsx",
-        target: "app/blog/page.tsx",
-        type: "registry:page",
+        path: "blocks/blog-02/blog-02.tsx",
+        type: "registry:component",
       },
       {
         path: "blocks/blog-02/components/article-item.tsx",
