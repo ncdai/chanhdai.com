@@ -81,7 +81,7 @@ export function TestimonialSpotlight({
     <a
       ref={itemRef}
       className={cn(
-        "relative flex h-full overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10 ring-inset",
+        "relative flex h-full overflow-hidden rounded-xl bg-card/50 ring-1 ring-foreground/10 ring-inset",
         className
       )}
       href={url}
