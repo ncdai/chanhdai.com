@@ -1,6 +1,8 @@
 import type { JSX } from "react"
 
-export type SponsorTier = "osp" | "silver" | "gold" | "platinum"
+export const SPONSOR_TIER = ["osp", "silver", "gold", "platinum"] as const
+
+export type SponsorTier = (typeof SPONSOR_TIER)[number]
 
 type SponsorBase = {
   name: string

@@ -1,3 +1,7 @@
+import { ArrowRightIcon } from "lucide-react"
+import Link from "next/link"
+
+import { Button } from "@/components/base/ui/button"
 import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
 import { SponsorItemPlus } from "@/features/sponsor/components/sponsor-item-plus"
 import { sponsors } from "@/features/sponsor/data"
@@ -22,12 +26,26 @@ export function Sponsors() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {sponsors.map((item) => (
-            <SponsorItem key={item.name} item={item} />
-          ))}
+          {sponsors
+            .filter((item) => item.tier)
+            .map((item) => (
+              <SponsorItem key={item.name} item={item} />
+            ))}
 
           <SponsorItemPlus />
         </div>
+      </div>
+
+      <div className="-mt-px flex justify-center py-2">
+        <Button
+          className="gap-2 border-none pr-2.5 pl-3"
+          size="sm"
+          nativeButton={false}
+          render={<Link href="/sponsors" />}
+        >
+          All Sponsors
+          <ArrowRightIcon />
+        </Button>
       </div>
     </Panel>
   )
