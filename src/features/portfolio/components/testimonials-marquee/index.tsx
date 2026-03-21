@@ -8,12 +8,12 @@ import {
   MarqueeItem,
 } from "@/components/kibo-ui/marquee"
 import { Button } from "@/components/ui/button"
+import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 import { TESTIMONIALS_1, TESTIMONIALS_2 } from "../../data/testimonials"
 import type { Testimonial } from "../../types/testimonials"
 import { Panel } from "../panel"
 import { TestimonialItem } from "./testimonial-item"
-import { TestimonialSpotlight } from "./testimonial-spotlight"
 
 function compareFn(a: Testimonial, b: Testimonial) {
   return a.date.localeCompare(b.date, undefined, { numeric: true })
@@ -34,7 +34,11 @@ export function TestimonialsMarquee() {
 
       <div className="grid gap-2 px-2 sm:grid-cols-2">
         {FEATURED_TESTIMONIALS.map((item) => (
-          <TestimonialSpotlight key={item.url} {...item} />
+          <TestimonialSpotlight
+            key={item.url}
+            className="bg-accent-muted"
+            {...item}
+          />
         ))}
       </div>
 
