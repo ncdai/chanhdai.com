@@ -483,15 +483,17 @@
       ],
       "files": [
         {
-          "path": "src/registry/blocks/hero-01/page.tsx",
-          "type": "registry:page",
-          "target": "app/hero/page.tsx"
+          "path": "src/registry/blocks/hero-01/hero-01.tsx",
+          "type": "registry:component"
         },
         {
-          "path": "src/registry/blocks/hero-01/components/hero-block.tsx",
+          "path": "src/registry/blocks/hero-01/components/hero-01-icons.tsx",
           "type": "registry:component"
         }
       ],
+      "meta": {
+        "previewClassName": "flex min-h-svh flex-col items-center pt-8"
+      },
       "categories": [
         "marketing",
         "hero"

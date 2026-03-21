@@ -355,21 +355,21 @@ export const Index: Record<string, any> = {
     description: "A hero section with a golden spiral background.",
     type: "registry:block",
     files: [{
-      path: "src/registry/blocks/hero-01/page.tsx",
-      type: "registry:page",
-      target: "app/hero/page.tsx",
+      path: "src/registry/blocks/hero-01/hero-01.tsx",
+      type: "registry:component",
+      target: "",
     },{
-      path: "src/registry/blocks/hero-01/components/hero-block.tsx",
+      path: "src/registry/blocks/hero-01/components/hero-01-icons.tsx",
       type: "registry:component",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/blocks/hero-01/page.tsx")
+      const mod = await import("@/registry/blocks/hero-01/hero-01.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["marketing","hero"],
-    meta: undefined,
+    meta: {"previewClassName":"flex min-h-svh flex-col items-center pt-8"},
   },
   "blog-01": {
     name: "blog-01",
