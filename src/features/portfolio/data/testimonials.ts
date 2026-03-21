@@ -75,19 +75,16 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Creator of c15t.com",
     url: "https://x.com/BurnedChris/status/2000947403571204445",
     quote:
-      "This is super cool, Full circle moment (the prototype for c15t actually used shadcn). Would love to get this in our docs also and shared in our discord!",
+      "This is super cool, Full circle moment (the prototype for c15t actually used shadcn).",
     date: "2025-12-16",
-    style: { maxWidth: 416 },
   },
   {
     authorAvatar: "https://unavatar.io/x/ajaypatel_aj",
     authorName: "Ajay Patel",
     authorTagline: "Creator of shadcnstudio.com",
     url: "https://x.com/ajaypatel_aj/status/2003723039029231737",
-    quote:
-      "Perfect iOS-like wheel picker for the web. Natural touch physics, infinite looping, and unstyled components with shadcn CLI support.",
+    quote: "Perfect iOS-like wheel picker for the web.",
     date: "2025-12-24",
-    style: { maxWidth: 392 },
   },
   {
     authorAvatar: "https://unavatar.io/x/FrancescoCiull4",
@@ -123,9 +120,9 @@ export const TESTIMONIALS_1: Testimonial[] = [
     date: "2026-01-29",
   },
   {
-    authorAvatar: "https://unavatar.io/x/shadcncraft",
-    authorName: "Shadcraft",
-    authorTagline: "shadcn/ui kit for Figma and React",
+    authorAvatar: "https://unavatar.io/x/shadcncraft?v=2",
+    authorName: "shadcncraft",
+    authorTagline: "shadcncraft.com",
     url: "https://x.com/shadcncraft/status/2017091317244055988",
     quote: "Love your work Dai! You're a great talent :-)",
     date: "2026-01-30",
@@ -258,7 +255,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/nuqs47ng",
     authorName: "nuqs",
-    authorTagline: "Type-safe URL State for React",
+    authorTagline: "nuqs.dev",
     url: "https://x.com/nuqs47ng/status/2020417206103023847",
     quote: "Looks great!",
     date: "2026-02-08",
