@@ -317,4 +317,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     quote: "Looks incredible!",
     date: "2026-03-18",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/harshjdhv",
+    authorName: "Harsh",
+    authorTagline: "Building componentry.fun",
+    url: "https://x.com/harshjdhv/status/2035010611512508481",
+    quote: "Cleannnn",
+    date: "2026-03-21",
+  },
 ]
