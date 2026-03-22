@@ -1,9 +1,12 @@
+import { ArrowUpRightIcon } from "lucide-react"
 import type { Metadata } from "next"
 
-import { SITE_INFO, X_USERNAME } from "@/config/site"
+import { Button } from "@/components/base/ui/button"
+import { SITE_INFO, SPONSORSHIP_URL, X_USERNAME } from "@/config/site"
 import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
-import { SponsorItemPlus } from "@/features/sponsor/components/sponsor-item-plus"
-import { sponsors } from "@/features/sponsor/data"
+import { SPONSORS } from "@/features/sponsor/data"
+import type { Sponsor, SponsorTier } from "@/features/sponsor/types"
+import { SPONSOR_TIERS } from "@/features/sponsor/types"
 
 export const metadata: Metadata = {
   title: "Sponsors",
@@ -30,11 +33,24 @@ export const metadata: Metadata = {
   },
 }
 
+const SPONSORS_BY_TIER = SPONSORS.reduce(
+  (acc, sponsor) => {
+    if (!acc[sponsor.tier]) {
+      acc[sponsor.tier] = []
+    }
+    acc[sponsor.tier].push(sponsor)
+    return acc
+  },
+  {} as Record<SponsorTier, Sponsor[]>
+)
+
 export default function Page() {
   return (
-    <div className="min-h-svh">
+    <div>
       <div className="screen-line-bottom px-4">
-        <h1 className="text-3xl font-semibold tracking-tight">Sponsors</h1>
+        <h1 className="text-3xl leading-none font-semibold tracking-tight">
+          Sponsors
+        </h1>
       </div>
 
       <div className="p-4">
@@ -43,8 +59,60 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="screen-line-top relative pt-4">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
+      <div className="screen-line-top screen-line-bottom flex h-4" />
+
+      {SPONSOR_TIERS.map((tier) => (
+        <SponsorsGroup
+          key={tier.name}
+          title={tier.title}
+          sponsors={SPONSORS_BY_TIER[tier.name] ?? []}
+        />
+      ))}
+
+      <div className="flex justify-center py-2">
+        <Button
+          className="gap-2 border-none pr-2.5 pl-3"
+          size="sm"
+          nativeButton={false}
+          render={
+            <a
+              href={SPONSORSHIP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+          }
+        >
+          Sponsor My Work
+          <ArrowUpRightIcon />
+        </Button>
+      </div>
+
+      <div className="screen-line-top h-4" />
+    </div>
+  )
+}
+
+function SponsorsGroup({
+  title,
+  sponsors,
+}: {
+  title: string
+  sponsors: Sponsor[]
+}) {
+  if (sponsors.length === 0) {
+    return null
+  }
+
+  return (
+    <div>
+      <div className="p-4">
+        <h2 className="font-heading text-lg leading-none font-medium">
+          {title}
+        </h2>
+      </div>
+
+      <div className="screen-line-bottom relative pb-4">
+        <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-line" />
           <div className="border-l border-line" />
         </div>
@@ -53,12 +121,8 @@ export default function Page() {
           {sponsors.map((item) => (
             <SponsorItem key={item.name} item={item} />
           ))}
-
-          <SponsorItemPlus />
         </div>
       </div>
-
-      <div className="h-4" />
     </div>
   )
 }
