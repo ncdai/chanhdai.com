@@ -44,6 +44,7 @@
     "@date-fns/tz": "^1.4.1",
     "@hookform/resolvers": "^4.1.0",
     "@ncdai/react-wheel-picker": "^1.2.0",
+    "@next/third-parties": "^16.2.1",
     "@openpanel/web": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
