@@ -3,12 +3,12 @@ import { join } from "node:path"
 
 import { ImageResponse } from "next/og"
 
-const geistMedium = readFileSync(
-  join(process.cwd(), "src/assets/fonts/Geist-Medium.ttf")
-)
-
 const geistSemiBold = readFileSync(
   join(process.cwd(), "src/assets/fonts/Geist-SemiBold.ttf")
+)
+
+const geistMonoRegular = readFileSync(
+  join(process.cwd(), "src/assets/fonts/GeistMono-Regular.ttf")
 )
 
 export async function GET(request: Request) {
@@ -19,13 +19,13 @@ export async function GET(request: Request) {
 
   return new ImageResponse(
     (
-      <div tw="w-full h-full flex text-white bg-black">
-        <div tw="absolute flex inset-y-0 w-px border border-zinc-800 left-16" />
-        <div tw="absolute flex inset-y-0 w-px border border-zinc-800 right-16" />
-        <div tw="absolute flex inset-x-0 h-px border border-zinc-800 top-16" />
-        <div tw="absolute flex inset-x-0 h-px border border-zinc-800 bottom-16" />
+      <div tw="w-full h-full flex text-zinc-50 bg-black">
+        <div tw="absolute flex inset-y-0 w-px border border-zinc-900 left-12" />
+        <div tw="absolute flex inset-y-0 w-px border border-zinc-900 right-12" />
+        <div tw="absolute flex inset-x-0 h-px border border-zinc-900 top-12" />
+        <div tw="absolute flex inset-x-0 h-px border border-zinc-900 bottom-12" />
 
-        <div tw="absolute flex bottom-16 right-16">
+        <div tw="absolute flex bottom-24 right-24">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 256"
@@ -39,12 +39,13 @@ export async function GET(request: Request) {
           </svg>
         </div>
 
-        <div tw="absolute inset-32 flex flex-col w-[896px] justify-center">
+        <div tw="absolute inset-24 flex flex-col w-[832px] justify-center">
           <div
             style={{
               fontFamily: "GeistSans",
               fontWeight: 600,
               fontSize: 64,
+              lineHeight: 1,
               textWrap: "balance",
               letterSpacing: "-0.025em",
             }}
@@ -54,11 +55,12 @@ export async function GET(request: Request) {
 
           {description && (
             <div
-              tw="grow mt-4 text-zinc-400"
+              tw="grow mt-6 text-zinc-400"
               style={{
-                fontFamily: "GeistSans",
-                fontWeight: 500,
+                fontFamily: "GeistMono",
+                fontWeight: 400,
                 fontSize: 32,
+                lineHeight: 1.25,
                 textWrap: "balance",
               }}
             >
@@ -74,13 +76,13 @@ export async function GET(request: Request) {
       fonts: [
         {
           name: "GeistSans",
-          data: geistMedium,
-          weight: 500,
-        },
-        {
-          name: "GeistSans",
           data: geistSemiBold,
           weight: 600,
+        },
+        {
+          name: "GeistMono",
+          data: geistMonoRegular,
+          weight: 400,
         },
       ],
     }
