@@ -26,7 +26,7 @@ export function TestimonialItem({
       target="_blank"
       rel="noopener"
       className={cn(
-        "block h-full rounded-xl border border-line transition-[background-color] ease-out hover:bg-accent-muted",
+        "block h-full rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted",
         className
       )}
     >
