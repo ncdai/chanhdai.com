@@ -19,13 +19,13 @@ export async function GET(request: Request) {
 
   return new ImageResponse(
     (
-      <div tw="w-full h-full flex text-zinc-50 bg-black">
-        <div tw="absolute flex inset-y-0 w-px border border-zinc-900 left-12" />
-        <div tw="absolute flex inset-y-0 w-px border border-zinc-900 right-12" />
-        <div tw="absolute flex inset-x-0 h-px border border-zinc-900 top-12" />
-        <div tw="absolute flex inset-x-0 h-px border border-zinc-900 bottom-12" />
+      <div tw="flex h-full w-full bg-black text-zinc-50">
+        <div tw="absolute inset-y-0 left-12 flex w-px border border-zinc-800/80" />
+        <div tw="absolute inset-y-0 right-12 flex w-px border border-zinc-800/80" />
+        <div tw="absolute inset-x-0 top-12 flex h-px border border-zinc-800/80" />
+        <div tw="absolute inset-x-0 bottom-12 flex h-px border border-zinc-800/80" />
 
-        <div tw="absolute flex bottom-24 right-24">
+        <div tw="absolute right-24 bottom-24 flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 256"
@@ -39,8 +39,9 @@ export async function GET(request: Request) {
           </svg>
         </div>
 
-        <div tw="absolute inset-24 flex flex-col w-[832px] justify-center">
+        <div tw="absolute inset-x-0 inset-y-12 flex flex-col justify-center">
           <div
+            tw="border-b-2 border-zinc-800/80 px-24"
             style={{
               fontFamily: "GeistSans",
               fontWeight: 600,
@@ -54,17 +55,19 @@ export async function GET(request: Request) {
           </div>
 
           {description && (
-            <div
-              tw="grow mt-6 text-zinc-400"
-              style={{
-                fontFamily: "GeistMono",
-                fontWeight: 400,
-                fontSize: 32,
-                lineHeight: 1.25,
-                textWrap: "balance",
-              }}
-            >
-              {description}
+            <div tw="flex flex-col grow">
+              <div
+                tw="border-b-2 border-zinc-800/80 px-24 py-8 text-zinc-400"
+                style={{
+                  fontFamily: "GeistMono",
+                  fontWeight: 400,
+                  fontSize: 32,
+                  lineHeight: 1.25,
+                  textWrap: "balance",
+                }}
+              >
+                {description}
+              </div>
             </div>
           )}
         </div>
