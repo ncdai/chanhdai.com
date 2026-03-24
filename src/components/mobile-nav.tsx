@@ -11,7 +11,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { cn } from "@/lib/utils"
 import { haptic } from "@/registry/lib/haptic"
 import type { NavItem } from "@/types/nav"
 
@@ -57,10 +56,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                 key={link.href}
                 href={link.href}
                 data-active={active}
-                className={cn(
-                  "rounded-lg px-3 py-1.5 text-base data-active:bg-accent",
-                  link.className
-                )}
+                className="rounded-lg px-3 py-1.5 text-base data-active:bg-accent"
                 onClick={() => handleOpenChange(false)}
               >
                 {link.title}
