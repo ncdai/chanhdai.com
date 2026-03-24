@@ -16,10 +16,6 @@ export const META_THEME_COLORS = {
 
 export const MAIN_NAV: NavItem[] = [
   {
-    title: "Home",
-    href: "/",
-  },
-  {
     title: "Components",
     href: "/components",
   },
@@ -34,8 +30,15 @@ export const MAIN_NAV: NavItem[] = [
   {
     title: "Sponsors",
     href: "/sponsors",
-    className: "sm:max-md:hidden",
   },
+]
+
+export const MOBILE_NAV: NavItem[] = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  ...MAIN_NAV,
 ]
 
 export const X_USERNAME = "@iamncdai"

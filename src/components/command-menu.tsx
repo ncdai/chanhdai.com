@@ -61,7 +61,7 @@ type CommandLinkItem = {
 
 const MENU_LINKS: CommandLinkItem[] = [
   {
-    title: "Home",
+    title: "Portfolio",
     href: "/",
     icon: ChanhDaiMark,
   },

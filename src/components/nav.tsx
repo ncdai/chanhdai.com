@@ -20,7 +20,7 @@ export function Nav({
       data-active-id={activeId}
       className={cn("flex items-center gap-4", className)}
     >
-      {items.map(({ title, href, className }) => {
+      {items.map(({ title, href }) => {
         const active = exactMatch
           ? activeId === href
           : activeId === href ||
@@ -29,7 +29,7 @@ export function Nav({
               : activeId?.startsWith(href))
 
         return (
-          <NavItem key={href} className={className} href={href} active={active}>
+          <NavItem key={href} href={href} active={active}>
             {title}
           </NavItem>
         )

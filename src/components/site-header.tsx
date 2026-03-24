@@ -7,7 +7,7 @@ import { NavItemGitHub } from "@/components/nav-item-github"
 import { SiteHeaderMark } from "@/components/site-header-mark"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Separator } from "@/components/ui/separator"
-import { MAIN_NAV } from "@/config/site"
+import { MAIN_NAV, MOBILE_NAV } from "@/config/site"
 import { getAllDocs } from "@/features/doc/data/documents"
 import type { DocPreview } from "@/features/doc/types/document"
 import { cn } from "@/lib/utils"
@@ -77,7 +77,7 @@ export function SiteHeader() {
           orientation="vertical"
           className="mr-1 ml-2.5 data-vertical:h-6 data-vertical:self-center"
         />
-        <MobileNav items={MAIN_NAV} />
+        <MobileNav items={MOBILE_NAV} />
       </div>
     </>
   )
