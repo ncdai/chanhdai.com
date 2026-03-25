@@ -4,8 +4,8 @@ A minimal, pixel-perfect dev portfolio, shadcn registry, and blog to showcase my
 
 → Check out the live site: [chanhdai.com](https://chanhdai.com)
 
-[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=8#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
-[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=8#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
+[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=9#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
+[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=9#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
 
 ## Overview
 
