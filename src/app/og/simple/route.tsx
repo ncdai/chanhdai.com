@@ -25,7 +25,7 @@ export async function GET(request: Request) {
         <div tw="absolute inset-x-0 top-12 flex h-px border border-zinc-800" />
         <div tw="absolute inset-x-0 bottom-12 flex h-px border border-zinc-800" />
 
-        <div tw="absolute right-24 bottom-24 flex">
+        <div tw="absolute top-18 left-18 flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 256"
@@ -39,9 +39,9 @@ export async function GET(request: Request) {
           </svg>
         </div>
 
-        <div tw="absolute inset-x-0 inset-y-12 flex flex-col justify-center">
+        <div tw="absolute inset-x-0 top-40 bottom-24 flex flex-col justify-end border-t-2 border-zinc-800">
           <div
-            tw="border-b-2 border-zinc-800 px-24"
+            tw="border-t-2 border-b-2 border-zinc-800 px-18"
             style={{
               fontFamily: "GeistSans",
               fontWeight: 600,
@@ -55,9 +55,9 @@ export async function GET(request: Request) {
           </div>
 
           {description && (
-            <div tw="flex flex-col grow">
+            <div tw="flex flex-col">
               <div
-                tw="border-b-2 border-zinc-800 px-24 py-8 text-zinc-400"
+                tw="border-b-2 border-zinc-800 px-18 py-8 text-zinc-400"
                 style={{
                   fontFamily: "GeistMono",
                   fontWeight: 400,
