@@ -1,6 +1,7 @@
 import { RssIcon } from "lucide-react"
 
 import { Icons } from "@/components/icons"
+import { SiteFooterBrand } from "@/components/site-footer-brand"
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { cn } from "@/lib/utils"
 
@@ -110,7 +111,10 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="pb-[env(safe-area-inset-bottom,0px)]">
+
+      <SiteFooterBrand />
+
+      <div className="screen-line-top pb-[env(safe-area-inset-bottom,0px)] before:-top-px before:bg-foreground/10">
         <div className="flex h-16 sm:h-2" />
       </div>
     </footer>
