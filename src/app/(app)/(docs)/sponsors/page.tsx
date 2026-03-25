@@ -74,13 +74,7 @@ export default function Page() {
           className="gap-2 border-none pr-2.5 pl-3"
           size="sm"
           nativeButton={false}
-          render={
-            <a
-              href={SPONSORSHIP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-          }
+          render={<a href={SPONSORSHIP_URL} target="_blank" rel="noopener" />}
         >
           Sponsor My Work
           <ArrowUpRightIcon />

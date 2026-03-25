@@ -17,10 +17,7 @@ export function BookmarkItem({
 }) {
   return (
     <a
-      className={cn(
-        "group flex items-center pr-2 hover:bg-accent-muted",
-        className
-      )}
+      className={cn("flex items-center pr-2 hover:bg-accent-muted", className)}
       href={addQueryParams(bookmark.url, UTM_PARAMS)}
       target="_blank"
       rel="noopener"
@@ -66,7 +63,7 @@ export function BookmarkItem({
         </div>
       </div>
 
-      <ArrowUpRightIcon className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45" />
+      <ArrowUpRightIcon className="size-4 text-muted-foreground" />
     </a>
   )
 }

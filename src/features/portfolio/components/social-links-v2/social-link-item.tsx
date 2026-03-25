@@ -10,7 +10,7 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
   return (
     <a
       className={cn(
-        "group flex cursor-pointer items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
+        "flex cursor-pointer items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
         "max-md:nth-[2n+1]:screen-line-top max-md:nth-[2n+1]:screen-line-bottom",
         "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
       )}
@@ -33,7 +33,7 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
 
       <h3 className="flex-1 font-medium">{title}</h3>
 
-      <ArrowUpRightIcon className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45" />
+      <ArrowUpRightIcon className="size-4 text-muted-foreground" />
     </a>
   )
 }
