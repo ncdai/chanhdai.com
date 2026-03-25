@@ -1,5 +1,4 @@
 import { ArrowUpRightIcon } from "lucide-react"
-import Link from "next/link"
 
 import {
   Marquee,
@@ -52,9 +51,14 @@ export function TestimonialsMarquee() {
 
       <div className="absolute right-0 bottom-0 z-10 -translate-x-2 rounded-lg bg-background ring-1 ring-background">
         <Button className="size-7" variant="outline" size="icon-sm" asChild>
-          <Link href="/testimonials" aria-label="See all testimonials">
+          <a
+            href="/testimonials"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="See all testimonials"
+          >
             <ArrowUpRightIcon />
-          </Link>
+          </a>
         </Button>
       </div>
     </Panel>
