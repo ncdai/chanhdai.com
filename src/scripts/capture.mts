@@ -1,11 +1,9 @@
 import fs from "node:fs"
 import path from "node:path"
 
-import type { Browser } from "puppeteer-core"
-import puppeteer from "puppeteer-core"
+import type { Browser } from "puppeteer"
+import puppeteer from "puppeteer"
 
-const executablePath =
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 const url = process.env.URL || "https://ncdai.localhost:3004"
 const outputDir = path.join(process.cwd(), ".ncdai/screenshots")
 
@@ -77,9 +75,7 @@ async function captureScreenshot({
 }
 
 async function main() {
-  const browser = await puppeteer.launch({
-    executablePath,
-  })
+  const browser = await puppeteer.launch()
 
   try {
     await captureScreenshot({
