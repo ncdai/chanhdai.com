@@ -8,10 +8,10 @@ const url = process.env.URL || "https://ncdai.localhost:3004"
 const outputDir = path.join(process.cwd(), ".ncdai/screenshots")
 
 const SIZE = {
-  // Full HD
+  // MacBook Pro 14-inch
   desktop: {
-    width: 1920,
-    height: 1080,
+    width: 1512,
+    height: 982,
   },
   // iPhone 16 Pro Max
   mobile: {
