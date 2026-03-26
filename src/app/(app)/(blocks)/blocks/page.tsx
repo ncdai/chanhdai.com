@@ -19,10 +19,17 @@ export default function BlocksPage() {
       ))}
 
       <div className="p-2">
-        <div className="rounded-xl border border-dashed p-4">
+        <div className="relative border p-4">
           <p className="font-mono text-sm text-muted-foreground">
-            {"//"} More blocks on the way…
+            More blocks on the way…
           </p>
+
+          <div className="*:absolute *:flex *:size-2 *:rounded-xs *:border *:border-zinc-300 *:bg-popover dark:*:border-border">
+            <div className="top-[-4.5px] left-[-4.5px]" />
+            <div className="bottom-[-4.5px] left-[-4.5px]" />
+            <div className="top-[-4.5px] right-[-4.5px]" />
+            <div className="right-[-4.5px] bottom-[-4.5px]" />
+          </div>
         </div>
       </div>
     </>
