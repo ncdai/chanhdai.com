@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ArticleItem } from "@/registry/blocks/blog-01/components/article-item"
@@ -23,10 +23,10 @@ export default function Blog01() {
       </div>
 
       <div className="flex justify-center">
-        <Button className="gap-2 px-3" size="lg" asChild>
+        <Button className="gap-2 pr-2.5 pl-3" asChild>
           <a href="#">
             View All
-            <ChevronRightIcon />
+            <ArrowRightIcon />
           </a>
         </Button>
       </div>
