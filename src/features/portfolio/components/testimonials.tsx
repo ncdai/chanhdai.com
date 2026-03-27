@@ -69,10 +69,10 @@ export function Testimonials() {
       <div className="absolute right-0 bottom-0 z-10 -translate-x-2 rounded-lg bg-background ring-1 ring-background">
         <Button className="size-7" variant="outline" size="icon-sm" asChild>
           <a
-            href="/testimonials"
+            href="/wall-of-love"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="See all testimonials"
+            aria-label="Wall of Love"
           >
             <ArrowUpRightIcon />
           </a>
