@@ -7,14 +7,25 @@ import {
   MarqueeItem,
 } from "@/components/kibo-ui/marquee"
 import { Button } from "@/components/ui/button"
+import { Panel } from "@/features/portfolio/components/panel"
+import {
+  TESTIMONIALS_1,
+  TESTIMONIALS_2,
+} from "@/features/portfolio/data/testimonials"
+import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
+import {
+  Testimonial,
+  TestimonialAuthor,
+  TestimonialAuthorName,
+  TestimonialAuthorTagline,
+  TestimonialAvatar,
+  TestimonialAvatarImg,
+  TestimonialAvatarRing,
+  TestimonialQuote,
+} from "@/registry/components/testimonial"
 import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
-import { TESTIMONIALS_1, TESTIMONIALS_2 } from "../../data/testimonials"
-import type { Testimonial } from "../../types/testimonials"
-import { Panel } from "../panel"
-import { TestimonialItem } from "./testimonial-item"
-
-function compareFn(a: Testimonial, b: Testimonial) {
+function compareFn(a: TestimonialType, b: TestimonialType) {
   return a.date.localeCompare(b.date, undefined, { numeric: true })
 }
 
@@ -23,7 +34,7 @@ const FEATURED_TESTIMONIALS = [
   ...TESTIMONIALS_2.filter((item) => item.isFeatured),
 ].sort(compareFn)
 
-export function TestimonialsMarquee() {
+export function Testimonials() {
   return (
     <Panel
       id="testimonials"
@@ -33,11 +44,17 @@ export function TestimonialsMarquee() {
 
       <div className="grid gap-2 px-2 sm:grid-cols-2">
         {FEATURED_TESTIMONIALS.map((item) => (
-          <TestimonialSpotlight
+          <a
             key={item.url}
-            className="bg-accent-muted"
-            {...item}
-          />
+            className="flex"
+            href={item.url}
+            target="_blank"
+            rel="noopener"
+          >
+            <TestimonialSpotlight className="flex-1 bg-accent-muted">
+              <TestimonialItem {...item} />
+            </TestimonialSpotlight>
+          </a>
         ))}
       </div>
 
@@ -47,7 +64,7 @@ export function TestimonialsMarquee() {
 
       <div className="flex h-2 w-full" />
 
-      <TestimonialList direction="right" data={TESTIMONIALS_2} />
+      <TestimonialList data={TESTIMONIALS_2} direction="right" />
 
       <div className="absolute right-0 bottom-0 z-10 -translate-x-2 rounded-lg bg-background ring-1 ring-background">
         <Button className="size-7" variant="outline" size="icon-sm" asChild>
@@ -66,11 +83,11 @@ export function TestimonialsMarquee() {
 }
 
 function TestimonialList({
-  direction,
   data,
+  direction,
 }: {
+  data: TestimonialType[]
   direction?: "right" | "left"
-  data: Testimonial[]
 }) {
   return (
     <Marquee>
@@ -87,10 +104,42 @@ function TestimonialList({
               className="mx-1 h-full max-w-xs min-w-2xs"
               style={item.style}
             >
-              <TestimonialItem {...item} />
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener"
+                className="block h-full rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
+              >
+                <TestimonialItem {...item} />
+              </a>
             </MarqueeItem>
           ))}
       </MarqueeContent>
     </Marquee>
+  )
+}
+
+function TestimonialItem({
+  authorAvatar,
+  authorName,
+  authorTagline,
+  quote,
+}: TestimonialType) {
+  return (
+    <Testimonial>
+      <TestimonialQuote>
+        <p>{quote}</p>
+      </TestimonialQuote>
+
+      <TestimonialAuthor>
+        <TestimonialAvatar>
+          <TestimonialAvatarImg src={authorAvatar} alt={authorName} />
+          <TestimonialAvatarRing />
+        </TestimonialAvatar>
+
+        <TestimonialAuthorName>{authorName}</TestimonialAuthorName>
+        <TestimonialAuthorTagline>{authorTagline}</TestimonialAuthorTagline>
+      </TestimonialAuthor>
+    </Testimonial>
   )
 }

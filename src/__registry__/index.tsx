@@ -369,7 +369,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["marketing","hero"],
-    meta: {"previewClassName":"flex min-h-svh flex-col items-center pt-8"},
+    meta: {"previewClassName":"pt-8"},
   },
   "blog-01": {
     name: "blog-01",
@@ -432,7 +432,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["marketing","testimonials"],
-    meta: {"previewClassName":"container mx-auto flex min-h-svh flex-col justify-center"},
+    meta: {"previewClassName":"container mx-auto min-h-svh content-center-safe"},
   },
   "text-flip-demo": {
     name: "text-flip-demo",

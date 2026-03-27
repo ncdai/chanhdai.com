@@ -3,29 +3,6 @@
 import { useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
-import {
-  Testimonial,
-  TestimonialAuthor,
-  TestimonialAuthorName,
-  TestimonialAuthorTagline,
-  TestimonialAvatar,
-  TestimonialAvatarImg,
-  TestimonialAvatarRing,
-  TestimonialQuote,
-} from "@/registry/components/testimonial"
-
-export type TestimonialType = {
-  /** URL to the person's profile picture or avatar image */
-  authorAvatar: string
-  /** Full display name of the person giving the testimonial */
-  authorName: string
-  /** Short tagline, title, or description of the person */
-  authorTagline: string
-  /** Link to the person's profile, website, or social media page */
-  url: string
-  /** The testimonial text content or recommendation message */
-  quote: string
-}
 
 type Position = {
   x: number
@@ -35,18 +12,15 @@ type Position = {
 const SPOTLIGHT_OPACITY = 0.5
 
 export function TestimonialSpotlight({
+  children,
   className,
-  authorAvatar,
-  authorName,
-  authorTagline,
-  url,
-  quote,
   spotlightColor = "rgba(255,255,255,0.2)",
-}: TestimonialType & {
+}: {
+  children: React.ReactNode
   className?: string
   spotlightColor?: `rgba(${number},${number},${number},${number})`
 }) {
-  const itemRef = useRef<HTMLAnchorElement>(null)
+  const itemRef = useRef<HTMLDivElement>(null)
 
   const [isFocused, setIsFocused] = useState<boolean>(false)
   const [opacity, setOpacity] = useState<number>(0)
@@ -70,7 +44,7 @@ export function TestimonialSpotlight({
     setOpacity(0)
   }
 
-  const handleMouseMove: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+  const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (!itemRef.current || isFocused) return
 
     const rect = itemRef.current.getBoundingClientRect()
@@ -78,15 +52,12 @@ export function TestimonialSpotlight({
   }
 
   return (
-    <a
+    <div
       ref={itemRef}
       className={cn(
-        "relative flex h-full overflow-hidden rounded-xl bg-card/50 ring-1 ring-foreground/10 ring-inset",
+        "relative overflow-hidden rounded-xl bg-card/50 ring-1 ring-foreground/10 ring-inset",
         className
       )}
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
       onFocus={handleFocus}
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
@@ -100,23 +71,7 @@ export function TestimonialSpotlight({
           background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 60%)`,
         }}
       />
-
-      <Testimonial>
-        <TestimonialQuote className="text-pretty">
-          <p>{quote}</p>
-        </TestimonialQuote>
-
-        <TestimonialAuthor>
-          <TestimonialAvatar>
-            <TestimonialAvatarImg src={authorAvatar} alt={authorName} />
-            <TestimonialAvatarRing />
-          </TestimonialAvatar>
-
-          <TestimonialAuthorName>{authorName}</TestimonialAuthorName>
-
-          <TestimonialAuthorTagline>{authorTagline}</TestimonialAuthorTagline>
-        </TestimonialAuthor>
-      </Testimonial>
-    </a>
+      {children}
+    </div>
   )
 }

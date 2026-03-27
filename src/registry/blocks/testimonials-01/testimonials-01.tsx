@@ -1,11 +1,11 @@
+import type { TestimonialType } from "@/registry/blocks/testimonials-01/components/testimonial-list"
 import { TestimonialList } from "@/registry/blocks/testimonials-01/components/testimonial-list"
-import type { TestimonialType } from "@/registry/components/testimonial-spotlight"
 
 export default function Testimonials01() {
   return (
     <div className="flex flex-col gap-2 [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!">
       <TestimonialList data={TESTIMONIALS_1} />
-      <TestimonialList direction="right" data={TESTIMONIALS_2} />
+      <TestimonialList data={TESTIMONIALS_2} direction="right" />
     </div>
   )
 }

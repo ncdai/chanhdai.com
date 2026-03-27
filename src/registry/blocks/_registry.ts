@@ -40,7 +40,7 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["marketing", "hero"],
     meta: {
-      previewClassName: "flex min-h-svh flex-col items-center pt-8",
+      previewClassName: "pt-8",
     },
   },
   {
@@ -102,8 +102,7 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["marketing", "testimonials"],
     meta: {
-      previewClassName:
-        "container mx-auto flex min-h-svh flex-col justify-center",
+      previewClassName: "container mx-auto min-h-svh content-center-safe",
     },
   },
 ]
