@@ -50,7 +50,7 @@ function ChanhDaiMarkMotion() {
         "before:transition-opacity before:duration-500"
       )}
     >
-      <ChanhDaiMark className="-translate-y-2 opacity-0 transition-[opacity,translate] duration-300 group-data-[visible=true]/mark-motion:translate-y-0 group-data-[visible=true]/mark-motion:opacity-100" />
+      <ChanhDaiMark className="-translate-y-1 opacity-0 transition-[opacity,translate] duration-300 group-data-[visible=true]/mark-motion:translate-y-0 group-data-[visible=true]/mark-motion:opacity-100" />
     </div>
   )
 }
