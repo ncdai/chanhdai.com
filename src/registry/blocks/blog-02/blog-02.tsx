@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ArticleItem } from "@/registry/blocks/blog-02/components/article-item"
@@ -37,10 +37,10 @@ export function Blog02() {
           </div>
 
           <div className="screen-line-top screen-line-bottom flex justify-center py-2">
-            <Button className="gap-2 px-3" size="lg" asChild>
+            <Button className="gap-2 pr-2.5 pl-3" asChild>
               <a href="#">
                 View All
-                <ChevronRightIcon />
+                <ArrowRightIcon />
               </a>
             </Button>
           </div>
