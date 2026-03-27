@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { SITE_INFO, X_USERNAME } from "@/config/site"
+import { X_USERNAME } from "@/config/site"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
@@ -17,27 +17,32 @@ import {
   TestimonialQuote,
 } from "@/registry/components/testimonial"
 
+const title = "Wall of Love"
+const description = "The kind words that keep me building."
+
+const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
+
 export const metadata: Metadata = {
-  title: "Loved by Devs Worldwide",
-  description: "See what developers are saying about my work and projects.",
+  title,
+  description,
   alternates: {
-    canonical: "/testimonials",
+    canonical: "/wall-of-love",
   },
   openGraph: {
-    url: "/testimonials",
+    url: "/wall-of-love",
     type: "website",
     images: {
-      url: SITE_INFO.ogImage,
+      url: ogImage,
       width: 1200,
       height: 630,
-      alt: "Loved by Devs Worldwide",
+      alt: title,
     },
   },
   twitter: {
     card: "summary_large_image",
     site: X_USERNAME,
     creator: X_USERNAME,
-    images: [SITE_INFO.ogImage],
+    images: [ogImage],
   },
 }
 
@@ -50,18 +55,16 @@ const TESTIMONIALS = [
   ),
 ]
 
-export default function TestimonialsPage() {
+export default function WallOfLovePage() {
   return (
     <div className="min-h-svh">
       <div className="screen-line-bottom px-4">
-        <h1 className="text-3xl font-semibold tracking-tight">
-          Loved by Devs Worldwide
-        </h1>
+        <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
       </div>
 
       <div className="p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
-          See what developers are saying about my work and projects.
+          {description}
         </p>
       </div>
 

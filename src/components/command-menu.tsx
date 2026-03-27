@@ -5,6 +5,7 @@ import { useCommandState } from "cmdk"
 import type { LucideProps } from "lucide-react"
 import {
   AwardIcon,
+  BookHeartIcon,
   BookmarkIcon,
   BoxIcon,
   BriefcaseBusinessIcon,
@@ -15,7 +16,6 @@ import {
   LayersIcon,
   MoonStarIcon,
   MousePointer2Icon,
-  QuoteIcon,
   RssIcon,
   SunMediumIcon,
   TextInitialIcon,
@@ -94,9 +94,9 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: TextInitialIcon,
   },
   {
-    title: "Testimonials",
-    href: "/testimonials",
-    icon: QuoteIcon,
+    title: "Wall-of-Love",
+    href: "/wall-of-love",
+    icon: BookHeartIcon,
   },
   {
     title: "Tech Stack",
