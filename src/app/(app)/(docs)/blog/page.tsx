@@ -1,15 +1,21 @@
 import type { Metadata } from "next"
 import { Suspense } from "react"
 
-import { SITE_INFO, X_USERNAME } from "@/config/site"
+import { X_USERNAME } from "@/config/site"
 import { PostList } from "@/features/blog/components/post-list"
 import { PostListWithSearch } from "@/features/blog/components/post-list-with-search"
 import { PostSearchInput } from "@/features/blog/components/post-search-input"
 import { getAllDocs } from "@/features/doc/data/documents"
 
+const title = "Blog"
+const description =
+  "A collection of articles on development, design, and ideas."
+
+const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
+
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "A collection of articles on development, design, and ideas.",
+  title,
+  description,
   alternates: {
     canonical: "/blog",
   },
@@ -17,17 +23,17 @@ export const metadata: Metadata = {
     url: "/blog",
     type: "website",
     images: {
-      url: SITE_INFO.ogImage,
+      url: ogImage,
       width: 1200,
       height: 630,
-      alt: "Blog",
+      alt: title,
     },
   },
   twitter: {
     card: "summary_large_image",
     site: X_USERNAME,
     creator: X_USERNAME,
-    images: [SITE_INFO.ogImage],
+    images: [ogImage],
   },
 }
 
@@ -38,13 +44,13 @@ export default function Page() {
     <div className="min-h-svh">
       <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          Blog
+          {title}
         </h1>
       </div>
 
       <div className="p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
-          {metadata.description}
+          {description}
         </p>
       </div>
 

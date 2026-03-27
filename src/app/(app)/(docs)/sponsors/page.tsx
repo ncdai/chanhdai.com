@@ -2,16 +2,21 @@ import { ArrowUpRightIcon } from "lucide-react"
 import type { Metadata } from "next"
 
 import { Button } from "@/components/base/ui/button"
-import { SITE_INFO, SPONSORSHIP_URL, X_USERNAME } from "@/config/site"
+import { SPONSORSHIP_URL, X_USERNAME } from "@/config/site"
 import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
 import { SPONSORS } from "@/features/sponsor/data"
 import type { Sponsor, SponsorTier } from "@/features/sponsor/types"
 import { SPONSOR_TIERS } from "@/features/sponsor/types"
 
+const title = "Sponsors"
+const description =
+  "Grateful for the support that helps me grow and maintain high-quality projects."
+
+const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
+
 export const metadata: Metadata = {
-  title: "Sponsors",
-  description:
-    "Grateful for the support that helps me grow and maintain high-quality projects.",
+  title,
+  description,
   alternates: {
     canonical: "/sponsors",
   },
@@ -19,17 +24,17 @@ export const metadata: Metadata = {
     url: "/sponsors",
     type: "website",
     images: {
-      url: SITE_INFO.ogImage,
+      url: ogImage,
       width: 1200,
       height: 630,
-      alt: "Sponsors",
+      alt: title,
     },
   },
   twitter: {
     card: "summary_large_image",
     site: X_USERNAME,
     creator: X_USERNAME,
-    images: [SITE_INFO.ogImage],
+    images: [ogImage],
   },
 }
 
@@ -49,13 +54,13 @@ export default function Page() {
     <div>
       <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          Sponsors
+          {title}
         </h1>
       </div>
 
       <div className="p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
-          {metadata.description}
+          {description}
         </p>
       </div>
 
