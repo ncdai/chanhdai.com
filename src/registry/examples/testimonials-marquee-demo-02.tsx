@@ -13,7 +13,6 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
-  TestimonialVerifiedBadge,
 } from "@/registry/components/testimonial"
 
 export default function TestimonialsMarqueeDemo2() {
@@ -31,10 +30,10 @@ export default function TestimonialsMarqueeDemo2() {
                 className="mx-0 h-full w-xs border-r border-line"
               >
                 <a
+                  className="block h-full transition-[background-color] ease-out hover:bg-accent/20"
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block h-full transition-[background-color] ease-out hover:bg-accent/20"
                 >
                   <Testimonial>
                     <TestimonialQuote>
@@ -49,7 +48,6 @@ export default function TestimonialsMarqueeDemo2() {
 
                       <TestimonialAuthorName>
                         {item.authorName}
-                        <TestimonialVerifiedBadge />
                       </TestimonialAuthorName>
 
                       <TestimonialAuthorTagline>

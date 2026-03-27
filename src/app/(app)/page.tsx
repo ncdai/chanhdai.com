@@ -13,10 +13,10 @@ import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileCover } from "@/features/portfolio/components/profile-cover"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
-import { SocialLinks } from "@/features/portfolio/components/social-links-v2"
+import { SocialLinks } from "@/features/portfolio/components/social-links"
 import { Sponsors } from "@/features/portfolio/components/sponsors"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
-import { TestimonialsMarquee } from "@/features/portfolio/components/testimonials-marquee"
+import { Testimonials } from "@/features/portfolio/components/testimonials"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
@@ -48,7 +48,7 @@ export default function Page() {
         <About />
         <div className="flex h-2 w-full border-x border-line" />
 
-        <TestimonialsMarquee />
+        <Testimonials />
         <div className="flex h-2 w-full border-x border-line" />
 
         <GitHubContributions />
