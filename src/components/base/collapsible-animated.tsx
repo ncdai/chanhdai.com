@@ -7,12 +7,12 @@ import type {
   ChevronDownIconProps,
 } from "@/components/animated-icons/chevron-down-icon"
 import { ChevronDownIcon } from "@/components/animated-icons/chevron-down-icon"
-import type {
-  ChevronsDownUpIconHandle,
-  ChevronsDownUpIconProps,
-} from "@/components/animated-icons/chevrons-down-up-icon"
-import { ChevronsDownUpIcon } from "@/components/animated-icons/chevrons-down-up-icon"
 import { Collapsible as CollapsibleRoot } from "@/components/base/ui/collapsible"
+import type {
+  ChevronsUpDownIconHandle,
+  ChevronsUpDownIconProps,
+} from "@/registry/components/chevrons-up-down-icon"
+import { ChevronsUpDownIcon } from "@/registry/components/chevrons-up-down-icon"
 
 type CollapsibleContextType = {
   open: boolean
@@ -74,10 +74,10 @@ function useCollapsibleAnimation<
   }, [open, ref])
 }
 
-function CollapsibleChevronsIcon(props: Omit<ChevronsDownUpIconProps, "ref">) {
-  const ref = useRef<ChevronsDownUpIconHandle>(null)
+function CollapsibleChevronsIcon(props: Omit<ChevronsUpDownIconProps, "ref">) {
+  const ref = useRef<ChevronsUpDownIconHandle>(null)
   useCollapsibleAnimation(ref)
-  return <ChevronsDownUpIcon ref={ref} {...props} />
+  return <ChevronsUpDownIcon ref={ref} {...props} />
 }
 
 function CollapsibleChevronDownIcon(props: Omit<ChevronDownIconProps, "ref">) {
