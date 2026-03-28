@@ -606,9 +606,6 @@
           "type": "registry:component"
         }
       ],
-      "meta": {
-        "previewClassName": "py-8"
-      },
       "categories": [
         "content",
         "portfolio"

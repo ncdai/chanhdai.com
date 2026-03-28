@@ -121,8 +121,5 @@ export const blocks: Registry["items"] = [
       },
     ],
     categories: ["content", "portfolio"],
-    meta: {
-      previewClassName: "py-8",
-    },
   },
 ]

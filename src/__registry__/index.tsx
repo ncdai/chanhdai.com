@@ -466,7 +466,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["content","portfolio"],
-    meta: {"previewClassName":"py-8"},
+    meta: undefined,
   },
   "text-flip-demo": {
     name: "text-flip-demo",
