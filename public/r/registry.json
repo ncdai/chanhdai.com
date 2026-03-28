@@ -409,8 +409,7 @@
         "jotai"
       ],
       "registryDependencies": [
-        "https://chanhdai.com/r/copy-button.json",
-        "https://chanhdai.com/r/scroll-fade-effect.json"
+        "https://chanhdai.com/r/copy-button.json"
       ],
       "files": [
         {

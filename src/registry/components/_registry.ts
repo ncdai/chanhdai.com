@@ -333,10 +333,7 @@ export const components: Registry["items"] = [
     description:
       "Display install commands with package manager switcher and copy button.",
     dependencies: ["@base-ui/react", "lucide-react", "motion", "jotai"],
-    registryDependencies: [
-      getRegistryItemUrl("copy-button"),
-      getRegistryItemUrl("scroll-fade-effect"),
-    ],
+    registryDependencies: [getRegistryItemUrl("copy-button")],
     files: [
       {
         path: "components/code-block-command/code-block-command.tsx",
