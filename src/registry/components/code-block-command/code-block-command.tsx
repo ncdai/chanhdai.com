@@ -294,7 +294,7 @@ export function convertNpmCommand(npmCommand: string): ConvertNpmCommandResult {
   if (npmCommand.startsWith("npx")) {
     return {
       pnpm: npmCommand.replace("npx", "pnpm dlx"),
-      yarn: npmCommand.replace("npx", "yarn"),
+      yarn: npmCommand.replace("npx", "yarn dlx"),
       npm: npmCommand,
       bun: npmCommand.replace("npx", "bunx --bun"),
     }
