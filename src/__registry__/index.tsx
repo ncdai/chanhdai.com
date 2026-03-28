@@ -451,6 +451,23 @@ export const Index: Record<string, any> = {
     categories: ["marketing","testimonials"],
     meta: {"previewClassName":"container mx-auto min-h-svh content-center-safe"},
   },
+  "experience-01": {
+    name: "experience-01",
+    description: "A work experience section with a lined layout.",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/blocks/experience-01/experience-01.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/blocks/experience-01/experience-01.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["content","portfolio"],
+    meta: {"previewClassName":"py-8"},
+  },
   "text-flip-demo": {
     name: "text-flip-demo",
     description: "",

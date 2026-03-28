@@ -593,6 +593,29 @@
       "type": "registry:block"
     },
     {
+      "name": "experience-01",
+      "title": "Experience 01",
+      "description": "A work experience section with a lined layout.",
+      "registryDependencies": [
+        "https://chanhdai.com/r/style.json",
+        "https://chanhdai.com/r/work-experience.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/experience-01/experience-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "previewClassName": "py-8"
+      },
+      "categories": [
+        "content",
+        "portfolio"
+      ],
+      "type": "registry:block"
+    },
+    {
       "name": "style",
       "cssVars": {
         "theme": {

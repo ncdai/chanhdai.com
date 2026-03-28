@@ -38,5 +38,13 @@
       "marketing",
       "testimonials"
     ]
+  },
+  {
+    "name": "experience-01",
+    "description": "A work experience section with a lined layout.",
+    "categories": [
+      "content",
+      "portfolio"
+    ]
   }
 ]
