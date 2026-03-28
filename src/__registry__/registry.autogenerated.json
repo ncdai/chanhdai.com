@@ -130,6 +130,21 @@
       "type": "registry:component"
     },
     {
+      "name": "chevrons-up-down-icon",
+      "author": "ncdai <dai@chanhdai.com>",
+      "description": "TBD",
+      "devDependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/chevrons-up-down-icon/chevrons-up-down-icon.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "typography",
       "title": "Typography",
       "author": "ncdai <dai@chanhdai.com>",
@@ -158,12 +173,10 @@
         "react-markdown",
         "lucide-react"
       ],
-      "devDependencies": [
-        "@tailwindcss/typography"
-      ],
       "registryDependencies": [
         "collapsible",
         "separator",
+        "https://chanhdai.com/r/chevrons-up-down-icon.json",
         "https://chanhdai.com/r/typography.json"
       ],
       "files": [
@@ -172,7 +185,7 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/work-experience",
+      "docs": "https://chanhdai.com/components/work-experience-component",
       "type": "registry:component"
     },
     {

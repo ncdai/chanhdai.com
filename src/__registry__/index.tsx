@@ -147,6 +147,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "chevrons-up-down-icon": {
+    name: "chevrons-up-down-icon",
+    description: "TBD",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/chevrons-up-down-icon/chevrons-up-down-icon.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/chevrons-up-down-icon/chevrons-up-down-icon.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "work-experience": {
     name: "work-experience",
     description: "Display work experiences with role details, company logos, and durations.",

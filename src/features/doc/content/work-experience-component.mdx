@@ -4,7 +4,7 @@ description: Display work experiences with role details, company logos, and dura
 image: https://assets.chanhdai.com/images/blog/work-experience-component.webp?t=1750149861
 category: components
 createdAt: 2025-06-16
-updatedAt: 2026-02-20
+updatedAt: 2026-03-28
 ---
 
 <ComponentPreview
@@ -41,11 +41,11 @@ npx shadcn@latest add @ncdai/work-experience
 <Step>Install the following dependencies</Step>
 
 ```bash
-npm install clsx tailwind-merge react-markdown lucide-react
+npm install clsx tailwind-merge react-markdown lucide-react motion
 ```
 
 ```bash
-npm install -D @tailwindcss/typography tw-animate-css
+npm install -D @tailwindcss/typography
 ```
 
 <Step>Add a cn helper</Step>
@@ -57,15 +57,32 @@ npm install -D @tailwindcss/typography tw-animate-css
   collapsible="false"
 />
 
-<Step>Add plugin for tailwindcss</Step>
+<Step>Add a Tailwind CSS plugin and utility</Step>
 
-```css title="globals.css" showLineNumbers {2,3}
+```css title="globals.css" showLineNumbers {2,4-9}
 @import "tailwindcss";
-@import "tw-animate-css";
 @plugin "@tailwindcss/typography";
+
+@utility prose-ncdai {
+  @apply prose-headings:tracking-tight prose-headings:text-balance prose-h2:font-semibold;
+  @apply prose-a:font-medium prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:underline-offset-4;
+  @apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none;
+  @apply prose-strong:font-medium;
+}
 ```
 
+<Step>Install the required shadcn/ui components</Step>
+
+- https://ui.shadcn.com/docs/components/collapsible
+- https://ui.shadcn.com/docs/components/separator
+
 <Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="chevrons-up-down-icon"
+  title="components/chevrons-up-down-icon.tsx"
+  showLineNumbers
+/>
 
 <ComponentSource
   name="work-experience"

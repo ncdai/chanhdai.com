@@ -67,6 +67,19 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/react-wheel-picker",
   },
   {
+    name: "chevrons-up-down-icon",
+    type: "registry:component",
+    author: "ncdai <dai@chanhdai.com>",
+    description: "TBD",
+    devDependencies: ["motion"],
+    files: [
+      {
+        path: "components/chevrons-up-down-icon/chevrons-up-down-icon.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  {
     name: "typography",
     type: "registry:component",
     title: "Typography",
@@ -95,10 +108,10 @@ export const components: Registry["items"] = [
     description:
       "Display work experiences with role details, company logos, and durations.",
     dependencies: ["react-markdown", "lucide-react"],
-    devDependencies: ["@tailwindcss/typography"],
     registryDependencies: [
       "collapsible",
       "separator",
+      getRegistryItemUrl("chevrons-up-down-icon"),
       getRegistryItemUrl("typography"),
     ],
     files: [
@@ -107,7 +120,7 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    docs: "https://chanhdai.com/components/work-experience",
+    docs: "https://chanhdai.com/components/work-experience-component",
   },
   {
     name: "shimmering-text",

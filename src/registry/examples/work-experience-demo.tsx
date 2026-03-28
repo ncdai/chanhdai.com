@@ -1,4 +1,4 @@
-import { BriefcaseBusinessIcon, CodeXmlIcon } from "lucide-react"
+import { CodeXmlIcon, LightbulbIcon } from "lucide-react"
 
 import type { ExperienceItemType } from "@/registry/components/work-experience"
 import { WorkExperience } from "@/registry/components/work-experience"
@@ -12,13 +12,16 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
     id: "quaric",
     companyName: "Quaric",
     companyLogo: "https://assets.chanhdai.com/images/companies/quaric.svg",
+    companyWebsite: "https://quaric.com",
     positions: [
       {
         id: "2",
         title: "Design Engineer",
-        employmentPeriod: "03.2024 — present",
+        employmentPeriod: {
+          start: "03.2024",
+        },
         employmentType: "Part-time",
-        icon: CodeXmlIcon,
+        icon: <CodeXmlIcon />,
         description: `- Integrated VNPAY-QR for secure transactions.
 - Registered the e-commerce site with [online.gov.vn](https://online.gov.vn) for compliance.
 - Developed online ordering to streamline purchases.
@@ -41,9 +44,11 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
       {
         id: "1",
         title: "Founder",
-        employmentPeriod: "03.2024 — present",
+        employmentPeriod: {
+          start: "03.2024",
+        },
         employmentType: "Part-time",
-        icon: BriefcaseBusinessIcon,
+        icon: <LightbulbIcon />,
         skills: ["Business Ownership", "Business Law", "Business Tax"],
       },
     ],
