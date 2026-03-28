@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "experience-01",
+  "title": "Experience 01",
+  "description": "A work experience section with a lined layout.",
+  "registryDependencies": [
+    "https://chanhdai.com/r/style.json",
+    "https://chanhdai.com/r/work-experience.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/experience-01/experience-01.tsx",
+      "content": "import { CodeXmlIcon, LightbulbIcon } from \"lucide-react\"\n\nimport type { ExperienceItemType } from \"@/registry/components/work-experience\"\nimport { WorkExperience } from \"@/registry/components/work-experience\"\n\nexport function Experience01() {\n  return (\n    <div className=\"max-w-screen overflow-x-hidden\">\n      <div className=\"container mx-auto px-4 py-8\">\n        <div className=\"border-x border-line\">\n          <h2 className=\"screen-line-top screen-line-bottom ml-4 font-heading text-4xl leading-snug font-medium tracking-tight md:text-5xl\">\n            Experience\n          </h2>\n\n          <div className=\"screen-line-bottom flex h-4\" />\n\n          <WorkExperience\n            className=\"bg-transparent *:screen-line-bottom\"\n            experiences={EXPERIENCE}\n          />\n        </div>\n      </div>\n    </div>\n  )\n}\n\nconst EXPERIENCE: ExperienceItemType[] = [\n  {\n    id: \"shadcncraft\",\n    companyName: \"shadcncraft\",\n    companyLogo: \"https://assets.chanhdai.com/images/companies/shadcncraft.svg\",\n    companyWebsite: \"https://shadcncraft.com\",\n    positions: [\n      {\n        id: \"1\",\n        title: \"Design Engineer\",\n        employmentPeriod: {\n          start: \"01.2026\",\n        },\n        employmentType: \"Full-time\",\n        icon: <CodeXmlIcon />,\n        description:\n          \"- Work on the registry and React component library.\\n- Design and build Pro application components and blocks, from Figma to production-ready React.\",\n        skills: [\n          \"TypeScript\",\n          \"Next.js\",\n          \"Tailwind CSS\",\n          \"shadcn/registry\",\n          \"Figma\",\n        ],\n        isExpanded: true,\n      },\n    ],\n    isCurrentEmployer: true,\n  },\n  {\n    id: \"quaric\",\n    companyName: \"Quaric\",\n    companyLogo: \"https://assets.chanhdai.com/images/companies/quaric.svg\",\n    companyWebsite: \"https://quaric.com\",\n    positions: [\n      {\n        id: \"2\",\n        title: \"Design Engineer\",\n        employmentPeriod: {\n          start: \"03.2024\",\n        },\n        employmentType: \"Part-time\",\n        icon: <CodeXmlIcon />,\n        description: `- Integrated VNPAY-QR for secure transactions.\n- Registered the e-commerce site with [online.gov.vn](https://online.gov.vn) for compliance.\n- Developed online ordering to streamline purchases.\n- Build and maintain ZaDark.com with Docusaurus, integrating AdSense.\n- Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox — with 15,000+ active users via Chrome Web Store.`,\n        skills: [\n          \"Next.js\",\n          \"Strapi\",\n          \"Auth0\",\n          \"VNPAY-QR\",\n          \"Docker\",\n          \"NGINX\",\n          \"Google Cloud\",\n          \"Docusaurus\",\n          \"Extension\",\n          \"Research\",\n          \"Project Management\",\n        ],\n      },\n      {\n        id: \"1\",\n        title: \"Founder\",\n        employmentPeriod: {\n          start: \"03.2024\",\n        },\n        employmentType: \"Part-time\",\n        icon: <LightbulbIcon />,\n        skills: [\"Business Ownership\", \"Business Law\", \"Business Tax\"],\n      },\n    ],\n    isCurrentEmployer: true,\n  },\n]\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "content",
+    "portfolio"
+  ],
+  "type": "registry:block"
+}

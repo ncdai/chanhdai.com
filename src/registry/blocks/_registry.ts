@@ -105,4 +105,21 @@ export const blocks: Registry["items"] = [
       previewClassName: "container mx-auto min-h-svh content-center-safe",
     },
   },
+  {
+    name: "experience-01",
+    title: "Experience 01",
+    description: "A work experience section with a lined layout.",
+    type: "registry:block",
+    registryDependencies: [
+      getRegistryItemUrl("style"),
+      getRegistryItemUrl("work-experience"),
+    ],
+    files: [
+      {
+        path: "blocks/experience-01/experience-01.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["content", "portfolio"],
+  },
 ]
