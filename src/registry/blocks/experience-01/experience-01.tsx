@@ -8,11 +8,9 @@ export function Experience01() {
     <div className="max-w-screen overflow-x-hidden">
       <div className="container mx-auto px-4 py-8">
         <div className="border-x border-line">
-          <h2 className="screen-line-top screen-line-bottom ml-4 font-heading text-4xl leading-snug font-medium tracking-tight md:text-5xl">
+          <h2 className="screen-line-top screen-line-bottom ml-4 font-heading text-3xl font-semibold tracking-tight">
             Experience
           </h2>
-
-          <div className="screen-line-bottom flex h-4" />
 
           <WorkExperience
             className="bg-transparent *:screen-line-bottom"

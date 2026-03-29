@@ -125,9 +125,6 @@ export const blocks: Registry["items"] = [
       },
     ],
     categories: ["marketing", "testimonials"],
-    meta: {
-      previewClassName: "min-h-svh content-center-safe",
-    },
   },
   {
     name: "experience-01",

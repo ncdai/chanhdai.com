@@ -470,7 +470,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["marketing","testimonials"],
-    meta: {"previewClassName":"min-h-svh content-center-safe"},
+    meta: undefined,
   },
   "experience-01": {
     name: "experience-01",
