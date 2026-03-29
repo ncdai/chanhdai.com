@@ -94,7 +94,7 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: TextInitialIcon,
   },
   {
-    title: "Wall-of-Love",
+    title: "Wall of Love",
     href: "/wall-of-love",
     icon: BookHeartIcon,
   },
