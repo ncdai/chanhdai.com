@@ -6,7 +6,6 @@
     {
       "name": "utils",
       "title": "Utility Functions",
-      "author": "ncdai <dai@chanhdai.com>",
       "dependencies": [
         "clsx",
         "tailwind-merge"
@@ -17,12 +16,12 @@
           "type": "registry:lib"
         }
       ],
-      "type": "registry:lib"
+      "type": "registry:lib",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "haptic",
       "title": "Haptic Feedback",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Trigger haptic feedback on mobile devices.",
       "files": [
         {
@@ -30,7 +29,8 @@
           "type": "registry:lib"
         }
       ],
-      "type": "registry:lib"
+      "type": "registry:lib",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "use-controllable-state",
@@ -45,7 +45,8 @@
           "type": "registry:hook"
         }
       ],
-      "type": "registry:hook"
+      "type": "registry:hook",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "use-sound",
@@ -57,12 +58,12 @@
           "type": "registry:hook"
         }
       ],
-      "type": "registry:hook"
+      "type": "registry:hook",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "theme-switcher",
       "title": "Theme Switcher",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Toggle between system, light, and dark themes in Next.js apps.",
       "dependencies": [
         "next-themes",
@@ -76,12 +77,12 @@
         }
       ],
       "docs": "https://chanhdai.com/components/theme-switcher",
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "text-flip",
       "title": "Text Flip",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Animated text that cycles through items with a smooth flip transition.",
       "dependencies": [
         "motion"
@@ -93,12 +94,12 @@
         }
       ],
       "docs": "https://chanhdai.com/components/text-flip",
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "apple-hello-effect",
       "title": "Apple Hello Effect",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "SVG writing animation inspired by Apple's Hello screen.",
       "dependencies": [
         "motion"
@@ -110,12 +111,12 @@
         }
       ],
       "docs": "https://chanhdai.com/components/apple-hello-effect",
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "wheel-picker",
       "title": "Wheel Picker",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
       "dependencies": [
         "@ncdai/react-wheel-picker"
@@ -127,11 +128,11 @@
         }
       ],
       "docs": "https://chanhdai.com/components/react-wheel-picker",
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "chevrons-up-down-icon",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "TBD",
       "dependencies": [
         "motion"
@@ -142,12 +143,12 @@
           "type": "registry:component"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "typography",
       "title": "Typography",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Custom prose styles for headings, links, inline code, and emphasis.",
       "devDependencies": [
         "@tailwindcss/typography"
@@ -162,12 +163,12 @@
         }
       },
       "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>",
       "files": []
     },
     {
       "name": "work-experience",
       "title": "Work Experience",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Display work experiences with role details, company logos, and durations.",
       "dependencies": [
         "react-markdown",
@@ -186,12 +187,12 @@
         }
       ],
       "docs": "https://chanhdai.com/components/work-experience-component",
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "shimmering-text",
       "title": "Shimmering Text",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Smooth, light-sweeping shimmer animation for text.",
       "dependencies": [
         "motion"
@@ -202,12 +203,12 @@
           "type": "registry:component"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "slide-to-unlock",
       "title": "Slide to Unlock",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Interactive slider inspired by the classic iPhone 'slide to unlock' gesture.",
       "dependencies": [
         "motion"
@@ -222,12 +223,12 @@
         }
       ],
       "docs": "https://chanhdai.com/components/slide-to-unlock",
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "testimonials-marquee",
       "title": "Testimonials Marquee",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Scrolling marquee to showcase user testimonials.",
       "registryDependencies": [
         "@kibo-ui/marquee",
@@ -235,12 +236,12 @@
       ],
       "docs": "https://chanhdai.com/components/testimonials-marquee",
       "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>",
       "files": []
     },
     {
       "name": "testimonial",
       "title": "Testimonial",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Display user feedback with author info, avatar, and verified badge.",
       "files": [
         {
@@ -248,12 +249,12 @@
           "type": "registry:component"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "github-stars",
       "title": "GitHub Stars",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Display GitHub repo star count with formatted numbers and full-count tooltip.",
       "registryDependencies": [
         "button",
@@ -265,12 +266,12 @@
           "type": "registry:component"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "scroll-fade-effect",
       "title": "Scroll Fade Effect",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Fade content edges as you scroll, for both vertical and horizontal layouts.",
       "files": [
         {
@@ -352,12 +353,12 @@
           "animation-fill-mode": "both"
         }
       },
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "consent-manager",
       "title": "Consent Manager",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Cookie and tracking consent banner for Next.js, built on c15t.",
       "dependencies": [
         "@c15t/nextjs"
@@ -371,12 +372,12 @@
           "type": "registry:component"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "copy-button",
       "title": "Copy Button",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Copy text to clipboard with visual feedback and animation.",
       "dependencies": [
         "lucide-react",
@@ -395,12 +396,12 @@
           "type": "registry:hook"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "code-block-command",
       "title": "Code Block Command",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Display install commands with package manager switcher and copy button.",
       "dependencies": [
         "@base-ui/react",
@@ -439,12 +440,12 @@
           "code-foreground": "oklch(0.985 0 0)"
         }
       },
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "testimonial-spotlight",
       "title": "Testimonial Spotlight",
-      "author": "ncdai <dai@chanhdai.com>",
       "description": "Testimonial card with spotlight effect on hover.",
       "registryDependencies": [
         "https://chanhdai.com/r/testimonial.json"
@@ -455,7 +456,8 @@
           "type": "registry:component"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "login-01",
@@ -483,7 +485,8 @@
         "application",
         "login"
       ],
-      "type": "registry:block"
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "hero-01",
@@ -510,7 +513,8 @@
         "marketing",
         "hero"
       ],
-      "type": "registry:block"
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "blog-01",
@@ -536,7 +540,8 @@
         "content",
         "blog"
       ],
-      "type": "registry:block"
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "blog-02",
@@ -563,7 +568,8 @@
         "content",
         "blog"
       ],
-      "type": "registry:block"
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "testimonials-01",
@@ -590,7 +596,8 @@
         "marketing",
         "testimonials"
       ],
-      "type": "registry:block"
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "experience-01",
@@ -610,7 +617,8 @@
         "content",
         "portfolio"
       ],
-      "type": "registry:block"
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
     },
     {
       "name": "style",
@@ -628,6 +636,7 @@
         }
       },
       "type": "registry:style",
+      "author": "ncdai <dai@chanhdai.com>",
       "files": []
     }
   ]

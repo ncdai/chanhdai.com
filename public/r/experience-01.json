@@ -2,6 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "experience-01",
   "title": "Experience 01",
+  "author": "ncdai <dai@chanhdai.com>",
   "description": "A work experience section with a lined layout.",
   "registryDependencies": [
     "https://chanhdai.com/r/style.json",

@@ -1,6 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "style",
+  "author": "ncdai <dai@chanhdai.com>",
   "files": [],
   "cssVars": {
     "theme": {
