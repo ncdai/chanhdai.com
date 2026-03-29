@@ -6,11 +6,11 @@ export default function Testimonials02() {
     <div className="max-w-screen overflow-x-hidden">
       <div className="container mx-auto px-4 py-8">
         <div className="border-x border-line">
-          <h2 className="screen-line-top screen-line-bottom ml-4 font-heading text-4xl leading-snug font-medium tracking-tight md:text-5xl">
+          <h2 className="screen-line-top screen-line-bottom ml-4 font-heading text-3xl font-semibold tracking-tight">
             Loved by Devs Worldwide
           </h2>
 
-          <p className="p-4 text-balance text-muted-foreground">
+          <p className="p-4 font-mono text-sm text-balance text-muted-foreground">
             See what developers are saying about my work and projects.
           </p>
 

@@ -618,9 +618,6 @@
           "type": "registry:component"
         }
       ],
-      "meta": {
-        "previewClassName": "min-h-svh content-center-safe"
-      },
       "categories": [
         "marketing",
         "testimonials"

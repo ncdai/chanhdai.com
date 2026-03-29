@@ -34,7 +34,7 @@ export type ExperiencePositionItemType = {
   /** A brief description of the position or responsibilities */
   description?: string
   /** An icon representing the position */
-  icon?: React.ReactNode
+  icon?: React.ReactElement
   /** A list of skills associated with the position */
   skills?: string[]
   /** Indicates if the position details are expanded in the UI */
