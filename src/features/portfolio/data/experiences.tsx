@@ -1,3 +1,10 @@
+import {
+  CodeXmlIcon,
+  DraftingCompassIcon,
+  GraduationCapIcon,
+  LightbulbIcon,
+} from "lucide-react"
+
 import type { Experience } from "../types/experiences"
 
 export const EXPERIENCES: Experience[] = [
@@ -14,7 +21,7 @@ export const EXPERIENCES: Experience[] = [
           start: "01.2026",
         },
         employmentType: "Full-time",
-        icon: "code",
+        icon: <CodeXmlIcon />,
         description:
           "- Work on the registry and React component library.\n- Design and build Pro application components and blocks, from Figma to production-ready React.",
         skills: [
@@ -42,7 +49,7 @@ export const EXPERIENCES: Experience[] = [
           start: "03.2024",
         },
         employmentType: "Part-time",
-        icon: "code",
+        icon: <CodeXmlIcon />,
         description: `- Created Quaric Brand Identity.
 - Created the Quaric Design System to standardize design practices and accelerate development.
 
@@ -80,7 +87,7 @@ In-house Project: [ZaDark](https://zadark.com)
           start: "03.2024",
         },
         employmentType: "Part-time",
-        icon: "idea",
+        icon: <LightbulbIcon />,
         skills: ["Business Ownership", "Business Law", "Business Tax"],
       },
     ],
@@ -99,7 +106,7 @@ In-house Project: [ZaDark](https://zadark.com)
           end: "01.2026",
         },
         employmentType: "Full-time",
-        icon: "code",
+        icon: <CodeXmlIcon />,
         description: `- Built Tree & Gantt views features to improve goal organization, visibility, and progress tracking.
 - Developed [AI Chat](https://help.simplamo.com/features/simplamo-ai/ai-chat/guide_simplamo_ai_chat?ref=IN-926722) and [AI Assistant](https://help.simplamo.com/features/simplamo-ai/ai-expert/aiexpert-rockdiscribe?ref=IN-926722) features.
 - Developed [Whiteboards](https://help.simplamo.com/features/whiteboard/overview?ref=IN-926722) with real-time collaboration.
@@ -132,7 +139,7 @@ In-house Project: [ZaDark](https://zadark.com)
           end: "01.2026",
         },
         employmentType: "Full-time",
-        icon: "design",
+        icon: <DraftingCompassIcon />,
         description: `- Ensured UI/UX consistency and high-quality standards.
 - Designed intuitive, user-focused interfaces aligned with business goals.
 - Defined and established a cohesive UI style for Simplamo.`,
@@ -156,7 +163,7 @@ In-house Project: [ZaDark](https://zadark.com)
         description: `- Built a scalable design system for consistency and efficiency.
 - Built a complex rich-text editor based on ProseMirror and Slate for customizable content creation.
 - Integrated APIs with the Backend Team to enhance functionality.`,
-        icon: "code",
+        icon: <CodeXmlIcon />,
         skills: [
           "React",
           "Redux",
@@ -179,7 +186,7 @@ In-house Project: [ZaDark](https://zadark.com)
 - Integrated MoMo and in-app purchases for seamless payments.
 - Optimized deployment for staging and production.
 - Published on App Store and Google Play, ensuring compliance.`,
-        icon: "code",
+        icon: <CodeXmlIcon />,
         skills: [
           "React Native",
           "Redux",
@@ -204,7 +211,7 @@ In-house Project: [ZaDark](https://zadark.com)
 - Redesigned the Online Quiz Platform for a modern look on web and mobile.
 - Redesigned the Pricing interface for individual customers.
 - Enhanced UX by improving usability, navigation, and user flow.`,
-        icon: "design",
+        icon: <DraftingCompassIcon />,
         skills: ["UI/UX Design", "Sketch"],
       },
     ],
@@ -225,7 +232,7 @@ In-house Project: [ZaDark](https://zadark.com)
 - Developed an e-commerce site for bird's nest products.
 - Created a map to display monitoring station data.
 - Designed a customizable WordPress landing page.`,
-        icon: "code",
+        icon: <CodeXmlIcon />,
         skills: [
           "Laravel",
           "React",
@@ -247,7 +254,7 @@ In-house Project: [ZaDark](https://zadark.com)
         },
         employmentType: "Part-time",
         description: "Designed logos, posters, ads, and UI.",
-        icon: "design",
+        icon: <DraftingCompassIcon />,
         skills: [
           "Creativity",
           "UI/UX Design",
@@ -270,7 +277,7 @@ In-house Project: [ZaDark](https://zadark.com)
           start: "08.2018",
           end: "10.2026",
         },
-        icon: "education",
+        icon: <GraduationCapIcon />,
         description: `- Currently studying for a Bachelor's degree in Information Systems.
 - Language Proficiency: B1 level in English (CEFR).
 - Achieved several awards, including:
@@ -296,7 +303,7 @@ In-house Project: [ZaDark](https://zadark.com)
           start: "08.2015",
           end: "06.2018",
         },
-        icon: "education",
+        icon: <GraduationCapIcon />,
         description: `- Student of the Specialized Computer Science Program.
 - Granted direct admission to university due to achieving 3rd Prize at the national level.
 - [Achieved numerous awards](https://baocantho.com.vn/nguyen-chanh-dai-17-tuoi-va-19-giai-thuong-a97348.html) at city and national levels, including:
@@ -329,7 +336,7 @@ In-house Project: [ZaDark](https://zadark.com)
           start: "08.2011",
           end: "06.2015",
         },
-        icon: "education",
+        icon: <GraduationCapIcon />,
         description: `- Recognized as the most outstanding student of the district.
 - Achieved numerous awards at city and national levels:
   - Consolation Prize — National Young Informatics Contest 2015

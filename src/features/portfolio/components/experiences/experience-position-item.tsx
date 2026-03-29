@@ -1,4 +1,4 @@
-import { InfinityIcon } from "lucide-react"
+import { BriefcaseBusinessIcon, InfinityIcon } from "lucide-react"
 
 import {
   Collapsible,
@@ -15,7 +15,6 @@ import { ProseMono } from "@/components/ui/typography"
 import { cn } from "@/lib/utils"
 
 import type { ExperiencePosition } from "../../types/experiences"
-import { ExperienceIcon } from "./experience-position-icon"
 
 export function ExperiencePositionItem({
   position,
@@ -44,10 +43,11 @@ export function ExperiencePositionItem({
             className={cn(
               "flex size-6 shrink-0 items-center justify-center rounded-lg",
               "bg-muted text-muted-foreground",
-              "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background"
+              "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
+              "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
             )}
           >
-            <ExperienceIcon className="size-4" icon={position.icon} />
+            {position.icon ?? <BriefcaseBusinessIcon />}
           </div>
 
           <h4 className="flex-1 font-medium text-balance">{position.title}</h4>

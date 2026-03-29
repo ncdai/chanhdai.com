@@ -1,7 +1,3 @@
-export type ExperiencePositionIcon =
-  /** Icon key used to render the position category in the UI. */
-  "code" | "design" | "education" | "business" | "idea"
-
 export type ExperiencePosition = {
   id: string
   title: string
@@ -19,7 +15,7 @@ export type ExperiencePosition = {
   employmentType?: string
   description?: string
   /** UI icon to represent the role type. */
-  icon?: ExperiencePositionIcon
+  icon?: React.ReactElement
   skills?: string[]
   /** Whether the position is expanded by default in the UI. */
   isExpanded?: boolean
