@@ -71,7 +71,7 @@ export const components: Registry["items"] = [
     type: "registry:component",
     author: "ncdai <dai@chanhdai.com>",
     description: "TBD",
-    devDependencies: ["motion"],
+    dependencies: ["motion"],
     files: [
       {
         path: "components/chevrons-up-down-icon/chevrons-up-down-icon.tsx",

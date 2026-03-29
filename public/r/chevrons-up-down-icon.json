@@ -3,7 +3,7 @@
   "name": "chevrons-up-down-icon",
   "author": "ncdai <dai@chanhdai.com>",
   "description": "TBD",
-  "devDependencies": [
+  "dependencies": [
     "motion"
   ],
   "files": [
