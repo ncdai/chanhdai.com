@@ -2,10 +2,8 @@
 
 import { useRouter } from "@bprogress/next/app"
 import { useCommandState } from "cmdk"
-import type { LucideProps } from "lucide-react"
 import {
   AwardIcon,
-  BookHeartIcon,
   BookmarkIcon,
   BoxIcon,
   BriefcaseBusinessIcon,
@@ -22,7 +20,6 @@ import {
   TriangleDashedIcon,
   TypeIcon,
 } from "lucide-react"
-import Image from "next/image"
 import { useTheme } from "next-themes"
 import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
@@ -35,6 +32,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandShortcut,
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
@@ -53,37 +51,49 @@ type CommandLinkItem = {
   title: string
   href: string
 
-  icon?: React.ComponentType<LucideProps>
+  icon?: React.ReactElement
   iconImage?: string
+  shortcut?: string
   keywords?: string[]
   openInNewTab?: boolean
 }
 
 const MENU_LINKS: CommandLinkItem[] = [
   {
-    title: "Portfolio",
+    title: "Home",
     href: "/",
-    icon: ChanhDaiMark,
+    icon: <ChanhDaiMark />,
+    shortcut: "GH",
   },
   {
     title: "Components",
     href: "/components",
-    icon: Icons.react,
+    icon: <Icons.react />,
+    shortcut: "GC",
   },
   {
     title: "Blocks",
     href: "/blocks",
-    icon: Icons.gridView,
+    icon: <Icons.gridView />,
+    shortcut: "GB",
   },
   {
     title: "Blog",
     href: "/blog",
-    icon: Icons.news,
+    icon: <Icons.news />,
+    shortcut: "GL",
   },
   {
     title: "Sponsors",
     href: "/sponsors",
-    icon: Icons.favourite,
+    icon: <Icons.favourite />,
+    shortcut: "GS",
+  },
+  {
+    title: "Wall of Love",
+    href: "/wall-of-love",
+    icon: <Icons.bookHeart />,
+    shortcut: "GW",
   },
 ]
 
@@ -91,47 +101,42 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
   {
     title: "About",
     href: "/#about",
-    icon: TextInitialIcon,
-  },
-  {
-    title: "Wall-of-Love",
-    href: "/wall-of-love",
-    icon: BookHeartIcon,
+    icon: <TextInitialIcon />,
   },
   {
     title: "Tech Stack",
     href: "/#stack",
-    icon: LayersIcon,
+    icon: <LayersIcon />,
   },
   {
     title: "Experience",
     href: "/#experience",
-    icon: BriefcaseBusinessIcon,
+    icon: <BriefcaseBusinessIcon />,
   },
   {
     title: "Projects",
     href: "/#projects",
-    icon: BoxIcon,
+    icon: <BoxIcon />,
   },
   {
     title: "Honors & Awards",
     href: "/#awards",
-    icon: AwardIcon,
+    icon: <AwardIcon />,
   },
   {
     title: "Certifications",
     href: "/#certs",
-    icon: CircleCheckBigIcon,
+    icon: <CircleCheckBigIcon />,
   },
   {
     title: "Bookmarks",
     href: "/#bookmarks",
-    icon: BookmarkIcon,
+    icon: <BookmarkIcon />,
   },
   {
     title: "Download vCard",
     href: "/vcard",
-    icon: DownloadIcon,
+    icon: <DownloadIcon />,
   },
 ]
 
@@ -146,13 +151,13 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
   {
     title: "llms.txt",
     href: "/llms.txt",
-    icon: FileTextIcon,
+    icon: <FileTextIcon />,
     openInNewTab: true,
   },
   {
     title: "RSS Feed",
     href: "/rss",
-    icon: RssIcon,
+    icon: <RssIcon />,
     openInNewTab: true,
   },
 ]
@@ -163,11 +168,11 @@ type BlockItem = {
 }
 
 export function CommandMenu({
-  posts,
+  docs,
   blocks,
   enabledHotkeys = false,
 }: {
-  posts: DocPreview[]
+  docs: DocPreview[]
   blocks: BlockItem[]
   enabledHotkeys?: boolean
 }) {
@@ -265,19 +270,19 @@ export function CommandMenu({
 
   const { componentLinks, blogLinks } = useMemo(
     () => ({
-      componentLinks: posts
-        .filter((post) => post.category === "components")
+      componentLinks: docs
+        .filter((doc) => doc.category === "components")
         .sort((a, b) =>
           a.title.localeCompare(b.title, "en", {
             sensitivity: "base",
           })
         )
-        .map(postToCommandLinkItem),
-      blogLinks: posts
-        .filter((post) => post.category !== "components")
-        .map(postToCommandLinkItem),
+        .map(docToCommandLinkItem),
+      blogLinks: docs
+        .filter((doc) => doc.category !== "components")
+        .map(docToCommandLinkItem),
     }),
-    [posts]
+    [docs]
   )
 
   const blockLinks = useMemo(
@@ -325,21 +330,21 @@ export function CommandMenu({
           <CommandLinkGroup
             heading="Components"
             links={componentLinks}
-            fallbackIcon={Icons.react}
+            fallbackIcon={<Icons.react />}
             onLinkSelect={handleOpenLink}
           />
 
           <CommandLinkGroup
             heading="Blocks"
             links={blockLinks}
-            fallbackIcon={Icons.gridView}
+            fallbackIcon={<Icons.gridView />}
             onLinkSelect={handleOpenLink}
           />
 
           <CommandLinkGroup
             heading="Blog"
             links={blogLinks}
-            fallbackIcon={Icons.news}
+            fallbackIcon={<Icons.news />}
             onLinkSelect={handleOpenLink}
           />
 
@@ -495,13 +500,13 @@ function CommandLinkGroup({
 }: {
   heading: string
   links: CommandLinkItem[]
-  fallbackIcon?: React.ComponentType<LucideProps>
+  fallbackIcon?: React.ReactElement
   onLinkSelect: (href: string, openInNewTab?: boolean) => void
 }) {
   return (
     <CommandGroup heading={heading}>
       {links.map((link) => {
-        const Icon = link?.icon ?? fallbackIcon ?? React.Fragment
+        const icon = link?.icon ?? fallbackIcon ?? <React.Fragment />
 
         return (
           <CommandItem
@@ -510,18 +515,22 @@ function CommandLinkGroup({
             onSelect={() => onLinkSelect(link.href, link.openInNewTab)}
           >
             {link?.iconImage ? (
-              <Image
-                className="rounded-sm corner-squircle supports-corner-shape:rounded-[50%]"
+              <img
+                className="size-4 rounded-sm corner-squircle supports-corner-shape:rounded-[50%]"
                 src={link.iconImage}
                 alt={link.title}
-                width={16}
-                height={16}
-                unoptimized
               />
             ) : (
-              <Icon />
+              icon
             )}
+
             <p className="line-clamp-1">{link.title}</p>
+
+            {link.shortcut && (
+              <CommandShortcut className="font-mono tracking-[0.2em]">
+                {link.shortcut}
+              </CommandShortcut>
+            )}
           </CommandItem>
         )
       })}
@@ -603,17 +612,13 @@ function CommandMenuFooter() {
   )
 }
 
-function postToCommandLinkItem(post: DocPreview): CommandLinkItem {
-  const isComponent = post.category === "components"
-
-  const IconComponent = isComponent
-    ? (props: LucideProps) => <ComponentIcon {...props} variant={post.slug} />
-    : undefined
+function docToCommandLinkItem(doc: DocPreview): CommandLinkItem {
+  const isComponent = doc.category === "components"
 
   return {
-    title: post.title,
-    href: isComponent ? `/components/${post.slug}` : `/blog/${post.slug}`,
+    title: doc.title,
+    href: isComponent ? `/components/${doc.slug}` : `/blog/${doc.slug}`,
     keywords: isComponent ? ["component"] : undefined,
-    icon: IconComponent,
+    icon: isComponent ? <ComponentIcon variant={doc.slug} /> : undefined,
   }
 }

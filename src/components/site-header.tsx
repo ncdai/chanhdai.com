@@ -25,13 +25,13 @@ const MobileNav = dynamic(() =>
 )
 
 export function SiteHeader() {
-  const posts = getAllDocs()
+  const docs = getAllDocs()
 
   // Minimize data serialized to client component - only send necessary fields
-  const postPreviews: DocPreview[] = posts.map((post) => ({
-    slug: post.slug,
-    title: post.metadata.title,
-    category: post.metadata.category,
+  const docPreviews: DocPreview[] = docs.map((doc) => ({
+    slug: doc.slug,
+    title: doc.metadata.title,
+    category: doc.metadata.category,
   }))
 
   return (
@@ -53,7 +53,7 @@ export function SiteHeader() {
           <DesktopNav items={MAIN_NAV} />
 
           <div className="flex items-center *:first:mr-2 max-sm:*:data-[slot=command-menu-trigger]:hidden">
-            <CommandMenu posts={postPreviews} blocks={blocks} enabledHotkeys />
+            <CommandMenu docs={docPreviews} blocks={blocks} enabledHotkeys />
             <NavItemGitHub />
             <Separator
               orientation="vertical"
@@ -72,7 +72,7 @@ export function SiteHeader() {
           "*:data-[slot=command-menu-trigger]:min-w-20 *:data-[slot=command-menu-trigger]:gap-2 *:data-[slot=command-menu-trigger]:rounded-none *:data-[slot=command-menu-trigger]:border-none *:data-[slot=command-menu-trigger]:bg-transparent *:data-[slot=command-menu-trigger]:px-0 *:data-[slot=command-menu-trigger]:hover:bg-transparent *:data-[slot=command-menu-trigger]:active:scale-none"
         )}
       >
-        <CommandMenu posts={postPreviews} blocks={blocks} />
+        <CommandMenu docs={docPreviews} blocks={blocks} />
         <Separator
           orientation="vertical"
           className="mr-1 ml-2.5 data-vertical:h-6 data-vertical:self-center"
