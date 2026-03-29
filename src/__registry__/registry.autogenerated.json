@@ -600,6 +600,35 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "testimonials-02",
+      "title": "Testimonials 02",
+      "description": "A testimonials section with a lined layout.",
+      "registryDependencies": [
+        "https://www.kibo-ui.com/r/marquee.json",
+        "https://chanhdai.com/r/style.json",
+        "https://chanhdai.com/r/testimonial.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/testimonials-02/testimonials-02.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/registry/blocks/testimonials-02/components/testimonial-list.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "previewClassName": "min-h-svh content-center-safe"
+      },
+      "categories": [
+        "marketing",
+        "testimonials"
+      ],
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "experience-01",
       "title": "Experience 01",
       "description": "A work experience section with a lined layout.",
