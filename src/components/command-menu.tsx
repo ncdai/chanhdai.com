@@ -35,6 +35,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandShortcut,
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
@@ -57,6 +58,7 @@ type CommandLinkItem = {
   iconImage?: string
   keywords?: string[]
   openInNewTab?: boolean
+  shortcut?: string
 }
 
 const MENU_LINKS: CommandLinkItem[] = [
@@ -64,26 +66,31 @@ const MENU_LINKS: CommandLinkItem[] = [
     title: "Portfolio",
     href: "/",
     icon: ChanhDaiMark,
+    shortcut: "GH",
   },
   {
     title: "Components",
     href: "/components",
     icon: Icons.react,
+    shortcut: "GC",
   },
   {
     title: "Blocks",
     href: "/blocks",
     icon: Icons.gridView,
+    shortcut: "GB",
   },
   {
     title: "Blog",
     href: "/blog",
     icon: Icons.news,
+    shortcut: "GL",
   },
   {
     title: "Sponsors",
     href: "/sponsors",
     icon: Icons.favourite,
+    shortcut: "GS",
   },
 ]
 
@@ -522,6 +529,11 @@ function CommandLinkGroup({
               <Icon />
             )}
             <p className="line-clamp-1">{link.title}</p>
+            {link.shortcut && (
+              <CommandShortcut className="text-[0.8125rem] tracking-[0.2em]">
+                {link.shortcut}
+              </CommandShortcut>
+            )}
           </CommandItem>
         )
       })}
