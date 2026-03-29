@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef } from "react"
+import { useHotkeys } from "react-hotkeys-hook"
 
 import type { VolumeIconHandle } from "@/components/animated-icons/volume"
 import { VolumeIcon } from "@/components/animated-icons/volume"
@@ -19,6 +20,16 @@ export function PronounceMyName({
 
   const volumeIconRef = useRef<VolumeIconHandle>(null)
 
+  const handlePlayClick = () => {
+    volumeIconRef.current?.startAnimation()
+    play()
+    trackEvent({
+      name: "play_name_pronunciation",
+    })
+  }
+
+  useHotkeys("p", handlePlayClick)
+
   return (
     <button
       className={cn(
@@ -27,13 +38,7 @@ export function PronounceMyName({
         className
       )}
       onPointerEnter={() => preload()}
-      onClick={() => {
-        volumeIconRef.current?.startAnimation()
-        play()
-        trackEvent({
-          name: "play_name_pronunciation",
-        })
-      }}
+      onClick={handlePlayClick}
     >
       <VolumeIcon ref={volumeIconRef} className="size-4.5" />
       <span className="sr-only">Pronounce my name</span>
