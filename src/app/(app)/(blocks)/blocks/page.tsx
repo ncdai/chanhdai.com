@@ -11,6 +11,7 @@ const FEATURED_BLOCKS = [
   "blog-02",
   "blog-01",
   "testimonials-01",
+  "testimonials-02",
   "experience-01",
 ]
 

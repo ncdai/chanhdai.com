@@ -1,6 +1,6 @@
 import type { Registry } from "shadcn/schema"
 
-import { getRegistryItemUrl } from "@/utils/registry"
+import { getRegistryItemUrl, getRegistryItemUrls } from "@/utils/registry"
 
 export const blocks: Registry["items"] = [
   {
@@ -106,14 +106,35 @@ export const blocks: Registry["items"] = [
     },
   },
   {
+    name: "testimonials-02",
+    title: "Testimonials 02",
+    description: "A testimonials section with a lined layout.",
+    type: "registry:block",
+    registryDependencies: [
+      "https://www.kibo-ui.com/r/marquee.json",
+      ...getRegistryItemUrls("style", "testimonial"),
+    ],
+    files: [
+      {
+        path: "blocks/testimonials-02/testimonials-02.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/testimonials-02/components/testimonial-list.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["marketing", "testimonials"],
+    meta: {
+      previewClassName: "min-h-svh content-center-safe",
+    },
+  },
+  {
     name: "experience-01",
     title: "Experience 01",
     description: "A work experience section with a lined layout.",
     type: "registry:block",
-    registryDependencies: [
-      getRegistryItemUrl("style"),
-      getRegistryItemUrl("work-experience"),
-    ],
+    registryDependencies: [...getRegistryItemUrls("style", "work-experience")],
     files: [
       {
         path: "blocks/experience-01/experience-01.tsx",

@@ -72,6 +72,7 @@ export const Index: Record<string, any> = {`
         .map((item) => {
           return {
             ...item,
+            author: item.author ?? "ncdai <dai@chanhdai.com>",
             files:
               item.files?.map((file) => {
                 if (file.path.startsWith("src/")) {
@@ -128,8 +129,7 @@ async function buildBlocksIndex() {
 try {
   console.log("💽 Building registry...")
 
-  // Dynamic imports to handle ESM module resolution with tsx in Node v22+
-  const { registry } = await import("../registry/index")
+  const { registry } = await import("@/registry/index")
 
   const result = registrySchema.safeParse(registry)
 

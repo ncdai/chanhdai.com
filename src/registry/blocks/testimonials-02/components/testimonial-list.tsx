@@ -14,7 +14,6 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
 } from "@/registry/components/testimonial"
-import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 export type TestimonialType = {
   /** URL to the person's profile picture or avatar image */
@@ -43,16 +42,17 @@ export function TestimonialList({
 
       <MarqueeContent direction={direction}>
         {data.map((item) => (
-          <MarqueeItem key={item.url} className="mx-1 h-full w-xs">
+          <MarqueeItem
+            key={item.url}
+            className="mx-0 h-full w-xs border-r border-line"
+          >
             <a
-              className="block h-full"
+              className="block h-full transition-[background-color] hover:bg-accent/15"
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <TestimonialSpotlight className="h-full">
-                <TestimonialItem {...item} />
-              </TestimonialSpotlight>
+              <TestimonialItem {...item} />
             </a>
           </MarqueeItem>
         ))}

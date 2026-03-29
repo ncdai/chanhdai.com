@@ -2,6 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-controllable-state",
   "title": "Controllable State Hook",
+  "author": "ncdai <dai@chanhdai.com>",
   "files": [
     {
       "path": "src/hooks/use-layout-effect.tsx",

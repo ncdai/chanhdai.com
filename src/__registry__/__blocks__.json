@@ -40,6 +40,14 @@
     ]
   },
   {
+    "name": "testimonials-02",
+    "description": "A testimonials section with a lined layout.",
+    "categories": [
+      "marketing",
+      "testimonials"
+    ]
+  },
+  {
     "name": "experience-01",
     "description": "A work experience section with a lined layout.",
     "categories": [

@@ -7,7 +7,6 @@ export const components: Registry["items"] = [
     name: "theme-switcher",
     type: "registry:component",
     title: "Theme Switcher",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Toggle between system, light, and dark themes in Next.js apps.",
     dependencies: ["next-themes", "lucide-react", "motion"],
@@ -23,7 +22,6 @@ export const components: Registry["items"] = [
     name: "text-flip",
     type: "registry:component",
     title: "Text Flip",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Animated text that cycles through items with a smooth flip transition.",
     dependencies: ["motion"],
@@ -39,7 +37,6 @@ export const components: Registry["items"] = [
     name: "apple-hello-effect",
     type: "registry:component",
     title: "Apple Hello Effect",
-    author: "ncdai <dai@chanhdai.com>",
     description: "SVG writing animation inspired by Apple's Hello screen.",
     dependencies: ["motion"],
     files: [
@@ -54,7 +51,6 @@ export const components: Registry["items"] = [
     name: "wheel-picker",
     type: "registry:component",
     title: "Wheel Picker",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
     dependencies: ["@ncdai/react-wheel-picker"],
@@ -69,7 +65,6 @@ export const components: Registry["items"] = [
   {
     name: "chevrons-up-down-icon",
     type: "registry:component",
-    author: "ncdai <dai@chanhdai.com>",
     description: "TBD",
     dependencies: ["motion"],
     files: [
@@ -83,7 +78,6 @@ export const components: Registry["items"] = [
     name: "typography",
     type: "registry:component",
     title: "Typography",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Custom prose styles for headings, links, inline code, and emphasis.",
     devDependencies: ["@tailwindcss/typography"],
@@ -104,7 +98,6 @@ export const components: Registry["items"] = [
     name: "work-experience",
     type: "registry:component",
     title: "Work Experience",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Display work experiences with role details, company logos, and durations.",
     dependencies: ["react-markdown", "lucide-react"],
@@ -126,7 +119,6 @@ export const components: Registry["items"] = [
     name: "shimmering-text",
     type: "registry:component",
     title: "Shimmering Text",
-    author: "ncdai <dai@chanhdai.com>",
     description: "Smooth, light-sweeping shimmer animation for text.",
     dependencies: ["motion"],
     files: [
@@ -140,7 +132,6 @@ export const components: Registry["items"] = [
     name: "slide-to-unlock",
     type: "registry:component",
     title: "Slide to Unlock",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Interactive slider inspired by the classic iPhone 'slide to unlock' gesture.",
     dependencies: ["motion"],
@@ -157,7 +148,6 @@ export const components: Registry["items"] = [
     name: "testimonials-marquee",
     type: "registry:component",
     title: "Testimonials Marquee",
-    author: "ncdai <dai@chanhdai.com>",
     description: "Scrolling marquee to showcase user testimonials.",
     registryDependencies: [
       "@kibo-ui/marquee",
@@ -169,7 +159,6 @@ export const components: Registry["items"] = [
     name: "testimonial",
     type: "registry:component",
     title: "Testimonial",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Display user feedback with author info, avatar, and verified badge.",
     files: [
@@ -183,7 +172,6 @@ export const components: Registry["items"] = [
     name: "github-stars",
     type: "registry:component",
     title: "GitHub Stars",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Display GitHub repo star count with formatted numbers and full-count tooltip.",
     registryDependencies: ["button", "tooltip"],
@@ -198,7 +186,6 @@ export const components: Registry["items"] = [
     name: "scroll-fade-effect",
     type: "registry:component",
     title: "Scroll Fade Effect",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Fade content edges as you scroll, for both vertical and horizontal layouts.",
     files: [
@@ -294,7 +281,6 @@ export const components: Registry["items"] = [
     name: "consent-manager",
     type: "registry:component",
     title: "Consent Manager",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Cookie and tracking consent banner for Next.js, built on c15t.",
     dependencies: ["@c15t/nextjs"],
@@ -310,7 +296,6 @@ export const components: Registry["items"] = [
     name: "copy-button",
     type: "registry:component",
     title: "Copy Button",
-    author: "ncdai <dai@chanhdai.com>",
     description: "Copy text to clipboard with visual feedback and animation.",
     dependencies: ["lucide-react", "motion"],
     registryDependencies: ["button"],
@@ -329,7 +314,6 @@ export const components: Registry["items"] = [
     name: "code-block-command",
     type: "registry:component",
     title: "Code Block Command",
-    author: "ncdai <dai@chanhdai.com>",
     description:
       "Display install commands with package manager switcher and copy button.",
     dependencies: ["@base-ui/react", "lucide-react", "motion", "jotai"],
@@ -367,7 +351,6 @@ export const components: Registry["items"] = [
     name: "testimonial-spotlight",
     type: "registry:component",
     title: "Testimonial Spotlight",
-    author: "ncdai <dai@chanhdai.com>",
     description: "Testimonial card with spotlight effect on hover.",
     registryDependencies: [getRegistryItemUrl("testimonial")],
     files: [
