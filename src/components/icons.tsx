@@ -583,6 +583,37 @@ export const Icons = {
       />
     </svg>
   ),
+  bookHeart: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+      {...props}
+    >
+      <path
+        d="M20 22H6C4.89543 22 4 21.1046 4 20M4 20C4 18.8954 4.89543 18 6 18H20V6C20 4.11438 20 3.17157 19.4142 2.58579C18.8284 2 17.8856 2 16 2H10C7.17157 2 5.75736 2 4.87868 2.87868C4 3.75736 4 5.17157 4 8V20Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M19.5 18C19.5 18 18.5 18.7628 18.5 20C18.5 21.2372 19.5 22 19.5 22"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M11.3643 13.2808C10.2358 12.4121 8 10.4261 8 8.63887C8 7.45761 8.84211 6.5 10 6.5C10.6 6.5 11.2 6.70588 12 7.5294C12.8 6.70588 13.4 6.5 14 6.5C15.1579 6.5 16 7.45761 16 8.63887C16 10.4261 13.7642 12.4121 12.6357 13.2808C12.256 13.5731 11.744 13.5731 11.3643 13.2808Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
 }
 
 export function getIconForLanguageExtension(language: string) {

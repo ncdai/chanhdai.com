@@ -11,6 +11,7 @@ export function KeyboardShortcuts() {
   useHotkeys("g>b", () => router.push("/blocks"))
   useHotkeys("g>l", () => router.push("/blog"))
   useHotkeys("g>s", () => router.push("/sponsors"))
+  useHotkeys("g>w", () => router.push("/wall-of-love"))
 
   return null
 }
