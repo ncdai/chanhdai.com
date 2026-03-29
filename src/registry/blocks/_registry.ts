@@ -134,10 +134,7 @@ export const blocks: Registry["items"] = [
     title: "Experience 01",
     description: "A work experience section with a lined layout.",
     type: "registry:block",
-    registryDependencies: [
-      getRegistryItemUrl("style"),
-      getRegistryItemUrl("work-experience"),
-    ],
+    registryDependencies: [...getRegistryItemUrls("style", "work-experience")],
     files: [
       {
         path: "blocks/experience-01/experience-01.tsx",

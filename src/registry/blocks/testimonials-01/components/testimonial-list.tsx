@@ -43,10 +43,7 @@ export function TestimonialList({
 
       <MarqueeContent direction={direction}>
         {data.map((item) => (
-          <MarqueeItem
-            key={item.url}
-            className="mx-1 h-full max-w-xs min-w-2xs"
-          >
+          <MarqueeItem key={item.url} className="mx-1 h-full w-xs">
             <a
               className="block h-full"
               href={item.url}
@@ -72,7 +69,7 @@ function TestimonialItem({
 }: TestimonialType) {
   return (
     <Testimonial>
-      <TestimonialQuote>
+      <TestimonialQuote className="min-h-14">
         <p>{quote}</p>
       </TestimonialQuote>
 
