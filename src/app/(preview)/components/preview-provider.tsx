@@ -35,11 +35,15 @@ export function PreviewProvider({
 
   useIframeMessageListener("preview-params", (nextParams) => {
     setPreviewParams(nextParams)
-    if (!nextParams.theme) {
-      clearThemeCSSVars(document, THEME_VARS_STYLE_ID)
-      setThemeApplied(false)
-    }
   })
+
+  useLayoutEffect(() => {
+    if (typeof document === "undefined" || !!themeParam || !themeApplied) {
+      return
+    }
+
+    clearThemeCSSVars(document, THEME_VARS_STYLE_ID)
+  }, [themeParam, themeApplied])
 
   useLayoutEffect(() => {
     if (typeof document === "undefined" || !themeItem) {
