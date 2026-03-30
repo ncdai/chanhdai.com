@@ -346,6 +346,27 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "glow-card-grid": {
+    name: "glow-card-grid",
+    description: "Display cards with glowing border and background effects.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/glow-card-grid/glow-card-grid.tsx",
+      type: "registry:component",
+      target: "",
+    },{
+      path: "src/registry/components/glow-card-grid/glow-card.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/glow-card-grid/glow-card-grid.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -487,6 +508,23 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["content","portfolio"],
+    meta: undefined,
+  },
+  "team-01": {
+    name: "team-01",
+    description: "A team section with glowing cards.",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/blocks/team-01/team-01.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/blocks/team-01/team-01.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["content","team"],
     meta: undefined,
   },
   "text-flip-demo": {
@@ -925,6 +963,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/testimonial-spotlight-demo-02.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "glow-card-grid-demo-01": {
+    name: "glow-card-grid-demo-01",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/glow-card-grid-demo-01.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/glow-card-grid-demo-01.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

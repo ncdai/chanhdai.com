@@ -299,4 +299,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "glow-card-grid-demo-01",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("glow-card-grid")],
+    files: [
+      {
+        path: "examples/glow-card-grid-demo-01.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

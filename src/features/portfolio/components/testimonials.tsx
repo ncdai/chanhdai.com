@@ -127,7 +127,7 @@ function TestimonialItem({
 }: TestimonialType) {
   return (
     <Testimonial>
-      <TestimonialQuote>
+      <TestimonialQuote className="min-h-14">
         <p>{quote}</p>
       </TestimonialQuote>
 

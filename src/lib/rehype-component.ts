@@ -58,9 +58,6 @@ export function rehypeComponent() {
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.
           // For now a simple regex should do.
-          // source = source.replaceAll("@/registry/", "@/")
-          // source = source.replaceAll("@/components/base/ui/", "@/components/")
-          // source = source.replaceAll("export default", "export")
           source = fixImport(source)
 
           const title = getNodeAttributeByName(node, "title")
@@ -68,6 +65,7 @@ export function rehypeComponent() {
             node,
             "showLineNumbers"
           )
+          const codeMeta = getNodeAttributeByName(node, "data-code-meta")
 
           // Add code as children so that rehype can take over at build time.
           node.children?.push(
@@ -84,7 +82,9 @@ export function rehypeComponent() {
                     meta: [
                       title ? `title="${title.value}"` : "",
                       showLineNumbers ? "showLineNumbers" : "",
-                    ].join(" "),
+                    ]
+                      .concat(codeMeta ? [codeMeta.value as string] : [])
+                      .join(" "),
                   },
                   children: [
                     {
@@ -120,9 +120,6 @@ export function rehypeComponent() {
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.
           // For now a simple regex should do.
-          // source = source.replaceAll("@/registry/", "@/")
-          // source = source.replaceAll("@/components/base/ui/", "@/components/")
-          // source = source.replaceAll("export default", "export")
           source = fixImport(source)
 
           const codeMeta = getNodeAttributeByName(node, "data-code-meta")
