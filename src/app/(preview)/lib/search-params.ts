@@ -13,11 +13,7 @@ export const serializePreviewSearchParams =
 export type PreviewSearchParams = inferParserType<typeof previewSearchParams>
 
 export function usePreviewSearchParams(options: Options = {}) {
-  const [params, setParams] = useQueryStates(previewSearchParams, {
-    shallow: false,
-    history: "push",
-    ...options,
-  })
+  const [params, setParams] = useQueryStates(previewSearchParams, options)
 
   return [params, setParams] as const
 }
