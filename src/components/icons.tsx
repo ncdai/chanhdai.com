@@ -3,6 +3,7 @@ import {
   CopyIcon,
   FileIcon,
   GalleryHorizontalEndIcon,
+  LayoutGridIcon,
   MoonStarIcon,
   MouseIcon,
   QuoteIcon,
@@ -750,6 +751,10 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
 
     case "testimonial-spotlight": {
       return <SpotlightIcon {...props} />
+    }
+
+    case "glow-card-grid": {
+      return <LayoutGridIcon {...props} />
     }
 
     default: {

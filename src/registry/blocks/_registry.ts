@@ -140,4 +140,19 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["content", "portfolio"],
   },
+  {
+    name: "team-01",
+    title: "Team 01",
+    description: "A team section with glowing cards.",
+    type: "registry:block",
+    dependencies: ["dialkit"],
+    registryDependencies: [getRegistryItemUrl("glow-card-grid")],
+    files: [
+      {
+        path: "blocks/team-01/team-01.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["content", "team"],
+  },
 ]

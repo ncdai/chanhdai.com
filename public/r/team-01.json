@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "team-01",
+  "title": "Team 01",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "A team section with glowing cards.",
+  "dependencies": [
+    "dialkit"
+  ],
+  "registryDependencies": [
+    "https://chanhdai.com/r/glow-card-grid.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/team-01/team-01.tsx",
+      "content": "\"use client\"\n\nimport { useDialKit } from \"dialkit\"\n\nimport { GlowCard } from \"@/registry/components/glow-card-grid/glow-card\"\nimport { GlowCardGrid } from \"@/registry/components/glow-card-grid/glow-card-grid\"\n\nexport default function Team01() {\n  const params = useDialKit(\"GlowCard\", {\n    cardRadius: [16, 0, 32, 1],\n    icon: {\n      blur: [25, 0, 100, 1], // [default, min, max, step]\n      saturate: [5.0, 0, 10, 0.1],\n      brightness: [1.3, 0, 4, 0.1],\n      scale: [4, 1, 6, 0.1],\n      opacity: [0.3, 0, 1, 0.01],\n    },\n    border: {\n      width: [3, 1, 6, 1],\n      blur: [10, 0, 100, 1],\n      saturate: [4.2, 0, 10, 0.1],\n      brightness: [2.5, 0, 4, 0.1],\n      contrast: [2.5, 0, 3, 0.1],\n    },\n  })\n\n  return (\n    <div className=\"min-h-svh place-items-center-safe content-center-safe p-4\">\n      <div className=\"w-full max-w-3xl\">\n        <GlowCardGrid\n          // Card parameters\n          cardRadius={params.cardRadius}\n          // Icon parameters\n          iconBlur={params.icon.blur}\n          iconSaturate={params.icon.saturate}\n          iconBrightness={params.icon.brightness}\n          iconScale={params.icon.scale}\n          iconOpacity={params.icon.opacity}\n          // Border parameters\n          borderWidth={params.border.width}\n          borderBlur={params.border.blur}\n          borderSaturate={params.border.saturate}\n          borderBrightness={params.border.brightness}\n          borderContrast={params.border.contrast}\n        >\n          {CARDS.map((card) => (\n            <GlowCard\n              key={card.name}\n              name={card.name}\n              handle={card.handle}\n              avatar={card.avatar}\n            />\n          ))}\n        </GlowCardGrid>\n      </div>\n    </div>\n  )\n}\n\nconst CARDS = [\n  {\n    name: \"shadcn\",\n    handle: \"@shadcn\",\n    avatar: \"https://unavatar.io/x/shadcn\",\n  },\n  {\n    name: \"OrcDev\",\n    handle: \"@orcdev\",\n    avatar: \"https://unavatar.io/x/orcdev\",\n  },\n  {\n    name: \"David Haz\",\n    handle: \"@davidhdev\",\n    avatar: \"https://unavatar.io/x/davidhdev\",\n  },\n  {\n    name: \"Shu\",\n    handle: \"@shuding\",\n    avatar: \"https://unavatar.io/x/shuding\",\n  },\n  {\n    name: \"Emil Kowalski\",\n    handle: \"@emilkowalski\",\n    avatar: \"https://unavatar.io/x/emilkowalski\",\n  },\n  {\n    name: \"Chánh Đại\",\n    handle: \"@iamncdai\",\n    avatar: \"https://unavatar.io/x/iamncdai\",\n  },\n]\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "content",
+    "team"
+  ],
+  "type": "registry:block"
+}

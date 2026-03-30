@@ -54,5 +54,13 @@
       "content",
       "portfolio"
     ]
+  },
+  {
+    "name": "team-01",
+    "description": "A team section with glowing cards.",
+    "categories": [
+      "content",
+      "team"
+    ]
   }
 ]

@@ -360,4 +360,20 @@ export const components: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "glow-card-grid",
+    type: "registry:component",
+    title: "Glow Card Grid",
+    description: "Display cards with glowing border and background effects.",
+    files: [
+      {
+        path: "components/glow-card-grid/glow-card-grid.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "components/glow-card-grid/glow-card.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ]

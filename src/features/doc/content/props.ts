@@ -4,6 +4,7 @@ import type { ComponentProps } from "react"
 import type { Button } from "@/components/ui/button"
 import type { AppleHelloVietnameseEffect } from "@/registry/components/apple-hello-effect"
 import type { CopyButton } from "@/registry/components/copy-button"
+import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
 import type { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
 import type { ShimmeringText } from "@/registry/components/shimmering-text"
 import type {
@@ -64,4 +65,9 @@ export type HapticProps = {
 
 export type TestimonialSpotlightProps = ComponentProps<
   typeof TestimonialSpotlight
+>
+
+export type GlowCardGridProps = Omit<
+  ComponentProps<typeof GlowCardGrid>,
+  keyof Omit<ComponentProps<"div">, "children">
 >

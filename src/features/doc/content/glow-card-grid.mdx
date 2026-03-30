@@ -1,0 +1,136 @@
+---
+title: Glow Card Grid
+description: Display cards with glowing border and background effects.
+image: https://assets.chanhdai.com/images/blog/glow-card-grid.webp
+category: components
+new: true
+createdAt: 2026-03-30
+updatedAt: 2026-03-30
+---
+
+<ComponentPreview
+  name="glow-card-grid-demo-01"
+  openInV0Url="https://chanhdai.com/r/glow-card-grid-demo-01.json"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/glow-card-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/registry/components/glow-card-grid/glow-card.tsx"
+  title="components/glow-card.tsx"
+  showLineNumbers
+/>
+
+<ComponentSource
+  src="src/registry/components/glow-card-grid/glow-card-grid.tsx"
+  title="components/glow-card-grid.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GlowCard } from "@/components/glow-card"
+import { GlowCardGrid } from "@/components/glow-card-grid"
+```
+
+```tsx
+<GlowCardGrid>
+  <GlowCard />
+  <GlowCard />
+  <GlowCard />
+</GlowCardGrid>
+```
+
+## API Reference
+
+### GlowCard
+
+<AutoTypeTable
+  path="src/registry/components/glow-card-grid/glow-card.tsx"
+  name="GlowCardProps"
+/>
+
+### GlowCardGrid
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="GlowCardGridProps"
+/>
+
+## Examples
+
+### Tuning Effect Parameters
+
+This example shows how to use DialKit to create live controls for fine-tuning the glow effect parameters in real-time.
+
+[View live demo](https://chanhdai.com/preview/team-01)
+
+<Steps>
+
+<Step>Install DialKit in your project</Step>
+
+Follow the [DialKit installation guide](https://joshpuckett.me/dialkit#installation) to add it to your project.
+
+<Step>Wrap your component with DialKit controls</Step>
+
+Add parameter dials for card radius, icon effects (blur, saturate, brightness, scale, opacity), and border styling (width, blur, saturate, brightness, contrast).
+
+<ComponentSource
+  src="src/registry/blocks/team-01/team-01.tsx"
+  title="components/team-01.tsx"
+  collapsible="false"
+  showLineNumbers
+  data-code-meta="{3,9-25,31-44}"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+## References
+
+- [Glow effect inspiration by @jh3yy](https://x.com/jh3yy/status/1992003440579662211)
+- [Implementation details](https://x.com/jh3yy/status/1992035612619411934)
+- [DialKit Documentation](https://joshpuckett.me/dialkit)
