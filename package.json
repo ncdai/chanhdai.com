@@ -128,5 +128,5 @@
     "node": "22.x",
     "pnpm": ">=9"
   },
-  "packageManager": "pnpm@10.30.3"
+  "packageManager": "pnpm@10.33.0"
 }
