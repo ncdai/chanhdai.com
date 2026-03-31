@@ -527,7 +527,7 @@ function CommandLinkGroup({
             <p className="line-clamp-1">{link.title}</p>
 
             {link.shortcut && (
-              <CommandShortcut className="font-mono tracking-[0.2em]">
+              <CommandShortcut className="font-mono tracking-[0.2em] max-sm:hidden">
                 {link.shortcut}
               </CommandShortcut>
             )}
