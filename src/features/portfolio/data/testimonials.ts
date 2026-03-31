@@ -191,7 +191,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/aaronmahlke",
     authorName: "Aaron",
-    authorTagline: "Founding Design Engineer @Mail0",
+    authorTagline: "Design Engineer",
     url: "https://x.com/aaronmahlke/status/1955606729657344490",
     quote: "super cool portfolio!",
     date: "2025-08-13",
@@ -324,5 +324,13 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/harshjdhv/status/2035010611512508481",
     quote: "Cleannnn",
     date: "2026-03-21",
+  },
+  {
+    authorAvatar: "https://unavatar.io/x/joshpuckett",
+    authorName: "joshpuckett",
+    authorTagline: "Teaching at interfacecraft.dev",
+    url: "https://x.com/joshpuckett/status/2038713206764617896",
+    quote: "Yooo I love this 🎨",
+    date: "2026-03-31",
   },
 ]

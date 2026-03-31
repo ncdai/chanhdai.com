@@ -130,4 +130,11 @@ const TESTIMONIALS_2: TestimonialType[] = [
     url: "https://x.com/shadcn/status/2032193591133495700",
     quote: "You’re doing amazing work.",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/joshpuckett",
+    authorName: "joshpuckett",
+    authorTagline: "Teaching at interfacecraft.dev",
+    url: "https://x.com/joshpuckett/status/2038713206764617896",
+    quote: "Yooo I love this 🎨",
+  },
 ]
