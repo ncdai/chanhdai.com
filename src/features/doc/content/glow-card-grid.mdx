@@ -113,14 +113,13 @@ This example shows how to use DialKit to create live controls for fine-tuning th
 
 Follow the [DialKit installation guide](https://joshpuckett.me/dialkit#installation) to add it to your project.
 
-<Step>Wrap your component with DialKit controls</Step>
+<Step>Create interactive controls with the useDialKit hook</Step>
 
-Add parameter dials for card radius, icon effects (blur, saturate, brightness, scale, opacity), and border styling (width, blur, saturate, brightness, contrast).
+Use the hook to define parameter ranges and pass them to your component as props.
 
 <ComponentSource
   src="src/registry/blocks/team-01/team-01.tsx"
   title="components/team-01.tsx"
-  collapsible="false"
   showLineNumbers
   data-code-meta="{3,9-25,31-44}"
 />
@@ -131,6 +130,5 @@ Add parameter dials for card radius, icon effects (blur, saturate, brightness, s
 
 ## References
 
-- [Glow effect inspiration by @jh3yy](https://x.com/jh3yy/status/1992003440579662211)
-- [Implementation details](https://x.com/jh3yy/status/1992035612619411934)
-- [DialKit Documentation](https://joshpuckett.me/dialkit)
+- [Original glow effect demo](https://x.com/jh3yy/status/1992003440579662211) by @jh3yy
+- [DialKit](https://joshpuckett.me/dialkit)
