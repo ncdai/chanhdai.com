@@ -7,6 +7,7 @@ import {
   MoonStarIcon,
   MouseIcon,
   QuoteIcon,
+  ScissorsIcon,
   SeparatorHorizontalIcon,
   SpotlightIcon,
   SquareTerminalIcon,
@@ -755,6 +756,10 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
 
     case "glow-card-grid": {
       return <LayoutGridIcon {...props} />
+    }
+
+    case "middle-truncation": {
+      return <ScissorsIcon {...props} />
     }
 
     default: {

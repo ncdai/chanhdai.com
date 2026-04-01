@@ -376,4 +376,17 @@ export const components: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "middle-truncation",
+    type: "registry:component",
+    title: "Middle Truncation",
+    description: "Truncate text in the middle while preserving start and end.",
+    files: [
+      {
+        path: "components/middle-truncation/middle-truncation.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://chanhdai.com/components/middle-truncation",
+  },
 ]

@@ -477,6 +477,20 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "middle-truncation",
+      "title": "Middle Truncation",
+      "description": "Truncate text in the middle while preserving start and end.",
+      "files": [
+        {
+          "path": "src/registry/components/middle-truncation/middle-truncation.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/middle-truncation",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

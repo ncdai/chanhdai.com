@@ -310,4 +310,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "middle-truncation-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("middle-truncation")],
+    files: [
+      {
+        path: "examples/middle-truncation-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

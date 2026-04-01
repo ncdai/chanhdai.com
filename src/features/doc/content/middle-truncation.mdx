@@ -1,0 +1,126 @@
+---
+title: Middle Truncation
+description: Truncate text in the middle while preserving start and end.
+image: https://assets.chanhdai.com/images/blog/middle-truncation.webp
+category: components
+new: true
+createdAt: 2026-04-01
+updatedAt: 2026-04-01
+---
+
+<ComponentPreview
+  name="middle-truncation-demo"
+  openInV0Url="https://chanhdai.com/r/middle-truncation.json"
+/>
+
+## Features
+
+- Three truncation strategies: fixed end, flexible with minimum, or even split.
+- Pixel-accurate measurement based on actual rendered text width.
+- Automatically recalculates when container resizes.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/middle-truncation
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="middle-truncation"
+  title="components/middle-truncation.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MiddleTruncation } from "@/components/middle-truncation"
+```
+
+```tsx
+<MiddleTruncation>
+  /Users/ncdai/Code/chanhdai.com/src/components/ui/button.tsx
+</MiddleTruncation>
+```
+
+## API Reference
+
+### MiddleTruncation
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="MiddleTruncationProps"
+/>
+
+## Examples
+
+### Fixed End
+
+Always preserve exactly a fixed number of characters at the end.
+
+```tsx
+<MiddleTruncation end={4}>
+  FY26_Q1_Consolidated_Financial_Statements.pdf
+</MiddleTruncation>
+```
+
+### Flexible with Minimum
+
+Split text evenly, but ensure at least a minimum number of characters at the end.
+
+```tsx
+<MiddleTruncation minEnd={12}>
+  /Users/ncdai/Code/chanhdai.com/node_modules/shadcn/package.json
+</MiddleTruncation>
+```
+
+### Even Split
+
+Split text evenly in the middle when no constraints are provided.
+
+```tsx
+<MiddleTruncation>
+  /Users/ncdai/Code/chanhdai.com/src/components/ui/button.tsx
+</MiddleTruncation>
+```
+
+## References
+
+- [Middle Truncation by @pqoqubbw](https://x.com/pqoqubbw/status/2039034994581000700)

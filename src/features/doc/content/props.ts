@@ -5,6 +5,7 @@ import type { Button } from "@/components/ui/button"
 import type { AppleHelloVietnameseEffect } from "@/registry/components/apple-hello-effect"
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
+import type { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
 import type { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
 import type { ShimmeringText } from "@/registry/components/shimmering-text"
 import type {
@@ -70,4 +71,9 @@ export type TestimonialSpotlightProps = ComponentProps<
 export type GlowCardGridProps = Omit<
   ComponentProps<typeof GlowCardGrid>,
   keyof Omit<ComponentProps<"div">, "children">
+>
+
+export type MiddleTruncationProps = Omit<
+  ComponentProps<typeof MiddleTruncation>,
+  keyof Omit<ComponentProps<"span">, "children" | "className">
 >
