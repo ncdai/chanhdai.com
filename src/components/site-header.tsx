@@ -61,6 +61,9 @@ export function SiteHeader() {
             />
             <ThemeToggle />
           </div>
+
+          <div className="absolute top-[-3.5px] left-[-4.5px] z-2 flex size-2 border border-line bg-background" />
+          <div className="absolute top-[-3.5px] right-[-4.5px] z-2 flex size-2 border border-line bg-background" />
         </div>
       </header>
 
