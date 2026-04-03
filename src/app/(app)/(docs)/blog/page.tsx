@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Suspense } from "react"
+import { Suspense, ViewTransition } from "react"
 
 import { X_USERNAME } from "@/config/site"
 import { PostList } from "@/features/blog/components/post-list"
@@ -44,7 +44,9 @@ export default function Page() {
     <div className="min-h-svh">
       <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          {title}
+          <ViewTransition name="blog-page-heading-title">
+            <span>{title}</span>
+          </ViewTransition>
         </h1>
       </div>
 

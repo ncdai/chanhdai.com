@@ -34,13 +34,6 @@ export function PostItem({
           />
 
           <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
-
-          {/* {post.metadata.pinned && (
-            <span className="absolute top-1.5 right-1.5 flex size-6 items-center justify-center rounded-md bg-secondary">
-              <PinIcon className="size-4 rotate-45 text-secondary-foreground" />
-              <span className="sr-only">Pinned</span>
-            </span>
-          )} */}
         </div>
       )}
 
