@@ -42,7 +42,10 @@ export default function MiddleTruncationDemo() {
         </ExampleCard>
       </ResizablePanel>
 
-      <ResizableHandle className="relative w-2 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-12 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all hover:after:bg-zinc-300 focus-visible:ring-0 focus-visible:ring-offset-0 dark:hover:after:bg-zinc-700" />
+      <ResizableHandle
+        className="relative w-2 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-12 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all hover:after:bg-zinc-300 focus-visible:ring-0 focus-visible:ring-offset-0 dark:hover:after:bg-zinc-700"
+        disableDoubleClick
+      />
 
       <ResizablePanel minSize="0%" defaultSize="0%" />
     </ResizablePanelGroup>
