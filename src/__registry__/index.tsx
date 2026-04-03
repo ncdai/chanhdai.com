@@ -542,7 +542,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["content","team"],
-    meta: undefined,
+    meta: {"previewClassName":"min-h-svh place-items-center-safe content-center-safe"},
   },
   "text-flip-demo": {
     name: "text-flip-demo",

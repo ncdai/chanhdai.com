@@ -25,34 +25,33 @@ export default function Team01() {
   })
 
   return (
-    <div className="min-h-svh place-items-center-safe content-center-safe p-4">
-      <div className="w-full max-w-3xl">
-        <GlowCardGrid
-          // Card parameters
-          cardRadius={params.cardRadius}
-          // Icon parameters
-          iconBlur={params.icon.blur}
-          iconSaturate={params.icon.saturate}
-          iconBrightness={params.icon.brightness}
-          iconScale={params.icon.scale}
-          iconOpacity={params.icon.opacity}
-          // Border parameters
-          borderWidth={params.border.width}
-          borderBlur={params.border.blur}
-          borderSaturate={params.border.saturate}
-          borderBrightness={params.border.brightness}
-          borderContrast={params.border.contrast}
-        >
-          {CARDS.map((card) => (
-            <GlowCard
-              key={card.name}
-              name={card.name}
-              handle={card.handle}
-              avatar={card.avatar}
-            />
-          ))}
-        </GlowCardGrid>
-      </div>
+    <div className="container px-4 py-8">
+      <GlowCardGrid
+        className="lg:grid-cols-4"
+        // Card parameters
+        cardRadius={params.cardRadius}
+        // Icon parameters
+        iconBlur={params.icon.blur}
+        iconSaturate={params.icon.saturate}
+        iconBrightness={params.icon.brightness}
+        iconScale={params.icon.scale}
+        iconOpacity={params.icon.opacity}
+        // Border parameters
+        borderWidth={params.border.width}
+        borderBlur={params.border.blur}
+        borderSaturate={params.border.saturate}
+        borderBrightness={params.border.brightness}
+        borderContrast={params.border.contrast}
+      >
+        {CARDS.map((card) => (
+          <GlowCard
+            key={card.name}
+            name={card.name}
+            handle={card.handle}
+            avatar={card.avatar}
+          />
+        ))}
+      </GlowCardGrid>
     </div>
   )
 }
@@ -62,6 +61,11 @@ const CARDS = [
     name: "shadcn",
     handle: "@shadcn",
     avatar: "https://unavatar.io/x/shadcn",
+  },
+  {
+    name: "Evil Rabbit",
+    handle: "@evilrabbit_",
+    avatar: "https://unavatar.io/x/evilrabbit_",
   },
   {
     name: "OrcDev",
@@ -82,6 +86,11 @@ const CARDS = [
     name: "Emil Kowalski",
     handle: "@emilkowalski",
     avatar: "https://unavatar.io/x/emilkowalski",
+  },
+  {
+    name: "Aaron",
+    handle: "@aaronmahlke",
+    avatar: "https://unavatar.io/x/aaronmahlke",
   },
   {
     name: "Chánh Đại",

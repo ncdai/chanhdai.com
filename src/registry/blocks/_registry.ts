@@ -154,5 +154,8 @@ export const blocks: Registry["items"] = [
       },
     ],
     categories: ["content", "team"],
+    meta: {
+      previewClassName: "min-h-svh place-items-center-safe content-center-safe",
+    },
   },
 ]

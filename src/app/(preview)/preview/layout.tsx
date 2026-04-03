@@ -10,7 +10,7 @@ export default function PreviewLayout({
   return (
     <>
       {children}
-      <DialRoot position="top-right" />
+      <DialRoot position="top-right" defaultOpen={false} />
     </>
   )
 }

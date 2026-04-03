@@ -693,6 +693,9 @@
           "type": "registry:component"
         }
       ],
+      "meta": {
+        "previewClassName": "min-h-svh place-items-center-safe content-center-safe"
+      },
       "categories": [
         "content",
         "team"
