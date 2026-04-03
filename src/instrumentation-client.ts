@@ -11,5 +11,4 @@ if (
     defaults: "2026-01-30",
     cookieless_mode: "on_reject",
   })
-  posthog.has_opted_out_capturing() // Avoids accidental tracking without consent till c15t has loaded
 }

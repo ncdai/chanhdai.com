@@ -1,6 +1,7 @@
 import { PlusIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ViewTransition } from "react"
 
 import { Button } from "@/components/base/ui/button"
 import {
@@ -63,7 +64,9 @@ export default function Page() {
     <div className="min-h-svh">
       <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          {title}
+          <ViewTransition name="components-page-heading-title">
+            <span>{title}</span>
+          </ViewTransition>
         </h1>
       </div>
 
@@ -71,18 +74,6 @@ export default function Page() {
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {metadata.description}
         </p>
-
-        {/* <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
-          <Tag className="font-sans font-medium">
-            <Icons.react />
-            React 19
-          </Tag>
-
-          <Tag className="font-sans font-medium">
-            <Icons.tailwindcss />
-            Tailwind CSS v4
-          </Tag>
-        </div> */}
       </div>
 
       <div className="screen-line-top screen-line-bottom relative">
