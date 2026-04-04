@@ -21,7 +21,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Steven Tey",
     authorTagline: "Founder @Dub.co",
     url: "https://x.com/steventey/status/1936934909370830924",
-    quote: "whoa, this is really dope – needs to get added to @shadcn UI",
+    quote: "whoa, this is really dope – needs to get added to @shadcn UI 👀",
     date: "2025-06-23",
   },
   {
@@ -38,7 +38,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Building analog.now",
     url: "https://x.com/initjean/status/1948159885960438151",
     quote:
-      "congrats you deserve it! react wheel picker is so smooth, its insane",
+      "congrats you deserve it! react wheel picker is so smooth, its insane 🐐",
     date: "2025-07-24",
   },
   {
@@ -75,7 +75,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Creator of c15t.com",
     url: "https://x.com/BurnedChris/status/2000947403571204445",
     quote:
-      "This is super cool, Full circle moment (the prototype for c15t actually used shadcn).",
+      "This is super cool, Full circle moment (the prototype for c15t actually used shadcn)",
     date: "2025-12-16",
   },
   {
@@ -83,7 +83,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Ajay Patel",
     authorTagline: "Creator of shadcnstudio.com",
     url: "https://x.com/ajaypatel_aj/status/2003723039029231737",
-    quote: "Perfect iOS-like wheel picker for the web.",
+    quote: "Perfect iOS-like wheel picker for the web 🙌",
     date: "2025-12-24",
   },
   {
@@ -116,7 +116,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Kartikey",
     authorTagline: "Engineer",
     url: "https://x.com/KartikeyStack/status/2016717957938974963",
-    quote: "best portfolio I've ever seen, minimal, clean and sick",
+    quote: "best portfolio I've ever seen, minimal, clean and sick 🙌🏼",
     date: "2026-01-29",
   },
   {
@@ -225,7 +225,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "Ajay Patel",
     authorTagline: "Creator of shadcnstudio.com",
     url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
-    quote: "This Portfolio is something else",
+    quote: "This Portfolio is something else 😍",
     date: "2025-11-24",
   },
   {
@@ -241,7 +241,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "David Haz",
     authorTagline: "Creator of reactbits.dev",
     url: "https://x.com/davidhdev/status/2017868986969444511",
-    quote: "Simple and clean, love it!",
+    quote: "Simple and clean, love it! 🌟",
     date: "2026-02-01",
   },
   {
@@ -265,7 +265,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "Matt",
     authorTagline: "Building bklit.com & ui.bklit.com",
     url: "https://x.com/uixmat/status/2023145872771436904",
-    quote: "great work bro",
+    quote: "great work bro 🤜🏼🤛🏼",
     date: "2026-02-16",
   },
   {
@@ -273,7 +273,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "David Haz",
     authorTagline: "Creator of pro.reactbits.dev",
     url: "https://x.com/davidhdev/status/2025902761926132112",
-    quote: "That’s so cool",
+    quote: "That’s so cool 😭",
     date: "2026-02-23",
   },
   {
@@ -281,7 +281,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "Brandon McConnell",
     authorTagline: "Frontend Engineer @mintlify",
     url: "https://x.com/branmcconnell/status/2028391281198862377",
-    quote: "amazing, such cool libraries",
+    quote: "amazing, such cool libraries 🔥",
     date: "2026-03-02",
   },
   {
@@ -289,7 +289,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "KapishDima",
     authorTagline: "Creator of soundcn.xyz",
     url: "https://x.com/kapish_dima/status/2028094092366807227",
-    quote: "As always, brilliant",
+    quote: "As always, brilliant 🙏",
     date: "2026-03-01",
   },
   {
@@ -332,5 +332,21 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/joshpuckett/status/2038713206764617896",
     quote: "Yooo I love this 🎨",
     date: "2026-03-31",
+  },
+  {
+    authorAvatar: "https://unavatar.io/x/evilrabbit_",
+    authorName: "Evil Rabbit",
+    authorTagline: "Founding Designer @Vercel",
+    url: "https://x.com/evilrabbit_/status/2040096654196613419",
+    quote: "🖤",
+    date: "2026-04-03",
+  },
+  {
+    authorAvatar: "https://unavatar.io/x/nuqs47ng",
+    authorName: "nuqs",
+    authorTagline: "nuqs.dev",
+    url: "https://x.com/fortysevenfx/status/2040166992305328371",
+    quote: "This looks insanely good 👀🔥",
+    date: "2026-04-04",
   },
 ]
