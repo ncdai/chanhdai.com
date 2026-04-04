@@ -38,7 +38,7 @@ export function Twemoji({
         <img
           key={match.index}
           className={cn(
-            "mx-[0.075em] inline-block h-[1.2em] w-[1.2em] align-[-20%]",
+            "mx-[0.075em] inline-block size-[1.2em] align-[-20%]",
             className
           )}
           draggable={false}
