@@ -9,6 +9,7 @@ import {
   QuoteIcon,
   ScissorsIcon,
   SeparatorHorizontalIcon,
+  SmileIcon,
   SpotlightIcon,
   SquareTerminalIcon,
   TerminalSquareIcon,
@@ -760,6 +761,10 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
 
     case "middle-truncation": {
       return <ScissorsIcon {...props} />
+    }
+
+    case "twemoji": {
+      return <SmileIcon {...props} />
     }
 
     default: {

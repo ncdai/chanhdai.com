@@ -491,6 +491,24 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "twemoji",
+      "title": "Twemoji",
+      "description": "Render Unicode emoji as Twemoji SVG images inline with text.",
+      "files": [
+        {
+          "path": "src/registry/components/twemoji/twemoji.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/registry/components/twemoji/lib/twemoji-regex.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/twemoji",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

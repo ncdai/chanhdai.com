@@ -389,4 +389,21 @@ export const components: Registry["items"] = [
     ],
     docs: "https://chanhdai.com/components/middle-truncation",
   },
+  {
+    name: "twemoji",
+    type: "registry:component",
+    title: "Twemoji",
+    description: "Render Unicode emoji as Twemoji SVG images inline with text.",
+    files: [
+      {
+        path: "components/twemoji/twemoji.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "components/twemoji/lib/twemoji-regex.ts",
+        type: "registry:lib",
+      },
+    ],
+    docs: "https://chanhdai.com/components/twemoji",
+  },
 ]

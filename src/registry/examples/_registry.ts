@@ -321,4 +321,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "twemoji-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("twemoji")],
+    files: [
+      {
+        path: "examples/twemoji-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]
