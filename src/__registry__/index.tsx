@@ -384,6 +384,27 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "twemoji": {
+    name: "twemoji",
+    description: "Render Unicode emoji as Twemoji SVG images inline with text.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/twemoji/twemoji.tsx",
+      type: "registry:component",
+      target: "",
+    },{
+      path: "src/registry/components/twemoji/lib/twemoji-regex.ts",
+      type: "registry:lib",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/twemoji/twemoji.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -1014,6 +1035,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/middle-truncation-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "twemoji-demo": {
+    name: "twemoji-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/twemoji-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/twemoji-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

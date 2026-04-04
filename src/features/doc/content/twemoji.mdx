@@ -1,0 +1,111 @@
+---
+title: Twemoji
+description: Render Unicode emoji as Twemoji SVG images inline with text.
+image: https://assets.chanhdai.com/images/blog/twemoji.webp
+category: components
+new: true
+createdAt: 2026-04-04
+updatedAt: 2026-04-04
+---
+
+<ComponentPreview
+  name="twemoji-demo"
+  openInV0Url="https://chanhdai.com/r/twemoji.json"
+/>
+
+## Features
+
+- Consistent emoji rendering across all platforms and browsers.
+- Customizable image source for self-hosting or alternative CDNs.
+- Server component compatible.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/twemoji
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible="false"
+/>
+
+<Step>Copy the twemoji-regex file into your project</Step>
+
+[lib/twemoji-regex.ts](https://github.com/ncdai/chanhdai.com/blob/main/src/registry/components/twemoji/lib/twemoji-regex.ts)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="twemoji"
+  title="components/twemoji.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Twemoji } from "@/components/twemoji"
+```
+
+```tsx
+<Twemoji>Hello from Viet Nam 🇻🇳</Twemoji>
+```
+
+## API Reference
+
+### Twemoji
+
+<AutoTypeTable
+  path="src/registry/components/twemoji/twemoji.tsx"
+  name="TwemojiProps"
+/>
+
+## Examples
+
+### Custom Source
+
+```tsx
+<Twemoji
+  source={(cp) =>
+    `https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/${cp}.svg`
+  }
+>
+  Hello from Viet Nam 🇻🇳
+</Twemoji>
+```
+
+## References
+
+- [Twemoji by Twitter](https://github.com/twitter/twemoji)
+- [Twemoji Parser](https://github.com/twitter/twemoji-parser)
