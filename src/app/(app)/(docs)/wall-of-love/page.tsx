@@ -16,6 +16,7 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
 } from "@/registry/components/testimonial"
+import { Twemoji } from "@/registry/components/twemoji/twemoji"
 
 const title = "Wall of Love"
 const description = "The kind words that keep me building."
@@ -89,7 +90,9 @@ export default function WallOfLovePage() {
             >
               <Testimonial>
                 <TestimonialQuote className="text-pretty">
-                  <p>{item.quote}</p>
+                  <p>
+                    <Twemoji>{item.quote}</Twemoji>
+                  </p>
                 </TestimonialQuote>
 
                 <TestimonialAuthor>

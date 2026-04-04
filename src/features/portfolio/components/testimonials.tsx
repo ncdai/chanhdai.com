@@ -24,6 +24,7 @@ import {
   TestimonialQuote,
 } from "@/registry/components/testimonial"
 import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
+import { Twemoji } from "@/registry/components/twemoji/twemoji"
 
 function compareFn(a: TestimonialType, b: TestimonialType) {
   return a.date.localeCompare(b.date, undefined, { numeric: true })
@@ -128,7 +129,9 @@ function TestimonialItem({
   return (
     <Testimonial>
       <TestimonialQuote className="min-h-14">
-        <p>{quote}</p>
+        <p>
+          <Twemoji>{quote}</Twemoji>
+        </p>
       </TestimonialQuote>
 
       <TestimonialAuthor>
