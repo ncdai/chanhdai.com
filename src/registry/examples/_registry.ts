@@ -324,6 +324,7 @@ export const examples: Registry["items"] = [
   {
     name: "glow-card-grid-dialkit-demo",
     type: "registry:example",
+    dependencies: ["dialkit"],
     registryDependencies: [getRegistryItemUrl("glow-card-grid")],
     files: [
       {
