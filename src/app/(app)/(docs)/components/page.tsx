@@ -1,7 +1,6 @@
 import { PlusIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ViewTransition } from "react"
 
 import { Button } from "@/components/base/ui/button"
 import {
@@ -64,9 +63,7 @@ export default function Page() {
     <div className="min-h-svh">
       <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          <ViewTransition name="components-page-heading-title">
-            <span>{title}</span>
-          </ViewTransition>
+          {title}
         </h1>
       </div>
 
