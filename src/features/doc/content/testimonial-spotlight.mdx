@@ -118,7 +118,31 @@ import {
 
 ### Custom color
 
+Use the `spotlightColor` prop to change the spotlight color.
+
 <ComponentPreview
   name="testimonial-spotlight-demo-02"
   data-code-meta='title="custom-color-example.tsx" {18}'
 />
+
+Alternatively, you can override the color using the `--spotlight-color` CSS variable. This is useful when you want to control the color from a parent element or a stylesheet without passing a prop.
+
+```tsx
+<TestimonialSpotlight className="[--spotlight-color:rgba(219,39,119,0.2)] dark:[--spotlight-color:rgba(219,39,119,0.15)]">
+  ...
+</TestimonialSpotlight>
+```
+
+Or with inline style:
+
+```tsx
+<TestimonialSpotlight
+  style={
+    { "--spotlight-color": "rgba(219, 39, 119, 0.15)" } as React.CSSProperties
+  }
+>
+  ...
+</TestimonialSpotlight>
+```
+
+The `--spotlight-color` CSS variable takes precedence over the `spotlightColor` prop.

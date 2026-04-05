@@ -7,13 +7,13 @@ export const dynamic = "force-static"
 export const revalidate = false
 
 const FEATURED_BLOCKS = [
+  "team-01",
   "hero-01",
   "blog-02",
   "blog-01",
   "testimonials-01",
   "testimonials-02",
   "experience-01",
-  "team-01",
 ]
 
 export default function BlocksPage() {

@@ -64,8 +64,17 @@ export type HapticProps = {
   haptic: (pattern?: number | number[]) => void
 }
 
-export type TestimonialSpotlightProps = ComponentProps<
-  typeof TestimonialSpotlight
+export type TestimonialSpotlightProps = Omit<
+  ComponentProps<typeof TestimonialSpotlight>,
+  keyof Omit<
+    React.ComponentPropsWithoutRef<"div">,
+    | "children"
+    | "onFocus"
+    | "onBlur"
+    | "onMouseEnter"
+    | "onMouseLeave"
+    | "onMouseMove"
+  >
 >
 
 export type GlowCardGridProps = Omit<
