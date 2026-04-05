@@ -1,6 +1,5 @@
 import { PlusIcon } from "lucide-react"
 import type { Metadata } from "next"
-import Link from "next/link"
 
 import { Button } from "@/components/base/ui/button"
 import {
@@ -21,6 +20,13 @@ import { UTM_PARAMS, X_USERNAME } from "@/config/site"
 import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
+
+import {
+  ComponentItem,
+  ComponentItemDot,
+  ComponentItemIcon,
+  ComponentItemTitle,
+} from "./components/component-item"
 
 const title = "Components"
 const description =
@@ -138,36 +144,20 @@ export default function Page() {
                 sensitivity: "base",
               })
             )
-            .map((post) => (
-              <Link
-                key={post.slug}
-                href={`/components/${post.slug}`}
-                className={cn(
-                  "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
-                  "max-sm:screen-line-top max-sm:screen-line-bottom",
-                  "sm:max-md:nth-[2n+1]:screen-line-top sm:max-md:nth-[2n+1]:screen-line-bottom",
-                  "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
-                )}
-              >
-                <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-line ring-offset-1 ring-offset-background">
-                  <ComponentIcon
-                    className="pointer-events-none size-4 text-muted-foreground"
-                    variant={post.slug}
-                  />
-                  {(post.metadata.new || post.metadata.updated) && (
-                    <span className="absolute -top-1 -right-1 flex items-center justify-center">
-                      <span className="flex size-2 rounded-sm bg-info ring-1 ring-background" />
-                      <span className="sr-only">
-                        {post.metadata.new ? "New" : "Updated"}
-                      </span>
-                    </span>
+            .map((c) => (
+              <ComponentItem key={c.slug} href={`/components/${c.slug}`}>
+                <ComponentItemIcon>
+                  <ComponentIcon variant={c.slug} />
+                  {(c.metadata.new || c.metadata.updated) && (
+                    <ComponentItemDot
+                      aria-label={c.metadata.new ? "New" : "Updated"}
+                    />
                   )}
-                </div>
-
-                <h2 className="line-clamp-1 leading-snug font-medium text-balance">
-                  {post.metadata.title}
-                </h2>
-              </Link>
+                </ComponentItemIcon>
+                <ComponentItemTitle as="h2">
+                  {c.metadata.title}
+                </ComponentItemTitle>
+              </ComponentItem>
             ))}
         </div>
       </div>

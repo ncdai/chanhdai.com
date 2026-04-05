@@ -1,10 +1,15 @@
 import { ArrowRightIcon } from "lucide-react"
 import Link from "next/link"
 
+import {
+  ComponentItem,
+  ComponentItemDot,
+  ComponentItemIcon,
+  ComponentItemTitle,
+} from "@/app/(app)/(docs)/components/components/component-item"
 import { Button } from "@/components/base/ui/button"
 import { ComponentIcon } from "@/components/icons"
 import { getDocsByCategory } from "@/features/doc/data/documents"
-import { cn } from "@/lib/utils"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
@@ -28,36 +33,20 @@ export function Components() {
         </div>
 
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
-          {components.slice(0, 9).map((component) => (
-            <Link
-              key={component.slug}
-              href={`/components/${component.slug}`}
-              className={cn(
-                "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
-                "max-sm:screen-line-top max-sm:screen-line-bottom",
-                "sm:max-md:nth-[2n+1]:screen-line-top sm:max-md:nth-[2n+1]:screen-line-bottom",
-                "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
-              )}
-            >
-              <div className="relative flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-line ring-offset-1 ring-offset-background">
-                <ComponentIcon
-                  className="pointer-events-none size-4 text-muted-foreground"
-                  variant={component.slug}
-                />
-                {(component.metadata.new || component.metadata.updated) && (
-                  <span className="absolute -top-1 -right-1 flex items-center justify-center">
-                    <span className="flex size-2 rounded-sm bg-info ring-1 ring-background" />
-                    <span className="sr-only">
-                      {component.metadata.new ? "New" : "Updated"}
-                    </span>
-                  </span>
+          {components.slice(0, 9).map((c) => (
+            <ComponentItem key={c.slug} href={`/components/${c.slug}`}>
+              <ComponentItemIcon>
+                <ComponentIcon variant={c.slug} />
+                {(c.metadata.new || c.metadata.updated) && (
+                  <ComponentItemDot
+                    aria-label={c.metadata.new ? "New" : "Updated"}
+                  />
                 )}
-              </div>
-
-              <h3 className="leading-snug font-medium text-balance">
-                {component.metadata.title}
-              </h3>
-            </Link>
+              </ComponentItemIcon>
+              <ComponentItemTitle as="h3">
+                {c.metadata.title}
+              </ComponentItemTitle>
+            </ComponentItem>
           ))}
         </div>
       </div>
