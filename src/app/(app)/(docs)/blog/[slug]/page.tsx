@@ -3,7 +3,6 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ViewTransition } from "react"
 import type { BlogPosting as PageSchema, WithContext } from "schema-dts"
 
 import {
@@ -144,9 +143,7 @@ export default async function Page({
         >
           <Link href="/blog">
             <ArrowLeftIcon />
-            <ViewTransition name="blog-page-heading-title">
-              <span>Blog</span>
-            </ViewTransition>
+            Blog
           </Link>
         </Button>
 
