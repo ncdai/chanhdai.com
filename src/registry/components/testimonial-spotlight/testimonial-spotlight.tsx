@@ -11,15 +11,34 @@ type Position = {
 
 const SPOTLIGHT_OPACITY = 0.5
 
+export type TestimonialSpotlightProps = Omit<
+  React.ComponentPropsWithoutRef<"div">,
+  | "children"
+  | "onFocus"
+  | "onBlur"
+  | "onMouseEnter"
+  | "onMouseLeave"
+  | "onMouseMove"
+> & {
+  children: React.ReactNode
+  /** The color of the spotlight effect.
+   * @defaultValue "rgba(255,255,255,0.2)"
+   */
+  spotlightColor?: string
+  /**
+   * The opacity of the spotlight effect.
+   * @defaultValue 0.5
+   */
+  spotlightOpacity?: number
+}
+
 export function TestimonialSpotlight({
   children,
   className,
   spotlightColor = "rgba(255,255,255,0.2)",
-}: {
-  children: React.ReactNode
-  className?: string
-  spotlightColor?: `rgba(${number},${number},${number},${number})`
-}) {
+  spotlightOpacity = SPOTLIGHT_OPACITY,
+  ...props
+}: TestimonialSpotlightProps) {
   const itemRef = useRef<HTMLDivElement>(null)
 
   const [isFocused, setIsFocused] = useState<boolean>(false)
@@ -28,7 +47,7 @@ export function TestimonialSpotlight({
 
   const handleFocus = () => {
     setIsFocused(true)
-    setOpacity(SPOTLIGHT_OPACITY)
+    setOpacity(spotlightOpacity)
   }
 
   const handleBlur = () => {
@@ -37,7 +56,7 @@ export function TestimonialSpotlight({
   }
 
   const handleMouseEnter = () => {
-    setOpacity(SPOTLIGHT_OPACITY)
+    setOpacity(spotlightOpacity)
   }
 
   const handleMouseLeave = () => {
@@ -54,6 +73,7 @@ export function TestimonialSpotlight({
   return (
     <div
       ref={itemRef}
+      data-slot="testimonial-spotlight"
       className={cn(
         "relative overflow-hidden rounded-xl bg-card/50 ring-1 ring-foreground/10 ring-inset",
         className
@@ -63,12 +83,13 @@ export function TestimonialSpotlight({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
+      {...props}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
         style={{
           opacity,
-          background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 60%)`,
+          background: `radial-gradient(circle at ${position.x}px ${position.y}px, var(--spotlight-color, ${spotlightColor}), transparent 60%)`,
         }}
       />
       {children}

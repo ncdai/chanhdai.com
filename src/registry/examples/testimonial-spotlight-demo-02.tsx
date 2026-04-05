@@ -14,7 +14,7 @@ import { TestimonialSpotlight } from "@/registry/components/testimonial-spotligh
 export default function TestimonialSpotlightDemo02() {
   return (
     <TestimonialSpotlight
-      className="w-72 max-w-full"
+      className="w-72 max-w-full cursor-default"
       spotlightColor="rgba(219, 39, 119, 0.15)"
     >
       <Testimonial>

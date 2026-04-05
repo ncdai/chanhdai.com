@@ -13,7 +13,7 @@ import { TestimonialSpotlight } from "@/registry/components/testimonial-spotligh
 
 export default function TestimonialSpotlightDemo() {
   return (
-    <TestimonialSpotlight className="w-72 max-w-full">
+    <TestimonialSpotlight className="w-72 max-w-full cursor-default">
       <Testimonial>
         <TestimonialQuote>
           <p>You’re doing amazing work.</p>
