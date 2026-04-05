@@ -11,12 +11,8 @@ export function PostList({ posts }: { posts: Doc[] }) {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {posts.map((post, index) => (
-          <PostItem
-            key={post.slug}
-            post={post}
-            shouldPreloadImage={index <= 4}
-          />
+        {posts.map((post) => (
+          <PostItem key={post.slug} post={post} />
         ))}
 
         {posts.length === 0 && (

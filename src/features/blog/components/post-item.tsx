@@ -5,13 +5,7 @@ import Link from "next/link"
 import type { Doc } from "@/features/doc/types/document"
 import { cn } from "@/lib/utils"
 
-export function PostItem({
-  post,
-  shouldPreloadImage,
-}: {
-  post: Doc
-  shouldPreloadImage?: boolean
-}) {
+export function PostItem({ post }: { post: Doc }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -29,7 +23,6 @@ export function PostItem({
             width={1200}
             height={630}
             quality={100}
-            priority={shouldPreloadImage}
             unoptimized
           />
 
