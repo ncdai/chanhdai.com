@@ -1075,6 +1075,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "glow-card-grid-dialkit-demo": {
+    name: "glow-card-grid-dialkit-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/glow-card-grid-dialkit-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/glow-card-grid-dialkit-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"min-h-svh place-items-center-safe content-center-safe"},
+  },
   "middle-truncation-demo": {
     name: "middle-truncation-demo",
     description: "",

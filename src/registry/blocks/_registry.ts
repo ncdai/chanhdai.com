@@ -145,7 +145,6 @@ export const blocks: Registry["items"] = [
     title: "Team 01",
     description: "A team section with glowing cards.",
     type: "registry:block",
-    dependencies: ["dialkit"],
     registryDependencies: [getRegistryItemUrl("glow-card-grid")],
     files: [
       {

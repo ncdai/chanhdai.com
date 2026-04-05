@@ -733,9 +733,6 @@
       "name": "team-01",
       "title": "Team 01",
       "description": "A team section with glowing cards.",
-      "dependencies": [
-        "dialkit"
-      ],
       "registryDependencies": [
         "https://chanhdai.com/r/glow-card-grid.json"
       ],

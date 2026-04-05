@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 
   for (const itemName in Index) {
     const item = Index[itemName]
-    if (["registry:block"].includes(item.type)) {
+    if (["registry:block", "registry:example"].includes(item.type)) {
       params.push({
         name: item.name,
       })
