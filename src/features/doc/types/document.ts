@@ -14,6 +14,7 @@ export type DocMetadata = {
    * Flag to show a "New" badge/highlight in the UI.
    */
   new?: boolean
+  updated?: boolean
   /**
    * Flag to pin the post to the top of the list.
    */
