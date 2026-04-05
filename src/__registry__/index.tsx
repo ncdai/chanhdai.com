@@ -118,12 +118,46 @@ export const Index: Record<string, any> = {
     description: "SVG writing animation inspired by Apple's Hello screen.",
     type: "registry:component",
     files: [{
-      path: "src/registry/components/apple-hello-effect/apple-hello-effect.tsx",
+      path: "src/registry/components/apple-hello-effect/apple-hello-effect-english.tsx",
       type: "registry:component",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/components/apple-hello-effect/apple-hello-effect.tsx")
+      const mod = await import("@/registry/components/apple-hello-effect/apple-hello-effect-english.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "apple-hello-effect-spanish": {
+    name: "apple-hello-effect-spanish",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/apple-hello-effect/apple-hello-effect-spanish.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/apple-hello-effect/apple-hello-effect-spanish.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "apple-hello-effect-vietnamese": {
+    name: "apple-hello-effect-vietnamese",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/apple-hello-effect/apple-hello-effect-vietnamese.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/apple-hello-effect/apple-hello-effect-vietnamese.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -582,34 +616,51 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "apple-hello-effect-vi-demo": {
-    name: "apple-hello-effect-vi-demo",
+  "apple-hello-effect-english-demo": {
+    name: "apple-hello-effect-english-demo",
     description: "",
     type: "registry:example",
     files: [{
-      path: "src/registry/examples/apple-hello-effect-vi-demo.tsx",
+      path: "src/registry/examples/apple-hello-effect-english-demo.tsx",
       type: "registry:example",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/examples/apple-hello-effect-vi-demo.tsx")
+      const mod = await import("@/registry/examples/apple-hello-effect-english-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,
     meta: undefined,
   },
-  "apple-hello-effect-en-demo": {
-    name: "apple-hello-effect-en-demo",
+  "apple-hello-effect-spanish-demo": {
+    name: "apple-hello-effect-spanish-demo",
     description: "",
     type: "registry:example",
     files: [{
-      path: "src/registry/examples/apple-hello-effect-en-demo.tsx",
+      path: "src/registry/examples/apple-hello-effect-spanish-demo.tsx",
       type: "registry:example",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/examples/apple-hello-effect-en-demo.tsx")
+      const mod = await import("@/registry/examples/apple-hello-effect-spanish-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "apple-hello-effect-vietnamese-demo": {
+    name: "apple-hello-effect-vietnamese-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/apple-hello-effect-vietnamese-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/apple-hello-effect-vietnamese-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

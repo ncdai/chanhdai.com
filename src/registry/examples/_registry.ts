@@ -15,23 +15,34 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "apple-hello-effect-vi-demo",
+    name: "apple-hello-effect-english-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("apple-hello-effect")],
     files: [
       {
-        path: "examples/apple-hello-effect-vi-demo.tsx",
+        path: "examples/apple-hello-effect-english-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "apple-hello-effect-en-demo",
+    name: "apple-hello-effect-spanish-demo",
     type: "registry:example",
-    registryDependencies: [getRegistryItemUrl("apple-hello-effect")],
+    registryDependencies: [getRegistryItemUrl("apple-hello-effect-spanish")],
     files: [
       {
-        path: "examples/apple-hello-effect-en-demo.tsx",
+        path: "examples/apple-hello-effect-spanish-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "apple-hello-effect-vietnamese-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("apple-hello-effect-vietnamese")],
+    files: [
+      {
+        path: "examples/apple-hello-effect-vietnamese-demo.tsx",
         type: "registry:example",
       },
     ],

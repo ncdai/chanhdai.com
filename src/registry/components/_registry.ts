@@ -41,7 +41,35 @@ export const components: Registry["items"] = [
     dependencies: ["motion"],
     files: [
       {
-        path: "components/apple-hello-effect/apple-hello-effect.tsx",
+        path: "components/apple-hello-effect/apple-hello-effect-english.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://chanhdai.com/components/apple-hello-effect",
+  },
+  {
+    name: "apple-hello-effect-spanish",
+    type: "registry:component",
+    title: "Apple Hello Effect - Spanish",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/apple-hello-effect/apple-hello-effect-spanish.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://chanhdai.com/components/apple-hello-effect",
+  },
+  {
+    name: "apple-hello-effect-vietnamese",
+    type: "registry:component",
+    title: "Apple Hello Effect - Vietnamese",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/apple-hello-effect/apple-hello-effect-vietnamese.tsx",
         type: "registry:component",
       },
     ],
