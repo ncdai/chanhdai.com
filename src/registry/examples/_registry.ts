@@ -322,6 +322,20 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "glow-card-grid-dialkit-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("glow-card-grid")],
+    files: [
+      {
+        path: "examples/glow-card-grid-dialkit-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "min-h-svh place-items-center-safe content-center-safe",
+    },
+  },
+  {
     name: "middle-truncation-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("middle-truncation")],
