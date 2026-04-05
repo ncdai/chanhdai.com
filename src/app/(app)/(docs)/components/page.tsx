@@ -154,16 +154,12 @@ export default function Page() {
                     className="pointer-events-none size-4 text-muted-foreground"
                     variant={post.slug}
                   />
-                  {post.metadata.new && (
+                  {(post.metadata.new || post.metadata.updated) && (
                     <span className="absolute -top-1 -right-1 flex items-center justify-center">
                       <span className="flex size-2 rounded-sm bg-info ring-1 ring-background" />
-                      <span className="sr-only">New</span>
-                    </span>
-                  )}
-                  {post.metadata.updated && (
-                    <span className="absolute -top-1 -right-1 flex items-center justify-center">
-                      <span className="flex size-2 rounded-sm bg-teal-500 ring-1 ring-background" />
-                      <span className="sr-only">Updated</span>
+                      <span className="sr-only">
+                        {post.metadata.new ? "New" : "Updated"}
+                      </span>
                     </span>
                   )}
                 </div>
