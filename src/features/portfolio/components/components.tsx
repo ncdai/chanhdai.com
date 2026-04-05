@@ -50,6 +50,12 @@ export function Components() {
                     <span className="sr-only">New</span>
                   </span>
                 )}
+                {component.metadata.updated && (
+                  <span className="absolute -top-1 -right-1 flex items-center justify-center">
+                    <span className="flex size-2 rounded-sm bg-teal-500 ring-1 ring-background" />
+                    <span className="sr-only">Updated</span>
+                  </span>
+                )}
               </div>
 
               <h3 className="leading-snug font-medium text-balance">
