@@ -106,7 +106,41 @@
       ],
       "files": [
         {
-          "path": "src/registry/components/apple-hello-effect/apple-hello-effect.tsx",
+          "path": "src/registry/components/apple-hello-effect/apple-hello-effect-english.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/apple-hello-effect",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
+      "name": "apple-hello-effect-spanish",
+      "title": "Apple Hello Effect - Spanish",
+      "description": "SVG writing animation inspired by Apple's Hello screen.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/apple-hello-effect/apple-hello-effect-spanish.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/apple-hello-effect",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
+      "name": "apple-hello-effect-vietnamese",
+      "title": "Apple Hello Effect - Vietnamese",
+      "description": "SVG writing animation inspired by Apple's Hello screen.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/apple-hello-effect/apple-hello-effect-vietnamese.tsx",
           "type": "registry:component"
         }
       ],

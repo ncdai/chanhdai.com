@@ -4,20 +4,27 @@ description: SVG writing animation inspired by Apple's "Hello" screen.
 image: https://assets.chanhdai.com/images/blog/writing-effect-inspired-by-apple.webp
 category: components
 createdAt: 2025-03-08
-updatedAt: 2026-02-20
+updatedAt: 2026-04-05
 ---
 
 <ComponentPreview
   className="text-foreground"
-  name="apple-hello-effect-vi-demo"
+  name="apple-hello-effect-english-demo"
   openInV0Url="https://chanhdai.com/r/apple-hello-effect.json"
   canReplay
 />
 
 <ComponentPreview
   className="text-foreground"
-  name="apple-hello-effect-en-demo"
-  openInV0Url="https://chanhdai.com/r/apple-hello-effect.json"
+  name="apple-hello-effect-spanish-demo"
+  openInV0Url="https://chanhdai.com/r/apple-hello-effect-spanish.json"
+  canReplay
+/>
+
+<ComponentPreview
+  className="text-foreground"
+  name="apple-hello-effect-vietnamese-demo"
+  openInV0Url="https://chanhdai.com/r/apple-hello-effect-vietnamese.json"
   canReplay
 />
 
@@ -29,8 +36,22 @@ updatedAt: 2026-02-20
 
 <TabsContent value="cli">
 
+For English:
+
 ```bash
 npx shadcn@latest add @ncdai/apple-hello-effect
+```
+
+For Spanish:
+
+```bash
+npx shadcn@latest add @ncdai/apple-hello-effect-spanish
+```
+
+For Vietnamese:
+
+```bash
+npx shadcn@latest add @ncdai/apple-hello-effect-vietnamese
 ```
 
 </TabsContent>
@@ -56,9 +77,27 @@ npm install motion clsx tailwind-merge
 
 <Step>Copy and paste the following code into your project</Step>
 
+For English:
+
 <ComponentSource
   name="apple-hello-effect"
-  title="components/apple-hello-effect.tsx"
+  title="components/apple-hello-effect-english.tsx"
+  showLineNumbers
+/>
+
+For Spanish:
+
+<ComponentSource
+  name="apple-hello-effect-spanish"
+  title="components/apple-hello-effect-spanish.tsx"
+  showLineNumbers
+/>
+
+For Vietnamese:
+
+<ComponentSource
+  name="apple-hello-effect-vietnamese"
+  title="components/apple-hello-effect-vietnamese.tsx"
   showLineNumbers
 />
 
@@ -73,40 +112,26 @@ npm install motion clsx tailwind-merge
 ## Usage
 
 ```tsx
-import {
-  AppleHelloVietnameseEffect,
-  AppleHelloEnglishEffect,
-} from "@/components/apple-hello-effect"
+import { AppleHelloEffectEnglish } from "@/components/apple-hello-effect-english"
+import { AppleHelloEffectSpanish } from "@/components/apple-hello-effect-spanish"
+import { AppleHelloEffectVietnamese } from "@/components/apple-hello-effect-vietnamese"
 ```
 
 ```tsx
-<AppleHelloVietnameseEffect />
-<AppleHelloEnglishEffect />
+<AppleHelloEffectEnglish />
+<AppleHelloEffectSpanish />
+<AppleHelloEffectVietnamese />
 ```
 
 ## API Reference
 
-### AppleHelloVietnameseEffect
-
 <AutoTypeTable
   path="src/features/doc/content/props.ts"
   name="AppleHelloEffectProps"
 />
-
-### AppleHelloEnglishEffect
-
-<AutoTypeTable
-  path="src/features/doc/content/props.ts"
-  name="AppleHelloEffectProps"
-/>
-
-## Acknowledgments
-
-- Official Apple Hello Lettering, extracted from macOS Sonoma in SVG Form: https://www.figma.com/community/file/1414773009964314315/official-apple-hello-lettering
-- A modern animation library for JavaScript and React: https://motion.dev
-- Run your own code registry: https://ui.shadcn.com/docs/registry
 
 ## References
 
-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pathLength
-- https://motion.dev/docs/react-motion-component
+- [Official Apple Hello Lettering, extracted from macOS Sonoma in SVG Form](https://www.figma.com/community/file/1414773009964314315/official-apple-hello-lettering)
+- [SVG pathLength](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pathLength)
+- [React Motion component](https://motion.dev/docs/react-motion-component)

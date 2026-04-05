@@ -2,7 +2,7 @@ import type { motion } from "motion/react"
 import type { ComponentProps } from "react"
 
 import type { Button } from "@/components/ui/button"
-import type { AppleHelloVietnameseEffect } from "@/registry/components/apple-hello-effect"
+import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
 import type { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
@@ -15,7 +15,7 @@ import type {
 import type { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 export type AppleHelloEffectProps = Omit<
-  ComponentProps<typeof AppleHelloVietnameseEffect>,
+  ComponentProps<typeof AppleHelloEffectEnglish>,
   keyof Omit<ComponentProps<typeof motion.svg>, "speed" | "onAnimationComplete">
 >
 
