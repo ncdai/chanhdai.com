@@ -4,6 +4,7 @@ export default function CodeBlockCommandDemo() {
   return (
     <div className="w-full max-w-md">
       <CodeBlockCommand
+        prompt="Add the @ncdai/code-block-command component to my project"
         pnpm="pnpm dlx shadcn add @ncdai/code-block-command"
         yarn="yarn shadcn add @ncdai/code-block-command"
         npm="npx shadcn add @ncdai/code-block-command"

@@ -355,10 +355,6 @@ export const components: Registry["items"] = [
         path: "src/components/base/ui/tabs.tsx",
         type: "registry:component",
       },
-      {
-        path: "src/hooks/use-package-manager.ts",
-        type: "registry:hook",
-      },
     ],
     cssVars: {
       light: {

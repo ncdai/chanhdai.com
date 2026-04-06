@@ -1,6 +1,8 @@
 "use client"
 
-import { TerminalSquareIcon } from "lucide-react"
+import { useAtom } from "jotai"
+import { atomWithStorage } from "jotai/utils"
+import { TerminalIcon, TextAlignStartIcon } from "lucide-react"
 import { useMemo } from "react"
 
 import {
@@ -10,16 +12,27 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/base/ui/tabs"
-import {
-  type PackageManager,
-  usePackageManager,
-} from "@/hooks/use-package-manager"
 import { CopyButton } from "@/registry/components/copy-button"
+
+export type PackageManager = "prompt" | "pnpm" | "yarn" | "npm" | "bun"
+
+const packageManagerAtom = atomWithStorage<PackageManager>(
+  "@acme/packageManager",
+  "pnpm"
+)
+
+export function usePackageManager() {
+  return useAtom(packageManagerAtom)
+}
 
 /**
  * Props for the CodeBlockCommand component.
  */
 export type CodeBlockCommandProps = {
+  /**
+   * Natural language instruction for AI agents to install a package or component.
+   */
+  prompt?: string
   /**
    * Command to execute with pnpm package manager.
    */
@@ -86,6 +99,7 @@ export type CodeBlockCommandProps = {
 }
 
 export function CodeBlockCommand({
+  prompt,
   pnpm,
   yarn,
   npm,
@@ -97,12 +111,18 @@ export function CodeBlockCommand({
 
   const tabs = useMemo(() => {
     return {
-      pnpm: pnpm,
-      yarn: yarn,
-      npm: npm,
-      bun: bun,
+      prompt,
+      pnpm,
+      yarn,
+      npm,
+      bun,
     }
-  }, [pnpm, yarn, npm, bun])
+  }, [prompt, pnpm, yarn, npm, bun])
+
+  const tabsFiltered = useMemo(
+    () => Object.entries(tabs).filter(([, value]) => !!value),
+    [tabs]
+  )
 
   return (
     <div className="relative overflow-hidden rounded-xl bg-code">
@@ -117,7 +137,7 @@ export function CodeBlockCommand({
           <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
             {getIconForPackageManager(packageManager)}
 
-            {Object.entries(tabs).map(([key]) => {
+            {tabsFiltered.map(([key]) => {
               return (
                 <TabsTrigger
                   key={key}
@@ -133,7 +153,7 @@ export function CodeBlockCommand({
           </TabsList>
         </div>
 
-        {Object.entries(tabs).map(([key, value]) => {
+        {tabsFiltered.map(([key, value]) => {
           return (
             <TabsContent key={key} value={key}>
               <pre className="overflow-x-auto overscroll-x-contain p-4">
@@ -142,7 +162,7 @@ export function CodeBlockCommand({
                   data-language="bash"
                   className="font-mono text-sm leading-none text-muted-foreground"
                 >
-                  <span className="select-none">$ </span>
+                  {key !== "prompt" && <span className="select-none">$ </span>}
                   {value}
                 </code>
               </pre>
@@ -170,6 +190,8 @@ export function CodeBlockCommand({
 
 function getIconForPackageManager(manager: PackageManager) {
   switch (manager) {
+    case "prompt":
+      return <TextAlignStartIcon />
     case "pnpm":
       return (
         <svg viewBox="0 0 24 24">
@@ -207,7 +229,7 @@ function getIconForPackageManager(manager: PackageManager) {
         </svg>
       )
     default:
-      return <TerminalSquareIcon />
+      return <TerminalIcon />
   }
 }
 
