@@ -350,10 +350,6 @@ export const Index: Record<string, any> = {
       path: "src/components/base/ui/tabs.tsx",
       type: "registry:component",
       target: "",
-    },{
-      path: "src/hooks/use-package-manager.ts",
-      type: "registry:hook",
-      target: "",
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/components/code-block-command/code-block-command.tsx")
