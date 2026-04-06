@@ -1,6 +1,7 @@
 import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
 import { cn } from "@/lib/utils"
 import * as TestimonialPrimitive from "@/registry/components/testimonial"
+import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 export function Testimonial({
   className,
@@ -15,34 +16,33 @@ export function Testimonial({
       href={url}
       target="_blank"
       rel="noopener"
-      className={cn(
-        "not-prose block h-full rounded-xl border ring-1 ring-line ring-offset-2 ring-offset-background transition-[background-color] ease-out hover:bg-accent-muted",
-        className
-      )}
+      className={cn("not-prose flex", className)}
     >
-      <TestimonialPrimitive.Testimonial>
-        <TestimonialPrimitive.TestimonialQuote>
-          <p>{quote}</p>
-        </TestimonialPrimitive.TestimonialQuote>
+      <TestimonialSpotlight className="flex-1 bg-accent-muted">
+        <TestimonialPrimitive.Testimonial>
+          <TestimonialPrimitive.TestimonialQuote className="min-h-14">
+            <p>{quote}</p>
+          </TestimonialPrimitive.TestimonialQuote>
 
-        <TestimonialPrimitive.TestimonialAuthor>
-          <TestimonialPrimitive.TestimonialAvatar>
-            <TestimonialPrimitive.TestimonialAvatarImg
-              src={authorAvatar}
-              alt={authorName}
-            />
-            <TestimonialPrimitive.TestimonialAvatarRing />
-          </TestimonialPrimitive.TestimonialAvatar>
+          <TestimonialPrimitive.TestimonialAuthor>
+            <TestimonialPrimitive.TestimonialAvatar>
+              <TestimonialPrimitive.TestimonialAvatarImg
+                src={authorAvatar}
+                alt={authorName}
+              />
+              <TestimonialPrimitive.TestimonialAvatarRing />
+            </TestimonialPrimitive.TestimonialAvatar>
 
-          <TestimonialPrimitive.TestimonialAuthorName>
-            {authorName}
-            <TestimonialPrimitive.TestimonialVerifiedBadge />
-          </TestimonialPrimitive.TestimonialAuthorName>
-          <TestimonialPrimitive.TestimonialAuthorTagline>
-            {authorTagline}
-          </TestimonialPrimitive.TestimonialAuthorTagline>
-        </TestimonialPrimitive.TestimonialAuthor>
-      </TestimonialPrimitive.Testimonial>
+            <TestimonialPrimitive.TestimonialAuthorName>
+              {authorName}
+              <TestimonialPrimitive.TestimonialVerifiedBadge />
+            </TestimonialPrimitive.TestimonialAuthorName>
+            <TestimonialPrimitive.TestimonialAuthorTagline>
+              {authorTagline}
+            </TestimonialPrimitive.TestimonialAuthorTagline>
+          </TestimonialPrimitive.TestimonialAuthor>
+        </TestimonialPrimitive.Testimonial>
+      </TestimonialSpotlight>
     </a>
   )
 }
