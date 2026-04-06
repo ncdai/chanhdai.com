@@ -1,3 +1,5 @@
+"use client"
+
 import { CodeBlockCommand } from "@/registry/components/code-block-command"
 
 export default function CodeBlockCommandDemo() {
