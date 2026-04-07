@@ -152,7 +152,7 @@ Use `convertNpmCommand` to avoid manually writing commands for each package mana
 
 Track user interactions with analytics services like [PostHog](https://posthog.com), [OpenPanel](https://openpanel.dev), or [Google Analytics](https://analytics.google.com).
 
-```tsx
+```tsx showLineNumbers {3,12}
 <CodeBlockCommand
   {...convertNpmCommand("npx shadcn add @ncdai/code-block-command")}
   onCopySuccess={({ packageManager, command }) => {
