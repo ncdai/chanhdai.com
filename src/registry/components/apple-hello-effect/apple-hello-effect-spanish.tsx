@@ -18,24 +18,25 @@ const animateProps: TargetAndTransition = {
 
 export type AppleHelloEffectProps = Omit<
   ComponentProps<typeof motion.svg>,
-  "speed" | "onAnimationComplete"
+  "durationScale" | "onAnimationComplete"
 > & {
   /**
-   * Animation speed multiplier (higher = faster).
+   * Scales the duration and delay of the handwriting animation.
+   * Values below 1 speed up, values above 1 slow down.
    * @defaultValue 1
-   * */
-  speed?: number
+   */
+  durationScale?: number
   /** Called when the full handwriting animation completes. */
   onAnimationComplete?: () => void
 }
 
 export function AppleHelloEffectSpanish({
   className,
-  speed = 1,
+  durationScale = 1,
   onAnimationComplete,
   ...props
 }: AppleHelloEffectProps) {
-  const calc = (x: number) => x * speed
+  const calc = (x: number) => x * durationScale
 
   return (
     <motion.svg

@@ -48,6 +48,20 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/apple-hello-effect",
   },
   {
+    name: "apple-hello-effect-hindi",
+    type: "registry:component",
+    title: "Apple Hello Effect - Hindi",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/apple-hello-effect/apple-hello-effect-hindi.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://chanhdai.com/components/apple-hello-effect",
+  },
+  {
     name: "apple-hello-effect-spanish",
     type: "registry:component",
     title: "Apple Hello Effect - Spanish",
@@ -428,6 +442,17 @@ export const components: Registry["items"] = [
         type: "registry:lib",
       },
     ],
+    css: {
+      "@layer base": {
+        ".twemoji": {
+          display: "inline-block",
+          height: "1em",
+          width: "1em",
+          margin: "0 0.05em 0 0.1em",
+          "vertical-align": "-0.1em",
+        },
+      },
+    },
     docs: "https://chanhdai.com/components/twemoji",
   },
 ]

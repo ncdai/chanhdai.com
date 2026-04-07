@@ -5,7 +5,7 @@ image: https://assets.chanhdai.com/images/blog/twemoji.webp
 category: components
 new: true
 createdAt: 2026-04-04
-updatedAt: 2026-04-04
+updatedAt: 2026-04-07
 ---
 
 <ComponentPreview
@@ -52,6 +52,18 @@ npm install clsx tailwind-merge
   collapsible="false"
 />
 
+<Step>Add the following CSS to your global styles</Step>
+
+```css
+.twemoji {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
+}
+```
+
 <Step>Copy the twemoji-regex file into your project</Step>
 
 [lib/twemoji-regex.ts](https://github.com/ncdai/chanhdai.com/blob/main/src/registry/components/twemoji/lib/twemoji-regex.ts)
@@ -97,8 +109,8 @@ import { Twemoji } from "@/components/twemoji"
 
 ```tsx
 <Twemoji
-  source={(cp) =>
-    `https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/${cp}.svg`
+  source={(codePoint) =>
+    `https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/${codePoint}.svg`
   }
 >
   Hello from Viet Nam 🇻🇳

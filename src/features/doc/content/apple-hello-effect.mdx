@@ -17,6 +17,13 @@ updatedAt: 2026-04-05
 
 <ComponentPreview
   className="text-foreground"
+  name="apple-hello-effect-hindi-demo"
+  openInV0Url="https://chanhdai.com/r/apple-hello-effect-hindi.json"
+  canReplay
+/>
+
+<ComponentPreview
+  className="text-foreground"
   name="apple-hello-effect-spanish-demo"
   openInV0Url="https://chanhdai.com/r/apple-hello-effect-spanish.json"
   canReplay
@@ -41,6 +48,12 @@ For English:
 
 ```bash
 npx shadcn@latest add @ncdai/apple-hello-effect
+```
+
+For Hindi:
+
+```bash
+npx shadcn@latest add @ncdai/apple-hello-effect-hindi
 ```
 
 For Spanish:
@@ -86,6 +99,14 @@ For English:
   showLineNumbers
 />
 
+For Hindi:
+
+<ComponentSource
+  name="apple-hello-effect-hindi"
+  title="components/apple-hello-effect-hindi.tsx"
+  showLineNumbers
+/>
+
 For Spanish:
 
 <ComponentSource
@@ -114,12 +135,14 @@ For Vietnamese:
 
 ```tsx
 import { AppleHelloEffectEnglish } from "@/components/apple-hello-effect-english"
+import { AppleHelloEffectHindi } from "@/components/apple-hello-effect-hindi"
 import { AppleHelloEffectSpanish } from "@/components/apple-hello-effect-spanish"
 import { AppleHelloEffectVietnamese } from "@/components/apple-hello-effect-vietnamese"
 ```
 
 ```tsx
 <AppleHelloEffectEnglish />
+<AppleHelloEffectHindi />
 <AppleHelloEffectSpanish />
 <AppleHelloEffectVietnamese />
 ```
