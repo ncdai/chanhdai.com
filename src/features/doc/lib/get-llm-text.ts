@@ -1,4 +1,5 @@
 import { format } from "date-fns"
+import { remarkHeading } from "fumadocs-core/mdx-plugins/remark-heading"
 import { remarkAutoTypeTable } from "fumadocs-typescript"
 import { remark } from "remark"
 import remarkGfm from "remark-gfm"
@@ -11,6 +12,7 @@ import { remarkComponent } from "@/lib/remark-component"
 const processor = remark()
   .use(remarkMdx)
   .use(remarkGfm)
+  .use(remarkHeading)
   .use(remarkComponent)
   .use(remarkAutoTypeTable, { name: "AutoTypeTable", generator })
 

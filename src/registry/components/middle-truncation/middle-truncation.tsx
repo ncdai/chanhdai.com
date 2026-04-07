@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react"
+import React, { useLayoutEffect, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -212,7 +212,7 @@ export function MiddleTruncation({
   const containerRef = useRef<HTMLSpanElement>(null)
   const [displayed, setDisplayed] = useState<string>(children)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = containerRef.current
     if (!el) return
 
@@ -238,7 +238,10 @@ export function MiddleTruncation({
   return (
     <span
       ref={containerRef}
-      className={cn("block overflow-hidden whitespace-nowrap", className)}
+      className={cn(
+        "block overflow-hidden text-ellipsis whitespace-nowrap",
+        className
+      )}
       title={children}
       {...props}
     >
