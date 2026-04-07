@@ -105,6 +105,23 @@ import {
 </TestimonialSpotlight>
 ```
 
+## Composition
+
+Use the following composition to build a `TestimonialSpotlight`
+
+```text
+TestimonialSpotlight
+└── Testimonial
+    ├── TestimonialQuote
+    └── TestimonialAuthor
+        ├── TestimonialAvatar
+        │   ├── TestimonialAvatarImg
+        │   └── TestimonialAvatarRing
+        ├── TestimonialAuthorName
+        │   └── TestimonialVerifiedBadge
+        └── TestimonialAuthorTagline
+```
+
 ## API Reference
 
 ### TestimonialSpotlight

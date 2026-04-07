@@ -126,6 +126,27 @@ import {
 </Marquee>
 ```
 
+## Composition
+
+Use the following composition to build a `Testimonials Marquee`
+
+```text
+Marquee
+├── MarqueeFade
+├── MarqueeFade
+└── MarqueeContent
+    └── MarqueeItem
+        └── Testimonial
+            ├── TestimonialQuote
+            └── TestimonialAuthor
+                ├── TestimonialAvatar
+                │   ├── TestimonialAvatarImg
+                │   └── TestimonialAvatarRing
+                ├── TestimonialAuthorName
+                │   └── TestimonialVerifiedBadge
+                └── TestimonialAuthorTagline
+```
+
 ## API Reference
 
 - [Marquee](https://www.kibo-ui.com/components/marquee)
