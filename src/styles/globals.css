@@ -332,11 +332,11 @@
     }
 
     code {
-      @apply w-max min-w-full pr-(--code-padding-right,0) font-mono text-sm;
+      @apply min-w-full font-mono text-sm;
     }
 
     [data-line] {
-      @apply py-0.5;
+      @apply py-0.5 pr-(--code-padding-right,0);
     }
   }
 
