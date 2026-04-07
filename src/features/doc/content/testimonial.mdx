@@ -97,6 +97,22 @@ import {
 </Testimonial>
 ```
 
+## Composition
+
+Use the following composition to build a `Testimonial`
+
+```text
+Testimonial
+├── TestimonialQuote
+└── TestimonialAuthor
+    ├── TestimonialAvatar
+    │   ├── TestimonialAvatarImg
+    │   └── TestimonialAvatarRing
+    ├── TestimonialAuthorName
+    │   └── TestimonialVerifiedBadge
+    └── TestimonialAuthorTagline
+```
+
 ## Examples
 
 - [testimonials-01 block](https://chanhdai.com/blocks/marketing#testimonials-01)
