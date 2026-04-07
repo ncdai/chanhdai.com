@@ -11,7 +11,17 @@ export const TWEMOJI_CDN_URL = "https://abs-0.twimg.com/emoji/v2/svg"
 export type TwemojiProps = {
   children: string
   className?: string
-  /** Resolve an emoji code point to an image URL. */
+  /**
+   * Resolve an emoji code point to an image URL.
+   *
+   * @param codePoint - The Unicode code point of the emoji (e.g. `1f44d`)
+   * @returns The URL string pointing to the emoji image asset
+   *
+   * @example
+   * ```tsx
+   * source={(codePoint) => `https://cdn.example.com/emoji/${codePoint}.svg`}
+   * ```
+   * */
   source?: (codePoint: string) => string
 }
 
@@ -37,10 +47,7 @@ export function Twemoji({
       parts.push(
         <img
           key={match.index}
-          className={cn(
-            "mx-[0.075em] inline-block size-[1.2em] align-[-20%]",
-            className
-          )}
+          className={cn("twemoji", className)}
           draggable={false}
           alt={rawText}
           src={source(codePoint)}
