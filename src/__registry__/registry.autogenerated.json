@@ -115,6 +115,23 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "apple-hello-effect-hindi",
+      "title": "Apple Hello Effect - Hindi",
+      "description": "SVG writing animation inspired by Apple's Hello screen.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/apple-hello-effect/apple-hello-effect-hindi.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/apple-hello-effect",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "apple-hello-effect-spanish",
       "title": "Apple Hello Effect - Spanish",
       "description": "SVG writing animation inspired by Apple's Hello screen.",

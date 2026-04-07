@@ -16,7 +16,7 @@ import type { TestimonialSpotlight } from "@/registry/components/testimonial-spo
 
 export type AppleHelloEffectProps = Omit<
   ComponentProps<typeof AppleHelloEffectEnglish>,
-  keyof Omit<ComponentProps<typeof motion.svg>, "speed" | "onAnimationComplete">
+  keyof Omit<ComponentProps<typeof motion.svg>, "onAnimationComplete">
 >
 
 export type ShimmeringTextProps = Omit<

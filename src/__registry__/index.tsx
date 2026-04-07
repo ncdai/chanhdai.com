@@ -130,6 +130,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "apple-hello-effect-hindi": {
+    name: "apple-hello-effect-hindi",
+    description: "SVG writing animation inspired by Apple's Hello screen.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/apple-hello-effect/apple-hello-effect-hindi.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/apple-hello-effect/apple-hello-effect-hindi.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "apple-hello-effect-spanish": {
     name: "apple-hello-effect-spanish",
     description: "SVG writing animation inspired by Apple's Hello screen.",
@@ -623,6 +640,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/apple-hello-effect-english-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "apple-hello-effect-hindi-demo": {
+    name: "apple-hello-effect-hindi-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/apple-hello-effect-hindi-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/apple-hello-effect-hindi-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
