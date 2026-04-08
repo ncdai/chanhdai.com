@@ -143,9 +143,8 @@ export default async function Page({
       />
 
       <PostKeyboardShortcuts
-        basePath="/components"
-        previous={previous}
-        next={next}
+        previous={previous ? `/components/${previous.slug}` : null}
+        next={next ? `/components/${next.slug}` : null}
       />
 
       <div className="flex items-center justify-between p-2 pl-4">
@@ -182,9 +181,11 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/components/${previous.slug}`}>
+                    <Link
+                      href={`/components/${previous.slug}`}
+                      aria-label="Previous Component"
+                    >
                       <ArrowLeftIcon />
-                      <span className="sr-only">Previous</span>
                     </Link>
                   </Button>
                 }
@@ -210,8 +211,10 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/components/${next.slug}`}>
-                      <span className="sr-only">Next</span>
+                    <Link
+                      href={`/components/${next.slug}`}
+                      aria-label="Next Component"
+                    >
                       <ArrowRightIcon />
                     </Link>
                   </Button>

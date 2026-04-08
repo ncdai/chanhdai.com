@@ -76,6 +76,21 @@ export default function BlocksLayout({
       </div>
 
       {children}
+
+      <div className="p-2">
+        <div className="relative border p-4">
+          <p className="font-mono text-sm text-muted-foreground">
+            More blocks on the way…
+          </p>
+
+          <div className="*:absolute *:flex *:size-2 *:border *:bg-background dark:*:border-border">
+            <div className="top-[-4.5px] left-[-4.5px]" />
+            <div className="bottom-[-4.5px] left-[-4.5px]" />
+            <div className="top-[-4.5px] right-[-4.5px]" />
+            <div className="right-[-4.5px] bottom-[-4.5px]" />
+          </div>
+        </div>
+      </div>
     </>
   )
 }

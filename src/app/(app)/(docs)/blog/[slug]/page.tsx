@@ -132,7 +132,10 @@ export default async function Page({
         }}
       />
 
-      <PostKeyboardShortcuts basePath="/blog" previous={previous} next={next} />
+      <PostKeyboardShortcuts
+        previous={previous ? `/blog/${previous.slug}` : null}
+        next={next ? `/blog/${next.slug}` : null}
+      />
 
       <div className="flex items-center justify-between p-2 pl-4">
         <Button
@@ -165,9 +168,11 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/blog/${previous.slug}`}>
+                    <Link
+                      href={`/blog/${previous.slug}`}
+                      aria-label="Previous Post"
+                    >
                       <ArrowLeftIcon />
-                      <span className="sr-only">Previous</span>
                     </Link>
                   </Button>
                 }
@@ -193,8 +198,7 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/blog/${next.slug}`}>
-                      <span className="sr-only">Next</span>
+                    <Link href={`/blog/${next.slug}`} aria-label="Next Post">
                       <ArrowRightIcon />
                     </Link>
                   </Button>
