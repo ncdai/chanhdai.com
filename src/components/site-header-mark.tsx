@@ -45,7 +45,7 @@ function ChanhDaiMarkMotion() {
       data-visible={visible}
       className={cn(
         "group/mark-motion relative flex data-[visible=true]:before:opacity-0",
-        "before:absolute before:inset-0 before:rounded-lg before:border before:border-dashed before:border-line",
+        "before:absolute before:inset-0 before:border before:border-dashed before:border-line",
         "before:transition-opacity before:duration-500"
       )}
     >
