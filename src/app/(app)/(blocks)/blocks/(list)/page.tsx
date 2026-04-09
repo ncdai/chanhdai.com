@@ -1,10 +1,42 @@
+import type { Metadata } from "next"
 import { Fragment } from "react"
 
 import { BlockDisplay } from "@/app/(preview)/components/block-display"
+import { X_USERNAME } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 export const dynamic = "force-static"
 export const revalidate = false
+
+const title = "Blocks"
+const description =
+  "A collection of beautifully designed, production-ready blocks."
+
+const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: "/blocks",
+  },
+  openGraph: {
+    url: "/blocks",
+    type: "website",
+    images: {
+      url: ogImage,
+      width: 1200,
+      height: 630,
+      alt: title,
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: X_USERNAME,
+    creator: X_USERNAME,
+    images: [ogImage],
+  },
+}
 
 const FEATURED_BLOCKS = [
   "team-01",

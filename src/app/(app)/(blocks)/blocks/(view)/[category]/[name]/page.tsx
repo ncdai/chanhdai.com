@@ -15,6 +15,7 @@ import { registryCategories } from "@/config/registry"
 import { X_USERNAME } from "@/config/site"
 import { PostKeyboardShortcuts } from "@/features/blog/components/post-keyboard-shortcuts"
 import { PostShareMenu } from "@/features/blog/components/post-share-menu"
+import { getAllBlockStaticParams } from "@/lib/blocks"
 import { getRegistryItem } from "@/lib/registry"
 import { cn } from "@/lib/utils"
 
@@ -22,28 +23,7 @@ export const revalidate = false
 export const dynamic = "force-static"
 export const dynamicParams = false
 
-const getCachedStaticParams = cache(async () => {
-  const { Index } = await import("@/__registry__")
-
-  const params: Array<{ category: string; name: string }> = []
-
-  for (const category of registryCategories) {
-    for (const itemName in Index) {
-      const item = Index[itemName]
-      if (
-        ["registry:block"].includes(item.type) &&
-        item.categories?.includes(category.slug)
-      ) {
-        params.push({
-          category: category.slug,
-          name: itemName,
-        })
-      }
-    }
-  }
-
-  return params
-})
+const getCachedStaticParams = cache(getAllBlockStaticParams)
 
 export async function generateStaticParams() {
   return await getCachedStaticParams()
@@ -55,12 +35,7 @@ const getCachedRegistryItem = cache(async (name: string) => {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{
-    category: string
-    name: string
-  }>
-}): Promise<Metadata> {
+}: PageProps<"/blocks/[category]/[name]">): Promise<Metadata> {
   const { category, name } = await params
 
   const item = await getCachedRegistryItem(name)
@@ -100,14 +75,9 @@ export async function generateMetadata({
   }
 }
 
-export default async function Page({
+export default async function BlockViewPage({
   params,
-}: {
-  params: Promise<{
-    category: string
-    name: string
-  }>
-}) {
+}: PageProps<"/blocks/[category]/[name]">) {
   const { category, name } = await params
 
   const blocks = await getCachedStaticParams()

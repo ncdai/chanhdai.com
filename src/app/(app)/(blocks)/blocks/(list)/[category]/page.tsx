@@ -19,11 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{
-    category: string
-  }>
-}): Promise<Metadata> {
+}: PageProps<"/blocks/[category]">): Promise<Metadata> {
   const { category } = await params
 
   const item = registryCategories.find((item) => item.slug === category)
@@ -65,9 +61,7 @@ export async function generateMetadata({
 
 export default async function BlocksPage({
   params,
-}: {
-  params: Promise<{ category: string }>
-}) {
+}: PageProps<"/blocks/[category]">) {
   const { category } = await params
   const blockIds = await getAllBlockIds(["registry:block"], [category])
 
