@@ -5,7 +5,7 @@ import { X_USERNAME } from "@/config/site"
 import { PostList } from "@/features/blog/components/post-list"
 import { PostListWithSearch } from "@/features/blog/components/post-list-with-search"
 import { PostSearchInput } from "@/features/blog/components/post-search-input"
-import { getAllDocs } from "@/features/doc/data/documents"
+import { getBlogDocs } from "@/features/doc/data/documents"
 
 const title = "Blog"
 const description =
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  const allPosts = getAllDocs()
+  const allPosts = getBlogDocs()
 
   return (
     <div className="min-h-svh">
