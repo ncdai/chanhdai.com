@@ -369,4 +369,14 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "theme-toggle-effect-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/theme-toggle-effect-demo/theme-toggle-effect-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

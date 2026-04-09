@@ -52,9 +52,10 @@ export const styles: Registry["items"] = [
         },
       },
     },
+    docs: "https://chanhdai.com/components/theme-toggle-effect",
   },
   {
-    name: "theme-toggle-effect-circle-with-blur",
+    name: "theme-toggle-effect-circle-blur",
     type: "registry:style",
     cssVars: {
       theme: {
@@ -88,6 +89,7 @@ export const styles: Registry["items"] = [
         },
       },
     },
+    docs: "https://chanhdai.com/components/theme-toggle-effect",
   },
   {
     name: "theme-toggle-effect-circle-blur-top-left",
@@ -123,6 +125,7 @@ export const styles: Registry["items"] = [
         },
       },
     },
+    docs: "https://chanhdai.com/components/theme-toggle-effect",
   },
   {
     name: "theme-toggle-effect-polygon",
@@ -170,6 +173,7 @@ export const styles: Registry["items"] = [
         },
       },
     },
+    docs: "https://chanhdai.com/components/theme-toggle-effect",
   },
   {
     name: "theme-toggle-effect-polygon-gradient",
@@ -204,5 +208,6 @@ export const styles: Registry["items"] = [
         },
       },
     },
+    docs: "https://chanhdai.com/components/theme-toggle-effect",
   },
 ]

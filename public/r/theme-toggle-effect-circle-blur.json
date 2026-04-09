@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "theme-toggle-effect-circle-with-blur",
+  "name": "theme-toggle-effect-circle-blur",
   "author": "ncdai <dai@chanhdai.com>",
   "files": [],
   "cssVars": {
@@ -34,5 +34,6 @@
       }
     }
   },
+  "docs": "https://chanhdai.com/components/theme-toggle-effect",
   "type": "registry:style"
 }
