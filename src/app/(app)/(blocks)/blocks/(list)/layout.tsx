@@ -1,39 +1,6 @@
-import type { Metadata } from "next"
-
-import { X_USERNAME } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 import { BlocksNav } from "./blocks-nav"
-
-const title = "Blocks"
-const description =
-  "A collection of beautifully designed, production-ready blocks."
-
-const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
-
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: {
-    canonical: "/blocks",
-  },
-  openGraph: {
-    url: "/blocks",
-    type: "website",
-    images: {
-      url: ogImage,
-      width: 1200,
-      height: 630,
-      alt: title,
-    },
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: X_USERNAME,
-    creator: X_USERNAME,
-    images: [ogImage],
-  },
-}
 
 export default function BlocksLayout({
   children,
@@ -52,13 +19,13 @@ export default function BlocksLayout({
 
       <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          {title}
+          Blocks
         </h1>
       </div>
 
       <div className="screen-line-bottom p-4">
         <p className="font-mono text-sm text-balance text-muted-foreground">
-          {description}
+          A collection of beautifully designed, production-ready blocks.
         </p>
       </div>
 
@@ -76,6 +43,21 @@ export default function BlocksLayout({
       </div>
 
       {children}
+
+      <div className="p-2">
+        <div className="relative border border-line p-4">
+          <p className="font-mono text-sm text-muted-foreground">
+            More blocks on the way…
+          </p>
+
+          <div className="*:absolute *:flex *:size-2 *:border *:bg-background dark:*:border-line">
+            <div className="top-[-4.5px] left-[-4.5px]" />
+            <div className="bottom-[-4.5px] left-[-4.5px]" />
+            <div className="top-[-4.5px] right-[-4.5px]" />
+            <div className="right-[-4.5px] bottom-[-4.5px]" />
+          </div>
+        </div>
+      </div>
     </>
   )
 }

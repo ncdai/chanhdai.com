@@ -39,9 +39,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
+}: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
@@ -104,13 +102,7 @@ function getPageJsonLd(doc: Doc): WithContext<PageSchema> {
   }
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{
-    slug: string
-  }>
-}) {
+export default async function Page({ params }: PageProps<"/blog/[slug]">) {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
@@ -132,7 +124,10 @@ export default async function Page({
         }}
       />
 
-      <PostKeyboardShortcuts basePath="/blog" previous={previous} next={next} />
+      <PostKeyboardShortcuts
+        previous={previous ? `/blog/${previous.slug}` : null}
+        next={next ? `/blog/${next.slug}` : null}
+      />
 
       <div className="flex items-center justify-between p-2 pl-4">
         <Button
@@ -165,9 +160,11 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/blog/${previous.slug}`}>
+                    <Link
+                      href={`/blog/${previous.slug}`}
+                      aria-label="Previous Post"
+                    >
                       <ArrowLeftIcon />
-                      <span className="sr-only">Previous</span>
                     </Link>
                   </Button>
                 }
@@ -193,8 +190,7 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/blog/${next.slug}`}>
-                      <span className="sr-only">Next</span>
+                    <Link href={`/blog/${next.slug}`} aria-label="Next Post">
                       <ArrowRightIcon />
                     </Link>
                   </Button>

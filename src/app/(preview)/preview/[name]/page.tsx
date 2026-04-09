@@ -35,11 +35,7 @@ const getCachedRegistryItem = cache(async (name: string) => {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{
-    name: string
-  }>
-}): Promise<Metadata> {
+}: PageProps<"/preview/[name]">): Promise<Metadata> {
   const { name } = await params
 
   const item = await getCachedRegistryItem(name)
@@ -83,13 +79,9 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlockPage({
+export default async function PreviewPage({
   params,
-}: {
-  params: Promise<{
-    name: string
-  }>
-}) {
+}: PageProps<"/preview/[name]">) {
   const name = (await params).name
 
   const [item, themes] = await Promise.all([

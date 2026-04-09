@@ -3,22 +3,18 @@
 import { useRouter } from "next/navigation"
 import { useHotkeys } from "react-hotkeys-hook"
 
-import type { Doc } from "@/features/doc/types/document"
-
 export function PostKeyboardShortcuts({
-  basePath,
   previous,
   next,
 }: {
-  basePath: string
-  previous: Doc | null
-  next: Doc | null
+  previous: string | null
+  next: string | null
 }) {
   const router = useRouter()
 
-  const navigate = (post: Doc | null) => {
-    if (post) {
-      router.push(`${basePath}/${post.slug}`)
+  const navigate = (href: string | null) => {
+    if (href) {
+      router.push(href)
     }
   }
 

@@ -1,7 +1,9 @@
+import type { Metadata } from "next"
 import { Fragment } from "react"
 
 import { BlockDisplay } from "@/app/(preview)/components/block-display"
 import { registryCategories } from "@/config/registry"
+import { X_USERNAME } from "@/config/site"
 import { getAllBlockIds } from "@/lib/blocks"
 import { cn } from "@/lib/utils"
 
@@ -11,17 +13,57 @@ export const dynamicParams = false
 
 export async function generateStaticParams() {
   return registryCategories.map((category) => ({
-    categories: [category.slug],
+    category: category.slug,
   }))
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/blocks/[category]">): Promise<Metadata> {
+  const { category } = await params
+
+  const item = registryCategories.find((item) => item.slug === category)
+
+  if (!item) {
+    return {}
+  }
+
+  const title = item.name
+  const description = item.description
+
+  const categoryUrl = `/blocks/${item.slug}`
+  const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: categoryUrl,
+    },
+    openGraph: {
+      url: categoryUrl,
+      type: "website",
+      images: {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: X_USERNAME,
+      creator: X_USERNAME,
+      images: [ogImage],
+    },
+  }
 }
 
 export default async function BlocksPage({
   params,
-}: {
-  params: Promise<{ categories?: string[] }>
-}) {
-  const { categories = [] } = await params
-  const blockIds = await getAllBlockIds(["registry:block"], categories)
+}: PageProps<"/blocks/[category]">) {
+  const { category } = await params
+  const blockIds = await getAllBlockIds(["registry:block"], [category])
 
   return (
     <>
@@ -31,21 +73,6 @@ export default async function BlocksPage({
           <Separator />
         </Fragment>
       ))}
-
-      <div className="p-2">
-        <div className="relative border p-4">
-          <p className="font-mono text-sm text-muted-foreground">
-            More blocks on the way…
-          </p>
-
-          <div className="*:absolute *:flex *:size-2 *:border *:bg-background dark:*:border-border">
-            <div className="top-[-4.5px] left-[-4.5px]" />
-            <div className="bottom-[-4.5px] left-[-4.5px]" />
-            <div className="top-[-4.5px] right-[-4.5px]" />
-            <div className="right-[-4.5px] bottom-[-4.5px]" />
-          </div>
-        </div>
-      </div>
     </>
   )
 }
