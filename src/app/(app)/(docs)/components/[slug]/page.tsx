@@ -39,9 +39,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
+}: PageProps<"/components/[slug]">): Promise<Metadata> {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
@@ -106,11 +104,7 @@ function getPageJsonLd(doc: Doc): WithContext<PageSchema> {
 
 export default async function Page({
   params,
-}: {
-  params: Promise<{
-    slug: string
-  }>
-}) {
+}: PageProps<"/components/[slug]">) {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
