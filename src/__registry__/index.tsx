@@ -1156,4 +1156,21 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "theme-toggle-effect-demo": {
+    name: "theme-toggle-effect-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/theme-toggle-effect-demo/theme-toggle-effect-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/theme-toggle-effect-demo/theme-toggle-effect-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
 }

@@ -60,4 +60,10 @@ export const BOOKMARKS: Bookmark[] = [
     iconName: "resend",
     bookmarkedAt: "2025-12-20",
   },
+  {
+    title: "Train Your Judgement",
+    url: "https://emilkowal.ski/ui/train-your-judgement",
+    author: "Emil Kowalski",
+    bookmarkedAt: "2026-04-09",
+  },
 ]

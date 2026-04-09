@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-toggle-effect-polygon-gradient",
+  "author": "ncdai <dai@chanhdai.com>",
+  "files": [],
+  "cssVars": {
+    "theme": {
+      "expo-out": "linear(0 0%, 0.1684 2.66%, 0.3165 5.49%, 0.446 8.52%, 0.5581 11.78%, 0.6535 15.29%, 0.7341 19.11%, 0.8011 23.3%, 0.8557 27.93%, 0.8962 32.68%, 0.9283 38.01%, 0.9529 44.08%, 0.9711 51.14%, 0.9833 59.06%, 0.9915 68.74%, 1 100%)"
+    }
+  },
+  "css": {
+    "@layer base": {
+      "::view-transition-group(root)": {
+        "animation-timing-function": "var(--expo-out)"
+      },
+      "::view-transition-new(root)": {
+        "mask": "url('data:image/svg+xml,<svg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0H40L0 40V0Z\" fill=\"url(%23paint0_linear_16_14)\"/><defs><linearGradient id=\"paint0_linear_16_14\" x1=\"0\" y1=\"0\" x2=\"20.5\" y2=\"20.5\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"current\"/><stop offset=\"0.84506\" stop-color=\"current\" stop-opacity=\"0.99\"/><stop offset=\"0.9506\" stop-color=\"current\" stop-opacity=\"0\"/><stop offset=\"1\" stop-color=\"current\" stop-opacity=\"0\"/></linearGradient></defs></svg>') top left / 0 no-repeat",
+        "mask-origin": "top left",
+        "animation": "scale 1.5s",
+        "animation-fill-mode": "both"
+      },
+      "::view-transition-old(root),.dark::view-transition-old(root)": {
+        "animation": "scale 1.5s",
+        "animation-fill-mode": "both",
+        "z-index": "-1",
+        "transform-origin": "top left"
+      },
+      "@keyframes scale": {
+        "to": {
+          "mask-size": "200vmax"
+        }
+      }
+    }
+  },
+  "docs": "https://chanhdai.com/components/theme-toggle-effect",
+  "type": "registry:style"
+}

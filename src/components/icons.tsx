@@ -6,6 +6,7 @@ import {
   LayoutGridIcon,
   MoonStarIcon,
   MouseIcon,
+  PaintRollerIcon,
   QuoteIcon,
   ScissorsIcon,
   SeparatorHorizontalIcon,
@@ -765,6 +766,10 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
 
     case "twemoji": {
       return <SmileIcon {...props} />
+    }
+
+    case "theme-toggle-effect": {
+      return <PaintRollerIcon {...props} />
     }
 
     default: {
