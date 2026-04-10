@@ -1,6 +1,6 @@
 "use client"
 
-import { useLayoutEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 
 import {
   Select,
@@ -22,6 +22,12 @@ export function ThemeToggleEffectSelector() {
   useLayoutEffect(() => {
     addEffectStyle(document, EFFECTS[effectName]?.css || "", EFFECT_STYLE_ID)
   }, [effectName])
+
+  useEffect(() => {
+    return () => {
+      removeEffectStyle(document, EFFECT_STYLE_ID)
+    }
+  }, [])
 
   return (
     <Select
@@ -46,6 +52,10 @@ export function ThemeToggleEffectSelector() {
       </SelectContent>
     </Select>
   )
+}
+
+function removeEffectStyle(doc: Document, styleId: string) {
+  doc.getElementById(styleId)?.remove()
 }
 
 function addEffectStyle(doc: Document, cssText: string, styleId: string) {
