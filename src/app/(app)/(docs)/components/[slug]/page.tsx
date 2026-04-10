@@ -241,6 +241,24 @@ export default async function Page({
           {doc.metadata.title}
         </h1>
 
+        <a
+          className="not-prose block"
+          href="https://peerlist.io/ncdai/project/chanhdaicom"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            className="h-14 w-auto dark:hidden"
+            src="https://peerlist.io/api/v1/projects/embed/PRJH8OEPNRD6QGPB9I7AAMP6LABBA8?showUpvote=true&theme=light"
+            alt="chanhdai.com"
+          />
+          <img
+            className="hidden h-14 w-auto dark:block"
+            src="https://peerlist.io/api/v1/projects/embed/PRJH8OEPNRD6QGPB9I7AAMP6LABBA8?showUpvote=true&theme=dark"
+            alt="chanhdai.com"
+          />
+        </a>
+
         <p className="text-muted-foreground">{doc.metadata.description}</p>
 
         <InlineTOC items={toc} />
