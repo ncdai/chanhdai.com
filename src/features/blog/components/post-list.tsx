@@ -11,8 +11,12 @@ export function PostList({ posts }: { posts: Doc[] }) {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {posts.map((post) => (
-          <PostItem key={post.slug} post={post} />
+        {posts.map((post, index) => (
+          <PostItem
+            key={post.slug}
+            post={post}
+            imageLoading={index <= 3 ? "eager" : "lazy"}
+          />
         ))}
 
         {posts.length === 0 && (
