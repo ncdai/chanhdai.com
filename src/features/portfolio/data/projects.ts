@@ -89,7 +89,7 @@ export const PROJECTS: Project[] = [
 - 30k+ active users via Chrome Web Store*
 - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
 
-<p class="text-muted-foreground">* Peak metrics recorded; actual current figures may vary.</p>
+<p class="text-muted-foreground">* Peak metrics.</p>
 `,
     logo: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
   },

@@ -1,11 +1,18 @@
 import { format } from "date-fns"
+import type { ImageProps } from "next/image"
 import Image from "next/image"
 import Link from "next/link"
 
 import type { Doc } from "@/features/doc/types/document"
 import { cn } from "@/lib/utils"
 
-export function PostItem({ post }: { post: Doc }) {
+export function PostItem({
+  post,
+  imageLoading = "lazy",
+}: {
+  post: Doc
+  imageLoading?: ImageProps["loading"]
+}) {
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -23,6 +30,7 @@ export function PostItem({ post }: { post: Doc }) {
             width={1200}
             height={630}
             quality={100}
+            loading={imageLoading}
             unoptimized
           />
 

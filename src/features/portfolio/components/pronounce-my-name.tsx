@@ -33,15 +33,15 @@ export function PronounceMyName({
   return (
     <button
       className={cn(
-        "relative text-muted-foreground transition-[color,scale] select-none hover:text-foreground active:scale-[0.9]",
-        "after:absolute after:-inset-1",
+        "relative after:absolute after:-inset-2",
+        "touch-manipulation text-muted-foreground transition-[color,scale] select-none hover:text-foreground active:scale-[0.9]",
         className
       )}
       onPointerEnter={() => preload()}
       onClick={handlePlayClick}
+      aria-label="Pronounce my name"
     >
       <VolumeIcon ref={volumeIconRef} className="size-4.5" />
-      <span className="sr-only">Pronounce my name</span>
     </button>
   )
 }
