@@ -14,6 +14,11 @@ import {
 } from "@/components/base/ui/dialog"
 import { ComponentIcon } from "@/components/icons"
 import { MDX } from "@/components/mdx"
+import {
+  PageHeading,
+  PageHeadingTagline,
+  PageHeadingTitle,
+} from "@/components/page-heading"
 import { RegistryCommandAnimated } from "@/components/registry-command-animated"
 import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS, X_USERNAME } from "@/config/site"
@@ -29,8 +34,7 @@ import {
 } from "./components/component-item"
 
 const title = "Components"
-const description =
-  "A collection of reusable components. Trusted registry for shadcn/ui."
+const description = "Pixel-perfect, uniquely crafted."
 
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
@@ -67,19 +71,14 @@ export default function Page() {
 
   return (
     <div className="min-h-svh">
-      <div className="screen-line-bottom px-4">
-        <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          {title}
-        </h1>
-      </div>
+      <PageHeading>
+        <PageHeadingTagline>Components</PageHeadingTagline>
+        <PageHeadingTitle>Pixel-perfect, uniquely crafted.</PageHeadingTitle>
+      </PageHeading>
 
-      <div className="p-4">
-        <p className="font-mono text-sm text-balance text-muted-foreground">
-          {metadata.description}
-        </p>
-      </div>
+      <div className="flex h-4" />
 
-      <div className="screen-line-top screen-line-bottom relative">
+      <div className="screen-line-top screen-line-bottom">
         <RegistryCommandAnimated />
 
         <Dialog>

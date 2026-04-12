@@ -54,7 +54,7 @@ export function ProfileHeader() {
 
           <div className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">
             <TextFlip
-              className="font-pixel-square text-sm text-balance text-muted-foreground"
+              className="font-mono text-sm text-balance text-muted-foreground"
               variants={{
                 initial: { y: -10, opacity: 0 },
                 animate: { y: -1, opacity: 1 },

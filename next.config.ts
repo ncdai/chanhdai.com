@@ -38,8 +38,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/testimonials",
-        destination: "/wall-of-love",
+        source: "/wall-of-love",
+        destination: "/testimonials",
         permanent: true,
       },
     ]

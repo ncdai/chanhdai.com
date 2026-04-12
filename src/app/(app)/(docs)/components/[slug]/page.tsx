@@ -141,6 +141,8 @@ export default async function Page({
         next={next ? `/components/${next.slug}` : null}
       />
 
+      <div className="screen-line-bottom flex h-px" />
+
       <div className="flex items-center justify-between p-2 pl-4">
         <Button
           className="h-7 gap-2 border-none px-0 text-muted-foreground hover:text-foreground"
@@ -240,24 +242,6 @@ export default async function Page({
         <h1 className="screen-line-bottom text-3xl font-semibold tracking-tight">
           {doc.metadata.title}
         </h1>
-
-        <a
-          className="not-prose block"
-          href="https://peerlist.io/ncdai/project/chanhdaicom"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            className="h-14 w-auto dark:hidden"
-            src="https://peerlist.io/api/v1/projects/embed/PRJH8OEPNRD6QGPB9I7AAMP6LABBA8?showUpvote=true&theme=light"
-            alt="chanhdai.com"
-          />
-          <img
-            className="hidden h-14 w-auto dark:block"
-            src="https://peerlist.io/api/v1/projects/embed/PRJH8OEPNRD6QGPB9I7AAMP6LABBA8?showUpvote=true&theme=dark"
-            alt="chanhdai.com"
-          />
-        </a>
 
         <p className="text-muted-foreground">{doc.metadata.description}</p>
 
