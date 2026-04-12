@@ -1,6 +1,11 @@
 import type { Metadata } from "next"
 import { Suspense } from "react"
 
+import {
+  PageHeading,
+  PageHeadingTagline,
+  PageHeadingTitle,
+} from "@/components/page-heading"
 import { X_USERNAME } from "@/config/site"
 import { PostList } from "@/features/blog/components/post-list"
 import { PostListWithSearch } from "@/features/blog/components/post-list-with-search"
@@ -8,8 +13,7 @@ import { PostSearchInput } from "@/features/blog/components/post-search-input"
 import { getAllDocs } from "@/features/doc/data/documents"
 
 const title = "Blog"
-const description =
-  "A collection of articles on development, design, and ideas."
+const description = "Writing about code, design, and everything in between."
 
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
@@ -42,17 +46,14 @@ export default function Page() {
 
   return (
     <div className="min-h-svh">
-      <div className="screen-line-bottom px-4">
-        <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          {title}
-        </h1>
-      </div>
+      <PageHeading>
+        <PageHeadingTagline>Blog</PageHeadingTagline>
+        <PageHeadingTitle>
+          Writing about code, design, and everything in between.
+        </PageHeadingTitle>
+      </PageHeading>
 
-      <div className="p-4">
-        <p className="font-mono text-sm text-balance text-muted-foreground">
-          {description}
-        </p>
-      </div>
+      <div className="flex h-4" />
 
       <div className="screen-line-top screen-line-bottom p-2">
         <Suspense

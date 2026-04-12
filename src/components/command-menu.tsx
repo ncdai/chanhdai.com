@@ -90,8 +90,8 @@ const MENU_LINKS: CommandLinkItem[] = [
     shortcut: "GS",
   },
   {
-    title: "Wall of Love",
-    href: "/wall-of-love",
+    title: "Testimonials",
+    href: "/testimonials",
     icon: <Icons.bookHeart />,
     shortcut: "GW",
   },

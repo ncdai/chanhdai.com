@@ -9,8 +9,7 @@ export const dynamic = "force-static"
 export const revalidate = false
 
 const title = "Blocks"
-const description =
-  "A collection of beautifully designed, production-ready blocks."
+const description = "Beautifully designed, production-ready."
 
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 

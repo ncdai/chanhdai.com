@@ -1,5 +1,10 @@
 import type { Metadata } from "next"
 
+import {
+  PageHeading,
+  PageHeadingTagline,
+  PageHeadingTitle,
+} from "@/components/page-heading"
 import { X_USERNAME } from "@/config/site"
 import {
   TESTIMONIALS_1,
@@ -18,8 +23,8 @@ import {
 } from "@/registry/components/testimonial"
 import { Twemoji } from "@/registry/components/twemoji/twemoji"
 
-const title = "Wall of Love"
-const description = "The kind words that keep me building."
+const title = "Testimonials"
+const description = "Trusted by top builders."
 
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
@@ -27,10 +32,10 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: {
-    canonical: "/wall-of-love",
+    canonical: "/testimonials",
   },
   openGraph: {
-    url: "/wall-of-love",
+    url: "/testimonials",
     type: "website",
     images: {
       url: ogImage,
@@ -56,20 +61,15 @@ const TESTIMONIALS = [
   ),
 ]
 
-export default function WallOfLovePage() {
+export default function TestimonialsPage() {
   return (
     <div className="min-h-svh">
-      <div className="screen-line-bottom px-4">
-        <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
-      </div>
+      <PageHeading>
+        <PageHeadingTagline>Testimonials</PageHeadingTagline>
+        <PageHeadingTitle>Trusted by top builders.</PageHeadingTitle>
+      </PageHeading>
 
-      <div className="p-4">
-        <p className="font-mono text-sm text-balance text-muted-foreground">
-          {description}
-        </p>
-      </div>
-
-      <div className="screen-line-top relative pt-4">
+      <div className="relative pt-4">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-line" />
           <div className="border-l border-line" />

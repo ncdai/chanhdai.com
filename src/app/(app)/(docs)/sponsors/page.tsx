@@ -2,6 +2,12 @@ import { ArrowUpRightIcon } from "lucide-react"
 import type { Metadata } from "next"
 
 import { Button } from "@/components/base/ui/button"
+import {
+  PageHeading,
+  PageHeadingDescription,
+  PageHeadingTagline,
+  PageHeadingTitle,
+} from "@/components/page-heading"
 import { SPONSORSHIP_URL, X_USERNAME } from "@/config/site"
 import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
 import { SPONSORS } from "@/features/sponsor/data"
@@ -10,7 +16,7 @@ import { SPONSOR_TIERS } from "@/features/sponsor/types"
 
 const title = "Sponsors"
 const description =
-  "Grateful for the support that helps me grow and maintain high-quality projects."
+  "Grateful to the sponsors who make this open-source work possible."
 
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
@@ -52,19 +58,17 @@ const SPONSORS_BY_TIER = SPONSORS.reduce(
 export default function Page() {
   return (
     <div>
-      <div className="screen-line-bottom px-4">
-        <h1 className="text-3xl leading-none font-semibold tracking-tight">
-          {title}
-        </h1>
-      </div>
+      <PageHeading>
+        <PageHeadingTagline>Sponsors</PageHeadingTagline>
+        <PageHeadingTitle>Backed by the community.</PageHeadingTitle>
+        <PageHeadingDescription>
+          Grateful to the sponsors who make this open-source work possible.
+        </PageHeadingDescription>
+      </PageHeading>
 
-      <div className="p-4">
-        <p className="font-mono text-sm text-balance text-muted-foreground">
-          {description}
-        </p>
-      </div>
+      <div className="flex h-4" />
 
-      <div className="screen-line-top screen-line-bottom flex h-4" />
+      <div className="screen-line-bottom flex h-px" />
 
       {SPONSOR_TIERS.map((tier) => (
         <SponsorsGroup
