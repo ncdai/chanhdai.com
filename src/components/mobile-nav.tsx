@@ -74,7 +74,7 @@ function MobileNavTrigger(
 ) {
   return (
     <Button
-      className="group extend-touch-target flex flex-col gap-1 border-none data-open:bg-accent"
+      className="group relative flex touch-manipulation flex-col gap-1 border-none before:absolute before:-inset-x-2 before:-top-8 before:-bottom-1 before:bg-red-500/50 data-open:bg-accent"
       variant="ghost"
       size="icon-sm"
       aria-label="Toggle Menu"
