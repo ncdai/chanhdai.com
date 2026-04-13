@@ -10,8 +10,9 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
-import { InlineTOC } from "@/components/inline-toc"
 import { MDX } from "@/components/mdx"
+import { TOCInline } from "@/components/toc-inline"
+import { TOCMinimap } from "@/components/toc-minimap"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import { Prose } from "@/components/ui/typography"
@@ -19,6 +20,14 @@ import { SITE_INFO, X_USERNAME } from "@/config/site"
 import { PostKeyboardShortcuts } from "@/features/blog/components/post-keyboard-shortcuts"
 import { LLMCopyButtonWithViewOptions } from "@/features/blog/components/post-page-actions"
 import { PostShareMenu } from "@/features/blog/components/post-share-menu"
+import {
+  DocContainer,
+  DocContentCol,
+  DocGrid,
+  DocLeftCol,
+  DocRightCol,
+} from "@/features/doc/components/doc-layout"
+import { DocPageRoot } from "@/features/doc/components/doc-page-root"
 import {
   findNeighbour,
   getAllDocs,
@@ -129,113 +138,135 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
         next={next ? `/blog/${next.slug}` : null}
       />
 
-      <div className="screen-line-bottom flex h-px" />
+      <DocPageRoot>
+        <DocContainer>
+          <div className="screen-line-bottom h-px" />
 
-      <div className="flex items-center justify-between p-2 pl-4">
-        <Button
-          className="h-7 gap-2 border-none px-0 text-muted-foreground hover:text-foreground"
-          variant="link"
-          size="sm"
-          asChild
-        >
-          <Link href="/blog">
-            <ArrowLeftIcon />
-            Blog
-          </Link>
-        </Button>
+          <div className="flex items-center justify-between p-2 pl-4">
+            <Button
+              className="h-7 gap-2 border-none px-0 text-muted-foreground hover:text-foreground"
+              variant="link"
+              size="sm"
+              asChild
+            >
+              <Link href="/blog">
+                <ArrowLeftIcon />
+                Blog
+              </Link>
+            </Button>
 
-        <div className="flex items-center gap-2">
-          <LLMCopyButtonWithViewOptions
-            markdownUrl={`${getDocUrl(doc)}.mdx`}
-            isComponent={doc.metadata.category === "components"}
-          />
-
-          <PostShareMenu title={doc.metadata.title} url={getDocUrl(doc)} />
-
-          {previous && (
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <Button
-                    className="size-7 border-none"
-                    variant="secondary"
-                    size="icon-sm"
-                    asChild
-                  >
-                    <Link
-                      href={`/blog/${previous.slug}`}
-                      aria-label="Previous Post"
-                    >
-                      <ArrowLeftIcon />
-                    </Link>
-                  </Button>
-                }
+            <div className="flex items-center gap-2">
+              <LLMCopyButtonWithViewOptions
+                markdownUrl={`${getDocUrl(doc)}.mdx`}
+                isComponent={doc.metadata.category === "components"}
               />
-              <TooltipContent className="pr-2 pl-3">
-                <div className="flex items-center gap-3">
-                  Previous Post
-                  <Kbd>
-                    <ArrowLeftIcon />
-                  </Kbd>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          )}
 
-          {next && (
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <Button
-                    className="size-7 border-none"
-                    variant="secondary"
-                    size="icon-sm"
-                    asChild
-                  >
-                    <Link href={`/blog/${next.slug}`} aria-label="Next Post">
-                      <ArrowRightIcon />
-                    </Link>
-                  </Button>
-                }
-              />
-              <TooltipContent className="pr-2 pl-3">
-                <div className="flex items-center gap-3">
-                  Next Post
-                  <Kbd>
-                    <ArrowRightIcon />
-                  </Kbd>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          )}
-        </div>
-      </div>
+              <PostShareMenu title={doc.metadata.title} url={getDocUrl(doc)} />
 
-      <div className="screen-line-top screen-line-bottom">
-        <div
-          className={cn(
-            "h-8",
-            "before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
-            "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56"
-          )}
-        />
-      </div>
+              {previous && (
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button
+                        className="size-7 border-none"
+                        variant="secondary"
+                        size="icon-sm"
+                        asChild
+                      >
+                        <Link
+                          href={`/blog/${previous.slug}`}
+                          aria-label="Previous Post"
+                        >
+                          <ArrowLeftIcon />
+                        </Link>
+                      </Button>
+                    }
+                  />
+                  <TooltipContent className="pr-2 pl-3">
+                    <div className="flex items-center gap-3">
+                      Previous Post
+                      <Kbd>
+                        <ArrowLeftIcon />
+                      </Kbd>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              )}
 
-      <Prose className="px-4">
-        <h1 className="screen-line-bottom text-3xl font-semibold tracking-tight">
-          {doc.metadata.title}
-        </h1>
+              {next && (
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button
+                        className="size-7 border-none"
+                        variant="secondary"
+                        size="icon-sm"
+                        asChild
+                      >
+                        <Link
+                          href={`/blog/${next.slug}`}
+                          aria-label="Next Post"
+                        >
+                          <ArrowRightIcon />
+                        </Link>
+                      </Button>
+                    }
+                  />
+                  <TooltipContent className="pr-2 pl-3">
+                    <div className="flex items-center gap-3">
+                      Next Post
+                      <Kbd>
+                        <ArrowRightIcon />
+                      </Kbd>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              )}
+            </div>
+          </div>
 
-        <p className="text-muted-foreground">{doc.metadata.description}</p>
+          <div className="screen-line-top screen-line-bottom">
+            <div
+              className={cn(
+                "h-8",
+                "before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
+                "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56"
+              )}
+            />
+          </div>
 
-        <InlineTOC items={toc} />
+          <h1
+            data-slot="doc-title"
+            className="screen-line-bottom px-4 text-3xl font-semibold tracking-tight"
+          >
+            {doc.metadata.title}
+          </h1>
+        </DocContainer>
 
-        <div>
-          <MDX code={doc.content} />
-        </div>
-      </Prose>
+        <DocGrid>
+          <DocLeftCol />
 
-      <div className="screen-line-top h-4 w-full" />
+          <DocContentCol>
+            <Prose className="px-4 pt-8">
+              <p className="text-muted-foreground">
+                {doc.metadata.description}
+              </p>
+
+              <TOCInline className="lg:hidden" items={toc} />
+
+              <div>
+                <MDX code={doc.content} />
+              </div>
+            </Prose>
+
+            <div className="screen-line-top h-4" />
+          </DocContentCol>
+
+          <DocRightCol>
+            <TOCMinimap items={toc} />
+          </DocRightCol>
+        </DocGrid>
+      </DocPageRoot>
     </>
   )
 }

@@ -14,7 +14,7 @@ import { useMediaQuery } from "@/hooks/use-media-query"
 import { haptic } from "@/registry/lib/haptic"
 import type { NavItem } from "@/types/nav"
 
-export function MobileNav({ items }: { items: NavItem[] }) {
+export function NavMobile({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false)
 
   const isDesktop = useMediaQuery("(min-width: 40rem)") // sm breakpoint
@@ -27,13 +27,13 @@ export function MobileNav({ items }: { items: NavItem[] }) {
   }, [])
 
   if (isDesktop) {
-    return <MobileNavTrigger />
+    return <NavMobileTrigger />
   }
 
   return (
     <Popover open={open} onOpenChange={handleOpenChange} modal>
       <PopoverTrigger asChild>
-        <MobileNavTrigger />
+        <NavMobileTrigger />
       </PopoverTrigger>
 
       <PopoverContent
@@ -69,12 +69,12 @@ export function MobileNav({ items }: { items: NavItem[] }) {
   )
 }
 
-function MobileNavTrigger(
+function NavMobileTrigger(
   props: Omit<React.ComponentProps<typeof Button>, "children">
 ) {
   return (
     <Button
-      className="group relative flex touch-manipulation flex-col gap-1 border-none before:absolute before:-inset-x-2 before:-top-8 before:-bottom-1 before:bg-red-500/50 data-open:bg-accent"
+      className="group relative flex touch-manipulation flex-col gap-1 border-none before:absolute before:-inset-x-2 before:-top-8 before:-bottom-1 data-open:bg-accent"
       variant="ghost"
       size="icon-sm"
       aria-label="Toggle Menu"

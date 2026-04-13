@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 
 import blocks from "@/__registry__/__blocks__.json"
-import { DesktopNav } from "@/components/desktop-nav"
+import { NavDesktop } from "@/components/nav-desktop"
 import { NavItemGitHub } from "@/components/nav-item-github"
 import { SiteHeaderMark } from "@/components/site-header-mark"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -20,8 +20,8 @@ const CommandMenu = dynamic(() =>
   import("@/components/command-menu").then((mod) => mod.CommandMenu)
 )
 
-const MobileNav = dynamic(() =>
-  import("@/components/mobile-nav").then((mod) => mod.MobileNav)
+const NavMobile = dynamic(() =>
+  import("@/components/nav-mobile").then((mod) => mod.NavMobile)
 )
 
 export function SiteHeader() {
@@ -50,7 +50,7 @@ export function SiteHeader() {
 
           <div className="flex-1" />
 
-          <DesktopNav items={MAIN_NAV} />
+          <NavDesktop items={MAIN_NAV} />
 
           <div className="flex items-center *:first:mr-2 max-sm:*:data-[slot=command-menu-trigger]:hidden">
             <CommandMenu docs={docPreviews} blocks={blocks} enabledHotkeys />
@@ -67,7 +67,7 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile Nav */}
+      {/* Nav Mobile */}
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-[calc(--spacing(16)+env(safe-area-inset-bottom,0px))] bg-linear-to-t from-background from-[calc(env(safe-area-inset-bottom,0%))] to-transparent sm:hidden" />
       <div
         className={cn(
@@ -80,7 +80,7 @@ export function SiteHeader() {
           orientation="vertical"
           className="mr-1 ml-2.5 data-vertical:h-6 data-vertical:self-center"
         />
-        <MobileNav items={MOBILE_NAV} />
+        <NavMobile items={MOBILE_NAV} />
       </div>
     </>
   )
