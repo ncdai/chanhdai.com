@@ -11,7 +11,7 @@ import {
 } from "@/components/base/ui/collapsible"
 import { cn } from "@/lib/utils"
 
-export function InlineTOC({
+export function TOCInline({
   items,
   className,
   children,
@@ -40,17 +40,15 @@ export function InlineTOC({
       </CollapsibleTrigger>
 
       <CollapsibleContent>
-        <ul className="flex flex-col px-4 pb-2 text-sm text-muted-foreground">
+        <ul className="flex flex-col px-4 pb-2">
           {items.map((item) => (
             <li
               key={item.url}
-              className="flex py-1"
-              style={{
-                paddingInlineStart: 16 * Math.max(item.depth - 2, 0),
-              }}
+              data-depth={item.depth}
+              className="flex py-1 data-[depth=3]:pl-4 data-[depth=4]:pl-8"
             >
               <a
-                className="underline-offset-4 transition-colors hover:text-accent-foreground hover:underline"
+                className="text-sm text-muted-foreground transition-colors hover:text-accent-foreground"
                 href={item.url}
               >
                 {item.title}

@@ -53,7 +53,7 @@ export default function Page() {
         </PageHeadingTitle>
       </PageHeading>
 
-      <div className="flex h-4" />
+      <div className="h-4" />
 
       <div className="screen-line-top screen-line-bottom p-2">
         <Suspense

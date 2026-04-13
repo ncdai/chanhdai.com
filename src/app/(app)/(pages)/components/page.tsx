@@ -31,7 +31,7 @@ import {
   ComponentItemDot,
   ComponentItemIcon,
   ComponentItemTitle,
-} from "./components/component-item"
+} from "./component-item"
 
 const title = "Components"
 const description = "Pixel-perfect, uniquely crafted."
@@ -76,7 +76,7 @@ export default function Page() {
         <PageHeadingTitle>Pixel-perfect, uniquely crafted.</PageHeadingTitle>
       </PageHeading>
 
-      <div className="flex h-4" />
+      <div className="h-4" />
 
       <div className="screen-line-top screen-line-bottom">
         <RegistryCommandAnimated />

@@ -66,9 +66,9 @@ export default function Page() {
         </PageHeadingDescription>
       </PageHeading>
 
-      <div className="flex h-4" />
+      <div className="h-4" />
 
-      <div className="screen-line-bottom flex h-px" />
+      <div className="screen-line-bottom h-px" />
 
       {SPONSOR_TIERS.map((tier) => (
         <SponsorsGroup
