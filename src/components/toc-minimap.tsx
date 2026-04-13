@@ -1,7 +1,7 @@
 "use client"
 
 import type { TOCItemType } from "fumadocs-core/toc"
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 
 import {
   HoverCard,
@@ -17,26 +17,12 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
   )
 
   const activeHeading = useActiveHeading(itemIds)
-  const preventCloseRef = useRef(false)
-
-  const handleOpenChange = useCallback(
-    (nextOpen: boolean, eventDetails: { cancel: () => void }) => {
-      if (!nextOpen && preventCloseRef.current) {
-        eventDetails.cancel()
-      }
-    },
-    []
-  )
 
   const handleItemClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault()
       const url = e.currentTarget.getAttribute("href") ?? ""
-      preventCloseRef.current = true
       scrollToHeading(url)
-      requestAnimationFrame(() => {
-        preventCloseRef.current = false
-      })
     },
     []
   )
@@ -48,7 +34,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
   return (
     <div className="sticky top-(--doc-cols-top,0px) translate-x-2 translate-y-3 opacity-0 in-data-doc-cols-ready:opacity-100">
       <div className="ml-auto w-18">
-        <HoverCard onOpenChange={handleOpenChange}>
+        <HoverCard>
           <HoverCardTrigger
             delay={0}
             closeDelay={0}
@@ -73,10 +59,11 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
 
           <HoverCardContent
             className="w-56 overflow-hidden p-0 duration-200 data-[side=left]:slide-in-from-right-3 data-[side=left]:slide-out-to-right-3 data-open:zoom-in-100 data-closed:zoom-out-100"
-            side="left"
             align="start"
-            sideOffset={-60}
             alignOffset={0}
+            side="left"
+            sideOffset={-60}
+            positionMethod="fixed"
           >
             <div className="flex max-h-[calc(100dvh-var(--doc-cols-top,0px)+--spacing(-24))] overflow-y-auto overscroll-contain">
               <ul className="flex h-full flex-col px-6 py-4 text-sm">
@@ -92,7 +79,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
                   >
                     <a
                       href={item.url}
-                      className="line-clamp-2 text-muted-foreground transition-[color] hover:text-accent-foreground"
+                      className="line-clamp-2 text-muted-foreground transition-[color] duration-200 hover:text-accent-foreground"
                       onClick={handleItemClick}
                     >
                       {item.title}
@@ -146,6 +133,6 @@ export function useActiveHeading(itemIds: string[]) {
 function scrollToHeading(url: string) {
   history.pushState(null, "", url)
   document.getElementById(url.replace("#", ""))?.scrollIntoView({
-    behavior: "instant",
+    behavior: "smooth",
   })
 }
