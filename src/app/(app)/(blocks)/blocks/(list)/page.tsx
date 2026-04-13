@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Fragment } from "react"
 
 import { BlockDisplay } from "@/app/(preview)/components/block-display"
-import { X_USERNAME } from "@/config/site"
+import { X_HANDLE } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 export const dynamic = "force-static"
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: X_USERNAME,
-    creator: X_USERNAME,
+    site: X_HANDLE,
+    creator: X_HANDLE,
     images: [ogImage],
   },
 }

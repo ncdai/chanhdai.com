@@ -8,7 +8,7 @@ import {
   PageHeadingTagline,
   PageHeadingTitle,
 } from "@/components/page-heading"
-import { SPONSORSHIP_URL, X_USERNAME } from "@/config/site"
+import { SPONSORSHIP_URL, X_HANDLE } from "@/config/site"
 import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
 import { SPONSORS } from "@/features/sponsor/data"
 import type { Sponsor, SponsorTier } from "@/features/sponsor/types"
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: X_USERNAME,
-    creator: X_USERNAME,
+    site: X_HANDLE,
+    creator: X_HANDLE,
     images: [ogImage],
   },
 }

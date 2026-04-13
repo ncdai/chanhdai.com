@@ -5,7 +5,7 @@ import { cache } from "react"
 import { Index } from "@/__registry__"
 import { PreviewProvider } from "@/app/(preview)/components/preview-provider"
 import { getCachedThemes } from "@/app/(preview)/lib/get-themes"
-import { X_USERNAME } from "@/config/site"
+import { X_HANDLE } from "@/config/site"
 import { getRegistryItem } from "@/lib/registry"
 
 export const revalidate = false
@@ -68,8 +68,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      site: X_USERNAME,
-      creator: X_USERNAME,
+      site: X_HANDLE,
+      creator: X_HANDLE,
       images: [ogImage],
     },
     robots: {
