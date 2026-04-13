@@ -41,7 +41,7 @@ export const MOBILE_NAV: NavItem[] = [
   ...MAIN_NAV,
 ]
 
-export const X_USERNAME = "@iamncdai"
+export const X_HANDLE = "@iamncdai"
 export const GITHUB_USERNAME = "ncdai"
 export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"

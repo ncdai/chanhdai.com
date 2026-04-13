@@ -93,7 +93,7 @@ const MENU_LINKS: CommandLinkItem[] = [
     title: "Testimonials",
     href: "/testimonials",
     icon: <Icons.bookHeart />,
-    shortcut: "GW",
+    shortcut: "GT",
   },
 ]
 

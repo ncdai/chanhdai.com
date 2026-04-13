@@ -5,7 +5,7 @@ import {
   PageHeadingTagline,
   PageHeadingTitle,
 } from "@/components/page-heading"
-import { X_USERNAME } from "@/config/site"
+import { X_HANDLE } from "@/config/site"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: X_USERNAME,
-    creator: X_USERNAME,
+    site: X_HANDLE,
+    creator: X_HANDLE,
     images: [ogImage],
   },
 }

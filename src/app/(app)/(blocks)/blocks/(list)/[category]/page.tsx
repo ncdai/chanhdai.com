@@ -3,7 +3,7 @@ import { Fragment } from "react"
 
 import { BlockDisplay } from "@/app/(preview)/components/block-display"
 import { registryCategories } from "@/config/registry"
-import { X_USERNAME } from "@/config/site"
+import { X_HANDLE } from "@/config/site"
 import { getAllBlockIds } from "@/lib/blocks"
 import { cn } from "@/lib/utils"
 
@@ -52,8 +52,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      site: X_USERNAME,
-      creator: X_USERNAME,
+      site: X_HANDLE,
+      creator: X_HANDLE,
       images: [ogImage],
     },
   }

@@ -21,7 +21,7 @@ import {
 } from "@/components/page-heading"
 import { RegistryCommandAnimated } from "@/components/registry-command-animated"
 import { registryConfig } from "@/config/registry"
-import { UTM_PARAMS, X_USERNAME } from "@/config/site"
+import { UTM_PARAMS, X_HANDLE } from "@/config/site"
 import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: X_USERNAME,
-    creator: X_USERNAME,
+    site: X_HANDLE,
+    creator: X_HANDLE,
     images: [ogImage],
   },
 }

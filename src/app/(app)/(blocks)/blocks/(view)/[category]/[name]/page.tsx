@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import { registryCategories } from "@/config/registry"
-import { X_USERNAME } from "@/config/site"
+import { X_HANDLE } from "@/config/site"
 import { PostKeyboardShortcuts } from "@/features/blog/components/post-keyboard-shortcuts"
 import { PostShareMenu } from "@/features/blog/components/post-share-menu"
 import { getAllBlockStaticParams } from "@/lib/blocks"
@@ -68,8 +68,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      site: X_USERNAME,
-      creator: X_USERNAME,
+      site: X_HANDLE,
+      creator: X_HANDLE,
       images: [ogImage],
     },
   }
