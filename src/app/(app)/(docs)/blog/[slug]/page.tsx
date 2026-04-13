@@ -237,7 +237,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
           <h1
             data-slot="doc-title"
-            className="screen-line-bottom px-4 text-3xl font-semibold tracking-tight"
+            className="screen-line-bottom px-4 text-3xl font-semibold tracking-tight text-balance"
           >
             {doc.metadata.title}
           </h1>
