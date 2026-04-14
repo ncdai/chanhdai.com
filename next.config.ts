@@ -20,6 +20,14 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75, 100],
   },
+  compiler:
+    process.env.NODE_ENV === "production"
+      ? {
+          removeConsole: {
+            exclude: ["error"],
+          },
+        }
+      : undefined,
   async redirects() {
     return [
       {
