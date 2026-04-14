@@ -9,13 +9,11 @@ import {
   PageHeadingTitle,
 } from "@/components/page-heading"
 import { SPONSORSHIP_URL, UTM_PARAMS, X_HANDLE } from "@/config/site"
-import {
-  SponsorItem,
-  SponsorItemLogo,
-} from "@/features/sponsor/components/sponsor-item"
+import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
 import { SPONSORS } from "@/features/sponsor/data"
 import type { Sponsor, SponsorTier } from "@/features/sponsor/types"
 import { SPONSOR_TIERS } from "@/features/sponsor/types"
+import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
 const title = "Sponsors"
@@ -128,10 +126,14 @@ function SponsorsGroup({
               key={item.name}
               href={addQueryParams(item.url, UTM_PARAMS)}
               aria-label={`${item.name} logo`}
+              data-tier={item.tier.replaceAll("_", "-")}
+              className={cn(
+                "[&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0",
+                "data-[tier=silver]:[&_svg]:max-w-60",
+                "data-[tier=spark-supporter]:[&_svg]:max-w-50"
+              )}
             >
-              <SponsorItemLogo tier={item.tier}>
-                <item.logo />
-              </SponsorItemLogo>
+              <item.logo aria-hidden />
             </SponsorItem>
           ))}
         </div>

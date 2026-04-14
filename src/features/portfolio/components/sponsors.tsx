@@ -4,10 +4,7 @@ import Link from "next/link"
 import { PlusIcon } from "@/components/animated-icons/plus"
 import { Button } from "@/components/base/ui/button"
 import { SPONSORSHIP_URL, UTM_PARAMS } from "@/config/site"
-import {
-  SponsorItem,
-  SponsorItemLogo,
-} from "@/features/sponsor/components/sponsor-item"
+import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
 import { SPONSORS } from "@/features/sponsor/data"
 import type { SponsorTier } from "@/features/sponsor/types"
 import { addQueryParams } from "@/utils/url"
@@ -31,8 +28,7 @@ export function Sponsors() {
       <PanelHeader className="after:content-none">
         <PanelTitle>Sponsors</PanelTitle>
         <PanelDescription>
-          Grateful for the support that helps me grow and maintain high-quality
-          projects.
+          Grateful to the sponsors who make this open-source work possible.
         </PanelDescription>
       </PanelHeader>
 
@@ -46,16 +42,19 @@ export function Sponsors() {
           {FEATURED_SPONSORS.map((item) => (
             <SponsorItem
               key={item.name}
+              className="min-h-22.5 [&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0"
               href={addQueryParams(item.url, UTM_PARAMS)}
               aria-label={`${item.name} logo`}
             >
-              <SponsorItemLogo tier={item.tier}>
-                <item.logo />
-              </SponsorItemLogo>
+              <item.logo aria-hidden />
             </SponsorItem>
           ))}
 
-          <SponsorItem href={SPONSORSHIP_URL} aria-label="Sponsor My Work">
+          <SponsorItem
+            className="min-h-22.5"
+            href={SPONSORSHIP_URL}
+            aria-label="Sponsor My Work"
+          >
             <PlusIcon
               className="flex size-full items-center justify-center text-muted-foreground"
               size={24}
