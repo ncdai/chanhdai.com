@@ -116,10 +116,12 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
         </h3>
 
         {experience.isCurrentEmployer && (
-          <span className="relative flex items-center justify-center">
+          <span
+            className="relative flex items-center justify-center"
+            aria-label="Current Employer"
+          >
             <span className="absolute inline-flex size-3 animate-ping rounded-full bg-sky-500 opacity-50" />
             <span className="relative inline-flex size-2 rounded-full bg-sky-500" />
-            <span className="sr-only">Current Employer</span>
           </span>
         )}
       </div>
@@ -214,10 +216,10 @@ export function ExperiencePositionItem({
                 <span>{start}</span>
                 <span className="font-mono">—</span>
                 {isOngoing ? (
-                  <>
-                    <InfinityIcon className="size-4.5 translate-y-[0.5px]" />
-                    <span className="sr-only">Present</span>
-                  </>
+                  <InfinityIcon
+                    className="size-4.5 translate-y-[0.5px]"
+                    aria-label="Present"
+                  />
                 ) : (
                   <span>{end}</span>
                 )}

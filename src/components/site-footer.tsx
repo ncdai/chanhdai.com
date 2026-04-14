@@ -53,9 +53,9 @@ export function SiteFooter() {
               href="https://x.com/iamncdai?utm_source=chanhdai.com"
               target="_blank"
               rel="noopener"
+              aria-label="X"
             >
               <Icons.x className="size-4" />
-              <span className="sr-only">X</span>
             </a>
 
             <Separator />
@@ -65,9 +65,9 @@ export function SiteFooter() {
               href="https://github.com/ncdai?utm_source=chanhdai.com"
               target="_blank"
               rel="noopener"
+              aria-label="GitHub"
             >
               <Icons.github className="size-4" />
-              <span className="sr-only">GitHub</span>
             </a>
 
             <Separator />
@@ -77,9 +77,9 @@ export function SiteFooter() {
               href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
               target="_blank"
               rel="noopener"
+              aria-label="LinkedIn"
             >
               <Icons.linkedin className="size-4" />
-              <span className="sr-only">LinkedIn</span>
             </a>
 
             <Separator />
@@ -89,9 +89,9 @@ export function SiteFooter() {
               href={`${SITE_INFO.url}/rss`}
               target="_blank"
               rel="noopener"
+              aria-label="RSS"
             >
               <RssIcon className="size-4" />
-              <span className="sr-only">RSS</span>
             </a>
 
             <Separator />
@@ -104,9 +104,9 @@ export function SiteFooter() {
               }
               target="_blank"
               rel="noopener"
+              aria-label="DMCA.com Protection Status"
             >
               <Icons.dmca className="h-4.5 w-auto" />
-              <span className="sr-only">DMCA.com Protection Status</span>
             </a>
           </div>
         </div>

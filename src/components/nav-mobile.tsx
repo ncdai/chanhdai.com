@@ -74,7 +74,7 @@ function NavMobileTrigger(
 ) {
   return (
     <Button
-      className="group relative flex touch-manipulation flex-col gap-1 border-none before:absolute before:-inset-x-2 before:-top-8 before:-bottom-1 data-open:bg-accent"
+      className="group relative flex touch-manipulation flex-col gap-1 border-none before:absolute before:-inset-x-2 before:-top-8 before:-bottom-1 active:scale-none data-open:bg-accent"
       variant="ghost"
       size="icon-sm"
       aria-label="Toggle Menu"

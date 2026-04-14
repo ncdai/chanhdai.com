@@ -13,12 +13,12 @@ export function SponsorItemPlus() {
       href={SPONSORSHIP_URL}
       target="_blank"
       rel="noopener"
+      aria-label="Sponsor My Work"
     >
       <PlusIcon
         className="flex size-full items-center justify-center text-muted-foreground"
         size={24}
       />
-      <span className="sr-only">Sponsor My Work</span>
     </a>
   )
 }

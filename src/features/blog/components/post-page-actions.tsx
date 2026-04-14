@@ -171,9 +171,9 @@ export function ViewOptions({
           className="size-7 border-none active:scale-none"
           variant="secondary"
           size="icon-sm"
+          aria-label="View Options"
         >
           <ChevronDownIcon className="mt-0.5 size-4" />
-          <span className="sr-only">View Options</span>
         </Button>
       </DropdownMenuTrigger>
 

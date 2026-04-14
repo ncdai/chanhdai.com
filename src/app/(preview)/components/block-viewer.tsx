@@ -269,9 +269,9 @@ function BlockViewerToolbar() {
               })}
               target="_blank"
               rel="noopener"
+              aria-label="Open in New Tab"
             >
               <Icons.fullScreen className="size-4" />
-              <span className="sr-only">Open in New Tab</span>
             </a>
           </Button>
 
@@ -284,13 +284,13 @@ function BlockViewerToolbar() {
             className="rounded-sm border-none dark:hover:bg-muted"
             variant="ghost"
             size="icon-xs"
+            aria-label="Refresh Preview"
             onClick={() => {
               setView("preview")
               setIframeKey?.((v) => v + 1)
             }}
           >
             <Icons.refresh className="size-4" />
-            <span className="sr-only">Refresh Preview</span>
           </Button>
         </div>
 

@@ -84,9 +84,9 @@ export function AwardItem({
                       href={award.referenceLink}
                       target="_blank"
                       rel="noopener"
+                      aria-label="Open Reference Attachment"
                     >
                       <FileCheckIcon className="pointer-events-none size-4" />
-                      <span className="sr-only">Open Reference Attachment</span>
                     </a>
                   }
                 />

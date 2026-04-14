@@ -9,7 +9,7 @@ export function SponsorItem({ item }: { item: Sponsor }) {
     <a
       key={item.name}
       className={cn(
-        "flex min-h-20 items-center justify-center transition-[background-color] ease-out hover:bg-accent-muted",
+        "flex items-center justify-center transition-[background-color] ease-out hover:bg-accent-muted",
         "max-sm:screen-line-top max-sm:screen-line-bottom",
         "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom"
       )}
@@ -17,7 +17,11 @@ export function SponsorItem({ item }: { item: Sponsor }) {
       target="_blank"
       rel="noopener sponsored"
     >
-      <item.logo className="w-full max-w-80" aria-label={`${item.name} logo`} />
+      <item.logo
+        data-tier={item.tier}
+        aria-label={`${item.name} logo`}
+        className="w-full max-w-60 data-[tier=spark\_supporter]:max-w-50"
+      />
     </a>
   )
 }
