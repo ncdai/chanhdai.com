@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation"
 import { useHotkeys } from "react-hotkeys-hook"
 
+import { trackEvent } from "@/lib/events"
+
 export function PostKeyboardShortcuts({
   previous,
   next,
@@ -12,8 +14,16 @@ export function PostKeyboardShortcuts({
 }) {
   const router = useRouter()
 
-  const navigate = (href: string | null) => {
+  const navigate = (
+    href: string | null,
+    direction: "previous" | "next",
+    keys: string
+  ) => {
     if (href) {
+      trackEvent({
+        name: "keyboard_shortcut_navigate",
+        properties: { path: href, keys, direction },
+      })
       router.push(href)
     }
   }
@@ -24,7 +34,7 @@ export function PostKeyboardShortcuts({
       return
     }
 
-    navigate(next)
+    navigate(next, "next", "ArrowRight")
   })
   useHotkeys("ArrowLeft", (event) => {
     // A native interaction was prevented on this event, someone else took ownership of it, ignore.
@@ -32,7 +42,7 @@ export function PostKeyboardShortcuts({
       return
     }
 
-    navigate(previous)
+    navigate(previous, "previous", "ArrowLeft")
   })
 
   return null

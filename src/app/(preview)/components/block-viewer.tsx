@@ -164,7 +164,16 @@ function BlockViewerProvider({
           } as React.CSSProperties
         }
       >
-        <Tabs value={view} onValueChange={(value) => setView(value as View)}>
+        <Tabs
+          value={view}
+          onValueChange={(value) => {
+            setView(value as View)
+            trackEvent({
+              name: "block_viewer_tab_change",
+              properties: { block: item.name, tab: value },
+            })
+          }}
+        >
           {children}
         </Tabs>
       </div>
@@ -237,6 +246,10 @@ function BlockViewerToolbar() {
             onValueChange={([value]) => {
               setView("preview")
               resizablePanelRef?.current?.resize(value || "100%")
+              trackEvent({
+                name: "block_viewer_resize",
+                properties: { block: item.name, size: value || "100%" },
+              })
             }}
           >
             <ToggleGroupItem aria-label="Mobile" value="30%">
@@ -270,6 +283,12 @@ function BlockViewerToolbar() {
               target="_blank"
               rel="noopener"
               aria-label="Open in New Tab"
+              onClick={() =>
+                trackEvent({
+                  name: "block_viewer_open_preview",
+                  properties: { block: item.name },
+                })
+              }
             >
               <Icons.fullScreen className="size-4" />
             </a>
@@ -288,6 +307,10 @@ function BlockViewerToolbar() {
             onClick={() => {
               setView("preview")
               setIframeKey?.((v) => v + 1)
+              trackEvent({
+                name: "block_viewer_refresh_preview",
+                properties: { block: item.name },
+              })
             }}
           >
             <Icons.refresh className="size-4" />
