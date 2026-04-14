@@ -1,13 +1,14 @@
 "use client"
 
 import type { TOCItemType } from "fumadocs-core/toc"
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/base/ui/hover-card"
+import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
 
 export function TOCMinimap({ items }: { items: TOCItemType[] }) {
@@ -18,15 +19,6 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
 
   const activeHeading = useActiveHeading(itemIds)
 
-  const handleItemClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault()
-      const url = e.currentTarget.getAttribute("href") ?? ""
-      scrollToHeading(url)
-    },
-    []
-  )
-
   if (!items.length) {
     return null
   }
@@ -34,7 +26,11 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
   return (
     <div className="sticky top-(--doc-cols-top,0px) translate-x-2 translate-y-3 opacity-0 in-data-doc-cols-ready:opacity-100">
       <div className="ml-auto w-18">
-        <HoverCard>
+        <HoverCard
+          onOpenChange={(open) => {
+            if (open) trackEvent({ name: "toc_minimap_hover" })
+          }}
+        >
           <HoverCardTrigger
             delay={0}
             closeDelay={0}
@@ -79,6 +75,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
                   >
                     <a
                       href={item.url}
+                      data-depth={item.depth}
                       className="line-clamp-2 text-muted-foreground transition-[color] duration-200 hover:text-accent-foreground"
                       onClick={handleItemClick}
                     >
@@ -128,6 +125,18 @@ export function useActiveHeading(itemIds: string[]) {
   }, [itemIds])
 
   return activeId
+}
+
+function handleItemClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault()
+  const url = e.currentTarget.getAttribute("href") ?? ""
+  const title = e.currentTarget.textContent ?? ""
+  const depth = Number(e.currentTarget.getAttribute("data-depth"))
+  trackEvent({
+    name: "toc_minimap_item_click",
+    properties: { url, title, depth },
+  })
+  scrollToHeading(url)
 }
 
 function scrollToHeading(url: string) {
