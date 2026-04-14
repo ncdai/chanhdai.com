@@ -19,6 +19,7 @@ const eventSchema = z.object({
     "toc_inline_item_click",
     "toc_minimap_hover",
     "toc_minimap_item_click",
+    "keyboard_shortcut_navigate",
   ]),
   // declare type AllowedPropertyValues = string | number | boolean | null
   properties: z
