@@ -24,6 +24,7 @@ const eventSchema = z.object({
     "block_viewer_resize",
     "block_viewer_open_preview",
     "block_viewer_refresh_preview",
+    "block_viewer_theme_change",
   ]),
   // declare type AllowedPropertyValues = string | number | boolean | null
   properties: z

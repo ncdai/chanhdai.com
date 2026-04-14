@@ -638,7 +638,7 @@ function BlockViewerMobile() {
 }
 
 function ThemePicker() {
-  const { themes, theme, setTheme } = useBlockViewer()
+  const { item, themes, theme, setTheme } = useBlockViewer()
 
   const themeItem = theme ? themes.get(theme) : null
 
@@ -649,6 +649,14 @@ function ThemePicker() {
       tweakcnThemes: themesArray.filter((t) => t.meta?.source === "tweakcn"),
     }
   }, [themes])
+
+  const handleThemeSelect = (value: PreviewSearchParams["theme"]) => {
+    setTheme(value)
+    trackEvent({
+      name: "block_viewer_theme_change",
+      properties: { block: item.name, theme: value ?? "default" },
+    })
+  }
 
   return (
     <Popover modal>
@@ -687,7 +695,7 @@ function ThemePicker() {
             <CommandEmpty>No results found.</CommandEmpty>
 
             <CommandGroup heading="Current theme">
-              <CommandItem onSelect={() => setTheme(null)}>
+              <CommandItem onSelect={() => handleThemeSelect(null)}>
                 <ThemePalette />
                 Default
                 {!theme && <CheckIcon className="ml-auto" strokeWidth={3} />}
@@ -698,14 +706,14 @@ function ThemePicker() {
               title="shadcn/ui"
               themes={shadcnThemes}
               activeTheme={theme}
-              onThemeSelect={setTheme}
+              onThemeSelect={handleThemeSelect}
             />
 
             <ThemePickerGroup
               title="tweakcn"
               themes={tweakcnThemes}
               activeTheme={theme}
-              onThemeSelect={setTheme}
+              onThemeSelect={handleThemeSelect}
             />
           </CommandList>
         </Command>
