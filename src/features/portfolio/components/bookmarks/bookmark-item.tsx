@@ -1,7 +1,6 @@
 import { format } from "date-fns"
 import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react"
 
-import { getIcon } from "@/components/icons"
 import { Separator } from "@/components/ui/separator"
 import { UTM_PARAMS } from "@/config/site"
 import type { Bookmark } from "@/features/portfolio/types/bookmarks"
@@ -29,7 +28,7 @@ export function BookmarkItem({
           "bg-muted text-muted-foreground [&_svg]:size-4"
         )}
       >
-        {getIcon(bookmark.iconName) ?? <BookmarkIcon />}
+        {bookmark.icon ?? <BookmarkIcon />}
       </div>
 
       <div className="flex-1 space-y-1 border-l border-dashed border-line p-4 pr-2">
