@@ -165,6 +165,7 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
 type BlockItem = {
   name: string
   description: string
+  categories: string[]
 }
 
 export function CommandMenu({
@@ -289,7 +290,7 @@ export function CommandMenu({
     () =>
       blocks.map((block) => ({
         title: block.name,
-        href: `/blocks#${block.name}`,
+        href: `/blocks/${block.categories[0]}/${block.name}`,
         keywords: ["block"],
       })),
     [blocks]
