@@ -15,6 +15,10 @@ const eventSchema = z.object({
     "command_menu_search",
     "command_menu_action",
     "blog_search",
+    "toc_inline_toggle",
+    "toc_inline_item_click",
+    "toc_minimap_hover",
+    "toc_minimap_item_click",
   ]),
   // declare type AllowedPropertyValues = string | number | boolean | null
   properties: z
@@ -27,6 +31,7 @@ export type Event = z.infer<typeof eventSchema>
 export function trackEvent(input: Event) {
   const event = eventSchema.parse(input)
   if (event) {
+    console.log("trackEvent:", event)
     posthog.capture(event.name, event.properties)
     op.track(event.name, event.properties)
   }
