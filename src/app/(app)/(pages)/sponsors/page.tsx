@@ -8,11 +8,15 @@ import {
   PageHeadingTagline,
   PageHeadingTitle,
 } from "@/components/page-heading"
-import { SPONSORSHIP_URL, X_HANDLE } from "@/config/site"
-import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
+import { SPONSORSHIP_URL, UTM_PARAMS, X_HANDLE } from "@/config/site"
+import {
+  SponsorItem,
+  SponsorItemLogo,
+} from "@/features/sponsor/components/sponsor-item"
 import { SPONSORS } from "@/features/sponsor/data"
 import type { Sponsor, SponsorTier } from "@/features/sponsor/types"
 import { SPONSOR_TIERS } from "@/features/sponsor/types"
+import { addQueryParams } from "@/utils/url"
 
 const title = "Sponsors"
 const description =
@@ -120,7 +124,15 @@ function SponsorsGroup({
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {sponsors.map((item) => (
-            <SponsorItem key={item.name} item={item} />
+            <SponsorItem
+              key={item.name}
+              href={addQueryParams(item.url, UTM_PARAMS)}
+              aria-label={`${item.name} logo`}
+            >
+              <SponsorItemLogo tier={item.tier}>
+                <item.logo />
+              </SponsorItemLogo>
+            </SponsorItem>
           ))}
         </div>
       </div>
