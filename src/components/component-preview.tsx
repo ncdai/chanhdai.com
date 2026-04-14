@@ -86,10 +86,10 @@ export function ComponentPreview({
                           className="rounded-md"
                           variant="secondary"
                           size="icon-sm"
+                          aria-label="Replay"
                           onClick={() => setReplay((v) => v + 1)}
                         >
                           <RepeatIcon />
-                          <span className="sr-only">Replay</span>
                         </Button>
                       }
                     />
