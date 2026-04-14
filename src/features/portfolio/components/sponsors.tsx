@@ -1,11 +1,16 @@
 import { ArrowRightIcon } from "lucide-react"
 import Link from "next/link"
 
+import { PlusIcon } from "@/components/animated-icons/plus"
 import { Button } from "@/components/base/ui/button"
-import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
-import { SponsorItemPlus } from "@/features/sponsor/components/sponsor-item-plus"
+import { SPONSORSHIP_URL, UTM_PARAMS } from "@/config/site"
+import {
+  SponsorItem,
+  SponsorItemLogo,
+} from "@/features/sponsor/components/sponsor-item"
 import { SPONSORS } from "@/features/sponsor/data"
 import type { SponsorTier } from "@/features/sponsor/types"
+import { addQueryParams } from "@/utils/url"
 
 import { Panel, PanelDescription, PanelHeader, PanelTitle } from "./panel"
 
@@ -39,10 +44,24 @@ export function Sponsors() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {FEATURED_SPONSORS.map((item) => (
-            <SponsorItem key={item.name} item={item} />
+            <SponsorItem
+              key={item.name}
+              href={addQueryParams(item.url, UTM_PARAMS)}
+              aria-label={`${item.name} logo`}
+            >
+              <SponsorItemLogo tier={item.tier}>
+                <item.logo />
+              </SponsorItemLogo>
+            </SponsorItem>
           ))}
 
-          <SponsorItemPlus />
+          <SponsorItem href={SPONSORSHIP_URL} aria-label="Sponsor My Work">
+            <PlusIcon
+              className="flex size-full items-center justify-center text-muted-foreground"
+              size={24}
+              aria-hidden
+            />
+          </SponsorItem>
         </div>
       </div>
 
