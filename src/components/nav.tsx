@@ -47,9 +47,9 @@ export function NavItem({
 }) {
   return (
     <Link
+      data-active={active}
       className={cn(
-        "font-mono text-sm font-medium text-muted-foreground transition-[color] hover:text-foreground",
-        active && "text-foreground",
+        "text-sm font-medium text-muted-foreground transition-[color] hover:text-foreground data-active:text-foreground",
         className
       )}
       {...props}

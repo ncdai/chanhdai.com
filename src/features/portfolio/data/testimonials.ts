@@ -13,7 +13,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "UNOFFICIAL, but followed by @github",
     url: "https://x.com/GithubProjects/status/1931034244337271044",
     quote:
-      "Everything you'd want in a picker, minus the styling headaches. Awesome job!",
+      "Everything you’d want in a picker, minus the styling headaches. Awesome job!",
     date: "2025-06-07",
   },
   {
@@ -57,7 +57,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/1980378575170859446",
     quote:
-      "Seriously, this is one of the best portfolio templates I've ever seen.",
+      "Seriously, this is one of the best portfolio templates I’ve ever seen.",
     date: "2025-10-21",
   },
   {
@@ -66,7 +66,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Creator of tweakcn.com",
     url: "https://x.com/iamsahaj_xyz/status/1982814244501381239",
     quote:
-      "remember seeing it on @mannupaaji's review. it's one of the best looking ones I've seen",
+      "remember seeing it on @mannupaaji’s review. it’s one of the best looking ones I’ve seen",
     date: "2025-10-27",
   },
   {
@@ -116,7 +116,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Kartikey",
     authorTagline: "Engineer",
     url: "https://x.com/KartikeyStack/status/2016717957938974963",
-    quote: "best portfolio I've ever seen, minimal, clean and sick 🙌🏼",
+    quote: "best portfolio I’ve ever seen, minimal, clean and sick 🙌🏼",
     date: "2026-01-29",
   },
   {
@@ -124,7 +124,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "shadcncraft",
     authorTagline: "shadcncraft.com",
     url: "https://x.com/shadcncraft/status/2017091317244055988",
-    quote: "Love your work Dai! You're a great talent :-)",
+    quote: "Love your work Dai! You’re a great talent :-)",
     date: "2026-01-30",
   },
   {
@@ -132,7 +132,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorName: "Megh",
     authorTagline: "Creator of patterncraft.fun",
     url: "https://x.com/meghtrix/status/2017658774530781471",
-    quote: "The best looking website I've ever seen? @iamncdai portfolio!",
+    quote: "The best looking website I’ve ever seen? @iamncdai portfolio!",
     date: "2026-02-01",
   },
   {
@@ -201,7 +201,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorName: "Yonaries",
     authorTagline: "Making orabrowser.com",
     url: "https://x.com/YonathanDejene/status/1984529637309886639",
-    quote: "incredible portfolio i've seen by far",
+    quote: "incredible portfolio i’ve seen by far",
     date: "2025-11-01",
   },
   {

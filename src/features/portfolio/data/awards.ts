@@ -70,7 +70,7 @@ export const AWARDS: Award[] = [
   {
     id: "f7598c4e-13e6-4b95-b7e9-d2b08b49aa76",
     prize: "2nd Prize",
-    title: "Can Tho City Youth and Children's Creativity Contest 2015",
+    title: "Can Tho City Youth and Children’s Creativity Contest 2015",
     date: "2015-12",
     grade: "Grade 9",
     description:
@@ -102,7 +102,7 @@ export const AWARDS: Award[] = [
   {
     id: "023c49cd-87f6-4d86-a2e1-71c106510b48",
     prize: "1st Prize",
-    title: "Can Tho City Youth and Children's Creativity Contest 2016",
+    title: "Can Tho City Youth and Children’s Creativity Contest 2016",
     date: "2016-07",
     grade: "Grade 10",
     description: "- Field: Software\n- Project: Study English",
@@ -123,7 +123,7 @@ export const AWARDS: Award[] = [
   {
     id: "bb6a9cfc-c487-4133-abf3-4032d4e1a3d8",
     prize: "Consolation Prize",
-    title: "National Youth and Children's Creativity Contest 2016",
+    title: "National Youth and Children’s Creativity Contest 2016",
     date: "2016-10",
     grade: "Grade 10",
     description:
@@ -167,7 +167,7 @@ export const AWARDS: Award[] = [
   {
     id: "aab6494d-8255-48a9-9f1c-0c7af17a480a",
     prize: "2nd Prize",
-    title: "Can Tho City Youth and Children's Creativity Contest 2017",
+    title: "Can Tho City Youth and Children’s Creativity Contest 2017",
     date: "2017-10",
     grade: "Grade 11",
     description:
@@ -233,7 +233,7 @@ export const AWARDS: Award[] = [
   {
     id: "1b189ee1-9b2f-4c23-aaec-a3b485125785",
     prize: "2nd Prize",
-    title: "Can Tho City Youth and Children's Creativity Contest 2018",
+    title: "Can Tho City Youth and Children’s Creativity Contest 2018",
     date: "2018-08",
     grade: "Grade 12",
     description:

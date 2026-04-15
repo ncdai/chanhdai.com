@@ -10,7 +10,7 @@ export default function Testimonials02() {
             Loved by Devs Worldwide
           </h2>
 
-          <p className="p-4 font-mono text-sm text-balance text-muted-foreground">
+          <p className="p-4 text-base text-balance text-muted-foreground">
             See what developers are saying about my work and projects.
           </p>
 
@@ -47,7 +47,7 @@ const TESTIMONIALS_1: TestimonialType[] = [
     authorTagline: "Creator of tweakcn.com",
     url: "https://x.com/iamsahaj_xyz/status/1982814244501381239",
     quote:
-      "remember seeing it on @mannupaaji's review. it's one of the best looking ones I've seen",
+      "remember seeing it on @mannupaaji’s review. it’s one of the best looking ones I’ve seen",
   },
   {
     authorAvatar: "https://unavatar.io/x/FrancescoCiull4",
@@ -69,7 +69,7 @@ const TESTIMONIALS_1: TestimonialType[] = [
     authorName: "shadcncraft",
     authorTagline: "shadcncraft.com",
     url: "https://x.com/shadcncraft/status/2017091317244055988",
-    quote: "Love your work Dai! You're a great talent :-)",
+    quote: "Love your work Dai! You’re a great talent :-)",
   },
   {
     authorAvatar: "https://unavatar.io/x/khushiirl",

@@ -16,7 +16,7 @@ import {
 } from "@/components/base/ui/tooltip"
 import { Markdown } from "@/components/markdown"
 import { Separator } from "@/components/ui/separator"
-import { ProseMono } from "@/components/ui/typography"
+import { Prose } from "@/components/ui/typography"
 
 import type { Award } from "../../types/awards"
 
@@ -107,9 +107,9 @@ export function AwardItem({
 
       {canExpand && (
         <CollapsibleContent className="overflow-hidden">
-          <ProseMono className="border-t border-line p-4">
+          <Prose className="border-t border-line p-4">
             <Markdown>{award.description}</Markdown>
-          </ProseMono>
+          </Prose>
         </CollapsibleContent>
       )}
     </Collapsible>

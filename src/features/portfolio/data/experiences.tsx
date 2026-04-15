@@ -229,7 +229,7 @@ In-house Project: [ZaDark](https://zadark.com)
         },
         employmentType: "Part-time",
         description: `- Built an order management website with real-time delivery tracking.
-- Developed an e-commerce site for bird's nest products.
+- Developed an e-commerce site for bird’s nest products.
 - Created a map to display monitoring station data.
 - Designed a customizable WordPress landing page.`,
         icon: <CodeXmlIcon />,
@@ -278,7 +278,7 @@ In-house Project: [ZaDark](https://zadark.com)
           end: "10.2026",
         },
         icon: <GraduationCapIcon />,
-        description: `- Currently studying for a Bachelor's degree in Information Systems.
+        description: `- Currently studying for a Bachelor’s degree in Information Systems.
 - Language Proficiency: B1 level in English (CEFR).
 - Achieved several awards, including:
   - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
@@ -310,12 +310,12 @@ In-house Project: [ZaDark](https://zadark.com)
   - [3rd Prize](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm) — National Science and Engineering Fair 2018 (ViSEF)
   - 1st Prize — Can Tho City Science and Engineering Fair 2018
   - Creativity Award — Binh Duong Hackathon 2017
-  - Consolation Prize — National Youth and Children's Creativity Contest 2016
-  - [1st Prize](https://www.youtube.com/watch?v=OYgugvjqU4A) — Can Tho City Youth and Children's Creativity Contest 2016
+  - Consolation Prize — National Youth and Children’s Creativity Contest 2016
+  - [1st Prize](https://www.youtube.com/watch?v=OYgugvjqU4A) — Can Tho City Youth and Children’s Creativity Contest 2016
   - 3rd Prize — National Young Informatics Contest 2016
 - Achieved the title of Outstanding Student from Grade 10-12.
 - Selected for the National Excellent Student Contest in Informatics for two consecutive years during high school.
-- Honored on the school's "Hall of Fame" for academic achievements.
+- Honored on the school’s “Hall of Fame” for academic achievements.
 - Developed a feature using Node.js and Pandoc to recognize multiple-choice questions from .docx files and upload them to an [online quiz platform](https://youtu.be/QjR99wdmTyo) I created.
 - Developed websites based on Laravel framework.
 - Built websites with PHP and MySQL, following the MVC architecture.`,

@@ -115,7 +115,7 @@ export const Index: Record<string, any> = {
   },
   "apple-hello-effect": {
     name: "apple-hello-effect",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/apple-hello-effect/apple-hello-effect-english.tsx",
@@ -132,7 +132,7 @@ export const Index: Record<string, any> = {
   },
   "apple-hello-effect-hindi": {
     name: "apple-hello-effect-hindi",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/apple-hello-effect/apple-hello-effect-hindi.tsx",
@@ -149,7 +149,7 @@ export const Index: Record<string, any> = {
   },
   "apple-hello-effect-spanish": {
     name: "apple-hello-effect-spanish",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/apple-hello-effect/apple-hello-effect-spanish.tsx",
@@ -166,7 +166,7 @@ export const Index: Record<string, any> = {
   },
   "apple-hello-effect-vietnamese": {
     name: "apple-hello-effect-vietnamese",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/apple-hello-effect/apple-hello-effect-vietnamese.tsx",
@@ -251,7 +251,7 @@ export const Index: Record<string, any> = {
   },
   "slide-to-unlock": {
     name: "slide-to-unlock",
-    description: "Interactive slider inspired by the classic iPhone 'slide to unlock' gesture.",
+    description: "Interactive slider inspired by the classic iPhone “slide to unlock” gesture.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/slide-to-unlock/slide-to-unlock.tsx",

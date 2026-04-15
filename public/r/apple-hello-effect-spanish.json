@@ -3,7 +3,7 @@
   "name": "apple-hello-effect-spanish",
   "title": "Apple Hello Effect - Spanish",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "SVG writing animation inspired by Apple's Hello screen.",
+  "description": "SVG writing animation inspired by Apple’s Hello screen.",
   "dependencies": [
     "motion"
   ],

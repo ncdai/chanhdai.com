@@ -3,7 +3,7 @@
   "name": "slide-to-unlock",
   "title": "Slide to Unlock",
   "author": "ncdai <dai@chanhdai.com>",
-  "description": "Interactive slider inspired by the classic iPhone 'slide to unlock' gesture.",
+  "description": "Interactive slider inspired by the classic iPhone “slide to unlock” gesture.",
   "dependencies": [
     "motion"
   ],

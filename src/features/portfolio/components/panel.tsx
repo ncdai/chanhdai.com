@@ -39,7 +39,10 @@ function PanelTitle({
   return (
     <Comp
       data-slot="panel-title"
-      className={cn("text-3xl font-semibold tracking-tight", className)}
+      className={cn(
+        "font-heading text-3xl font-semibold tracking-tight",
+        className
+      )}
       {...props}
     />
   )
@@ -65,7 +68,7 @@ function PanelDescription({
     <div
       data-slot="panel-description"
       className={cn(
-        "py-4 font-mono text-sm text-balance text-muted-foreground",
+        "py-4 text-base text-balance text-muted-foreground",
         className
       )}
       {...props}

@@ -80,7 +80,7 @@ const TESTIMONIALS_1 = [
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/1980378575170859446",
     quote:
-      "Seriously, this is one of the best portfolio templates I've ever seen.",
+      "Seriously, this is one of the best portfolio templates I’ve ever seen.",
   },
   {
     authorAvatar: "https://unavatar.io/x/iamsahaj_xyz",
@@ -88,7 +88,7 @@ const TESTIMONIALS_1 = [
     authorTagline: "Creator of tweakcn.com",
     url: "https://x.com/iamsahaj_xyz/status/1982814244501381239",
     quote:
-      "remember seeing it on @mannupaaji's review. it's one of the best looking ones I've seen",
+      "remember seeing it on @mannupaaji’s review. it’s one of the best looking ones I’ve seen",
   },
   {
     authorAvatar: "https://unavatar.io/x/steventey",
@@ -118,7 +118,7 @@ const TESTIMONIALS_1 = [
     authorTagline: "UNOFFICIAL, but followed by @github",
     url: "https://x.com/GithubProjects/status/1931034244337271044",
     quote:
-      "Everything you'd want in a picker, minus the styling headaches. Awesome job!",
+      "Everything you’d want in a picker, minus the styling headaches. Awesome job!",
   },
 ]
 
@@ -156,7 +156,7 @@ export const TESTIMONIALS_2 = [
     authorName: "Yonaries",
     authorTagline: "Making orabrowser.com",
     url: "https://x.com/YonathanDejene/status/1984529637309886639",
-    quote: "incredible portfolio i've seen by far",
+    quote: "incredible portfolio i’ve seen by far",
   },
   {
     authorAvatar: "https://unavatar.io/x/zaidmukaddam",
