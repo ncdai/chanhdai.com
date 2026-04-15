@@ -101,7 +101,7 @@ export default function Page() {
               <DialogDescription className="text-balance">
                 Run this command to add{" "}
                 <a
-                  className="link-underline"
+                  className="text-foreground link-underline"
                   href={addQueryParams("https://ui.shadcn.com/docs/directory", {
                     q: registryConfig.namespace,
                     ...UTM_PARAMS,
