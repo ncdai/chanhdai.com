@@ -231,7 +231,7 @@ function BlockViewerToolbar() {
 
       <a
         href={`#${item.name}`}
-        className="line-clamp-1 text-sm font-medium decoration-1 underline-offset-3 hover:underline"
+        className="line-clamp-1 text-sm font-medium link"
       >
         {item.description?.replace(/\.$/, "")}
       </a>

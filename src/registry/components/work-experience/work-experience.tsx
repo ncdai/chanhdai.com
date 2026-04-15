@@ -103,7 +103,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
         <h3 className="text-lg leading-snug font-semibold">
           {experience.companyWebsite ? (
             <a
-              className="decoration-1 underline-offset-3 hover:underline"
+              className="link"
               href={experience.companyWebsite}
               target="_blank"
               rel="noopener noreferrer"
