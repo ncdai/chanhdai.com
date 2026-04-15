@@ -408,7 +408,11 @@
 }
 
 @utility link {
-  @apply text-foreground underline decoration-foreground/30 decoration-1 underline-offset-3 transition-colors hover:decoration-foreground;
+  @apply decoration-1 underline-offset-3 hover:underline;
+}
+
+@utility link-underline {
+  @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
 }
 
 @utility screen-line-top {
@@ -430,7 +434,7 @@
 
 @utility prose-ncdai {
   @apply prose-headings:tracking-tight prose-headings:text-balance prose-h2:font-semibold;
-  @apply prose-a:font-normal prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:decoration-foreground/30 prose-a:decoration-1 prose-a:underline-offset-3 prose-a:transition-colors prose-a:hover:decoration-foreground;
+  @apply prose-a:font-normal prose-a:wrap-break-word prose-a:text-foreground prose-a:link-underline;
   @apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none;
   @apply prose-strong:font-medium;
   @apply prose-hr:border-line;
