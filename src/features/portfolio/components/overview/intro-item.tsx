@@ -41,7 +41,10 @@ export function IntroItemLink({
 }: React.ComponentProps<"a">) {
   return (
     <a
-      className={cn("underline-offset-4 hover:underline", className)}
+      className={cn(
+        "decoration-1 underline-offset-3 hover:underline",
+        className
+      )}
       target="_blank"
       rel="noopener"
       {...props}

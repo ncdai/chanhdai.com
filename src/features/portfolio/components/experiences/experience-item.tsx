@@ -33,7 +33,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
         <h3 className="text-lg leading-snug font-semibold">
           {experience.companyWebsite ? (
             <a
-              className="underline-offset-4 hover:underline"
+              className="decoration-1 underline-offset-3 hover:underline"
               href={addQueryParams(experience.companyWebsite, UTM_PARAMS)}
               target="_blank"
               rel="noopener"
