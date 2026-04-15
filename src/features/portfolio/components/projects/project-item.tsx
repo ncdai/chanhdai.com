@@ -16,7 +16,7 @@ import {
 } from "@/components/base/ui/tooltip"
 import { Markdown } from "@/components/markdown"
 import { Tag } from "@/components/ui/tag"
-import { ProseMono } from "@/components/ui/typography"
+import { Prose } from "@/components/ui/typography"
 import { UTM_PARAMS } from "@/config/site"
 import { addQueryParams } from "@/utils/url"
 
@@ -110,9 +110,9 @@ export function ProjectItem({
       <CollapsibleContent className="overflow-hidden">
         <div className="space-y-4 border-t border-line p-4">
           {project.description && (
-            <ProseMono>
+            <Prose>
               <Markdown>{project.description}</Markdown>
-            </ProseMono>
+            </Prose>
           )}
 
           {project.skills.length > 0 && (

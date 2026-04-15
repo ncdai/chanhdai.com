@@ -193,7 +193,7 @@ export const PROJECTS: Project[] = [
 - 3rd Prize — National Science and Engineering Fair 2018 (ViSEF)
 - 1st Prize — Can Tho City Science and Engineering Fair 2018
 - 3rd Prize — National Young Informatics Contest 2018
-- 2nd Prize — Can Tho City Youth and Children's Creativity Contest 2018
+- 2nd Prize — Can Tho City Youth and Children’s Creativity Contest 2018
 - 3rd Prize — Can Tho City Young Informatics Contest 2018
 - Reached 7k+ users, mainly high school students in Can Tho City
 - Pilot implemented in high schools across Can Tho City with English quizzes, supervised by English subject specialists from the Can Tho City Department of Education and Training`,
@@ -233,8 +233,8 @@ export const PROJECTS: Project[] = [
       "MySQL",
     ],
     description: `Study English is a free, mobile-friendly website for high school English learning, offering vocabulary, quizzes, listening practice, and more.
-- Consolation Prize — National Youth and Children's Creativity Contest 2016
-- 1st Prize — Can Tho City Youth and Children's Creativity Contest 2016
+- Consolation Prize — National Youth and Children’s Creativity Contest 2016
+- 1st Prize — Can Tho City Youth and Children’s Creativity Contest 2016
 - Consolation Prize — Can Tho City Young Informatics Contest 2016`,
   },
 ]

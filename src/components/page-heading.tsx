@@ -61,7 +61,7 @@ export function PageHeadingDescription({
     <p
       data-slot="page-heading-description"
       className={cn(
-        "p-4 font-mono text-sm text-balance text-muted-foreground",
+        "p-4 text-base text-balance text-muted-foreground",
         className
       )}
       {...props}

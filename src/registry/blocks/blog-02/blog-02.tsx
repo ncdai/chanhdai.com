@@ -12,7 +12,7 @@ export function Blog02() {
             Blog
           </h2>
 
-          <p className="p-4 font-mono text-sm text-balance text-muted-foreground">
+          <p className="p-4 text-base text-balance text-muted-foreground">
             A collection of articles on development, design, ideas, and tech
             news.
           </p>

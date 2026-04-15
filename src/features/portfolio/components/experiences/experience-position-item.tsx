@@ -12,7 +12,7 @@ import {
 import { Markdown } from "@/components/markdown"
 import { Separator } from "@/components/ui/separator"
 import { Tag } from "@/components/ui/tag"
-import { ProseMono } from "@/components/ui/typography"
+import { Prose } from "@/components/ui/typography"
 import type { ExperiencePosition } from "@/features/portfolio/types/experiences"
 import { cn } from "@/lib/utils"
 
@@ -105,9 +105,9 @@ export function ExperiencePositionItem({
 
       <CollapsibleContent className="overflow-hidden">
         {position.description && (
-          <ProseMono className="pt-2 pl-9">
+          <Prose className="pt-2 pl-9">
             <Markdown>{position.description}</Markdown>
-          </ProseMono>
+          </Prose>
         )}
       </CollapsibleContent>
 

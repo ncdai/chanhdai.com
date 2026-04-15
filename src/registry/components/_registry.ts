@@ -37,7 +37,7 @@ export const components: Registry["items"] = [
     name: "apple-hello-effect",
     type: "registry:component",
     title: "Apple Hello Effect",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     dependencies: ["motion"],
     files: [
       {
@@ -51,7 +51,7 @@ export const components: Registry["items"] = [
     name: "apple-hello-effect-hindi",
     type: "registry:component",
     title: "Apple Hello Effect - Hindi",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     dependencies: ["motion"],
     files: [
       {
@@ -65,7 +65,7 @@ export const components: Registry["items"] = [
     name: "apple-hello-effect-spanish",
     type: "registry:component",
     title: "Apple Hello Effect - Spanish",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     dependencies: ["motion"],
     files: [
       {
@@ -79,7 +79,7 @@ export const components: Registry["items"] = [
     name: "apple-hello-effect-vietnamese",
     type: "registry:component",
     title: "Apple Hello Effect - Vietnamese",
-    description: "SVG writing animation inspired by Apple's Hello screen.",
+    description: "SVG writing animation inspired by Apple’s Hello screen.",
     dependencies: ["motion"],
     files: [
       {
@@ -128,7 +128,7 @@ export const components: Registry["items"] = [
       "@utility prose-ncdai": {
         "@apply prose-headings:tracking-tight prose-headings:text-balance prose-h2:font-semibold":
           {},
-        "@apply prose-a:font-medium prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:underline-offset-4":
+        "@apply prose-a:font-medium prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:decoration-foreground/25 prose-a:decoration-dotted prose-a:underline-offset-2":
           {},
         "@apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none":
           {},
@@ -175,7 +175,7 @@ export const components: Registry["items"] = [
     type: "registry:component",
     title: "Slide to Unlock",
     description:
-      "Interactive slider inspired by the classic iPhone 'slide to unlock' gesture.",
+      "Interactive slider inspired by the classic iPhone “slide to unlock” gesture.",
     dependencies: ["motion"],
     registryDependencies: [getRegistryItemUrl("shimmering-text")],
     files: [

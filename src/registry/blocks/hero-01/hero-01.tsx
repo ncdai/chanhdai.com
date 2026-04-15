@@ -230,7 +230,7 @@ function MainContent({ className }: { className?: string }) {
           <Volume2Icon className="size-[1em]" />
         </button>{" "}
         provides{" "}
-        <strong className="font-normal text-foreground">professional</strong>,{" "}
+        <strong className="font-normal text-foreground">professional,</strong>{" "}
         <strong className="font-normal text-foreground">high-quality</strong>{" "}
         software design and development services based on your ideas.
       </p>
