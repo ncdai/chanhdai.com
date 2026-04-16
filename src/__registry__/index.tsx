@@ -41,38 +41,25 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "use-controllable-state": {
-    name: "use-controllable-state",
-    description: "",
-    type: "registry:hook",
-    files: [{
-      path: "src/hooks/use-layout-effect.tsx",
-      type: "registry:hook",
-      target: "",
-    },{
-      path: "src/hooks/use-controllable-state.ts",
-      type: "registry:hook",
-      target: "",
-    }],
-    component: React.lazy(async () => {
-      const mod = await import("@/hooks/use-layout-effect.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
-      return { default: mod.default || mod[exportName] }
-    }),
-    categories: undefined,
-    meta: undefined,
-  },
   "use-sound": {
     name: "use-sound",
-    description: "Custom React hook to load and play a sound from a given URL using the Web Audio API.",
+    description: "Hook for playing sound effects with volume, playback rate, and interrupt controls.",
     type: "registry:hook",
     files: [{
-      path: "src/hooks/use-sound.ts",
+      path: "src/registry/hooks/sound/use-sound.ts",
       type: "registry:hook",
-      target: "",
+      target: "hooks/sound/use-sound.ts",
+    },{
+      path: "src/registry/lib/sound/sound-engine.ts",
+      type: "registry:lib",
+      target: "lib/sound/sound-engine.ts",
+    },{
+      path: "src/registry/lib/sound/sound-types.ts",
+      type: "registry:lib",
+      target: "lib/sound/sound-types.ts",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/hooks/use-sound.ts")
+      const mod = await import("@/registry/hooks/sound/use-sound.ts")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
