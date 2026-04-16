@@ -5,9 +5,9 @@ import { useHotkeys } from "react-hotkeys-hook"
 
 import type { VolumeIconHandle } from "@/components/animated-icons/volume"
 import { VolumeIcon } from "@/components/animated-icons/volume"
-import { useSoundLazy } from "@/hooks/use-sound"
 import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
+import { useSound } from "@/registry/hooks/sound/use-sound"
 
 export function PronounceMyName({
   className,
@@ -16,7 +16,7 @@ export function PronounceMyName({
   className?: string
   namePronunciationUrl: string
 }) {
-  const { play, preload } = useSoundLazy(namePronunciationUrl)
+  const [play] = useSound(namePronunciationUrl)
 
   const volumeIconRef = useRef<VolumeIconHandle>(null)
 
@@ -37,7 +37,6 @@ export function PronounceMyName({
         "touch-manipulation text-muted-foreground transition-[color,scale] select-none hover:text-foreground active:scale-[0.9]",
         className
       )}
-      onPointerEnter={() => preload()}
       onClick={handlePlayClick}
       aria-label="Pronounce my name"
     >

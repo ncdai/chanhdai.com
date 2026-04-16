@@ -8,7 +8,9 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/base/ui/hover-card"
+import { useSound } from "@/hooks/soundcn/use-sound"
 import { trackEvent } from "@/lib/events"
+import { hoverTickSound } from "@/lib/soundcn/hover-tick"
 import { cn } from "@/lib/utils"
 
 export function TOCMinimap({ items }: { items: TOCItemType[] }) {
@@ -19,6 +21,8 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
 
   const activeHeading = useActiveHeading(itemIds)
 
+  const [play] = useSound(hoverTickSound, { volume: 0.2 })
+
   if (!items.length) {
     return null
   }
@@ -28,7 +32,10 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
       <div className="ml-auto w-18">
         <HoverCard
           onOpenChange={(open) => {
-            if (open) trackEvent({ name: "toc_minimap_hover" })
+            if (open) {
+              play()
+              trackEvent({ name: "toc_minimap_hover" })
+            }
           }}
         >
           <HoverCardTrigger

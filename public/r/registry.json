@@ -33,29 +33,24 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
-      "name": "use-controllable-state",
-      "title": "Controllable State Hook",
+      "name": "use-sound",
+      "title": "useSound",
+      "description": "Hook for playing sound effects with volume, playback rate, and interrupt controls.",
       "files": [
         {
-          "path": "src/hooks/use-layout-effect.tsx",
-          "type": "registry:hook"
+          "path": "src/registry/hooks/sound/use-sound.ts",
+          "type": "registry:hook",
+          "target": "hooks/sound/use-sound.ts"
         },
         {
-          "path": "src/hooks/use-controllable-state.ts",
-          "type": "registry:hook"
-        }
-      ],
-      "type": "registry:hook",
-      "author": "ncdai <dai@chanhdai.com>"
-    },
-    {
-      "name": "use-sound",
-      "title": "Sound Hook",
-      "description": "Custom React hook to load and play a sound from a given URL using the Web Audio API.",
-      "files": [
+          "path": "src/registry/lib/sound/sound-engine.ts",
+          "type": "registry:lib",
+          "target": "lib/sound/sound-engine.ts"
+        },
         {
-          "path": "src/hooks/use-sound.ts",
-          "type": "registry:hook"
+          "path": "src/registry/lib/sound/sound-types.ts",
+          "type": "registry:lib",
+          "target": "lib/sound/sound-types.ts"
         }
       ],
       "type": "registry:hook",

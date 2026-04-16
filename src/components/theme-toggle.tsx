@@ -4,9 +4,9 @@ import { useTheme } from "next-themes"
 import { useHotkeys } from "react-hotkeys-hook"
 
 import { META_THEME_COLORS } from "@/config/site"
+import { useSound } from "@/hooks/soundcn/use-sound"
 import { useMetaColor } from "@/hooks/use-meta-color"
-import { useSound } from "@/hooks/use-sound"
-import { SOUNDS } from "@/lib/sounds"
+import { clickSoftSound } from "@/lib/soundcn/click-soft"
 
 import { MoonIcon } from "./animated-icons/moon"
 import { SunMediumIcon } from "./animated-icons/sun-medium"
@@ -19,10 +19,10 @@ export function ThemeToggle() {
 
   const { setMetaColor } = useMetaColor()
 
-  const playClick = useSound(SOUNDS.click)
+  const [play] = useSound(clickSoftSound, { volume: 0.2 })
 
   const switchTheme = (sound = true) => {
-    if (sound) playClick(0.2)
+    if (sound) play()
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
     setMetaColor(
       resolvedTheme === "dark"

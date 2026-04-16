@@ -2,8 +2,6 @@
 
 import { toast } from "sonner"
 
-import { useSound } from "@/hooks/use-sound"
-import { SOUNDS } from "@/lib/sounds"
 import { ShimmeringText } from "@/registry/components/shimmering-text"
 import {
   SlideToUnlock,
@@ -11,14 +9,17 @@ import {
   SlideToUnlockText,
   SlideToUnlockTrack,
 } from "@/registry/components/slide-to-unlock"
+import { useSound } from "@/registry/hooks/sound/use-sound"
 
 export default function SlideToUnlockDemo1() {
-  const playSound = useSound(SOUNDS.unlock)
+  const [play] = useSound("https://assets.chanhdai.com/sounds/ios/unlock.mp3", {
+    volume: 0.5,
+  })
 
   return (
     <SlideToUnlock
       onUnlock={() => {
-        playSound(0.5)
+        play()
         toast.success("Unlocked")
       }}
     >
