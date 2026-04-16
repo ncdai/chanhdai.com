@@ -36,8 +36,10 @@ import {
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
+import { useSound } from "@/hooks/soundcn/use-sound"
 import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { trackEvent } from "@/lib/events"
+import { clickSoftSound } from "@/lib/soundcn/click-soft"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
@@ -185,6 +187,8 @@ export function CommandMenu({
 
   const [, setIsDuckFollowerVisible] = useDuckFollowerVisibility()
 
+  const [playClick] = useSound(clickSoftSound, { volume: 0.2 })
+
   useHotkeys(
     "mod+k, slash",
     (e) => {
@@ -242,6 +246,7 @@ export function CommandMenu({
 
   const createThemeHandler = useCallback(
     (theme: "light" | "dark" | "system") => () => {
+      playClick()
       setOpen(false)
 
       trackEvent({
@@ -254,7 +259,7 @@ export function CommandMenu({
 
       setTheme(theme)
     },
-    [setTheme]
+    [playClick, setTheme]
   )
 
   const handleToggleDuckFollower = useCallback(() => {

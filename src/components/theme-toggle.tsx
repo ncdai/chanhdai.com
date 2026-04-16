@@ -21,8 +21,8 @@ export function ThemeToggle() {
 
   const [play] = useSound(clickSoftSound, { volume: 0.2 })
 
-  const switchTheme = (sound = true) => {
-    if (sound) play()
+  const switchTheme = () => {
+    play()
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
     setMetaColor(
       resolvedTheme === "dark"
@@ -31,7 +31,7 @@ export function ThemeToggle() {
     )
   }
 
-  useHotkeys("d", () => switchTheme(false))
+  useHotkeys("d", () => switchTheme())
 
   return (
     <Tooltip>
