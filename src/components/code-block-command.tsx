@@ -65,11 +65,11 @@ export function CodeBlockCommand({
         {Object.entries(tabs).map(([key, value]) => {
           return (
             <TabsContent key={key} value={key}>
-              <pre className="scroll-fade-effect-x">
+              <pre className="overflow-x-auto overscroll-x-contain leading-5">
                 <code
                   data-slot="code-block"
                   data-language="bash"
-                  className="font-mono text-sm leading-none text-muted-foreground"
+                  className="font-mono text-sm/none text-muted-foreground"
                 >
                   <span className="select-none">$ </span>
                   {value}
