@@ -57,6 +57,18 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "use-controllable-state",
+      "title": "useControllableState",
+      "files": [
+        {
+          "path": "src/registry/hooks/use-controllable-state/use-controllable-state.tsx",
+          "type": "registry:hook"
+        }
+      ],
+      "type": "registry:hook",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "theme-switcher",
       "title": "Theme Switcher",
       "description": "Toggle between system, light, and dark themes in Next.js apps.",
@@ -564,6 +576,26 @@
         }
       },
       "docs": "https://chanhdai.com/components/twemoji",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
+      "name": "elastic-slider",
+      "title": "Elastic Slider",
+      "description": "Slider with elastic rubber-band drag and magnetic snap feedback.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://chanhdai.com/r/use-controllable-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/elastic-slider/elastic-slider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/elastic-slider",
       "type": "registry:component",
       "author": "ncdai <dai@chanhdai.com>"
     },

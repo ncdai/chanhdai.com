@@ -66,6 +66,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "use-controllable-state": {
+    name: "use-controllable-state",
+    description: "",
+    type: "registry:hook",
+    files: [{
+      path: "src/registry/hooks/use-controllable-state/use-controllable-state.tsx",
+      type: "registry:hook",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/hooks/use-controllable-state/use-controllable-state.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "theme-switcher": {
     name: "theme-switcher",
     description: "Toggle between system, light, and dark themes in Next.js apps.",
@@ -433,6 +450,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/components/twemoji/twemoji.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "elastic-slider": {
+    name: "elastic-slider",
+    description: "Slider with elastic rubber-band drag and magnetic snap feedback.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/elastic-slider/elastic-slider.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/elastic-slider/elastic-slider.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -1154,6 +1188,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/theme-toggle-effect-demo/theme-toggle-effect-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "elastic-slider-demo": {
+    name: "elastic-slider-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/elastic-slider-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/elastic-slider-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
