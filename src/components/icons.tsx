@@ -6,15 +6,13 @@ import {
   LayoutGridIcon,
   MoonStarIcon,
   MouseIcon,
-  PaintRollerIcon,
+  PaintbrushIcon,
   QuoteIcon,
   ScissorsIcon,
   SeparatorHorizontalIcon,
-  SmileIcon,
-  SpotlightIcon,
   SquareTerminalIcon,
+  SunDimIcon,
   TerminalSquareIcon,
-  ToggleLeftIcon,
   VibrateIcon,
   ZapIcon,
 } from "lucide-react"
@@ -699,7 +697,23 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
     }
 
     case "slide-to-unlock": {
-      return <ToggleLeftIcon {...props} />
+      return (
+        // Icon designed by @ncdai
+        <svg viewBox="0 0 24 24" fill="none" {...props}>
+          <path
+            stroke="currentColor"
+            strokeWidth="2"
+            d="M3 10a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"
+          />
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M6 12h6M9 15l3-3-3-3"
+          />
+        </svg>
+      )
     }
 
     case "testimonial": {
@@ -753,7 +767,7 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
     }
 
     case "testimonial-spotlight": {
-      return <SpotlightIcon {...props} />
+      return <SunDimIcon {...props} />
     }
 
     case "glow-card-grid": {
@@ -765,11 +779,30 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
     }
 
     case "twemoji": {
-      return <SmileIcon {...props} />
+      return <Icons.x {...props} />
     }
 
     case "theme-toggle-effect": {
-      return <PaintRollerIcon {...props} />
+      return <PaintbrushIcon {...props} />
+    }
+
+    case "elastic-slider": {
+      return (
+        // Icon designed by @ncdai
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden {...props}>
+          <path
+            stroke="currentColor"
+            strokeWidth="2"
+            d="M3 10a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"
+          />
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeWidth="2"
+            d="M17 10v4"
+          />
+        </svg>
+      )
     }
 
     default: {
