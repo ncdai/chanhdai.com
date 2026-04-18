@@ -349,4 +349,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     quote: "This looks insanely good 👀🔥",
     date: "2026-04-04",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/joshpuckett",
+    authorName: "joshpuckett",
+    authorTagline: "Teaching at interfacecraft.dev",
+    url: "https://x.com/joshpuckett/status/2045487801618284892",
+    quote: "Good recreation! Focus state is nice touch",
+    date: "2026-04-18",
+  },
 ]
