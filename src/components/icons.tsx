@@ -724,7 +724,8 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
       return <GalleryHorizontalEndIcon {...props} />
     }
 
-    case "github-stars": {
+    case "github-stars":
+    case "github-contributions": {
       return <Icons.github {...props} />
     }
 

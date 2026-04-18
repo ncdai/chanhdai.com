@@ -1,16 +1,15 @@
 import { unstable_cache } from "next/cache"
 
-import { GITHUB_USERNAME } from "@/config/site"
 import type { Activity } from "@/registry/components/contribution-graph"
 
 type GitHubContributionsResponse = {
   contributions: Activity[]
 }
 
-export const getGitHubContributions = unstable_cache(
-  async () => {
+export const getCachedContributions = unstable_cache(
+  async (username: string) => {
     const res = await fetch(
-      `${process.env.GITHUB_CONTRIBUTIONS_API_URL}/v4/${GITHUB_USERNAME}?y=last`
+      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
     )
     const data = (await res.json()) as GitHubContributionsResponse
     return data.contributions

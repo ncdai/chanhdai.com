@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-contributions",
+  "title": "GitHub Contributions",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "Visualize year-long GitHub contribution activity with daily counts, tooltips, and a profile link.",
+  "dependencies": [
+    "date-fns"
+  ],
+  "registryDependencies": [
+    "tooltip",
+    "https://chanhdai.com/r/contribution-graph.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/github-contributions/github-contributions.tsx",
+      "content": "\"use client\"\n\nimport { format } from \"date-fns\"\nimport { LoaderIcon } from \"lucide-react\"\nimport { use } from \"react\"\n\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/components/ui/tooltip\"\nimport type { Activity } from \"@/registry/components/contribution-graph\"\nimport {\n  ContributionGraph,\n  ContributionGraphBlock,\n  ContributionGraphCalendar,\n  ContributionGraphFooter,\n  ContributionGraphLegend,\n  ContributionGraphTotalCount,\n} from \"@/registry/components/contribution-graph\"\n\nexport function GitHubContributions({\n  contributions,\n  githubProfileUrl,\n}: {\n  contributions: Promise<Activity[]>\n  githubProfileUrl: string\n}) {\n  const data = use(contributions)\n\n  return (\n    <ContributionGraph\n      className=\"mx-auto py-2\"\n      data={data}\n      blockSize={11}\n      blockMargin={3}\n      blockRadius={2}\n    >\n      <ContributionGraphCalendar\n        className=\"no-scrollbar px-2\"\n        title=\"GitHub Contributions\"\n      >\n        {({ activity, dayIndex, weekIndex }) => (\n          <Tooltip>\n            <TooltipTrigger asChild>\n              <g>\n                <ContributionGraphBlock\n                  activity={activity}\n                  dayIndex={dayIndex}\n                  weekIndex={weekIndex}\n                />\n              </g>\n            </TooltipTrigger>\n            <TooltipContent className=\"font-sans\">\n              <p>\n                {activity.count} contribution{activity.count > 1 ? \"s\" : null}{\" \"}\n                on {format(new Date(activity.date), \"dd.MM.yyyy\")}\n              </p>\n            </TooltipContent>\n          </Tooltip>\n        )}\n      </ContributionGraphCalendar>\n\n      <ContributionGraphFooter className=\"px-2\">\n        <ContributionGraphTotalCount>\n          {({ totalCount, year }) => (\n            <div className=\"text-muted-foreground\">\n              {totalCount.toLocaleString(\"en\")} contributions in {year} on{\" \"}\n              <a\n                className=\"text-foreground link-underline\"\n                href={githubProfileUrl}\n                target=\"_blank\"\n                rel=\"noopener\"\n              >\n                GitHub\n              </a>\n              .\n            </div>\n          )}\n        </ContributionGraphTotalCount>\n\n        <ContributionGraphLegend />\n      </ContributionGraphFooter>\n    </ContributionGraph>\n  )\n}\n\nexport function GitHubContributionsFallback() {\n  return (\n    <div className=\"flex h-40.5 w-full items-center justify-center\">\n      <LoaderIcon className=\"animate-spin text-muted-foreground\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/registry/components/github-contributions/lib/get-cached-contributions.ts",
+      "content": "import { unstable_cache } from \"next/cache\"\n\nimport type { Activity } from \"@/registry/components/contribution-graph\"\n\ntype GitHubContributionsResponse = {\n  contributions: Activity[]\n}\n\nexport const getCachedContributions = unstable_cache(\n  async (username: string) => {\n    const res = await fetch(\n      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`\n    )\n    const data = (await res.json()) as GitHubContributionsResponse\n    return data.contributions\n  },\n  [\"github-contributions\"],\n  { revalidate: 86400 } // Cache for 1 day (86400 seconds)\n)\n",
+      "type": "registry:lib"
+    }
+  ],
+  "css": {
+    "@utility link-underline": {
+      "@apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current": {}
+    }
+  },
+  "docs": "https://chanhdai.com/components/github-contributions",
+  "type": "registry:component"
+}

@@ -478,4 +478,45 @@ export const components: Registry["items"] = [
     ],
     docs: "https://chanhdai.com/components/elastic-slider",
   },
+  {
+    name: "contribution-graph",
+    type: "registry:component",
+    title: "Contribution Graph",
+    description:
+      "A GitHub-style contribution graph component that displays activity levels over time.",
+    dependencies: ["date-fns"],
+    files: [
+      {
+        path: "components/contribution-graph/contribution-graph.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://www.kibo-ui.com/components/contribution-graph",
+  },
+  {
+    name: "github-contributions",
+    type: "registry:component",
+    title: "GitHub Contributions",
+    description:
+      "Visualize year-long GitHub contribution activity with daily counts, tooltips, and a profile link.",
+    dependencies: ["date-fns"],
+    registryDependencies: ["tooltip", getRegistryItemUrl("contribution-graph")],
+    files: [
+      {
+        path: "components/github-contributions/github-contributions.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "components/github-contributions/lib/get-cached-contributions.ts",
+        type: "registry:lib",
+      },
+    ],
+    css: {
+      "@utility link-underline": {
+        "@apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current":
+          {},
+      },
+    },
+    docs: "https://chanhdai.com/components/github-contributions",
+  },
 ]

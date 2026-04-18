@@ -390,4 +390,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "github-contributions-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("github-contributions")],
+    files: [
+      {
+        path: "examples/github-contributions-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

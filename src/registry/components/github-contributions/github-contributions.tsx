@@ -8,8 +8,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
-import { GITHUB_USERNAME, UTM_PARAMS } from "@/config/site"
+} from "@/components/ui/tooltip"
 import type { Activity } from "@/registry/components/contribution-graph"
 import {
   ContributionGraph,
@@ -19,12 +18,13 @@ import {
   ContributionGraphLegend,
   ContributionGraphTotalCount,
 } from "@/registry/components/contribution-graph"
-import { addQueryParams } from "@/utils/url"
 
-export function GitHubContributionGraph({
+export function GitHubContributions({
   contributions,
+  githubProfileUrl,
 }: {
   contributions: Promise<Activity[]>
+  githubProfileUrl: string
 }) {
   const data = use(contributions)
 
@@ -42,17 +42,15 @@ export function GitHubContributionGraph({
       >
         {({ activity, dayIndex, weekIndex }) => (
           <Tooltip>
-            <TooltipTrigger
-              render={
-                <g>
-                  <ContributionGraphBlock
-                    activity={activity}
-                    dayIndex={dayIndex}
-                    weekIndex={weekIndex}
-                  />
-                </g>
-              }
-            />
+            <TooltipTrigger asChild>
+              <g>
+                <ContributionGraphBlock
+                  activity={activity}
+                  dayIndex={dayIndex}
+                  weekIndex={weekIndex}
+                />
+              </g>
+            </TooltipTrigger>
             <TooltipContent className="font-sans">
               <p>
                 {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}
@@ -70,10 +68,7 @@ export function GitHubContributionGraph({
               {totalCount.toLocaleString("en")} contributions in {year} on{" "}
               <a
                 className="text-foreground link-underline"
-                href={addQueryParams(
-                  `https://github.com/${GITHUB_USERNAME}`,
-                  UTM_PARAMS
-                )}
+                href={githubProfileUrl}
                 target="_blank"
                 rel="noopener"
               >
@@ -90,7 +85,7 @@ export function GitHubContributionGraph({
   )
 }
 
-export function GitHubContributionFallback() {
+export function GitHubContributionsFallback() {
   return (
     <div className="flex h-40.5 w-full items-center justify-center">
       <LoaderIcon className="animate-spin text-muted-foreground" />
