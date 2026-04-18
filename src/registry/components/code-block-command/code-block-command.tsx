@@ -1,5 +1,6 @@
 "use client"
 
+import { ScrollArea } from "@base-ui/react/scroll-area"
 import { useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 import { TerminalIcon, TextAlignStartIcon } from "lucide-react"
@@ -12,6 +13,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/base/ui/tabs"
+import { cn } from "@/lib/utils"
 import { CopyButton } from "@/registry/components/copy-button"
 
 export type PackageManager = "prompt" | "pnpm" | "yarn" | "npm" | "bun"
@@ -133,8 +135,15 @@ export function CodeBlockCommand({
           setPackageManager(value as PackageManager)
         }}
       >
-        <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-border">
-          <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
+        <ScrollArea.Root className="w-full pr-10 shadow-[inset_0_-1px_0_0] shadow-border">
+          <TabsList
+            className={cn(
+              "h-10 max-w-full justify-start rounded-none bg-transparent p-0 pl-4 dark:bg-transparent [&_svg]:mr-2 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground",
+              "[--scroll-area-overflow-x-end:inherit] [--scroll-area-overflow-x-start:inherit]",
+              "mask-linear-[to_right,transparent_0,black_min(2.5rem,var(--scroll-area-overflow-x-start)),black_calc(100%-min(2.5rem,var(--scroll-area-overflow-x-end,2.5rem))),transparent_100%]"
+            )}
+            render={<ScrollArea.Viewport />}
+          >
             {getIconForPackageManager(packageManager)}
 
             {tabsFiltered.map(([key]) => {
@@ -151,18 +160,23 @@ export function CodeBlockCommand({
 
             <TabsIndicator className="h-0.5 translate-y-0 rounded-none bg-foreground shadow-none dark:bg-foreground" />
           </TabsList>
-        </div>
+        </ScrollArea.Root>
 
         {tabsFiltered.map(([key, value]) => {
           return (
             <TabsContent key={key} value={key}>
-              <pre className="overflow-x-auto overscroll-x-contain p-4">
+              <pre
+                data-pm={key}
+                className="group/tabs-content-pre overscroll-x-contain p-4 leading-6 not-data-[pm=prompt]:overflow-x-auto"
+              >
                 <code
                   data-slot="code-block"
                   data-language="bash"
-                  className="font-mono text-sm leading-none text-muted-foreground"
+                  className="font-mono text-sm/none text-muted-foreground group-data-[pm=prompt]/tabs-content-pre:whitespace-normal"
                 >
-                  {key !== "prompt" && <span className="select-none">$ </span>}
+                  <span className="select-none group-data-[pm=prompt]/tabs-content-pre:hidden">
+                    ${" "}
+                  </span>
                   {value}
                 </code>
               </pre>
