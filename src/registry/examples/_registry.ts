@@ -350,7 +350,10 @@ export const examples: Registry["items"] = [
   {
     name: "middle-truncation-demo",
     type: "registry:example",
-    registryDependencies: [getRegistryItemUrl("middle-truncation")],
+    registryDependencies: [
+      "resizable",
+      getRegistryItemUrl("middle-truncation"),
+    ],
     files: [
       {
         path: "examples/middle-truncation-demo.tsx",
