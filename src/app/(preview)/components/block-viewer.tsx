@@ -380,7 +380,11 @@ function BlockViewerView() {
           </ResizablePanel>
 
           <ResizableHandle
-            className="relative w-2 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-12 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all hover:after:bg-zinc-300 focus-visible:ring-0 focus-visible:ring-offset-0 dark:hover:after:bg-zinc-700"
+            className={cn(
+              "relative w-2 -translate-x-4 bg-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0",
+              "after:absolute after:top-1/2 after:left-0.5 after:h-12 after:w-1.5 after:translate-x-0 after:-translate-y-1/2 after:rounded-full after:bg-foreground/10 after:transition-all",
+              "data-[separator=active]:after:scale-y-125 data-[separator=active]:after:bg-foreground/30 data-[separator=hover]:after:bg-foreground/20"
+            )}
             disableDoubleClick
           />
 

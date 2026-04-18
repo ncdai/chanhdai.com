@@ -10,7 +10,7 @@ import { MiddleTruncation } from "@/registry/components/middle-truncation"
 export default function MiddleTruncationDemo() {
   return (
     <ResizablePanelGroup orientation="horizontal" className="w-full max-w-md">
-      <ResizablePanel minSize="30%" defaultSize="100%" className="pr-1">
+      <ResizablePanel minSize="30%" defaultSize="100%" className="pr-0.5">
         <ExampleCard>
           <ExampleItem>
             <ExampleLabel>{`<MiddleTruncation>`}</ExampleLabel>
@@ -43,7 +43,7 @@ export default function MiddleTruncationDemo() {
       </ResizablePanel>
 
       <ResizableHandle
-        className="relative w-2 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-12 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all hover:after:bg-zinc-300 focus-visible:ring-0 focus-visible:ring-offset-0 dark:hover:after:bg-zinc-700"
+        className="relative w-2 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:left-0.5 after:h-12 after:w-1.5 after:translate-x-0 after:-translate-y-1/2 after:rounded-full after:bg-foreground/10 after:transition-all focus-visible:ring-0 focus-visible:ring-offset-0 data-[separator=active]:after:scale-y-125 data-[separator=active]:after:bg-foreground/30 data-[separator=hover]:after:bg-foreground/20"
         disableDoubleClick
       />
 
@@ -66,7 +66,7 @@ function ExampleItem({ children }: { children: React.ReactNode }) {
 
 function ExampleLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-hidden font-mono text-xs whitespace-nowrap text-muted-foreground">
+    <div className="truncate font-mono text-xs whitespace-nowrap text-muted-foreground">
       {children}
     </div>
   )
