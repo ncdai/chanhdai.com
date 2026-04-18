@@ -4,6 +4,7 @@ import type { ComponentProps } from "react"
 import type { Button } from "@/components/ui/button"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
 import type { CopyButton } from "@/registry/components/copy-button"
+import type { GitHubContributions } from "@/registry/components/github-contributions"
 import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
 import type { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
 import type { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
@@ -85,4 +86,8 @@ export type GlowCardGridProps = Omit<
 export type MiddleTruncationProps = Omit<
   ComponentProps<typeof MiddleTruncation>,
   keyof Omit<ComponentProps<"span">, "children" | "className">
+>
+
+export type GitHubContributionsProps = ComponentProps<
+  typeof GitHubContributions
 >
