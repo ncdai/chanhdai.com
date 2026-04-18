@@ -5,7 +5,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
-import { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
+import { MiddleTruncation } from "@/registry/components/middle-truncation"
 
 export default function MiddleTruncationDemo() {
   return (
