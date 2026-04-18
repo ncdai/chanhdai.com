@@ -66,7 +66,7 @@ function ExampleItem({ children }: { children: React.ReactNode }) {
 
 function ExampleLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-hidden font-mono text-xs whitespace-nowrap text-muted-foreground">
+    <div className="truncate font-mono text-xs whitespace-nowrap text-muted-foreground">
       {children}
     </div>
   )
