@@ -19,7 +19,7 @@
     },
     {
       "path": "src/registry/components/github-contributions/lib/get-cached-contributions.ts",
-      "content": "import { unstable_cache } from \"next/cache\"\n\nimport type { Activity } from \"@/registry/components/contribution-graph\"\n\ntype GitHubContributionsResponse = {\n  contributions: Activity[]\n}\n\nexport const getCachedContributions = unstable_cache(\n  async (username: string) => {\n    const res = await fetch(\n      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`\n    )\n    const data = (await res.json()) as GitHubContributionsResponse\n    return data.contributions\n  },\n  [\"github-contributions\"],\n  { revalidate: 86400 } // Cache for 1 day (86400 seconds)\n)\n",
+      "content": "import { unstable_cache } from \"next/cache\"\n\nimport type { Activity } from \"@/registry/components/contribution-graph\"\n\ntype GitHubContributionsResponse = {\n  contributions: Activity[]\n}\n\nexport const getCachedContributions = unstable_cache(\n  async (username: string) => {\n    const res = await fetch(\n      `${process.env.GITHUB_CONTRIBUTIONS_API_URL || `https://github-contributions-api.jogruber.de`}/v4/${username}?y=last`\n    )\n    const data = (await res.json()) as GitHubContributionsResponse\n    return data.contributions\n  },\n  [\"github-contributions\"],\n  { revalidate: 86400 } // Cache for 1 day (86400 seconds)\n)\n",
       "type": "registry:lib"
     }
   ],
