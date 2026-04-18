@@ -379,4 +379,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "elastic-slider-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("elastic-slider")],
+    files: [
+      {
+        path: "examples/elastic-slider-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

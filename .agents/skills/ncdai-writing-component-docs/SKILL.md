@@ -1,11 +1,11 @@
 ---
 name: ncdai-writing-component-docs
-description: Write and review component documentation (MDX) and registry descriptions. Covers doc structure, description writing, Features, and Composition sections. Use when creating new component docs, updating descriptions, adding Features sections, adding Composition sections, or reviewing component documentation quality.
+description: Write and review component documentation (MDX) and registry descriptions. Covers doc structure, description writing, Features, Composition, and References sections. Use when creating new component docs, updating descriptions, adding Features sections, adding Composition sections, adding References sections, or reviewing component documentation quality.
 ---
 
 # Writing Component Documentation
 
-Guide for writing concise, consistent component documentation for this project's registry. Covers MDX doc structure, description writing, Features sections, and Composition sections.
+Guide for writing concise, consistent component documentation for this project's registry. Covers MDX doc structure, description writing, Features sections, Composition sections, and References sections.
 
 ## Key Files
 
@@ -179,6 +179,80 @@ Testimonial
 \```
 ````
 
+## Writing References Sections
+
+### When to Include
+
+Add `## References` when the component is inspired by, derived from, or relies on external sources that the reader would benefit from visiting. Examples: original demo or tweet that inspired the component, design course or article, underlying library docs, web platform APIs the component depends on, related shadcn/ui components.
+
+### When to Skip
+
+Skip `## References` when the component is fully self-contained and was not derived from any external source worth crediting. Do not pad with generic links (e.g., do not link to React docs or generic Tailwind docs).
+
+### Rules
+
+1. Use exactly `## References` as the heading (not "Credits", not "Resources", not "See Also").
+2. Place it as the LAST section in the doc.
+3. Bullet list of markdown links, one item per line.
+4. Keep the list short (typically 1-5 items). Every link must add value.
+5. Always credit the original creator when the component is inspired by someone else's work.
+6. No emoji.
+
+### Item Formats
+
+Pick the format that matches the kind of link:
+
+| Format                                              | Use For                                                 |
+| --------------------------------------------------- | ------------------------------------------------------- |
+| `- [Title](url)`                                    | Plain reference (docs, related component, web API).     |
+| `- [Title](url) by [Author](url-or-handle)`         | Original work credit (designer, engineer, demo author). |
+| `- [Title](url) — short context`                    | When the title alone does not convey what it is.        |
+| `- [Title](url) by [@handle](https://x.com/handle)` | Crediting via social handle.                            |
+
+### Good Examples
+
+```markdown
+## References
+
+- [Original glow effect demo by @jh3yy](https://x.com/jh3yy/status/1992003440579662211)
+- [DialKit](https://joshpuckett.me/dialkit)
+```
+
+```markdown
+## References
+
+- [theme-toggle.rdsx.dev](https://theme-toggle.rdsx.dev) by [@rds_agi](https://x.com/rds_agi)
+- [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)
+```
+
+```markdown
+## References
+
+- [Slider in DialKit](https://joshpuckett.me/dialkit) by [Josh Puckett](https://joshpuckett.me)
+- [Creating a Slider Component](https://www.interfacecraft.dev) — Interface Craft course by Josh Puckett
+```
+
+### Bad Examples
+
+```markdown
+## Credits
+
+Thanks to everyone who inspired this component! ❤️
+
+- React: https://react.dev
+- Tailwind CSS: https://tailwindcss.com
+```
+
+Issues: wrong heading name, narrative intro, emoji, raw URLs instead of markdown links, generic links that add no value (every React component depends on React).
+
+```markdown
+## References
+
+- https://x.com/jh3yy/status/1992003440579662211
+```
+
+Issue: raw URL with no title or author credit. Reader cannot tell what they are clicking.
+
 ## Registry Item Format
 
 Each component in `src/registry/components/_registry.ts` must have a `description` field matching the MDX frontmatter:
@@ -204,4 +278,6 @@ When creating or updating a component doc:
 4. If adding Features, write 2-4 bullet points following the rules.
 5. Decide whether `## Composition` is needed (compound/composable components).
 6. If adding Composition, draw the tree matching the Usage JSX structure.
-7. Verify section order: Preview -> Features -> Installation -> Usage -> Composition -> API Reference -> Examples.
+7. Decide whether `## References` is needed (external sources worth crediting).
+8. If adding References, credit original authors and use the correct item format.
+9. Verify section order: Preview -> Features -> Installation -> Usage -> Composition -> API Reference -> Examples -> References.

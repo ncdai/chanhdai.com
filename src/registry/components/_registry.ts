@@ -462,4 +462,20 @@ export const components: Registry["items"] = [
     },
     docs: "https://chanhdai.com/components/twemoji",
   },
+  {
+    name: "elastic-slider",
+    type: "registry:component",
+    title: "Elastic Slider",
+    description:
+      "Slider with elastic rubber-band drag and magnetic snap feedback.",
+    dependencies: ["motion"],
+    registryDependencies: [getRegistryItemUrl("use-controllable-state")],
+    files: [
+      {
+        path: "components/elastic-slider/elastic-slider.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://chanhdai.com/components/elastic-slider",
+  },
 ]

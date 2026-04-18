@@ -1,0 +1,166 @@
+---
+title: Elastic Slider
+description: Slider with elastic rubber-band drag and magnetic snap feedback.
+image: https://assets.chanhdai.com/images/blog/elastic-slider.webp
+category: components
+new: true
+createdAt: 2026-04-18
+updatedAt: 2026-04-18
+---
+
+<ComponentPreview
+  name="elastic-slider-demo"
+  openInV0Url="https://chanhdai.com/r/elastic-slider.json"
+/>
+
+## Features
+
+- Track stretches with rubber-band tension when dragged past bounds.
+- Snaps magnetically to exact steps or continuous deciles.
+- Inline label and value text dynamically fade to avoid handle overlap.
+- Supports keyboard navigation and respects `prefers-reduced-motion`
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/elastic-slider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="use-controllable-state"
+  title="hooks/use-controllable-state.tsx"
+  showLineNumbers
+/>
+
+<ComponentSource
+  name="elastic-slider"
+  title="components/elastic-slider.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ElasticSlider } from "@/components/elastic-slider"
+```
+
+```tsx
+const [opacity, setOpacity] = useState(0.5)
+
+<ElasticSlider
+  label="Opacity"
+  min={0}
+  max={1}
+  value={opacity}
+  onValueChange={setOpacity}
+/>
+```
+
+Uncontrolled:
+
+```tsx
+<ElasticSlider label="Opacity" min={0} max={1} defaultValue={0.5} />
+```
+
+## Accessibility
+
+### Keyboard
+
+| Key                     | Description                       |
+| ----------------------- | --------------------------------- |
+| `ArrowRight` `ArrowUp`  | Increase by one `step`            |
+| `ArrowLeft` `ArrowDown` | Decrease by one `step`            |
+| `Shift + Arrow`         | Increase or decrease by `step*10` |
+| `Home`                  | Jump to `min`                     |
+| `End`                   | Jump to `max`                     |
+
+### Reduced motion
+
+When `prefers-reduced-motion` is on, rubber-band stretch and spring-based fill motion are skipped; the handle still updates without spring transitions on opacity and scale.
+
+## API Reference
+
+### ElasticSlider
+
+<AutoTypeTable
+  path="src/registry/components/elastic-slider/elastic-slider.tsx"
+  name="ElasticSliderProps"
+/>
+
+## Styling
+
+### CSS Variables
+
+<div data-table-nowrap="">
+
+| Variable                       | Meaning                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| `--elastic-slider-height`      | Total height of the control (theme spacing scale).                      |
+| `--elastic-slider-radius`      | Corner radius of the track.                                             |
+| `--elastic-slider-bg`          | Track background.                                                       |
+| `--elastic-slider-fill`        | Fill behind the thumb when the track is idle.                           |
+| `--elastic-slider-fill-active` | Fill behind the thumb when hovered, keyboard-focused, or dragging.      |
+| `--elastic-slider-hash`        | Step or decile tick marks when the track is active.                     |
+| `--elastic-slider-handle`      | Thumb color.                                                            |
+| `--elastic-slider-label`       | Label text color; base tint for the numeric value.                      |
+| `--elastic-slider-focus`       | Numeric value color when the track is active (stronger than the label). |
+
+</div>
+
+### Data Slots
+
+<div data-table-nowrap="">
+
+| Slot                        | Description                                     |
+| --------------------------- | ----------------------------------------------- |
+| `elastic-slider`            | Root wrapper; CSS variables are defined here.   |
+| `elastic-slider-track`      | Focusable track, rubber-band width, focus ring. |
+| `elastic-slider-hash-marks` | Container for tick marks.                       |
+| `elastic-slider-fill`       | Filled portion of the track.                    |
+| `elastic-slider-handle`     | Vertical handle.                                |
+| `elastic-slider-label`      | Inline label.                                   |
+| `elastic-slider-value`      | Formatted value.                                |
+
+</div>
+
+## References
+
+- [Slider in DialKit](https://joshpuckett.me/dialkit) by [Josh Puckett](https://joshpuckett.me)
+- [Creating a Slider Component](https://www.interfacecraft.dev) — Interface Craft course by Josh Puckett
