@@ -129,6 +129,7 @@ function SponsorsGroup({
               data-tier={item.tier.replaceAll("_", "-")}
               className={cn(
                 "[&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0",
+                "data-[tier=osp]:[&_svg]:max-w-60",
                 "data-[tier=silver]:[&_svg]:max-w-60",
                 "data-[tier=spark-supporter]:[&_svg]:max-w-50"
               )}
