@@ -1,5 +1,6 @@
 "use client"
 
+import { useTiks } from "@rexa-developer/tiks/react"
 import { MoonIcon, SunMediumIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 
@@ -9,12 +10,14 @@ import { ThemeToggleEffectSelector } from "./theme-toggle-effect-selector"
 
 export default function ThemeToggleEffectDemo() {
   const { resolvedTheme, setTheme } = useTheme()
+  const { click } = useTiks()
 
   const switchTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
   }
 
   const handleThemeToggleClick = () => {
+    click()
     if (!document.startViewTransition) switchTheme()
     else document.startViewTransition(switchTheme)
   }
