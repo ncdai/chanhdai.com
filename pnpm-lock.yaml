@@ -36,6 +36,9 @@ importers:
       '@openpanel/web':
         specifier: ^1.2.0
         version: 1.2.0
+      '@rexa-developer/tiks':
+        specifier: ^0.1.8
+        version: 0.1.8(react@19.2.5)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -2281,6 +2284,17 @@ packages:
 
   '@radix-ui/rect@1.1.1':
     resolution: {integrity: sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==}
+
+  '@rexa-developer/tiks@0.1.8':
+    resolution: {integrity: sha512-o7lrpg6njz9vHLSOlzrNL4eiuV1YUozJz8C6ZqDDFaQP9tLUvn+dqO9qoV2vRVWgm8vcuHTESplwBxoNeX73Mw==}
+    peerDependencies:
+      react: '>=18.0.0'
+      vue: '>=3.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      vue:
+        optional: true
 
   '@rollup/rollup-linux-x64-gnu@4.59.0':
     resolution: {integrity: sha512-3AHmtQq/ppNuUspKAlvA8HtLybkDflkMuLK4DPo77DfthRb71V84/c4MlWJXixZz4uruIH4uaa07IqoAkG64fg==}
@@ -9018,6 +9032,10 @@ snapshots:
       '@types/react-dom': 19.2.3(@types/react@19.2.14)
 
   '@radix-ui/rect@1.1.1': {}
+
+  '@rexa-developer/tiks@0.1.8(react@19.2.5)':
+    optionalDependencies:
+      react: 19.2.5
 
   '@rollup/rollup-linux-x64-gnu@4.59.0':
     optional: true

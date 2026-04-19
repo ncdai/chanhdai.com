@@ -1,24 +1,23 @@
 "use client"
 
+import { useTiks } from "@rexa-developer/tiks/react"
 import { MoonIcon, SunMediumIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import { useSound } from "@/hooks/soundcn/use-sound"
-import { clickSoftSound } from "@/lib/soundcn/click-soft"
 
 import { ThemeToggleEffectSelector } from "./theme-toggle-effect-selector"
 
 export default function ThemeToggleEffectDemo() {
   const { resolvedTheme, setTheme } = useTheme()
-  const [play] = useSound(clickSoftSound, { volume: 0.2 })
+  const { click } = useTiks()
 
   const switchTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
   }
 
   const handleThemeToggleClick = () => {
-    play()
+    click()
     if (!document.startViewTransition) switchTheme()
     else document.startViewTransition(switchTheme)
   }

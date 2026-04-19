@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from "@bprogress/next/app"
+import { useTiks } from "@rexa-developer/tiks/react"
 import { useCommandState } from "cmdk"
 import {
   AwardIcon,
@@ -36,10 +37,8 @@ import {
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
-import { useSound } from "@/hooks/soundcn/use-sound"
 import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { trackEvent } from "@/lib/events"
-import { clickSoftSound } from "@/lib/soundcn/click-soft"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
@@ -187,7 +186,7 @@ export function CommandMenu({
 
   const [, setIsDuckFollowerVisible] = useDuckFollowerVisibility()
 
-  const [playClick] = useSound(clickSoftSound, { volume: 0.2 })
+  const { click } = useTiks()
 
   useHotkeys(
     "mod+k, slash",
@@ -246,7 +245,7 @@ export function CommandMenu({
 
   const createThemeHandler = useCallback(
     (theme: "light" | "dark" | "system") => () => {
-      playClick()
+      click()
       setOpen(false)
 
       trackEvent({
@@ -259,7 +258,7 @@ export function CommandMenu({
 
       setTheme(theme)
     },
-    [playClick, setTheme]
+    [click, setTheme]
   )
 
   const handleToggleDuckFollower = useCallback(() => {

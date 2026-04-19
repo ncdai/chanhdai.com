@@ -46,6 +46,7 @@
     "@ncdai/react-wheel-picker": "^1.2.0",
     "@next/third-parties": "16.2.3",
     "@openpanel/web": "^1.2.0",
+    "@rexa-developer/tiks": "^0.1.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
