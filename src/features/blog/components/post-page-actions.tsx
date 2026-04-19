@@ -2,6 +2,7 @@
 
 "use client"
 
+import { useTiks } from "@rexa-developer/tiks/react"
 import { ChevronDownIcon } from "lucide-react"
 import { useMemo, useRef, useState } from "react"
 
@@ -23,6 +24,8 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
   const [state, setState] = useState<CopyState>("idle")
   const [isCopying, setIsCopying] = useState(false)
   const operationRef = useRef(false)
+
+  const { success, error } = useTiks()
 
   const handleCopy = async () => {
     if (operationRef.current) return
@@ -49,8 +52,10 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
           }),
         ])
       }
+      success()
       setState("done")
     } catch {
+      error()
       setState("error")
     } finally {
       clearTimeout(loadingTimer)
