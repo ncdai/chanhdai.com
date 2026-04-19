@@ -1,5 +1,12 @@
 "use client"
 
+import {
+  Circle,
+  CircleDashed,
+  Diamond,
+  Triangle,
+  TriangleDashed,
+} from "lucide-react"
 import { useEffect, useLayoutEffect, useState } from "react"
 
 import {
@@ -17,7 +24,7 @@ const EFFECT_STYLE_ID = "theme-toggle-effect-demo-style"
 type EffectName = keyof typeof EFFECTS
 
 export function ThemeToggleEffectSelector() {
-  const [effectName, setEffectName] = useState<EffectName>("circle")
+  const [effectName, setEffectName] = useState<EffectName>("triangle")
 
   useLayoutEffect(() => {
     addEffectStyle(document, EFFECTS[effectName]?.css || "", EFFECT_STYLE_ID)
@@ -36,7 +43,7 @@ export function ThemeToggleEffectSelector() {
         setEffectName(selectedEffect as EffectName)
       }
     >
-      <SelectTrigger className="w-42">
+      <SelectTrigger className="w-50 *:data-[slot=select-value]:gap-2">
         <SelectValue placeholder="effect" />
       </SelectTrigger>
 
@@ -45,6 +52,7 @@ export function ThemeToggleEffectSelector() {
           <SelectLabel>Effect</SelectLabel>
           {Object.entries(EFFECTS).map(([effectKey, effect]) => (
             <SelectItem key={effectKey} value={effectKey}>
+              {effect.icon}
               {effect.title}
             </SelectItem>
           ))}
@@ -73,18 +81,17 @@ function addEffectStyle(doc: Document, cssText: string, styleId: string) {
 const EFFECTS = {
   triangle: {
     title: "Triangle",
+    icon: <Triangle />,
     css: `
       ::view-transition-group(root) {
         animation-timing-function: var(--expo-out);
       }
-
       ::view-transition-old(root),
       .dark::view-transition-old(root) {
         animation: none;
         animation-fill-mode: both;
         z-index: -1;
       }
-
       ::view-transition-new(root) {
         mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="m20 0 20 35H0z" fill="white"/></svg>')
           center / 0 no-repeat;
@@ -101,18 +108,17 @@ const EFFECTS = {
   },
   "triangle-blur": {
     title: "Triangle Blur",
+    icon: <TriangleDashed />,
     css: `
       ::view-transition-group(root) {
         animation-timing-function: var(--expo-out);
       }
-
       ::view-transition-old(root),
       .dark::view-transition-old(root) {
         animation: none;
         animation-fill-mode: both;
         z-index: -1;
       }
-
       ::view-transition-new(root) {
         mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="m20 0 20 35H0z" fill="white" filter="url(%23blur)"/><defs><filter id="blur"><feGaussianBlur stdDeviation="1"/></filter></defs></svg>')
           center / 0 no-repeat;
@@ -129,6 +135,7 @@ const EFFECTS = {
   },
   circle: {
     title: "Circle",
+    icon: <Circle />,
     css: `
       ::view-transition-group(root) {
         animation-timing-function: var(--expo-out);
@@ -155,6 +162,7 @@ const EFFECTS = {
   },
   "circle-blur": {
     title: "Circle Blur",
+    icon: <CircleDashed />,
     css: `
       ::view-transition-group(root) {
         animation-timing-function: var(--expo-out);
@@ -184,7 +192,8 @@ const EFFECTS = {
     `,
   },
   "circle-blur-top-left": {
-    title: "Circle Blur (Top Left)",
+    title: "Circle Blur Top Left",
+    icon: <CircleDashed />,
     css: `
       ::view-transition-group(root) {
         animation-timing-function: var(--expo-out);
@@ -214,6 +223,7 @@ const EFFECTS = {
   },
   polygon: {
     title: "Polygon",
+    icon: <Diamond />,
     css: `
       ::view-transition-group(root) {
         animation-duration: 0.7s;
@@ -255,6 +265,7 @@ const EFFECTS = {
   },
   "polygon-gradient": {
     title: "Polygon Gradient",
+    icon: <Diamond />,
     css: `
       ::view-transition-group(root) {
         animation-timing-function: var(--expo-out);
