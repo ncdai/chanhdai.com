@@ -340,7 +340,7 @@ export const Index: Record<string, any> = {
   },
   "copy-button": {
     name: "copy-button",
-    description: "Copy text to clipboard with visual feedback and animation.",
+    description: "Copy text to clipboard with visual, haptic, and audio feedback.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/copy-button/copy-button.tsx",
