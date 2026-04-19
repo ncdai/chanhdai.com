@@ -31,31 +31,43 @@ This component uses the [View Transitions API](https://developer.mozilla.org/en-
 
 <TabsContent value="cli">
 
-**Circle**
+### Triangle
+
+```bash
+npx shadcn@latest add @ncdai/theme-toggle-effect-triangle
+```
+
+### Triangle Blur
+
+```bash
+npx shadcn@latest add @ncdai/theme-toggle-effect-triangle-blur
+```
+
+### Circle
 
 ```bash
 npx shadcn@latest add @ncdai/theme-toggle-effect-circle
 ```
 
-**Circle Blur**
+### Circle Blur
 
 ```bash
 npx shadcn@latest add @ncdai/theme-toggle-effect-circle-blur
 ```
 
-**Circle Blur (Top Left)**
+### Circle Blur (Top Left)
 
 ```bash
 npx shadcn@latest add @ncdai/theme-toggle-effect-circle-blur-top-left
 ```
 
-**Polygon**
+### Polygon
 
 ```bash
 npx shadcn@latest add @ncdai/theme-toggle-effect-polygon
 ```
 
-**Polygon Gradient**
+### Polygon Gradient
 
 ```bash
 npx shadcn@latest add @ncdai/theme-toggle-effect-polygon-gradient
@@ -95,6 +107,66 @@ npx shadcn@latest add @ncdai/theme-toggle-effect-polygon-gradient
 <Step>Add the effect CSS to your global CSS</Step>
 
 Choose one effect and copy its CSS into your `globals.css`
+
+**Triangle**
+
+```css
+@layer base {
+  ::view-transition-group(root) {
+    animation-timing-function: var(--expo-out);
+  }
+
+  ::view-transition-old(root),
+  .dark::view-transition-old(root) {
+    animation: none;
+    animation-fill-mode: both;
+    z-index: -1;
+  }
+
+  ::view-transition-new(root) {
+    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="m20 0 20 35H0z" fill="white"/></svg>')
+      center / 0 no-repeat;
+    animation: scale 0.7s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes scale {
+    to {
+      mask-size: 300vmax;
+    }
+  }
+}
+```
+
+**Triangle Blur**
+
+```css
+@layer base {
+  ::view-transition-group(root) {
+    animation-timing-function: var(--expo-out);
+  }
+
+  ::view-transition-old(root),
+  .dark::view-transition-old(root) {
+    animation: none;
+    animation-fill-mode: both;
+    z-index: -1;
+  }
+
+  ::view-transition-new(root) {
+    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="m20 0 20 35H0z" fill="white" filter="url(%23blur)"/><defs><filter id="blur"><feGaussianBlur stdDeviation="1"/></filter></defs></svg>')
+      center / 0 no-repeat;
+    animation: scale 0.7s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes scale {
+    to {
+      mask-size: 300vmax;
+    }
+  }
+}
+```
 
 **Circle**
 

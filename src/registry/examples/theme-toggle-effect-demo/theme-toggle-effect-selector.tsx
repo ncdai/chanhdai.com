@@ -71,6 +71,62 @@ function addEffectStyle(doc: Document, cssText: string, styleId: string) {
 }
 
 const EFFECTS = {
+  triangle: {
+    title: "Triangle",
+    css: `
+      ::view-transition-group(root) {
+        animation-timing-function: var(--expo-out);
+      }
+
+      ::view-transition-old(root),
+      .dark::view-transition-old(root) {
+        animation: none;
+        animation-fill-mode: both;
+        z-index: -1;
+      }
+
+      ::view-transition-new(root) {
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="m20 0 20 35H0z" fill="white"/></svg>')
+          center / 0 no-repeat;
+        animation: scale 0.7s;
+        animation-fill-mode: both;
+      }
+
+      @keyframes scale {
+        to {
+          mask-size: 300vmax;
+        }
+      }
+    `,
+  },
+  "triangle-blur": {
+    title: "Triangle Blur",
+    css: `
+      ::view-transition-group(root) {
+        animation-timing-function: var(--expo-out);
+      }
+
+      ::view-transition-old(root),
+      .dark::view-transition-old(root) {
+        animation: none;
+        animation-fill-mode: both;
+        z-index: -1;
+      }
+
+      ::view-transition-new(root) {
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="m20 0 20 35H0z" fill="white" filter="url(%23blur)"/><defs><filter id="blur"><feGaussianBlur stdDeviation="1"/></filter></defs></svg>')
+          center / 0 no-repeat;
+        animation: scale 0.7s;
+        animation-fill-mode: both;
+      }
+
+      @keyframes scale {
+        to {
+          mask-size: 300vmax;
+        }
+      }
+    `,
+  },
   circle: {
     title: "Circle",
     css: `
