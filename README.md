@@ -88,7 +88,20 @@ This project is proudly supported by:
           />
         </a>
       </td>
-      <td></td>
+      <td>
+        <a href="https://posthog.com/startups?utm_source=chanhdai.com#gh-light-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/posthog.svg?v=1#gh-light-mode-only"
+            alt="PostHog"
+          />
+        </a>
+        <a href="https://posthog.com/startups?utm_source=chanhdai.com#gh-dark-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/posthog-dark.svg?v=1#gh-dark-mode-only"
+            alt="PostHog"
+          />
+        </a>
+      </td>
       <td></td>
     </tr>
     <tr>
