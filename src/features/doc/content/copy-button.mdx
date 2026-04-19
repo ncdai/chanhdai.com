@@ -1,10 +1,10 @@
 ---
 title: Copy Button
-description: Copy text to clipboard with visual feedback and animation.
+description: Copy text to clipboard with visual, haptic, and audio feedback.
 image: https://assets.chanhdai.com/images/blog/copy-button.webp
 category: components
 createdAt: 2026-02-09
-updatedAt: 2026-03-01
+updatedAt: 2026-04-20
 ---
 
 <ComponentPreview
@@ -15,8 +15,9 @@ updatedAt: 2026-03-01
 
 ## Features
 
-- Smooth icon transitions with animated state changes using Motion.
-- Visual feedback with three distinct states: idle, success, and error.
+- Animated icon transitions across idle, success, and error states.
+- Haptic feedback confirms copy success on supported devices.
+- UI sounds play distinct success and error cues.
 - Accepts a string or function for dynamic content.
 - Callback support for success and error events.
 
@@ -101,3 +102,8 @@ Extends [Button](https://ui.shadcn.com/docs/components/radix/button) with clipbo
 />
 
 See [shadcn/ui](https://ui.shadcn.com/docs/components/radix/button#api-reference) documentation for more information.
+
+## References
+
+- [WebHaptics](https://haptics.lochie.me) by [@lochieaxon](https://x.com/lochieaxon)
+- [tiks](https://github.com/rexa-developer/tiks)

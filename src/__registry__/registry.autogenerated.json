@@ -442,10 +442,12 @@
     {
       "name": "copy-button",
       "title": "Copy Button",
-      "description": "Copy text to clipboard with visual feedback and animation.",
+      "description": "Copy text to clipboard with visual, haptic, and audio feedback.",
       "dependencies": [
         "lucide-react",
-        "motion"
+        "motion",
+        "@rexa-developer/tiks",
+        "web-haptics"
       ],
       "registryDependencies": [
         "button"
