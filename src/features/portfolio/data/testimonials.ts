@@ -357,4 +357,12 @@ export const TESTIMONIALS_2: Testimonial[] = [
     quote: "Good recreation! Focus state is nice touch",
     date: "2026-04-18",
   },
+  {
+    authorAvatar: "https://unavatar.io/x/evilrabbit_",
+    authorName: "Evil Rabbit",
+    authorTagline: "Founding Designer @Vercel",
+    url: "https://x.com/evilrabbit_/status/2046010757943566809",
+    quote: "niiiice one! 🤍",
+    date: "2026-04-20",
+  },
 ]
