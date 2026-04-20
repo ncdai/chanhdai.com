@@ -1,6 +1,5 @@
 import "server-only"
 
-import type { ResolvedShikiConfig } from "fumadocs-core/highlight/config"
 import type { GeneratedDoc, Generator } from "fumadocs-typescript"
 import type { Nodes } from "hast"
 import { type Jsx, toJsxRuntime } from "hast-util-to-jsx-runtime"
@@ -14,6 +13,7 @@ import {
   TypeTable,
 } from "@/registry/components/type-table"
 
+import type { ShikiOptions } from "./markdown"
 import { markdownRenderer } from "./markdown"
 import { parseTags } from "./parse-tags"
 
@@ -62,7 +62,7 @@ export interface AutoTypeTableProps
     ComponentProps<"div"> {
   generator: Generator
 
-  shiki?: ResolvedShikiConfig
+  shiki?: ShikiOptions
   options?: GenerateTypeTableOptions
 
   renderMarkdown?: (md: string) => Promise<ReactNode>

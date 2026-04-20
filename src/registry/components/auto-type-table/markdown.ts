@@ -1,10 +1,14 @@
-import { configDefault } from "fumadocs-core/highlight"
-import { highlightHast } from "fumadocs-core/highlight/core"
+import { highlightHast } from "fumadocs-core/highlight"
 import type { ElementContent, Nodes } from "hast"
 import rehypeExternalLinks from "rehype-external-links"
 import { remark } from "remark"
 import remarkGfm from "remark-gfm"
 import remarkRehype from "remark-rehype"
+import type {
+  BundledTheme,
+  CodeOptionsThemes,
+  CodeToHastOptionsCommon,
+} from "shiki"
 
 import {
   rehypeCodeRawString,
@@ -17,7 +21,10 @@ export interface MarkdownRenderer {
   renderMarkdownToHast: (md: string) => Nodes | Promise<Nodes>
 }
 
-export function markdownRenderer(shiki = configDefault): MarkdownRenderer {
+export type ShikiOptions = Omit<CodeToHastOptionsCommon, "lang"> &
+  CodeOptionsThemes<BundledTheme>
+
+export function markdownRenderer(options?: ShikiOptions): MarkdownRenderer {
   const processor = remark()
     .use(remarkGfm)
     .use(remarkRehype)
@@ -33,9 +40,10 @@ export function markdownRenderer(shiki = configDefault): MarkdownRenderer {
   return {
     async renderTypeToHast(type) {
       const nodes = await highlightHast(type, {
-        config: shiki,
         lang: "ts",
         structure: "inline",
+        defaultColor: false,
+        ...options,
       })
 
       return {
