@@ -26,14 +26,9 @@ import {
 import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 import { Twemoji } from "@/registry/components/twemoji/twemoji"
 
-function compareFn(a: TestimonialType, b: TestimonialType) {
-  return a.date.localeCompare(b.date, undefined, { numeric: true })
-}
-
-const FEATURED_TESTIMONIALS = [
-  ...TESTIMONIALS_1.filter((item) => item.isFeatured),
-  ...TESTIMONIALS_2.filter((item) => item.isFeatured),
-].sort(compareFn)
+const FEATURED_TESTIMONIALS = [...TESTIMONIALS_1, ...TESTIMONIALS_2]
+  .filter((item) => item.isFeatured)
+  .sort((a, b) => Number(a.order ?? 999) - Number(b.order ?? 999))
 
 export function Testimonials() {
   return (
@@ -52,7 +47,10 @@ export function Testimonials() {
             target="_blank"
             rel="noopener"
           >
-            <TestimonialSpotlight className="flex-1 bg-accent-muted">
+            <TestimonialSpotlight
+              className="flex-1 bg-accent-muted"
+              spotlightSize="50%"
+            >
               <TestimonialItem {...item} />
             </TestimonialSpotlight>
           </a>
@@ -98,7 +96,6 @@ function TestimonialList({
       <MarqueeContent direction={direction}>
         {data
           .filter((item) => !item.isFeatured)
-          .sort(compareFn)
           .map((item) => (
             <MarqueeItem
               key={item.url}

@@ -52,14 +52,9 @@ export const metadata: Metadata = {
   },
 }
 
-const TESTIMONIALS = [
-  ...TESTIMONIALS_1.slice().sort((a, b) =>
-    a.date.localeCompare(b.date, undefined, { numeric: true })
-  ),
-  ...TESTIMONIALS_2.slice().sort((a, b) =>
-    a.date.localeCompare(b.date, undefined, { numeric: true })
-  ),
-]
+const TESTIMONIALS = [...TESTIMONIALS_1, ...TESTIMONIALS_2].sort(
+  (a, b) => Number(a.order ?? 999) - Number(b.order ?? 999)
+)
 
 export default function TestimonialsPage() {
   return (

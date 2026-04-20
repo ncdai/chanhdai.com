@@ -30,6 +30,11 @@ export type TestimonialSpotlightProps = Omit<
    * @defaultValue 0.5
    */
   spotlightOpacity?: number
+  /**
+   * The size of the spotlight effect.
+   * @defaultValue "60%"
+   */
+  spotlightSize?: string
 }
 
 export function TestimonialSpotlight({
@@ -37,6 +42,7 @@ export function TestimonialSpotlight({
   className,
   spotlightColor = "rgba(255,255,255,0.2)",
   spotlightOpacity = SPOTLIGHT_OPACITY,
+  spotlightSize = "60%",
   ...props
 }: TestimonialSpotlightProps) {
   const itemRef = useRef<HTMLDivElement>(null)
@@ -89,7 +95,7 @@ export function TestimonialSpotlight({
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
         style={{
           opacity,
-          background: `radial-gradient(circle at ${position.x}px ${position.y}px, var(--spotlight-color, ${spotlightColor}), transparent 60%)`,
+          background: `radial-gradient(circle at ${position.x}px ${position.y}px, var(--spotlight-color, ${spotlightColor}), transparent var(--spotlight-size, ${spotlightSize}))`,
         }}
       />
       {children}
