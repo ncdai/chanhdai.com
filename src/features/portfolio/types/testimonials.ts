@@ -15,4 +15,6 @@ export type Testimonial = {
   style?: React.CSSProperties
   /** Flag to indicate if this testimonial should be highlighted as featured */
   isFeatured?: boolean
+  /** Optional numeric value to control the display order of testimonials */
+  order?: number
 }
