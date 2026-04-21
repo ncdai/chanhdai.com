@@ -211,20 +211,7 @@ This project is proudly supported by:
           />
         </a>
       </td>
-      <td>
-        <a href="https://www.fonttrio.xyz?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/fonttrio.svg?v=1#gh-light-mode-only"
-            alt="Fonttrio"
-          />
-        </a>
-        <a href="https://www.fonttrio.xyz?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/fonttrio-dark.svg?v=1#gh-dark-mode-only"
-            alt="Fonttrio"
-          />
-        </a>
-      </td>
+      <td></td>
     </tr>
   </tbody>
 </table>
