@@ -14,9 +14,9 @@ export function SiteFooter() {
         </p>
 
         <p className="mb-4 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
-          Built by{" "}
+          Built with care by{" "}
           <a
-            className="font-medium link-underline"
+            className="font-medium text-foreground link-underline"
             href="https://x.com/iamncdai"
             target="_blank"
             rel="noopener"
@@ -25,7 +25,7 @@ export function SiteFooter() {
           </a>
           . The source code is available on{" "}
           <a
-            className="font-medium link-underline"
+            className="font-medium text-foreground link-underline"
             href={SOURCE_CODE_GITHUB_URL}
             target="_blank"
             rel="noopener"
