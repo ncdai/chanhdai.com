@@ -98,7 +98,7 @@ export function TestimonialAuthorName({
     <div
       data-slot="testimonial-author-name"
       className={cn(
-        "flex items-center gap-1.5 text-sm leading-4 font-semibold text-foreground",
+        "flex items-center gap-1.5 text-sm leading-4.5 font-semibold text-foreground",
         className
       )}
       {...props}

@@ -11,10 +11,12 @@ export type Testimonial = {
   quote: string
   /** Date when the testimonial was given (YYYY-MM-DD) */
   date: string
-  /** Optional CSS styles to apply to the testimonial component */
-  style?: React.CSSProperties
+  /** Flag to indicate if the testimonial is from a verified user */
+  isVerified?: boolean
   /** Flag to indicate if this testimonial should be highlighted as featured */
   isFeatured?: boolean
   /** Optional numeric value to control the display order of testimonials */
   order?: number
+  /** Optional CSS styles to apply to the testimonial component */
+  style?: React.CSSProperties
 }
