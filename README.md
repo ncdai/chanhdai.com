@@ -229,8 +229,6 @@ This project is proudly supported by:
   </tbody>
 </table>
 
-This project is tested with BrowserStack
-
 > Found this project useful? [Sponsor me](https://github.com/sponsors/ncdai) to help with support and maintenance.
 
 ## Stats
