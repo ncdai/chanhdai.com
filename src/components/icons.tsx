@@ -10,8 +10,8 @@ import {
   QuoteIcon,
   ScissorsIcon,
   SeparatorHorizontalIcon,
-  SquareTerminalIcon,
   SunDimIcon,
+  TerminalIcon,
   TerminalSquareIcon,
   VibrateIcon,
   ZapIcon,
@@ -756,7 +756,7 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
     }
 
     case "code-block-command": {
-      return <SquareTerminalIcon {...props} />
+      return <TerminalIcon {...props} />
     }
 
     case "text-flip": {

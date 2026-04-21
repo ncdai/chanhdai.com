@@ -18,7 +18,10 @@ export function Testimonial({
       rel="noopener"
       className={cn("not-prose flex", className)}
     >
-      <TestimonialSpotlight className="flex-1 bg-accent-muted">
+      <TestimonialSpotlight
+        className="flex-1 bg-accent-muted"
+        spotlightSize="30%"
+      >
         <TestimonialPrimitive.Testimonial>
           <TestimonialPrimitive.TestimonialQuote className="min-h-14">
             <p>{quote}</p>
