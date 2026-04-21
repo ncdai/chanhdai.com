@@ -93,6 +93,13 @@ export const BOOKMARKS: Bookmark[] = [
     icon: <Circle />,
     bookmarkedAt: "2026-04-14",
   },
+  {
+    title: "Agents with Taste",
+    url: "https://emilkowal.ski/ui/agents-with-taste",
+    author: "Emil Kowalski",
+    icon: <Icons.animationsdev />,
+    bookmarkedAt: "2026-04-21",
+  },
 ]
 
 function Circle() {
