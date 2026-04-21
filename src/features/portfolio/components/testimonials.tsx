@@ -8,6 +8,7 @@ import {
 } from "@/components/kibo-ui/marquee"
 import { Button } from "@/components/ui/button"
 import { Panel } from "@/features/portfolio/components/panel"
+import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
@@ -22,6 +23,7 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
+  TestimonialVerifiedBadge,
 } from "@/registry/components/testimonial"
 import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 import { Twemoji } from "@/registry/components/twemoji/twemoji"
@@ -122,6 +124,7 @@ function TestimonialItem({
   authorName,
   authorTagline,
   quote,
+  isVerified,
 }: TestimonialType) {
   return (
     <Testimonial>
@@ -137,7 +140,14 @@ function TestimonialItem({
           <TestimonialAvatarRing />
         </TestimonialAvatar>
 
-        <TestimonialAuthorName>{authorName}</TestimonialAuthorName>
+        <TestimonialAuthorName>
+          {authorName}
+          {isVerified && (
+            <TestimonialVerifiedBadge className="text-info">
+              <VerifiedIcon />
+            </TestimonialVerifiedBadge>
+          )}
+        </TestimonialAuthorName>
         <TestimonialAuthorTagline>{authorTagline}</TestimonialAuthorTagline>
       </TestimonialAuthor>
     </Testimonial>

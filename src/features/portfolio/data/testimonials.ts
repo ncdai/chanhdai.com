@@ -10,6 +10,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "i like this subtle version a lot more than the over-the-top examples i see everywhere, very nice",
     date: "2026-03-20",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/khushiirl",
@@ -18,6 +19,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/khushiirl/status/2025894411155206168",
     quote: "Goated portfolio. I love the whole UI in Vercel style",
     date: "2026-02-23",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/meghtrix",
@@ -34,6 +36,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/shadcncraft/status/2017091317244055988",
     quote: "Love your work Dai! You’re a great talent :-)",
     date: "2026-01-30",
+    isVerified: true,
     order: 6,
   },
   {
@@ -43,6 +46,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/KartikeyStack/status/2016717957938974963",
     quote: "best portfolio I’ve ever seen, minimal, clean and sick 🙌🏼",
     date: "2026-01-29",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/orcdev",
@@ -51,6 +55,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/orcdev/status/2011373509310878010",
     quote: "@iamncdai is one of the best design engineers!",
     date: "2026-01-14",
+    isVerified: true,
     order: 5,
   },
   {
@@ -60,6 +65,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/ephraimduncan/status/2008254368806826312",
     quote: "great work on your portfolio, you deserve it",
     date: "2026-01-06",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/FrancescoCiull4",
@@ -69,6 +75,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "your portfolio is stunning. i created mine some weeks ago but this is another planet.",
     date: "2025-12-31",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/ajaypatel_aj",
@@ -77,6 +84,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/ajaypatel_aj/status/2003723039029231737",
     quote: "Perfect iOS-like wheel picker for the web 🙌",
     date: "2025-12-24",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/BurnedChris",
@@ -86,6 +94,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "This is super cool, Full circle moment (the prototype for c15t actually used shadcn)",
     date: "2025-12-16",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/iamsahaj_xyz",
@@ -95,6 +104,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "remember seeing it on @mannupaaji’s review. it’s one of the best looking ones I’ve seen",
     date: "2025-10-27",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/orcdev",
@@ -104,6 +114,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "Seriously, this is one of the best portfolio templates I’ve ever seen.",
     date: "2025-10-21",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/rauchg",
@@ -113,6 +124,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "awesome. Love the components, especially slide-to-unlock. Great job",
     date: "2025-10-17",
+    isVerified: true,
     isFeatured: true,
     order: 1,
   },
@@ -124,6 +136,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "congrats you deserve it! react wheel picker is so smooth, its insane 🐐",
     date: "2025-07-24",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/kapehe_ok",
@@ -132,6 +145,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
     quote: "one of my favorite projects that submitted! you are crushing it!",
     date: "2025-07-24",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/steventey",
@@ -140,6 +154,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     url: "https://x.com/steventey/status/1936934909370830924",
     quote: "whoa, this is really dope – needs to get added to @shadcn UI 👀",
     date: "2025-06-23",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/GithubProjects",
@@ -149,6 +164,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     quote:
       "Everything you’d want in a picker, minus the styling headaches. Awesome job!",
     date: "2025-06-07",
+    isVerified: true,
   },
 ]
 
@@ -161,6 +177,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/evilrabbit_/status/2046010757943566809",
     quote: "niiiice one! 🤍",
     date: "2026-04-20",
+    isVerified: true,
     order: 3,
   },
   {
@@ -170,6 +187,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/joshpuckett/status/2045487801618284892",
     quote: "Good recreation! Focus state is nice touch",
     date: "2026-04-18",
+    isVerified: true,
     order: 4,
   },
   {
@@ -187,6 +205,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/evilrabbit_/status/2040096654196613419",
     quote: "🖤",
     date: "2026-04-03",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/joshpuckett",
@@ -195,6 +214,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/joshpuckett/status/2038713206764617896",
     quote: "Yooo I love this 🎨",
     date: "2026-03-31",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/harshjdhv",
@@ -203,6 +223,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/harshjdhv/status/2035010611512508481",
     quote: "Cleannnn",
     date: "2026-03-21",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/davidhdev",
@@ -211,6 +232,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/davidhdev/status/2034191466281513275",
     quote: "Looks incredible!",
     date: "2026-03-18",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/orcdev",
@@ -219,6 +241,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/orcdev/status/2032398810035417582",
     quote: "Đại is amazing",
     date: "2026-03-13",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/shadcn",
@@ -227,6 +250,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/shadcn/status/2032193591133495700",
     quote: "You’re doing amazing work.",
     date: "2026-03-13",
+    isVerified: true,
     isFeatured: true,
     order: 2,
   },
@@ -237,6 +261,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/kapish_dima/status/2028094092366807227",
     quote: "As always, brilliant 🙏",
     date: "2026-03-01",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/branmcconnell",
@@ -245,6 +270,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/branmcconnell/status/2028391281198862377",
     quote: "amazing, such cool libraries 🔥",
     date: "2026-03-02",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/davidhdev",
@@ -253,6 +279,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/davidhdev/status/2025902761926132112",
     quote: "That’s so cool 😭",
     date: "2026-02-23",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/uixmat",
@@ -261,6 +288,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/uixmat/status/2023145872771436904",
     quote: "great work bro 🤜🏼🤛🏼",
     date: "2026-02-16",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/nuqs47ng",
@@ -269,6 +297,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/nuqs47ng/status/2020417206103023847",
     quote: "Looks great!",
     date: "2026-02-08",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/JohnPhamous",
@@ -277,6 +306,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/JohnPhamous/status/2018355370855674244",
     quote: "nice",
     date: "2026-02-02",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/davidhdev",
@@ -285,6 +315,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/davidhdev/status/2017868986969444511",
     quote: "Simple and clean, love it! 🌟",
     date: "2026-02-01",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/shadcn",
@@ -293,6 +324,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/shadcn/status/2011452657702154747",
     quote: "Congrats. Way to go.",
     date: "2026-01-14",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/ajaypatel_aj",
@@ -301,6 +333,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
     quote: "This Portfolio is something else 😍",
     date: "2025-11-24",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/shadcn",
@@ -309,6 +342,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/shadcn/status/1992950153976991893",
     quote: "Nice",
     date: "2025-11-24",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/zaidmukaddam",
@@ -317,6 +351,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/zaidmukaddam/status/1984599685974409374",
     quote: "super clean",
     date: "2025-11-01",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/YonathanDejene",
@@ -325,6 +360,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/YonathanDejene/status/1984529637309886639",
     quote: "incredible portfolio i’ve seen by far",
     date: "2025-11-01",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/aaronmahlke",
@@ -333,6 +369,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/aaronmahlke/status/1955606729657344490",
     quote: "super cool portfolio!",
     date: "2025-08-13",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/mannupaaji",
@@ -341,6 +378,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/mannupaaji/status/1944755561117163597",
     quote: "Great work on the portfolio",
     date: "2025-07-14",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/jordwalke",
@@ -349,6 +387,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/jordwalke/status/1937166049868439854",
     quote: "Also, cool wheel picker!",
     date: "2025-06-23",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/jordwalke",
@@ -357,6 +396,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/jordwalke/status/1937165909778657589",
     quote: "Looks great",
     date: "2025-06-23",
+    isVerified: true,
   },
   {
     authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
@@ -365,5 +405,6 @@ export const TESTIMONIALS_2: Testimonial[] = [
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
     quote: "i like your style! :)",
     date: "2025-05-18",
+    isVerified: true,
   },
 ]

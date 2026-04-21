@@ -6,6 +6,7 @@ import {
   PageHeadingTitle,
 } from "@/components/page-heading"
 import { X_HANDLE } from "@/config/site"
+import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
@@ -20,6 +21,7 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
+  TestimonialVerifiedBadge,
 } from "@/registry/components/testimonial"
 import { Twemoji } from "@/registry/components/twemoji/twemoji"
 
@@ -101,6 +103,11 @@ export default function TestimonialsPage() {
 
                   <TestimonialAuthorName>
                     {item.authorName}
+                    {item.isVerified && (
+                      <TestimonialVerifiedBadge className="text-info">
+                        <VerifiedIcon />
+                      </TestimonialVerifiedBadge>
+                    )}
                   </TestimonialAuthorName>
                   <TestimonialAuthorTagline>
                     {item.authorTagline}
