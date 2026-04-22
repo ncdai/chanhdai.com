@@ -11,9 +11,9 @@ export function ComponentItem({
       data-slot="component-item"
       className={cn(
         "group flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
-        "max-sm:screen-line-top max-sm:screen-line-bottom",
-        "sm:max-md:nth-[2n+1]:screen-line-top sm:max-md:nth-[2n+1]:screen-line-bottom",
-        "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom",
+        "max-sm:screen-line-bottom",
+        "sm:max-md:nth-[2n+1]:screen-line-bottom",
+        "md:nth-[3n+1]:screen-line-bottom",
         className
       )}
       {...props}
