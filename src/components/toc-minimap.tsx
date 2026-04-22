@@ -41,7 +41,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
             delay={0}
             closeDelay={0}
             render={
-              <div className="flex max-h-[calc(100dvh-var(--doc-cols-top,0px)+--spacing(-24))] flex-col gap-3 overflow-hidden py-3 pl-6 opacity-100 transition-opacity duration-200 data-popup-open:opacity-0">
+              <div className="flex max-h-[calc(100dvh-var(--doc-cols-top,0)+--spacing(-24))] flex-col gap-3 overflow-hidden py-3 pl-6 opacity-100 transition-opacity duration-200 data-popup-open:opacity-0">
                 {items.map((item) => (
                   <div
                     key={item.url}
@@ -67,7 +67,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
             sideOffset={-60}
             positionMethod="fixed"
           >
-            <div className="flex max-h-[calc(100dvh-var(--doc-cols-top,0px)+--spacing(-24))] overflow-y-auto overscroll-contain">
+            <div className="flex max-h-[calc(100dvh-var(--doc-cols-top,0)+--spacing(-24))] overflow-y-auto overscroll-contain">
               <ul className="flex h-full flex-col px-6 py-4 text-sm">
                 {items.map((item) => (
                   <li
