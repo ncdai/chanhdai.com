@@ -119,7 +119,7 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: <Box />,
   },
   {
-    title: "Honors & Awards",
+    title: "Awards",
     href: "/#awards",
     icon: <Crown />,
   },
