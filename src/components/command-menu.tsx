@@ -4,22 +4,22 @@ import { useRouter } from "@bprogress/next/app"
 import { useTiks } from "@rexa-developer/tiks/react"
 import { useCommandState } from "cmdk"
 import {
-  AwardIcon,
-  BookmarkIcon,
-  BoxIcon,
-  BriefcaseBusinessIcon,
-  CircleCheckBigIcon,
-  CornerDownLeftIcon,
-  DownloadIcon,
-  FileTextIcon,
-  LayersIcon,
-  MoonStarIcon,
-  MousePointer2Icon,
+  Bookmark,
+  Box,
+  BriefcaseBusiness,
+  CircleCheckBig,
+  CornerDownLeft,
+  Crown,
+  Download,
+  FileText,
+  Layers,
+  MoonStar,
+  MousePointer2,
   RssIcon,
-  SunMediumIcon,
-  TextInitialIcon,
-  TriangleDashedIcon,
-  TypeIcon,
+  SunMedium,
+  TextInitial,
+  TriangleDashed,
+  Type,
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import React, { useCallback, useEffect, useMemo, useState } from "react"
@@ -102,42 +102,42 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
   {
     title: "About",
     href: "/#about",
-    icon: <TextInitialIcon />,
+    icon: <TextInitial />,
   },
   {
     title: "Stack",
     href: "/#stack",
-    icon: <LayersIcon />,
+    icon: <Layers />,
   },
   {
     title: "Experience",
     href: "/#experience",
-    icon: <BriefcaseBusinessIcon />,
+    icon: <BriefcaseBusiness />,
   },
   {
     title: "Projects",
     href: "/#projects",
-    icon: <BoxIcon />,
+    icon: <Box />,
   },
   {
     title: "Honors & Awards",
     href: "/#awards",
-    icon: <AwardIcon />,
+    icon: <Crown />,
   },
   {
     title: "Certifications",
     href: "/#certs",
-    icon: <CircleCheckBigIcon />,
+    icon: <CircleCheckBig />,
   },
   {
     title: "Bookmarks",
     href: "/#bookmarks",
-    icon: <BookmarkIcon />,
+    icon: <Bookmark />,
   },
   {
     title: "Download vCard",
     href: "/vcard",
-    icon: <DownloadIcon />,
+    icon: <Download />,
   },
 ]
 
@@ -152,7 +152,7 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
   {
     title: "llms.txt",
     href: "/llms.txt",
-    icon: <FileTextIcon />,
+    icon: <FileText />,
     openInNewTab: true,
   },
   {
@@ -380,20 +380,20 @@ export function CommandMenu({
                 )
               }}
             >
-              <TypeIcon />
+              <Type />
               Copy Logotype as SVG
             </CommandItem>
 
             <CommandItem
               onSelect={() => handleOpenLink("/blog/chanhdai-brand")}
             >
-              <TriangleDashedIcon />
+              <TriangleDashed />
               Brand Guidelines
             </CommandItem>
 
             <CommandItem asChild>
               <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-                <DownloadIcon />
+                <Download />
                 Download Brand Assets
               </a>
             </CommandItem>
@@ -404,14 +404,14 @@ export function CommandMenu({
               keywords={["theme"]}
               onSelect={createThemeHandler("light")}
             >
-              <SunMediumIcon />
+              <SunMedium />
               Light
             </CommandItem>
             <CommandItem
               keywords={["theme"]}
               onSelect={createThemeHandler("dark")}
             >
-              <MoonStarIcon />
+              <MoonStar />
               Dark
             </CommandItem>
             <CommandItem
@@ -425,7 +425,7 @@ export function CommandMenu({
 
           <CommandGroup heading="Interactive Features">
             <CommandItem onSelect={handleToggleDuckFollower}>
-              <MousePointer2Icon />
+              <MousePointer2 />
               Toggle Duck Follower
             </CommandItem>
           </CommandGroup>
@@ -603,7 +603,7 @@ function CommandMenuFooter() {
         <div className="flex shrink-0 items-center gap-2 max-sm:hidden">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
           <Kbd>
-            <CornerDownLeftIcon />
+            <CornerDownLeft />
           </Kbd>
           <Separator
             orientation="vertical"
