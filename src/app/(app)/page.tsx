@@ -54,9 +54,6 @@ export default function Page() {
         <GitHubContributions />
         <Separator />
 
-        <Sponsors />
-        <Separator />
-
         <TechStack />
         <Separator />
 
@@ -64,6 +61,9 @@ export default function Page() {
         <Separator />
 
         <Blog />
+        <Separator />
+
+        <Sponsors />
         <Separator />
 
         <Experiences />
