@@ -1,5 +1,5 @@
 import { format } from "date-fns"
-import { AwardIcon, FileCheckIcon } from "lucide-react"
+import { Crown, FileCheck } from "lucide-react"
 
 import {
   Collapsible,
@@ -17,8 +17,8 @@ import {
 import { Markdown } from "@/components/markdown"
 import { Separator } from "@/components/ui/separator"
 import { Prose } from "@/components/ui/typography"
-
-import type { Award } from "../../types/awards"
+import type { Award } from "@/features/portfolio/types/awards"
+import { cn } from "@/lib/utils"
 
 export function AwardItem({
   className,
@@ -32,8 +32,13 @@ export function AwardItem({
   return (
     <Collapsible className={className} disabled={!canExpand}>
       <div className="flex items-center hover:bg-accent-muted">
-        <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-line ring-offset-1 ring-offset-background">
-          <AwardIcon className="pointer-events-none size-4 text-muted-foreground" />
+        <div
+          className={cn(
+            "mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-line ring-offset-1 ring-offset-background",
+            "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
+          )}
+        >
+          <Crown />
         </div>
 
         <div className="flex-1 border-l border-dashed border-line">
@@ -86,7 +91,7 @@ export function AwardItem({
                       rel="noopener"
                       aria-label="Open Reference Attachment"
                     >
-                      <FileCheckIcon className="pointer-events-none size-4" />
+                      <FileCheck className="pointer-events-none size-4" />
                     </a>
                   }
                 />
