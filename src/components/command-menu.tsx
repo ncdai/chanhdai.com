@@ -15,6 +15,7 @@ import {
   Layers,
   MoonStar,
   MousePointer2,
+  Quote,
   RssIcon,
   SunMedium,
   TextInitial,
@@ -93,7 +94,7 @@ const MENU_LINKS: CommandLinkItem[] = [
   {
     title: "Testimonials",
     href: "/testimonials",
-    icon: <Icons.bookHeart />,
+    icon: <Quote strokeWidth={1.5} />,
     shortcut: "GT",
   },
 ]
