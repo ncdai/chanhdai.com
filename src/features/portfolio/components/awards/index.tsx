@@ -15,7 +15,7 @@ export function Awards() {
     <Panel id="awards">
       <PanelHeader>
         <PanelTitle>
-          Honors & Awards
+          Awards
           <PanelTitleSup>({AWARDS.length})</PanelTitleSup>
         </PanelTitle>
       </PanelHeader>
