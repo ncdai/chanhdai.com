@@ -1,5 +1,6 @@
 "use client"
 
+import { useTiks } from "@rexa-developer/tiks/react"
 import { MailIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
@@ -25,6 +26,8 @@ export function EmailItem({ email }: EmailItemProps) {
   const isClient = useIsClient()
   const emailDecoded = decodeEmail(email)
 
+  const { success } = useTiks()
+
   useHotkeys("shift+e", () => {
     copyToClipboardWithEvent(emailDecoded, {
       name: "copy_email",
@@ -33,6 +36,7 @@ export function EmailItem({ email }: EmailItemProps) {
         key: "shift+e",
       },
     })
+    success()
     toast.success("Email copied")
   })
 
