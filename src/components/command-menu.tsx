@@ -14,7 +14,6 @@ import {
   FileText,
   Layers,
   MoonStar,
-  MousePointer2,
   Quote,
   RssIcon,
   SunMedium,
@@ -38,7 +37,6 @@ import {
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
-import { useDuckFollowerVisibility } from "@/hooks/use-duck-follower-visibility"
 import { trackEvent } from "@/lib/events"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
@@ -185,8 +183,6 @@ export function CommandMenu({
 
   const [open, setOpen] = useState(false)
 
-  const [, setIsDuckFollowerVisible] = useDuckFollowerVisibility()
-
   const { click } = useTiks()
 
   useHotkeys(
@@ -261,18 +257,6 @@ export function CommandMenu({
     },
     [click, setTheme]
   )
-
-  const handleToggleDuckFollower = useCallback(() => {
-    setOpen(false)
-    setIsDuckFollowerVisible((isVisible) => !isVisible)
-
-    trackEvent({
-      name: "command_menu_action",
-      properties: {
-        action: "toggle_duck_follower",
-      },
-    })
-  }, [setIsDuckFollowerVisible])
 
   const { componentLinks, blogLinks } = useMemo(
     () => ({
@@ -421,13 +405,6 @@ export function CommandMenu({
             >
               <Icons.contrast />
               Auto
-            </CommandItem>
-          </CommandGroup>
-
-          <CommandGroup heading="Interactive Features">
-            <CommandItem onSelect={handleToggleDuckFollower}>
-              <MousePointer2 />
-              Toggle Duck Follower
             </CommandItem>
           </CommandGroup>
 
