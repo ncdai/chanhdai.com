@@ -87,7 +87,6 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
     "@tailwindcss/typography": "^0.5.19",
-    "@toolwind/corner-shape": "0.0.8-3",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/hast": "^3.0.4",
     "@types/node": "^20.14.12",

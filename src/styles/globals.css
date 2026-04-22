@@ -3,18 +3,11 @@
 @import "./scroll-fade-effect.css";
 
 @plugin "@tailwindcss/typography";
-@plugin "@toolwind/corner-shape";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @custom-variant supports-timeline-scroll {
   @supports (animation-timeline: scroll()) {
-    @slot;
-  }
-}
-
-@custom-variant supports-corner-shape {
-  @supports (corner-shape: initial) {
     @slot;
   }
 }

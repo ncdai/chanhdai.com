@@ -499,7 +499,7 @@ function CommandLinkGroup({
           >
             {link?.iconImage ? (
               <img
-                className="size-4 rounded-sm corner-squircle supports-corner-shape:rounded-[50%]"
+                className="size-4 rounded-sm"
                 src={link.iconImage}
                 alt={link.title}
               />
