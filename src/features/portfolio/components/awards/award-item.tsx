@@ -1,5 +1,5 @@
 import { format } from "date-fns"
-import { Crown, FileCheck } from "lucide-react"
+import { Crown, Paperclip } from "lucide-react"
 
 import {
   Collapsible,
@@ -85,13 +85,13 @@ export function AwardItem({
                 <TooltipTrigger
                   render={
                     <a
-                      className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
+                      className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4"
                       href={award.referenceLink}
                       target="_blank"
                       rel="noopener"
                       aria-label="Open Reference Attachment"
                     >
-                      <FileCheck className="pointer-events-none size-4" />
+                      <Paperclip />
                     </a>
                   }
                 />
