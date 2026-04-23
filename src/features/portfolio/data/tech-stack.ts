@@ -19,12 +19,12 @@ export const TECH_STACK: TechStack[] = [
     href: "https://www.python.org/",
     categories: ["Language"],
   },
-  // {
-  //   key: "php",
-  //   title: "PHP",
-  //   href: "https://www.php.net/",
-  //   categories: ["Language"],
-  // },
+  {
+    key: "php",
+    title: "PHP",
+    href: "https://www.php.net/",
+    categories: ["Language"],
+  },
   {
     key: "java",
     title: "Java",
@@ -109,30 +109,11 @@ export const TECH_STACK: TechStack[] = [
     categories: ["State Management"],
   },
   {
-    key: "antd",
-    title: "Ant Design",
-    href: "https://ant.design/",
-    categories: ["Library", "UI Library"],
-  },
-  {
-    key: "react-router",
-    title: "React Router",
-    href: "https://reactrouter.com/",
-    categories: ["Library", "Navigation"],
-    theme: true,
-  },
-  {
     key: "react-navigation",
     title: "React Navigation",
     href: "https://reactnavigation.org/",
     categories: ["Library", "Navigation"],
   },
-  // {
-  //   key: "loopback",
-  //   title: "LoopBack",
-  //   href: "https://loopback.io/",
-  //   categories: ["Framework"],
-  // },
   {
     key: "laravel",
     title: "Laravel",
@@ -150,6 +131,12 @@ export const TECH_STACK: TechStack[] = [
     title: "Docker",
     href: "https://www.docker.com/",
     categories: ["Containerization"],
+  },
+  {
+    key: "postgresql",
+    title: "PostgreSQL",
+    href: "https://www.postgresql.org",
+    categories: ["Database"],
   },
   {
     key: "mysql",
@@ -177,7 +164,7 @@ export const TECH_STACK: TechStack[] = [
   },
   {
     key: "ps",
-    title: "Adobe Photoshop",
+    title: "Photoshop",
     href: "https://www.adobe.com/vn_en/products/photoshop.html",
     categories: ["Tools", "Design"],
   },
