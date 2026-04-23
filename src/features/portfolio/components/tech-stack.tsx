@@ -11,7 +11,7 @@ export function TechStack() {
       </PanelHeader>
 
       <PanelContent>
-        <ul className="flex flex-wrap gap-1.5">
+        <ul className="flex flex-wrap gap-2">
           {TECH_STACK.map((tech) => {
             return (
               <li key={tech.key} className="flex">
