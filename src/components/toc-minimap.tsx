@@ -1,6 +1,5 @@
 "use client"
 
-import { useTiks } from "@rexa-developer/tiks/react"
 import type { TOCItemType } from "fumadocs-core/toc"
 import { useEffect, useMemo, useState } from "react"
 
@@ -9,7 +8,9 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/base/ui/hover-card"
+import { useSound } from "@/hooks/soundcn/use-sound"
 import { trackEvent } from "@/lib/events"
+import { uMiniMapOpenSound } from "@/lib/soundcn/u-mini-map-open"
 import { cn } from "@/lib/utils"
 
 export function TOCMinimap({ items }: { items: TOCItemType[] }) {
@@ -20,7 +21,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
 
   const activeHeading = useActiveHeading(itemIds)
 
-  const { hover } = useTiks()
+  const [play] = useSound(uMiniMapOpenSound, { volume: 0.3 })
 
   if (!items.length) {
     return null
@@ -32,7 +33,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
         <HoverCard
           onOpenChange={(open) => {
             if (open) {
-              hover()
+              play()
               trackEvent({ name: "toc_minimap_hover" })
             }
           }}

@@ -1,7 +1,6 @@
 "use client"
 
 import { useRouter } from "@bprogress/next/app"
-import { useTiks } from "@rexa-developer/tiks/react"
 import { useCommandState } from "cmdk"
 import {
   Bookmark,
@@ -37,6 +36,7 @@ import {
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
+import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { trackEvent } from "@/lib/events"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
@@ -183,7 +183,7 @@ export function CommandMenu({
 
   const [open, setOpen] = useState(false)
 
-  const { click } = useTiks()
+  const [click] = useClickSound()
 
   useHotkeys(
     "mod+k, slash",
