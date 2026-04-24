@@ -86,7 +86,7 @@ export default function TestimonialsPage() {
               rel="noopener"
             >
               <Testimonial>
-                <TestimonialQuote className="text-pretty">
+                <TestimonialQuote className="min-h-14 font-serif">
                   <p>
                     <Twemoji>{item.quote}</Twemoji>
                   </p>
