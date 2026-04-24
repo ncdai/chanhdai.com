@@ -31,7 +31,7 @@ export function Components() {
           <div className="border-r border-line max-md:hidden" />
         </div>
 
-        <div className="screen-line-bottom h-2" />
+        <div className="screen-line-bottom h-4" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {components.slice(0, 9).map((c) => (
