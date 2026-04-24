@@ -1,11 +1,8 @@
 import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
 import { cn } from "@/lib/utils"
-import * as TestimonialPrimitive from "@/registry/components/testimonial"
-import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 export function Testimonial({
   className,
-  authorAvatar,
   authorName,
   authorTagline,
   url,
@@ -16,36 +13,32 @@ export function Testimonial({
       href={url}
       target="_blank"
       rel="noopener"
-      className={cn("not-prose flex", className)}
+      className={cn(
+        "not-prose my-12 flex flex-col gap-6 pl-3 **:ring-1 **:ring-red-500/50",
+        className
+      )}
     >
-      <TestimonialSpotlight
-        className="flex-1 bg-accent-muted"
-        spotlightSize="30%"
-      >
-        <TestimonialPrimitive.Testimonial>
-          <TestimonialPrimitive.TestimonialQuote className="min-h-14">
-            <p>{quote}</p>
-          </TestimonialPrimitive.TestimonialQuote>
+      <div className="relative block w-full font-serif text-2xl text-foreground md:w-lg">
+        <span className="absolute -left-3 text-muted-foreground">“</span>
+        <p className="inline text-pretty">{quote}</p>
+        <span className="absolute translate-x-0.5 text-muted-foreground">
+          ”
+        </span>
+      </div>
 
-          <TestimonialPrimitive.TestimonialAuthor>
-            <TestimonialPrimitive.TestimonialAvatar>
-              <TestimonialPrimitive.TestimonialAvatarImg
-                src={authorAvatar}
-                alt={authorName}
-              />
-              <TestimonialPrimitive.TestimonialAvatarRing />
-            </TestimonialPrimitive.TestimonialAvatar>
+      <div className="ml-auto flex w-full items-center gap-2 md:w-1/2">
+        <div className="hidden h-px grow translate-y-px bg-border md:block" />
 
-            <TestimonialPrimitive.TestimonialAuthorName>
-              {authorName}
-              <TestimonialPrimitive.TestimonialVerifiedBadge />
-            </TestimonialPrimitive.TestimonialAuthorName>
-            <TestimonialPrimitive.TestimonialAuthorTagline>
+        <div className="flex flex-col md:ml-auto md:text-right">
+          <span className="text-sm leading-none font-medium">
+            {authorName}
+            <span className="mt-1 block text-muted-foreground md:mt-0 md:inline">
+              <span className="hidden text-foreground md:inline">, </span>
               {authorTagline}
-            </TestimonialPrimitive.TestimonialAuthorTagline>
-          </TestimonialPrimitive.TestimonialAuthor>
-        </TestimonialPrimitive.Testimonial>
-      </TestimonialSpotlight>
+            </span>
+          </span>
+        </div>
+      </div>
     </a>
   )
 }

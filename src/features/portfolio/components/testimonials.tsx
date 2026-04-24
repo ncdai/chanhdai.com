@@ -128,7 +128,7 @@ function TestimonialItem({
 }: TestimonialType) {
   return (
     <Testimonial>
-      <TestimonialQuote className="min-h-14 font-serif leading-6">
+      <TestimonialQuote className="min-h-14 font-serif">
         <p>
           <Twemoji>{quote}</Twemoji>
         </p>
