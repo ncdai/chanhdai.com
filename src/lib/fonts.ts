@@ -11,12 +11,14 @@ const fontMono = GeistMono
 const fontSerif = localFont({
   src: "../assets/fonts/charter_regular.woff2",
   weight: "400",
+  fallback: ["Georgia", "serif"],
   variable: "--font-serif",
 })
 
 const fontPixel = localFont({
   src: "../assets/fonts/DepartureMono-Regular.woff2",
   weight: "400",
+  fallback: ["monospace"],
   variable: "--font-pixel",
 })
 
