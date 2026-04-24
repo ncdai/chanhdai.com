@@ -95,7 +95,7 @@ function TestimonialList({
       <MarqueeFade side="left" />
       <MarqueeFade side="right" />
 
-      <MarqueeContent direction={direction}>
+      <MarqueeContent direction={direction} autoFill={false}>
         {data
           .filter((item) => !item.isFeatured)
           .map((item) => (
@@ -128,7 +128,7 @@ function TestimonialItem({
 }: TestimonialType) {
   return (
     <Testimonial>
-      <TestimonialQuote className="min-h-14">
+      <TestimonialQuote className="min-h-14 font-serif leading-6">
         <p>
           <Twemoji>{quote}</Twemoji>
         </p>

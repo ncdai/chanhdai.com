@@ -8,6 +8,12 @@ import { cn } from "@/lib/utils"
 const fontSans = GeistSans
 const fontMono = GeistMono
 
+const fontSerif = localFont({
+  src: "../assets/fonts/charter_regular.woff2",
+  weight: "400",
+  variable: "--font-serif",
+})
+
 const fontPixel = localFont({
   src: "../assets/fonts/DepartureMono-Regular.woff2",
   weight: "400",
@@ -17,6 +23,7 @@ const fontPixel = localFont({
 export const fontVariables = cn(
   fontSans.variable,
   fontMono.variable,
+  fontSerif.variable,
   fontPixel.variable,
   GeistPixelSquare.variable,
   "[--font-sans:var(--font-geist-sans)]",

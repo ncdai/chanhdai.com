@@ -159,7 +159,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/GithubProjects",
     authorName: "GitHub Projects Community",
-    authorTagline: "UNOFFICIAL, but followed by @github",
+    authorTagline: "Followed by @github",
     url: "https://x.com/GithubProjects/status/1931034244337271044",
     quote:
       "Everything you’d want in a picker, minus the styling headaches. Awesome job!",
