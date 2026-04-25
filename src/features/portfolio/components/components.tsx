@@ -25,7 +25,7 @@ export function Components() {
         </PanelTitle>
       </PanelHeader>
 
-      <div className="screen-line-bottom h-4" />
+      <div className="screen-line-bottom h-2" />
 
       <div className="relative">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
