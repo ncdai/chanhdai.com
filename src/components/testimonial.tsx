@@ -15,7 +15,7 @@ export function Testimonial({
       rel="noopener"
       className={cn("not-prose my-12 flex flex-col gap-6 pl-3", className)}
     >
-      <div className="relative block w-full font-serif text-2xl text-foreground md:w-lg">
+      <div className="relative block w-full font-serif text-xl text-foreground md:w-lg md:text-2xl">
         <span className="absolute -left-3 text-muted-foreground">“</span>
         <p className="inline text-pretty">{quote}</p>
         <span className="absolute translate-x-0.5 text-muted-foreground">

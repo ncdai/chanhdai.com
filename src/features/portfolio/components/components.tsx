@@ -25,13 +25,13 @@ export function Components() {
         </PanelTitle>
       </PanelHeader>
 
+      <div className="screen-line-bottom h-4" />
+
       <div className="relative">
         <div className="absolute inset-0 -z-1 grid grid-cols-1 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
           <div className="border-r border-line" />
           <div className="border-r border-line max-md:hidden" />
         </div>
-
-        <div className="screen-line-bottom h-4" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {components.slice(0, 9).map((c) => (
