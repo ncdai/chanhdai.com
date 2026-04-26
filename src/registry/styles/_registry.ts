@@ -276,4 +276,26 @@ export const styles: Registry["items"] = [
     },
     docs: "https://chanhdai.com/components/theme-toggle-effect",
   },
+  {
+    name: "thin-scrollbar",
+    type: "registry:style",
+    css: {
+      "@layer base": {
+        "::-webkit-scrollbar": {
+          width: "5px",
+        },
+        "::-webkit-scrollbar-track": {
+          background: "transparent",
+        },
+        "::-webkit-scrollbar-thumb": {
+          background: "var(--border)",
+          "border-radius": "5px",
+        },
+        "*": {
+          "scrollbar-width": "thin",
+          "scrollbar-color": "var(--border) transparent",
+        },
+      },
+    },
+  },
 ]
