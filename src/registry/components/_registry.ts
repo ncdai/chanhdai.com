@@ -525,4 +525,19 @@ export const components: Registry["items"] = [
     },
     docs: "https://chanhdai.com/components/github-contributions",
   },
+  {
+    name: "toc-minimap",
+    type: "registry:component",
+    title: "TOC Minimap",
+    description:
+      "Navigate page sections with a compact, hoverable TOC minimap.",
+    registryDependencies: ["hover-card"],
+    files: [
+      {
+        path: "components/toc-minimap/toc-minimap.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://chanhdai.com/components/toc-minimap",
+  },
 ]

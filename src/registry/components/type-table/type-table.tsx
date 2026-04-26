@@ -123,7 +123,7 @@ function Item({
         {typeDescriptionLink ? (
           <a
             href={typeDescriptionLink}
-            className="underline decoration-1 underline-offset-3 @max-xl:hidden"
+            className="link-underline @max-xl:hidden"
           >
             {type}
           </a>

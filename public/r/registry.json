@@ -649,6 +649,23 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "toc-minimap",
+      "title": "TOC Minimap",
+      "description": "Navigate page sections with a compact, hoverable TOC minimap.",
+      "registryDependencies": [
+        "hover-card"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/toc-minimap/toc-minimap.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/toc-minimap",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

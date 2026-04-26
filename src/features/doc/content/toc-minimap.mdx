@@ -1,0 +1,105 @@
+---
+title: TOC Minimap
+description: Navigate page sections with a compact, hoverable TOC minimap.
+image: https://assets.chanhdai.com/images/blog/toc-minimap.webp
+category: components
+new: true
+createdAt: 2026-04-27
+updatedAt: 2026-04-27
+---
+
+<ComponentPreview
+  name="toc-minimap-demo"
+  openInV0Url="https://chanhdai.com/r/toc-minimap.json"
+/>
+
+## Features
+
+- Active heading state updates as readers scroll through the page.
+- Nested heading depth is represented in both the minimap and expanded TOC.
+- Hovering the minimap reveals a scrollable table of contents.
+- Section links update the URL hash and scroll smoothly to the target heading.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/toc-minimap
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  showLineNumbers
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Hover Card](https://ui.shadcn.com/docs/components/hover-card)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="toc-minimap"
+  title="components/toc-minimap.tsx"
+  showLineNumbers
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TOCMinimap } from "@/components/toc-minimap"
+```
+
+```tsx
+<TOCMinimap items={toc} />
+```
+
+## API Reference
+
+### TOCMinimap
+
+<AutoTypeTable
+  path="src/registry/components/toc-minimap/toc-minimap.tsx"
+  name="TOCMinimapProps"
+/>
+
+### TOCItemType
+
+<AutoTypeTable
+  path="src/registry/components/toc-minimap/toc-minimap.tsx"
+  name="TOCItemType"
+/>
+
+## References
+
+- [Notion](https://www.notion.com) — inspired by its compact document navigation.
+- [Vercel Knowledge Base](https://vercel.com/kb) — inspired by its minimal documentation navigation.
