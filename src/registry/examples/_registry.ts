@@ -404,4 +404,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "toc-minimap-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("toc-minimap")],
+    files: [
+      {
+        path: "examples/toc-minimap-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

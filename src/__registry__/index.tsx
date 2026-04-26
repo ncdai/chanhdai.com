@@ -511,6 +511,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "toc-minimap": {
+    name: "toc-minimap",
+    description: "Navigate page sections with a compact, hoverable TOC minimap.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/toc-minimap/toc-minimap.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/toc-minimap/toc-minimap.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -1260,6 +1277,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/github-contributions-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "toc-minimap-demo": {
+    name: "toc-minimap-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/toc-minimap-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/toc-minimap-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
