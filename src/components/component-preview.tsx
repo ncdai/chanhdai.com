@@ -1,16 +1,22 @@
 "use client"
 
-import { CodeXmlIcon, EyeIcon, RepeatIcon } from "lucide-react"
+import { RepeatIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 import React, { useMemo, useState } from "react"
 
 import { Index } from "@/__registry__/index"
+import {
+  Tabs,
+  TabsContent,
+  TabsIndicator,
+  TabsList,
+  TabsTrigger,
+} from "@/components/base/ui/tabs"
 import { cn } from "@/lib/utils"
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "./base/ui/tooltip"
 import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper"
 import { Button } from "./ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
 import { Code as CodeInline } from "./ui/typography"
 import { OpenInV0Button } from "./v0-open-button"
 
@@ -19,7 +25,7 @@ export function ComponentPreview({
   name,
   openInV0Url,
   canReplay = false,
-  notProse = true,
+  prose = false,
   codeCollapsible = false,
   remountOnThemeChange = false,
   children,
@@ -28,7 +34,7 @@ export function ComponentPreview({
   name: string
   openInV0Url?: string
   canReplay?: boolean
-  notProse?: boolean
+  prose?: boolean
   codeCollapsible?: boolean
   remountOnThemeChange?: boolean
 }) {
@@ -55,36 +61,30 @@ export function ComponentPreview({
 
   return (
     <div
-      className={cn("my-[1.25em]", notProse && "not-prose", className)}
+      className={cn("my-[1.25em]", prose === false && "not-prose", className)}
       {...props}
     >
       <Tabs defaultValue="preview" className="gap-4">
         <TabsList>
-          <TabsTrigger className="px-2.5" value="preview">
-            <EyeIcon />
-            Preview
-          </TabsTrigger>
-          <TabsTrigger className="px-2.5" value="code">
-            <CodeXmlIcon />
-            Code
-          </TabsTrigger>
+          <TabsTrigger value="preview">Preview</TabsTrigger>
+          <TabsTrigger value="code">Code</TabsTrigger>
+          <TabsIndicator />
         </TabsList>
 
         <TabsContent value="preview">
           <div
             data-slot="preview"
             className="rounded-xl border border-line p-2"
-            // className="bg-zinc-950/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] [--pattern-foreground:var(--color-zinc-950)]/5 dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5"
           >
             {(canReplay || openInV0Url) && (
-              <div data-slot="buttons" className="mb-2 flex justify-end gap-2">
+              <div data-slot="buttons" className="mb-2 flex justify-end">
                 {canReplay && (
                   <Tooltip>
                     <TooltipTrigger
                       render={
                         <Button
-                          className="rounded-md"
-                          variant="secondary"
+                          className="border-none"
+                          variant="ghost"
                           size="icon-sm"
                           aria-label="Replay"
                           onClick={() => setReplay((v) => v + 1)}
@@ -123,7 +123,10 @@ export function ComponentPreview({
           </div>
         </TabsContent>
 
-        <TabsContent value="code" className="[&>figure]:m-0">
+        <TabsContent
+          value="code"
+          className="*:data-rehype-pretty-code-figure:m-0"
+        >
           {codeCollapsible ? (
             <CodeCollapsibleWrapper className="my-0">
               {Code}
