@@ -57,7 +57,7 @@ export function ComponentPreviewV2({
     >
       <div data-slot="preview" className="rounded-t-xl border p-2">
         {(canReplay || openInV0Url) && (
-          <div data-slot="buttons" className="mb-2 flex justify-end gap-0">
+          <div data-slot="buttons" className="mb-2 flex justify-end">
             {canReplay && (
               <Tooltip>
                 <TooltipTrigger
@@ -66,6 +66,7 @@ export function ComponentPreviewV2({
                       className="border-none"
                       variant="ghost"
                       size="icon-sm"
+                      aria-label="Replay"
                       onClick={() => setReplay((v) => v + 1)}
                     >
                       <RepeatIcon />

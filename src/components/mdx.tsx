@@ -40,7 +40,7 @@ import { AutoTypeTable } from "@/registry/components/auto-type-table"
 
 import { Callout } from "./callout"
 import { CodeTabs } from "./code-tabs"
-import { ComponentPreviewV2 as ComponentPreview } from "./component-preview-v2"
+import { ComponentPreview } from "./component-preview"
 import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed"
 import { mdxCodeBlockComponents } from "./mdx-code-block"
 import { Testimonial } from "./testimonial"
