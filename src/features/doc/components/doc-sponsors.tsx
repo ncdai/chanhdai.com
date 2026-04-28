@@ -7,12 +7,12 @@ const GOLD_SPONSORS = SPONSORS.filter((sponsor) => sponsor.tier === "gold")
 export function DocSponsors() {
   return (
     <aside
-      className="not-prose my-12 rounded-xl border border-line p-1"
+      className="not-prose my-12 rounded-2xl border border-line p-1"
       aria-labelledby="doc-sponsors-heading"
     >
       <h2
         id="doc-sponsors-heading"
-        className="px-3 pt-2 pb-3 font-heading text-sm/none font-medium tracking-tight text-muted-foreground"
+        className="px-3 pt-2 pb-3 font-heading text-sm/none font-medium text-muted-foreground"
       >
         Gold Sponsors
       </h2>
@@ -21,7 +21,7 @@ export function DocSponsors() {
         {GOLD_SPONSORS.map((item) => (
           <li key={item.name}>
             <a
-              className="flex items-center justify-center rounded-lg border border-line text-foreground transition-[background-color] ease-out hover:bg-accent-muted [&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0"
+              className="flex items-center justify-center rounded-xl border text-foreground transition-[background-color] ease-out hover:bg-accent-muted [&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0"
               href={addQueryParams(item.url, UTM_PARAMS)}
               target="_blank"
               rel="noopener sponsored"
