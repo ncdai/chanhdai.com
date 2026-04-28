@@ -20,11 +20,9 @@ export function Callout({
     >
       {icon}
       {title && (
-        <AlertTitle className="[&_a]:decoration-1 [&_a]:underline-offset-3">
-          {title}
-        </AlertTitle>
+        <AlertTitle className="[&_a]:link-underline">{title}</AlertTitle>
       )}
-      <AlertDescription className="text-surface-foreground/80 [&_a]:decoration-1 [&_a]:underline-offset-3">
+      <AlertDescription className="text-surface-foreground/80 [&_a]:link-underline">
         {children}
       </AlertDescription>
     </Alert>
