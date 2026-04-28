@@ -42,7 +42,7 @@ export function CodeBlockCommand({
           setPackageManager(value as PackageManager)
         }}
       >
-        <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-border">
+        <div className="px-4">
           <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
             {getIconForPackageManager(packageManager)}
 
@@ -58,14 +58,14 @@ export function CodeBlockCommand({
               )
             })}
 
-            <TabsIndicator className="h-0.5 translate-y-0 rounded-none bg-foreground shadow-none dark:bg-foreground" />
+            <TabsIndicator className="h-0.5 translate-y-px rounded-none bg-foreground shadow-none dark:bg-foreground" />
           </TabsList>
         </div>
 
         {Object.entries(tabs).map(([key, value]) => {
           return (
-            <TabsContent key={key} value={key}>
-              <pre className="overflow-x-auto overscroll-x-contain leading-5">
+            <TabsContent key={key} value={key} className="px-1 pb-1">
+              <pre className="overflow-x-auto overscroll-x-contain rounded-[9px] border bg-background leading-5">
                 <code
                   data-slot="code-block"
                   data-language="bash"
