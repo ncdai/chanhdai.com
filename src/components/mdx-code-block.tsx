@@ -72,7 +72,9 @@ export const mdxCodeBlockComponents = {
         {__rawString__ && (
           <>
             <CopyButton
-              className="absolute top-2 right-2 z-10 rounded-md border-none"
+              data-slot="copy-button"
+              className="absolute top-1.5 right-1.5 z-10 size-7 rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
+              variant="ghost"
               size="icon-xs"
               text={__rawString__}
               event="copy_code_block"

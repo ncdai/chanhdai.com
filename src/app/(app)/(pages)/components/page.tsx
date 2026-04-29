@@ -89,7 +89,7 @@ export default function Page() {
                 variant="secondary"
                 size="sm"
               >
-                <PlusIcon className="size-3.5" />
+                <PlusIcon />
                 Add
               </Button>
             }
