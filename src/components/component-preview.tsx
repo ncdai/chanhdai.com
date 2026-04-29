@@ -61,29 +61,44 @@ export function ComponentPreview({
 
   return (
     <div
-      className={cn("my-[1.25em]", prose === false && "not-prose", className)}
+      className={cn(
+        "my-[1.25em] rounded-xl bg-code",
+        prose === false && "not-prose",
+        className
+      )}
       {...props}
     >
-      <Tabs defaultValue="preview" className="gap-4">
-        <TabsList>
-          <TabsTrigger value="preview">Preview</TabsTrigger>
-          <TabsTrigger value="code">Code</TabsTrigger>
-          <TabsIndicator />
-        </TabsList>
+      <Tabs defaultValue="preview" className="gap-0">
+        <div className="z-1 px-4">
+          <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
+            <TabsTrigger className="h-7 rounded-lg p-0 px-2" value="preview">
+              Preview
+            </TabsTrigger>
+            <TabsTrigger className="h-7 rounded-lg p-0 px-2" value="code">
+              Code
+            </TabsTrigger>
 
-        <TabsContent value="preview">
+            <TabsIndicator className="h-0.5 translate-y-px rounded-none bg-foreground shadow-none dark:bg-foreground" />
+          </TabsList>
+        </div>
+
+        <TabsContent className="px-1 pb-1" value="preview">
           <div
             data-slot="preview"
-            className="rounded-xl border border-line p-2"
+            data-show-buttons={canReplay || !!openInV0Url}
+            className="relative rounded-xl rounded-b-[9px] border bg-background p-2 data-[show-buttons=true]:py-10.5"
           >
             {(canReplay || openInV0Url) && (
-              <div data-slot="buttons" className="mb-2 flex justify-end">
+              <div
+                data-slot="buttons"
+                className="absolute top-1.5 right-1.5 flex justify-end"
+              >
                 {canReplay && (
                   <Tooltip>
                     <TooltipTrigger
                       render={
                         <Button
-                          className="border-none"
+                          className="size-7 rounded-md border-none"
                           variant="ghost"
                           size="icon-sm"
                           aria-label="Replay"
@@ -99,7 +114,12 @@ export function ComponentPreview({
                   </Tooltip>
                 )}
 
-                {openInV0Url && <OpenInV0Button url={openInV0Url} />}
+                {openInV0Url && (
+                  <OpenInV0Button
+                    className="h-7 rounded-md"
+                    url={openInV0Url}
+                  />
+                )}
               </div>
             )}
 
@@ -118,14 +138,16 @@ export function ComponentPreview({
                 {Preview}
               </React.Suspense>
             </div>
-
-            {(canReplay || openInV0Url) && <div className="mt-2 h-7" />}
           </div>
         </TabsContent>
 
         <TabsContent
           value="code"
-          className="*:data-rehype-pretty-code-figure:m-0"
+          className={cn(
+            "px-1 pb-1 [--code:var(--background)]",
+            "*:data-rehype-pretty-code-figure:m-0 *:data-rehype-pretty-code-figure:rounded-b-[9px] *:data-rehype-pretty-code-figure:border",
+            "**:data-[slot=copy-button]:size-7"
+          )}
         >
           {codeCollapsible ? (
             <CodeCollapsibleWrapper className="my-0">

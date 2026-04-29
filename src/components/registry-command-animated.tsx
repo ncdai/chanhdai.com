@@ -111,7 +111,7 @@ export function RegistryCommandAnimated() {
       </Tabs>
 
       <CopyButton
-        className="absolute top-1.5 right-1.5 z-10 size-7 border-none [&_svg:not([class*='size-'])]:size-3.5"
+        className="absolute top-1.5 right-1.5 z-10 size-7 border-none"
         size="icon-sm"
         text={() => {
           const baseCommand = pmCommands[packageManager] || pmCommands["pnpm"]

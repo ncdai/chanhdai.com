@@ -68,14 +68,14 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
 
   return (
     <Button
-      className="h-7 gap-1.5 border-none pr-2 pl-2.5 text-[0.8125rem] active:scale-none [&_svg:not([class*='size-'])]:size-3.5"
+      className="h-7 gap-1.5 border-none px-2 text-[0.8125rem] active:scale-none"
       variant="secondary"
       size="sm"
       aria-busy={isCopying}
       disabled={isCopying}
       onClick={handleCopy}
     >
-      <CopyStateIcon state={state} />
+      <CopyStateIcon state={state} idleIcon={<Icons.copy />} />
       <span className="max-[28rem]:hidden">Copy Page</span>
     </Button>
   )
