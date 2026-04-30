@@ -13,7 +13,7 @@ export function Callout({
   return (
     <Alert
       className={cn(
-        "not-prose rounded-xl bg-surface text-surface-foreground",
+        "not-prose rounded-xl bg-surface text-surface-foreground retina:border-[0.5px]",
         className
       )}
       {...props}
