@@ -469,7 +469,7 @@ function BlockViewerCode() {
       </div>
 
       <figure
-        className="my-0 flex min-w-0 flex-1 flex-col overflow-hidden border"
+        className="my-0 flex min-w-0 flex-1 flex-col overflow-hidden border p-0"
         data-rehype-pretty-code-figure=""
       >
         <figcaption
@@ -479,14 +479,12 @@ function BlockViewerCode() {
         >
           {getIconForLanguageExtension(language)}
           <p className="truncate">{file.target}</p>
-          <div className="ml-auto flex">
-            <BlockCopyCodeButton />
-          </div>
+          <BlockCopyCodeButton />
         </figcaption>
 
         <div
           key={file?.path}
-          className="no-scrollbar overflow-y-auto"
+          className="no-scrollbar overflow-y-auto border-t"
           dangerouslySetInnerHTML={{ __html: file?.highlightedContent ?? "" }}
         />
       </figure>
@@ -504,11 +502,11 @@ function BlockViewerFileTree() {
   return (
     <SidebarProvider className="flex min-h-full flex-col [--sidebar:var(--code)] dark:[--sidebar-accent:var(--muted)]/50">
       <Sidebar collapsible="none" className="w-full flex-1 rounded-xl border">
-        <SidebarGroupLabel className="h-10 rounded-none border-b px-4 text-sm">
+        <SidebarGroupLabel className="h-10 rounded-none px-4 text-sm">
           Explorer
         </SidebarGroupLabel>
 
-        <SidebarGroup className="px-0">
+        <SidebarGroup className="border-t px-0">
           <SidebarGroupContent>
             <SidebarMenu className="translate-x-0 gap-px">
               {tree.map((file, index) => (
@@ -600,10 +598,11 @@ function BlockCopyCodeButton() {
 
   return (
     <CopyButton
-      className="rounded-md border-none [&_svg]:text-foreground"
-      variant="secondary"
+      className="absolute top-1.5 right-1.5 size-7 rounded-md border-none [&_svg]:text-foreground [&_svg:not([class*='size-'])]:size-4"
+      variant="ghost"
       size="icon-xs"
       text={content}
+      idleIcon={<Icons.copy />}
       onCopySuccess={() => {
         trackEvent({
           name: "copy_block_code",

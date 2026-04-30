@@ -61,19 +61,24 @@ export const mdxCodeBlockComponents = {
 
     return (
       <>
-        <pre
-          className={cn(
-            __rawString__ && !__withMeta__ && "[--code-padding-right:6rem]",
-            className
-          )}
-          {...props}
-        />
+        <div className="rounded-[9px] border bg-background [--code:var(--background)]">
+          <pre
+            className={cn(
+              __rawString__ && !__withMeta__ && "[--code-padding-right:6rem]",
+              className
+            )}
+            {...props}
+          />
+        </div>
 
         {__rawString__ && (
           <>
             <CopyButton
               data-slot="copy-button"
-              className="absolute top-1.5 right-1.5 z-10 size-7 rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
+              className={cn(
+                "absolute top-2 right-2 z-10 size-7 rounded-[5px] border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4",
+                __withMeta__ && "top-1.5 right-1.5 rounded-md"
+              )}
               variant="ghost"
               size="icon-xs"
               text={__rawString__}
@@ -84,9 +89,10 @@ export const mdxCodeBlockComponents = {
               <div
                 aria-hidden
                 data-fade-overlay
+                className="top-1.25 right-1.25"
                 style={
                   {
-                    "--fade-color": "var(--code)",
+                    "--fade-color": "var(--background)",
                   } as React.CSSProperties
                 }
               />
