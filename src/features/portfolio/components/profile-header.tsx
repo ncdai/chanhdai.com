@@ -9,7 +9,7 @@ export function ProfileHeader() {
   return (
     <div className="screen-line-bottom flex border-x border-line">
       <div className="shrink-0 border-r border-line">
-        <div className="mx-0.5 my-0.75">
+        <div className="relative mx-0.5 my-0.75">
           <AvatarElectricEffect>
             <img
               className="size-30 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
@@ -18,6 +18,7 @@ export function ProfileHeader() {
               fetchPriority="high"
             />
           </AvatarElectricEffect>
+          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-black/10 ring-inset dark:ring-white/15 retina:ring-[0.5px]" />
         </div>
       </div>
 

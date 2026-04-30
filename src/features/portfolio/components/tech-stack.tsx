@@ -20,7 +20,7 @@ export function TechStack() {
                   target="_blank"
                   rel="noopener"
                   aria-label={tech.title}
-                  className="flex items-center gap-1.5 rounded-full border bg-zinc-50 px-1.5 py-0.5 text-xs tracking-wide text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 [&_img]:size-3.5 [&_img]:select-none"
+                  className="flex items-center gap-1.5 rounded-full border bg-zinc-50 px-1.5 py-0.5 text-xs tracking-wide text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 retina:border-[0.5px] [&_img]:size-3.5 [&_img]:select-none"
                 >
                   {tech.theme ? (
                     <>
