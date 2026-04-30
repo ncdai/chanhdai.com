@@ -86,19 +86,19 @@ export function ComponentPreview({
           <div
             data-slot="preview"
             data-show-buttons={canReplay || !!openInV0Url}
-            className="relative rounded-xl rounded-b-[9px] border bg-background p-2 data-[show-buttons=true]:py-10.5"
+            className="relative rounded-[9px] border bg-background p-2 data-[show-buttons=true]:py-8.75"
           >
             {(canReplay || openInV0Url) && (
               <div
                 data-slot="buttons"
-                className="absolute top-1.5 right-1.5 flex justify-end"
+                className="absolute top-0.75 right-0.75 flex items-center"
               >
                 {canReplay && (
                   <Tooltip>
                     <TooltipTrigger
                       render={
                         <Button
-                          className="size-7 rounded-md border-none"
+                          className="size-7 rounded-[5px] border-none"
                           variant="ghost"
                           size="icon-sm"
                           aria-label="Replay"
@@ -116,7 +116,7 @@ export function ComponentPreview({
 
                 {openInV0Url && (
                   <OpenInV0Button
-                    className="h-7 rounded-md"
+                    className="h-7 rounded-[5px]"
                     url={openInV0Url}
                   />
                 )}
@@ -144,9 +144,9 @@ export function ComponentPreview({
         <TabsContent
           value="code"
           className={cn(
-            "px-1 pb-1 [--code:var(--background)]",
-            "*:data-rehype-pretty-code-figure:m-0 *:data-rehype-pretty-code-figure:rounded-b-[9px] *:data-rehype-pretty-code-figure:border",
-            "**:data-[slot=copy-button]:size-7"
+            "**:data-rehype-pretty-code-figure:m-0 **:data-rehype-pretty-code-figure:pt-0",
+            "**:data-[slot=copy-button]:top-1",
+            "**:data-fade-overlay:top-px"
           )}
         >
           {codeCollapsible ? (

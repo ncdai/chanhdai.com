@@ -112,10 +112,10 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="*:absolute *:z-2 *:flex *:size-2 *:border *:border-line *:bg-background">
+        {/* <div className="*:absolute *:z-2 *:flex *:size-2 *:border *:border-line *:bg-background">
           <div className="bottom-[-3.5px] left-[-4.5px]" />
           <div className="right-[-4.5px] bottom-[-3.5px]" />
-        </div>
+        </div> */}
       </div>
 
       <SiteFooterInteractiveLogotype />

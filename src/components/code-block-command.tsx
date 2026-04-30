@@ -34,7 +34,7 @@ export function CodeBlockCommand({
   }, [__pnpm__, __yarn__, __npm__, __bun__])
 
   return (
-    <div className="relative overflow-hidden rounded-xl bg-code">
+    <div data-slot="code-block-command" className="relative">
       <Tabs
         className="gap-0"
         value={packageManager}
@@ -42,8 +42,8 @@ export function CodeBlockCommand({
           setPackageManager(value as PackageManager)
         }}
       >
-        <div className="px-4">
-          <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
+        <div className="px-3">
+          <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:mr-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
             {getIconForPackageManager(packageManager)}
 
             {Object.entries(tabs).map(([key]) => {
@@ -64,24 +64,26 @@ export function CodeBlockCommand({
 
         {Object.entries(tabs).map(([key, value]) => {
           return (
-            <TabsContent key={key} value={key} className="px-1 pb-1">
-              <pre className="overflow-x-auto overscroll-x-contain rounded-[9px] border bg-background leading-5">
-                <code
-                  data-slot="code-block"
-                  data-language="bash"
-                  className="font-mono text-sm/none text-muted-foreground"
-                >
-                  <span className="select-none">$ </span>
-                  {value}
-                </code>
-              </pre>
+            <TabsContent key={key} value={key}>
+              <div className="rounded-[9px] border bg-background">
+                <pre className="overflow-x-auto overscroll-x-contain leading-5">
+                  <code
+                    data-slot="code-block"
+                    data-language="bash"
+                    className="font-mono text-sm/none text-muted-foreground"
+                  >
+                    <span className="select-none">$ </span>
+                    {value}
+                  </code>
+                </pre>
+              </div>
             </TabsContent>
           )
         })}
       </Tabs>
 
       <CopyButton
-        className="absolute top-1.5 right-1.5 z-10 size-7 rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
+        className="absolute top-1.5 right-0.5 z-10 size-7 rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
         variant="ghost"
         size="icon-xs"
         text={tabs[packageManager] || ""}

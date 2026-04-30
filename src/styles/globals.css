@@ -389,8 +389,8 @@
   /* zinc-500 */
   --code-number: oklch(0.552 0.016 285.938);
 
-  /* zinc-800 */
-  --code-highlight: oklch(0.274 0.006 286.033);
+  /* zinc-900 */
+  --code-highlight: oklch(0.21 0.006 285.885);
 
   /* zinc-50 */
   --selection: oklch(0.985 0 0);
@@ -473,10 +473,12 @@
 
 @layer components {
   [data-rehype-pretty-code-figure] {
-    @apply relative my-[1.25em] rounded-xl bg-code text-code-foreground;
+    @apply relative my-[1.25em] rounded-xl bg-code p-1 text-code-foreground;
+    @apply has-data-rehype-pretty-code-title:pt-0;
+    @apply has-data-[slot=code-block-command]:pt-0;
 
     pre {
-      @apply no-scrollbar overflow-x-auto overscroll-x-contain px-4 py-4 has-data-line-numbers:px-0;
+      @apply no-scrollbar overflow-x-auto overscroll-x-contain p-4 has-data-line-numbers:px-0;
     }
 
     code {
@@ -493,7 +495,7 @@
   }
 
   [data-rehype-pretty-code-title] {
-    @apply flex items-center gap-3 border-b px-4 py-2.5 pe-10 text-sm text-muted-foreground group-data-[slot=collapsible]/collapsible:pe-20 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground;
+    @apply flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground group-data-[slot=collapsible]/collapsible:pe-20 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground;
   }
 
   [data-line-numbers] {
@@ -515,7 +517,7 @@
   }
 
   [data-fade-overlay] {
-    @apply pointer-events-none absolute top-0 right-0 z-1 rounded-tr-xl;
+    @apply pointer-events-none absolute top-0 right-0 z-1 rounded-tr-lg;
 
     --fade-linear-gradient: linear-gradient(
       to right,
