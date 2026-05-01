@@ -26,7 +26,7 @@ export function rehypeCodeRawString() {
 export function rehypeHighlightCode() {
   return rehypePrettyCode({
     theme: {
-      dark: "github-dark",
+      dark: "vesper",
       light: "github-light",
     },
     keepBackground: false,

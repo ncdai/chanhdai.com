@@ -42,6 +42,10 @@ export function markdownRenderer(options?: ShikiOptions): MarkdownRenderer {
       const nodes = await highlightHast(type, {
         lang: "ts",
         structure: "inline",
+        themes: {
+          dark: "vesper",
+          light: "github-light",
+        },
         defaultColor: false,
         ...options,
       })
