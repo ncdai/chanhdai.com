@@ -112,7 +112,7 @@ function Item({
         <code
           className={cn(
             "[--shiki-dark:#FFF] [--shiki-light:#6F42C1]",
-            "w-1/4 min-w-fit shrink-0 pr-2 font-mono font-medium text-(--shiki-light) dark:text-(--shiki-dark)",
+            "w-1/4 min-w-fit shrink-0 pr-2 font-mono text-(--shiki-light) dark:text-(--shiki-dark)",
             deprecated && "line-through opacity-50"
           )}
         >
