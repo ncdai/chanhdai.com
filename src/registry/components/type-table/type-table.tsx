@@ -144,25 +144,29 @@ function Item({
 
           {typeDescription != null && (
             <>
-              <p className="not-prose pe-3 leading-5 text-muted-foreground">
+              <p className="not-prose pr-3 leading-6 text-muted-foreground">
                 Type
               </p>
-              <p className="not-prose my-auto">{typeDescription}</p>
+              <p className="not-prose my-auto [&_code]:text-[0.8125rem] [&_code]:leading-6">
+                {typeDescription}
+              </p>
             </>
           )}
 
           {defaultValue != null && (
             <>
-              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+              <p className="not-prose pr-3 leading-6 text-muted-foreground">
                 Default
               </p>
-              <p className="not-prose my-auto">{defaultValue}</p>
+              <p className="not-prose my-auto [&_code]:text-[0.8125rem] [&_code]:leading-6">
+                {defaultValue}
+              </p>
             </>
           )}
 
           {parameters.length > 0 && (
             <>
-              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+              <p className="not-prose pr-3 leading-6 text-muted-foreground">
                 Parameters
               </p>
               <div className="grid gap-3">
@@ -184,7 +188,7 @@ function Item({
 
           {example != null && (
             <>
-              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+              <p className="not-prose pr-3 leading-6 text-muted-foreground">
                 Example
               </p>
               <CustomProse className="overflow-hidden">{example}</CustomProse>
@@ -193,7 +197,7 @@ function Item({
 
           {returns != null && (
             <>
-              <p className="not-prose pe-3 leading-6 text-muted-foreground">
+              <p className="not-prose pr-3 leading-6 text-muted-foreground">
                 Returns
               </p>
               <CustomProse className="my-auto">{returns}</CustomProse>
