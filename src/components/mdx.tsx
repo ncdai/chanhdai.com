@@ -65,9 +65,13 @@ const components: MDXRemoteProps["components"] = {
   CodeCollapsibleWrapper,
   CodeTabs,
   Callout,
-  Steps: (props) => (
+  Steps: ({ className, ...props }: React.ComponentProps<"div">) => (
     <div
-      className="md:ml-3.5 md:border-l md:pl-7.5 prose-h3:text-lg prose-h3:text-wrap"
+      className={cn(
+        "relative md:ml-3.5 md:pl-7.5 prose-h3:text-lg prose-h3:text-pretty",
+        "before:pointer-events-none before:absolute before:top-0 before:left-0 before:hidden before:h-full before:w-px before:-translate-x-1/2 before:bg-border before:md:flex",
+        className
+      )}
       {...props}
     />
   ),
