@@ -145,10 +145,10 @@
 }
 
 @utility step {
-  @apply max-md:ml-9 max-md:-indent-9;
+  @apply max-md:ml-11 max-md:-indent-11;
   counter-increment: step;
   &::before {
-    @apply mr-2 inline-flex size-7 items-center justify-center rounded-full border border-muted-foreground/15 bg-muted text-center -indent-px text-sm font-medium text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background max-md:-translate-y-px md:absolute md:-mt-0.5 md:-ml-11.5 md:size-8;
+    @apply mr-4 inline-flex size-7 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-center text-sm font-medium text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background max-md:-translate-y-px md:absolute md:-ml-11;
     content: counter(step);
   }
 }
