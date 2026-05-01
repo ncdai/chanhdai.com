@@ -136,7 +136,7 @@ export function rehypeComponent() {
                     className: ["language-tsx"],
                   },
                   data: {
-                    meta: codeMeta,
+                    meta: codeMeta?.value ?? "",
                   },
                   children: [
                     {
