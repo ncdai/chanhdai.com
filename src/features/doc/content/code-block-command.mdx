@@ -51,7 +51,6 @@ npm install clsx tailwind-merge class-variance-authority lucide-react motion jot
 <ComponentSource
   src="src/lib/utils.ts"
   title="lib/utils.ts"
-  showLineNumbers
   collapsible="false"
 />
 
@@ -64,13 +63,11 @@ npm install clsx tailwind-merge class-variance-authority lucide-react motion jot
 <ComponentSource
   src="src/components/base/ui/tabs.tsx"
   title="components/tabs.tsx"
-  showLineNumbers
 />
 
 <ComponentSource
   name="code-block-command"
   title="components/code-block-command.tsx"
-  showLineNumbers
 />
 
 <Step>Update the import paths to match your project setup</Step>
@@ -153,7 +150,7 @@ Use `convertNpmCommand` to avoid manually writing commands for each package mana
 
 Track user interactions with analytics services like [PostHog](https://posthog.com), [OpenPanel](https://openpanel.dev), or [Google Analytics](https://analytics.google.com).
 
-```tsx showLineNumbers {3,12}
+```tsx {3,12}
 <CodeBlockCommand
   {...convertNpmCommand("npx shadcn add @ncdai/code-block-command")}
   onCopySuccess={({ packageManager, command }) => {

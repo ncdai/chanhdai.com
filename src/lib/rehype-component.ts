@@ -136,9 +136,7 @@ export function rehypeComponent() {
                     className: ["language-tsx"],
                   },
                   data: {
-                    meta: ["showLineNumbers"]
-                      .concat(codeMeta ? [codeMeta.value as string] : [])
-                      .join(" "),
+                    meta: codeMeta,
                   },
                   children: [
                     {

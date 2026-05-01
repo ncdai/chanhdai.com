@@ -145,10 +145,11 @@
 }
 
 @utility step {
-  @apply max-md:ml-11 max-md:-indent-11;
+  @apply max-md:pl-10;
   counter-increment: step;
+
   &::before {
-    @apply mr-4 inline-flex size-7 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-center text-sm font-medium text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background max-md:-translate-y-px md:absolute md:-ml-11;
+    @apply absolute inline-flex size-6 items-center justify-center rounded-lg bg-muted text-center indent-0 text-[0.8125rem]/6 font-normal text-foreground max-md:left-0 md:-ml-10;
     content: counter(step);
   }
 }
@@ -486,7 +487,7 @@
     }
 
     [data-line] {
-      @apply py-0.5 pr-(--code-padding-right,0);
+      @apply pr-(--code-padding-right,0);
     }
   }
 
