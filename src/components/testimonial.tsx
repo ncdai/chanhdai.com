@@ -13,7 +13,7 @@ export function Testimonial({
       href={url}
       target="_blank"
       rel="noopener"
-      className={cn("not-prose my-12 flex flex-col gap-6 pl-3", className)}
+      className={cn("not-prose my-[2.5em] flex flex-col gap-6 pl-3", className)}
     >
       <div className="relative block w-full font-serif text-xl text-foreground md:w-lg md:text-2xl">
         <span className="absolute -left-3 text-muted-foreground">“</span>
