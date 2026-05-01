@@ -496,7 +496,7 @@
   }
 
   [data-rehype-pretty-code-title] {
-    @apply flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground group-data-[slot=collapsible]/collapsible:pe-20 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground;
+    @apply flex items-center gap-3 px-3 py-2.5 font-mono text-sm text-muted-foreground group-data-[slot=collapsible]/collapsible:pe-20 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground;
   }
 
   [data-line-numbers] {
@@ -544,8 +544,8 @@
       transparent 70%
     );
 
-    width: var(--fade-width, 6rem);
-    height: var(--fade-height, 2.5rem);
+    width: var(--fade-width, 5rem);
+    height: var(--fade-height, 2.25rem);
     background: var(--fade-background, var(--fade-linear-gradient));
   }
 }

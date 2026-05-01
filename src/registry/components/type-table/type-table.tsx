@@ -108,10 +108,10 @@ function Item({
       id={id}
       className="group/type-item rounded-lg ring-border ring-inset data-open:bg-background data-open:ring-1 data-open:not-last:mb-0.75"
     >
-      <CollapsibleTrigger className="not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-[0.8125rem] ring-border outline-none ring-inset group-data-open/type-item:rounded-b-none group-data-open/type-item:ring-1 hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] [&_svg]:size-4">
+      <CollapsibleTrigger className="not-prose relative flex w-full flex-row items-center rounded-lg px-3 py-2 text-start text-sm ring-border outline-none ring-inset group-data-open/type-item:rounded-b-none group-data-open/type-item:ring-1 hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring/50 dark:hover:bg-[color-mix(in_oklab,var(--accent)_60%,var(--code))] [&_svg]:size-4">
         <code
           className={cn(
-            "[--shiki-dark:var(--foreground)] [--shiki-light:#6F42C1]",
+            "[--shiki-dark:#FFF] [--shiki-light:#6F42C1]",
             "w-1/4 min-w-fit shrink-0 pr-2 font-mono font-medium text-(--shiki-light) dark:text-(--shiki-dark)",
             deprecated && "line-through opacity-50"
           )}
@@ -144,41 +144,32 @@ function Item({
 
           {typeDescription != null && (
             <>
-              <p className="not-prose pr-3 leading-6 text-muted-foreground">
-                Type
-              </p>
-              <p className="not-prose my-auto [&_code]:text-[0.8125rem] [&_code]:leading-6">
-                {typeDescription}
-              </p>
+              <p className="not-prose pr-3 text-muted-foreground">Type</p>
+              <p className="not-prose my-auto">{typeDescription}</p>
             </>
           )}
 
           {defaultValue != null && (
             <>
-              <p className="not-prose pr-3 leading-6 text-muted-foreground">
-                Default
-              </p>
-              <p className="not-prose my-auto [&_code]:text-[0.8125rem] [&_code]:leading-6">
-                {defaultValue}
-              </p>
+              <p className="not-prose pr-3 text-muted-foreground">Default</p>
+              <p className="not-prose my-auto">{defaultValue}</p>
             </>
           )}
 
           {parameters.length > 0 && (
             <>
-              <p className="not-prose pr-3 leading-6 text-muted-foreground">
-                Parameters
-              </p>
+              <p className="not-prose pr-3 text-muted-foreground">Parameters</p>
               <div className="grid gap-3">
                 {parameters.map((param) => (
-                  <div
-                    key={param.name}
-                    className="flex flex-wrap items-center gap-1"
-                  >
-                    <p className="not-prose leading-6 font-medium text-nowrap">
+                  <div key={param.name} className="flex flex-col gap-1.5">
+                    <code
+                      className={cn(
+                        "[--shiki-dark:#FFF] [--shiki-light:#E36209]",
+                        "not-prose text-(--shiki-light) dark:text-(--shiki-dark)"
+                      )}
+                    >
                       {param.name}
-                      <span className="ml-1 font-normal">–</span>
-                    </p>
+                    </code>
                     <CustomProse>{param.description}</CustomProse>
                   </div>
                 ))}
@@ -188,18 +179,14 @@ function Item({
 
           {example != null && (
             <>
-              <p className="not-prose pr-3 leading-6 text-muted-foreground">
-                Example
-              </p>
+              <p className="not-prose pr-3 text-muted-foreground">Example</p>
               <CustomProse className="overflow-hidden">{example}</CustomProse>
             </>
           )}
 
           {returns != null && (
             <>
-              <p className="not-prose pr-3 leading-6 text-muted-foreground">
-                Returns
-              </p>
+              <p className="not-prose pr-3 text-muted-foreground">Returns</p>
               <CustomProse className="my-auto">{returns}</CustomProse>
             </>
           )}
@@ -213,7 +200,7 @@ function CustomProse({ className, ...props }: ComponentProps<typeof Prose>) {
   return (
     <Prose
       className={cn(
-        "prose-sm prose-no-margin prose-code:py-[1.5px] prose-code:text-[0.8125rem]",
+        "prose-sm prose-no-margin prose-code:py-[1.5px] prose-code:text-[.8125rem]",
         className
       )}
       {...props}
