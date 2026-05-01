@@ -10,6 +10,11 @@
   "files": [],
   "css": {
     "@plugin @tailwindcss/typography": {},
+    "@custom-variant retina": {
+      "@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2x)": {
+        "@slot": {}
+      }
+    },
     "@utility link": {
       "@apply decoration-1 underline-offset-3 hover:underline": {}
     },
@@ -17,10 +22,11 @@
       "@apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current": {}
     },
     "@utility prose-ncdai": {
-      "@apply prose-headings:tracking-tight prose-headings:text-balance prose-h2:font-semibold": {},
+      "@apply prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-pretty md:prose-headings:text-balance": {},
       "@apply prose-a:font-normal prose-a:wrap-break-word prose-a:text-foreground prose-a:link-underline": {},
-      "@apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none": {},
-      "@apply prose-strong:font-medium": {}
+      "@apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-1 prose-code:py-px prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none retina:prose-code:border-[0.5px]": {},
+      "@apply prose-strong:font-medium": {},
+      "@apply prose-blockquote:border-l prose-blockquote:font-normal prose-blockquote:text-muted-foreground prose-blockquote:not-italic prose-blockquote:[&_p:first-of-type]:before:content-none prose-blockquote:[&_p:last-of-type]:after:content-none": {}
     }
   },
   "type": "registry:component"
