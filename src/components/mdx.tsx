@@ -68,7 +68,7 @@ const components: MDXRemoteProps["components"] = {
   Steps: ({ className, ...props }: React.ComponentProps<"div">) => (
     <div
       className={cn(
-        "relative md:ml-3 md:pl-7 prose-h3:text-base prose-h3:text-pretty",
+        "relative md:ml-3 md:pl-7 prose-h3:text-base",
         "before:pointer-events-none before:absolute before:top-0 before:left-0 before:hidden before:h-full before:w-px before:-translate-x-1/2 before:bg-line before:md:flex",
         className
       )}

@@ -40,7 +40,7 @@ export function TOCMinimap({ items, className }: TOCMinimapProps) {
           delay={0}
           closeDelay={0}
           render={
-            <div className="flex max-h-[50dvh] flex-col gap-3 overflow-hidden py-3 pl-6 opacity-100 transition-opacity duration-200 data-popup-open:opacity-0">
+            <div className="flex max-h-[50dvh] flex-col gap-2 overflow-hidden py-3 pl-6 opacity-100 transition-opacity duration-200 data-popup-open:opacity-0">
               {items.map((item) => (
                 <div
                   key={item.url}
