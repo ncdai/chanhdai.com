@@ -14,6 +14,7 @@ import {
   TerminalIcon,
   TerminalSquareIcon,
   VibrateIcon,
+  WavesHorizontalIcon,
   ZapIcon,
 } from "lucide-react"
 
@@ -851,6 +852,10 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
           />
         </svg>
       )
+    }
+
+    case "fluid-gradient-text": {
+      return <WavesHorizontalIcon {...props} />
     }
 
     default: {
