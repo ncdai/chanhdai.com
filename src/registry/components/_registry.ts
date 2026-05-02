@@ -547,4 +547,19 @@ export const components: Registry["items"] = [
     ],
     docs: "https://chanhdai.com/components/toc-minimap",
   },
+  {
+    name: "fluid-gradient-text",
+    type: "registry:component",
+    title: "Fluid Gradient Text",
+    description:
+      "Render text with a fluid gradient that shifts with pointer movement.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/fluid-gradient-text/fluid-gradient-text.tsx",
+        type: "registry:component",
+      },
+    ],
+    docs: "https://chanhdai.com/components/fluid-gradient-text",
+  },
 ]

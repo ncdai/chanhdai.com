@@ -672,6 +672,23 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "fluid-gradient-text",
+      "title": "Fluid Gradient Text",
+      "description": "Render text with a fluid gradient that shifts with pointer movement.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/fluid-gradient-text/fluid-gradient-text.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/fluid-gradient-text",
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",
