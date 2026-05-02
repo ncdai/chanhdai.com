@@ -415,4 +415,30 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "fluid-gradient-text-demo-01",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("fluid-gradient-text")],
+    files: [
+      {
+        path: "examples/fluid-gradient-text-demo-01.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "fluid-gradient-text-dialkit-demo",
+    type: "registry:example",
+    dependencies: ["dialkit"],
+    registryDependencies: [getRegistryItemUrl("fluid-gradient-text")],
+    files: [
+      {
+        path: "examples/fluid-gradient-text-dialkit-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "min-h-svh place-items-center-safe content-center-safe",
+    },
+  },
 ]

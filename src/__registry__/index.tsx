@@ -528,6 +528,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "fluid-gradient-text": {
+    name: "fluid-gradient-text",
+    description: "Render text with a fluid gradient that shifts with pointer movement.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/fluid-gradient-text/fluid-gradient-text.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/fluid-gradient-text/fluid-gradient-text.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -1299,5 +1316,39 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: undefined,
+  },
+  "fluid-gradient-text-demo-01": {
+    name: "fluid-gradient-text-demo-01",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/fluid-gradient-text-demo-01.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/fluid-gradient-text-demo-01.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "fluid-gradient-text-dialkit-demo": {
+    name: "fluid-gradient-text-dialkit-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/fluid-gradient-text-dialkit-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/fluid-gradient-text-dialkit-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"min-h-svh place-items-center-safe content-center-safe"},
   },
 }
