@@ -1,6 +1,6 @@
 "use client"
 
-import { RepeatIcon } from "lucide-react"
+import { Repeat, Settings2 } from "lucide-react"
 import { useTheme } from "next-themes"
 import React, { useMemo, useState } from "react"
 
@@ -12,18 +12,22 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/base/ui/tabs"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/base/ui/tooltip"
+import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
+import { Button } from "@/components/ui/button"
+import { Code as CodeInline } from "@/components/ui/typography"
+import { OpenInV0Button } from "@/components/v0-open-button"
 import { cn } from "@/lib/utils"
-
-import { Tooltip, TooltipContent, TooltipTrigger } from "./base/ui/tooltip"
-import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper"
-import { Button } from "./ui/button"
-import { Code as CodeInline } from "./ui/typography"
-import { OpenInV0Button } from "./v0-open-button"
 
 export function ComponentPreview({
   className,
   name,
   openInV0Url,
+  customizeUrl,
   canReplay = false,
   prose = false,
   codeCollapsible = false,
@@ -33,6 +37,7 @@ export function ComponentPreview({
 }: React.ComponentProps<"div"> & {
   name: string
   openInV0Url?: string
+  customizeUrl?: string
   canReplay?: boolean
   prose?: boolean
   codeCollapsible?: boolean
@@ -85,10 +90,10 @@ export function ComponentPreview({
         <TabsContent className="px-1 pb-1" value="preview">
           <div
             data-slot="preview"
-            data-show-buttons={canReplay || !!openInV0Url}
+            data-show-buttons={canReplay || !!customizeUrl || !!openInV0Url}
             className="relative rounded-[9px] border bg-background p-2 data-[show-buttons=true]:py-8.75"
           >
-            {(canReplay || openInV0Url) && (
+            {(canReplay || customizeUrl || openInV0Url) && (
               <div
                 data-slot="buttons"
                 className="absolute top-0.75 right-0.75 flex items-center"
@@ -104,13 +109,36 @@ export function ComponentPreview({
                           aria-label="Replay"
                           onClick={() => setReplay((v) => v + 1)}
                         >
-                          <RepeatIcon />
+                          <Repeat />
                         </Button>
                       }
                     />
-                    <TooltipContent>
-                      <p>Replay</p>
-                    </TooltipContent>
+                    <TooltipContent>Replay</TooltipContent>
+                  </Tooltip>
+                )}
+
+                {customizeUrl && (
+                  <Tooltip>
+                    <TooltipTrigger
+                      render={
+                        <Button
+                          className="size-7 rounded-[5px] border-none"
+                          variant="ghost"
+                          size="icon-sm"
+                          aria-label="Customize"
+                          asChild
+                        >
+                          <a
+                            href={customizeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Settings2 />
+                          </a>
+                        </Button>
+                      }
+                    />
+                    <TooltipContent>Customize</TooltipContent>
                   </Tooltip>
                 )}
 
