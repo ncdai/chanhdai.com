@@ -1,6 +1,7 @@
 import {
   BriefcaseBusinessIcon,
   CopyIcon,
+  Droplet,
   FileIcon,
   GalleryHorizontalEndIcon,
   LayoutGridIcon,
@@ -14,7 +15,6 @@ import {
   TerminalIcon,
   TerminalSquareIcon,
   VibrateIcon,
-  WavesHorizontalIcon,
   ZapIcon,
 } from "lucide-react"
 
@@ -855,7 +855,7 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
     }
 
     case "fluid-gradient-text": {
-      return <WavesHorizontalIcon {...props} />
+      return <Droplet {...props} />
     }
 
     default: {
