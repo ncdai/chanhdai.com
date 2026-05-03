@@ -95,7 +95,7 @@ export default function Page() {
             }
           />
 
-          <DialogContent className="sm:max-w-lg">
+          <DialogContent className="sm:max-w-lg dark:liquid-glass-border dark:ring-0">
             <DialogHeader>
               <DialogTitle>Add Registry</DialogTitle>
               <DialogDescription className="text-balance">
