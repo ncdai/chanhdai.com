@@ -427,8 +427,8 @@ function CommandMenuTrigger({ ...props }: React.ComponentProps<typeof Button>) {
     <Button
       data-slot="command-menu-trigger"
       className={cn(
-        "gap-1.5 rounded-full bg-zinc-50 text-muted-foreground shadow-none select-none hover:bg-zinc-50 hover:text-muted-foreground dark:hover:bg-input/30",
-        "liquid-glass-border border-none"
+        "gap-1.5 rounded-full text-muted-foreground shadow-none select-none hover:bg-background hover:text-muted-foreground dark:hover:bg-input/30",
+        "dark:liquid-glass-border dark:border-none"
       )}
       variant="outline"
       size="sm"

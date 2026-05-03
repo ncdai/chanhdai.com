@@ -45,6 +45,7 @@ export function ExperiencePositionItem({
               "flex size-6 shrink-0 items-center justify-center rounded-lg",
               "bg-muted text-muted-foreground",
               "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
+              "dark:liquid-glass-border dark:border-none",
               "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
             )}
           >
