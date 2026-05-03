@@ -219,8 +219,12 @@ function BlockViewerToolbar() {
   return (
     <div className="flex w-full items-center gap-2 px-2 max-lg:hidden">
       <TabsList>
-        <TabsTrigger value="preview">Preview</TabsTrigger>
-        <TabsTrigger value="code">Code</TabsTrigger>
+        <TabsTrigger className="px-3" value="preview">
+          Preview
+        </TabsTrigger>
+        <TabsTrigger className="px-3" value="code">
+          Code
+        </TabsTrigger>
         <TabsIndicator />
       </TabsList>
 
@@ -469,13 +473,13 @@ function BlockViewerCode() {
       </div>
 
       <figure
-        className="my-0 flex min-w-0 flex-1 flex-col overflow-hidden border p-0"
+        className="my-0 flex min-w-0 flex-1 flex-col overflow-hidden"
         data-rehype-pretty-code-figure=""
       >
         <figcaption
           data-rehype-pretty-code-title
           data-language={language}
-          className="h-10 shrink-0 pe-1.5"
+          className="h-10 shrink-0"
         >
           {getIconForLanguageExtension(language)}
           <p className="truncate">{file.target}</p>
@@ -484,7 +488,7 @@ function BlockViewerCode() {
 
         <div
           key={file?.path}
-          className="no-scrollbar overflow-y-auto border-t"
+          className="h-full overflow-hidden rounded-[9px] border bg-background [--code:var(--background)] [&_pre]:no-scrollbar [&_pre]:h-full [&_pre]:overflow-y-auto"
           dangerouslySetInnerHTML={{ __html: file?.highlightedContent ?? "" }}
         />
       </figure>
@@ -501,12 +505,12 @@ function BlockViewerFileTree() {
 
   return (
     <SidebarProvider className="flex min-h-full flex-col [--sidebar:var(--code)] dark:[--sidebar-accent:var(--muted)]/50">
-      <Sidebar collapsible="none" className="w-full flex-1 rounded-xl border">
+      <Sidebar collapsible="none" className="w-full flex-1 rounded-xl p-1 pt-0">
         <SidebarGroupLabel className="h-10 rounded-none px-4 text-sm">
           Explorer
         </SidebarGroupLabel>
 
-        <SidebarGroup className="border-t px-0">
+        <SidebarGroup className="flex-1 rounded-[9px] border bg-background px-0">
           <SidebarGroupContent>
             <SidebarMenu className="translate-x-0 gap-px">
               {tree.map((file, index) => (
@@ -529,7 +533,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
       <SidebarMenuItem>
         <SidebarMenuButton
           data-index={index}
-          className="rounded-none pl-(--index) whitespace-nowrap data-active:font-normal"
+          className="rounded-none pl-(--index) whitespace-nowrap data-active:font-normal [&_svg]:text-muted-foreground"
           style={
             {
               "--index": `${index * (index === 2 ? 1.2 : 1.3)}rem`,
@@ -555,7 +559,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
         <CollapsibleTrigger asChild>
           <SidebarMenuButton
             className={cn(
-              "rounded-none pl-(--index) whitespace-nowrap",
+              "rounded-none pl-(--index) whitespace-nowrap [&_svg]:text-muted-foreground",
               "data-[state=closed]:*:data-[slot=folder]:block data-[state=open]:*:data-[slot=folder-open]:block"
             )}
             style={
@@ -564,7 +568,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
               } as React.CSSProperties
             }
           >
-            <ChevronRightIcon className="text-muted-foreground transition-transform" />
+            <ChevronRightIcon className="transition-transform" />
             <Icons.folder data-slot="folder" className="hidden" />
             <Icons.folderOpen data-slot="folder-open" className="hidden" />
             {item.name}
@@ -598,7 +602,7 @@ function BlockCopyCodeButton() {
 
   return (
     <CopyButton
-      className="absolute top-1.5 right-1.5 size-7 rounded-md border-none [&_svg]:text-foreground [&_svg:not([class*='size-'])]:size-4"
+      className="absolute top-1.5 right-1.5 size-7 rounded-md border-none text-muted-foreground [&_svg]:text-inherit [&_svg:not([class*='size-'])]:size-4"
       variant="ghost"
       size="icon-xs"
       text={content}
@@ -683,7 +687,7 @@ function ThemePicker() {
         </TooltipContent>
       </Tooltip>
 
-      <PopoverContent className="rounded-2xl p-0">
+      <PopoverContent className="rounded-2xl p-0 dark:liquid-glass-border dark:ring-0">
         <Command
           className={cn(
             "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:size-5 **:[[cmdk-input]]:h-10",
