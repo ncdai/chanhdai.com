@@ -282,8 +282,8 @@
   /* zinc-950 */
   --surface-foreground: oklch(0.141 0.005 285.823);
 
-  --code: var(--surface);
-  --code-foreground: var(--surface-foreground);
+  --code: var(--background);
+  --code-foreground: var(--foreground);
 
   /* zinc-400 */
   --code-number: oklch(0.705 0.015 286.067);
@@ -395,11 +395,11 @@
   /* zinc-50 */
   --surface-foreground: oklch(0.985 0 0);
 
-  --code: var(--surface);
-  --code-foreground: var(--surface-foreground);
+  --code: var(--background);
+  --code-foreground: var(--foreground);
 
-  /* zinc-500 */
-  --code-number: oklch(0.552 0.016 285.938);
+  /* zinc-600 */
+  --code-number: oklch(44.2% 0.017 285.786);
 
   /* zinc-900 */
   --code-highlight: oklch(0.21 0.006 285.885);
@@ -485,7 +485,7 @@
 
 @layer components {
   [data-rehype-pretty-code-figure] {
-    @apply relative my-[1.25em] rounded-xl bg-code p-1 text-code-foreground;
+    @apply relative my-[1.25em] rounded-xl bg-surface p-1 text-surface-foreground;
     @apply has-data-rehype-pretty-code-title:pt-0;
     @apply has-data-[slot=code-block-command]:pt-0;
 
