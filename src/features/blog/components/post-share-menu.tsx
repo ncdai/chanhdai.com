@@ -36,8 +36,9 @@ export function PostShareMenu({ title, url }: { title: string; url: string }) {
 
       <DropdownMenuContent
         className="w-fit"
+        align="start"
         alignOffset={-6}
-        collisionPadding={8}
+        collisionPadding={16}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
         <DropdownMenuItem

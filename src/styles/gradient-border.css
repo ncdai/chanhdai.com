@@ -1,0 +1,185 @@
+/**
+ * TailwindCSS gradient border plugin.
+ *
+ * @author Florian Kiem <https://github.com/flornkm>
+ * @license MIT
+ */
+
+@theme {
+  --gradient-border-width-1: 1px;
+  --gradient-border-width-2: 2px;
+  --gradient-border-width-3: 3px;
+  --gradient-border-width-4: 4px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base utility — default 1px gradient border                         */
+/* ------------------------------------------------------------------ */
+
+@utility gradient-border {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--gradient-border-width, 1px);
+    background: var(
+      --gradient-border,
+      linear-gradient(
+        var(--gradient-border-angle, to bottom),
+        var(--gradient-border-from, rgba(0, 0, 0, 0.15)),
+        var(
+          --gradient-border-via,
+          var(--gradient-border-from, rgba(0, 0, 0, 0.15))
+        ),
+        var(--gradient-border-to, transparent)
+      )
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Width variants — gradient-border-2, gradient-border-3, etc.        */
+/* ------------------------------------------------------------------ */
+
+@utility gradient-border-* {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: --value(--gradient-border-width- *);
+    background: var(
+      --gradient-border,
+      linear-gradient(
+        var(--gradient-border-angle, to bottom),
+        var(--gradient-border-from, rgba(0, 0, 0, 0.15)),
+        var(
+          --gradient-border-via,
+          var(--gradient-border-from, rgba(0, 0, 0, 0.15))
+        ),
+        var(--gradient-border-to, transparent)
+      )
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Direction — mirrors bg-linear-to-* from Tailwind                   */
+/*  gradient-border-to-r, gradient-border-to-bl, etc.                  */
+/* ------------------------------------------------------------------ */
+
+@utility gradient-border-to-t {
+  --gradient-border-angle: to top;
+}
+
+@utility gradient-border-to-tr {
+  --gradient-border-angle: to top right;
+}
+
+@utility gradient-border-to-r {
+  --gradient-border-angle: to right;
+}
+
+@utility gradient-border-to-br {
+  --gradient-border-angle: to bottom right;
+}
+
+@utility gradient-border-to-b {
+  --gradient-border-angle: to bottom;
+}
+
+@utility gradient-border-to-bl {
+  --gradient-border-angle: to bottom left;
+}
+
+@utility gradient-border-to-l {
+  --gradient-border-angle: to left;
+}
+
+@utility gradient-border-to-tl {
+  --gradient-border-angle: to top left;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Color stops — mirrors from-*, via-*, to-* from Tailwind            */
+/*  gradient-border-from-blue-500, gradient-border-to-pink-300, etc.   */
+/* ------------------------------------------------------------------ */
+
+@utility gradient-border-from-* {
+  --gradient-border-from-alpha: calc(--modifier(integer) * 1%);
+  --gradient-border-from: --alpha(
+    --value(--color- *, [color]) / var(--gradient-border-from-alpha, 100%)
+  );
+}
+
+@utility gradient-border-to-* {
+  --gradient-border-to-alpha: calc(--modifier(integer) * 1%);
+  --gradient-border-to: --alpha(
+    --value(--color- *, [color]) / var(--gradient-border-to-alpha, 100%)
+  );
+}
+
+@utility gradient-border-via-* {
+  --gradient-border-via-alpha: calc(--modifier(integer) * 1%);
+  --gradient-border-via: --alpha(
+    --value(--color- *, [color]) / var(--gradient-border-via-alpha, 100%)
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reset                                                              */
+/* ------------------------------------------------------------------ */
+
+@utility gradient-border-none {
+  &::before {
+    content: none !important;
+    background: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  animate-gradient-border — rotates the angle of whatever gradient   */
+/*  the element already has. Pairs with any combination of the         */
+/*  from, via, and to color utilities. Override speed via              */
+/*  --gradient-border-duration (default 4s).                           */
+/* ------------------------------------------------------------------ */
+
+@property --gradient-border-rotation {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gradient-border {
+  to {
+    --gradient-border-rotation: 360deg;
+  }
+}
+
+@utility animate-gradient-border {
+  --gradient-border-angle: var(--gradient-border-rotation);
+  animation: gradient-border var(--gradient-border-duration, 4s) linear infinite;
+}

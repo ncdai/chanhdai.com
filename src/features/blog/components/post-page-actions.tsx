@@ -186,7 +186,7 @@ export function ViewOptions({
         className="w-fit"
         align="start"
         alignOffset={-6}
-        collisionPadding={8}
+        collisionPadding={16}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
         {items.map(({ title, href, icon: Icon }) => (
