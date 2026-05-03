@@ -4,8 +4,6 @@ import { useMotionValueEvent, useScroll } from "motion/react"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
-import { cn } from "@/lib/utils"
-
 import { ChanhDaiMark } from "./chanhdai-mark"
 
 const calcDistance = (el: HTMLElement) => {
@@ -41,14 +39,7 @@ function ChanhDaiMarkMotion() {
   }, [])
 
   return (
-    <div
-      data-visible={visible}
-      className={cn(
-        "group/mark-motion relative flex data-[visible=true]:before:opacity-0",
-        "before:absolute before:inset-0 before:border before:border-dashed before:border-line",
-        "before:transition-opacity before:duration-500"
-      )}
-    >
+    <div data-visible={visible} className="group/mark-motion flex">
       <ChanhDaiMark className="-translate-y-1 opacity-0 transition-[opacity,translate] duration-300 group-data-[visible=true]/mark-motion:translate-y-0 group-data-[visible=true]/mark-motion:opacity-100" />
     </div>
   )
