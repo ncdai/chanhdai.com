@@ -683,7 +683,7 @@ function ThemePicker() {
         </TooltipContent>
       </Tooltip>
 
-      <PopoverContent className="rounded-2xl p-0">
+      <PopoverContent className="rounded-2xl p-0 dark:liquid-glass-border dark:ring-0">
         <Command
           className={cn(
             "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:size-5 **:[[cmdk-input]]:h-10",
