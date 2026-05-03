@@ -35,7 +35,6 @@ export function AwardItem({
         <div
           className={cn(
             "mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted ring-1 ring-line ring-offset-1 ring-offset-background",
-            "dark:liquid-glass-border dark:border-none",
             "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
           )}
         >

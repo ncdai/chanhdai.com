@@ -38,7 +38,6 @@ import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { trackEvent } from "@/lib/events"
-import { cn } from "@/lib/utils"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
@@ -426,10 +425,7 @@ function CommandMenuTrigger({ ...props }: React.ComponentProps<typeof Button>) {
   return (
     <Button
       data-slot="command-menu-trigger"
-      className={cn(
-        "gap-1.5 rounded-full text-muted-foreground shadow-none select-none hover:bg-background hover:text-muted-foreground dark:hover:bg-input/30",
-        "dark:liquid-glass-border dark:border-none"
-      )}
+      className="liquid-glass-border gap-1.5 rounded-full border-none text-muted-foreground shadow-none select-none hover:bg-background hover:text-muted-foreground dark:hover:bg-input/30"
       variant="outline"
       size="sm"
       {...props}

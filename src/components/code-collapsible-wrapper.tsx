@@ -28,11 +28,7 @@ export function CodeCollapsibleWrapper({
 
       <div className="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-linear-to-t from-background from-[2rem] to-transparent group-data-[state=open]/collapsible:hidden">
         <CollapsibleTrigger asChild>
-          <Button
-            variant="outline"
-            className="dark:liquid-glass-border dark:border-none"
-            size="sm"
-          >
+          <Button variant="outline" size="sm">
             Expand
           </Button>
         </CollapsibleTrigger>
