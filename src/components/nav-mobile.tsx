@@ -11,7 +11,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { cn } from "@/lib/utils"
 import { haptic } from "@/registry/lib/haptic"
 import type { NavItem } from "@/types/nav"
 
@@ -38,10 +37,7 @@ export function NavMobile({ items }: { items: NavItem[] }) {
       </PopoverTrigger>
 
       <PopoverContent
-        className={cn(
-          "w-48 rounded-xl p-1",
-          "dark:liquid-glass-border dark:ring-0"
-        )}
+        className="w-48 rounded-xl p-1 dark:liquid-glass-border dark:ring-0"
         side="top"
         align="center"
         sideOffset={8}

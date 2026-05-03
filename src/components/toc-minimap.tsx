@@ -61,7 +61,7 @@ export function TOCMinimap({ items }: { items: TOCItemType[] }) {
           />
 
           <HoverCardContent
-            className="w-56 overflow-hidden p-0 duration-200 data-[side=left]:slide-in-from-right-3 data-[side=left]:slide-out-to-right-3 data-open:zoom-in-100 data-closed:zoom-out-100"
+            className="w-56 overflow-hidden p-0 duration-200 data-[side=left]:slide-in-from-right-3 data-[side=left]:slide-out-to-right-3 dark:liquid-glass-border dark:ring-0 data-open:zoom-in-100 data-closed:zoom-out-100"
             align="start"
             alignOffset={0}
             side="left"

@@ -183,7 +183,7 @@ export function ViewOptions({
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
-        className="w-fit"
+        className="w-fit dark:liquid-glass-border dark:ring-0"
         align="start"
         alignOffset={-6}
         collisionPadding={16}

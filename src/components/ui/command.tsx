@@ -47,7 +47,7 @@ function CommandDialog({
 
       <DialogContent
         data-slot="command-dialog-content"
-        className="bg-popover p-0 max-sm:top-16 max-sm:translate-y-0 sm:max-w-lg"
+        className="bg-popover p-0 max-sm:top-16 max-sm:translate-y-0 sm:max-w-lg dark:liquid-glass-border dark:ring-0"
         showCloseButton={false}
         showOverlay={false}
       >
