@@ -61,7 +61,7 @@ export const mdxCodeBlockComponents = {
 
     return (
       <>
-        <div className="rounded-[9px] border bg-background [--code:var(--background)]">
+        <div className="rounded-[9px] border bg-code">
           <pre
             className={cn(
               __rawString__ && !__withMeta__ && "[--code-padding-right:6rem]",
@@ -92,7 +92,7 @@ export const mdxCodeBlockComponents = {
                 className="top-1.25 right-1.25"
                 style={
                   {
-                    "--fade-color": "var(--background)",
+                    "--fade-color": "var(--code)",
                   } as React.CSSProperties
                 }
               />

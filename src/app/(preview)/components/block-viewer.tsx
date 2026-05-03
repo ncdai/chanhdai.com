@@ -488,7 +488,7 @@ function BlockViewerCode() {
 
         <div
           key={file?.path}
-          className="h-full overflow-hidden rounded-[9px] border bg-background [--code:var(--background)] [&_pre]:no-scrollbar [&_pre]:h-full [&_pre]:overflow-y-auto"
+          className="h-full overflow-hidden rounded-[9px] border bg-code [&_pre]:no-scrollbar [&_pre]:h-full [&_pre]:overflow-y-auto"
           dangerouslySetInnerHTML={{ __html: file?.highlightedContent ?? "" }}
         />
       </figure>
@@ -504,7 +504,7 @@ function BlockViewerFileTree() {
   }
 
   return (
-    <SidebarProvider className="flex min-h-full flex-col [--sidebar:var(--code)] dark:[--sidebar-accent:var(--muted)]/50">
+    <SidebarProvider className="flex min-h-full flex-col [--sidebar:var(--surface)] dark:[--sidebar-accent:var(--muted)]/50">
       <Sidebar collapsible="none" className="w-full flex-1 rounded-xl p-1 pt-0">
         <SidebarGroupLabel className="h-10 rounded-none px-4 text-sm">
           Explorer

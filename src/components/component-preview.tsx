@@ -67,7 +67,7 @@ export function ComponentPreview({
   return (
     <div
       className={cn(
-        "my-[1.25em] rounded-xl bg-code",
+        "my-[1.25em] rounded-xl bg-surface",
         prose === false && "not-prose",
         className
       )}
