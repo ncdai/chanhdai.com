@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "./scroll-fade-effect.css";
+@import "./gradient-border.css";
 
 @plugin "@tailwindcss/typography";
 
@@ -195,6 +196,16 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+@utility liquid-glass-border {
+  @apply gradient-border gradient-border-to-tl;
+  @apply gradient-border-from-zinc-200 gradient-border-to-zinc-300 gradient-border-via-zinc-100;
+  @apply dark:gradient-border-from-zinc-700 dark:gradient-border-to-zinc-600 dark:gradient-border-via-zinc-800;
+}
+
+@utility liquid-glass-border-none {
+  @apply gradient-border-none;
 }
 
 :root {
