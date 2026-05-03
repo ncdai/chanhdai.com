@@ -284,9 +284,7 @@
 
   --code: var(--background);
   --code-foreground: var(--foreground);
-
-  /* zinc-400 */
-  --code-number: oklch(0.705 0.015 286.067);
+  --code-number: oklch(0.24 0.01 0 / 0.3);
 
   --code-highlight: oklch(0.9584 0.0013 286.37);
 
@@ -397,9 +395,7 @@
 
   --code: var(--background);
   --code-foreground: var(--foreground);
-
-  /* zinc-600 */
-  --code-number: oklch(44.2% 0.017 285.786);
+  --code-number: oklch(0.43 0 0);
 
   /* zinc-900 */
   --code-highlight: oklch(0.21 0.006 285.885);
