@@ -252,7 +252,7 @@ This project is proudly supported by:
         </a>
       </td>
       <td align="center"><a href="https://github.com/raksalim">Raksa Lim</a></td>
-      <td></td>
+      <td align="center"><a href="https://lndev.me?utm_source=chanhdai.com">Leonel Ngoya</a></td>
     </tr>
   </tbody>
 </table>

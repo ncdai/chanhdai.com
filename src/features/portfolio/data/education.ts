@@ -25,7 +25,6 @@ export const EDUCATION: Education[] = [
       "Systems Design",
       "Distributed Systems",
       "Software Engineering",
-      "Teamwork",
     ],
   },
   {
