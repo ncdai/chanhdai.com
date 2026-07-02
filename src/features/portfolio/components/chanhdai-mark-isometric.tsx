@@ -45,13 +45,15 @@ export function ChanhDaiMarkIsometric() {
   const mouseY = useMotionValue(0.5)
 
   const cx = useSpring(useTransform(mouseX, [0, 1], [0, 556]), {
-    stiffness: 150,
-    damping: 25,
+    stiffness: 300,
+    damping: 30,
+    mass: 0.1,
   })
 
   const cy = useSpring(useTransform(mouseY, [0, 1], [0, 354]), {
-    stiffness: 150,
-    damping: 25,
+    stiffness: 300,
+    damping: 30,
+    mass: 0.1,
   })
 
   useEffect(() => {
