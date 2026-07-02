@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils"
 import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
-import { USER } from "@/features/portfolio/data/user"
 
 export function SiteFooter() {
   const xLink = SOCIAL.x
@@ -27,7 +26,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener"
               >
-                {USER.displayName}
+                {xLink.handle}
               </a>
             </dd>
           </Item>
