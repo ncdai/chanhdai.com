@@ -12,6 +12,7 @@ export const USER: User = {
     "Creating with code. Small details matter.",
     "Design Engineer",
     "Open source contributor",
+    "I own a vintage iPhone.",
   ],
   address: "Ho Chi Minh City, Viet Nam",
   phoneNumberB64: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
