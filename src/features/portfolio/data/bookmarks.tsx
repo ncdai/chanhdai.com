@@ -164,6 +164,13 @@ export const BOOKMARKS: Bookmark[] = [
     category: BookmarkCategory.REFERENCE,
     bookmarkedAt: "2026-06-20",
   },
+  {
+    title: "Interactive SVG Animations",
+    url: "https://www.svg.guide",
+    author: "Nanda Syahrasyad",
+    category: BookmarkCategory.COURSE,
+    bookmarkedAt: "2026-07-03",
+  },
 ]
 
 function Circle() {
