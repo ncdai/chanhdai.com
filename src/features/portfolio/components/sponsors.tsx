@@ -11,7 +11,6 @@ import { SPONSORS } from "@/features/sponsor/data"
 import type { SponsorTier } from "@/features/sponsor/types"
 
 import { Panel, PanelDescription, PanelHeader, PanelTitle } from "./panel"
-import { PanelTitleCopy } from "./panel-title-copy"
 
 const FEATURED_TIERS = new Set<SponsorTier>([
   "osp",
@@ -31,8 +30,8 @@ export function Sponsors() {
     <Panel id={ID} className="screen-line-bottom-none">
       <PanelHeader>
         <PanelTitle>
-          <a href={`#${ID}`}>Sponsors</a>
-          <PanelTitleCopy id={ID} />
+          Backed by
+          <span className="block sm:hidden" /> the community
         </PanelTitle>
 
         <PanelDescription>
