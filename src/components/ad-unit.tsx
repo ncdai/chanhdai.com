@@ -46,15 +46,17 @@ export default function AdUnit({
 
   return (
     <div className={className}>
+      <div className="h-2" />
       <ins
         ref={insRef}
-        className="adsbygoogle mx-auto block h-25 w-[320px] max-w-full overflow-hidden rounded-lg md:h-22.5 md:w-182"
-        style={{ display: "block" }}
+        className="adsbygoogle mx-auto block h-25 w-[320px] max-w-full md:h-22.5 md:w-182"
         data-ad-client={ADSENSE_CLIENT}
         data-ad-slot={slot}
         // data-ad-format={format}
         // data-full-width-responsive={responsive}
       />
+      <div className="h-2" />
+      <div className="screen-line-bottom h-px" />
     </div>
   )
 }
