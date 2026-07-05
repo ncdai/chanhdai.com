@@ -225,7 +225,7 @@ export default function Page() {
 
         <div className="screen-line-bottom h-px" />
 
-        <AdUnit className="screen-line-bottom p-4" slot="3900447059" />
+        <AdUnit className="screen-line-bottom" slot="3900447059" />
 
         <div className="h-4" />
       </div>
