@@ -3,8 +3,6 @@
 import { useEffect, useRef } from "react"
 import { usePathname } from "next/navigation"
 
-import { cn } from "@/lib/utils"
-
 declare global {
   interface Window {
     adsbygoogle: unknown[]
@@ -47,26 +45,16 @@ export default function AdUnit({
   if (!ADSENSE_CLIENT) return null
 
   return (
-    <div
-      className={cn(
-        "bg-black/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center [--pattern-foreground:var(--color-zinc-950)]/5 max-md:hidden dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5",
-        className
-      )}
-    >
+    <div className={className}>
       <ins
         ref={insRef}
-        className="adsbygoogle"
-        style={{ display: "block", margin: "0 auto", width: 728, height: 90 }}
+        className="adsbygoogle mx-auto block h-25 w-[320px] max-w-full overflow-hidden rounded-lg md:h-22.5 md:w-182"
+        style={{ display: "block" }}
         data-ad-client={ADSENSE_CLIENT}
         data-ad-slot={slot}
         // data-ad-format={format}
         // data-full-width-responsive={responsive}
       />
-
-      <p className="mt-4 text-center text-xs text-balance text-muted-foreground">
-        Testing ads for project sustainability. Huge thanks to the sponsors for
-        their ongoing support.
-      </p>
     </div>
   )
 }
