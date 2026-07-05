@@ -26,12 +26,6 @@ import type {
 } from "@/lib/registry"
 import { cn } from "@/lib/utils"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
-import { Button } from "@/components/ui/button"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
 import {
   Command,
   CommandEmpty,
@@ -41,16 +35,22 @@ import {
   CommandList,
 } from "@/components/ui/command"
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
-import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/base/ui/button"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/base/ui/collapsible"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/base/ui/popover"
+import { Separator } from "@/components/base/ui/separator"
 import {
   Sidebar,
   SidebarGroup,
@@ -61,7 +61,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarProvider,
-} from "@/components/ui/sidebar"
+} from "@/components/base/ui/sidebar"
 import {
   Tabs,
   TabsContent,
@@ -289,25 +289,26 @@ function BlockViewerToolbar() {
             className="rounded-sm border-none dark:hover:bg-muted"
             variant="ghost"
             size="icon-xs"
-            asChild
-          >
-            <a
-              href={serializePreviewSearchParams(`/preview/${item.name}`, {
-                theme,
-              })}
-              target="_blank"
-              rel="noopener"
-              aria-label="Open in New Tab"
-              onClick={() =>
-                trackEvent({
-                  name: "block_viewer_open_preview",
-                  properties: { block: item.name },
-                })
-              }
-            >
-              <FullScreenIcon className="size-4" />
-            </a>
-          </Button>
+            nativeButton={false}
+            render={
+              <a
+                href={serializePreviewSearchParams(`/preview/${item.name}`, {
+                  theme,
+                })}
+                target="_blank"
+                rel="noopener"
+                aria-label="Open in New Tab"
+                onClick={() =>
+                  trackEvent({
+                    name: "block_viewer_open_preview",
+                    properties: { block: item.name },
+                  })
+                }
+              >
+                <FullScreenIcon className="size-4" />
+              </a>
+            }
+          />
 
           <Separator
             orientation="vertical"
@@ -567,26 +568,28 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
   return (
     <SidebarMenuItem>
       <Collapsible
-        className="group/collapsible flex flex-col gap-px [&[data-state=open]>button>svg:first-child]:rotate-90"
+        className="group/collapsible flex flex-col gap-px data-open:[&>button>svg:first-child]:rotate-90"
         defaultOpen
       >
-        <CollapsibleTrigger asChild>
-          <SidebarMenuButton
-            className={cn(
-              "rounded-none pl-(--index) whitespace-nowrap [&_svg]:text-muted-foreground",
-              "data-[state=closed]:*:data-[slot=folder]:block data-[state=open]:*:data-[slot=folder-open]:block"
-            )}
-            style={
-              {
-                "--index": `${index * (index === 1 ? 1 : 1.2)}rem`,
-              } as React.CSSProperties
-            }
-          >
-            <ChevronRightIcon className="transition-transform" />
-            <FolderIcon data-slot="folder" className="hidden" />
-            <FolderOpenIcon data-slot="folder-open" className="hidden" />
-            {item.name}
-          </SidebarMenuButton>
+        <CollapsibleTrigger
+          render={
+            <SidebarMenuButton
+              className={cn(
+                "rounded-none pl-(--index) whitespace-nowrap [&_svg]:text-muted-foreground",
+                "aria-[expanded=false]:*:data-[slot=folder]:block aria-expanded:*:data-[slot=folder-open]:block"
+              )}
+              style={
+                {
+                  "--index": `${index * (index === 1 ? 1 : 1.2)}rem`,
+                } as React.CSSProperties
+              }
+            />
+          }
+        >
+          <ChevronRightIcon className="transition-transform" />
+          <FolderIcon data-slot="folder" className="hidden" />
+          <FolderOpenIcon data-slot="folder-open" className="hidden" />
+          {item.name}
         </CollapsibleTrigger>
 
         <CollapsibleContent>
@@ -686,16 +689,18 @@ function ThemePicker() {
       <Tooltip>
         <TooltipTrigger
           render={
-            <PopoverTrigger asChild>
-              <Button
-                className="bg-transparent px-1.75 shadow-none dark:border-border dark:bg-transparent dark:aria-expanded:bg-input/50"
-                variant="outline"
-                size="sm"
-                aria-label="Theme"
-              >
-                <ThemePalette cssVars={themeItem?.cssVars} />
-              </Button>
-            </PopoverTrigger>
+            <PopoverTrigger
+              render={
+                <Button
+                  className="bg-transparent px-1.75 shadow-none dark:border-border dark:bg-transparent dark:aria-expanded:bg-input/50"
+                  variant="outline"
+                  size="sm"
+                  aria-label="Theme"
+                >
+                  <ThemePalette cssVars={themeItem?.cssVars} />
+                </Button>
+              }
+            />
           }
         />
         <TooltipContent>

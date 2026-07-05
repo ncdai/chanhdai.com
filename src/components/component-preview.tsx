@@ -5,8 +5,7 @@ import { Repeat, Settings2 } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Code as CodeInline } from "@/components/ui/typography"
+import { Button } from "@/components/base/ui/button"
 import {
   Tabs,
   TabsContent,
@@ -19,6 +18,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { Code as CodeInline } from "@/components/base/ui/typography"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { OpenInV0Button } from "@/components/v0-open-button"
 import { Index } from "@/registry/__index__"
@@ -126,16 +126,17 @@ export function ComponentPreview({
                           variant="ghost"
                           size="icon-sm"
                           aria-label="Customize"
-                          asChild
-                        >
-                          <a
-                            href={customizeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Settings2 />
-                          </a>
-                        </Button>
+                          nativeButton={false}
+                          render={
+                            <a
+                              href={customizeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Settings2 />
+                            </a>
+                          }
+                        />
                       }
                     />
                     <TooltipContent>Customize</TooltipContent>

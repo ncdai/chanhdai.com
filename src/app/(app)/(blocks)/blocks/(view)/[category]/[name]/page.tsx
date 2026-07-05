@@ -11,8 +11,8 @@ import { getAllBlockStaticParams } from "@/lib/blocks"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { getRegistryItem } from "@/lib/registry"
 import { absoluteUrl } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
+import { Button } from "@/components/base/ui/button"
 import {
   Tooltip,
   TooltipContent,
@@ -169,13 +169,14 @@ export default async function BlockViewPage({
           className="h-7 gap-2 border-none px-0 text-muted-foreground hover:text-foreground"
           variant="link"
           size="sm"
-          asChild
-        >
-          <Link href={`/blocks/${category}`}>
-            <ArrowLeftIcon />
-            {categoryItem?.title || "Blocks"}
-          </Link>
-        </Button>
+          nativeButton={false}
+          render={
+            <Link href={`/blocks/${category}`}>
+              <ArrowLeftIcon />
+              {categoryItem?.title || "Blocks"}
+            </Link>
+          }
+        />
 
         <div className="flex items-center gap-2">
           <DocShareMenu title={name} url={`/blocks/${category}/${name}`} />
@@ -188,15 +189,16 @@ export default async function BlockViewPage({
                     className="size-7 border-none"
                     variant="secondary"
                     size="icon-sm"
-                    asChild
-                  >
-                    <Link
-                      href={`/blocks/${previous}`}
-                      aria-label="Previous Block"
-                    >
-                      <ArrowLeftIcon />
-                    </Link>
-                  </Button>
+                    nativeButton={false}
+                    render={
+                      <Link
+                        href={`/blocks/${previous}`}
+                        aria-label="Previous Block"
+                      >
+                        <ArrowLeftIcon />
+                      </Link>
+                    }
+                  />
                 }
               />
               <TooltipContent className="pr-2 pl-3">
@@ -218,12 +220,13 @@ export default async function BlockViewPage({
                     className="size-7 border-none"
                     variant="secondary"
                     size="icon-sm"
-                    asChild
-                  >
-                    <Link href={`/blocks/${next}`} aria-label="Next Block">
-                      <ArrowRightIcon />
-                    </Link>
-                  </Button>
+                    nativeButton={false}
+                    render={
+                      <Link href={`/blocks/${next}`} aria-label="Next Block">
+                        <ArrowRightIcon />
+                      </Link>
+                    }
+                  />
                 }
               />
               <TooltipContent className="pr-2 pl-3">

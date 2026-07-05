@@ -1,9 +1,7 @@
 import { GraduationCapIcon, InfinityIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Separator } from "@/components/ui/separator"
 import { Tag } from "@/components/ui/tag"
-import { Prose } from "@/components/ui/typography"
 import {
   Collapsible,
   CollapsibleChevronsUpDownIcon,
@@ -12,6 +10,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/base/ui/collapsible"
+import { Separator } from "@/components/base/ui/separator"
+import { Prose } from "@/components/base/ui/typography"
 import { Markdown } from "@/components/markdown"
 import type { Education } from "@/features/portfolio/types/education"
 

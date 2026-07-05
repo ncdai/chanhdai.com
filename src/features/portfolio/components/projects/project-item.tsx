@@ -4,7 +4,6 @@ import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
 import { Tag } from "@/components/ui/tag"
-import { Prose } from "@/components/ui/typography"
 import {
   Collapsible,
   CollapsibleChevronsUpDownIcon,
@@ -18,6 +17,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { Prose } from "@/components/base/ui/typography"
 import { Markdown } from "@/components/markdown"
 
 import type { Project } from "../../types/projects"

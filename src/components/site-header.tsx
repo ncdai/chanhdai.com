@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 
 import { MAIN_NAV } from "@/config/site"
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/base/ui/separator"
 import { ChanhDaiMark } from "@/components/chanhdai-mark"
 import { NavDesktop } from "@/components/nav-desktop"
 import { NavItemGitHub } from "@/components/nav-item-github"

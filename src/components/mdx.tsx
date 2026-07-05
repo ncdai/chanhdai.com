@@ -25,7 +25,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Code } from "@/components/ui/typography"
 import {
   Tabs,
   TabsContent,
@@ -33,6 +32,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/base/ui/tabs"
+import { Code } from "@/components/base/ui/typography"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { ComponentSource } from "@/components/component-source"
 import { AutoTypeTable } from "@/features/doc/components/auto-type-table"

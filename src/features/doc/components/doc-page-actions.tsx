@@ -8,14 +8,17 @@ import { IconCheck, IconCopy, IconX } from "@tabler/icons-react"
 import { ChevronDownIcon } from "lucide-react"
 
 import type { CopyState } from "@/hooks/use-copy-to-clipboard"
-import { Button } from "@/components/ui/button"
-import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
+import { Button } from "@/components/base/ui/button"
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+} from "@/components/base/ui/button-group"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/base/ui/dropdown-menu"
 import {
   ClaudeIcon,
   CursorIcon,
@@ -186,31 +189,36 @@ export function ViewOptions({
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          className="size-7 border-none active:scale-none"
-          variant="secondary"
-          size="icon-sm"
-          aria-label="View Options"
-        >
-          <ChevronDownIcon className="mt-0.5 size-4" />
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            className="size-7 border-none active:scale-none"
+            variant="secondary"
+            size="icon-sm"
+            aria-label="View Options"
+          >
+            <ChevronDownIcon className="mt-0.5 size-4" />
+          </Button>
+        }
+      />
 
       <DropdownMenuContent
         className="w-fit"
         align="start"
         alignOffset={-6}
         collisionPadding={16}
-        onCloseAutoFocus={(e) => e.preventDefault()}
+        finalFocus={false}
       >
         {items.map(({ title, href, icon: Icon }) => (
-          <DropdownMenuItem key={href} asChild>
-            <a href={href} rel="noopener" target="_blank">
-              <Icon />
-              {title}
-            </a>
-          </DropdownMenuItem>
+          <DropdownMenuItem
+            key={href}
+            render={
+              <a href={href} rel="noopener" target="_blank">
+                <Icon />
+                {title}
+              </a>
+            }
+          />
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
