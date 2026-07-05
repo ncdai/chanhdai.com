@@ -9,14 +9,14 @@ import { JSON_LD_ID } from "@/config/json-ld"
 import { LICENSE, SOURCE_CODE_GITHUB_URL, X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
-import { Prose } from "@/components/ui/typography"
+import { Button } from "@/components/base/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { Prose } from "@/components/base/ui/typography"
 import { MDX } from "@/components/mdx"
 import { TOCInline } from "@/components/toc-inline"
 import { TOCMinimap } from "@/components/toc-minimap"
@@ -182,13 +182,14 @@ export default async function Page({
             className="h-7 gap-2 border-none px-0 tracking-wider text-muted-foreground hover:text-foreground hover:no-underline"
             variant="link"
             size="sm"
-            asChild
-          >
-            <Link href="/components">
-              <ArrowLeftIcon />
-              Components
-            </Link>
-          </Button>
+            nativeButton={false}
+            render={
+              <Link href="/components">
+                <ArrowLeftIcon />
+                Components
+              </Link>
+            }
+          />
 
           <div className="flex items-center gap-2">
             <LLMCopyButtonWithViewOptions
@@ -209,15 +210,16 @@ export default async function Page({
                       className="size-7 border-none"
                       variant="secondary"
                       size="icon-sm"
-                      asChild
-                    >
-                      <Link
-                        href={`/components/${previous.slug}`}
-                        aria-label="Previous Component"
-                      >
-                        <ArrowLeftIcon />
-                      </Link>
-                    </Button>
+                      nativeButton={false}
+                      render={
+                        <Link
+                          href={`/components/${previous.slug}`}
+                          aria-label="Previous Component"
+                        >
+                          <ArrowLeftIcon />
+                        </Link>
+                      }
+                    />
                   }
                 />
                 <TooltipContent className="pr-2 pl-3">
@@ -239,15 +241,16 @@ export default async function Page({
                       className="size-7 border-none"
                       variant="secondary"
                       size="icon-sm"
-                      asChild
-                    >
-                      <Link
-                        href={`/components/${next.slug}`}
-                        aria-label="Next component"
-                      >
-                        <ArrowRightIcon />
-                      </Link>
-                    </Button>
+                      nativeButton={false}
+                      render={
+                        <Link
+                          href={`/components/${next.slug}`}
+                          aria-label="Next component"
+                        >
+                          <ArrowRightIcon />
+                        </Link>
+                      }
+                    />
                   }
                 />
                 <TooltipContent className="pr-2 pl-3">

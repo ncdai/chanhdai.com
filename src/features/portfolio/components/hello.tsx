@@ -1,4 +1,4 @@
-import { Prose } from "@/components/ui/typography"
+import { Prose } from "@/components/base/ui/typography"
 import { Markdown } from "@/components/markdown"
 import { HelloTitle } from "@/features/portfolio/components/hello-title"
 import {

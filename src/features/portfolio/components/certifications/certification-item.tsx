@@ -3,7 +3,7 @@ import { format } from "date-fns"
 import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/base/ui/separator"
 import {
   AccentureIcon,
   AnimationsDevIcon,
