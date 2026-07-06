@@ -1,6 +1,6 @@
 <!-- # [chanhdai.com](https://chanhdai.com) -->
 
-<p align="center">
+<p>
   <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/header/grid.svg?title=chanhdai.com&amp;subtitle=A+pixel-perfect+dev+portfolio+and+shadcn+registry.&amp;logo=data%3Aimage%2Fsvg%2Bxml%2C%3Csvg+xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27+fill%3D%27none%27+viewBox%3D%270+0+24+24%27%3E%3Cpath+fill%3D%27%2523000%27+d%3D%27M9+18H3v-3h6zm12-9h-6v6h6v3h-9V6h9zM3+15H0V9h3zm21+0h-3V9h3zM9+9H3V6h6z%27%2F%3E%3C%2Fsvg%3E&amp;size=wide&amp;mode=dark&amp;theme=zinc&amp;font=geist" /><img alt="header" src="https://shieldcn.dev/header/grid.svg?title=chanhdai.com&amp;subtitle=A+pixel-perfect+dev+portfolio+and+shadcn+registry.&amp;logo=data%3Aimage%2Fsvg%2Bxml%2C%3Csvg+xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27+fill%3D%27none%27+viewBox%3D%270+0+24+24%27%3E%3Cpath+fill%3D%27%2523000%27+d%3D%27M9+18H3v-3h6zm12-9h-6v6h6v3h-9V6h9zM3+15H0V9h3zm21+0h-3V9h3zM9+9H3V6h6z%27%2F%3E%3C%2Fsvg%3E&amp;size=wide&amp;mode=light&amp;theme=zinc&amp;font=geist" /></picture>
 </p>
 
@@ -12,7 +12,7 @@
 
 A pixel-perfect dev portfolio and shadcn registry showcasing my work as a Design Engineer.
 
-→ Check out the live site: [chanhdai.com](https://chanhdai.com)
+→ Live site: [chanhdai.com](https://chanhdai.com)
 
 [![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?t=1778602757#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
 [![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?t=1778602757#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
