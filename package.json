@@ -52,6 +52,7 @@
     "@hugeicons/core-free-icons": "^4.1.1",
     "@hugeicons/react": "^1.1.6",
     "@ncdai/react-wheel-picker": "^1.2.0",
+    "@next/third-parties": "^16.2.10",
     "@number-flow/react": "^0.6.0",
     "@openpanel/web": "^1.4.1",
     "@phosphor-icons/react": "^2.1.10",
