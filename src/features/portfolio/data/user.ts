@@ -10,8 +10,8 @@ export const USER: User = {
   bio: "Creating with code. Small details matter.",
   flipSentences: [
     "Creating with code. Small details matter.",
-    "Design Engineer",
-    "Open source contributor",
+    "Design Engineer.",
+    "Open source contributor.",
     "I own a vintage iPhone.",
   ],
   address: "Ho Chi Minh City, Viet Nam",
