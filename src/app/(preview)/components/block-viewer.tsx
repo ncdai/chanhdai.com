@@ -500,7 +500,7 @@ function BlockViewerCode() {
 
         <div
           key={file?.path}
-          className="h-full overflow-hidden rounded-[9px] border bg-code [&_pre]:no-scrollbar [&_pre]:h-full [&_pre]:overflow-y-auto"
+          className="h-full overflow-hidden rounded-[9px] border bg-code [&_pre]:no-scrollbar [&_pre]:h-full [&_pre]:scroll-fade [&_pre]:overflow-y-auto"
           dangerouslySetInnerHTML={{ __html: file?.highlightedContent ?? "" }}
         />
       </figure>
