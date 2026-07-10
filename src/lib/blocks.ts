@@ -1,9 +1,17 @@
-"use server"
-
 import { registryItemSchema } from "shadcn/schema"
 import type { z } from "zod"
 
 import { blockCategories } from "@/config/registry"
+
+type DatedBlock = {
+  meta?: { createdAt?: string } & Record<string, unknown>
+}
+
+export function compareBlocksByCreatedAtDesc(a: DatedBlock, b: DatedBlock) {
+  const dateA = a.meta?.createdAt ? new Date(a.meta.createdAt).getTime() : 0
+  const dateB = b.meta?.createdAt ? new Date(b.meta.createdAt).getTime() : 0
+  return dateB - dateA
+}
 
 export async function getAllBlockStaticParams(): Promise<
   Array<{ category: string; name: string }>
@@ -66,9 +74,5 @@ export async function getAllBlocks(
         (categories.length === 0 ||
           block.categories?.some((category) => categories.includes(category)))
     )
-    .sort((a, b) => {
-      const dateA = new Date(a.meta?.createdAt).getTime()
-      const dateB = new Date(b.meta?.createdAt).getTime()
-      return dateB - dateA
-    })
+    .sort(compareBlocksByCreatedAtDesc)
 }
