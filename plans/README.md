@@ -17,8 +17,8 @@ before starting, honor its STOP conditions, and update your row when done.
 | 006  | Quick wins: escape RSS XML, guard feed dates, doc generated mirror | P3       | S      | —          | TODO — re-verified 2026-07-07: RSS routes still interpolate unescaped frontmatter                                                                                                                                                                     |
 | 007  | Mount consent manager, gate PostHog capture behind consent         | P1       | M      | —          | REJECTED 2026-07-10 — PostHog removed from the codebase entirely (site now uses OpenPanel only); nothing left to gate. `consent-manager-client.tsx` and `instrumentation-client.ts` (both PostHog-only, both unmounted) deleted rather than wired up. |
 | 008  | Remove unused `react-use`, upgrade `@c15t/nextjs` to 2.x           | P2       | M      | —          | TODO — no longer depends on 007 (rejected); `@c15t/nextjs` is still relevant since the registry's `ConsentManager` item ships it, but there's no site-mounted banner to smoke-test against, so verify via that registry item instead.                 |
-| 009  | Fix `src/lib/blocks.ts`: drop `"use server"`, NaN-safe sort, tests | P2       | S      | —          | TODO                                                                                                                                                                                                                                                  |
-| 010  | Clamp inputs and add caching to the OG image routes                | P2       | S      | —          | TODO                                                                                                                                                                                                                                                  |
+| 009  | Fix `src/lib/blocks.ts`: drop `"use server"`, NaN-safe sort, tests | P2       | S      | —          | DONE — executed 2026-07-10 in worktree `worktree-agent-a2bf9dd780a97b7b7` (commit `64bf5823`), reviewed and verified by advisor: lint/tests/build/check-types all pass, scope clean (verified 2026-07-10)                                             |
+| 010  | Clamp inputs and add caching to the OG image routes                | P2       | S      | —          | DONE — executed 2026-07-10 on branch `advisor/010-og-route-hardening`: added `src/app/og/params.ts` (`clampParam`) + tests, wired into both routes with `Cache-Control` headers; lint/tests/build/check-types all pass, scope clean (verified 2026-07-10) |
 | 011  | Registry transform tests + fix generated lazy-factory bug          | P2       | M      | —          | TODO                                                                                                                                                                                                                                                  |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
@@ -163,3 +163,20 @@ caveat from that run (worktrees created from `origin/main` instead of
 - 004/006 re-verified still open and still accurate.
 - 005 superseded by 008.
 - New audit (4 parallel subagents + advisor vetting) produced plans 007–011.
+
+### 2026-07-10 execute 009
+
+Dispatched a `general-purpose` executor (isolation: worktree, model sonnet)
+on plan 009. Drift check clean (`blocks.ts` unchanged since `07c2d2fe`).
+Executor removed the `"use server"` directive, extracted
+`compareBlocksByCreatedAtDesc` with the `0` NaN-safe fallback, and added
+`src/lib/blocks.test.ts` (3 describe blocks, 21 assertions total across the
+suite) — matches the plan exactly. Advisor independently re-ran all four
+done-criteria commands (`head -1`, `grep`, `pnpm lint`, `pnpm test:run`,
+`pnpm build`, `pnpm check-types`) in the worktree; all passed. Scope clean
+(`git status --short` showed only the two in-scope files). Executor left
+the work staged uncommitted (a commit attempt was blocked in its sandbox);
+advisor committed it in the disposable worktree branch
+`worktree-agent-a2bf9dd780a97b7b7` as commit `64bf5823`, matching the plan's
+specified message. Verdict: **APPROVE**. Not merged/pushed — that's the
+maintainer's call.
