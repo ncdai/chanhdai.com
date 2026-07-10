@@ -1,3 +1,5 @@
+import { escapeXml, toISODateSafe } from "@/utils/string"
+
 import { blockCategories } from "@/config/registry"
 import { SITE_INFO } from "@/config/site"
 
@@ -8,7 +10,7 @@ type BlockItem = {
   category: string
   name: string
   description: string
-  createdAt: string
+  createdAt: string | undefined
 }
 
 export async function GET() {
@@ -34,15 +36,17 @@ export async function GET() {
   }
 
   const blocksXml = blocks
-    .map(
-      (block) =>
-        `<item>
-          <title>${block.name}</title>
+    .map((block) => {
+      const pubDate = toISODateSafe(block.createdAt)
+      if (!pubDate) return null
+      return `<item>
+          <title>${escapeXml(block.name)}</title>
           <link>${SITE_INFO.url}/blocks/${block.category}/${block.name}</link>
-          <description>${block.description || ""}</description>
-          <pubDate>${new Date(block.createdAt).toISOString()}</pubDate>
+          <description>${escapeXml(block.description || "")}</description>
+          <pubDate>${pubDate}</pubDate>
         </item>`
-    )
+    })
+    .filter(Boolean)
     .join("\n")
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>

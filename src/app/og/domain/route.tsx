@@ -2,6 +2,8 @@ import { readFileSync } from "node:fs"
 import { join } from "node:path"
 import { ImageResponse } from "next/og"
 
+import { clampParam } from "../params"
+
 const geistMedium = readFileSync(
   join(process.cwd(), "src/assets/fonts/Geist-Medium.ttf")
 )
@@ -13,7 +15,7 @@ const geistSemiBold = readFileSync(
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
-  const domain = searchParams.get("domain")
+  const domain = clampParam(searchParams.get("domain"), 120)
   const isForSale = searchParams.get("sale") === "true"
 
   return new ImageResponse(
@@ -84,6 +86,9 @@ export async function GET(request: Request) {
           weight: 600,
         },
       ],
+      headers: {
+        "Cache-Control": "public, max-age=3600, s-maxage=31536000, immutable",
+      },
     }
   )
 }
