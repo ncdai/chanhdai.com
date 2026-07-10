@@ -1,25 +1,26 @@
 # Implementation Plans
 
 Maintained by the improve skill. First audit 2026-06-14 (commit `557eaf4f`);
-second audit + reconcile 2026-07-07 (commit `07c2d2fe`). Execute in the order
-below unless dependencies say otherwise. Each executor: read the plan fully
-before starting, honor its STOP conditions, and update your row when done.
+second audit + reconcile 2026-07-07 (commit `07c2d2fe`); reconcile 2026-07-10
+(commit `a6628079`). Execute in the order below unless dependencies say
+otherwise. Each executor: read the plan fully before starting, honor its
+STOP conditions, and update your row when done.
 
 ## Execution order & status
 
-| Plan | Title                                                              | Priority | Effort | Depends on | Status                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---- | ------------------------------------------------------------------ | -------- | ------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 001  | Add a CI pipeline (lint/types/format/build/registry validate)      | P1       | M      | —          | DONE — `.github/workflows/ci.yml` live, includes test step (verified 2026-07-07)                                                                                                                                                                                                                                                                                                                                                    |
-| 002  | Establish Vitest + characterization tests for pure logic           | P1       | M      | —          | DONE — 4 test files, `pnpm test:run` green (verified 2026-07-07)                                                                                                                                                                                                                                                                                                                                                                    |
-| 003  | Keep the registry `Index` out of the client bundle                 | P2       | M      | —          | REJECTED 2026-07-07 — generated index now wraps all 103 entries in `React.lazy`, so component code is code-split; only the metadata object ships to `/components/*` pages. Residual cost not worth the split risk.                                                                                                                                                                                                                  |
-| 004  | Harden external data fetches against non-OK responses              | P2       | S      | —          | DONE — executed 2026-07-10 on branch `advisor/004-harden-external-data-fetch`: added `res.ok`/`?? []` guards to the data-layer and registry fetchers, URL fallback mirrored into all three fetchers; registry rebuilt/validated, build succeeds with `GITHUB_CONTRIBUTIONS_API_URL` unset, lint/check-types pass, scope clean (verified 2026-07-10)                                                                                 |
-| 005  | Reduce dependency advisories (+ remove unused `react-use`)         | P2       | S–M    | —          | SUPERSEDED by 008 (advisory set changed; all critical/high now via `@c15t/nextjs` + `react-use`)                                                                                                                                                                                                                                                                                                                                    |
-| 006  | Quick wins: escape RSS XML, guard feed dates, doc generated mirror | P3       | S      | —          | DONE — executed 2026-07-10 on `staging`: added `escapeXml`/`toISODateSafe` to `src/utils/string.ts` (+ `string.test.ts`), applied to all three RSS routes with invalid-date items filtered out; `AGENTS.md` already listed `src/registry/transformed/` as never-edit (no change needed); lint/tests/build/check-types all pass, feeds verified as well-formed XML with a `pubDate` on every item, scope clean (verified 2026-07-10) |
-| 007  | Mount consent manager, gate PostHog capture behind consent         | P1       | M      | —          | REJECTED 2026-07-10 — PostHog removed from the codebase entirely (site now uses OpenPanel only); nothing left to gate. `consent-manager-client.tsx` and `instrumentation-client.ts` (both PostHog-only, both unmounted) deleted rather than wired up.                                                                                                                                                                               |
-| 008  | Remove unused `react-use`, upgrade `@c15t/nextjs` to 2.x           | P2       | M      | —          | TODO — no longer depends on 007 (rejected); `@c15t/nextjs` is still relevant since the registry's `ConsentManager` item ships it, but there's no site-mounted banner to smoke-test against, so verify via that registry item instead.                                                                                                                                                                                               |
-| 009  | Fix `src/lib/blocks.ts`: drop `"use server"`, NaN-safe sort, tests | P2       | S      | —          | DONE — executed 2026-07-10 in worktree `worktree-agent-a2bf9dd780a97b7b7` (commit `64bf5823`), reviewed and verified by advisor: lint/tests/build/check-types all pass, scope clean (verified 2026-07-10)                                                                                                                                                                                                                           |
-| 010  | Clamp inputs and add caching to the OG image routes                | P2       | S      | —          | DONE — executed 2026-07-10 on branch `advisor/010-og-route-hardening`: added `src/app/og/params.ts` (`clampParam`) + tests, wired into both routes with `Cache-Control` headers; lint/tests/build/check-types all pass, scope clean (verified 2026-07-10)                                                                                                                                                                           |
-| 011  | Registry transform tests + fix generated lazy-factory bug          | P2       | M      | —          | TODO                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Plan | Title                                                              | Priority | Effort | Depends on | Status                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---- | ------------------------------------------------------------------ | -------- | ------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------------------------------------- |
+| 001  | Add a CI pipeline (lint/types/format/build/registry validate)      | P1       | M      | —          | DONE — `.github/workflows/ci.yml` live, includes test step (verified 2026-07-07)                                                                                                                                                                                                                                                                                                                                                                        |
+| 002  | Establish Vitest + characterization tests for pure logic           | P1       | M      | —          | DONE — 4 test files, `pnpm test:run` green (verified 2026-07-07)                                                                                                                                                                                                                                                                                                                                                                                        |
+| 003  | Keep the registry `Index` out of the client bundle                 | P2       | M      | —          | REJECTED 2026-07-07 — generated index now wraps all 103 entries in `React.lazy`, so component code is code-split; only the metadata object ships to `/components/*` pages. Residual cost not worth the split risk.                                                                                                                                                                                                                                      |
+| 004  | Harden external data fetches against non-OK responses              | P2       | S      | —          | DONE — executed 2026-07-10 on branch `advisor/004-harden-external-data-fetch`: added `res.ok`/`?? []` guards to the data-layer and registry fetchers, URL fallback mirrored into all three fetchers; registry rebuilt/validated, build succeeds with `GITHUB_CONTRIBUTIONS_API_URL` unset, lint/check-types pass, scope clean (verified 2026-07-10); re-verified 2026-07-10 reconcile                                                                   |
+| 005  | Reduce dependency advisories (+ remove unused `react-use`)         | P2       | S–M    | —          | SUPERSEDED by 008 (advisory set changed; all critical/high now via `@c15t/nextjs` + `react-use`)                                                                                                                                                                                                                                                                                                                                                        |
+| 006  | Quick wins: escape RSS XML, guard feed dates, doc generated mirror | P3       | S      | —          | DONE — executed 2026-07-10 on `staging` (commit `a6628079`): added `escapeXml`/`toISODateSafe` to `src/utils/string.ts` (+ `string.test.ts`), applied to all three RSS routes with invalid-date items filtered out; `AGENTS.md` already listed `src/registry/transformed/` as never-edit (no change needed); lint/tests/build/check-types all pass, feeds verified as well-formed XML with a `pubDate` on every item, scope clean (verified 2026-07-10) |
+| 007  | Mount consent manager, gate PostHog capture behind consent         | P1       | M      | —          | REJECTED 2026-07-10 — PostHog removed from the codebase entirely (site now uses OpenPanel only); nothing left to gate. `consent-manager-client.tsx` and `instrumentation-client.ts` (both PostHog-only, both unmounted) deleted rather than wired up.                                                                                                                                                                                                   |
+| 008  | Remove unused `react-use`, upgrade `@c15t/nextjs` to 2.x           | P2       | M      | —          | TODO — refreshed 2026-07-10: drift found and reconciled (`consent-manager-client.tsx` deleted, `posthog-js` dropped — both from 007's rejection, not this plan's concern); `react-use` still unused, `@c15t/nextjs` still `^1.8.3`; audit now 33 advisories (2 critical/17 high, was 45); verify via `/preview/consent-manager`, the only remaining runtime surface                                                                                     |
+| 009  | Fix `src/lib/blocks.ts`: drop `"use server"`, NaN-safe sort, tests | P2       | S      | —          | DONE — executed 2026-07-10 in worktree `worktree-agent-a2bf9dd780a97b7b7` (commit `64bf5823`), reviewed and verified by advisor: lint/tests/build/check-types all pass, scope clean (verified 2026-07-10); re-verified 2026-07-10 reconcile                                                                                                                                                                                                             |
+| 010  | Clamp inputs and add caching to the OG image routes                | P2       | S      | —          | DONE — executed 2026-07-10 on branch `advisor/010-og-route-hardening`: added `src/app/og/params.ts` (`clampParam`) + tests, wired into both routes with `Cache-Control` headers; lint/tests/build/check-types all pass, scope clean (verified 2026-07-10); re-verified 2026-07-10 reconcile                                                                                                                                                             |
+| 011  | Registry transform tests + fix generated lazy-factory bug          | P2       | M      | —          | TODO — drift check clean 2026-07-10 (`src/lib/registry.ts` and `src/scripts/build-registry.mts` unchanged since `07c2d2fe`); bug re-confirmed present (`grep -c "                                                                                                                                                                                                                                                                                       |     | item.name" src/registry/**index**.tsx` → 103) |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
 
@@ -28,20 +29,18 @@ select findings, so plans were written for the top 5 by leverage (007–011).
 Direction findings (below) were deliberately left unplanned pending a product
 decision.
 
-## Recommended sequencing (2026-07-07)
+## Recommended sequencing (updated 2026-07-10)
 
-1. **007 first** — highest-leverage open item (compliance gap, all pieces
-   already exist in-repo) and a prerequisite for 008's runtime verification.
-2. **009, 010, 011** — small, independent, each self-verifying; any order.
-3. **008 after 007** — the c15t 2.x upgrade needs the mounted banner to
-   smoke-test against.
-4. **004 and 006 remain valid** from the first audit — small, independent,
-   good warm-ups; each has its own drift check.
+Remaining open plans (008, 011) are both independent — no dependency
+ordering constrains them; either can run first. 001, 002, 004, 006, 009, 010
+are DONE; 003, 005, 007 are closed (rejected/superseded).
 
 ## Dependency notes
 
-- 008 → 007: the consent UI must be mounted before the c15t major upgrade is
-  verifiable at runtime.
+- 008 no longer depends on 007 (rejected 2026-07-10): `@c15t/nextjs`'s only
+  remaining importer is the registry's `ConsentManager` item, verified via
+  its own `/preview/consent-manager` route rather than a site-mounted
+  banner.
 - 011 regenerates `src/registry/__index__.tsx` (all 103 `|| item.name`
   fallback lines change) — that generated diff is expected.
 - 004 regenerates `src/registry/transformed/**` and `public/r/**` via
@@ -199,3 +198,46 @@ all passed; parsed the three generated `.next` RSS bodies as XML and
 confirmed every `<item>` has a `<pubDate>`. Scope clean (`git status
 --short` showed only the four in-scope route/util files plus the new test
 file). Not committed — left staged for the maintainer.
+
+### 2026-07-10 reconcile
+
+Processed all rows against HEAD `a6628079` (the maintainer had committed
+006's work themselves in the meantime).
+
+- **DONE spot-checks** (001, 002, 004, 006, 009, 010): re-ran
+  `pnpm check-types`, `pnpm lint`, `pnpm test:run` (all green, 7 files / 42
+  tests) plus per-plan grep checks — `res.ok` guards present in all three
+  GitHub-contributions fetchers (004), `src/lib/blocks.ts` has no `"use
+server"` and exports `compareBlocksByCreatedAtDesc` with matching test
+  file (009), `src/app/og/params.ts` + `Cache-Control` headers present in
+  both OG routes (010), `escapeXml`/`toISODateSafe` wired into all three RSS
+  routes (006). All still hold. No file changes.
+- **TODO drift checks**:
+  - **008** drifted: its in-scope excerpt cited
+    `src/components/consent-manager-client.tsx`, which no longer exists —
+    deleted when plan 007 was rejected and PostHog was removed wholesale.
+    The underlying finding (react-use unused + free to remove; `@c15t/nextjs`
+    on 1.x dragging in the critical/high advisories) is still real and
+    unchanged; only the verification surface shrank (no site-mounted
+    banner anymore, just the registry item). Refreshed the plan in place:
+    updated "Current state" and "Why this matters" with 2026-07-10
+    `pnpm audit --prod` totals (33 advisories now vs. 45 at original
+    writing), dropped the 007 dependency and the deleted file from scope,
+    replaced the layout.tsx smoke-check with a `/preview/consent-manager`
+    check, re-stamped `Planned at` to `a6628079`. Same plan number (finding
+    unchanged, just re-scoped) rather than a new one.
+  - **011** had zero drift (`src/lib/registry.ts` and
+    `src/scripts/build-registry.mts` unchanged since `07c2d2fe`) and the
+    generator bug it targets is still present (confirmed
+    `grep -c "|| item.name" src/registry/__index__.tsx` → 103). No changes
+    needed.
+- Updated "Recommended sequencing" and "Dependency notes" to drop the
+  007→008 ordering constraint now that 007 is rejected — 008 and 011 are
+  both unblocked and independent.
+- Not touched: 003/005/007 (closed statuses, no new information changes
+  their rationale); the "considered and rejected" and "direction findings"
+  sections (no new audit ran this pass — `reconcile` processes existing
+  plans, it doesn't re-survey the codebase).
+
+**Executable right now**: 008 and 011, either order, no dependencies
+outstanding.

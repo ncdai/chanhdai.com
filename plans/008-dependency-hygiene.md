@@ -6,7 +6,7 @@
 > report — do not improvise. When done, update the status row for this plan
 > in `plans/README.md`.
 >
-> **Drift check (run first)**: `git diff --stat 07c2d2fe..HEAD -- package.json src/components/consent-manager-client.tsx src/registry/components/consent-manager/`
+> **Drift check (run first)**: `git diff --stat a6628079..HEAD -- package.json src/registry/components/consent-manager/`
 > If any in-scope file changed since this plan was written, compare the
 > "Current state" excerpts against the live code before proceeding; on a
 > mismatch, treat it as a STOP condition.
@@ -16,44 +16,60 @@
 - **Priority**: P2
 - **Effort**: M
 - **Risk**: MED
-- **Depends on**: plans/007-wire-consent-gating.md (so the upgraded consent
-  API is exercised by mounted UI you can verify)
+- **Depends on**: none (plan 007 was REJECTED 2026-07-10 — PostHog and the
+  site-mounted consent banner were removed from the codebase entirely, not
+  wired up; see the 2026-07-10 reconcile note below)
 - **Category**: migration
-- **Planned at**: commit `07c2d2fe`, 2026-07-07
+- **Planned at**: commit `07c2d2fe`, 2026-07-07; refreshed at commit
+  `a6628079`, 2026-07-10 (drift: `src/components/consent-manager-client.tsx`
+  no longer exists — deleted as part of the PostHog removal; `posthog-js`
+  dropped from `package.json`; `next`/`tailwindcss`/etc. patch-bumped —
+  none of that affects this plan's targets)
 
 ## Why this matters
 
-`pnpm audit --prod` reports 45 advisories (2 critical, 17 high). Audited on
-2026-07-07, **every critical/high advisory arrives through exactly two
-dependencies**: `@c15t/nextjs@^1.8.3` (prototype pollution in `@orpc/client` —
-critical; arbitrary code execution in `protobufjs` — critical; plus ~15 high
-via grpc/kysely/drizzle/ws/defu transitive chains) and `react-use@^17.6.0`
-(high, via `js-cookie`). `react-use` is not imported anywhere in `src` —
-removing it is free. `@c15t/nextjs` has a 2.1.0 release available (one major
-ahead); its transitive tree is where the rest of the noise comes from, and
-its integration surface in this repo is small (two files).
+`pnpm audit --prod` reported 45 advisories (2 critical, 17 high) on
+2026-07-07; re-run 2026-07-10 shows **33 advisories (2 critical, 17 high, 14
+moderate)** — the drop is unrelated cleanup, not this plan. **Every
+critical/high advisory still arrives through exactly two dependencies**:
+`@c15t/nextjs@^1.8.3` (prototype pollution in `@orpc/client` — critical;
+arbitrary code execution in `protobufjs` — critical; plus SQL injection in
+`typeorm` and ~15 more high via grpc/kysely/drizzle/ws/defu transitive
+chains) and `react-use@^17.6.0` (high, via `js-cookie`). `react-use` is
+still not imported anywhere in `src` — removing it is free. `@c15t/nextjs`
+has a 2.1.0 release available (one major ahead); its transitive tree is
+where the rest of the noise comes from. Its integration surface shrank since
+this plan was first written: the site no longer mounts a consent banner
+(plan 007 was rejected, not implemented), so `@c15t/nextjs` is now used
+_only_ by the registry's `ConsentManager` component — a product this site
+ships to external users via `npx shadcn add consent-manager`, not by the
+site itself.
 
 ## Current state
 
 - `package.json` — `"react-use": "^17.6.0"` and `"@c15t/nextjs": "^1.8.3"`
-  in `dependencies`.
-- `react-use` usage: **zero imports** in `src` (verified 2026-07-07 with
+  in `dependencies` (confirmed unchanged 2026-07-10).
+- `react-use` usage: **zero imports** in `src` (re-verified 2026-07-10 with
   `grep -rn "react-use" src --include="*.ts" --include="*.tsx"` → no matches).
-- `@c15t/nextjs` importers (app code):
-  - `src/components/consent-manager-client.tsx` — imports
-    `ClientSideOptionsProvider` from `@c15t/nextjs/client`; calls
-    `posthog.opt_in_capturing()`/`opt_out_capturing()` in `onConsentSet`
-    based on `preferences.measurement`.
+- `@c15t/nextjs` importers (re-verified 2026-07-10 with
+  `grep -rln "@c15t/nextjs" src --include="*.ts" --include="*.tsx"`):
   - `src/registry/components/consent-manager/consent-manager.tsx` — imports
     `ConsentManagerDialog`, `ConsentManagerProvider`, `CookieBanner` from
     `@c15t/nextjs`; passes `options={{ mode: "offline", consentCategories:
 ["necessary", "measurement"] }}` and extensive `theme` objects to the
     banner and dialog.
+  - `src/registry/components/_registry.ts` — registers the item (no c15t
+    import itself, just wires the component into the registry).
   - `src/registry/transformed/components/consent-manager/**` and
     `public/r/consent-manager.json` are AUTO-GENERATED mirrors — never edit
     them by hand; they regenerate via `pnpm registry:build`.
-- After plan 007, the consent manager is mounted in `src/app/layout.tsx`, so
-  a dev-server smoke check exercises the real API.
+  - **No importer remains under `src/app/` or `src/components/`** — there is
+    no site-mounted consent banner. `grep -rln "ConsentManager\|consent-manager"
+src/app` returns nothing (verified 2026-07-10). The upgrade must be
+    verified through the registry item's own preview route
+    (`/preview/consent-manager`, per the standard registry preview pattern —
+    confirm the slug matches `src/registry/components/_registry.ts` before
+    relying on it), not a site-wide smoke check.
 
 Repo conventions: pnpm with `--frozen-lockfile` in CI (so `pnpm-lock.yaml`
 changes here are expected and must be committed); conventional commits.
@@ -79,7 +95,6 @@ If `pnpm build` fails fetching GitHub contributions, export
 **In scope** (the only files you should modify):
 
 - `package.json`, `pnpm-lock.yaml`
-- `src/components/consent-manager-client.tsx` (2.x API adjustments if needed)
 - `src/registry/components/consent-manager/consent-manager.tsx` (2.x API
   adjustments if needed)
 - `src/registry/components/_registry.ts` — ONLY if the consent-manager
@@ -90,7 +105,9 @@ If `pnpm build` fails fetching GitHub contributions, export
 
 **Out of scope** (do NOT touch):
 
-- `src/app/layout.tsx` and `src/instrumentation-client.ts` (plan 007's work)
+- `src/app/layout.tsx` — the site does not mount a consent banner; do not
+  add one as part of this plan (that would be re-litigating the rejected
+  plan 007, a product decision for the maintainer, not a dependency bump).
 - Any other dependency bump — no drive-by upgrades of Next, React, visx, etc.
 - Moderate/low advisories that remain after this plan — report, don't chase.
 
@@ -156,9 +173,13 @@ Record the new totals in your report. Expected: critical count drops (the
 two criticals were in c15t 1.x's tree); if criticals remain via
 `@c15t/nextjs` 2.x, record them — that is a report finding, not a failure.
 
-Then `pnpm dev` and load the site with a cleared profile: the cookie banner
-(mounted by plan 007) still renders, and accepting/rejecting works. If you
-cannot drive a browser, flag this for manual QA in your report.
+Then `pnpm dev` and load `/preview/consent-manager` (the registry item's own
+preview route — confirm the exact path by checking how other
+`registry:component` items are served under `src/app/(preview)/preview/[name]`
+if the slug doesn't resolve) with a cleared profile: the cookie banner still
+renders, and accepting/rejecting/opening the customize dialog works. This is
+the only runtime surface for this component now that no site page mounts it.
+If you cannot drive a browser, flag this for manual QA in your report.
 
 ## Test plan
 
@@ -183,9 +204,6 @@ Machine-checkable. ALL must hold:
 
 Stop and report back (do not improvise) if:
 
-- Plan 007 has not landed (no `ConsentManager` in `src/app/layout.tsx`) —
-  the upgrade would then be unverifiable at runtime; report and ask whether
-  to proceed anyway.
 - The 2.x exports differ beyond mechanical renames (Step 2).
 - `pnpm install` or the build fails due to a peer-dependency conflict
   between `@c15t/nextjs@2.x` and Next 16 / React 19.2.7.
