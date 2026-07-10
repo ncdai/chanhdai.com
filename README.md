@@ -34,7 +34,7 @@ A pixel-perfect dev portfolio and shadcn registry showcasing my work as a Design
 - AI-ready with [/llms.txt](https://llmstxt.org)
 - Spam-protected email
 - Installable as PWA
-- Analytics with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev)
+- Analytics with [OpenPanel](https://openpanel.dev)
 
 ### Content
 
