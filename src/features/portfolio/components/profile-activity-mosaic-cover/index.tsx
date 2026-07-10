@@ -70,7 +70,7 @@ const getGitHubContributions = unstable_cache(
     const yearQueries = years.map((year) => `y=${year}`).join("&")
 
     const res = await fetch(
-      `${process.env.GITHUB_CONTRIBUTIONS_API_URL}/v4/${username}?${yearQueries}`
+      `${process.env.GITHUB_CONTRIBUTIONS_API_URL || "https://github-contributions-api.jogruber.de"}/v4/${username}?${yearQueries}`
     )
 
     if (!res.ok) {
