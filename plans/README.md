@@ -7,19 +7,19 @@ before starting, honor its STOP conditions, and update your row when done.
 
 ## Execution order & status
 
-| Plan | Title                                                              | Priority | Effort | Depends on | Status                                                                                                                                                                                                             |
-| ---- | ------------------------------------------------------------------ | -------- | ------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 001  | Add a CI pipeline (lint/types/format/build/registry validate)      | P1       | M      | —          | DONE — `.github/workflows/ci.yml` live, includes test step (verified 2026-07-07)                                                                                                                                   |
-| 002  | Establish Vitest + characterization tests for pure logic           | P1       | M      | —          | DONE — 4 test files, `pnpm test:run` green (verified 2026-07-07)                                                                                                                                                   |
-| 003  | Keep the registry `Index` out of the client bundle                 | P2       | M      | —          | REJECTED 2026-07-07 — generated index now wraps all 103 entries in `React.lazy`, so component code is code-split; only the metadata object ships to `/components/*` pages. Residual cost not worth the split risk. |
-| 004  | Harden external data fetches against non-OK responses              | P2       | S      | —          | TODO — re-verified 2026-07-07: `github-contributions.ts` still lacks `res.ok` + env fallback; plan's drift check covers it                                                                                         |
-| 005  | Reduce dependency advisories (+ remove unused `react-use`)         | P2       | S–M    | —          | SUPERSEDED by 008 (advisory set changed; all critical/high now via `@c15t/nextjs` + `react-use`)                                                                                                                   |
-| 006  | Quick wins: escape RSS XML, guard feed dates, doc generated mirror | P3       | S      | —          | TODO — re-verified 2026-07-07: RSS routes still interpolate unescaped frontmatter                                                                                                                                  |
-| 007  | Mount consent manager, gate PostHog capture behind consent         | P1       | M      | —          | TODO                                                                                                                                                                                                               |
-| 008  | Remove unused `react-use`, upgrade `@c15t/nextjs` to 2.x           | P2       | M      | 007        | TODO                                                                                                                                                                                                               |
-| 009  | Fix `src/lib/blocks.ts`: drop `"use server"`, NaN-safe sort, tests | P2       | S      | —          | TODO                                                                                                                                                                                                               |
-| 010  | Clamp inputs and add caching to the OG image routes                | P2       | S      | —          | TODO                                                                                                                                                                                                               |
-| 011  | Registry transform tests + fix generated lazy-factory bug          | P2       | M      | —          | TODO                                                                                                                                                                                                               |
+| Plan | Title                                                              | Priority | Effort | Depends on | Status                                                                                                                                                                                                                                                |
+| ---- | ------------------------------------------------------------------ | -------- | ------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 001  | Add a CI pipeline (lint/types/format/build/registry validate)      | P1       | M      | —          | DONE — `.github/workflows/ci.yml` live, includes test step (verified 2026-07-07)                                                                                                                                                                      |
+| 002  | Establish Vitest + characterization tests for pure logic           | P1       | M      | —          | DONE — 4 test files, `pnpm test:run` green (verified 2026-07-07)                                                                                                                                                                                      |
+| 003  | Keep the registry `Index` out of the client bundle                 | P2       | M      | —          | REJECTED 2026-07-07 — generated index now wraps all 103 entries in `React.lazy`, so component code is code-split; only the metadata object ships to `/components/*` pages. Residual cost not worth the split risk.                                    |
+| 004  | Harden external data fetches against non-OK responses              | P2       | S      | —          | TODO — re-verified 2026-07-07: `github-contributions.ts` still lacks `res.ok` + env fallback; plan's drift check covers it                                                                                                                            |
+| 005  | Reduce dependency advisories (+ remove unused `react-use`)         | P2       | S–M    | —          | SUPERSEDED by 008 (advisory set changed; all critical/high now via `@c15t/nextjs` + `react-use`)                                                                                                                                                      |
+| 006  | Quick wins: escape RSS XML, guard feed dates, doc generated mirror | P3       | S      | —          | TODO — re-verified 2026-07-07: RSS routes still interpolate unescaped frontmatter                                                                                                                                                                     |
+| 007  | Mount consent manager, gate PostHog capture behind consent         | P1       | M      | —          | REJECTED 2026-07-10 — PostHog removed from the codebase entirely (site now uses OpenPanel only); nothing left to gate. `consent-manager-client.tsx` and `instrumentation-client.ts` (both PostHog-only, both unmounted) deleted rather than wired up. |
+| 008  | Remove unused `react-use`, upgrade `@c15t/nextjs` to 2.x           | P2       | M      | —          | TODO — no longer depends on 007 (rejected); `@c15t/nextjs` is still relevant since the registry's `ConsentManager` item ships it, but there's no site-mounted banner to smoke-test against, so verify via that registry item instead.                 |
+| 009  | Fix `src/lib/blocks.ts`: drop `"use server"`, NaN-safe sort, tests | P2       | S      | —          | TODO                                                                                                                                                                                                                                                  |
+| 010  | Clamp inputs and add caching to the OG image routes                | P2       | S      | —          | TODO                                                                                                                                                                                                                                                  |
+| 011  | Registry transform tests + fix generated lazy-factory bug          | P2       | M      | —          | TODO                                                                                                                                                                                                                                                  |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
 
@@ -135,15 +135,15 @@ any of these becomes a design/spike plan.
    registry consumers currently can't tell when a component changed (M,
    coarse).
 5. **Trending components from existing analytics** — `copy_npm_command` etc.
-   already flow to PostHog/OpenPanel but are write-only; a read path could
-   rank components on `/components` (L, needs a data round-trip that doesn't
+   already flow to OpenPanel but are write-only; a read path could rank
+   components on `/components` (L, needs a data round-trip that doesn't
    exist yet).
 
 Open product questions carried forward:
 
-- **Dual analytics** (PostHog + OpenPanel both fire on every `trackEvent`) —
-  still unconsolidated as of 2026-07-07; which is the source of truth?
-  (Also interacts with consent scope in plan 007.)
+- ~~**Dual analytics** (PostHog + OpenPanel both fire on every
+  `trackEvent`)~~ — resolved 2026-07-10: PostHog removed, OpenPanel is now
+  the sole analytics provider (see plan 007's status).
 - ~~(98cn) Windows-98 UI kit~~ — resolved: removed from the tree.
 
 ## Execution log
