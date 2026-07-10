@@ -267,9 +267,3 @@ This project is proudly supported by:
 ## Stats
 
 ![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
-
-## Star history
-
-<p>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/chart/github/stars/ncdai/chanhdai.com.svg?font=geist&amp;theme=zinc" /><img alt="chart" src="https://shieldcn.dev/chart/github/stars/ncdai/chanhdai.com.svg?mode=light&amp;font=geist&amp;theme=zinc" /></picture>
-</p>
