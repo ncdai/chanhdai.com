@@ -14,15 +14,17 @@ import { Button } from "./ui/button"
 import { Kbd } from "./ui/kbd"
 
 export function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme()
+  const { resolvedTheme, systemTheme, setTheme } = useTheme()
 
   const { setMetaColor } = useMetaColor()
 
   const [click] = useClickSound()
 
   const switchTheme = () => {
+    const next = resolvedTheme === "dark" ? "light" : "dark"
+
     click()
-    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+    setTheme(next === systemTheme ? "system" : next)
     setMetaColor(
       resolvedTheme === "dark"
         ? META_THEME_COLORS.light
