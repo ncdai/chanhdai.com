@@ -16,7 +16,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
-import { Prose } from "@/components/base/ui/typography"
 import { Markdown } from "@/components/markdown"
 import type { Award } from "@/features/portfolio/types/awards"
 
@@ -114,9 +113,9 @@ export function AwardItem({
 
       {canExpand && (
         <CollapsibleContent className="overflow-hidden">
-          <Prose className="border-t border-line p-4">
+          <div className="typeset typeset-description border-t border-line p-4">
             <Markdown>{award.description}</Markdown>
-          </Prose>
+          </div>
         </CollapsibleContent>
       )}
     </Collapsible>

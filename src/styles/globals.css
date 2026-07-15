@@ -2,6 +2,7 @@
 @import "shadcn/tailwind.css";
 @import "tw-animate-css";
 
+@import "./typeset.css";
 @import "./scroll-fade-effect.css";
 @import "./style-preview.css";
 
@@ -606,4 +607,10 @@
     @apply data-[level=3]:fill-muted-foreground/60;
     @apply data-[level=4]:fill-muted-foreground/80;
   }
+}
+
+.typeset-description {
+  --typeset-size: 15px;
+  --typeset-leading: 1.6;
+  --typeset-flow: 1em;
 }

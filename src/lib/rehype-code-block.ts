@@ -27,7 +27,7 @@ export function rehypeHighlightCode() {
   return rehypePrettyCode({
     theme: {
       dark: "vesper",
-      light: "github-light",
+      light: "github-light-default",
     },
     keepBackground: false,
     onVisitLine(node: LineElement) {

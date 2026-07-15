@@ -1,4 +1,3 @@
-import { Prose } from "@/components/base/ui/typography"
 import { Markdown } from "@/components/markdown"
 import { HelloTitle } from "@/features/portfolio/components/hello-title"
 import {
@@ -17,10 +16,8 @@ export function Hello() {
         <HelloTitle />
       </PanelHeader>
 
-      <PanelContent className="pt-5 pb-6">
-        <Prose className="prose-p:mt-[0.5em] prose-p:mb-[0.5em] prose-p:first:mt-0 prose-p:last:mb-0">
-          <Markdown>{USER.about}</Markdown>
-        </Prose>
+      <PanelContent className="typeset typeset-description">
+        <Markdown>{USER.about}</Markdown>
       </PanelContent>
     </Panel>
   )

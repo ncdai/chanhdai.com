@@ -12,7 +12,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/base/ui/collapsible"
 import { Separator } from "@/components/base/ui/separator"
-import { Prose } from "@/components/base/ui/typography"
 import { Markdown } from "@/components/markdown"
 import type { ExperiencePosition } from "@/features/portfolio/types/experiences"
 
@@ -110,9 +109,9 @@ export function ExperiencePositionItem({
 
       <CollapsibleContent className="overflow-hidden">
         {position.description && (
-          <Prose className="pt-2 pl-9">
+          <div className="typeset typeset-description pt-3 pb-1 pl-9">
             <Markdown>{position.description}</Markdown>
-          </Prose>
+          </div>
         )}
       </CollapsibleContent>
 
