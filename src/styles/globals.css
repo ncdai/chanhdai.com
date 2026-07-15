@@ -613,4 +613,6 @@
   --typeset-size: 15px;
   --typeset-leading: 1.6;
   --typeset-flow: 1em;
+
+  font-size: var(--typeset-size);
 }
