@@ -20,7 +20,7 @@ STOP conditions, and update your row when done.
 | 008  | Remove unused `react-use`, upgrade `@c15t/nextjs` to 2.x           | P2       | M      | —          | TODO — refreshed 2026-07-10: drift found and reconciled (`consent-manager-client.tsx` deleted, `posthog-js` dropped — both from 007's rejection, not this plan's concern); `react-use` still unused, `@c15t/nextjs` still `^1.8.3`; audit now 33 advisories (2 critical/17 high, was 45); verify via `/preview/consent-manager`, the only remaining runtime surface                                                                                     |
 | 009  | Fix `src/lib/blocks.ts`: drop `"use server"`, NaN-safe sort, tests | P2       | S      | —          | DONE — executed 2026-07-10 in worktree `worktree-agent-a2bf9dd780a97b7b7` (commit `64bf5823`), reviewed and verified by advisor: lint/tests/build/check-types all pass, scope clean (verified 2026-07-10); re-verified 2026-07-10 reconcile                                                                                                                                                                                                             |
 | 010  | Clamp inputs and add caching to the OG image routes                | P2       | S      | —          | DONE — executed 2026-07-10 on branch `advisor/010-og-route-hardening`: added `src/app/og/params.ts` (`clampParam`) + tests, wired into both routes with `Cache-Control` headers; lint/tests/build/check-types all pass, scope clean (verified 2026-07-10); re-verified 2026-07-10 reconcile                                                                                                                                                             |
-| 011  | Registry transform tests + fix generated lazy-factory bug          | P2       | M      | —          | TODO — drift check clean 2026-07-10 (`src/lib/registry.ts` and `src/scripts/build-registry.mts` unchanged since `07c2d2fe`); bug re-confirmed present (`grep -c "\|\| item.name" src/registry/__index__.tsx` → 103)                                                                                                                                                                                                                                     |
+| 011  | Registry transform tests + fix generated lazy-factory bug          | P2       | M      | —          | DONE — executed 2026-07-18 directly on `staging` (uncommitted, maintainer to review/commit): fixed generator line 85 to interpolate `\|\| "${item.name}"`, regenerated `__index__.tsx` (103/103 fallback lines now emit the item-name literal, 0 stray-line changes); exported `fixFilePaths`/`getFileTarget`/`normalizeAliasTarget`; added `src/lib/registry.test.ts` (23 characterization cases pinning observed transform behavior, incl. the single-line two-match `fixImport` collapse quirk); lint / test:run (64 tests) / build / check-types / registry:validate all pass, scope clean                                                                                                                                                                                                                                     |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
 
@@ -31,9 +31,8 @@ decision.
 
 ## Recommended sequencing (updated 2026-07-10)
 
-Remaining open plans (008, 011) are both independent — no dependency
-ordering constrains them; either can run first. 001, 002, 004, 006, 009, 010
-are DONE; 003, 005, 007 are closed (rejected/superseded).
+008 is the only remaining open plan; it is independent. 001, 002, 004, 006,
+009, 010, 011 are DONE; 003, 005, 007 are closed (rejected/superseded).
 
 ## Dependency notes
 
@@ -239,5 +238,5 @@ server"` and exports `compareBlocksByCreatedAtDesc` with matching test
   sections (no new audit ran this pass — `reconcile` processes existing
   plans, it doesn't re-survey the codebase).
 
-**Executable right now**: 008 and 011, either order, no dependencies
-outstanding.
+**Executable right now**: 008 (011 completed 2026-07-18, awaiting maintainer
+commit).
