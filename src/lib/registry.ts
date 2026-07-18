@@ -112,7 +112,9 @@ export function fixImport(content: string) {
   return content.replace(regex, replacement)
 }
 
-function fixFilePaths(files: z.infer<typeof registryItemSchema>["files"]) {
+export function fixFilePaths(
+  files: z.infer<typeof registryItemSchema>["files"]
+) {
   if (!files) {
     return []
   }
@@ -130,7 +132,7 @@ function fixFilePaths(files: z.infer<typeof registryItemSchema>["files"]) {
   })
 }
 
-function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
+export function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
   let target = file.target
 
   if (!target || target === "") {
@@ -161,7 +163,7 @@ function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
   return normalizeAliasTarget(target)
 }
 
-function normalizeAliasTarget(target: string) {
+export function normalizeAliasTarget(target: string) {
   const regex = /^@(components|ui|hooks|lib)\/(.+)$/
 
   return target.replace(regex, (_, type, rest) => {
