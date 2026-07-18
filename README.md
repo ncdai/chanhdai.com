@@ -84,6 +84,20 @@ This project is proudly supported by:
     </tr>
     <tr>
       <td>
+        <a href="https://claude.com?utm_source=chanhdai.com">
+          <picture>
+            <source
+              media="(prefers-color-scheme: dark)"
+              srcset="https://assets.chanhdai.com/images/sponsors/claude-dark.svg"
+            />
+            <img
+              src="https://assets.chanhdai.com/images/sponsors/claude.svg"
+              alt="Claude"
+            />
+          </picture>
+        </a>
+      </td>
+      <td>
         <a href="https://openpanel.dev/open-source?utm_source=chanhdai.com">
           <picture>
             <source
@@ -111,7 +125,6 @@ This project is proudly supported by:
           </picture>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td colspan="3"><strong>Gold Sponsors</strong></td>
