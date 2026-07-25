@@ -126,7 +126,7 @@ function SponsorsGroup({
 
   return (
     <div>
-      <h2 className="p-4 font-heading text-base/none font-semibold">{title}</h2>
+      <h2 className="p-4 font-heading text-base/none font-medium">{title}</h2>
 
       <div className="relative">
         <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
@@ -147,12 +147,7 @@ function SponsorsGroup({
                 href={addQueryParams(item.url, UTM_PARAMS)}
                 aria-label={`${item.name} logo`}
                 data-tier={item.tier.replaceAll("_", "-")}
-                className={cn(
-                  "[&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0",
-                  "data-[tier=osp]:[&_svg]:max-w-60",
-                  "data-[tier=silver]:[&_svg]:max-w-60",
-                  "data-[tier=spark-supporter]:[&_svg]:max-w-50"
-                )}
+                className="min-h-22.5 [&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0"
               >
                 <item.logo aria-hidden />
               </SponsorItem>
