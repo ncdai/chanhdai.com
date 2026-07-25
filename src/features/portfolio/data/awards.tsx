@@ -279,7 +279,7 @@ export const AWARDS: Award[] = [
   {
     id: "05e1c61b-6dc1-11f0-8000-679dd01e0504",
     prize: "Summer 2025 cohort",
-    title: "▲Vercel OSS Program",
+    title: "Vercel OSS Program",
     date: "2025-07",
     grade: "Open source project",
     icon: <VercelIcon />,
