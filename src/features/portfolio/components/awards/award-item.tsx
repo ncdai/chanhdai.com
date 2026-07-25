@@ -47,7 +47,7 @@ export function AwardItem({
                 {award.title}
               </h3>
 
-              <dl className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+              <dl className="flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
                 <div>
                   <dt className="sr-only">Prize</dt>
                   <dd>{award.prize}</dd>
