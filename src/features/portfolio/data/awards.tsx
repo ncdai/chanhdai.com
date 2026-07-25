@@ -1,4 +1,4 @@
-import { VercelIcon } from "@/components/icons"
+import { ClaudeIcon, VercelIcon } from "@/components/icons"
 
 import type { Award } from "../types/awards"
 
@@ -281,11 +281,21 @@ export const AWARDS: Award[] = [
     prize: "Summer 2025 cohort",
     title: "▲Vercel OSS Program",
     date: "2025-07",
-    grade: "Personal project",
+    grade: "Open source project",
     icon: <VercelIcon />,
     description:
       "- Selected for [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker) summer 2025 cohort\n- Received $3,600 in platform credits, OSS Starter Pack, and priority community support\n- Project: [React Wheel Picker](https://react-wheel-picker.chanhdai.com)",
     referenceLink:
       "https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker",
+  },
+  {
+    id: "1b4db7eb-4057-5ddf-91e0-36dec72071f5",
+    prize: "Claude Max 20x",
+    title: "Claude for Open Source Program",
+    date: "2026-07",
+    grade: "Open source project",
+    icon: <ClaudeIcon />,
+    description:
+      "- Selected for [Claude for Open Source Program](https://claude.com/contact-sales/claude-for-oss)\n- Received 6 months of Claude Max 20x in support of my open source work\n- Projects: [chanhdai.com](https://github.com/ncdai/chanhdai.com) and [React Wheel Picker](https://github.com/ncdai/react-wheel-picker)",
   },
 ]
