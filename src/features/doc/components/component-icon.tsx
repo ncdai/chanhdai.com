@@ -146,6 +146,23 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
   "line-nav": <IconBaselineDensitySmall />,
   "share-menu": <ShareIcon />,
   "spotlight-logo": <ChanhDaiMark />,
+  timescale: (
+    // Icon designed by @ncdai
+    <svg
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <line x1="3" y1="7" x2="3" y2="17" />
+      <line x1="21" y1="7" x2="21" y2="17" />
+      <path d="M6 12H8" />
+      <path d="M16 12H18" />
+      <path d="M11 12H13" />
+    </svg>
+  ),
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {
