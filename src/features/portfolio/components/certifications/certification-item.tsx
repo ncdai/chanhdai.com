@@ -78,7 +78,7 @@ export function CertificationItem({
           </a>
         </h3>
 
-        <dl className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+        <dl className="flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
           <div>
             <dt className="sr-only">Issued by</dt>
             <dd>
