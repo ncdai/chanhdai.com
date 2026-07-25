@@ -58,6 +58,7 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
+  --font-handwritten: var(--font-handwritten);
   --font-heading: var(--font-sans);
 
   --default-mono-font-feature-settings: "ss11" 1, "zero" 1, "tnum" 1;

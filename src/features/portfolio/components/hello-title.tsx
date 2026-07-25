@@ -19,7 +19,11 @@ export function HelloTitle() {
 
   return (
     <>
-      <PanelTitle id={`${ID}-greeting`} suppressHydrationWarning>
+      <PanelTitle
+        id={`${ID}-greeting`}
+        className="font-handwritten leading-none"
+        suppressHydrationWarning
+      >
         {greeting}
       </PanelTitle>
 
