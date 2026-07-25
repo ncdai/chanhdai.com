@@ -126,7 +126,7 @@ function SponsorsGroup({
 
   return (
     <div>
-      <h2 className="diagonal-stripes p-4 font-heading text-sm/none font-medium text-muted-foreground uppercase">
+      <h2 className="p-4 font-heading text-sm/none font-medium tracking-wider text-muted-foreground">
         {title}
       </h2>
 
