@@ -616,4 +616,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "timescale-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("timescale")],
+    files: [
+      {
+        path: "examples/timescale-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

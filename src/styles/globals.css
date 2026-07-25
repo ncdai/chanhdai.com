@@ -616,3 +616,11 @@
 
   font-size: var(--typeset-size);
 }
+
+.typeset-timescale {
+  --typeset-size: 0.875rem;
+  --typeset-leading: 1.5;
+  --typeset-flow: 1em;
+
+  font-size: var(--typeset-size);
+}

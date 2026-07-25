@@ -1021,6 +1021,24 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "timescale",
+      "title": "Timescale",
+      "description": "Ruler-style timeline for plotting milestones along a horizontal or vertical axis.",
+      "files": [
+        {
+          "path": "src/registry/components/timescale/timescale.tsx",
+          "type": "registry:component",
+          "target": "@components/timescale.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/timescale",
+      "categories": [
+        "data-display"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

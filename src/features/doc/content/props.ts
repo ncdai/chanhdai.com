@@ -18,6 +18,7 @@ import type {
 } from "@/registry/components/slide-to-unlock"
 import type { SpinningCircularText } from "@/registry/components/spinning-circular-text"
 import type { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
+import type { TimescaleRoot } from "@/registry/components/timescale"
 
 export type AppleHelloEffectProps = Omit<
   ComponentProps<typeof AppleHelloEffectEnglish>,
@@ -95,5 +96,10 @@ export type GitHubContributionsProps = ComponentProps<
 
 export type SpinningCircularTextProps = Omit<
   ComponentProps<typeof SpinningCircularText>,
+  keyof ComponentProps<"div">
+>
+
+export type TimescaleRootProps = Omit<
+  ComponentProps<typeof TimescaleRoot>,
   keyof ComponentProps<"div">
 >

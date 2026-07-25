@@ -21,7 +21,7 @@ export const AWARDS: Award[] = [
     date: "2014-09",
     grade: "Grade 8",
     description:
-      "- Organized in Hanoi, Viet Nam\n- Field: Creative Software\n- Project: Website Hành Trình Khám Phá Miền Tây",
+      "- Organized in Ha Noi, Viet Nam\n- Field: Creative Software\n- Project: Website Hành Trình Khám Phá Miền Tây",
     referenceLink:
       "https://drive.google.com/file/d/16OOVuKBxFAnROU-pmhkDFkbljkmeO-kc/view?usp=sharing",
   },
@@ -118,7 +118,7 @@ export const AWARDS: Award[] = [
     date: "2016-08",
     grade: "Grade 10",
     description:
-      "- Organized in Quang Binh, Viet Nam\n- Field: Hardware Programming\n- Project: IoT Technology Application for Smart Home Control",
+      "- Organized in Binh Dinh, Viet Nam\n- Field: Hardware Programming\n- Project: IoT Technology Application for Smart Home Control",
     referenceLink:
       "https://drive.google.com/file/d/1kf3AR8StAEb3he67pTD1QE53b9_nzklS/view?usp=sharing",
   },
@@ -129,7 +129,7 @@ export const AWARDS: Award[] = [
     date: "2016-10",
     grade: "Grade 10",
     description:
-      "- Organized in Hanoi, Viet Nam\n- Field: Software\n- Project: Study English",
+      "- Organized in Ha Noi, Viet Nam\n- Field: Software\n- Project: Study English",
     referenceLink:
       "https://drive.google.com/file/d/1FZXB2CeW0rrZmKnL4bHJjzXt0r_WeU2q/view?usp=sharing",
   },

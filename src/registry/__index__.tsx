@@ -694,6 +694,23 @@ export const Index: Record<string, any> = {
     categories: ["effects"],
     meta: undefined,
   },
+  "timescale": {
+    name: "timescale",
+    description: "Ruler-style timeline for plotting milestones along a horizontal or vertical axis.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/timescale/timescale.tsx",
+      type: "registry:component",
+      target: "@components/timescale.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/timescale/timescale.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "timescale"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["data-display"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -1805,6 +1822,23 @@ export const Index: Record<string, any> = {
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/spotlight-logo-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "spotlight-logo-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "timescale-demo": {
+    name: "timescale-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/timescale-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/timescale-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "timescale-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,

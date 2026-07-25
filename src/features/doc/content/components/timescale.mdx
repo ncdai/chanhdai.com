@@ -1,0 +1,134 @@
+---
+title: Timescale
+description: Ruler-style timeline for plotting milestones along a horizontal or vertical axis.
+image: https://assets.chanhdai.com/images/blog/timescale.webp
+new: true
+createdAt: 2026-07-25
+updatedAt: 2026-07-25
+---
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="timescale-demo"
+  openInV0Url="https://chanhdai.com/r/timescale.json"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/timescale
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="timescale" title="components/timescale.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  TimescaleAge,
+  TimescaleContent,
+  TimescaleHeader,
+  TimescaleIntroScroll,
+  TimescaleItem,
+  TimescaleRail,
+  TimescaleRoot,
+  TimescaleTick,
+  TimescaleTrack,
+  TimescaleViewport,
+  TimescaleYear,
+} from "@/components/timescale"
+```
+
+```tsx
+<TimescaleIntroScroll>
+  <TimescaleRoot>
+    <TimescaleHeader>
+      <TimescaleAge />
+      <TimescaleYear />
+    </TimescaleHeader>
+
+    <TimescaleViewport>
+      <TimescaleTrack>
+        <TimescaleRail />
+
+        <TimescaleItem>
+          <TimescaleTick />
+          <TimescaleAge />
+          <TimescaleYear />
+          <TimescaleContent />
+        </TimescaleItem>
+      </TimescaleTrack>
+    </TimescaleViewport>
+  </TimescaleRoot>
+</TimescaleIntroScroll>
+```
+
+## Composition
+
+Use the following composition to build a `Timescale`
+
+```text
+TimescaleRoot
+├── TimescaleHeader
+│   ├── TimescaleAge
+│   └── TimescaleYear
+└── TimescaleViewport
+    └── TimescaleTrack
+        ├── TimescaleRail
+        └── TimescaleItem
+            ├── TimescaleTick
+            ├── TimescaleAge
+            ├── TimescaleYear
+            └── TimescaleContent
+```
+
+Wrap in `TimescaleIntroScroll` to scroll a horizontal `Timescale` to its latest item on mount, respecting `prefers-reduced-motion`.
+
+## API reference
+
+### TimescaleRoot
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TimescaleRootProps"
+/>
+
+## Credits
+
+- [Evil Rabbit](https://lifeline.evilrabbit.com)

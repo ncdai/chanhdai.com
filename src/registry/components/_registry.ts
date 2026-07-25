@@ -806,4 +806,20 @@ export const components: Registry["items"] = [
     categories: ["effects"],
     docs: "https://chanhdai.com/components/spotlight-logo",
   },
+  {
+    name: "timescale",
+    type: "registry:component",
+    title: "Timescale",
+    description:
+      "Ruler-style timeline for plotting milestones along a horizontal or vertical axis.",
+    files: [
+      {
+        path: "components/timescale/timescale.tsx",
+        type: "registry:component",
+        target: "@components/timescale.tsx",
+      },
+    ],
+    categories: ["data-display"],
+    docs: "https://chanhdai.com/components/timescale",
+  },
 ]
