@@ -171,6 +171,13 @@ export const BOOKMARKS: Bookmark[] = [
     category: BookmarkCategory.COURSE,
     bookmarkedAt: "2026-07-03",
   },
+  {
+    title: "Invisible Details",
+    url: "https://invisibledetails.com",
+    author: "Dmytro",
+    category: BookmarkCategory.COURSE,
+    bookmarkedAt: "2026-07-25",
+  },
 ]
 
 function Circle() {
