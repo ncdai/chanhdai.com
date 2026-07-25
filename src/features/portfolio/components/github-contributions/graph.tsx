@@ -19,6 +19,21 @@ import {
   ContributionGraphTotalCount,
 } from "@/registry/components/contribution-graph"
 
+const DEFAULT_MONTH_LABELS = [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+]
+
 export function GitHubContributionGraph({
   contributions,
 }: {
@@ -33,6 +48,7 @@ export function GitHubContributionGraph({
       blockSize={12}
       blockMargin={2}
       blockRadius={0}
+      labels={{ months: DEFAULT_MONTH_LABELS }}
       aria-label="GitHub Contributions Graph"
     >
       <ContributionGraphCalendar
