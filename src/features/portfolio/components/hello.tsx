@@ -16,8 +16,10 @@ export function Hello() {
         <HelloTitle />
       </PanelHeader>
 
-      <PanelContent className="typeset typeset-description py-(--typeset-flow)">
-        <Markdown>{USER.about}</Markdown>
+      <PanelContent>
+        <div className="typeset typeset-description [&_li]:ps-0.5 [&_ul]:ps-3.5">
+          <Markdown>{USER.about}</Markdown>
+        </div>
       </PanelContent>
     </Panel>
   )
