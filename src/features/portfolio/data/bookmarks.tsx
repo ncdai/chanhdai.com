@@ -94,7 +94,6 @@ export const BOOKMARKS: Bookmark[] = [
     title: "Devouring Details",
     url: "https://devouringdetails.com",
     author: "Rauno",
-    icon: <Circle />,
     category: BookmarkCategory.COURSE,
     bookmarkedAt: "2026-04-14",
   },
@@ -102,7 +101,6 @@ export const BOOKMARKS: Bookmark[] = [
     title: "React handbook",
     url: "https://devouringdetails.com/resources/react-handbook",
     author: "Rauno",
-    icon: <Circle />,
     category: BookmarkCategory.REFERENCE,
     bookmarkedAt: "2026-04-14",
   },
@@ -179,11 +177,3 @@ export const BOOKMARKS: Bookmark[] = [
     bookmarkedAt: "2026-07-25",
   },
 ]
-
-function Circle() {
-  return (
-    <svg viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10" fill="currentColor" />
-    </svg>
-  )
-}
