@@ -21,7 +21,7 @@ export function HelloTitle() {
     <>
       <PanelTitle
         id={`${ID}-greeting`}
-        className="font-handwritten leading-none"
+        className="font-handwritten leading-none tracking-normal"
         suppressHydrationWarning
       >
         {greeting}

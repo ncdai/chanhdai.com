@@ -10,14 +10,12 @@ const fontMono = GeistMono
 const fontSerif = IBM_Plex_Serif({
   weight: ["400"],
   display: "swap",
-  fallback: ["serif"],
   variable: "--font-serif",
 })
 
 const fontHandwritten = Caveat({
   weight: ["400", "500"],
   display: "swap",
-  fallback: ["cursive"],
   variable: "--font-handwritten",
 })
 
