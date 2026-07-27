@@ -40,7 +40,7 @@ export function Experiences() {
             <ExperienceList experiences={EXPERIENCES.slice(MAX)} />
           </CollapsibleContent>
 
-          <div className="-mt-px flex items-center justify-center py-2">
+          <div className="-mt-px flex items-center justify-center py-4">
             <CollapsibleTrigger
               render={
                 <Button

@@ -52,7 +52,7 @@ export function CollapsibleList<T>({
       </CollapsibleContent>
 
       {items.length > max && (
-        <div className="screen-line-top -mt-px flex h-12 items-center justify-center">
+        <div className="screen-line-top -mt-px flex items-center justify-center py-4">
           <CollapsibleTrigger
             render={
               <Button
