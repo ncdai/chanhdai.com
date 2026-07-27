@@ -69,7 +69,7 @@ export function Components() {
         <div className="screen-line-top h-4 before:-top-px" />
       </div>
 
-      <div className="screen-line-top flex justify-center py-2">
+      <div className="screen-line-top flex justify-center py-4">
         <Button
           className="gap-2 pr-2.5 pl-3"
           variant="secondary"

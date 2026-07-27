@@ -49,7 +49,7 @@ export function Blog() {
         </ul>
       </div>
 
-      <div className="screen-line-top flex justify-center py-2">
+      <div className="screen-line-top flex justify-center py-4">
         <Button
           className="gap-2 pr-2.5 pl-3"
           variant="secondary"

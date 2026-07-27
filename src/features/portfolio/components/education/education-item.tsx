@@ -41,7 +41,7 @@ export function EducationItem({ item }: { item: Education }) {
               className={cn(
                 "flex size-6 shrink-0 items-center justify-center rounded-md",
                 "bg-muted text-muted-foreground",
-                "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
+                "border border-muted-foreground/15 ring-1 ring-border/50 ring-offset-1 ring-offset-background dark:ring-line",
                 "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
               )}
             >

@@ -60,7 +60,7 @@ export function CertificationItem({
         <div
           className={cn(
             "mx-4 flex size-6 shrink-0 items-center justify-center rounded-md select-none",
-            "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
+            "border border-muted-foreground/15 ring-1 ring-border/50 ring-offset-1 ring-offset-background dark:ring-line",
             "bg-muted text-muted-foreground [&_svg]:size-4"
           )}
         >
