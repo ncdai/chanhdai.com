@@ -7,6 +7,7 @@ import { registryConfig } from "@/config/registry"
 import type { PackageManager } from "@/hooks/use-package-manager"
 import { usePackageManager } from "@/hooks/use-package-manager"
 import { components } from "@/registry/components/_registry"
+import { IconSwap, IconSwapItem } from "@/registry/components/icon-swap"
 import { TextFlip } from "@/registry/components/text-flip"
 
 import {
@@ -17,6 +18,7 @@ import {
   TabsTrigger,
 } from "./base/ui/tabs"
 import { CopyButton } from "./copy-button"
+import { getIconForPackageManager } from "./icons"
 
 const pmCommands = {
   pnpm: "pnpm dlx",
@@ -47,13 +49,19 @@ export function RegistryCommandAnimated() {
           setPackageManager(value as PackageManager)
         }}
       >
-        <div className="bg-muted/15 px-2 shadow-[inset_0_-1px_0_0] shadow-line">
+        <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-line">
           <TabsList className="h-10 rounded-none bg-transparent p-0 inset-ring-0 dark:bg-transparent [&_svg]:size-4 [&_svg]:text-muted-foreground">
+            <IconSwap>
+              <IconSwapItem className="mr-2" key={packageManager}>
+                {getIconForPackageManager(packageManager)}
+              </IconSwapItem>
+            </IconSwap>
+
             {Object.entries(pmCommands).map(([key]) => {
               return (
                 <TabsTrigger
                   key={key}
-                  className="h-10 rounded-none p-0 px-2 font-mono"
+                  className="h-7 rounded-lg p-0 px-2 font-mono"
                   value={key}
                 >
                   {key}
@@ -61,7 +69,7 @@ export function RegistryCommandAnimated() {
               )
             })}
 
-            <TabsIndicator className="rounded-none border-x border-t border-line bg-background shadow-[inset_0_-1px_0_0] ring-0 inset-ring-0 shadow-background transition-none dark:bg-background" />
+            <TabsIndicator className="h-0.5 translate-y-0 rounded-none bg-foreground ring-0 dark:bg-foreground" />
           </TabsList>
         </div>
 
