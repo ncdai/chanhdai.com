@@ -73,3 +73,7 @@ pnpm registry:build     # Build shadcn registry (Bun script + shadcn build)
 pnpm registry:validate  # Validate generated registry.json
 pnpm icons:build        # Build registry icons
 ```
+
+### Local dev URL
+
+A dev server is usually already running behind `https://ncdai.localhost` (see `allowedDevOrigins` in `next.config.ts` and `NEXT_PUBLIC_APP_URL` in `.env.local`). Use that origin to test pages and routes, never `http://localhost:3000` or a raw port. It also makes generated absolute URLs match what the code produces.
