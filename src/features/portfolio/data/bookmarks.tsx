@@ -176,4 +176,11 @@ export const BOOKMARKS: Bookmark[] = [
     category: BookmarkCategory.COURSE,
     bookmarkedAt: "2026-07-25",
   },
+  {
+    title: "Copper",
+    url: "https://shadcn.com/copper",
+    author: "shadcn",
+    category: BookmarkCategory.SOFTWARE,
+    bookmarkedAt: "2026-07-30",
+  },
 ]
