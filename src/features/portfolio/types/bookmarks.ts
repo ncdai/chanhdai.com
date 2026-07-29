@@ -25,6 +25,11 @@ export enum BookmarkCategory {
    * Examples: Vercel Web Interface Guidelines, Resend Handbook.
    */
   REFERENCE = "Reference",
+
+  /**
+   * Software tools, libraries, and utilities that aid in development or design.
+   */
+  SOFTWARE = "Software",
 }
 
 export type Bookmark = {
