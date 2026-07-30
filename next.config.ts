@@ -101,6 +101,16 @@ const nextConfig: NextConfig = {
         destination: "/testimonials",
         permanent: true,
       },
+      /**
+       * /llms-full.txt used to serve the whole site as one document. It is now
+       * covered by /llms.txt plus the per-section .md routes, so agents probing
+       * the conventional URL land on the index instead of a 404.
+       */
+      {
+        source: "/llms-full.txt",
+        destination: "/llms.txt",
+        permanent: true,
+      },
       {
         source: "/blocks/content",
         destination: "/blocks/marketing",
