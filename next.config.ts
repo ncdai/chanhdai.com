@@ -51,6 +51,7 @@ const legacyBlogComponentRedirects = LEGACY_BLOG_COMPONENT_SLUGS.map(
 )
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   reactStrictMode: true,
   typedRoutes: true,
   transpilePackages: ["next-mdx-remote"],
