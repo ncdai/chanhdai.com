@@ -64,10 +64,6 @@ export function DocTestimonial2({
         </TestimonialAuthorName>
         <TestimonialAuthorTagline>{authorTagline}</TestimonialAuthorTagline>
       </TestimonialAuthor>
-
-      <p className="mx-auto text-center font-mono text-sm text-muted-foreground opacity-25">
-        ***
-      </p>
     </Testimonial>
   )
 }

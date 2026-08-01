@@ -33,7 +33,7 @@ export function ScrollToTop({
         "fixed right-4 bottom-[calc(var(--bottom,0.5rem)+env(safe-area-inset-bottom,0))] z-50 lg:right-8",
         "transition-[background-color,opacity] duration-300 data-[scroll-direction=down]:opacity-30 data-[scroll-direction=up]:opacity-100 data-[visible=false]:opacity-0",
         "data-[scroll-direction=down]:hover:opacity-100",
-        "border-none",
+        "border-none shadow-[inset_0_0_1px] shadow-foreground/20",
         className
       )}
       variant="secondary"

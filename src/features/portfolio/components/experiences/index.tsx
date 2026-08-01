@@ -44,7 +44,7 @@ export function Experiences() {
             <CollapsibleTrigger
               render={
                 <Button
-                  className="gap-2 pr-2.5 pl-3"
+                  className="gap-2 pr-2.5 pl-3 shadow-[inset_0_0_1px] shadow-foreground/20"
                   variant="secondary"
                   size="sm"
                 >
