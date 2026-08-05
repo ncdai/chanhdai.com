@@ -106,7 +106,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@tailwindcss/postcss": "^4.3.3",
-    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/typography": "^0.5.20",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/bun": "^1.3.14",
     "@types/d3-array": "^3.2.2",
