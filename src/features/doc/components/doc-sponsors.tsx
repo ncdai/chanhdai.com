@@ -51,7 +51,10 @@ export function DocSponsors() {
 
           <ul className="grid grid-cols-1 gap-1 sm:grid-cols-2">
             {SPONSORS.filter(
-              (sponsor) => sponsor.tier === "gold" || sponsor.tier === "silver"
+              (sponsor) =>
+                sponsor.tier === "platinum" ||
+                sponsor.tier === "gold" ||
+                sponsor.tier === "silver"
             ).map((item) => (
               <li key={item.name}>
                 <a
