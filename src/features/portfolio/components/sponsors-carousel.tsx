@@ -16,7 +16,7 @@ export function SponsorsCarousel() {
       </div>
 
       <div className="flex justify-center">
-        <p className="flex h-10 items-center bg-background px-4 text-center text-xs/none font-semibold tracking-wider text-muted-foreground uppercase">
+        <p className="flex h-10 items-center bg-background px-2 text-center text-xs/none font-semibold tracking-wider text-muted-foreground uppercase">
           Proudly supported by
         </p>
       </div>
@@ -26,7 +26,7 @@ export function SponsorsCarousel() {
       {/* A full rotation runs past seven seconds, far longer than a phone
           spends scrolling by, so narrow viewports get every logo at once
           instead of a wave that only ever reveals a third of them. */}
-      <div className="grid grid-cols-3 py-4 text-muted-foreground @2xl:hidden">
+      <div className="grid grid-cols-3 py-2 text-muted-foreground @2xl:hidden">
         {SPONSORS.map((sponsor) => (
           <sponsor.logo key={sponsor.name} className="h-auto w-full" />
         ))}
