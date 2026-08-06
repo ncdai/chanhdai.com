@@ -4,7 +4,7 @@ description: Cycle through logos column by column in a staggered wave.
 image: https://assets.chanhdai.com/images/blog/logos-carousel.webp
 new: true
 createdAt: 2026-06-25
-updatedAt: 2026-06-25
+updatedAt: 2026-08-06
 ---
 
 <ComponentPreview
@@ -74,7 +74,11 @@ import { LogosCarousel } from "@/components/logos-carousel"
 
 ### Reduced motion
 
-When `prefers-reduced-motion` is on, the staggered wave, slide, and blur transitions are skipped and the carousel stops auto-cycling; logos render statically in place.
+When `prefers-reduced-motion` is on, the slide and blur transitions are replaced by a plain opacity cross-fade. The logos still cycle, so no logo is dropped.
+
+### Auto-updating content
+
+The carousel cycles indefinitely, pausing only while the page is hidden or the carousel is off screen. WCAG 2.2.2 Pause, Stop, Hide asks for a way to pause, stop, or hide auto-updating content that runs alongside other content. Either add a pause control, or keep the carousel decorative and make sure the same logos are reachable somewhere static on the page.
 
 ## API reference
 

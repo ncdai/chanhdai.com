@@ -5,31 +5,38 @@ import { Panel } from "./panel"
 
 export function SponsorsCarousel() {
   return (
-    <Panel className="@container py-4 screen-line-top-none">
-      <p className="mb-4 pl-4 text-sm font-medium tracking-wide text-muted-foreground">
-        Proudly supported by
-      </p>
-
-      <div className="relative">
-        <div
-          className="pointer-events-none absolute inset-0 grid grid-cols-2 items-center *:h-5 *:border-r @2xl:grid-cols-4"
-          aria-hidden
-        >
-          <div className="@max-2xl:h-full @max-2xl:border-line" />
-          <div className="@max-2xl:hidden" />
-          <div className="@max-2xl:hidden" />
-        </div>
-
-        <LogosCarousel className="w-full gap-y-4 [--column-count:2] @2xl:[--column-count:4]">
-          {SPONSORS.map((sponsor, index) => (
-            <sponsor.logo
-              key={index}
-              className="h-auto w-full @max-2xl:max-w-48"
-              aria-label={sponsor.name}
-            />
-          ))}
-        </LogosCarousel>
+    // Decorative. The full sponsor list with links lives in <Sponsors />, so
+    // this is hidden from assistive tech to avoid duplicating it. Keep it free
+    // of focusable content.
+    <Panel className="@container screen-line-top-none" aria-hidden>
+      <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-3 *:border-r *:border-dashed *:border-line @2xl:grid-cols-4">
+        <div />
+        <div />
+        <div className="@max-2xl:hidden" />
       </div>
+
+      <div className="flex justify-center">
+        <p className="flex h-10 items-center bg-background px-4 text-center text-xs/none font-semibold tracking-wider text-muted-foreground uppercase">
+          Proudly supported by
+        </p>
+      </div>
+
+      <div className="screen-line-bottom h-px" />
+
+      {/* A full rotation runs past seven seconds, far longer than a phone
+          spends scrolling by, so narrow viewports get every logo at once
+          instead of a wave that only ever reveals a third of them. */}
+      <div className="grid grid-cols-3 py-4 text-muted-foreground @2xl:hidden">
+        {SPONSORS.map((sponsor) => (
+          <sponsor.logo key={sponsor.name} className="h-auto w-full" />
+        ))}
+      </div>
+
+      <LogosCarousel className="w-full py-4 text-muted-foreground [--column-count:4] @max-2xl:hidden">
+        {SPONSORS.map((sponsor) => (
+          <sponsor.logo key={sponsor.name} className="h-auto w-full" />
+        ))}
+      </LogosCarousel>
     </Panel>
   )
 }
