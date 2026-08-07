@@ -122,8 +122,17 @@ export async function Insights() {
           </div>
         )}
 
-        <figcaption className="pointer-events-none absolute right-2 bottom-2 bg-background font-mono text-xs leading-none text-zinc-400 select-none sm:right-4 dark:text-zinc-700">
-          FIG_002
+        <figcaption className="screen-line-top px-4 py-3 text-center text-sm text-balance text-muted-foreground">
+          FIG_002. Daily unique visitors and sessions. Source:{" "}
+          <a
+            href="https://openpanel.dev"
+            className="link-underline"
+            target="_blank"
+            rel="noopener"
+          >
+            OpenPanel
+          </a>
+          .
         </figcaption>
       </figure>
     </Panel>
