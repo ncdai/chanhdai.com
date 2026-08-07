@@ -123,7 +123,7 @@ export async function Insights() {
         )}
 
         <figcaption className="screen-line-top px-4 py-3 text-center text-sm text-balance text-muted-foreground">
-          FIG_002. Daily unique visitors and sessions. Source:{" "}
+          FIG_003. Daily unique visitors and sessions. Source:{" "}
           <a
             href="https://openpanel.dev"
             className="link-underline"
