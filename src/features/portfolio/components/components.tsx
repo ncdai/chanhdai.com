@@ -13,6 +13,7 @@ import {
 import { ComponentIcon } from "@/features/doc/components/component-icon"
 import { getComponentDocs } from "@/features/doc/data/documents"
 
+import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 import { PanelTitleCopy } from "./panel-title-copy"
 
@@ -23,6 +24,14 @@ export function Components() {
 
   return (
     <Panel id={ID}>
+      <HandwrittenNote
+        className="top-4 left-full ml-1 hidden w-36 flex-col items-start xl:flex"
+        aria-hidden
+      >
+        <span className="-rotate-3">free, copy &amp; paste</span>
+        <HandwrittenArrow className="mt-2 -rotate-3" />
+      </HandwrittenNote>
+
       <PanelHeader>
         <PanelTitle>
           <a href={`#${ID}`}>Components</a>

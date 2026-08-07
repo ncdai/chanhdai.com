@@ -1,6 +1,7 @@
 import { LogosCarousel } from "@/registry/components/logos-carousel"
 import { SPONSORS } from "@/features/sponsor/data"
 
+import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { Panel } from "./panel"
 
 export function SponsorsCarousel() {
@@ -14,6 +15,11 @@ export function SponsorsCarousel() {
         <div />
         <div className="@max-2xl:hidden" />
       </div>
+
+      <HandwrittenNote className="top-6 right-full mr-2 hidden w-20 flex-col items-end lg:flex">
+        <span className="-rotate-6">big thanks</span>
+        <HandwrittenArrow className="size-7 -scale-x-100 -rotate-6" />
+      </HandwrittenNote>
 
       <div className="flex justify-center">
         <p className="flex h-10 items-center bg-background px-2 text-center text-xs/none font-semibold tracking-wider text-muted-foreground uppercase">
