@@ -62,42 +62,37 @@ export function GitHubContributionGraph({
               <TooltipContent className="font-sans">
                 <p>
                   {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}
-                  on {format(parseISO(activity.date), "dd.MM.yyyy")}
+                  on {format(parseISO(activity.date), "d MMM yyyy")}
                 </p>
               </TooltipContent>
             </Tooltip>
           )}
         </ContributionGraphCalendar>
 
-        <ContributionGraphFooter className="gap-4 px-4 leading-none">
+        <ContributionGraphFooter className="px-4 text-sm">
           <ContributionGraphTotalCount>
             {({ totalCount }) => (
-              <div className="whitespace-normal text-muted-foreground tabular-nums">
-                {totalCount.toLocaleString("en")} contributions{" "}
-                <span className="whitespace-nowrap">
-                  ({format(parseISO(data[0].date), "dd.MM.yyyy")} –{" "}
-                  {format(parseISO(data[data.length - 1].date), "dd.MM.yyyy")})
-                </span>
-              </div>
+              <figcaption className="text-pretty text-muted-foreground tabular-nums">
+                FIG_002. {totalCount.toLocaleString("en")} contributions,{" "}
+                {format(parseISO(data[0].date), "d MMM yyyy")} –{" "}
+                {format(parseISO(data[data.length - 1].date), "d MMM yyyy")}.
+                Source:{" "}
+                <a
+                  href={SOCIAL.github.href}
+                  className="link-underline"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  GitHub
+                </a>
+                .
+              </figcaption>
             )}
           </ContributionGraphTotalCount>
 
           <ContributionGraphLegend aria-hidden />
         </ContributionGraphFooter>
       </ContributionGraph>
-
-      <figcaption className="screen-line-top px-4 py-3 text-center text-sm text-balance text-muted-foreground">
-        FIG_002. Daily contribution activity. Source:{" "}
-        <a
-          href={SOCIAL.github.href}
-          className="link-underline"
-          target="_blank"
-          rel="noopener"
-        >
-          GitHub
-        </a>
-        .
-      </figcaption>
     </figure>
   )
 }
