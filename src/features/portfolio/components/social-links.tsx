@@ -20,9 +20,9 @@ export function SocialLinks() {
     <Panel>
       <h2 className="sr-only">Social Links</h2>
 
-      <HandwrittenNote className="-top-5 right-full mr-2 hidden w-16 flex-col items-end lg:flex">
+      <HandwrittenNote className="-top-4 right-full mr-2 hidden w-20 flex-col items-end lg:flex">
         <span className="-rotate-6">say hi</span>
-        <HandwrittenArrow className="size-7 translate-x-3 -scale-x-100 -rotate-3" />
+        <HandwrittenArrow className="mt-1 size-7 -scale-x-100 -rotate-6" />
       </HandwrittenNote>
 
       <PanelContent>
