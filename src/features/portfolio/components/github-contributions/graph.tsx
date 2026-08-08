@@ -74,8 +74,8 @@ export function GitHubContributionGraph({
             {({ totalCount }) => (
               <figcaption className="text-pretty text-muted-foreground tabular-nums">
                 FIG_002. {totalCount.toLocaleString("en")} contributions,{" "}
-                {format(parseISO(data[0].date), "d MMM yyyy")} –{" "}
-                {format(parseISO(data[data.length - 1].date), "d MMM yyyy")}.
+                {format(parseISO(data[0].date), "dd.MM.yyyy")} –{" "}
+                {format(parseISO(data[data.length - 1].date), "dd.MM.yyyy")}.
                 Source:{" "}
                 <a
                   href={SOCIAL.github.href}
