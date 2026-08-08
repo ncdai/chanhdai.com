@@ -229,6 +229,24 @@ This project is proudly supported by:
       </td>
     </tr>
     <tr>
+      <td>
+        <a href="https://obelinf.com?utm_source=chanhdai.com">
+          <picture>
+            <source
+              media="(prefers-color-scheme: dark)"
+              srcset="https://assets.chanhdai.com/images/sponsors/obelinf-dark.svg"
+            />
+            <img
+              src="https://assets.chanhdai.com/images/sponsors/obelinf.svg"
+              alt="Obelinf"
+            />
+          </picture>
+        </a>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td colspan="3"><strong>Spark Supporters</strong></td>
     </tr>
     <tr>
