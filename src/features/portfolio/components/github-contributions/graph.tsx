@@ -72,8 +72,11 @@ export function GitHubContributionGraph({
         <ContributionGraphFooter className="px-4 text-sm">
           <ContributionGraphTotalCount>
             {({ totalCount }) => (
-              <figcaption className="text-pretty text-muted-foreground tabular-nums">
-                FIG_002. {totalCount.toLocaleString("en")} contributions,{" "}
+              <figcaption className="text-pretty tabular-nums">
+                <span className="mr-2 tracking-wide text-muted-foreground">
+                  Fig. 2.
+                </span>
+                {totalCount.toLocaleString("en")} contributions,{" "}
                 {format(parseISO(data[0].date), "dd.MM.yyyy")} –{" "}
                 {format(parseISO(data[data.length - 1].date), "dd.MM.yyyy")}.
                 Source:{" "}
