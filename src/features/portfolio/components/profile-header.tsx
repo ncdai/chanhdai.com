@@ -28,8 +28,8 @@ export function ProfileHeader() {
           </span>
         </HandwrittenNote>
 
-        <figcaption className="pointer-events-none absolute right-2 bottom-2 font-mono text-xs leading-none text-zinc-400 select-none sm:right-4 dark:text-zinc-700">
-          FIG_001
+        <figcaption className="pointer-events-none absolute right-2 bottom-2 text-sm leading-none tracking-wide text-[color-mix(in_oklab,var(--muted-foreground)_60%,var(--background))] tabular-nums select-none sm:right-4 sm:bottom-4">
+          Fig. 1.
         </figcaption>
       </figure>
 
