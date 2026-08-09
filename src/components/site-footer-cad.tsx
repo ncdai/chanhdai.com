@@ -43,7 +43,7 @@ export function SiteFooterCad() {
   return (
     <footer className="max-w-screen overflow-x-clip px-2">
       <div className="mx-auto border-x border-line group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
-        <div className="screen-line-top screen-line-bottom">
+        <div className="screen-line-top screen-line-bottom after:bg-border">
           <div className="stripe-divider h-12" />
         </div>
 
@@ -150,7 +150,7 @@ export function SiteFooterCad() {
             </Field>
           </dl>
 
-          <div
+          {/* <div
             className="*:absolute *:z-2 *:size-2 *:border *:bg-background"
             aria-hidden
           >
@@ -158,8 +158,10 @@ export function SiteFooterCad() {
             <div className="top-[-4.5px] right-[-4.5px]" />
             <div className="bottom-[-4.5px] left-[-4.5px]" />
             <div className="right-[-4.5px] bottom-[-4.5px]" />
-          </div>
+          </div> */}
         </div>
+
+        <div className="screen-line-top h-4" />
 
         <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
