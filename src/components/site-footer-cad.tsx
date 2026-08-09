@@ -43,7 +43,7 @@ export function SiteFooterCad() {
   return (
     <footer className="max-w-screen overflow-x-clip px-2">
       <div className="mx-auto border-x border-line group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
-        <div className="screen-line-top screen-line-bottom after:bg-border">
+        <div className="screen-line-top screen-line-bottom after:z-1 after:bg-border">
           <div className="stripe-divider h-12" />
         </div>
 
