@@ -926,6 +926,63 @@ export const Index: Record<string, any> = {
     categories: ["marketing"],
     meta: {"createdAt":"2026-06-26","previewClassName":"min-h-svh content-center-safe"},
   },
+  "not-found-01": {
+    name: "not-found-01",
+    description: "A 404 page with a playable brick breaker game.",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/blocks/not-found-01/page.tsx",
+      type: "registry:page",
+      target: "app/not-found.tsx",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/index.tsx",
+      type: "registry:component",
+      target: "@components/daikanoid/index.tsx",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/component.tsx",
+      type: "registry:component",
+      target: "@components/daikanoid/component.tsx",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/ball.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/ball.ts",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/brick.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/brick.ts",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/paddle.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/paddle.ts",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/logos.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/logos.ts",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/colors.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/colors.ts",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/constants.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/constants.ts",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/types.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/types.ts",
+    },{
+      path: "src/registry/blocks/not-found-01/components/daikanoid/ui.ts",
+      type: "registry:component",
+      target: "@components/daikanoid/ui.ts",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/blocks/not-found-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "not-found-01"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["application"],
+    meta: {"createdAt":"2026-08-09"},
+  },
   "text-flip-demo": {
     name: "text-flip-demo",
     description: "",

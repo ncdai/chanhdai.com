@@ -1,0 +1,112 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "not-found-01",
+  "title": "Not Found 01",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "A 404 page with a playable brick breaker game.",
+  "dependencies": [
+    "p5@^1.9.4",
+    "motion",
+    "next-themes"
+  ],
+  "devDependencies": [
+    "@types/p5@^1.7.7"
+  ],
+  "registryDependencies": [
+    "button",
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/not-found-01/page.tsx",
+      "content": "import Link from \"next/link\"\nimport { ArrowRightIcon, SearchXIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\"\nimport { Daikanoid } from \"@/registry/blocks/not-found-01/components/daikanoid\"\n\nexport default function NotFound() {\n  return (\n    <div>\n      <Empty className=\"py-12 max-lg:min-h-svh\">\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <SearchXIcon />\n          </EmptyMedia>\n\n          <EmptyTitle className=\"text-base\">Page not found</EmptyTitle>\n\n          <EmptyDescription>\n            The page you are looking for does not exist or has been moved.\n          </EmptyDescription>\n        </EmptyHeader>\n\n        <EmptyContent>\n          <Button variant=\"outline\" asChild>\n            <Link href=\"/\">\n              Go to Home\n              <ArrowRightIcon />\n            </Link>\n          </Button>\n        </EmptyContent>\n      </Empty>\n\n      {/* The canvas is fixed at 800x600, so the game is desktop only. */}\n      <section className=\"place-items-center pb-6 max-lg:hidden\">\n        <Daikanoid />\n      </section>\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/not-found.tsx"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/index.tsx",
+      "content": "\"use client\"\n\nimport dynamic from \"next/dynamic\"\n\nexport const Daikanoid = dynamic(\n  () => import(\"./component\").then((mod) => mod.Daikanoid),\n  {\n    ssr: false,\n    loading: () => <div className=\"h-150 w-200 ring-1 ring-border\" />,\n  }\n)\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/index.tsx"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/component.tsx",
+      "content": "// Inspired by departuremono.com\n\n\"use client\"\n\nimport { useEffect, useRef } from \"react\"\nimport { useReducedMotion } from \"motion/react\"\nimport { useTheme } from \"next-themes\"\nimport p5 from \"p5\"\n\nimport { cn } from \"@/lib/utils\"\n\nimport { Ball } from \"./ball\"\nimport { resetGame } from \"./brick\"\nimport { Colors, loadColors } from \"./colors\"\nimport {\n  BALL_DARK_URL,\n  BALL_LIGHT_URL,\n  FONT_URL,\n  PADDLE_DARK_URL,\n  PADDLE_LIGHT_URL,\n  SOUND_BOUNCE_URL,\n  SOUND_BREAK_URL,\n  SOUND_GAME_OVER_URL,\n} from \"./constants\"\nimport { getLogoIndex } from \"./logos\"\nimport { Paddle } from \"./paddle\"\nimport type { GameState } from \"./types\"\nimport { UI } from \"./ui\"\n\nexport function Daikanoid({\n  className,\n  defaultLogo,\n  ...props\n}: Omit<React.ComponentPropsWithRef<\"canvas\">, \"children\"> & {\n  defaultLogo?: string\n}) {\n  const canvasRef = useRef<HTMLCanvasElement>(null)\n  const shouldReduceMotion = useReducedMotion()\n  const { resolvedTheme } = useTheme()\n\n  useEffect(() => {\n    loadColors()\n\n    const el = canvasRef.current!\n\n    const state: GameState = {\n      canvas: null,\n\n      enableGame: false,\n      enableSounds: !shouldReduceMotion,\n\n      score: 0,\n      bricks: [],\n      logoIndex: getLogoIndex(defaultLogo),\n\n      soundBounce: null,\n      soundBreak: null,\n      soundGameOver: null,\n\n      ballImage: null,\n      paddleImage: null,\n    }\n\n    let font: p5.Font\n    let sketch: p5\n    let paddle: Paddle\n    let ball: Ball\n    let ui: UI\n\n    function game(p: p5) {\n      sketch = p\n\n      p.preload = () => {\n        font = p.loadFont(FONT_URL)\n\n        state.soundBounce = p.createAudio(SOUND_BOUNCE_URL)\n        state.soundBreak = p.createAudio(SOUND_BREAK_URL)\n        state.soundGameOver = p.createAudio(SOUND_GAME_OVER_URL)\n\n        state.ballImage = p.loadImage(\n          resolvedTheme === \"dark\" ? BALL_DARK_URL : BALL_LIGHT_URL\n        )\n        state.paddleImage = p.loadImage(\n          resolvedTheme === \"dark\" ? PADDLE_DARK_URL : PADDLE_LIGHT_URL\n        )\n      }\n\n      p.setup = () => {\n        state.canvas = p.createCanvas(800, 600, p.P2D, el)\n        paddle = new Paddle(p, state)\n        ball = new Ball(p, state)\n        ui = new UI(p, state)\n\n        p.imageMode(p.CENTER)\n        p.textFont(font)\n        p.background(Colors.background)\n        p.fill(Colors.foreground)\n        p.noStroke()\n\n        resetGame(p, state)\n\n        state.canvas.mouseClicked(() => {\n          state.enableGame = true\n          ball.reset()\n          return false\n        })\n\n        state.canvas.touchStarted(() => {\n          state.enableGame = true\n          return false\n        })\n      }\n\n      p.draw = () => {\n        p.background(Colors.background)\n\n        if (state.bricks.length === 0) {\n          p.fill(Colors.foreground)\n          p.textAlign(p.CENTER, p.CENTER)\n          p.textSize(80)\n          p.text(\"404\", p.width / 2, p.height / 2 - 11)\n          return\n        }\n\n        paddle.show()\n        paddle.move()\n\n        ball.show()\n        if (state.enableGame) {\n          ball.move()\n          ball.checkEdges()\n          ball.checkPaddle(paddle)\n        }\n\n        for (const brick of state.bricks) {\n          brick.show()\n        }\n        p.noStroke()\n\n        ball.checkBricks(state.bricks)\n        ui.show()\n      }\n    }\n\n    const handleKeyPress = (e: KeyboardEvent) => {\n      if (e.key === \" \") {\n        if (state.bricks.length === 0) {\n          state.enableGame = false\n          ball.reset()\n          resetGame(sketch, state)\n          return\n        }\n\n        state.enableGame = true\n        ball.reset()\n      }\n    }\n    window.addEventListener(\"keypress\", handleKeyPress)\n\n    const p5Instance = new p5(game)\n\n    return () => {\n      window.removeEventListener(\"keypress\", handleKeyPress)\n      p5Instance.remove()\n    }\n  }, [shouldReduceMotion, resolvedTheme, defaultLogo])\n\n  return (\n    <canvas\n      ref={canvasRef}\n      className={cn(\"h-150 w-200 ring-1 ring-border\", className)}\n      {...props}\n    />\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/component.tsx"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/ball.ts",
+      "content": "import type p5 from \"p5\"\n\nimport type { Brick } from \"./brick\"\nimport { BALL_SIZE, BALL_SPEED, BRICK_SCORE, uncheckedClamp } from \"./constants\"\nimport type { GameState } from \"./types\"\n\nexport class Ball {\n  p: p5\n  state: GameState\n  radius: number\n  x: number\n  y: number\n  xSpeed: number\n  ySpeed: number\n\n  constructor(p: p5, state: GameState) {\n    this.p = p\n    this.state = state\n    this.radius = BALL_SIZE / 2\n    this.x = p.width * 0.5\n    this.y = p.height * 0.6\n    this.xSpeed = 5\n    this.ySpeed = 5\n  }\n\n  show() {\n    this.p.imageMode(this.p.CENTER)\n    this.p.image(this.state.ballImage!, this.x, this.y, BALL_SIZE, BALL_SIZE)\n  }\n\n  move() {\n    this.x += this.xSpeed\n    this.y += this.ySpeed\n  }\n\n  checkEdges() {\n    if (this.x < this.radius || this.x > this.p.width - this.radius) {\n      this.x = uncheckedClamp(this.radius, this.p.width - this.radius, this.x)\n      this.xSpeed *= -1\n\n      if (this.state.enableSounds) {\n        playSound(this.state.soundBounce!)\n      }\n    }\n\n    if (this.y < this.radius) {\n      this.y = uncheckedClamp(this.radius, this.p.height - this.radius, this.y)\n      this.ySpeed *= -1\n\n      if (this.state.enableSounds) {\n        playSound(this.state.soundBounce!)\n      }\n    }\n\n    if (this.y > this.p.height) {\n      this.state.enableGame = false\n\n      if (this.state.enableSounds) {\n        playSound(this.state.soundGameOver!)\n      }\n\n      this.reset()\n    }\n  }\n\n  checkPaddle(paddle: { x: number; y: number; width: number }) {\n    if (\n      this.y + this.radius > paddle.y &&\n      this.x > paddle.x &&\n      this.x < paddle.x + paddle.width\n    ) {\n      this.ySpeed *= -1\n      this.y = paddle.y - this.radius\n\n      if (this.state.enableSounds) {\n        playSound(this.state.soundBounce!)\n      }\n    }\n  }\n\n  reset() {\n    this.x = this.p.width * 0.5\n    this.y = this.p.height * 0.6\n\n    const vector = this.p\n      .createVector(Math.random() * 2 - 1, Math.random())\n      .normalize()\n      .mult(BALL_SPEED)\n\n    this.xSpeed = vector.x\n    this.ySpeed = vector.y\n  }\n\n  checkBricks(bricks: Brick[]) {\n    let collision = false\n\n    for (let i = bricks.length - 1; i >= 0; --i) {\n      const brick = bricks[i]\n\n      if (\n        this.x + this.radius > brick.x &&\n        this.x - this.radius < brick.x + brick.w &&\n        this.y - this.radius < brick.y + brick.h &&\n        this.y + this.radius > brick.y\n      ) {\n        collision ||= true\n        this.state.score += BRICK_SCORE\n        bricks.splice(i, 1)\n\n        if (this.state.enableSounds) {\n          playSound(this.state.soundBreak!)\n        }\n      }\n    }\n\n    if (collision) this.ySpeed *= -1\n  }\n}\n\nfunction playSound(sound: p5.MediaElement) {\n  const el = sound.elt as HTMLAudioElement\n  el.currentTime = 0\n  el.volume = 0.3\n  el.play().catch(() => {})\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/ball.ts"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/brick.ts",
+      "content": "import type p5 from \"p5\"\n\nimport { Colors } from \"./colors\"\nimport { BRICK_HEIGHT, BRICK_SHADOW_THICKNESS } from \"./constants\"\nimport { LOGOS } from \"./logos\"\nimport type { GameState } from \"./types\"\n\nexport class Brick {\n  p: p5\n  c: p5.Color | string = Colors.brick\n  x: number\n  y: number\n  w: number\n  h: number\n\n  constructor(p: p5, x: number, y: number, w: number, h: number) {\n    this.p = p\n    this.x = x\n    this.y = y\n    this.w = w\n    this.h = h\n  }\n\n  color(c: p5.Color | string): this {\n    this.c = c\n    return this\n  }\n\n  show() {\n    this.p.strokeWeight(4)\n    this.p.stroke(Colors.background)\n    this.p.fill(this.c.toString())\n    this.p.rect(this.x, this.y, this.w, this.h)\n    this.p.noStroke()\n\n    this.p.fill(Colors.brickHighlight)\n    this.p.rect(this.x + 2, this.y + 2, this.w - 4, BRICK_SHADOW_THICKNESS)\n    this.p.rect(\n      this.x + 2,\n      this.y + 2 + BRICK_SHADOW_THICKNESS,\n      BRICK_SHADOW_THICKNESS,\n      this.h - 4 - BRICK_SHADOW_THICKNESS\n    )\n\n    this.p.fill(Colors.brickShadow)\n    this.p.rect(\n      this.x + 2,\n      this.y + this.h - 5,\n      this.w - 4,\n      BRICK_SHADOW_THICKNESS\n    )\n    this.p.rect(\n      this.x + this.w - 5,\n      this.y + 2,\n      BRICK_SHADOW_THICKNESS,\n      this.h - 4 - BRICK_SHADOW_THICKNESS\n    )\n  }\n}\n\nexport function resetGame(p: p5, state: GameState) {\n  state.score = 0\n\n  // Advance the index so each reset cycles to a different logo.\n  const logo = LOGOS[state.logoIndex % LOGOS.length]\n  state.logoIndex = (state.logoIndex + 1) % LOGOS.length\n\n  const { brickWidth, pattern } = logo\n  const colScale = logo.colScale ?? 1\n  const rowScale = logo.rowScale ?? 1\n  const cs = logo.colOffset ?? 0\n  const rs = logo.rowOffset ?? 0\n\n  const bricks: Brick[] = []\n  for (let py = 0; py < pattern.length; ++py) {\n    const row = pattern[py]\n    for (let px = 0; px < row.length; ++px) {\n      if (row[px] !== \"X\") continue\n\n      for (let dx = 0; dx < colScale; ++dx) {\n        for (let dy = 0; dy < rowScale; ++dy) {\n          const col = cs + px * colScale + dx\n          const brickRow = rs + py * rowScale + dy\n          bricks.push(\n            new Brick(\n              p,\n              col * brickWidth,\n              brickRow * BRICK_HEIGHT,\n              brickWidth,\n              BRICK_HEIGHT\n            ).color(Colors.brick)\n          )\n        }\n      }\n    }\n  }\n\n  state.bricks = bricks\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/brick.ts"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/paddle.ts",
+      "content": "import type p5 from \"p5\"\n\nimport {\n  PADDLE_HEIGHT,\n  PADDLE_SPEED,\n  PADDLE_WIDTH,\n  uncheckedClamp,\n} from \"./constants\"\nimport type { GameState } from \"./types\"\n\nexport class Paddle {\n  p: p5\n  state: GameState\n\n  width: number\n  height: number\n\n  x: number\n  y: number\n\n  constructor(p: p5, state: GameState) {\n    this.p = p\n    this.state = state\n\n    this.width = PADDLE_WIDTH\n    this.height = PADDLE_HEIGHT\n\n    this.x = p.width / 2 - this.width / 2\n    this.y = p.height - this.height\n\n    state.canvas!.mouseMoved((e: MouseEvent) => {\n      this.x = uncheckedClamp(\n        PADDLE_HEIGHT / 2,\n        p.width - this.width - PADDLE_HEIGHT / 2,\n        e.offsetX - PADDLE_WIDTH / 2\n      )\n      return false\n    })\n\n    state.canvas!.touchMoved((e: TouchEvent) => {\n      const rect = (\n        state.canvas!.elt as HTMLCanvasElement\n      ).getBoundingClientRect()\n\n      const touch = e.touches[0]\n\n      this.x = uncheckedClamp(\n        PADDLE_HEIGHT / 2,\n        p.width - this.width - PADDLE_HEIGHT / 2,\n        touch.clientX - rect.left - PADDLE_WIDTH / 2\n      )\n\n      return false\n    })\n  }\n\n  show() {\n    this.p.imageMode(this.p.CORNER)\n    this.p.image(\n      this.state.paddleImage!,\n      this.x,\n      this.y,\n      PADDLE_WIDTH,\n      PADDLE_HEIGHT\n    )\n\n    // this.p.fill(Colors.paddle)\n    // this.p.rect(this.x, this.y, PADDLE_WIDTH, PADDLE_HEIGHT)\n\n    // this.p.fill(Colors.paddleHighlight)\n    // this.p.rect(this.x, this.y + 3, PADDLE_WIDTH, 3)\n\n    // this.p.fill(Colors.paddleShadow)\n    // this.p.rect(this.x, this.y + PADDLE_HEIGHT - 3, PADDLE_WIDTH, 3)\n  }\n\n  move() {\n    if (this.p.keyIsDown(this.p.LEFT_ARROW) && this.x > PADDLE_HEIGHT / 2) {\n      this.x -= PADDLE_SPEED\n    } else if (\n      this.p.keyIsDown(this.p.RIGHT_ARROW) &&\n      this.x < this.p.width - this.width - PADDLE_HEIGHT / 2\n    ) {\n      this.x += PADDLE_SPEED\n    }\n\n    this.x = uncheckedClamp(\n      PADDLE_HEIGHT / 2,\n      this.p.width - this.width - PADDLE_HEIGHT / 2,\n      this.x\n    )\n  }\n\n  automove(ball: { x: number }) {\n    this.x = uncheckedClamp(\n      PADDLE_HEIGHT / 2,\n      this.p.width - this.width - PADDLE_HEIGHT / 2,\n      ball.x - this.width / 2\n    )\n  }\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/paddle.ts"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/logos.ts",
+      "content": "/**\n * A logo is authored as a grid of \"pixels\": \"X\" places a brick, any other\n * character leaves a gap. The board is built from this data in `resetGame`\n * (brick.ts). Brick width is per-logo (height stays `BRICK_HEIGHT`), so a\n * smaller width yields a finer grid for more detailed logos.\n */\nexport interface LogoDef {\n  name: string\n  /** Brick width in px (canvas is 800 wide → `800 / brickWidth` columns). */\n  brickWidth: number\n  pattern: string[]\n  /** Bricks per pixel horizontally (default 1). */\n  colScale?: number\n  /** Bricks per pixel vertically (default 1). */\n  rowScale?: number\n  /** Left offset in bricks (default 0). */\n  colOffset?: number\n  /** Top offset in bricks (default 0). */\n  rowOffset?: number\n}\n\nconst chanhdai: LogoDef = {\n  name: \"ChanhDai\",\n  brickWidth: 80,\n  rowScale: 3,\n  colOffset: 1,\n  rowOffset: 0,\n  pattern: [\".XX.XXX.\", \"X...X..X\", \"X...X..X\", \".XX.XXX.\"],\n}\n\nconst eve: LogoDef = {\n  name: \"eve\",\n  brickWidth: 40,\n  colOffset: 2,\n  rowOffset: 1,\n  pattern: [\n    \"XXXXXXX...XXXXXX\",\n    \"XXXXXXX...XXXXXX\",\n    \".........X......\",\n    \"XXX......X...XXX\",\n    \"XXX.....X....XXX\",\n    \"........X.......\",\n    \"XXXX...X....XXXX\",\n    \"XXXX...X....XXXX\",\n  ],\n}\n\nconst vercel: LogoDef = {\n  name: \"Vercel\",\n  brickWidth: 40,\n  colOffset: 4,\n  rowOffset: 0,\n  pattern: [\n    \".....XX.....\",\n    \".....XX.....\",\n    \"....XXXX....\",\n    \"....XXXX....\",\n    \"...XXXXXX...\",\n    \"...XXXXXX...\",\n    \"..XXXXXXXX..\",\n    \"..XXXXXXXX..\",\n    \".XXXXXXXXXX.\",\n    \".XXXXXXXXXX.\",\n    \"XXXXXXXXXXXX\",\n    \"XXXXXXXXXXXX\",\n  ],\n}\n\nexport const LOGOS: LogoDef[] = [chanhdai, eve, vercel]\n\nexport function getLogoIndex(name?: string | null): number {\n  if (!name) return 0\n  const index = LOGOS.findIndex(\n    (logo) => logo.name.toLowerCase() === name.toLowerCase()\n  )\n  return index === -1 ? 0 : index\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/logos.ts"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/colors.ts",
+      "content": "function getCSSVariable(name: string) {\n  return getComputedStyle(document.documentElement)\n    .getPropertyValue(name)\n    .trim()\n}\n\nfunction initColors() {\n  return {\n    background: getCSSVariable(\"--dk-background\"),\n    foreground: getCSSVariable(\"--dk-foreground\"),\n    mutedForeground: getCSSVariable(\"--dk-muted-foreground\"),\n    brick: getCSSVariable(\"--dk-brick\"),\n    brickHighlight: getCSSVariable(\"--dk-brick-highlight\"),\n    brickShadow: getCSSVariable(\"--dk-brick-shadow\"),\n  } as const\n}\n\nexport let Colors = {} as ReturnType<typeof initColors>\n\nexport function loadColors() {\n  Colors = initColors()\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/colors.ts"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/constants.ts",
+      "content": "export const BALL_SIZE = 21\nexport const BALL_SPEED = 10\n\nexport const PADDLE_WIDTH = 96\nexport const PADDLE_HEIGHT = 24\nexport const PADDLE_SPEED = 16\n\n// Brick width is now defined per-logo (see logos.ts); height stays fixed.\nexport const BRICK_HEIGHT = 24\nexport const BRICK_SHADOW_THICKNESS = 3\nexport const BRICK_SCORE = 10\n\nexport const FONT_URL =\n  \"https://assets.chanhdai.com/fonts/DepartureMono-Regular.otf\"\n\nexport const SOUND_BOUNCE_URL =\n  \"https://assets.chanhdai.com/sounds/daikanoid/bounce.mp3\"\nexport const SOUND_BREAK_URL =\n  \"https://assets.chanhdai.com/sounds/daikanoid/break.mp3\"\nexport const SOUND_GAME_OVER_URL =\n  \"https://assets.chanhdai.com/sounds/daikanoid/game-over.mp3\"\n\nexport const BALL_LIGHT_URL =\n  \"https://assets.chanhdai.com/images/daikanoid/ball-light.png?v=2\"\nexport const BALL_DARK_URL =\n  \"https://assets.chanhdai.com/images/daikanoid/ball-dark.png?v=2\"\n\nexport const PADDLE_LIGHT_URL =\n  \"https://assets.chanhdai.com/images/daikanoid/paddle-light.png?v=2\"\nexport const PADDLE_DARK_URL =\n  \"https://assets.chanhdai.com/images/daikanoid/paddle-dark.png?v=2\"\n\nexport function uncheckedClamp(\n  min: number,\n  max: number,\n  value: number\n): number {\n  return Math.min(Math.max(value, min), max)\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/constants.ts"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/types.ts",
+      "content": "import type p5 from \"p5\"\n\nimport type { Brick } from \"./brick\"\n\nexport interface GameState {\n  canvas: p5.Renderer | null\n\n  enableGame: boolean\n  enableSounds: boolean\n\n  score: number\n  bricks: Brick[]\n  logoIndex: number\n\n  soundBounce: p5.MediaElement | null\n  soundBreak: p5.MediaElement | null\n  soundGameOver: p5.MediaElement | null\n  ballImage: p5.Image | null\n  paddleImage: p5.Image | null\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/types.ts"
+    },
+    {
+      "path": "src/registry/blocks/not-found-01/components/daikanoid/ui.ts",
+      "content": "import type p5 from \"p5\"\n\nimport { Colors } from \"./colors\"\nimport type { GameState } from \"./types\"\n\nexport class UI {\n  p: p5\n  state: GameState\n\n  constructor(p: p5, state: GameState) {\n    this.p = p\n    this.state = state\n  }\n\n  show() {\n    this.p.fill(Colors.foreground)\n    this.p.textSize(16)\n    this.p.textAlign(this.p.LEFT, this.p.TOP)\n    this.p.text(this.state.score.toString().padStart(3, \"0\"), 3, 0)\n\n    this.p.fill(Colors.mutedForeground)\n    this.p.textSize(12)\n    this.p.textAlign(this.p.RIGHT, this.p.TOP)\n    this.p.text(\"FIG_404\", this.p.width - 3, 0)\n  }\n}\n",
+      "type": "registry:component",
+      "target": "@components/daikanoid/ui.ts"
+    }
+  ],
+  "cssVars": {
+    "light": {
+      "dk-background": "#ffffff",
+      "dk-foreground": "#09090b",
+      "dk-muted-foreground": "#a1a1aa",
+      "dk-brick": "#a1a1aa",
+      "dk-brick-highlight": "rgba(255, 255, 255, 0.5)",
+      "dk-brick-shadow": "#71717a"
+    },
+    "dark": {
+      "dk-background": "#09090b",
+      "dk-foreground": "#fafafa",
+      "dk-muted-foreground": "#71717a",
+      "dk-brick": "#71717a",
+      "dk-brick-highlight": "rgba(255, 255, 255, 0.3)",
+      "dk-brick-shadow": "#3f3f46"
+    }
+  },
+  "meta": {
+    "createdAt": "2026-08-09"
+  },
+  "categories": [
+    "application"
+  ],
+  "type": "registry:block"
+}

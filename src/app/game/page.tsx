@@ -1,5 +1,3 @@
-import "@/components/daikanoid/daikanoid.css"
-
 import { Suspense } from "react"
 import type { Metadata } from "next"
 
