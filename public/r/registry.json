@@ -1353,6 +1353,106 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "not-found-01",
+      "title": "Not Found 01",
+      "description": "A 404 page with a playable brick breaker game.",
+      "dependencies": [
+        "p5@^1.9.4",
+        "motion",
+        "next-themes"
+      ],
+      "devDependencies": [
+        "@types/p5@^1.7.7"
+      ],
+      "registryDependencies": [
+        "button",
+        "empty"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/not-found-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/not-found.tsx"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/index.tsx",
+          "type": "registry:component",
+          "target": "@components/daikanoid/index.tsx"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/component.tsx",
+          "type": "registry:component",
+          "target": "@components/daikanoid/component.tsx"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/ball.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/ball.ts"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/brick.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/brick.ts"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/paddle.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/paddle.ts"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/logos.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/logos.ts"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/colors.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/colors.ts"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/constants.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/constants.ts"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/types.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/types.ts"
+        },
+        {
+          "path": "src/registry/blocks/not-found-01/components/daikanoid/ui.ts",
+          "type": "registry:component",
+          "target": "@components/daikanoid/ui.ts"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "dk-background": "#ffffff",
+          "dk-foreground": "#09090b",
+          "dk-muted-foreground": "#a1a1aa",
+          "dk-brick": "#a1a1aa",
+          "dk-brick-highlight": "rgba(255, 255, 255, 0.5)",
+          "dk-brick-shadow": "#71717a"
+        },
+        "dark": {
+          "dk-background": "#09090b",
+          "dk-foreground": "#fafafa",
+          "dk-muted-foreground": "#71717a",
+          "dk-brick": "#71717a",
+          "dk-brick-highlight": "rgba(255, 255, 255, 0.3)",
+          "dk-brick-shadow": "#3f3f46"
+        }
+      },
+      "meta": {
+        "createdAt": "2026-08-09"
+      },
+      "categories": [
+        "application"
+      ],
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "style",
       "cssVars": {
         "theme": {

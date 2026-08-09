@@ -1,5 +1,12 @@
 [
   {
+    "name": "not-found-01",
+    "description": "A 404 page with a playable brick breaker game.",
+    "categories": [
+      "application"
+    ]
+  },
+  {
     "name": "social-proof-01",
     "description": "A social proof section with a logos carousel.",
     "categories": [
