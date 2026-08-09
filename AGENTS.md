@@ -31,7 +31,7 @@ Built on shadcn/ui. Registry types and their definition files:
 | `registry:lib`       | `src/registry/lib/_registry.ts`        |
 | `registry:style`     | `src/registry/styles/_registry.ts`     |
 
-**NEVER EDIT** auto-generated outputs of `pnpm registry:build`: `registry.json`, `src/registry/__index__.tsx`, `src/registry/transformed/`, `public/r/*.json`
+**NEVER EDIT** auto-generated outputs of `pnpm registry:build`: `registry.json`, `registry-stats.json`, `src/registry/__index__.tsx`, `src/registry/transformed/`, `public/r/*.json`
 
 ### Adding a new component
 
