@@ -51,6 +51,14 @@ const legacyBlogComponentRedirects = LEGACY_BLOG_COMPONENT_SLUGS.map(
 )
 
 const nextConfig: NextConfig = {
+  /**
+   * Stamped once per build and inlined. Reading the clock at render time would
+   * instead report whenever a page was regenerated, which drifts on the ISR
+   * routes and disagrees with the fully static ones.
+   */
+  env: {
+    BUILD_TIMESTAMP: new Date().toISOString(),
+  },
   reactStrictMode: true,
   typedRoutes: true,
   transpilePackages: ["next-mdx-remote"],

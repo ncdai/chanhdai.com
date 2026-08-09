@@ -20,6 +20,7 @@ import { getAllBlocks } from "@/lib/blocks"
  *
  * Persistent outputs:
  * - registry.json
+ * - registry-stats.json
  * - src/registry/__index__.tsx
  * - src/registry/transformed/components/*
  * - public/r/*
@@ -94,30 +95,32 @@ export const Index: Record<string, any> = {`
 }`
 
   // Build registry.json
+  const publishedItems = registry.items.filter(
+    (item) => item.type !== "registry:example"
+  )
+
   const registryJSON = JSON.stringify(
     {
       $schema: "https://ui.shadcn.com/schema/registry.json",
       name: "ncdai",
       homepage: "https://chanhdai.com/components",
-      items: registry.items
-        .filter((item) => item.type !== "registry:example")
-        .map((item) => {
-          return {
-            ...item,
-            author: item.author ?? "ncdai <dai@chanhdai.com>",
-            files:
-              item.files?.map((file) => {
-                if (file.path.startsWith("src/")) {
-                  return file
-                }
+      items: publishedItems.map((item) => {
+        return {
+          ...item,
+          author: item.author ?? "ncdai <dai@chanhdai.com>",
+          files:
+            item.files?.map((file) => {
+              if (file.path.startsWith("src/")) {
+                return file
+              }
 
-                return {
-                  ...file,
-                  path: `src/registry/${file.path}`,
-                }
-              }) ?? [],
-          }
-        }),
+              return {
+                ...file,
+                path: `src/registry/${file.path}`,
+              }
+            }) ?? [],
+        }
+      }),
     },
     null,
     2
@@ -129,6 +132,23 @@ export const Index: Record<string, any> = {`
   await fs.writeFile(
     path.join(process.cwd(), "registry.json"),
     registryJSON,
+    "utf8"
+  )
+
+  // Build registry-stats.json — the counts alone, so consumers that need only
+  // a number never import the whole registry.
+  console.log("\n📦 Building registry-stats.json...")
+  const countByType = publishedItems.reduce<Record<string, number>>(
+    (counts, item) => {
+      counts[item.type] = (counts[item.type] ?? 0) + 1
+      return counts
+    },
+    {}
+  )
+
+  await fs.writeFile(
+    path.join(process.cwd(), "registry-stats.json"),
+    `${JSON.stringify({ total: publishedItems.length, countByType }, null, 2)}\n`,
     "utf8"
   )
 
