@@ -24,14 +24,6 @@ export function Components() {
 
   return (
     <Panel id={ID}>
-      <HandwrittenNote
-        className="top-4 left-full ml-1 hidden w-36 flex-col items-start xl:flex"
-        aria-hidden
-      >
-        <span className="-rotate-3">free, copy &amp; paste</span>
-        <HandwrittenArrow className="mt-2 -rotate-3" />
-      </HandwrittenNote>
-
       <PanelHeader>
         <PanelTitle>
           <a href={`#${ID}`}>Components</a>
@@ -39,6 +31,14 @@ export function Components() {
           <PanelTitleCopy id={ID} />
         </PanelTitle>
       </PanelHeader>
+
+      <HandwrittenNote
+        className="top-4 left-full ml-1 hidden w-36 flex-col items-start xl:flex"
+        aria-hidden
+      >
+        <span className="-rotate-3">free, copy &amp; paste</span>
+        <HandwrittenArrow className="mt-2 -rotate-3" />
+      </HandwrittenNote>
 
       <div className="relative pt-4">
         <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
