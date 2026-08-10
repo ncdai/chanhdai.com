@@ -2,6 +2,7 @@ import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import type { BuildInfo } from "@/lib/build-info"
 import { getBuildInfo, getStack } from "@/lib/build-info"
 import { cn } from "@/lib/utils"
+import { Separator } from "@/components/base/ui/separator"
 import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
@@ -30,6 +31,12 @@ const OPENPANEL_URL =
 const SITE_TITLE = "chanhdai.com"
 
 const SITE_SUBTITLE = packageJson.description
+
+// Must stay identical to the holder named in LICENSE: the MIT grant hangs on
+// this notice, so the two disagreeing would undercut it.
+const COPYRIGHT_HOLDER = "Chánh Đại"
+
+const TRADEMARK_POLICY_URL = `${SOURCE_CODE_GITHUB_URL}/blob/main/TRADEMARK.md`
 
 /** Footer laid out as the title block of a technical drawing. */
 export function SiteFooterCad() {
@@ -149,24 +156,29 @@ export function SiteFooterCad() {
               </ol>
             </Field>
           </dl>
-
-          {/* <div
-            className="*:absolute *:z-2 *:size-2 *:border *:bg-background"
-            aria-hidden
-          >
-            <div className="top-[-4.5px] left-[-4.5px]" />
-            <div className="top-[-4.5px] right-[-4.5px]" />
-            <div className="bottom-[-4.5px] left-[-4.5px]" />
-            <div className="right-[-4.5px] bottom-[-4.5px]" />
-          </div> */}
         </div>
 
         <div className="screen-line-top h-4" />
 
-        <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
-          <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
+        <div className="screen-line-top screen-line-bottom flex flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-3 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span>
+              © {build.date.slice(0, 4)} {COPYRIGHT_HOLDER}
+            </span>
+
             <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+              className="link-underline"
+              href={TRADEMARK_POLICY_URL}
+              target="_blank"
+              rel="noopener"
+            >
+              Trademark
+            </a>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              className="flex items-center transition-[color] hover:text-foreground"
               href={xLink.href}
               target="_blank"
               rel="noopener"
@@ -175,10 +187,13 @@ export function SiteFooterCad() {
               <XIcon className="size-4" />
             </a>
 
-            <Separator />
+            <Separator
+              orientation="vertical"
+              className="data-vertical:h-5 data-vertical:self-center"
+            />
 
             <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+              className="flex items-center transition-[color] hover:text-foreground"
               href={githubLink.href}
               target="_blank"
               rel="noopener"
@@ -187,10 +202,13 @@ export function SiteFooterCad() {
               <GitHubIcon className="size-4" />
             </a>
 
-            <Separator />
+            <Separator
+              orientation="vertical"
+              className="data-vertical:h-5 data-vertical:self-center"
+            />
 
             <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+              className="flex items-center transition-[color] hover:text-foreground"
               href={linkedinLink.href}
               target="_blank"
               rel="noopener"
@@ -199,10 +217,13 @@ export function SiteFooterCad() {
               <LinkedInIcon className="size-4" />
             </a>
 
-            <Separator />
+            <Separator
+              orientation="vertical"
+              className="data-vertical:h-5 data-vertical:self-center"
+            />
 
             <a
-              className="flex text-muted-foreground transition-[color] hover:text-foreground"
+              className="flex items-center transition-[color] hover:text-foreground"
               href={
                 process.env.NEXT_PUBLIC_DMCA_URL ||
                 "https://www.dmca.com/ProtectionPro.aspx"
@@ -211,7 +232,7 @@ export function SiteFooterCad() {
               rel="noopener"
               aria-label="DMCA.com Protection Status"
             >
-              <DmcaIcon className="h-4.5 w-auto" />
+              <DmcaIcon className="h-4 w-auto" />
             </a>
           </div>
         </div>
@@ -277,8 +298,4 @@ function Field({
       <dd className="text-sm">{children}</dd>
     </div>
   )
-}
-
-function Separator({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("flex h-11 w-px bg-line", className)} {...props} />
 }
