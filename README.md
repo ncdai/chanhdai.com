@@ -63,9 +63,9 @@ Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
 
 ## License
 
-Licensed under the [MIT license](./LICENSE).
+Everything in this repository is licensed under the [MIT license](./LICENSE), with one exception: my name and my logo, which are covered by the [trademark and brand policy](./TRADEMARK.md).
 
-You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
+So the code and the writing are yours. Fork it, copy it, quote it, translate it. Just make sure to <ins>remove all my personal information</ins> and swap the branding before publishing your website. It's awesome to see my code being useful to someone!
 
 ## Contributors
 
