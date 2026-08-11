@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 import { Crown, Paperclip } from "lucide-react"
 
-import { cn } from "@/lib/utils"
+import { IconTile } from "@/components/ui/icon-tile"
 import {
   Collapsible,
   CollapsibleChevronsUpDownIcon,
@@ -31,14 +31,7 @@ export function AwardItem({
   return (
     <Collapsible className={className} disabled={!canExpand}>
       <div className="flex items-center hover:bg-accent-muted">
-        <div
-          className={cn(
-            "mx-4 flex size-6 shrink-0 items-center justify-center rounded-md border border-muted-foreground/15 bg-muted ring-1 ring-border/50 ring-offset-1 ring-offset-background dark:ring-line",
-            "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
-          )}
-        >
-          {award.icon ?? <Crown />}
-        </div>
+        <IconTile className="mx-4">{award.icon ?? <Crown />}</IconTile>
 
         <div className="flex-1 border-l border-dashed border-line">
           <CollapsibleTrigger className="flex w-full items-center gap-2 p-4 pr-2 text-left">

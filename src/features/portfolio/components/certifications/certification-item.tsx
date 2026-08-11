@@ -3,6 +3,7 @@ import { format } from "date-fns"
 import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { IconTile } from "@/components/ui/icon-tile"
 import { Separator } from "@/components/base/ui/separator"
 import {
   AccentureIcon,
@@ -57,17 +58,11 @@ export function CertificationItem({
           aria-hidden
         />
       ) : (
-        <div
-          className={cn(
-            "mx-4 flex size-6 shrink-0 items-center justify-center rounded-md select-none",
-            "border border-muted-foreground/15 ring-1 ring-border/50 ring-offset-1 ring-offset-background dark:ring-line",
-            "bg-muted text-muted-foreground [&_svg]:size-4"
-          )}
-        >
+        <IconTile className="mx-4">
           {(certification.issuerIconName
             ? ISSUER_ICONS[certification.issuerIconName]
             : null) ?? <CircleCheckBigIcon />}
-        </div>
+        </IconTile>
       )}
 
       <div className="flex-1 space-y-1 border-l border-dashed border-line p-4 pr-2">
