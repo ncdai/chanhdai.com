@@ -20,14 +20,11 @@ function HandwrittenArrow({
 }: React.ComponentProps<"svg">) {
   return (
     <svg
-      className={cn(
-        "size-8 shrink-0 text-[color-mix(in_oklab,var(--muted-foreground)_50%,var(--background))]",
-        className
-      )}
+      className={cn("size-8 shrink-0 text-muted-foreground", className)}
       viewBox="0 0 40 40"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.5}
+      strokeWidth="1"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
