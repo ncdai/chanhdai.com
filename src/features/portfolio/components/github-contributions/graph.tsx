@@ -73,7 +73,7 @@ export function GitHubContributionGraph({
           <ContributionGraphTotalCount>
             {({ totalCount }) => (
               <figcaption className="text-pretty tabular-nums">
-                <span className="mr-2 tracking-wide text-muted-foreground">
+                <span className="mr-2 tracking-wide text-muted-foreground/80">
                   Fig. 2.
                 </span>
                 {totalCount.toLocaleString("en")} contributions,{" "}
