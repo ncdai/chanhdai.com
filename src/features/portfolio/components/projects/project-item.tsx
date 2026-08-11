@@ -48,9 +48,7 @@ export function ProjectItem({
             aria-hidden
           />
         ) : (
-          <IconTile className="mx-4">
-            <BoxIcon />
-          </IconTile>
+          <IconTile className="mx-4">{project.icon ?? <BoxIcon />}</IconTile>
         )}
 
         <div className="flex-1 border-l border-dashed border-line">
