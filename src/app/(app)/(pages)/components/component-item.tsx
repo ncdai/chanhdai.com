@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
+import { IconTile } from "@/components/ui/icon-tile"
 
 export function ComponentItem({
   className,
@@ -21,19 +22,9 @@ export function ComponentItem({
 export function ComponentItemIcon({
   className,
   ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="component-item-icon"
-      className={cn(
-        "relative flex size-6 shrink-0 items-center justify-center rounded-md",
-        "border border-muted-foreground/15 bg-muted ring-1 ring-border/50 ring-offset-1 ring-offset-background dark:ring-line",
-        "[&_svg]:pointer-events-none [&_svg]:text-muted-foreground [&_svg:not([class*='size-'])]:size-4",
-        className
-      )}
-      {...props}
-    />
-  )
+}: React.ComponentProps<typeof IconTile>) {
+  // Positioned so ComponentItemDot can anchor to the tile corner.
+  return <IconTile className={cn("relative", className)} {...props} />
 }
 
 export function ComponentItemDot({

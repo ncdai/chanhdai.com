@@ -3,6 +3,7 @@ import { addQueryParams } from "@/utils/url"
 import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
+import { IconTile } from "@/components/ui/icon-tile"
 import { Tag } from "@/components/ui/tag"
 import {
   Collapsible,
@@ -47,9 +48,9 @@ export function ProjectItem({
             aria-hidden
           />
         ) : (
-          <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-md border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-border/50 ring-offset-1 ring-offset-background select-none dark:ring-line">
-            <BoxIcon className="size-4" />
-          </div>
+          <IconTile className="mx-4">
+            <BoxIcon />
+          </IconTile>
         )}
 
         <div className="flex-1 border-l border-dashed border-line">

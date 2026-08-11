@@ -4,6 +4,7 @@ import { ArrowUpRightIcon } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
 import { cn } from "@/lib/utils"
+import { IconTile } from "@/components/ui/icon-tile"
 import { Separator } from "@/components/base/ui/separator"
 import { NewsIcon } from "@/components/icons"
 import {
@@ -25,15 +26,9 @@ export function BookmarkItem({
         className
       )}
     >
-      <div
-        className={cn(
-          "mx-4 flex size-6 shrink-0 items-center justify-center rounded-md select-none",
-          "border border-muted-foreground/15 ring-1 ring-border/50 ring-offset-1 ring-offset-background dark:ring-line",
-          "bg-muted text-muted-foreground [&_svg]:size-4"
-        )}
-      >
+      <IconTile className="mx-4">
         {bookmark.icon ?? CATEGORY_ICONS[bookmark.category]}
-      </div>
+      </IconTile>
 
       <div className="flex-1 space-y-1 border-l border-dashed border-line p-4 pr-2">
         <h3 className="leading-snug font-medium text-balance">
