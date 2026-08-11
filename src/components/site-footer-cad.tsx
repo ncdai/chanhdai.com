@@ -160,10 +160,10 @@ export function SiteFooterCad() {
 
         <div className="screen-line-top h-4" />
 
-        <div className="screen-line-top screen-line-bottom flex flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-3 text-sm text-muted-foreground">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+        <div className="screen-line-top screen-line-bottom flex flex-col items-center justify-center gap-x-4 gap-y-3 px-4 py-3 text-sm text-muted-foreground sm:flex-row sm:justify-between">
+          <div className="flex flex-col flex-wrap items-center gap-x-3 gap-y-1 sm:flex-row">
             <span>
-              © {build.date.slice(0, 4)} {COPYRIGHT_HOLDER}
+              © {build.date.slice(0, 4)} {COPYRIGHT_HOLDER}.
             </span>
 
             <a
@@ -189,7 +189,7 @@ export function SiteFooterCad() {
 
             <Separator
               orientation="vertical"
-              className="data-vertical:h-5 data-vertical:self-center"
+              className="data-vertical:h-4 data-vertical:self-center"
             />
 
             <a
@@ -204,7 +204,7 @@ export function SiteFooterCad() {
 
             <Separator
               orientation="vertical"
-              className="data-vertical:h-5 data-vertical:self-center"
+              className="data-vertical:h-4 data-vertical:self-center"
             />
 
             <a
@@ -219,7 +219,7 @@ export function SiteFooterCad() {
 
             <Separator
               orientation="vertical"
-              className="data-vertical:h-5 data-vertical:self-center"
+              className="data-vertical:h-4 data-vertical:self-center"
             />
 
             <a
