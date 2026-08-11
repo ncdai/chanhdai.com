@@ -123,7 +123,7 @@ export async function Insights() {
         )}
 
         <figcaption className="screen-line-top px-4 py-3 text-center text-sm text-balance">
-          <span className="mr-2 tracking-wide text-muted-foreground">
+          <span className="mr-2 tracking-wide text-muted-foreground/80">
             Fig. 3.
           </span>
           Daily unique visitors and sessions. Source:{" "}

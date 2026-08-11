@@ -145,7 +145,7 @@ export function SiteFooterCad() {
                   <li className="flex gap-2 px-4" key={name}>
                     {/* Hidden: the list element already conveys the position. */}
                     <span
-                      className="font-mono text-muted-foreground"
+                      className="font-mono text-muted-foreground/80"
                       aria-hidden
                     >
                       {String(index + 1).padStart(2, "0")}
