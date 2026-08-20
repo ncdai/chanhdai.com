@@ -1,6 +1,7 @@
 "use client"
 
 import type { ReactNode } from "react"
+import { formatNumber } from "@/utils/format"
 
 export interface TooltipRow {
   color: string
@@ -41,7 +42,7 @@ export function TooltipContent({ title, rows, children }: TooltipContentProps) {
               </div>
               <span className="text-sm font-medium text-chart-tooltip-foreground tabular-nums">
                 {typeof row.value === "number"
-                  ? row.value.toLocaleString()
+                  ? formatNumber(row.value)
                   : row.value}
               </span>
             </div>

@@ -1,4 +1,4 @@
-import { formatDuration } from "@/utils/format"
+import { formatDuration, formatNumber } from "@/utils/format"
 import { format } from "date-fns"
 import { TrendingDownIcon, TrendingUpIcon } from "lucide-react"
 
@@ -51,7 +51,7 @@ export async function Insights() {
               <MetricChange value={data.changes.unique_visitors} />
             </MetricLabel>
             <MetricValue>
-              {data.summary.unique_visitors.toLocaleString()}
+              {formatNumber(data.summary.unique_visitors)}
             </MetricValue>
           </Metric>
 
@@ -61,7 +61,7 @@ export async function Insights() {
               <MetricChange value={data.changes.total_sessions} />
             </MetricLabel>
             <MetricValue>
-              {data.summary.total_sessions.toLocaleString()}
+              {formatNumber(data.summary.total_sessions)}
             </MetricValue>
           </Metric>
 
@@ -71,7 +71,7 @@ export async function Insights() {
               <MetricChange value={data.changes.total_screen_views} />
             </MetricLabel>
             <MetricValue>
-              {data.summary.total_screen_views.toLocaleString()}
+              {formatNumber(data.summary.total_screen_views)}
             </MetricValue>
           </Metric>
 
@@ -199,7 +199,7 @@ function MetricChange({ value }: { value: number | null }) {
           <span className="sr-only">{percent > 0 ? "Up by " : "Down by "}</span>
         </>
       )}
-      {Math.abs(percent).toFixed(1)}%
+      {formatNumber(Math.abs(percent))}%
       <span className="sr-only"> compared to the previous period</span>
     </span>
   )

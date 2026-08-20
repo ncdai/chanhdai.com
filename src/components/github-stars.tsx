@@ -1,3 +1,4 @@
+import { formatCompactNumber, formatNumber } from "@/utils/format"
 import { addQueryParams } from "@/utils/url"
 
 import { UTM_PARAMS } from "@/config/site"
@@ -40,12 +41,7 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
                   className="text-[0.8125rem]/none text-muted-foreground tabular-nums"
                   style={{ textBox: "trim-end cap alphabetic" }}
                 >
-                  {new Intl.NumberFormat("en-US", {
-                    notation: "compact",
-                    compactDisplay: "short",
-                  })
-                    .format(stargazersCount)
-                    .toLowerCase()}
+                  {formatCompactNumber(stargazersCount).toLowerCase()}
                 </span>
 
                 <span className="sr-only">GitHub stars</span>
@@ -55,7 +51,7 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
         }
       />
       <TooltipContent className="tabular-nums">
-        {new Intl.NumberFormat("en-US").format(stargazersCount)} stars
+        {formatNumber(stargazersCount)} stars
       </TooltipContent>
     </Tooltip>
   )
