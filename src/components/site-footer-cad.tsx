@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import type { BuildInfo } from "@/lib/build-info"
 import { getBuildInfo, getStack } from "@/lib/build-info"
@@ -12,6 +14,7 @@ import { SOCIAL } from "@/features/portfolio/data/social-links"
 import packageJson from "../../package.json"
 // Precomputed by `pnpm registry:build`, so the count costs no registry import.
 import registryStats from "../../registry-stats.json"
+import { ChanhDaiMark } from "./chanhdai-mark"
 
 const INSPIRED_BY = [
   "Tailwind CSS",
@@ -31,12 +34,6 @@ const OPENPANEL_URL =
 const SITE_TITLE = "chanhdai.com"
 
 const SITE_SUBTITLE = packageJson.description
-
-// Must stay identical to the holder named in LICENSE: the MIT grant hangs on
-// this notice, so the two disagreeing would undercut it.
-const COPYRIGHT_HOLDER = "Chánh Đại"
-
-const TRADEMARK_POLICY_URL = `${SOURCE_CODE_GITHUB_URL}/blob/main/TRADEMARK.md`
 
 /** Footer laid out as the title block of a technical drawing. */
 export function SiteFooterCad() {
@@ -160,81 +157,68 @@ export function SiteFooterCad() {
 
         <div className="screen-line-top h-4" />
 
-        <div className="screen-line-top screen-line-bottom flex flex-col items-center justify-center gap-x-4 gap-y-3 px-4 py-3 text-sm text-muted-foreground sm:flex-row sm:justify-between">
-          <div className="flex flex-col flex-wrap items-center gap-x-3 gap-y-1 sm:flex-row">
-            <span>
-              © {build.date.slice(0, 4)} {COPYRIGHT_HOLDER}.
-            </span>
+        <div className="screen-line-top screen-line-bottom flex items-center gap-3 px-4 py-3 text-muted-foreground">
+          <Link href="/" className="mr-auto text-foreground">
+            <ChanhDaiMark className="h-4" />
+          </Link>
 
-            <a
-              className="link-underline"
-              href={TRADEMARK_POLICY_URL}
-              target="_blank"
-              rel="noopener"
-            >
-              Trademark
-            </a>
-          </div>
+          <a
+            className="flex items-center transition-[color] hover:text-foreground"
+            href={xLink.href}
+            target="_blank"
+            rel="noopener"
+            aria-label="X Profile"
+          >
+            <XIcon className="size-4" />
+          </a>
 
-          <div className="flex items-center gap-3">
-            <a
-              className="flex items-center transition-[color] hover:text-foreground"
-              href={xLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="X Profile"
-            >
-              <XIcon className="size-4" />
-            </a>
+          <Separator
+            orientation="vertical"
+            className="data-vertical:h-4 data-vertical:self-center"
+          />
 
-            <Separator
-              orientation="vertical"
-              className="data-vertical:h-4 data-vertical:self-center"
-            />
+          <a
+            className="flex items-center transition-[color] hover:text-foreground"
+            href={githubLink.href}
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub Profile"
+          >
+            <GitHubIcon className="size-4" />
+          </a>
 
-            <a
-              className="flex items-center transition-[color] hover:text-foreground"
-              href={githubLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub Profile"
-            >
-              <GitHubIcon className="size-4" />
-            </a>
+          <Separator
+            orientation="vertical"
+            className="data-vertical:h-4 data-vertical:self-center"
+          />
 
-            <Separator
-              orientation="vertical"
-              className="data-vertical:h-4 data-vertical:self-center"
-            />
+          <a
+            className="flex items-center transition-[color] hover:text-foreground"
+            href={linkedinLink.href}
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn Profile"
+          >
+            <LinkedInIcon className="size-4" />
+          </a>
 
-            <a
-              className="flex items-center transition-[color] hover:text-foreground"
-              href={linkedinLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn Profile"
-            >
-              <LinkedInIcon className="size-4" />
-            </a>
+          <Separator
+            orientation="vertical"
+            className="data-vertical:h-4 data-vertical:self-center"
+          />
 
-            <Separator
-              orientation="vertical"
-              className="data-vertical:h-4 data-vertical:self-center"
-            />
-
-            <a
-              className="flex items-center transition-[color] hover:text-foreground"
-              href={
-                process.env.NEXT_PUBLIC_DMCA_URL ||
-                "https://www.dmca.com/ProtectionPro.aspx"
-              }
-              target="_blank"
-              rel="noopener"
-              aria-label="DMCA.com Protection Status"
-            >
-              <DmcaIcon className="h-4 w-auto" />
-            </a>
-          </div>
+          <a
+            className="flex items-center transition-[color] hover:text-foreground"
+            href={
+              process.env.NEXT_PUBLIC_DMCA_URL ||
+              "https://www.dmca.com/ProtectionPro.aspx"
+            }
+            target="_blank"
+            rel="noopener"
+            aria-label="DMCA.com Protection Status"
+          >
+            <DmcaIcon className="h-4 w-auto" />
+          </a>
         </div>
       </div>
 
