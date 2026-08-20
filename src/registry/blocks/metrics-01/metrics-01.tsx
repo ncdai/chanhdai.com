@@ -5,6 +5,7 @@ import LineChart, { Line } from "@/components/charts/line-chart"
 import { ChartTooltip } from "@/components/charts/tooltip"
 import {
   Metric,
+  MetricChange,
   MetricLabel,
   MetricValue,
 } from "@/registry/blocks/metrics-01/components/metric"
@@ -32,28 +33,40 @@ export function Metrics01() {
 
               <dl className="grid grid-cols-2 md:grid-cols-4">
                 <Metric>
-                  <MetricLabel>Unique visitors</MetricLabel>
+                  <MetricLabel>
+                    Unique visitors
+                    <MetricChange value={data.changes.uniqueVisitors} />
+                  </MetricLabel>
                   <MetricValue>
-                    {data.summary.uniqueVisitors.toLocaleString()}
+                    {data.summary.uniqueVisitors.toLocaleString("en-US")}
                   </MetricValue>
                 </Metric>
 
                 <Metric>
-                  <MetricLabel>Sessions</MetricLabel>
+                  <MetricLabel>
+                    Sessions
+                    <MetricChange value={data.changes.totalSessions} />
+                  </MetricLabel>
                   <MetricValue>
-                    {data.summary.totalSessions.toLocaleString()}
+                    {data.summary.totalSessions.toLocaleString("en-US")}
                   </MetricValue>
                 </Metric>
 
                 <Metric>
-                  <MetricLabel>Views</MetricLabel>
+                  <MetricLabel>
+                    Views
+                    <MetricChange value={data.changes.totalScreenViews} />
+                  </MetricLabel>
                   <MetricValue>
-                    {data.summary.totalScreenViews.toLocaleString()}
+                    {data.summary.totalScreenViews.toLocaleString("en-US")}
                   </MetricValue>
                 </Metric>
 
                 <Metric>
-                  <MetricLabel>Session duration</MetricLabel>
+                  <MetricLabel>
+                    Session duration
+                    <MetricChange value={data.changes.avgSessionDuration} />
+                  </MetricLabel>
                   <MetricValue>
                     {formatDuration(data.summary.avgSessionDuration)}
                   </MetricValue>
@@ -107,8 +120,15 @@ type InsightsSeriesItem = {
   totalSessions: number
 }
 
+/**
+ * `null` where the previous period was zero, since growth from zero has no
+ * meaningful percentage.
+ */
+type InsightsChanges = Record<keyof InsightsSummary, number | null>
+
 type InsightsData = {
   summary: InsightsSummary
+  changes: InsightsChanges
   series: InsightsSeriesItem[]
   startDate: ISODateString
   endDate: ISODateString
@@ -120,6 +140,12 @@ const data: InsightsData = {
     totalSessions: 17117,
     avgSessionDuration: 378.32284000000004,
     totalScreenViews: 119318,
+  },
+  changes: {
+    uniqueVisitors: 12.4,
+    totalSessions: 8.1,
+    avgSessionDuration: 5.7,
+    totalScreenViews: -3.2,
   },
   series: [
     {
