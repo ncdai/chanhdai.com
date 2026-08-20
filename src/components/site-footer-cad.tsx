@@ -107,6 +107,14 @@ export function SiteFooterCad() {
 
             <Field label="Typeface">Geist</Field>
 
+            <Field className="col-span-2" label="Stack">
+              <ul className="flex flex-col gap-0.5">
+                {stack.map((entry) => (
+                  <li key={entry}>{entry}</li>
+                ))}
+              </ul>
+            </Field>
+
             <Field className="col-span-2" label="Analytics">
               <ul className="flex flex-col gap-0.5">
                 <li>
@@ -120,14 +128,6 @@ export function SiteFooterCad() {
                   </a>
                 </li>
                 <li>Google Analytics</li>
-              </ul>
-            </Field>
-
-            <Field className="col-span-2" label="Stack">
-              <ul className="flex flex-col gap-0.5">
-                {stack.map((entry) => (
-                  <li key={entry}>{entry}</li>
-                ))}
               </ul>
             </Field>
 
