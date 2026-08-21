@@ -5,6 +5,7 @@ import LineChart, { Line } from "@/components/charts/line-chart"
 import { ChartTooltip } from "@/components/charts/tooltip"
 import {
   Metric,
+  MetricChange,
   MetricLabel,
   MetricValue,
 } from "@/registry/blocks/metrics-01/components/metric"
@@ -32,28 +33,40 @@ export function Metrics01() {
 
               <dl className="grid grid-cols-2 md:grid-cols-4">
                 <Metric>
-                  <MetricLabel>Unique visitors</MetricLabel>
+                  <MetricLabel>
+                    Unique visitors
+                    <MetricChange value={data.changes.uniqueVisitors} />
+                  </MetricLabel>
                   <MetricValue>
-                    {data.summary.uniqueVisitors.toLocaleString()}
+                    {data.summary.uniqueVisitors.toLocaleString("en-US")}
                   </MetricValue>
                 </Metric>
 
                 <Metric>
-                  <MetricLabel>Sessions</MetricLabel>
+                  <MetricLabel>
+                    Sessions
+                    <MetricChange value={data.changes.totalSessions} />
+                  </MetricLabel>
                   <MetricValue>
-                    {data.summary.totalSessions.toLocaleString()}
+                    {data.summary.totalSessions.toLocaleString("en-US")}
                   </MetricValue>
                 </Metric>
 
                 <Metric>
-                  <MetricLabel>Views</MetricLabel>
+                  <MetricLabel>
+                    Views
+                    <MetricChange value={data.changes.totalScreenViews} />
+                  </MetricLabel>
                   <MetricValue>
-                    {data.summary.totalScreenViews.toLocaleString()}
+                    {data.summary.totalScreenViews.toLocaleString("en-US")}
                   </MetricValue>
                 </Metric>
 
                 <Metric>
-                  <MetricLabel>Session duration</MetricLabel>
+                  <MetricLabel>
+                    Session duration
+                    <MetricChange value={data.changes.avgSessionDuration} />
+                  </MetricLabel>
                   <MetricValue>
                     {formatDuration(data.summary.avgSessionDuration)}
                   </MetricValue>
@@ -107,8 +120,15 @@ type InsightsSeriesItem = {
   totalSessions: number
 }
 
+/**
+ * `null` where the previous period was zero, since growth from zero has no
+ * meaningful percentage.
+ */
+type InsightsChanges = Record<keyof InsightsSummary, number | null>
+
 type InsightsData = {
   summary: InsightsSummary
+  changes: InsightsChanges
   series: InsightsSeriesItem[]
   startDate: ISODateString
   endDate: ISODateString
@@ -116,165 +136,171 @@ type InsightsData = {
 
 const data: InsightsData = {
   summary: {
-    uniqueVisitors: 14777,
-    totalSessions: 17117,
-    avgSessionDuration: 378.32284000000004,
-    totalScreenViews: 119318,
+    uniqueVisitors: 13573,
+    totalSessions: 16017,
+    avgSessionDuration: 380.56365999999997,
+    totalScreenViews: 100563,
+  },
+  changes: {
+    uniqueVisitors: 12.4,
+    totalSessions: 8.1,
+    avgSessionDuration: 5.7,
+    totalScreenViews: -3.2,
   },
   series: [
     {
-      date: "2026-05-31T00:00:00.000Z",
+      date: "2026-07-21T00:00:00.000Z",
+      uniqueVisitors: 438,
+      totalSessions: 514,
+    },
+    {
+      date: "2026-07-22T00:00:00.000Z",
+      uniqueVisitors: 452,
+      totalSessions: 519,
+    },
+    {
+      date: "2026-07-23T00:00:00.000Z",
+      uniqueVisitors: 433,
+      totalSessions: 487,
+    },
+    {
+      date: "2026-07-24T00:00:00.000Z",
+      uniqueVisitors: 466,
+      totalSessions: 522,
+    },
+    {
+      date: "2026-07-25T00:00:00.000Z",
+      uniqueVisitors: 484,
+      totalSessions: 555,
+    },
+    {
+      date: "2026-07-26T00:00:00.000Z",
+      uniqueVisitors: 545,
+      totalSessions: 631,
+    },
+    {
+      date: "2026-07-27T00:00:00.000Z",
+      uniqueVisitors: 596,
+      totalSessions: 691,
+    },
+    {
+      date: "2026-07-28T00:00:00.000Z",
+      uniqueVisitors: 522,
+      totalSessions: 598,
+    },
+    {
+      date: "2026-07-29T00:00:00.000Z",
+      uniqueVisitors: 531,
+      totalSessions: 609,
+    },
+    {
+      date: "2026-07-30T00:00:00.000Z",
+      uniqueVisitors: 537,
+      totalSessions: 629,
+    },
+    {
+      date: "2026-07-31T00:00:00.000Z",
+      uniqueVisitors: 442,
+      totalSessions: 509,
+    },
+    {
+      date: "2026-08-01T00:00:00.000Z",
       uniqueVisitors: 437,
-      totalSessions: 520,
+      totalSessions: 533,
     },
     {
-      date: "2026-06-01T00:00:00.000Z",
-      uniqueVisitors: 554,
-      totalSessions: 636,
+      date: "2026-08-02T00:00:00.000Z",
+      uniqueVisitors: 380,
+      totalSessions: 451,
     },
     {
-      date: "2026-06-02T00:00:00.000Z",
-      uniqueVisitors: 587,
-      totalSessions: 649,
+      date: "2026-08-03T00:00:00.000Z",
+      uniqueVisitors: 435,
+      totalSessions: 484,
     },
     {
-      date: "2026-06-03T00:00:00.000Z",
-      uniqueVisitors: 456,
-      totalSessions: 530,
+      date: "2026-08-04T00:00:00.000Z",
+      uniqueVisitors: 485,
+      totalSessions: 539,
     },
     {
-      date: "2026-06-04T00:00:00.000Z",
-      uniqueVisitors: 507,
-      totalSessions: 590,
+      date: "2026-08-05T00:00:00.000Z",
+      uniqueVisitors: 465,
+      totalSessions: 540,
     },
     {
-      date: "2026-06-05T00:00:00.000Z",
-      uniqueVisitors: 532,
-      totalSessions: 507,
+      date: "2026-08-06T00:00:00.000Z",
+      uniqueVisitors: 423,
+      totalSessions: 495,
     },
     {
-      date: "2026-06-06T00:00:00.000Z",
-      uniqueVisitors: 446,
-      totalSessions: 437,
+      date: "2026-08-07T00:00:00.000Z",
+      uniqueVisitors: 421,
+      totalSessions: 474,
     },
     {
-      date: "2026-06-07T00:00:00.000Z",
-      uniqueVisitors: 542,
-      totalSessions: 544,
+      date: "2026-08-08T00:00:00.000Z",
+      uniqueVisitors: 328,
+      totalSessions: 419,
     },
     {
-      date: "2026-06-08T00:00:00.000Z",
-      uniqueVisitors: 576,
-      totalSessions: 582,
+      date: "2026-08-09T00:00:00.000Z",
+      uniqueVisitors: 577,
+      totalSessions: 638,
     },
     {
-      date: "2026-06-09T00:00:00.000Z",
-      uniqueVisitors: 563,
-      totalSessions: 544,
+      date: "2026-08-10T00:00:00.000Z",
+      uniqueVisitors: 682,
+      totalSessions: 762,
     },
     {
-      date: "2026-06-10T00:00:00.000Z",
-      uniqueVisitors: 553,
-      totalSessions: 537,
+      date: "2026-08-11T00:00:00.000Z",
+      uniqueVisitors: 450,
+      totalSessions: 496,
     },
     {
-      date: "2026-06-11T00:00:00.000Z",
-      uniqueVisitors: 495,
-      totalSessions: 568,
+      date: "2026-08-12T00:00:00.000Z",
+      uniqueVisitors: 413,
+      totalSessions: 483,
     },
     {
-      date: "2026-06-12T00:00:00.000Z",
-      uniqueVisitors: 534,
-      totalSessions: 624,
+      date: "2026-08-13T00:00:00.000Z",
+      uniqueVisitors: 422,
+      totalSessions: 477,
     },
     {
-      date: "2026-06-13T00:00:00.000Z",
-      uniqueVisitors: 436,
-      totalSessions: 522,
-    },
-    {
-      date: "2026-06-14T00:00:00.000Z",
-      uniqueVisitors: 440,
-      totalSessions: 520,
-    },
-    {
-      date: "2026-06-15T00:00:00.000Z",
-      uniqueVisitors: 492,
-      totalSessions: 581,
-    },
-    {
-      date: "2026-06-16T00:00:00.000Z",
-      uniqueVisitors: 472,
-      totalSessions: 549,
-    },
-    {
-      date: "2026-06-17T00:00:00.000Z",
-      uniqueVisitors: 454,
-      totalSessions: 548,
-    },
-    {
-      date: "2026-06-18T00:00:00.000Z",
-      uniqueVisitors: 477,
-      totalSessions: 547,
-    },
-    {
-      date: "2026-06-19T00:00:00.000Z",
-      uniqueVisitors: 395,
-      totalSessions: 461,
-    },
-    {
-      date: "2026-06-20T00:00:00.000Z",
-      uniqueVisitors: 397,
-      totalSessions: 480,
-    },
-    {
-      date: "2026-06-21T00:00:00.000Z",
+      date: "2026-08-14T00:00:00.000Z",
       uniqueVisitors: 424,
-      totalSessions: 488,
+      totalSessions: 473,
     },
     {
-      date: "2026-06-22T00:00:00.000Z",
-      uniqueVisitors: 519,
-      totalSessions: 590,
+      date: "2026-08-15T00:00:00.000Z",
+      uniqueVisitors: 378,
+      totalSessions: 422,
     },
     {
-      date: "2026-06-23T00:00:00.000Z",
-      uniqueVisitors: 463,
-      totalSessions: 532,
+      date: "2026-08-16T00:00:00.000Z",
+      uniqueVisitors: 383,
+      totalSessions: 453,
     },
     {
-      date: "2026-06-24T00:00:00.000Z",
-      uniqueVisitors: 469,
-      totalSessions: 534,
+      date: "2026-08-17T00:00:00.000Z",
+      uniqueVisitors: 413,
+      totalSessions: 498,
     },
     {
-      date: "2026-06-25T00:00:00.000Z",
-      uniqueVisitors: 469,
-      totalSessions: 522,
+      date: "2026-08-18T00:00:00.000Z",
+      uniqueVisitors: 417,
+      totalSessions: 473,
     },
     {
-      date: "2026-06-26T00:00:00.000Z",
-      uniqueVisitors: 481,
-      totalSessions: 551,
-    },
-    {
-      date: "2026-06-27T00:00:00.000Z",
-      uniqueVisitors: 475,
-      totalSessions: 578,
-    },
-    {
-      date: "2026-06-28T00:00:00.000Z",
-      uniqueVisitors: 570,
-      totalSessions: 656,
-    },
-    {
-      date: "2026-06-29T00:00:00.000Z",
-      uniqueVisitors: 1051,
-      totalSessions: 1190,
+      date: "2026-08-19T00:00:00.000Z",
+      uniqueVisitors: 572,
+      totalSessions: 643,
     },
   ],
-  startDate: "2026-05-31",
-  endDate: "2026-06-30",
+  startDate: "2026-07-21",
+  endDate: "2026-08-20",
 }
 
 /**

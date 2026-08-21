@@ -1,6 +1,6 @@
-import { formatDuration } from "@/utils/format"
+import { formatDuration, formatNumber } from "@/utils/format"
 import { format } from "date-fns"
-import { ArrowDownIcon, ArrowUpIcon } from "lucide-react"
+import { TrendingDownIcon, TrendingUpIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import Grid from "@/components/charts/grid"
@@ -51,7 +51,7 @@ export async function Insights() {
               <MetricChange value={data.changes.unique_visitors} />
             </MetricLabel>
             <MetricValue>
-              {data.summary.unique_visitors.toLocaleString()}
+              {formatNumber(data.summary.unique_visitors)}
             </MetricValue>
           </Metric>
 
@@ -61,7 +61,7 @@ export async function Insights() {
               <MetricChange value={data.changes.total_sessions} />
             </MetricLabel>
             <MetricValue>
-              {data.summary.total_sessions.toLocaleString()}
+              {formatNumber(data.summary.total_sessions)}
             </MetricValue>
           </Metric>
 
@@ -71,7 +71,7 @@ export async function Insights() {
               <MetricChange value={data.changes.total_screen_views} />
             </MetricLabel>
             <MetricValue>
-              {data.summary.total_screen_views.toLocaleString()}
+              {formatNumber(data.summary.total_screen_views)}
             </MetricValue>
           </Metric>
 
@@ -181,13 +181,13 @@ function MetricChange({ value }: { value: number | null }) {
   }
 
   const percent = Math.round(value * 10) / 10
-  const Icon = percent > 0 ? ArrowUpIcon : ArrowDownIcon
+  const Icon = percent > 0 ? TrendingUpIcon : TrendingDownIcon
 
   return (
     <span
       data-slot="metric-change"
       className={cn(
-        "flex shrink-0 items-center text-xs/4 tabular-nums",
+        "flex shrink-0 items-center gap-0.5 text-xs/4 tabular-nums",
         // Shades differ per color scheme so each clears 4.5:1 on its background.
         percent > 0 && "text-green-700 dark:text-green-500",
         percent < 0 && "text-red-700 dark:text-red-400"
@@ -195,11 +195,11 @@ function MetricChange({ value }: { value: number | null }) {
     >
       {percent !== 0 && (
         <>
-          <Icon className="size-3" aria-hidden />
+          <Icon className="size-3.5" aria-hidden />
           <span className="sr-only">{percent > 0 ? "Up by " : "Down by "}</span>
         </>
       )}
-      {Math.abs(percent).toFixed(1)}%
+      {formatNumber(Math.abs(percent))}%
       <span className="sr-only"> compared to the previous period</span>
     </span>
   )

@@ -51,7 +51,7 @@ export function EducationItem({ item }: { item: Education }) {
 
           <dl className="flex flex-wrap items-center gap-x-2 pl-9 text-sm text-muted-foreground">
             <div>
-              <dt className="sr-only">Employment period</dt>
+              <dt className="sr-only">Study period</dt>
               <dd className="flex items-center gap-0.5 tabular-nums">
                 <span>{start}</span>
                 <span className="font-mono">—</span>
