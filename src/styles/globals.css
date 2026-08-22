@@ -616,14 +616,6 @@
     margin: 0 0.05em 0 0.1em;
     vertical-align: -0.1em;
   }
-
-  .activity-mosaic-cell {
-    @apply data-[level=0]:fill-muted-foreground/10;
-    @apply data-[level=1]:fill-muted-foreground/20;
-    @apply data-[level=2]:fill-muted-foreground/40;
-    @apply data-[level=3]:fill-muted-foreground/60;
-    @apply data-[level=4]:fill-muted-foreground/80;
-  }
 }
 
 .typeset-description {
