@@ -14,9 +14,10 @@ updatedAt: 2026-08-22
 
 ## Features
 
-- Built on Kibo UI [Contribution Graph](https://www.kibo-ui.com/components/contribution-graph) for the calendar grid, legend, and yearly total.
-- Loads data from any API compatible with Jonathan Gruber's [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api).
-- Uses Next.js `unstable_cache` with a one-day revalidation window, then passes a `Promise` into the client and resolves it with React `use()`
+- Shows a full year of daily activity with a color legend and total count.
+- Caches fetched contributions for a day, so repeat visits do not hit the API.
+- Streams in behind a Suspense boundary with a spinner fallback while data loads.
+- Works with any API compatible with the GitHub Contributions API.
 
 ## Installation
 
