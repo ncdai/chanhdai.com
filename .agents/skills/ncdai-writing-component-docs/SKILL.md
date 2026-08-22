@@ -99,6 +99,8 @@ Skip `## Features` when the component is self-explanatory through its title + de
 4. End each bullet with a period.
 5. No emoji.
 6. Do not repeat information already in Installation, Usage, or API reference.
+7. Describe WHAT the user gets, not HOW it is implemented. Do not name libraries, framework APIs, hooks, or internal data flow. A technical detail is worth keeping only when rephrased as a user-facing benefit (for example "caches results for a day" instead of "uses `unstable_cache` with `revalidate: 86400`").
+8. Do not put attribution here. "Built on X" or "inspired by Y" belongs in `## Credits`; links that explain how something works belong in `## References`.
 
 ### Good example
 
@@ -122,6 +124,24 @@ The Scroll Fade Effect component is built on top of CSS animation-timeline.
 ```
 
 Issues: wrong heading name, intro paragraph is unnecessary, emoji, "Easy installation" repeats Installation section.
+
+### Bad example (implementation details)
+
+```markdown
+## Features
+
+- Built on Kibo UI Contribution Graph for the calendar grid, legend, and yearly total.
+- Uses Next.js `unstable_cache` with a one-day revalidation window, then passes a `Promise` into the client and resolves it with React `use()`
+```
+
+Issues: "Built on Kibo UI" is attribution and belongs in `## Credits`; the second bullet describes internal data flow instead of a capability, and is missing a trailing period. Rewritten as capabilities:
+
+```markdown
+## Features
+
+- Shows a full year of daily activity with a color legend and total count.
+- Caches fetched contributions for a day, so repeat visits do not hit the API.
+```
 
 ## Writing Composition sections
 
