@@ -18,7 +18,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     env:
-      # Required at prerender time by the github-contributions demos.
+      # Required at prerender time by the GitHub contributions graph.
       NEXT_PUBLIC_GITHUB_CONTRIBUTIONS_API_URL: https://github-contributions-api.jogruber.de/v4
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
