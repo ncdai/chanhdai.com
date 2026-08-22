@@ -8,9 +8,12 @@ type GitHubContributionsResponse = {
 
 export const getCachedContributions = unstable_cache(
   async (username: string) => {
-    const res = await fetch(
-      `${process.env.GITHUB_CONTRIBUTIONS_API_URL || `https://github-contributions-api.jogruber.de`}/v4/${username}?y=last`
-    )
+    const apiUrl = process.env.NEXT_PUBLIC_GITHUB_CONTRIBUTIONS_API_URL
+    if (!apiUrl) {
+      throw new Error("NEXT_PUBLIC_GITHUB_CONTRIBUTIONS_API_URL is not set")
+    }
+
+    const res = await fetch(`${apiUrl}/${username}?y=last`)
     if (!res.ok) {
       return []
     }
