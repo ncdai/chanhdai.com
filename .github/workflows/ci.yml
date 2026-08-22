@@ -18,11 +18,8 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     env:
-      # Public, non-secret API base used at build/prerender time by
-      # src/features/portfolio/data/github-contributions.ts (which has NO
-      # fallback for this var — see "Why the step order / env matters" below).
-      # Value is the public default from .env.example; safe to hardcode.
-      GITHUB_CONTRIBUTIONS_API_URL: https://github-contributions-api.jogruber.de
+      # Required at prerender time by the github-contributions demos.
+      NEXT_PUBLIC_GITHUB_CONTRIBUTIONS_API_URL: https://github-contributions-api.jogruber.de/v4
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 

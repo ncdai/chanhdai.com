@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils"
 
-// Mockups are drawn on a fixed 400x250 canvas and scaled to the frame width,
-// so their fixed px details keep the same proportions at every breakpoint.
-// tan(atan2(a, b)) is the CSS trick for dividing two lengths into a number.
+// Scales a fixed 400x250 canvas to the frame width. The ratio is written two
+// ways: Safari miscomputes tan(atan2()) with cqw but supports calc() division,
+// Firefox is the opposite.
 export function MockupFrame({
   className,
   children,
@@ -16,7 +16,7 @@ export function MockupFrame({
       )}
       {...props}
     >
-      <div className="h-62.5 w-100 origin-top-left scale-[tan(atan2(100cqw,400px))]">
+      <div className="h-62.5 w-100 origin-top-left scale-[tan(atan2(100cqw,400px))] supports-[scale:calc(100cqw/400px)]:scale-[calc(100cqw/400px)]">
         {children}
       </div>
     </div>
