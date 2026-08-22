@@ -1,13 +1,12 @@
-import { Fragment } from "react"
 import type { Metadata } from "next"
 import type { CollectionPage, WithContext } from "schema-dts"
 
 import { blockCategories } from "@/config/registry"
 import { X_HANDLE } from "@/config/site"
-import { getAllBlockIds } from "@/lib/blocks"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl } from "@/lib/utils"
-import { BlockDisplay } from "@/app/(preview)/components/block-display"
+import { BlockList } from "@/features/blocks/components/block-list"
+import { getBlocks } from "@/features/blocks/data/blocks"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -63,7 +62,7 @@ export async function generateMetadata({
 
 function getCollectionPageJsonLd(
   category: { name: string; title: string; description: string },
-  blockIds: string[]
+  blocks: ReturnType<typeof getBlocks>
 ): WithContext<CollectionPage> {
   const categoryUrl = `/blocks/${category.name}`
 
@@ -76,11 +75,11 @@ function getCollectionPageJsonLd(
     url: absoluteUrl(categoryUrl),
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: blockIds.length,
-      itemListElement: blockIds.map((blockId, index) => ({
+      numberOfItems: blocks.length,
+      itemListElement: blocks.map((block, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: absoluteUrl(`/blocks/${category.name}/${blockId}`),
+        url: absoluteUrl(`/blocks/${category.name}/${block.name}`),
       })),
     },
     isPartOf: {
@@ -97,14 +96,14 @@ export default async function BlocksPage({
 }: PageProps<"/blocks/[category]">) {
   const { category } = await params
 
-  const blockIds = await getAllBlockIds(["registry:block"], [category])
+  const blocks = getBlocks(category)
 
   const categoryItem = blockCategories.find((item) => item.name === category)
 
   return (
     <>
       {categoryItem && (
-        <JsonLdScript data={getCollectionPageJsonLd(categoryItem, blockIds)} />
+        <JsonLdScript data={getCollectionPageJsonLd(categoryItem, blocks)} />
       )}
 
       <JsonLdScript
@@ -124,20 +123,7 @@ export default async function BlocksPage({
         ])}
       />
 
-      {blockIds.map((blockId) => (
-        <Fragment key={blockId}>
-          <BlockDisplay name={blockId} />
-          <Separator />
-        </Fragment>
-      ))}
+      <BlockList blocks={blocks} />
     </>
-  )
-}
-
-function Separator() {
-  return (
-    <div className="screen-line-top screen-line-bottom">
-      <div className="stripe-divider" />
-    </div>
   )
 }

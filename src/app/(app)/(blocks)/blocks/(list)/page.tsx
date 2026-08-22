@@ -1,4 +1,3 @@
-import { Fragment } from "react"
 import type { Metadata } from "next"
 import type { CollectionPage, WithContext } from "schema-dts"
 
@@ -6,8 +5,8 @@ import { JSON_LD_ID } from "@/config/json-ld"
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl } from "@/lib/utils"
-import blocks from "@/registry/__blocks__.json"
-import { BlockDisplay } from "@/app/(preview)/components/block-display"
+import { BlockList } from "@/features/blocks/components/block-list"
+import { getBlocks } from "@/features/blocks/data/blocks"
 
 export const dynamic = "force-static"
 export const revalidate = false
@@ -41,7 +40,9 @@ export const metadata: Metadata = {
   },
 }
 
-function getCollectionPageJsonLd(): WithContext<CollectionPage> {
+function getCollectionPageJsonLd(
+  blocks: ReturnType<typeof getBlocks>
+): WithContext<CollectionPage> {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -55,7 +56,7 @@ function getCollectionPageJsonLd(): WithContext<CollectionPage> {
       itemListElement: blocks.map((block, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: absoluteUrl(`/blocks/${block.categories[0]}/${block.name}`),
+        url: absoluteUrl(`/blocks/${block.categories?.[0]}/${block.name}`),
       })),
     },
     isPartOf: { "@id": JSON_LD_ID.website },
@@ -63,9 +64,11 @@ function getCollectionPageJsonLd(): WithContext<CollectionPage> {
 }
 
 export default function BlocksPage() {
+  const blocks = getBlocks()
+
   return (
     <>
-      <JsonLdScript data={getCollectionPageJsonLd()} />
+      <JsonLdScript data={getCollectionPageJsonLd(blocks)} />
 
       <JsonLdScript
         data={jsonLdBreadcrumbList([
@@ -80,20 +83,7 @@ export default function BlocksPage() {
         ])}
       />
 
-      {blocks.map(({ name }) => (
-        <Fragment key={name}>
-          <BlockDisplay name={name} />
-          <Separator />
-        </Fragment>
-      ))}
+      <BlockList blocks={blocks} />
     </>
-  )
-}
-
-function Separator() {
-  return (
-    <div className="screen-line-top screen-line-bottom">
-      <div className="stripe-divider" />
-    </div>
   )
 }

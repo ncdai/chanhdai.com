@@ -32,6 +32,8 @@ export default function BlocksLayout({
 
       {children}
 
+      <div className="screen-line-bottom h-px" />
+
       <div className="p-2">
         <div className="relative border border-line p-4">
           <p className="font-mono text-sm text-muted-foreground">
