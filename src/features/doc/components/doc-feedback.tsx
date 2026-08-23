@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/base/ui/button"
 import { Field, FieldError, FieldLabel } from "@/components/base/ui/field"
 import { Callout } from "@/components/callout"
+import { StatusButton } from "@/registry/components/status-button"
 import { sendDocFeedback } from "@/features/doc/actions/send-doc-feedback"
 import {
   DOC_FEEDBACK_MESSAGE_MAX_LENGTH,
@@ -80,6 +81,9 @@ export function DocFeedback({ category, slug }: DocFeedbackProps) {
 
   const hasError = noteState.status === "error"
   const noteSent = noteState.status === "success"
+
+  // Keeps the form mounted until the send button has finished its success state.
+  const [sendConfirmed, setSendConfirmed] = useState(false)
 
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const alertRef = useRef<HTMLDivElement>(null)
@@ -158,7 +162,7 @@ export function DocFeedback({ category, slug }: DocFeedbackProps) {
                 : "Thanks for your feedback!"}
             </Callout>
 
-            {!noteSent && (
+            {!sendConfirmed && (
               <form
                 className="flex flex-col gap-2"
                 // Submitting through `action` would reset the fields after a
@@ -197,7 +201,7 @@ export function DocFeedback({ category, slug }: DocFeedbackProps) {
                     className="resize-none rounded-xl px-4 pt-3"
                     placeholder={NOTE_PROMPT[vote]}
                     maxLength={DOC_FEEDBACK_MESSAGE_MAX_LENGTH}
-                    disabled={isSending}
+                    disabled={isSending || noteSent}
                     aria-invalid={hasError}
                     aria-describedby={hasError ? errorId : undefined}
                     onKeyDown={(event) => {
@@ -216,14 +220,20 @@ export function DocFeedback({ category, slug }: DocFeedbackProps) {
                   </FieldError>
                 </Field>
 
-                <Button
+                <StatusButton
                   className="self-start px-4"
                   type="submit"
                   size="sm"
-                  disabled={isSending}
+                  status={isSending ? "loading" : noteSent ? "success" : "idle"}
+                  onStatusChange={(status) => {
+                    if (status === "idle" && noteSent) {
+                      setSendConfirmed(true)
+                    }
+                  }}
+                  successLabel="Sent"
                 >
-                  {isSending ? "Sending..." : "Send"}
-                </Button>
+                  Send
+                </StatusButton>
               </form>
             )}
           </>
