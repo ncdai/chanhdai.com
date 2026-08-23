@@ -161,6 +161,98 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
       <path d="M11 12H13" />
     </svg>
   ),
+  "status-button": (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(288 12 12)"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(324 12 12)"
+        opacity="0.9"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        opacity="0.8"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(36 12 12)"
+        opacity="0.7"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(72 12 12)"
+        opacity="0.6"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(108 12 12)"
+        opacity="0.5"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(144 12 12)"
+        opacity="0.4"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(180 12 12)"
+        opacity="0.3"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(216 12 12)"
+        opacity="0.2"
+      />
+      <rect
+        x="17.76"
+        y="10.875"
+        width="6"
+        height="2.25"
+        rx="1.125"
+        transform="rotate(252 12 12)"
+        opacity="0.15"
+      />
+    </svg>
+  ),
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {
