@@ -101,6 +101,18 @@
       rotate: -360deg;
     }
   }
+
+  --animate-spinner-opacity: spinner-opacity
+    var(--tw-animation-duration, var(--tw-duration, 1s)) linear infinite;
+
+  @keyframes spinner-opacity {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.15;
+    }
+  }
 }
 
 @utility link {

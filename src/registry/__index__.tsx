@@ -711,6 +711,23 @@ export const Index: Record<string, any> = {
     categories: ["data-display"],
     meta: undefined,
   },
+  "status-button": {
+    name: "status-button",
+    description: "Button that shows loading and success feedback for async actions.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/status-button/status-button.tsx",
+      type: "registry:component",
+      target: "@components/status-button.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/status-button/status-button.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "status-button"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["controls"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -1896,6 +1913,40 @@ export const Index: Record<string, any> = {
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/timescale-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "timescale-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "status-button-demo": {
+    name: "status-button-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/status-button-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/status-button-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "status-button-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "status-button-form-demo": {
+    name: "status-button-form-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/status-button-form-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/status-button-form-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "status-button-form-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,
