@@ -1,0 +1,140 @@
+---
+title: Status Button
+description: Button that shows loading and success feedback for async actions.
+image: https://assets.chanhdai.com/images/blog/status-button.webp
+new: true
+createdAt: 2026-08-23
+updatedAt: 2026-08-23
+---
+
+<ComponentPreview
+  name="status-button-demo"
+  openInV0Url="https://chanhdai.com/r/status-button.json"
+/>
+
+## Features
+
+- Works from an async click handler, or follows a status you control from form state.
+- Keeps focus while busy, so keyboard focus is not lost when the action finishes.
+- Announces loading and success to screen readers.
+- Swaps states without motion when reduced motion is preferred.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/status-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge class-variance-authority lucide-react motion radix-ui
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Button](https://ui.shadcn.com/docs/components/button)
+
+<Step>Add the spinner animation to your global CSS</Step>
+
+```css title="globals.css"
+@theme inline {
+  --animate-spinner-opacity: spinner-opacity
+    var(--tw-animation-duration, var(--tw-duration, 1s)) linear infinite;
+
+  @keyframes spinner-opacity {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.15;
+    }
+  }
+}
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="status-button" title="components/status-button.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { StatusButton } from "@/components/status-button"
+```
+
+```tsx
+<StatusButton onClick={save} successLabel="Saved">
+  Save
+</StatusButton>
+```
+
+Return a promise from `onClick`. The button shows a spinner while the promise is pending, then the success label, then returns to idle. If the promise rejects, the button returns to idle right away.
+
+### Controlled
+
+When a form owns the submission, pass `status` and `onStatusChange` instead of `onClick`. The button still returns to idle on its own, and `onStatusChange` receives `"idle"` when that happens.
+
+```tsx
+import { StatusButton, type ButtonStatus } from "@/components/status-button"
+
+const [status, setStatus] = useState<ButtonStatus>("idle")
+```
+
+```tsx
+<StatusButton
+  type="submit"
+  status={status}
+  onStatusChange={setStatus}
+  successLabel="Sent"
+>
+  Send
+</StatusButton>
+```
+
+## API reference
+
+### StatusButton
+
+Extends [Button](https://ui.shadcn.com/docs/components/radix/button) with loading and success states.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="StatusButtonProps"
+/>
+
+See [shadcn/ui](https://ui.shadcn.com/docs/components/radix/button#api-reference) documentation for more information.
+
+## Examples
+
+### Form submission
+
+<ComponentPreview name="status-button-form-demo" />

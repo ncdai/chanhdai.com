@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react"
 import type { motion } from "motion/react"
 
+import type { Button as UIButton } from "@/components/ui/button"
 import type { Button } from "@/components/base/ui/button"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
 import type { CopyButton } from "@/registry/components/copy-button"
@@ -17,6 +18,7 @@ import type {
   SlideToUnlockText,
 } from "@/registry/components/slide-to-unlock"
 import type { SpinningCircularText } from "@/registry/components/spinning-circular-text"
+import type { StatusButton } from "@/registry/components/status-button"
 import type { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 import type { TimescaleRoot } from "@/registry/components/timescale"
 
@@ -102,4 +104,9 @@ export type SpinningCircularTextProps = Omit<
 export type TimescaleRootProps = Omit<
   ComponentProps<typeof TimescaleRoot>,
   keyof ComponentProps<"div">
+>
+
+export type StatusButtonProps = Omit<
+  ComponentProps<typeof StatusButton>,
+  Exclude<keyof ComponentProps<typeof UIButton>, "onClick">
 >

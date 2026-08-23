@@ -20,6 +20,7 @@ import { Prose } from "@/components/base/ui/typography"
 import { MDX } from "@/components/mdx"
 import { TOCInline } from "@/components/toc-inline"
 import { TOCMinimap } from "@/components/toc-minimap"
+import { DocFeedback } from "@/features/doc/components/doc-feedback"
 import { DocKeyboardShortcuts } from "@/features/doc/components/doc-keyboard-shortcuts"
 import {
   DocContentCol,
@@ -290,6 +291,8 @@ export default async function Page({
             <MDX code={doc.content} />
           </div>
         </Prose>
+
+        <DocFeedback category="components" slug={doc.slug} />
 
         <DocSponsors />
 
