@@ -90,7 +90,10 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
         tabIndex={isOpen ? 0 : -1}
         aria-hidden={!isOpen}
       >
-        <div className="no-scrollbar grow scroll-fade overflow-x-clip overflow-y-auto overscroll-contain pt-10.25">
+        <div
+          data-sidebar-scroll-area=""
+          className="no-scrollbar grow scroll-fade overflow-x-clip overflow-y-auto overscroll-contain pt-10.25"
+        >
           {children}
         </div>
       </div>
@@ -108,9 +111,20 @@ export function SidebarContent({ items }: { items: MenuItem<Route>[] }) {
 
   const itemActiveRef = useRef<HTMLAnchorElement | null>(null)
 
-  // Scroll active item into view on mount
+  // Center the active item within the sidebar scroll area on mount.
+  // scrollIntoView is not used here because it also scrolls the page.
   useEffect(() => {
-    itemActiveRef.current?.scrollIntoView({ block: "center" })
+    const item = itemActiveRef.current
+    const scrollArea = item?.closest("[data-sidebar-scroll-area]")
+    if (!item || !scrollArea) return
+
+    const scrollAreaRect = scrollArea.getBoundingClientRect()
+    const itemRect = item.getBoundingClientRect()
+
+    scrollArea.scrollTop +=
+      itemRect.top -
+      scrollAreaRect.top -
+      (scrollAreaRect.height - itemRect.height) / 2
   }, [])
 
   return (
