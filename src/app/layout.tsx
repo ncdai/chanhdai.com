@@ -142,6 +142,17 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var value = localStorage.getItem('sidebarOpen');
+                document.documentElement.dataset.sidebarOpen = JSON.parse(value || 'true');
+              } catch(_) {}
+            `,
+          }}
+        />
         <JsonLdScript data={getWebSiteJsonLd()} />
         {ADSENSE_CLIENT && (
           <Script
