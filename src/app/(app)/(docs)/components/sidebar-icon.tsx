@@ -1,35 +1,4 @@
-"use client"
-
-import { useImperativeHandle } from "react"
-import type { MotionNodeAnimationOptions } from "motion/react"
-import { motion, useAnimation } from "motion/react"
-
-export type SidebarIconHandle = {
-  startAnimation: () => void
-  stopAnimation: () => void
-}
-
-export type SidebarIconProps = React.ComponentPropsWithoutRef<"svg"> & {
-  ref?: React.Ref<SidebarIconHandle>
-  initial?: MotionNodeAnimationOptions["initial"]
-  duration?: number
-}
-
-export function SidebarIcon({
-  ref,
-  initial = "normal",
-  duration = 0.3,
-  ...props
-}: SidebarIconProps) {
-  const controls = useAnimation()
-
-  useImperativeHandle(ref, () => {
-    return {
-      startAnimation: () => controls.start("animate"),
-      stopAnimation: () => controls.start("normal"),
-    }
-  })
-
+export function SidebarIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     // Icon designed by @ncdai
     <svg
@@ -49,25 +18,18 @@ export function SidebarIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <motion.rect
+      {/*
+        The fill width follows `data-sidebar-open` on <html>, like the sidebar
+        panel, so the first paint matches the persisted state. The widths are
+        px on purpose: viewBox units, not spacing-scale values.
+      */}
+      <rect
         x="5"
         y="6"
         rx="1"
         height="12"
         fill="currentColor"
-        variants={{
-          normal: {
-            width: 2,
-          },
-          animate: {
-            width: 6,
-          },
-        }}
-        initial={initial}
-        animate={controls}
-        transition={{
-          duration,
-        }}
+        className="w-(--fill-width) transition-[width] duration-300 [--fill-width:6px] in-data-[sidebar-open=false]:[--fill-width:2px]"
       />
     </svg>
   )
