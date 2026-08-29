@@ -1,6 +1,11 @@
 import Image from "next/image"
 import { format } from "date-fns"
-import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react"
+import {
+  ArrowUpRightIcon,
+  CircleCheckBigIcon,
+  CopyrightIcon,
+  StampIcon,
+} from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { IconTile } from "@/components/ui/icon-tile"
@@ -18,17 +23,20 @@ import {
 import type { Certification } from "../../types/certifications"
 
 /**
- * Issuer logos referenced by name in the data layer (`issuerIconName`).
+ * Icons referenced by name in the data layer (`issuerIconName`): issuer
+ * brand logos plus credential-kind marks ("trademark", "copyright").
  * Closed map so the bundle only retains the icons that can actually appear
  * here; unknown names fall back to a generic check badge in the UI below.
  */
 const ISSUER_ICONS: Record<string, React.ReactNode> = {
   accenture: <AccentureIcon />,
   animationsdev: <AnimationsDevIcon />,
+  copyright: <CopyrightIcon />,
   coursera: <CourseraIcon />,
   google: <GoogleIcon />,
   meta: <MetaIcon />,
   microsoft: <MicrosoftIcon />,
+  trademark: <StampIcon />,
   vercel: <VercelIcon />,
 }
 

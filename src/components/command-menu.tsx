@@ -20,6 +20,7 @@ import {
   MoonStarIcon,
   QuoteIcon,
   RssIcon,
+  ScaleIcon,
   SquareDashedIcon,
   SunMediumIcon,
   TextInitialIcon,
@@ -164,6 +165,12 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     href: "/#certs",
     kind: "page",
     icon: <CircleCheckBigIcon />,
+  },
+  {
+    title: "Intellectual property",
+    href: "/#ip",
+    kind: "page",
+    icon: <ScaleIcon />,
   },
   {
     title: "Bookmarks",

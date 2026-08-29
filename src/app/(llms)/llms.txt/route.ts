@@ -14,6 +14,7 @@ const content = `# chanhdai.com
 - [Projects](${SITE_INFO.url}/projects.md): Selected projects that show my skills and creativity.
 - [Awards](${SITE_INFO.url}/awards.md): My key awards and honors.
 - [Certifications](${SITE_INFO.url}/certifications.md): Certifications and credentials I've earned.
+- [Intellectual property](${SITE_INFO.url}/intellectual-property.md): Trademarks and copyrights registered under my name.
 - [Components](${SITE_INFO.url}/components.md): Every registry component, with install instructions.
 - [Blocks](${SITE_INFO.url}/blocks.md): Every registry block, grouped by category, with install instructions.
 - [Blog](${SITE_INFO.url}/blog.md): Every blog post, newest first, with publish dates.

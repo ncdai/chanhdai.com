@@ -8,7 +8,7 @@ export type Certification = {
   issuerLogoURL?: string
   /**
    * Icon key for the issuer when no `issuerLogoURL` is provided.
-   * Must match a supported icon name (e.g., "vercel", "coursera", "meta", "google", "microsoft", "accenture").
+   * Must match a supported icon name (e.g., "vercel", "coursera", "meta", "google", "microsoft", "accenture", "trademark", "copyright").
    */
   issuerIconName?: string
   /**
