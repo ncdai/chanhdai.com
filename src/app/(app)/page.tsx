@@ -116,7 +116,7 @@ function Separator({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "stripe-divider h-(--separator-height) w-full border-x border-line",
+        "stripe-divider h-(--separator-height) w-full border-x",
         className
       )}
     >

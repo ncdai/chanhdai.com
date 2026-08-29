@@ -141,7 +141,7 @@ export default function Page() {
 
         <div className="h-4" />
 
-        <div className="screen-line-top screen-line-bottom">
+        <div className="screen-line-top screen-line-bottom screen-line-bottom-border screen-line-top-border">
           <RegistryCommandAnimated />
         </div>
 
@@ -171,7 +171,7 @@ export default function Page() {
 
             <ComponentList items={newComponents} showNew={false} />
 
-            <div className="screen-line-top screen-line-bottom pb-px before:-top-px">
+            <div className="screen-line-top screen-line-bottom screen-line-top-border pb-px before:-top-px">
               <div className="stripe-divider" />
             </div>
           </>
