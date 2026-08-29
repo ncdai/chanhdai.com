@@ -19,6 +19,7 @@ import {
   Insights,
   InsightsSkeleton,
 } from "@/features/portfolio/components/insights"
+import { IntellectualProperty } from "@/features/portfolio/components/intellectual-property"
 import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
@@ -82,6 +83,9 @@ export default function HomePage() {
           <Separator />
 
           <Certifications />
+          <Separator />
+
+          <IntellectualProperty />
           <Separator />
 
           <Bookmarks />
