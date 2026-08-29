@@ -26,7 +26,7 @@ export function GET() {
     <channel>
       <title>Blog | ${SITE_INFO.name}</title>
       <link>${SITE_INFO.url}/blog</link>
-      <description>Writing about code, design, and everything in between.</description>
+      <description>Stories, milestones, and things I learn along the way.</description>
       ${itemsXml}
     </channel>
   </rss>`

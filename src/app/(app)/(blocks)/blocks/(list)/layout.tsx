@@ -22,11 +22,11 @@ export default function BlocksLayout({
 
       <div className="flex h-4" />
 
-      <div className="screen-line-bottom flex h-px" />
+      <div className="screen-line-bottom flex h-px screen-line-bottom-border" />
 
       <BlocksNav />
 
-      <div className="screen-line-top screen-line-bottom">
+      <div className="screen-line-top screen-line-bottom screen-line-top-border before:z-1">
         <div className="stripe-divider" />
       </div>
 

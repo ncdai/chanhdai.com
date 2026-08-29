@@ -131,11 +131,23 @@
   }
 }
 
+@utility screen-line-top-* {
+  &:before {
+    background-color: --value(--color-*, [color]);
+  }
+}
+
 @utility screen-line-bottom {
   @apply relative;
   &:after {
     content: "";
     @apply absolute bottom-0 left-[-100vw] -z-1 h-px w-[200vw] bg-line;
+  }
+}
+
+@utility screen-line-bottom-* {
+  &:after {
+    background-color: --value(--color-*, [color]);
   }
 }
 

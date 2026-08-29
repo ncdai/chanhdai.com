@@ -13,7 +13,7 @@ const allPosts = getBlogPosts()
 
 const content = `# Blog
 
-> Writing about code, design, and everything in between.
+> Stories, milestones, and things I learn along the way.
 
 Each link below returns the full post as Markdown. Drop the \`.mdx\` extension for the web page.
 
