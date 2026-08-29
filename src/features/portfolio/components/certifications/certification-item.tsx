@@ -1,11 +1,8 @@
 import Image from "next/image"
+import { CopyrightIcon, Stamp01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import { format } from "date-fns"
-import {
-  ArrowUpRightIcon,
-  CircleCheckBigIcon,
-  CopyrightIcon,
-  StampIcon,
-} from "lucide-react"
+import { ArrowUpRightIcon, CircleCheckBigIcon, StampIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { IconTile } from "@/components/ui/icon-tile"
@@ -31,12 +28,12 @@ import type { Certification } from "../../types/certifications"
 const ISSUER_ICONS: Record<string, React.ReactNode> = {
   accenture: <AccentureIcon />,
   animationsdev: <AnimationsDevIcon />,
-  copyright: <CopyrightIcon />,
+  copyright: <HugeiconsIcon icon={CopyrightIcon} />,
   coursera: <CourseraIcon />,
   google: <GoogleIcon />,
   meta: <MetaIcon />,
   microsoft: <MicrosoftIcon />,
-  trademark: <StampIcon />,
+  trademark: <HugeiconsIcon icon={Stamp01Icon} />,
   vercel: <VercelIcon />,
 }
 
