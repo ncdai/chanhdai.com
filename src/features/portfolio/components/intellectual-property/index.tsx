@@ -24,7 +24,7 @@ export function IntellectualProperty() {
 
       <CollapsibleList
         items={INTELLECTUAL_PROPERTY}
-        max={6}
+        max={3}
         renderItem={(item) => <CertificationItem certification={item} />}
       />
     </Panel>

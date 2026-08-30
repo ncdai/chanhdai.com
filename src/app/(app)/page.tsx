@@ -53,8 +53,6 @@ export default function HomePage() {
 
           <Hello />
           <SponsorsCarousel />
-          <Separator />
-
           <Testimonials />
           <Separator />
 

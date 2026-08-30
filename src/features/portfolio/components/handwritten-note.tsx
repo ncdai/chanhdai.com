@@ -24,7 +24,7 @@ function HandwrittenArrow({
       viewBox="0 0 40 40"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
