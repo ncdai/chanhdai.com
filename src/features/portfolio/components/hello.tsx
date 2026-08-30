@@ -11,7 +11,7 @@ const ID = "hello"
 
 export function Hello() {
   return (
-    <Panel id={ID} className="screen-line-bottom-line">
+    <Panel id={ID} className="screen-line-bottom-none">
       <PanelHeader>
         <HelloTitle />
       </PanelHeader>
@@ -22,7 +22,9 @@ export function Hello() {
         </div>
       </PanelContent>
 
-      <div className="screen-line-top h-4" />
+      <div className="screen-line-bottom h-px" />
+      <div className="h-4" />
+      <div className="screen-line-bottom h-px" />
     </Panel>
   )
 }

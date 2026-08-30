@@ -34,7 +34,7 @@ import {
 } from "@/features/portfolio/data/testimonials"
 import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
 
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel"
+import { Panel, PanelContent } from "./panel"
 
 const ID = "testimonials"
 
@@ -63,15 +63,20 @@ export function Testimonials() {
 
   return (
     <Panel ref={ref} id={ID}>
-      <PanelHeader>
-        <PanelTitle>
-          Trusted by
-          <span className="block sm:hidden" /> top builders on{" "}
+      <div className="h-px" />
+      <div className="h-4" />
+      <div className="screen-line-bottom h-px" />
+
+      <div className="flex h-10 items-center justify-center">
+        <h2 className="text-center text-sm/none font-medium text-muted-foreground">
+          Trusted by top builders on{" "}
           <a href={SOCIAL.x.href} target="_blank" rel="noopener" aria-label="X">
             𝕏
           </a>
-        </PanelTitle>
-      </PanelHeader>
+        </h2>
+      </div>
+
+      <div className="screen-line-bottom h-px" />
 
       <div className="grid gap-4 py-4 sm:hidden">
         {TESTIMONIALS_MOBILE.map((item) => (
@@ -83,7 +88,7 @@ export function Testimonials() {
         ))}
       </div>
 
-      <PanelContent className="hidden gap-1 sm:grid sm:grid-cols-2">
+      <PanelContent className="hidden gap-2 p-2 sm:grid sm:grid-cols-2">
         {TESTIMONIALS_FEATURED.map((item) => (
           <TestimonialSpotlight
             key={item.url}
@@ -149,7 +154,7 @@ function TestimonialsMarquee({
         {data.map((item) => (
           <MarqueeItem
             key={item.url}
-            className="mx-0.5 h-full w-xs rounded-xl bg-background inset-ring-1 inset-ring-border transition-[background-color] ease-out hover:bg-accent-muted"
+            className="mx-1 h-full w-xs rounded-xl bg-background inset-ring-1 inset-ring-border transition-[background-color] ease-out hover:bg-accent-muted"
           >
             <TestimonialItem {...item} />
           </MarqueeItem>

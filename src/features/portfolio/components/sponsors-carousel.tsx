@@ -9,7 +9,10 @@ export function SponsorsCarousel() {
     // Decorative. The full sponsor list with links lives in <Sponsors />, so
     // this is hidden from assistive tech to avoid duplicating it. Keep it free
     // of focusable content.
-    <Panel className="@container screen-line-top-none" aria-hidden>
+    <Panel
+      className="@container screen-line-bottom-none screen-line-top-none"
+      aria-hidden
+    >
       <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-3 *:border-r *:border-dashed *:border-line @2xl:grid-cols-4">
         <div />
         <div />
@@ -17,7 +20,7 @@ export function SponsorsCarousel() {
       </div>
 
       <div className="flex justify-center">
-        <p className="flex h-10 items-center bg-background px-2 text-center text-xs/none font-semibold tracking-wider text-muted-foreground uppercase">
+        <p className="flex h-10 items-center bg-background px-2 text-center text-sm/none font-medium text-muted-foreground">
           Proudly supported by
         </p>
       </div>
