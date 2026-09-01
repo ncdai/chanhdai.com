@@ -26,7 +26,7 @@ export const PROJECTS: Project[] = [
       "NPM Registry",
       "GitHub Actions",
     ],
-    description: `iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. / Backed by [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker)
+    description: `iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. / Backed by [▲ Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker)
 - Natural touch scrolling with smooth inertia, mouse drag and scroll for desktop
 - Infinite loop scrolling
 - Unstyled core for complete style customization

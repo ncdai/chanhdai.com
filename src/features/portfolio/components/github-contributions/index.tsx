@@ -10,7 +10,7 @@ export function GitHubContributions() {
 
   return (
     <Panel className="screen-line-top-none">
-      <h2 className="sr-only">GitHub Contributions</h2>
+      <h2 className="sr-only">GitHub contributions</h2>
 
       <Suspense fallback={<GitHubContributionFallback />}>
         <GitHubContributionGraph contributions={contributions} />

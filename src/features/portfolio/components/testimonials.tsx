@@ -67,7 +67,7 @@ export function Testimonials() {
       <div className="h-4" />
       <div className="screen-line-bottom h-px" />
 
-      <div className="flex h-10 items-center justify-center">
+      <div className="flex items-center justify-center py-4">
         <h2 className="text-center text-sm/none font-medium text-muted-foreground">
           Trusted by top builders on{" "}
           <a href={SOCIAL.x.href} target="_blank" rel="noopener" aria-label="X">
@@ -92,7 +92,7 @@ export function Testimonials() {
         {TESTIMONIALS_FEATURED.map((item) => (
           <TestimonialSpotlight
             key={item.url}
-            className="bg-background inset-ring-foreground/20 [--spotlight-size:50%]"
+            className="bg-background inset-ring-foreground/15 [--spotlight-size:50%]"
           >
             <TestimonialItem {...item} showIcon />
           </TestimonialSpotlight>
@@ -154,7 +154,7 @@ function TestimonialsMarquee({
         {data.map((item) => (
           <MarqueeItem
             key={item.url}
-            className="mx-1 h-full w-xs rounded-xl bg-background inset-ring-1 inset-ring-border transition-[background-color] ease-out hover:bg-accent-muted"
+            className="mx-1 h-full w-xs rounded-xl bg-background inset-ring-1 inset-ring-foreground/15 transition-[background-color] ease-out hover:bg-accent-muted"
           >
             <TestimonialItem {...item} />
           </MarqueeItem>

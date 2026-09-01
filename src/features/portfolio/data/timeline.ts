@@ -115,7 +115,7 @@ Won Bronze Medal — 10th Design, Manufacturing, and Application Award 2022.`,
   },
   {
     year: 2025,
-    content: `Open-sourced [chanhdai.com](https://github.com/ncdai/chanhdai.com) — 2k+ stars on GitHub.
+    content: `Open-sourced [chanhdai.com](https://github.com/ncdai/chanhdai.com) — 2.2k+ stars on GitHub.
 
 Released [React Wheel Picker](https://react-wheel-picker.chanhdai.com) — 50k+ weekly downloads, selected for the [Vercel OSS Program](https://vercel.com/open-source-program).
 

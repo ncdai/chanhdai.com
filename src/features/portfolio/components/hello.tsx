@@ -13,6 +13,7 @@ export function Hello() {
   return (
     <Panel id={ID} className="screen-line-bottom-none">
       <PanelHeader>
+        <h2 className="sr-only">About</h2>
         <HelloTitle />
       </PanelHeader>
 
