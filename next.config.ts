@@ -165,31 +165,53 @@ const nextConfig: NextConfig = {
     ]
   },
   async rewrites() {
-    return [
-      {
-        source: "/:section(blog|components)/:slug.md",
-        destination: "/doc.md/:slug",
-      },
-      {
-        source: "/:section(blog|components)/:slug",
-        destination: "/doc.md/:slug",
-        has: [
-          {
-            type: "header",
-            key: "accept",
-            value: "(?<accept>.*text/markdown.*)",
-          },
-        ],
-      },
-      {
-        source: "/rss",
-        destination: "/blog/rss",
-      },
-      {
-        source: "/registry/rss",
-        destination: "/components/rss",
-      },
-    ]
+    return {
+      // beforeFiles so these run before prerendered pages are served;
+      // afterFiles rewrites never fire for SSG pages on Vercel, which
+      // silently breaks Accept-based markdown negotiation in production
+      beforeFiles: [
+        {
+          source: "/:section(blog|components)/:slug.md",
+          destination: "/doc.md/:slug",
+        },
+        {
+          source: "/:section(blog|components)/:slug",
+          destination: "/doc.md/:slug",
+          has: [
+            {
+              type: "header",
+              key: "accept",
+              value: "(?<accept>.*text/markdown.*)",
+            },
+          ],
+        },
+        {
+          source: "/index.md",
+          destination: "/llms.txt",
+        },
+        {
+          source: "/",
+          destination: "/llms.txt",
+          has: [
+            {
+              type: "header",
+              key: "accept",
+              value: "(?<accept>.*text/markdown.*)",
+            },
+          ],
+        },
+      ],
+      afterFiles: [
+        {
+          source: "/rss",
+          destination: "/blog/rss",
+        },
+        {
+          source: "/registry/rss",
+          destination: "/components/rss",
+        },
+      ],
+    }
   },
 }
 
