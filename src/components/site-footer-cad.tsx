@@ -167,6 +167,7 @@ export function SiteFooterCad() {
           <Link
             href="/"
             className="mr-auto text-muted-foreground transition-[color] hover:text-foreground"
+            aria-label="Home"
           >
             <ChanhDaiMark className="h-4" />
           </Link>
