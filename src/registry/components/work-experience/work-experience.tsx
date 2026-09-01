@@ -203,6 +203,7 @@ export function ExperiencePositionItem({
             </div>
           </div>
 
+          {/* Separators are aria-hidden: a dl may only expose dt/dd groups, and these dividers are decorative. */}
           <dl className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground">
             {position.employmentType && (
               <>
@@ -214,6 +215,7 @@ export function ExperiencePositionItem({
                 <Separator
                   className="data-vertical:h-4 data-vertical:self-center"
                   orientation="vertical"
+                  aria-hidden
                 />
               </>
             )}
@@ -244,6 +246,7 @@ export function ExperiencePositionItem({
                 <Separator
                   className="data-vertical:h-4 data-vertical:self-center"
                   orientation="vertical"
+                  aria-hidden
                 />
                 <div>
                   <dt className="sr-only">Duration</dt>
