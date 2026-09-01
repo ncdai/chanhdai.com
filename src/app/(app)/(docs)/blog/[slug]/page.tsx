@@ -178,7 +178,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
             <div className="flex items-center gap-2">
               <LLMCopyButtonWithViewOptions
-                markdownUrl={`/blog/${doc.slug}.mdx`}
+                markdownUrl={`/blog/${doc.slug}.md`}
               />
 
               <DocShareMenu

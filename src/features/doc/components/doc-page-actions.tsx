@@ -133,7 +133,8 @@ export function ViewOptions({
       },
       {
         title: "Open in GitHub",
-        href: `https://github.com/ncdai/chanhdai.com/blob/main/src/features/doc/content/${markdownUrl.replace(/^\//, "")}`,
+        // Source files remain .mdx even though the public URL uses .md
+        href: `https://github.com/ncdai/chanhdai.com/blob/main/src/features/doc/content/${markdownUrl.replace(/^\//, "").replace(/\.md$/, ".mdx")}`,
         icon: GitHubIcon,
       },
       {

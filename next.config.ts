@@ -156,18 +156,23 @@ const nextConfig: NextConfig = {
         destination: "/blocks/marketing/team-01",
         permanent: true,
       },
+      {
+        source: "/:section(blog|components)/:slug.mdx",
+        destination: "/:section/:slug.md",
+        permanent: true,
+      },
       ...legacyBlogComponentRedirects,
     ]
   },
   async rewrites() {
     return [
       {
-        source: "/:section(blog|components)/:slug.mdx",
-        destination: "/doc.mdx/:slug",
+        source: "/:section(blog|components)/:slug.md",
+        destination: "/doc.md/:slug",
       },
       {
         source: "/:section(blog|components)/:slug",
-        destination: "/doc.mdx/:slug",
+        destination: "/doc.md/:slug",
         has: [
           {
             type: "header",
