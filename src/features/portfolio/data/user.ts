@@ -35,7 +35,7 @@ export const USER: User = {
   ],
   about: `- I’m Chánh Đại (call me Dai) — a Design Engineer with 5+ years of experience, known for pixel-perfect execution and an obsessive attention to detail.
 - Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted projects.
-- Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2k stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (50k+ weekly downloads, ▲Vercel OSS Program), and [ZaDark](https://zadark.com) (80k+ downloads, 30k+ users) — peak metrics.
+- Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2.2k stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (50k+ weekly downloads, ▲ Vercel OSS Program), and [ZaDark](https://zadark.com) (80k+ downloads, 30k+ users) — peak metrics.
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
   avatarVariants: {
