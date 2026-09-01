@@ -194,7 +194,7 @@ export default async function Page({
 
           <div className="flex items-center gap-2">
             <LLMCopyButtonWithViewOptions
-              markdownUrl={`/components/${doc.slug}.mdx`}
+              markdownUrl={`/components/${doc.slug}.md`}
               isComponent
             />
 

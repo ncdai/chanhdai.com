@@ -16,11 +16,11 @@ const content = `# Components
 
 Install a component with the shadcn CLI: \`npx shadcn@latest add ${registryConfig.namespace}/<name>\`.
 
-Each link below returns the full documentation as Markdown. Drop the \`.mdx\` extension for the web page.
+Each link below returns the full documentation as Markdown. Drop the \`.md\` extension for the web page.
 
 ## All components (${allComponents.length})
 
-${allComponents.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/components/${item.slug}.mdx): ${item.metadata.description}`).join("\n")}
+${allComponents.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/components/${item.slug}.md): ${item.metadata.description}`).join("\n")}
 `
 
 export const revalidate = false
