@@ -67,7 +67,6 @@
     "@visx/scale": "4.0.1-alpha.0",
     "@visx/shape": "4.0.1-alpha.0",
     "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "cn": "^0.2.4",
     "d3-array": "^3.2.4",
@@ -100,7 +99,6 @@
     "schema-dts": "^1.1.5",
     "sharp": "^0.34.3",
     "sonner": "^2.0.7",
-    "tailwind-merge": "^3.6.0",
     "vcard-creator": "^0.7.2",
     "web-haptics": "^0.0.6",
     "zod": "^3.25.76"
