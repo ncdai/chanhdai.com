@@ -2,7 +2,7 @@ import Image from "next/image"
 import { CopyrightIcon, Stamp01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { format } from "date-fns"
-import { ArrowUpRightIcon, CircleCheckBigIcon, StampIcon } from "lucide-react"
+import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { IconTile } from "@/components/ui/icon-tile"
