@@ -214,7 +214,7 @@ This project is proudly supported by:
         </a>
       </td>
       <td>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com">
+        <a href="https://pro.reactbits.dev?atp=ncdai&utm_source=chanhdai.com">
           <picture>
             <source
               media="(prefers-color-scheme: dark)"
