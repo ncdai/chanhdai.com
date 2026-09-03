@@ -8,6 +8,9 @@ import { NavDesktop } from "@/components/nav-desktop"
 import { NavItemGitHub } from "@/components/nav-item-github"
 import { ThemeToggle } from "@/components/theme-toggle"
 import blocks from "@/registry/__blocks__.json"
+import { BOOKMARKS } from "@/features/bookmark/data"
+import { sortBookmarksNewestFirst } from "@/features/bookmark/lib/sort"
+import type { BookmarkPreview } from "@/features/bookmark/types"
 import { getAllDocs } from "@/features/doc/data/documents"
 import type { DocPreview } from "@/features/doc/types/document"
 
@@ -25,6 +28,13 @@ export function SiteHeader() {
     slug: doc.slug,
     title: doc.metadata.title,
     category: doc.metadata.category,
+  }))
+
+  const bookmarkPreviews: BookmarkPreview[] = sortBookmarksNewestFirst(
+    BOOKMARKS
+  ).map((bookmark) => ({
+    title: bookmark.title,
+    url: bookmark.url,
   }))
 
   return (
@@ -45,7 +55,12 @@ export function SiteHeader() {
             orientation="vertical"
             className="mr-2 max-sm:hidden data-vertical:h-5 data-vertical:self-center"
           />
-          <CommandMenu docs={docPreviews} blocks={blocks} enabledHotkeys />
+          <CommandMenu
+            docs={docPreviews}
+            blocks={blocks}
+            bookmarks={bookmarkPreviews}
+            enabledHotkeys
+          />
           <Separator
             orientation="vertical"
             className="mx-2 max-sm:hidden data-vertical:h-5 data-vertical:self-center"

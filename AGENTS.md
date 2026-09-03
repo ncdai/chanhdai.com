@@ -6,17 +6,17 @@ Next.js 16 (App Router) portfolio, blog, and shadcn registry website.
 
 ## Project structure
 
-| Directory                              | Purpose                                                    |
-| -------------------------------------- | ---------------------------------------------------------- |
-| `src/app/`                             | App Router pages, layouts, API routes                      |
-| `src/components/`                      | Shared UI components                                       |
-| `src/registry/`                        | Registry source (components, hooks, blocks, examples, lib) |
-| `src/features/`                        | Feature modules: `doc`, `blog`, `portfolio`, `sponsor`     |
-| `src/config/`                          | Site (`site.ts`), registry (`registry.ts`), JSON-LD config |
-| `src/scripts/`                         | Build scripts (registry, icons, capture) run with Bun      |
-| `src/hooks/`, `src/lib/`, `src/utils/` | Hooks, libraries, utilities                                |
+| Directory                              | Purpose                                                            |
+| -------------------------------------- | ------------------------------------------------------------------ |
+| `src/app/`                             | App Router pages, layouts, API routes                              |
+| `src/components/`                      | Shared UI components                                               |
+| `src/registry/`                        | Registry source (components, hooks, blocks, examples, lib)         |
+| `src/features/`                        | Feature modules: `doc`, `blog`, `portfolio`, `sponsor`, `bookmark` |
+| `src/config/`                          | Site (`site.ts`), registry (`registry.ts`), JSON-LD config         |
+| `src/scripts/`                         | Build scripts (registry, icons, capture) run with Bun              |
+| `src/hooks/`, `src/lib/`, `src/utils/` | Hooks, libraries, utilities                                        |
 
-**Key files**: `components.json` (shadcn config), `src/features/portfolio/data/` (portfolio data), `.env.example` (env vars)
+**Key files**: `components.json` (shadcn config), `src/features/portfolio/data/` (portfolio data), `src/features/{sponsor,bookmark}/data.tsx` (sponsor and bookmark data), `.env.example` (env vars)
 
 ## Component registry
 

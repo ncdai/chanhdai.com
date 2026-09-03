@@ -4,6 +4,9 @@ import { MOBILE_NAV } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Separator } from "@/components/base/ui/separator"
 import blocks from "@/registry/__blocks__.json"
+import { BOOKMARKS } from "@/features/bookmark/data"
+import { sortBookmarksNewestFirst } from "@/features/bookmark/lib/sort"
+import type { BookmarkPreview } from "@/features/bookmark/types"
 import { getAllDocs } from "@/features/doc/data/documents"
 import type { DocPreview } from "@/features/doc/types/document"
 
@@ -20,6 +23,13 @@ export function SiteBottomNav() {
     category: doc.metadata.category,
   }))
 
+  const bookmarkPreviews: BookmarkPreview[] = sortBookmarksNewestFirst(
+    BOOKMARKS
+  ).map((bookmark) => ({
+    title: bookmark.title,
+    url: bookmark.url,
+  }))
+
   return (
     <div
       className={cn(
@@ -27,7 +37,11 @@ export function SiteBottomNav() {
         "*:data-[slot=command-menu-trigger]:min-w-20 *:data-[slot=command-menu-trigger]:gap-2 *:data-[slot=command-menu-trigger]:rounded-none *:data-[slot=command-menu-trigger]:border-none *:data-[slot=command-menu-trigger]:bg-transparent *:data-[slot=command-menu-trigger]:px-0 *:data-[slot=command-menu-trigger]:hover:bg-transparent *:data-[slot=command-menu-trigger]:active:scale-none"
       )}
     >
-      <CommandMenu docs={docPreviews} blocks={blocks} />
+      <CommandMenu
+        docs={docPreviews}
+        blocks={blocks}
+        bookmarks={bookmarkPreviews}
+      />
       <Separator
         orientation="vertical"
         className="mr-1 ml-2.5 data-vertical:h-6 data-vertical:self-center"

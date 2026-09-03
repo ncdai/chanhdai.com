@@ -1,48 +1,47 @@
-import { addQueryParams } from "@/utils/url"
 import { format } from "date-fns"
-import { ArrowUpRightIcon } from "lucide-react"
+import { ArrowUpRightIcon, ComponentIcon } from "lucide-react"
 
-import { UTM_PARAMS } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { IconTile } from "@/components/ui/icon-tile"
 import { Separator } from "@/components/base/ui/separator"
 import { NewsIcon } from "@/components/icons"
-import {
-  BookmarkCategory,
-  type Bookmark,
-} from "@/features/portfolio/types/bookmarks"
+
+import type { BookmarkClickSurface } from "../lib/analytics"
+import { BookmarkCategory, type Bookmark } from "../types"
+import { BookmarkExternalLink } from "./bookmark-external-link"
 
 export function BookmarkItem({
   className,
   bookmark,
+  surface,
 }: {
   className?: string
   bookmark: Bookmark
+  surface: BookmarkClickSurface
 }) {
+  const hasWhy = Boolean(bookmark.why)
+
   return (
     <div
       className={cn(
-        "relative flex items-center pr-2 hover:bg-accent-muted",
+        "relative flex pr-2 hover:bg-accent-muted",
+        hasWhy ? "items-start" : "items-center",
         className
       )}
     >
-      <IconTile className="mx-4">
+      <IconTile className={cn("mx-4", hasWhy && "mt-3.75")}>
         {bookmark.icon ?? CATEGORY_ICONS[bookmark.category]}
       </IconTile>
 
       <div className="flex-1 space-y-1 border-l border-dashed border-line p-4 pr-2">
         <h3 className="leading-snug font-medium text-balance">
-          <a
-            href={addQueryParams(bookmark.url, UTM_PARAMS)}
-            target="_blank"
-            rel="noopener"
-          >
+          <BookmarkExternalLink url={bookmark.url} surface={surface}>
             <span className="absolute inset-0" aria-hidden />
             {bookmark.title}
-          </a>
+          </BookmarkExternalLink>
         </h3>
 
-        <dl className="flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
+        <dl className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
           {bookmark.author && (
             <>
               <div>
@@ -50,11 +49,7 @@ export function BookmarkItem({
                 <dd>{bookmark.author}</dd>
               </div>
 
-              <Separator
-                className="data-vertical:h-4 data-vertical:self-center"
-                orientation="vertical"
-                aria-hidden
-              />
+              <MetaSeparator />
             </>
           )}
 
@@ -63,11 +58,7 @@ export function BookmarkItem({
             <dd>{bookmark.category}</dd>
           </div>
 
-          <Separator
-            className="data-vertical:h-4 data-vertical:self-center"
-            orientation="vertical"
-            aria-hidden
-          />
+          <MetaSeparator />
 
           <div>
             <dt className="sr-only">Bookmarked on</dt>
@@ -78,14 +69,35 @@ export function BookmarkItem({
             </dd>
           </div>
         </dl>
+
+        {bookmark.why && (
+          <p className="mt-4 border-t border-dashed border-line pt-4 text-sm text-pretty text-foreground">
+            {bookmark.why}
+          </p>
+        )}
       </div>
 
-      <ArrowUpRightIcon className="size-4 text-muted-foreground" />
+      <ArrowUpRightIcon
+        className={cn(
+          "size-4 shrink-0 text-muted-foreground",
+          hasWhy && "mt-4.75"
+        )}
+      />
     </div>
   )
 }
 
-const CATEGORY_ICONS: Record<BookmarkCategory, React.ReactNode> = {
+function MetaSeparator() {
+  return (
+    <Separator
+      className="data-vertical:h-4 data-vertical:self-center"
+      orientation="vertical"
+      aria-hidden
+    />
+  )
+}
+
+export const CATEGORY_ICONS: Record<BookmarkCategory, React.ReactNode> = {
   [BookmarkCategory.ARTICLE]: <NewsIcon />,
   [BookmarkCategory.COURSE]: (
     <svg
@@ -131,6 +143,7 @@ const CATEGORY_ICONS: Record<BookmarkCategory, React.ReactNode> = {
       <path d="M13 2.5V3C13 5.82843 13 7.24264 13.8787 8.12132C14.7574 9 16.1716 9 19 9H19.5M20 10.6569V14C20 17.7712 20 19.6569 18.8284 20.8284C17.6569 22 15.7712 22 12 22C8.22876 22 6.34315 22 5.17157 20.8284C4 19.6569 4 17.7712 4 14V9.45584C4 6.21082 4 4.58831 4.88607 3.48933C5.06508 3.26731 5.26731 3.06508 5.48933 2.88607C6.58831 2 8.21082 2 11.4558 2C12.1614 2 12.5141 2 12.8372 2.11401C12.9044 2.13772 12.9702 2.165 13.0345 2.19575C13.3436 2.34355 13.593 2.593 14.0919 3.09188L18.8284 7.82843C19.4065 8.40649 19.6955 8.69552 19.8478 9.06306C20 9.4306 20 9.83935 20 10.6569Z" />
     </svg>
   ),
+  [BookmarkCategory.UI_LIBRARY]: <ComponentIcon strokeWidth={1.5} />,
   [BookmarkCategory.SOFTWARE]: (
     <svg
       viewBox="0 0 24 24"
