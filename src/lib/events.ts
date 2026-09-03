@@ -26,6 +26,7 @@ const eventSchema = z.object({
     "block_viewer_theme_change",
     "doc_sponsors_close",
     "doc_feedback",
+    "bookmark_click",
   ]),
   // declare type AllowedPropertyValues = string | number | boolean | null
   properties: z

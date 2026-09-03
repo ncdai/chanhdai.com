@@ -1,13 +1,14 @@
-import { compareDesc, format } from "date-fns"
+import { format } from "date-fns"
 
 import { SITE_INFO } from "@/config/site"
-import { BOOKMARKS } from "@/features/portfolio/data/bookmarks"
-import { BookmarkCategory } from "@/features/portfolio/types/bookmarks"
+import { BOOKMARKS } from "@/features/bookmark/data"
+import { sortBookmarksNewestFirst } from "@/features/bookmark/lib/sort"
+import { BookmarkCategory } from "@/features/bookmark/types"
 
 const categorySections = Object.values(BookmarkCategory)
   .map((category) => {
-    const items = BOOKMARKS.filter((item) => item.category === category).sort(
-      (a, b) => compareDesc(new Date(a.bookmarkedAt), new Date(b.bookmarkedAt))
+    const items = sortBookmarksNewestFirst(
+      BOOKMARKS.filter((item) => item.category === category)
     )
 
     return { category, items }
@@ -16,9 +17,9 @@ const categorySections = Object.values(BookmarkCategory)
 
 const content = `# Bookmarks
 
-> Articles, courses, books, references, and tools I keep coming back to.
+> Hand-picked articles, courses, books, references, and tools worth your time.
 
-${BOOKMARKS.length} bookmarks in total, grouped by category and newest first. They are also listed on ${SITE_INFO.url}/#bookmarks.
+${BOOKMARKS.length} bookmarks in total, grouped by category and newest first. They are also listed on ${SITE_INFO.url}/bookmarks, filterable by category.
 
 ${categorySections
   .map(
@@ -27,7 +28,7 @@ ${categorySections
 ${items
   .map(
     (item) =>
-      `- [${item.title}](${item.url})${item.author ? ` by ${item.author}` : ""} (${format(new Date(item.bookmarkedAt), "yyyy-MM-dd")})`
+      `- [${item.title}](${item.url})${item.author ? ` by ${item.author}` : ""} (${format(new Date(item.bookmarkedAt), "yyyy-MM-dd")})${item.why ? `\n  ${item.why}` : ""}`
   )
   .join("\n")}`
   )

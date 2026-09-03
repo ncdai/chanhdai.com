@@ -150,7 +150,7 @@ export const SPONSORS: Sponsor[] = [
   },
   {
     name: "shadcncraft",
-    url: "https://shadcncraft.com?atp=ncdai",
+    url: "https://shadcncraft.com",
     logo: function (props: React.ComponentProps<"svg">) {
       return (
         <svg viewBox="0 0 320 96" fill="currentColor" {...props}>
@@ -165,7 +165,7 @@ export const SPONSORS: Sponsor[] = [
   },
   {
     name: "Shadcnblocks",
-    url: "https://www.shadcnblocks.com?via=ncdai",
+    url: "https://www.shadcnblocks.com",
     logo: function (props: React.ComponentProps<"svg">) {
       return (
         <svg viewBox="0 0 320 96" fill="currentColor" {...props}>
@@ -178,7 +178,7 @@ export const SPONSORS: Sponsor[] = [
   },
   {
     name: "React Bits",
-    url: "https://pro.reactbits.dev?atp=ncdai",
+    url: "https://reactbits.dev",
     logo: function (props: React.ComponentProps<"svg">) {
       return (
         <svg viewBox="0 0 320 96" {...props}>

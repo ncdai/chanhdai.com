@@ -1,6 +1,10 @@
-import { compareDesc } from "date-fns"
+import Link from "next/link"
+import { ArrowRightIcon } from "lucide-react"
 
-import { CollapsibleList } from "@/components/collapsible-list"
+import { Button } from "@/components/base/ui/button"
+import { BookmarkItem } from "@/features/bookmark/components/bookmark-item"
+import { BOOKMARKS } from "@/features/bookmark/data"
+import { sortBookmarksNewestFirst } from "@/features/bookmark/lib/sort"
 import {
   Panel,
   PanelHeader,
@@ -8,13 +12,12 @@ import {
   PanelTitleSup,
 } from "@/features/portfolio/components/panel"
 import { PanelTitleCopy } from "@/features/portfolio/components/panel-title-copy"
-import { BOOKMARKS } from "@/features/portfolio/data/bookmarks"
 
-import { BookmarkItem } from "./bookmark-item"
+const SORTED_BOOKMARKS = sortBookmarksNewestFirst(BOOKMARKS)
 
-const SORTED_BOOKMARKS = [...BOOKMARKS].sort((a, b) => {
-  return compareDesc(new Date(a.bookmarkedAt), new Date(b.bookmarkedAt))
-})
+const MAX_ITEMS = 6
+
+const HOME_BOOKMARKS = SORTED_BOOKMARKS.slice(0, MAX_ITEMS)
 
 const ID = "bookmarks"
 
@@ -24,16 +27,31 @@ export function Bookmarks() {
       <PanelHeader>
         <PanelTitle>
           <a href={`#${ID}`}>Bookmarks</a>
-          <PanelTitleSup>({SORTED_BOOKMARKS.length})</PanelTitleSup>
+          <PanelTitleSup>({BOOKMARKS.length})</PanelTitleSup>
           <PanelTitleCopy id={ID} />
         </PanelTitle>
       </PanelHeader>
 
-      <CollapsibleList
-        items={SORTED_BOOKMARKS}
-        max={6}
-        renderItem={(item) => <BookmarkItem bookmark={item} />}
-      />
+      <ul>
+        {HOME_BOOKMARKS.map((item) => (
+          <li key={item.url} className="border-b border-line">
+            <BookmarkItem bookmark={item} surface="home" />
+          </li>
+        ))}
+      </ul>
+
+      <div className="screen-line-top -mt-px flex items-center justify-center py-4">
+        <Button
+          className="gap-2 pr-2.5 pl-3 shadow-[inset_0_0_1px] shadow-foreground/20"
+          variant="secondary"
+          size="sm"
+          nativeButton={false}
+          render={<Link href="/bookmarks" />}
+        >
+          All bookmarks
+          <ArrowRightIcon />
+        </Button>
+      </div>
     </Panel>
   )
 }

@@ -42,6 +42,9 @@ import {
   CommandList,
   CommandShortcut,
 } from "@/components/ui/command"
+import { trackBookmarkClick } from "@/features/bookmark/lib/analytics"
+import { getBookmarkExternalHref } from "@/features/bookmark/lib/bookmark-link"
+import type { BookmarkPreview } from "@/features/bookmark/types"
 import { ComponentIcon } from "@/features/doc/components/component-icon"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_ICONS } from "@/features/portfolio/components/social-link-icons"
@@ -59,7 +62,13 @@ import {
 import { Button } from "./ui/button"
 import { Kbd, KbdGroup } from "./ui/kbd"
 
-type CommandKind = "command" | "page" | "link" | "component" | "block"
+type CommandKind =
+  | "command"
+  | "page"
+  | "link"
+  | "component"
+  | "block"
+  | "bookmark"
 
 type CommandLinkItem = {
   title: string
@@ -220,10 +229,12 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
 export function CommandMenu({
   docs,
   blocks,
+  bookmarks,
   enabledHotkeys = false,
 }: {
   docs: DocPreview[]
   blocks: BlockItem[]
+  bookmarks: BookmarkPreview[]
   enabledHotkeys?: boolean
 }) {
   const router = useRouter()
@@ -390,7 +401,7 @@ export function CommandMenu({
   const blogLinks = useMemo(
     () =>
       docs
-        .filter((doc) => doc.category !== "components")
+        .filter((doc) => doc.category === "blog")
         .map<CommandLinkItem>((doc) => ({
           title: doc.title,
           href: `/blog/${doc.slug}`,
@@ -399,6 +410,39 @@ export function CommandMenu({
         })),
     [docs]
   )
+
+  const bookmarksGroup = useMemo(() => {
+    if (!bookmarks || bookmarks.length === 0) {
+      return null
+    }
+
+    return (
+      <CommandGroup heading="Bookmarks">
+        {bookmarks.map((bookmark) => {
+          return (
+            <CommandMenuItem
+              key={bookmark.url}
+              keywords={["bookmark"]}
+              onHighlight={() => {
+                setSelectedCommandKind("bookmark")
+              }}
+              onSelect={() => {
+                trackBookmarkClick({
+                  url: bookmark.url,
+                  surface: "palette",
+                })
+
+                handleOpenLink(getBookmarkExternalHref(bookmark.url), true)
+              }}
+            >
+              <BookmarkIcon />
+              <p className="line-clamp-1">{bookmark.title}</p>
+            </CommandMenuItem>
+          )
+        })}
+      </CommandGroup>
+    )
+  }, [bookmarks, handleOpenLink])
 
   const handleLinkHighlight = useCallback((link: CommandLinkItem) => {
     setSelectedCommandKind(link.kind)
@@ -454,6 +498,8 @@ export function CommandMenu({
               onLinkHighlight={handleLinkHighlight}
               onLinkSelect={handleOpenLink}
             />
+
+            {bookmarksGroup}
 
             <CommandLinkGroup
               heading="Social Links"
@@ -687,6 +733,7 @@ const ENTER_ACTION_LABELS: Record<CommandKind, string> = {
   link: "Open link",
   component: "Go to component",
   block: "Go to block",
+  bookmark: "Open bookmark",
 }
 
 function CommandMenuFooter({
