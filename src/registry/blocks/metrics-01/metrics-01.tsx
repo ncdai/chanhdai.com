@@ -34,7 +34,7 @@ export function Metrics01() {
               <dl className="grid grid-cols-2 md:grid-cols-4">
                 <Metric>
                   <MetricLabel>
-                    Unique visitors
+                    Visitors
                     <MetricChange value={data.changes.uniqueVisitors} />
                   </MetricLabel>
                   <MetricValue>
@@ -64,7 +64,7 @@ export function Metrics01() {
 
                 <Metric>
                   <MetricLabel>
-                    Session duration
+                    Duration
                     <MetricChange value={data.changes.avgSessionDuration} />
                   </MetricLabel>
                   <MetricValue>
