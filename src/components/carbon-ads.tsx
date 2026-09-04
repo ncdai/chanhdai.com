@@ -57,7 +57,7 @@ export function CarbonAds({
       ref={containerRef}
       data-slot="carbon-ads"
       data-format={format}
-      className={cn("min-h-40 data-[format=cover]:min-h-70", className)}
+      className={cn("min-h-39 data-[format=cover]:min-h-70", className)}
     />
   )
 }
