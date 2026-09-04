@@ -112,8 +112,6 @@ export const viewport: Viewport = {
   themeColor: META_THEME_COLORS.light,
 }
 
-const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
-
 export default function RootLayout({
   children,
 }: {
@@ -154,14 +152,6 @@ export default function RootLayout({
           }}
         />
         <JsonLdScript data={getWebSiteJsonLd()} />
-        {ADSENSE_CLIENT && (
-          <Script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        )}
       </head>
 
       {process.env.NEXT_PUBLIC_GTM_ID && (
