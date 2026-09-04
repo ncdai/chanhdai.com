@@ -47,7 +47,7 @@ export async function Insights() {
         <dl className="grid grid-cols-2 md:grid-cols-4">
           <Metric>
             <MetricLabel>
-              Unique visitors
+              Visitors
               <MetricChange value={data.changes.unique_visitors} />
             </MetricLabel>
             <MetricValue>
@@ -77,7 +77,7 @@ export async function Insights() {
 
           <Metric>
             <MetricLabel>
-              Session duration
+              Duration
               <MetricChange value={data.changes.avg_session_duration} />
             </MetricLabel>
             <MetricValue>
