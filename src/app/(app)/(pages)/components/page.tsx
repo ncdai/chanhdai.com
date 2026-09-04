@@ -9,7 +9,6 @@ import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS, X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl, cn } from "@/lib/utils"
-import AdUnit from "@/components/ad-unit"
 import { Button } from "@/components/base/ui/button"
 import {
   Tooltip,
@@ -238,8 +237,6 @@ export default function Page() {
         </div>
 
         <div className="screen-line-bottom h-px" />
-
-        <AdUnit slot="3900447059" />
 
         <div className="h-4" />
       </div>
