@@ -541,6 +541,10 @@
     @apply scroll-mt-18;
   }
 
+  #carbon-responsive {
+    @apply gap-2!;
+  }
+
   #carbon-responsive .carbon-poweredby {
     @apply text-muted-foreground/80! opacity-100!;
   }
