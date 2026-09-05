@@ -264,8 +264,8 @@ function ComponentList({
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {showAds && CARBON_ADS && (
-          <li className="screen-line-bottom bg-background dot-grid p-2 after:z-0 empty:hidden max-md:col-span-full md:col-start-3 md:row-span-6 md:row-start-1">
-            <CarbonAds className="flex justify-center" />
+          <li className="screen-line-bottom flex justify-center bg-background dot-grid p-2 after:z-0 empty:hidden max-md:col-span-full md:col-start-3 md:row-span-5 md:row-start-1">
+            <CarbonAds />
           </li>
         )}
 
