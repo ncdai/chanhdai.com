@@ -83,7 +83,7 @@ export default function BlocksPage() {
         ])}
       />
 
-      <BlockList blocks={blocks} />
+      <BlockList blocks={blocks} showAds />
     </>
   )
 }

@@ -33,11 +33,13 @@ export function CarbonAds({
     const container = containerRef.current
     if (!CARBON_ADS || !container) return
 
-    // carbon.js inserts the ad right after its script tag, so the tag must
-    // live in this container. Route changes only need a refresh.
+    // carbon.js inserts the ad after its script tag, so the tag lives here.
+    // A loading script runs its own init, so refresh only after it loaded.
     const script = document.getElementById(SCRIPT_ID)
     if (script) {
-      if (container.contains(script)) window._carbonads?.refresh()
+      if (container.contains(script) && script.dataset.loaded) {
+        window._carbonads?.refresh()
+      }
       return
     }
 
@@ -46,6 +48,9 @@ export function CarbonAds({
     el.async = true
     el.type = "text/javascript"
     el.src = `//cdn.carbonads.com/carbon.js?serve=${CARBON_ADS.serve}&placement=${CARBON_ADS.placement}&format=${format}`
+    el.onload = () => {
+      el.dataset.loaded = "true"
+    }
     el.onerror = () => setBlocked(true)
     container.appendChild(el)
   }, [pathname, format])

@@ -123,7 +123,7 @@ export default async function BlocksPage({
         ])}
       />
 
-      <BlockList blocks={blocks} />
+      <BlockList blocks={blocks} showAds />
     </>
   )
 }
