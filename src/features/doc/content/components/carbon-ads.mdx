@@ -1,0 +1,103 @@
+---
+title: Carbon Ads
+description: Display a Carbon Ads unit in Next.js apps, styled to match your shadcn/ui theme.
+image: https://assets.chanhdai.com/images/blog/carbon-ads.webp
+ads: false
+new: true
+createdAt: 2026-09-05
+updatedAt: 2026-09-05
+---
+
+<ComponentPreview name="carbon-ads-demo" />
+
+## Features
+
+- Refreshes the ad on client-side navigation.
+- Matches your shadcn/ui theme in light and dark mode.
+- Keeps the slot height while loading and hides it when an ad blocker stops the script.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/carbon-ads
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add the ad theme styles to your global CSS</Step>
+
+```css title="globals.css"
+#carbonads #carbon-responsive {
+  --carbon-padding: calc(var(--spacing) * 3);
+  --carbon-bg-primary: color-mix(in oklab, var(--muted) 50%, var(--background));
+  --carbon-bg-secondary: var(--border);
+  --carbon-text-color: var(--foreground);
+  @apply gap-2 font-sans;
+}
+
+#carbonads #carbon-responsive .carbon-poweredby {
+  @apply text-xs text-muted-foreground/80 opacity-100;
+}
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="carbon-ads" title="components/carbon-ads.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CarbonAds } from "@/components/carbon-ads"
+```
+
+```tsx
+<CarbonAds serve="XXXXXXXX" placement="yoursitecom" />
+```
+
+Take `serve` and `placement` from your ad tag in the Carbon dashboard (Zones > Get Ad Tags). Carbon serves one ad per page, so render a single `CarbonAds` per route.
+
+## API reference
+
+### CarbonAds
+
+<AutoTypeTable
+  path="src/registry/components/carbon-ads/carbon-ads.tsx"
+  name="CarbonAdsProps"
+/>
+
+## References
+
+- [Carbon Ads](https://www.carbonads.net)
+- [usePathname](https://nextjs.org/docs/app/api-reference/functions/use-pathname)

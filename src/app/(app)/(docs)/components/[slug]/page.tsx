@@ -286,7 +286,9 @@ export default async function Page({
         <Prose className="px-(--page-padding) pt-8 [--page-padding:--spacing(4)]">
           <p className="text-muted-foreground">{doc.metadata.description}</p>
 
-          <CarbonAds className="not-prose my-[1.25em] flex justify-center" />
+          {doc.metadata.ads !== false && (
+            <CarbonAds className="not-prose my-[1.25em] flex justify-center" />
+          )}
 
           <TOCInline className="lg:hidden" items={toc} />
 

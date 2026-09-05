@@ -272,7 +272,9 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
                 {doc.metadata.description}
               </p>
 
-              <CarbonAds className="not-prose my-[1.25em] flex justify-center" />
+              {doc.metadata.ads !== false && (
+                <CarbonAds className="not-prose my-[1.25em] flex justify-center" />
+              )}
 
               <TOCInline className="lg:hidden" items={toc} />
 

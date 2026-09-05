@@ -253,6 +253,14 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
       />
     </svg>
   ),
+  "carbon-ads": (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path
+        fill="currentColor"
+        d="M8.39 16.14c0 2.71 1 3.59 4.03 3.59 1.1 0 2.91-.15 4.33-.41l.25 2.15c-1.33.33-3.28.53-4.67.53C7.81 22 6 19.96 6 16.29V7.7C6 4.04 7.8 2 12.33 2c1.4 0 3.34.2 4.67.52l-.25 2.16c-1.42-.26-3.22-.4-4.33-.4-3.03 0-4.03.87-4.03 3.58z"
+      />
+    </svg>
+  ),
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {
