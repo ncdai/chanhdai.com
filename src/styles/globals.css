@@ -180,6 +180,11 @@
   @apply bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px];
 }
 
+@utility dot-grid {
+  @apply [--pattern-foreground:var(--color-zinc-950)]/5 dark:[--pattern-foreground:var(--color-white)]/5;
+  @apply bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[8px_8px];
+}
+
 @utility stripe-divider {
   @apply relative h-8;
   &:before {

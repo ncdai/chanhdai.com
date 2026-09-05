@@ -4,17 +4,19 @@ import { addQueryParams } from "@/utils/url"
 import { Grip, LayoutDashboard } from "lucide-react"
 import type { CollectionPage, WithContext } from "schema-dts"
 
+import { CARBON_ADS } from "@/config/ads"
 import { JSON_LD_ID } from "@/config/json-ld"
 import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS, X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
-import { absoluteUrl, cn } from "@/lib/utils"
+import { absoluteUrl } from "@/lib/utils"
 import { Button } from "@/components/base/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { CarbonAds } from "@/components/carbon-ads"
 import { TrustedRegistryIcon } from "@/components/icons"
 import {
   PageHeading,
@@ -98,7 +100,7 @@ export default function Page() {
       })
     )
 
-  const newComponents = allComponents.filter((c) => c.metadata.new)
+  // const newComponents = allComponents.filter((c) => c.metadata.new)
 
   const trustedRegistryUrl = addQueryParams(
     "https://ui.shadcn.com/docs/directory",
@@ -150,15 +152,15 @@ export default function Page() {
 
         <div className="relative">
           <HandwrittenNote
-            className="top-1 left-full ml-1 hidden w-36 flex-col items-start lg:flex"
+            className="top-2 right-full mr-2 hidden w-36 flex-col items-end lg:flex"
             aria-hidden
           >
-            <span className="-rotate-3">free, copy &amp; paste</span>
-            <HandwrittenArrow className="mt-2 -rotate-3" />
+            <span className="-rotate-6">free, copy &amp; paste</span>
+            <HandwrittenArrow className="-scale-x-100 -rotate-6" />
           </HandwrittenNote>
         </div>
 
-        {newComponents.length > 0 && (
+        {/* {newComponents.length > 0 && (
           <>
             <div className="flex h-10 items-center pl-4">
               <h2 className="text-sm font-medium text-muted-foreground">
@@ -174,7 +176,7 @@ export default function Page() {
               <div className="stripe-divider" />
             </div>
           </>
-        )}
+        )} */}
 
         <div className="flex items-center gap-1.5 p-1.5 pl-4">
           <h2 className="flex-1 text-sm font-medium text-muted-foreground">
@@ -222,7 +224,7 @@ export default function Page() {
 
         <div className="screen-line-bottom h-px" />
 
-        <ComponentList items={allComponents} />
+        <ComponentList items={allComponents} showAds />
 
         <div className="screen-line-top flex justify-center p-4 before:-top-px">
           <a
@@ -247,9 +249,11 @@ export default function Page() {
 function ComponentList({
   items,
   showNew = true,
+  showAds = false,
 }: {
   items: Doc[]
   showNew?: boolean
+  showAds?: boolean
 }) {
   return (
     <div className="relative overflow-x-clip">
@@ -259,15 +263,14 @@ function ComponentList({
       </div>
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        {showAds && CARBON_ADS && (
+          <li className="screen-line-bottom bg-background dot-grid p-2 after:z-0 empty:hidden max-md:col-span-full md:col-start-3 md:row-span-6 md:row-start-1">
+            <CarbonAds className="flex justify-center" />
+          </li>
+        )}
+
         {items.map((c) => (
-          <li
-            key={c.slug}
-            className={cn(
-              "max-sm:screen-line-bottom",
-              "sm:max-md:nth-[2n+1]:screen-line-bottom",
-              "md:nth-[3n+1]:screen-line-bottom"
-            )}
-          >
+          <li key={c.slug} className="screen-line-bottom">
             <ComponentItem href={`/components/${c.slug}` as Route}>
               <ComponentItemIcon>
                 <ComponentIcon slug={c.slug} />
