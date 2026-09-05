@@ -100,8 +100,6 @@ export default function Page() {
       })
     )
 
-  // const newComponents = allComponents.filter((c) => c.metadata.new)
-
   const trustedRegistryUrl = addQueryParams(
     "https://ui.shadcn.com/docs/directory",
     {
@@ -160,26 +158,8 @@ export default function Page() {
           </HandwrittenNote>
         </div>
 
-        {/* {newComponents.length > 0 && (
-          <>
-            <div className="flex h-10 items-center pl-4">
-              <h2 className="text-sm font-medium text-muted-foreground">
-                New components
-              </h2>
-            </div>
-
-            <div className="screen-line-bottom h-px" />
-
-            <ComponentList items={newComponents} showNew={false} />
-
-            <div className="screen-line-top screen-line-bottom screen-line-top-border pb-px before:-top-px">
-              <div className="stripe-divider" />
-            </div>
-          </>
-        )} */}
-
         <div className="flex items-center gap-1.5 p-1.5 pl-4">
-          <h2 className="flex-1 text-sm font-medium text-muted-foreground">
+          <h2 className="flex-1 text-sm/none font-medium tracking-wider text-muted-foreground">
             {allComponents.length} components
           </h2>
 
