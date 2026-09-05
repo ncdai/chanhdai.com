@@ -28,6 +28,7 @@ export default function ComponentDocsLayout({
               items={componentDocs.map((doc) => ({
                 title: doc.metadata.title,
                 href: `/components/${doc.slug}` as Route,
+                isNew: doc.metadata.new,
               }))}
             />
           </Sidebar>
