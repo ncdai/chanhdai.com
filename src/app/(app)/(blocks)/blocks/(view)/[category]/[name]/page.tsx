@@ -18,6 +18,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { CarbonAds } from "@/components/carbon-ads"
 import { BlockDisplay } from "@/app/(preview)/components/block-display"
 import { DocKeyboardShortcuts } from "@/features/doc/components/doc-keyboard-shortcuts"
 import { DocShareMenu } from "@/features/doc/components/doc-share-menu"
@@ -162,9 +163,11 @@ export default async function BlockViewPage({
         next={next ? (`/blocks/${next}` as Route) : null}
       />
 
+      <CarbonAds className="mb-2 flex justify-center" />
+
       <div className="screen-line-bottom flex h-px" />
 
-      <div className="flex items-center justify-between p-2 pl-4">
+      <div className="flex items-center gap-4 p-2 pl-4 max-sm:justify-between">
         <Button
           className="h-7 gap-2 border-none px-0 text-muted-foreground hover:text-foreground"
           variant="link"
@@ -179,8 +182,6 @@ export default async function BlockViewPage({
         />
 
         <div className="flex items-center gap-2">
-          <DocShareMenu title={name} url={`/blocks/${category}/${name}`} />
-
           {previous && (
             <Tooltip>
               <TooltipTrigger
@@ -239,6 +240,8 @@ export default async function BlockViewPage({
               </TooltipContent>
             </Tooltip>
           )}
+
+          <DocShareMenu title={name} url={`/blocks/${category}/${name}`} />
         </div>
       </div>
 
