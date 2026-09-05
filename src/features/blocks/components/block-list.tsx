@@ -40,8 +40,13 @@ export function BlockList({
         {blocks.slice(0, AD_POSITION).map(renderBlock)}
 
         {showAd && (
-          <li className={cn(itemClassName, "dot-grid empty:hidden")}>
-            <CarbonAds className="flex justify-center p-2" />
+          <li
+            className={cn(
+              itemClassName,
+              "flex items-center justify-center dot-grid p-2 empty:hidden"
+            )}
+          >
+            <CarbonAds />
           </li>
         )}
 
