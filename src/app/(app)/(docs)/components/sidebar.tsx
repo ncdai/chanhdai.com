@@ -110,6 +110,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
 type MenuItem<T extends string = string> = {
   title: string
   href: T
+  isNew?: boolean
 }
 
 export function SidebarContent({ items }: { items: MenuItem<Route>[] }) {
@@ -147,6 +148,7 @@ export function SidebarContent({ items }: { items: MenuItem<Route>[] }) {
           ref={item.href === pathname ? itemActiveRef : undefined}
           title={item.title}
           href={item.href}
+          isNew={item.isNew}
           isActive={item.href === pathname}
           isLast={index === items.length - 1}
         />
@@ -167,6 +169,7 @@ const SidebarMenuItem = memo(function SidebarMenuItem({
   ref,
   title,
   href,
+  isNew = false,
   isActive = false,
   isLast = false,
 }: MenuItem<Route> & {
@@ -192,6 +195,11 @@ const SidebarMenuItem = memo(function SidebarMenuItem({
         />
         <span className="text-sm whitespace-nowrap text-muted-foreground transition-[color] ease-out group-hover:text-foreground group-aria-[current=page]:text-foreground">
           {title}
+          {isNew && (
+            <span className="ml-1.5 inline-block size-1.5 -translate-y-px rounded-full bg-info">
+              <span className="sr-only"> (New)</span>
+            </span>
+          )}
         </span>
       </MotionLink>
 
