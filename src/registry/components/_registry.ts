@@ -856,4 +856,33 @@ export const components: Registry["items"] = [
     categories: ["controls"],
     docs: "https://chanhdai.com/components/status-button",
   },
+  {
+    name: "carbon-ads",
+    type: "registry:component",
+    title: "Carbon Ads",
+    description:
+      "Display a Carbon Ads unit in Next.js apps, styled to match your shadcn/ui theme.",
+    files: [
+      {
+        path: "components/carbon-ads/carbon-ads.tsx",
+        type: "registry:component",
+        target: "@components/carbon-ads.tsx",
+      },
+    ],
+    css: {
+      "#carbonads #carbon-responsive": {
+        "--carbon-padding": "calc(var(--spacing) * 3)",
+        "--carbon-bg-primary":
+          "color-mix(in oklab, var(--muted) 50%, var(--background))",
+        "--carbon-bg-secondary": "var(--border)",
+        "--carbon-text-color": "var(--foreground)",
+        "@apply gap-2 font-sans": {},
+      },
+      "#carbonads #carbon-responsive .carbon-poweredby": {
+        "@apply text-xs text-muted-foreground/80 opacity-100": {},
+      },
+    },
+    categories: ["utilities"],
+    docs: "https://chanhdai.com/components/carbon-ads",
+  },
 ]

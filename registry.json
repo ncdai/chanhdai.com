@@ -1079,6 +1079,36 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "carbon-ads",
+      "title": "Carbon Ads",
+      "description": "Display a Carbon Ads unit in Next.js apps, styled to match your shadcn/ui theme.",
+      "files": [
+        {
+          "path": "src/registry/components/carbon-ads/carbon-ads.tsx",
+          "type": "registry:component",
+          "target": "@components/carbon-ads.tsx"
+        }
+      ],
+      "css": {
+        "#carbonads #carbon-responsive": {
+          "--carbon-padding": "calc(var(--spacing) * 3)",
+          "--carbon-bg-primary": "color-mix(in oklab, var(--muted) 50%, var(--background))",
+          "--carbon-bg-secondary": "var(--border)",
+          "--carbon-text-color": "var(--foreground)",
+          "@apply gap-2 font-sans": {}
+        },
+        "#carbonads #carbon-responsive .carbon-poweredby": {
+          "@apply text-xs text-muted-foreground/80 opacity-100": {}
+        }
+      },
+      "docs": "https://chanhdai.com/components/carbon-ads",
+      "categories": [
+        "utilities"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

@@ -728,6 +728,23 @@ export const Index: Record<string, any> = {
     categories: ["controls"],
     meta: undefined,
   },
+  "carbon-ads": {
+    name: "carbon-ads",
+    description: "Display a Carbon Ads unit in Next.js apps, styled to match your shadcn/ui theme.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/carbon-ads/carbon-ads.tsx",
+      type: "registry:component",
+      target: "@components/carbon-ads.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/carbon-ads/carbon-ads.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "carbon-ads"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["utilities"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -1947,6 +1964,23 @@ export const Index: Record<string, any> = {
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/status-button-form-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "status-button-form-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "carbon-ads-demo": {
+    name: "carbon-ads-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/carbon-ads-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/carbon-ads-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "carbon-ads-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,

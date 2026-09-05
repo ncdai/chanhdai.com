@@ -653,4 +653,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "carbon-ads-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("carbon-ads")],
+    files: [
+      {
+        path: "examples/carbon-ads-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]
