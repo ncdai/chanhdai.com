@@ -4,14 +4,14 @@ import { unstable_cache } from "next/cache"
 
 type ISODateString = string
 
-type InsightsSummary = {
+export type InsightsSummary = {
   unique_visitors: number
   total_sessions: number
   total_screen_views: number
   avg_session_duration: number
 }
 
-type InsightsSeriesItem = {
+export type InsightsSeriesItem = {
   date: ISODateString
   unique_visitors: number
   total_sessions: number
@@ -38,9 +38,12 @@ const METRIC_KEYS = [
  * `null` when the previous cycle is unavailable or was zero, since growth from
  * zero has no meaningful percentage.
  */
-type InsightsChanges = Record<(typeof METRIC_KEYS)[number], number | null>
+export type InsightsChanges = Record<
+  (typeof METRIC_KEYS)[number],
+  number | null
+>
 
-type InsightsResponse = OverviewResponse & {
+export type InsightsResponse = OverviewResponse & {
   previous: (DateRange & { summary: InsightsSummary }) | null
   changes: InsightsChanges
 }
