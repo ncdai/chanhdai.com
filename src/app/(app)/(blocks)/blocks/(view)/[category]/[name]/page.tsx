@@ -248,10 +248,6 @@ export default async function BlockViewPage({
       <div className="screen-line-top h-px" />
 
       <BlockDisplay name={name} />
-
-      <div className="screen-line-top h-px" />
-
-      <div className="stripe-divider" />
     </>
   )
 }
