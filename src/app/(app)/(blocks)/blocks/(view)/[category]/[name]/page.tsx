@@ -163,7 +163,7 @@ export default async function BlockViewPage({
         next={next ? (`/blocks/${next}` as Route) : null}
       />
 
-      <CarbonAds className="mb-2 flex justify-center" />
+      <CarbonAds className="mx-2 mb-2 flex justify-center" />
 
       <div className="screen-line-bottom flex h-px" />
 
