@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { copyText } from "@/utils/copy"
 import { useTiks } from "@rexa-developer/tiks/react"
-import { Download, SquareDashed, Type } from "lucide-react"
+import { ArrowUpRight, Download, SquareDashed, Type } from "lucide-react"
 import { toast } from "sonner"
 
 import {
@@ -25,6 +25,17 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
       <ContextMenuTrigger>{children}</ContextMenuTrigger>
 
       <ContextMenuContent className="w-fit">
+        <ContextMenuItem
+          render={
+            <a href="/" target="_blank">
+              <ArrowUpRight />
+              Open Link in New Tab
+            </a>
+          }
+        />
+
+        <ContextMenuSeparator />
+
         <ContextMenuItem
           onClick={() => {
             copyText(getMarkSVG())

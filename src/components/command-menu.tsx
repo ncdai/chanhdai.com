@@ -124,6 +124,20 @@ const MENU_LINKS: CommandLinkItem[] = [
     shortcut: "GS",
   },
   {
+    title: "Bookmarks",
+    href: "/bookmarks",
+    kind: "page",
+    icon: <BookmarkIcon />,
+    shortcut: "GM",
+  },
+  {
+    title: "Insights",
+    href: "/insights",
+    kind: "page",
+    icon: <LineChartIcon />,
+    shortcut: "GI",
+  },
+  {
     title: "Testimonials",
     href: "/testimonials",
     kind: "page",
@@ -180,18 +194,6 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     href: "/#ip",
     kind: "page",
     icon: <ScaleIcon />,
-  },
-  {
-    title: "Bookmarks",
-    href: "/#bookmarks",
-    kind: "page",
-    icon: <BookmarkIcon />,
-  },
-  {
-    title: "Insights",
-    href: "/#insights",
-    kind: "page",
-    icon: <LineChartIcon />,
   },
 ]
 
