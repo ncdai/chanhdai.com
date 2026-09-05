@@ -21,6 +21,8 @@ export function KeyboardShortcuts() {
   useHotkeys("g>b", () => navigate("/blocks", "g>b"))
   useHotkeys("g>l", () => navigate("/blog", "g>l"))
   useHotkeys("g>s", () => navigate("/sponsors", "g>s"))
+  useHotkeys("g>m", () => navigate("/bookmarks", "g>m"))
+  useHotkeys("g>i", () => navigate("/insights", "g>i"))
   useHotkeys("g>t", () => navigate("/testimonials", "g>t"))
 
   return null
