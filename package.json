@@ -68,7 +68,7 @@
     "@visx/shape": "4.0.1-alpha.0",
     "class-variance-authority": "^0.7.1",
     "cmdk": "^1.1.1",
-    "cn": "^0.2.4",
+    "cn": "^0.2.6",
     "d3-array": "^3.2.4",
     "date-fns": "^4.1.0",
     "dialkit": "^1.1.0",
