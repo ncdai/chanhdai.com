@@ -20,6 +20,7 @@ import {
   ScissorsIcon,
   SeparatorHorizontalIcon,
   ShareIcon,
+  SquareCenterlineDashedVertical,
   SquareDashed,
   Star,
   SunDimIcon,
@@ -261,6 +262,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
       />
     </svg>
   ),
+  "logos-flip": <SquareCenterlineDashedVertical />,
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {
