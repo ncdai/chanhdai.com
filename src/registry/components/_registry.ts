@@ -739,6 +739,23 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/logos-carousel",
   },
   {
+    name: "logos-flip",
+    type: "registry:component",
+    title: "Logos Flip",
+    description:
+      "Flip cards in a staggered wave to reveal the next batch of logos.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/logos-flip/logos-flip.tsx",
+        type: "registry:component",
+        target: "@components/logos-flip.tsx",
+      },
+    ],
+    categories: ["marketing"],
+    docs: "https://chanhdai.com/components/logos-flip",
+  },
+  {
     name: "testimonial-2",
     type: "registry:component",
     title: "Testimonial 2",

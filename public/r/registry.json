@@ -935,6 +935,27 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "logos-flip",
+      "title": "Logos Flip",
+      "description": "Flip cards in a staggered wave to reveal the next batch of logos.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/logos-flip/logos-flip.tsx",
+          "type": "registry:component",
+          "target": "@components/logos-flip.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/logos-flip",
+      "categories": [
+        "marketing"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "testimonial-2",
       "title": "Testimonial 2",
       "description": "Display a testimonial quote with author attribution and source link.",

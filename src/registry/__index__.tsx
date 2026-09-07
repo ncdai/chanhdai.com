@@ -626,6 +626,23 @@ export const Index: Record<string, any> = {
     categories: ["marketing"],
     meta: undefined,
   },
+  "logos-flip": {
+    name: "logos-flip",
+    description: "Flip cards in a staggered wave to reveal the next batch of logos.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/logos-flip/logos-flip.tsx",
+      type: "registry:component",
+      target: "@components/logos-flip.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/logos-flip/logos-flip.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "logos-flip"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["marketing"],
+    meta: undefined,
+  },
   "testimonial-2": {
     name: "testimonial-2",
     description: "Display a testimonial quote with author attribution and source link.",
@@ -1849,6 +1866,23 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: {"previewClassName":"min-h-svh place-items-center-safe content-center-safe"},
+  },
+  "logos-flip-demo": {
+    name: "logos-flip-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/logos-flip-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/logos-flip-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "logos-flip-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"container mx-auto min-h-svh place-items-center-safe content-center-safe"},
   },
   "testimonial-2-demo": {
     name: "testimonial-2-demo",

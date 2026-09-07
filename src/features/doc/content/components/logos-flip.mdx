@@ -1,0 +1,101 @@
+---
+title: Logos Flip
+description: Flip cards in a staggered wave to reveal the next batch of logos.
+image: https://assets.chanhdai.com/images/blog/logos-flip.webp
+new: true
+createdAt: 2026-09-07
+updatedAt: 2026-09-07
+---
+
+<ComponentPreview name="logos-flip-demo" />
+
+## Features
+
+- Cycles through every logo over time.
+- Pauses while the page is hidden or the grid is off screen.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/logos-flip
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="logos-flip" title="components/logos-flip.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogosFlip } from "@/components/logos-flip"
+```
+
+```tsx
+<LogosFlip>
+  <Logo />
+  <Logo />
+  <Logo />
+  <Logo />
+  <Logo />
+</LogosFlip>
+```
+
+Set `--column-count` to wrap the cards onto fewer columns:
+
+```tsx
+<LogosFlip className="[--column-count:2] sm:[--column-count:4]">...</LogosFlip>
+```
+
+## Accessibility
+
+### Reduced motion
+
+With `prefers-reduced-motion`, the cards swap in place instead of flipping.
+
+### Auto-updating content
+
+The flip runs on its own, so WCAG 2.2.2 Pause, Stop, Hide applies. Either add a pause control, or mark it `aria-hidden` and list the same logos statically elsewhere on the page.
+
+## API reference
+
+### LogosFlip
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="LogosFlipProps" />
+
+## Credits
+
+- [Cursor](https://cursor.com/#logo-garden)
