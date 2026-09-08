@@ -83,43 +83,43 @@ const MENU_LINKS: CommandLinkItem[] = [
     href: "/",
     kind: "page",
     icon: <ChanhDaiMark />,
-    shortcut: "GH",
+    // shortcut: "GH",
   },
-  {
-    title: "Components",
-    href: "/components",
-    kind: "page",
-    icon: <ReactIcon />,
-    shortcut: "GC",
-  },
-  {
-    title: "Blocks",
-    href: "/blocks",
-    kind: "page",
-    icon: <GridViewIcon />,
-    shortcut: "GB",
-  },
-  {
-    title: "Blog",
-    href: "/blog",
-    kind: "page",
-    icon: <NewsIcon />,
-    shortcut: "GL",
-  },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
-    kind: "page",
-    icon: <FavouriteIcon />,
-    shortcut: "GS",
-  },
-  {
-    title: "Testimonials",
-    href: "/testimonials",
-    kind: "page",
-    icon: <QuoteIcon strokeWidth={1.5} />,
-    shortcut: "GT",
-  },
+  // {
+  //   title: "Components",
+  //   href: "/components",
+  //   kind: "page",
+  //   icon: <ReactIcon />,
+  //   shortcut: "GC",
+  // },
+  // {
+  //   title: "Blocks",
+  //   href: "/blocks",
+  //   kind: "page",
+  //   icon: <GridViewIcon />,
+  //   shortcut: "GB",
+  // },
+  // {
+  //   title: "Blog",
+  //   href: "/blog",
+  //   kind: "page",
+  //   icon: <NewsIcon />,
+  //   shortcut: "GL",
+  // },
+  // {
+  //   title: "Sponsors",
+  //   href: "/sponsors",
+  //   kind: "page",
+  //   icon: <FavouriteIcon />,
+  //   shortcut: "GS",
+  // },
+  // {
+  //   title: "Testimonials",
+  //   href: "/testimonials",
+  //   kind: "page",
+  //   icon: <QuoteIcon strokeWidth={1.5} />,
+  //   shortcut: "GT",
+  // },
 ]
 
 const PORTFOLIO_LINKS: CommandLinkItem[] = [
@@ -130,28 +130,28 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: <TextInitialIcon />,
   },
   {
-    title: "Stack",
-    href: "/#stack",
-    kind: "page",
-    icon: <LayersIcon />,
-  },
-  {
     title: "Experience",
     href: "/#experience",
     kind: "page",
     icon: <BriefcaseBusinessIcon />,
   },
   {
-    title: "Education",
-    href: "/#education",
-    kind: "page",
-    icon: <GraduationCapIcon />,
-  },
-  {
     title: "Projects",
     href: "/#projects",
     kind: "page",
     icon: <BoxIcon />,
+  },
+  {
+    title: "Stack",
+    href: "/#stack",
+    kind: "page",
+    icon: <LayersIcon />,
+  },
+  {
+    title: "Education",
+    href: "/#education",
+    kind: "page",
+    icon: <GraduationCapIcon />,
   },
   {
     title: "Awards",
@@ -165,18 +165,18 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <CircleCheckBigIcon />,
   },
-  {
-    title: "Bookmarks",
-    href: "/#bookmarks",
-    kind: "page",
-    icon: <BookmarkIcon />,
-  },
-  {
-    title: "Insights",
-    href: "/#insights",
-    kind: "page",
-    icon: <LineChartIcon />,
-  },
+  // {
+  //   title: "Bookmarks",
+  //   href: "/#bookmarks",
+  //   kind: "page",
+  //   icon: <BookmarkIcon />,
+  // },
+  // {
+  //   title: "Insights",
+  //   href: "/#insights",
+  //   kind: "page",
+  //   icon: <LineChartIcon />,
+  // },
 ]
 
 const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({
@@ -436,7 +436,7 @@ export function CommandMenu({
               onLinkSelect={handleOpenLink}
             />
 
-            {componentsGroup}
+            {/* {componentsGroup}
 
             {blocksGroup}
 
@@ -446,7 +446,7 @@ export function CommandMenu({
               fallbackIcon={<NewsIcon />}
               onLinkHighlight={handleLinkHighlight}
               onLinkSelect={handleOpenLink}
-            />
+            /> */}
 
             <CommandLinkGroup
               heading="Social Links"
@@ -455,7 +455,7 @@ export function CommandMenu({
               onLinkSelect={handleOpenLink}
             />
 
-            <CommandGroup heading="Brand Assets">
+            {/* <CommandGroup heading="Brand Assets">
               <CommandMenuItem
                 onHighlight={handleCommandHighlight}
                 onSelect={() => {
@@ -495,7 +495,7 @@ export function CommandMenu({
                   Download Brand Assets
                 </a>
               </CommandMenuItem>
-            </CommandGroup>
+            </CommandGroup> */}
 
             <CommandGroup heading="Theme">
               <CommandMenuItem
@@ -524,12 +524,12 @@ export function CommandMenu({
               </CommandMenuItem>
             </CommandGroup>
 
-            <CommandLinkGroup
+            {/* <CommandLinkGroup
               heading="Other"
               links={OTHER_LINK_ITEMS}
               onLinkHighlight={handleLinkHighlight}
               onLinkSelect={handleOpenLink}
-            />
+            /> */}
           </CommandList>
         </div>
 

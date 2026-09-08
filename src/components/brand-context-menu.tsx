@@ -49,14 +49,14 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
 
         <ContextMenuSeparator />
 
-        <ContextMenuItem
+        {/* <ContextMenuItem
           render={
             <Link href="/blog/chanhdai-brand">
               <SquareDashed />
               Brand Guidelines
             </Link>
           }
-        />
+        /> */}
 
         <ContextMenuItem
           render={

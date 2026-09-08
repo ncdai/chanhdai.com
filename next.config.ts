@@ -82,6 +82,36 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/components/:path*",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/blocks/:path*",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/blog/:path*",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/sponsors/:path*",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/testimonials/:path*",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/timeline/:path*",
+        destination: "/",
+        permanent: false,
+      },
+      {
         source: "/:section(blog|components)/writing-effect-inspired-by-apple",
         destination: "/:section/apple-hello-effect",
         permanent: true,

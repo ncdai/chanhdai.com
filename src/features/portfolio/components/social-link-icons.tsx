@@ -17,7 +17,7 @@ export const SOCIAL_ICONS: Record<SocialName, React.JSX.Element> = {
   x: <XIcon />,
   github: <GitHubIcon />,
   linkedin: <LinkedInIcon />,
-  dailydotdev: <DailyDotDevIcon />,
-  discord: <DiscordIcon />,
+  // dailydotdev: <DailyDotDevIcon />,
+  // discord: <DiscordIcon />,
   youtube: <YouTubeIcon />,
 }

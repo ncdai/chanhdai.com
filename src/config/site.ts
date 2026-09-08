@@ -6,7 +6,7 @@ import { USER } from "@/features/portfolio/data/user"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://chanhdai.com",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://deepanshuyadav.netlify.app",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -57,5 +57,5 @@ export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
 export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai"
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "deepanshuyadav.netlify.app",
 }

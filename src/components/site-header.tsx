@@ -11,6 +11,9 @@ import blocks from "@/registry/__blocks__.json"
 import { getAllDocs } from "@/features/doc/data/documents"
 import type { DocPreview } from "@/features/doc/types/document"
 
+import { GitHubIcon } from "./icons"
+import { Button } from "./ui/button"
+
 const BrandContextMenu = dynamic(
   () => import("@/components/brand-context-menu")
 )
@@ -38,19 +41,19 @@ export function SiteHeader() {
 
         <div className="flex-1" />
 
-        <NavDesktop items={MAIN_NAV} />
+        {/* <NavDesktop items={MAIN_NAV} /> */}
 
         <div className="flex items-center max-sm:*:data-[slot=command-menu-trigger]:hidden">
-          <Separator
+          {/* <Separator
             orientation="vertical"
             className="mr-2 max-sm:hidden data-vertical:h-5 data-vertical:self-center"
-          />
+          /> */}
           <CommandMenu docs={docPreviews} blocks={blocks} enabledHotkeys />
-          <Separator
+          {/* <Separator
             orientation="vertical"
             className="mx-2 max-sm:hidden data-vertical:h-5 data-vertical:self-center"
           />
-          <NavItemGitHub />
+          <NavItemGitHub /> */}
           <Separator
             orientation="vertical"
             className="mx-2 data-vertical:h-5 data-vertical:self-center"

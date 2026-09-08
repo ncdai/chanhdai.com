@@ -1,13 +1,19 @@
-import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
+import { SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
-import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  XIcon,
+  YouTubeIcon,
+} from "@/components/icons"
+// import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 
 export function SiteFooter() {
   const xLink = SOCIAL.x
   const githubLink = SOCIAL.github
   const linkedinLink = SOCIAL.linkedin
+  const youtubeLink = SOCIAL.youtube
 
   return (
     <footer className="max-w-screen overflow-x-clip px-2">
@@ -34,19 +40,18 @@ export function SiteFooter() {
           <Item>
             <dt>Inspired by</dt>
             <dd>
-              <ul>
-                <li>Tailwind CSS</li>
-                <li>shadcn/ui</li>
-                <li>Vercel</li>
-                <li>Evil Charts</li>
-                <li>Devouring Details</li>
-                <li>Skiper UI</li>
-                <li>Making Software</li>
-              </ul>
+              <a
+                className="link-underline"
+                href="https://github.com/ncdai/"
+                target="_blank"
+                rel="noopener"
+              >
+                ncdai
+              </a>
             </dd>
           </Item>
 
-          <Item>
+          {/* <Item>
             <dt>Deployed on</dt>
             <dd>Vercel</dd>
           </Item>
@@ -58,7 +63,7 @@ export function SiteFooter() {
                 <li>
                   <a
                     className="link-underline"
-                    href="https://openpanel.dev?utm_source=chanhdai.com&utm_medium=referral&utm_campaign=footer"
+                    href="https://openpanel.dev"
                     target="_blank"
                     rel="noopener"
                   >
@@ -68,7 +73,7 @@ export function SiteFooter() {
                 <li>Google Analytics</li>
               </ul>
             </dd>
-          </Item>
+          </Item> */}
 
           <Item>
             <dt>Source code</dt>
@@ -84,7 +89,7 @@ export function SiteFooter() {
             </dd>
           </Item>
 
-          <Item>
+          {/* <Item>
             <dt>License</dt>
             <dd>
               <a
@@ -96,23 +101,11 @@ export function SiteFooter() {
                 {LICENSE.name}
               </a>
             </dd>
-          </Item>
+          </Item> */}
         </dl>
 
         <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href={xLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="X Profile"
-            >
-              <XIcon className="size-4" />
-            </a>
-
-            <Separator />
-
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
               href={githubLink.href}
@@ -138,6 +131,30 @@ export function SiteFooter() {
             <Separator />
 
             <a
+              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+              href={xLink.href}
+              target="_blank"
+              rel="noopener"
+              aria-label="X Profile"
+            >
+              <XIcon className="size-4" />
+            </a>
+
+            <Separator />
+
+            <a
+              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+              href={youtubeLink.href}
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube Channel"
+            >
+              <YouTubeIcon className="size-4" />
+            </a>
+
+            {/* <Separator />
+
+            <a
               className="flex text-muted-foreground transition-[color] hover:text-foreground"
               href={
                 process.env.NEXT_PUBLIC_DMCA_URL ||
@@ -148,7 +165,7 @@ export function SiteFooter() {
               aria-label="DMCA.com Protection Status"
             >
               <DmcaIcon className="h-4.5 w-auto" />
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -158,7 +175,7 @@ export function SiteFooter() {
         </div> */}
       </div>
 
-      <SiteFooterInteractiveLogotype />
+      {/* <SiteFooterInteractiveLogotype /> */}
 
       <div className="h-(--fade-bottom-height)" />
       <div className="pb-[env(safe-area-inset-bottom,0)]" />

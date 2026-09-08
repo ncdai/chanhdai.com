@@ -22,33 +22,8 @@ export default function GlowCardGridDemo() {
 
 const CARDS = [
   {
-    name: "shadcn",
-    handle: "@shadcn",
-    avatar: "https://unavatar.io/x/shadcn",
-  },
-  {
-    name: "OrcDev",
-    handle: "@orcdev",
-    avatar: "https://unavatar.io/x/orcdev",
-  },
-  {
-    name: "David Haz",
-    handle: "@davidhdev",
-    avatar: "https://unavatar.io/x/davidhdev",
-  },
-  {
-    name: "Shu",
-    handle: "@shuding",
-    avatar: "https://unavatar.io/x/shuding",
-  },
-  {
-    name: "Emil Kowalski",
-    handle: "@emilkowalski",
-    avatar: "https://unavatar.io/x/emilkowalski",
-  },
-  {
-    name: "Chánh Đại",
-    handle: "@iamncdai",
-    avatar: "https://unavatar.io/x/iamncdai",
+    name: "Deepanshu Yadav",
+    handle: "@deepanshuyadav22",
+    avatar: "https://unavatar.io/github/deepanshuyadav22",
   },
 ]

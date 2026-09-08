@@ -2,239 +2,126 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
-    id: "react-wheel-picker",
-    title: "React Wheel Picker",
+    id: "merodarshan",
+    title: "Mero Darshan",
     period: {
-      start: "05.2025",
+      start: "08.2026",
     },
-    link: "https://react-wheel-picker.chanhdai.com",
+    link: "https://merodarshan.com/",
     skills: [
-      "Open Source",
-      "React",
-      "TypeScript",
-      "Monorepo",
-      "Turborepo",
-      "pnpm-workspace",
-      "Package Publishing",
-      "NPM Registry",
-      "GitHub Actions",
+      "Cloudflare",
+      "Go",
+      "MongoDB",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScirpt",
     ],
-    description: `iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. / Backed by [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker)
-- Natural touch scrolling with smooth inertia, mouse drag and scroll for desktop
-- Infinite loop scrolling
-- Unstyled core for complete style customization
-- Full keyboard navigation and type-ahead search
-`,
-    logo: "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
+    description: `- Mero Darshan is being built.`,
     isExpanded: true,
   },
   {
-    id: "chanhdaidotcom",
-    title: "chanhdai.com",
+    id: "interio-work",
+    title: "Interio Work",
     period: {
-      start: "01.2025",
+      start: "12.2025",
+      end: "03.2026",
     },
-    link: "https://github.com/ncdai/chanhdai.com",
+    link: "https://www.interio.work/",
     skills: [
-      "Open Source",
-      "Next.js 16",
-      "Tailwind CSS v4",
-      "Radix UI",
-      "Base UI",
-      "Motion",
-      "shadcn/ui",
-      "shadcn registry",
-      "Vercel",
-    ],
-    description: "A pixel-perfect dev portfolio and shadcn registry.",
-    logo: "https://assets.chanhdai.com/images/project-logos/chanhdaidotcom.svg",
-  },
-  {
-    id: "quaricdotcom",
-    title: "quaric.com",
-    period: {
-      start: "03.2024",
-    },
-    link: "https://quaric.com",
-    skills: [
-      "Company Project",
-      "Next.js 15",
-      "Tailwind CSS v3",
-      "shadcn/ui",
-      "Strapi 5",
-      "VNPAY-QR",
-      "Docker",
-      "Docker Compose",
-      "NGINX",
-    ],
-    logo: "https://assets.chanhdai.com/images/project-logos/quaricdotcom.svg",
-  },
-  {
-    id: "zadark",
-    title: "ZaDark",
-    period: {
-      start: "01.2022",
-    },
-    link: "https://zadark.com",
-    skills: [
-      "Pet Project",
-      "Open Source",
-      "Browser Extension",
-      "CLI",
-      "Docusaurus 3",
-    ],
-    description: `ZaDark adds Dark Mode, anti-peeking, customizable fonts, backgrounds, and more to Zalo Web and PC.
-- Earned 10M+ VND in net sales from a paid Safari Extension*
-- 80k+ downloads on SourceForge* (awarded Community Leader badge by SourceForge)
-- 30k+ active users via Chrome Web Store*
-- Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
-
-<p class="text-muted-foreground">* Peak metrics.</p>
-`,
-    logo: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
-  },
-  {
-    id: "qabox",
-    title: "QABox",
-    period: {
-      start: "07.2023",
-      end: "07.2023",
-    },
-    link: "https://github.com/ncdai/qabox",
-    skills: [
-      "University Project",
-      "PHP",
-      "MySQL",
-      "MVC",
-      "Docker",
-      "Docker Compose",
-    ],
-    description:
-      "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/qabox",
-  },
-  {
-    id: "taskbox",
-    title: "TaskBox",
-    period: {
-      start: "07.2023",
-      end: "07.2023",
-    },
-    link: "https://github.com/ncdai/taskbox",
-    skills: [
-      "University Project",
-      "PHP",
-      "MySQL",
-      "MVC",
-      "Docker",
-      "Docker Compose",
-    ],
-    description:
-      "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/taskbox",
-  },
-  {
-    id: "daichat-app",
-    title: "DaiChat App",
-    period: {
-      start: "07.2020",
-      end: "07.2020",
-    },
-    link: "https://www.youtube.com/watch?v=H5U3J_W1low",
-    skills: ["University Project", "Java", "Java Swing", "Java Networking"],
-    description: `- Course: Java Application Programming — FIT@HCMUS
-- Requirement: Developed a real-time chat application using Java technologies
-- Project Score: 10/10
-- Source Code:
-  - Server: https://github.com/ncdai/ltudjava-summer2020-chatapp_server
-  - Client: https://github.com/ncdai/ltudjava-summer2020-chatapp_client`,
-  },
-  {
-    id: "qlsv-app",
-    title: "QLSV App",
-    period: {
-      start: "06.2020",
-      end: "06.2020",
-    },
-    link: "https://www.youtube.com/watch?v=tG9SZEBrwog",
-    skills: ["University Project", "Java", "Java Swing", "Hibernate", "MySQL"],
-    description: `- Course: Java Application Programming — FIT@HCMUS
-- Requirement: Built a student management system with role-based functionalities using Java technologies
-- Project Score: 10/10
-- Source Code: https://github.com/ncdai/ltudjava-summer2020-hibernate`,
-  },
-  {
-    id: "penphy",
-    title: "Penphy",
-    period: {
-      start: "01.2019",
-      end: "08.2019",
-    },
-    link: "https://www.youtube.com/watch?v=EdU7rUO-UA4",
-    skills: ["Startup Project", "JavaScript", "React Native"],
-    description: "2nd Prize — Business Startup Competition 2019",
-  },
-  {
-    id: "unlimitedstudy",
-    title: "UnlimitedStudy",
-    period: {
-      start: "01.2017",
-      end: "08.2018",
-    },
-    link: "https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm",
-    skills: [
-      "National Competition",
-      "Creative Software",
-      "PHP",
-      "Laravel 4",
-      "MySQL",
-      "jQuery",
-      "Bootstrap 3",
-    ],
-    description: `UnlimitedStudy is a website that provides teaching and learning support tools for teachers and students.
-- 3rd Prize — National Science and Engineering Fair 2018 (ViSEF)
-- 1st Prize — Can Tho City Science and Engineering Fair 2018
-- 3rd Prize — National Young Informatics Contest 2018
-- 2nd Prize — Can Tho City Youth and Children’s Creativity Contest 2018
-- 3rd Prize — Can Tho City Young Informatics Contest 2018
-- Reached 7k+ users, mainly high school students in Can Tho City
-- Pilot implemented in high schools across Can Tho City with English quizzes, supervised by English subject specialists from the Can Tho City Department of Education and Training`,
-  },
-  {
-    id: "dmessage",
-    title: "DMessage",
-    period: {
-      start: "05.2017",
-      end: "05.2017",
-    },
-    link: "https://github.com/ncdai/DMessage",
-    skills: [
-      "Self-learning Project",
-      "Pet Project",
-      "Express.js",
-      "Socket.io",
+      "Cloudflare R2",
       "MongoDB",
-      "Mongoose ODM",
+      "NestJS",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScirpt",
     ],
-    description:
-      "A Messenger clone built to practice real-time communication using Socket.IO. This project showcases my self-learning journey in implementing WebSockets for instant messaging.",
+    description: `- Developed and deployed a full-stack platform for showcasing interior design work with enquiry functionality.
+- Built REST APIs and backend services using NestJS with structured DTO validation and modular architecture.
+- Implemented image storage and delivery using Cloudflare R2 for optimized performance and scalability.
+- Deployed frontend on Vercel and backend on Railway with CI/CD integration via GitHub.
+- Ensured code quality using SonarQube and implemented production grade linting and validation.`,
+    isExpanded: false,
   },
   {
-    id: "study-english",
-    title: "Study English",
+    id: "saathi",
+    title: "Saathi - An AI Companion",
     period: {
-      start: "11.2016",
-      end: "12.2017",
+      start: "06.2022",
+      end: "04.2023",
     },
-    link: "https://www.youtube.com/watch?v=OYgugvjqU4A",
+    link: "https://saysaathi.vercel.app/",
     skills: [
-      "National Competition",
-      "Creative Software",
-      "PHP",
-      "Laravel 4",
-      "MySQL",
+      "Artificial Intelligence",
+      "CNN",
+      "Convolutional Neural Network",
+      "Machine Learning",
+      "MERN Stack",
+      "Natural Language Processing",
+      "Python",
+      "RASA",
+      "Team Work",
     ],
-    description: `Study English is a free, mobile-friendly website for high school English learning, offering vocabulary, quizzes, listening practice, and more.
-- Consolation Prize — National Youth and Children’s Creativity Contest 2016
-- 1st Prize — Can Tho City Youth and Children’s Creativity Contest 2016
-- Consolation Prize — Can Tho City Young Informatics Contest 2016`,
+    description: `- Saathi is a generative chat-bot developed to support individuals with psychiatric disorders through gentle and empathetic conversations; it has achieved 4th place at IIT Bombay Research Conclave (ResCon), a national-level competition.
+- Scraped, cleaned and preprocessed over 100,000+ Reddit posts from mental health forums focused on depression, anxiety and bipolar disorder to develop robust classification models.
+- The chat-bot has language generation and understanding capabilities through the implementation of the RASA framework.
+- It can detect emotions of anger, disgust, fear, joy, neutral, sadness, shame and surprise using a Machine Learning pipeline built using CountVectorizer and Logistic Regression and signs of depression, anxiety and bipolar disorder using Convolutional Neural Network (CNN).
+- Published [research thesis](https://ssgmjournal.in/index.php/ssgm/article/view/79) at INSCIRD 2023, organized by the IEEE Students' Branch, Shri Sant Gajanan Maharaj College of Engineering, Shegaon (June 2023).`,
+    isExpanded: true,
+  },
+  {
+    id: "dsolve",
+    title: "DSolve - Where Your Questions find Answers",
+    period: {
+      start: "07.2022",
+      end: "07.2022",
+    },
+    link: "https://dsolve.vercel.app/",
+    skills: ["MERN Stack", "MUI", "Web Hosting"],
+    description: `- Built a full-stack discussion platform with authentication, like/dislike and comment system.
+- Implemented question lifecycle management including marking answers as helpful or resolved.
+- Independently designed and developed both frontend and backend.`,
+    isExpanded: false,
+  },
+  {
+    id: "alumni-community",
+    title: "Alumni Community",
+    period: {
+      start: "02.2022",
+      end: "04.2022",
+    },
+    link: "https://alumni-community.netlify.app/",
+    skills: ["MERN Stack", "Team Work"],
+    description: `- It is a platform for university to connect with their alumni.
+- Integrated with a forum for ease of discussion and post, comment, vote feature similar to Reddit.
+- Comes with a search feature to fetch user's details from their LinkedIn profile.`,
+    isExpanded: false,
+  },
+  {
+    id: "music-player",
+    title: "Music Player",
+    period: {
+      start: "06.2021",
+      end: "06.2021",
+    },
+    link: "https://deepanshuyadav22.github.io/music-player/",
+    skills: ["HTML5", "CSS3", "JavaScript"],
+    description: `- It is developed using HTML5, CSS3 and JavaScript.
+- It is responsive in design and hence it can run on any device using a web-browser.
+- It has four modes as shuffle, play & stop, repeat current song and play all songs in sequence with eminent backgrounds.`,
+    isExpanded: false,
+  },
+  {
+    id: "text-to-speech",
+    title: "Text to Speech",
+    period: {
+      start: "04.2021",
+      end: "04.2021",
+    },
+    link: "https://github.com/deepanshuyadav22/text-to-speech-online",
+    skills: ["Python", "Tkinter"],
+    description: `- The software can speech from a letter to a whole paragraph along with support for text files also.
+- Integrated with translations into 107 languages.
+- User will be able to save the speech as an audio file (in MP3 format).`,
+    isExpanded: false,
   },
 ]
