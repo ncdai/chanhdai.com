@@ -85,6 +85,43 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "swipe-actions-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("swipe-actions")],
+    files: [
+      {
+        path: "examples/swipe-actions-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName:
+        "mx-auto min-h-svh w-full max-w-3xl place-items-center-safe content-center-safe px-4",
+    },
+  },
+  {
+    name: "swipe-actions-full-swipe-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("swipe-actions")],
+    files: [
+      {
+        path: "examples/swipe-actions-full-swipe-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "swipe-actions-minimal-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("swipe-actions")],
+    files: [
+      {
+        path: "examples/swipe-actions-minimal-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "wheel-picker-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("wheel-picker")],

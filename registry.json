@@ -186,6 +186,28 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "swipe-actions",
+      "title": "Swipe Actions",
+      "description": "Swipe a row in a list to reveal actions on the left or right.",
+      "dependencies": [
+        "@ncdai/react-swipe-actions",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/swipe-actions/swipe-actions.tsx",
+          "type": "registry:component",
+          "target": "@components/swipe-actions.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/swipe-actions",
+      "categories": [
+        "controls"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "wheel-picker",
       "title": "Wheel Picker",
       "description": "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",

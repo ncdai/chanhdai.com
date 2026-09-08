@@ -1,0 +1,131 @@
+---
+title: Swipe Actions
+description: Swipe a row in a list to reveal actions on the left or right.
+image: https://assets.chanhdai.com/images/blog/swipe-actions.webp
+new: true
+createdAt: 2026-09-08
+updatedAt: 2026-09-08
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:items-start"
+  name="swipe-actions-demo"
+  openInV0Url="https://chanhdai.com/r/swipe-actions.json"
+/>
+
+## Features
+
+Built on top of [React Swipe Actions](https://react-primitives.chanhdai.com/swipe-actions).
+
+- Drag with pointer or touch, or open a focused row with the arrow keys.
+- Snaps open on distance or a flick. A full swipe runs the action outright.
+- Only one row open at a time, dismissed by `Escape` or an outside click.
+- Keeps closed strips `inert` and respects `prefers-reduced-motion`.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/swipe-actions
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install @ncdai/react-swipe-actions motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="swipe-actions" title="components/swipe-actions.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  SwipeAction,
+  SwipeActions,
+  SwipeContent,
+  SwipeItem,
+  SwipeRoot,
+} from "@/components/swipe-actions"
+```
+
+```tsx
+<SwipeRoot>
+  <SwipeItem>
+    <SwipeActions side="right">
+      <SwipeAction />
+      <SwipeAction fullSwipe />
+    </SwipeActions>
+
+    <SwipeContent />
+  </SwipeItem>
+</SwipeRoot>
+```
+
+## Composition
+
+Use the following composition to build a `SwipeItem`
+
+```text
+SwipeRoot
+└── SwipeItem
+    ├── SwipeActions
+    │   └── SwipeAction
+    └── SwipeContent
+```
+
+## Examples
+
+### Minimal
+
+The smallest setup that works: one action on one side.
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:items-start"
+  name="swipe-actions-minimal-demo"
+  openInV0Url="https://chanhdai.com/r/swipe-actions.json"
+/>
+
+### Choosing the full swipe action
+
+`fullSwipe` can sit on any action in the strip. Put it on the safe one so a
+destructive action still needs a deliberate tap.
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:items-start"
+  name="swipe-actions-full-swipe-demo"
+  openInV0Url="https://chanhdai.com/r/swipe-actions.json"
+/>
+
+## References
+
+- [Swipe Actions API reference](https://react-primitives.chanhdai.com/swipe-actions#api-reference)

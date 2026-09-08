@@ -101,6 +101,23 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/apple-hello-effect",
   },
   {
+    name: "swipe-actions",
+    type: "registry:component",
+    title: "Swipe Actions",
+    description:
+      "Swipe a row in a list to reveal actions on the left or right.",
+    dependencies: ["@ncdai/react-swipe-actions", "motion"],
+    files: [
+      {
+        path: "components/swipe-actions/swipe-actions.tsx",
+        type: "registry:component",
+        target: "@components/swipe-actions.tsx",
+      },
+    ],
+    categories: ["controls"],
+    docs: "https://chanhdai.com/components/swipe-actions",
+  },
+  {
     name: "wheel-picker",
     type: "registry:component",
     title: "Wheel Picker",
