@@ -168,6 +168,23 @@ export const Index: Record<string, any> = {
     categories: ["text-effects"],
     meta: undefined,
   },
+  "swipe-actions": {
+    name: "swipe-actions",
+    description: "Swipe a row in a list to reveal actions on the left or right.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/swipe-actions/swipe-actions.tsx",
+      type: "registry:component",
+      target: "@components/swipe-actions.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/swipe-actions/swipe-actions.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "swipe-actions"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["controls"],
+    meta: undefined,
+  },
   "wheel-picker": {
     name: "wheel-picker",
     description: "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
@@ -1148,6 +1165,57 @@ export const Index: Record<string, any> = {
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/theme-switcher-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "theme-switcher-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "swipe-actions-demo": {
+    name: "swipe-actions-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/swipe-actions-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/swipe-actions-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "swipe-actions-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"mx-auto min-h-svh w-full max-w-3xl place-items-center-safe content-center-safe px-4"},
+  },
+  "swipe-actions-full-swipe-demo": {
+    name: "swipe-actions-full-swipe-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/swipe-actions-full-swipe-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/swipe-actions-full-swipe-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "swipe-actions-full-swipe-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "swipe-actions-minimal-demo": {
+    name: "swipe-actions-minimal-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/swipe-actions-minimal-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/swipe-actions-minimal-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "swipe-actions-minimal-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,
