@@ -34,8 +34,8 @@ importers:
         specifier: ^1.1.6
         version: 1.1.6(react@19.2.8)
       '@ncdai/react-swipe-actions':
-        specifier: ^0.2.0
-        version: 0.2.0(motion@12.39.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
+        specifier: ^0.3.0
+        version: 0.3.0(motion@12.39.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@ncdai/react-wheel-picker':
         specifier: ^1.2.0
         version: 1.2.0(react@19.2.8)
@@ -1106,8 +1106,8 @@ packages:
       '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.4
       '@emnapi/runtime': ^1.7.1 || ^2.0.0-alpha.4
 
-  '@ncdai/react-swipe-actions@0.2.0':
-    resolution: {integrity: sha512-zMO0o/TxQcViihi8quboXDT6cVPD6q1HuhJc0j+G3xn7wsHu9z8MrzOKvjr4EyRT7LVMATgFKje40uF8E5BtDw==}
+  '@ncdai/react-swipe-actions@0.3.0':
+    resolution: {integrity: sha512-8RqCX/JFYY3Ue1SNjgxT9HztUXN9lCw4VLww0fjbNWvaf48667tIOYKfBih8CZNTpyYo+ty4w0IsX1/RuGRyig==}
     peerDependencies:
       motion: '>=12'
       react: ^18.0.0 || ^19.0.0
@@ -8218,7 +8218,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@ncdai/react-swipe-actions@0.2.0(motion@12.39.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@ncdai/react-swipe-actions@0.3.0(motion@12.39.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)':
     dependencies:
       motion: 12.39.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
