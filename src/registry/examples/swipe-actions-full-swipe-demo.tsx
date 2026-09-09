@@ -29,22 +29,21 @@ export default function SwipeActionsFullSwipeDemo() {
       <SwipeRoot render={<ul role="list" className="divide-y" />}>
         {items.map((item) => (
           <SwipeItem key={item.id} render={<li />}>
-            <SwipeActions side="right">
+            <SwipeActions side="right" fullSwipe>
               <SwipeAction
-                fullSwipe
-                className="rounded-lg bg-sky-500 text-white"
-                onClick={() => archive(item.id)}
-              >
-                <ArchiveIcon className="size-4" />
-                <span className="sr-only">Archive</span>
-              </SwipeAction>
-
-              <SwipeAction
-                className="rounded-lg bg-red-600 text-white"
+                className="rounded-xl bg-red-600 text-white"
                 onClick={() => remove(item.id)}
               >
                 <Trash2Icon className="size-4" />
                 <span className="sr-only">Delete</span>
+              </SwipeAction>
+
+              <SwipeAction
+                className="rounded-xl bg-sky-500 text-white"
+                onClick={() => archive(item.id)}
+              >
+                <ArchiveIcon className="size-4" />
+                <span className="sr-only">Archive</span>
               </SwipeAction>
             </SwipeActions>
 

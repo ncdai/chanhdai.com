@@ -4,7 +4,7 @@ description: Swipe a row in a list to reveal actions on the left or right.
 image: https://assets.chanhdai.com/images/blog/swipe-actions.webp
 new: true
 createdAt: 2026-09-08
-updatedAt: 2026-09-08
+updatedAt: 2026-09-10
 ---
 
 <ComponentPreview
@@ -18,7 +18,7 @@ updatedAt: 2026-09-08
 Built on top of [React Swipe Actions](https://react-primitives.chanhdai.com/swipe-actions).
 
 - Drag with pointer or touch, or open a focused row with the arrow keys.
-- Snaps open on distance or a flick. A full swipe runs the action outright.
+- Snaps open on distance or a flick. A full swipe runs the outermost action.
 - Only one row open at a time, dismissed by `Escape` or an outside click.
 - Keeps closed strips `inert` and respects `prefers-reduced-motion`.
 
@@ -81,9 +81,9 @@ import {
 ```tsx
 <SwipeRoot>
   <SwipeItem>
-    <SwipeActions side="right">
+    <SwipeActions side="right" fullSwipe>
       <SwipeAction />
-      <SwipeAction fullSwipe />
+      <SwipeAction />
     </SwipeActions>
 
     <SwipeContent />
@@ -117,8 +117,8 @@ The smallest setup that works: one action on one side.
 
 ### Choosing the full swipe action
 
-`fullSwipe` can sit on any action in the strip. Put it on the safe one so a
-destructive action still needs a deliberate tap.
+A full swipe runs the outermost action, so order the strip with the safe one
+last. Here Delete sits next to the row and still needs a deliberate tap.
 
 <ComponentPreview
   className="**:data-[slot=component-preview]:items-start"

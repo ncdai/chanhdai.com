@@ -51,10 +51,9 @@ export default function SwipeActionsDemo() {
                 />
               }
             >
-              <SwipeActions side="left">
+              <SwipeActions side="left" fullSwipe>
                 <SwipeAction
-                  fullSwipe
-                  className="rounded-lg bg-sky-500 text-white"
+                  className="rounded-xl bg-sky-500 text-white"
                   onClick={() => removeMail(mail.id)}
                 >
                   <ArchiveIcon />
@@ -62,9 +61,9 @@ export default function SwipeActionsDemo() {
                 </SwipeAction>
               </SwipeActions>
 
-              <SwipeActions side="right">
+              <SwipeActions side="right" fullSwipe>
                 <SwipeAction
-                  className="rounded-lg bg-amber-500 text-white"
+                  className="rounded-xl bg-amber-500 text-white"
                   onClick={() => toggleFlag(mail.id)}
                 >
                   <FlagIcon />
@@ -72,8 +71,7 @@ export default function SwipeActionsDemo() {
                 </SwipeAction>
 
                 <SwipeAction
-                  fullSwipe
-                  className="rounded-lg bg-red-600 text-white"
+                  className="rounded-xl bg-red-600 text-white"
                   onClick={() => removeMail(mail.id)}
                 >
                   <Trash2Icon />
@@ -84,7 +82,7 @@ export default function SwipeActionsDemo() {
               <SwipeContent>
                 <button
                   type="button"
-                  className="flex w-full flex-col items-start gap-1 rounded-xl p-4 pt-3 text-left text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-foreground"
+                  className="flex w-full flex-col items-start gap-1 rounded-xl p-4 pt-3 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-foreground"
                 >
                   <span className="flex items-center gap-1.5 font-semibold">
                     {mail.sender}
