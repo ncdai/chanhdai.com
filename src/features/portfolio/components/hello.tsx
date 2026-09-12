@@ -25,7 +25,7 @@ export function Hello() {
 
       <div className="screen-line-bottom h-px" />
       <div className="h-4" />
-      <div className="screen-line-bottom h-px" />
+      <div className="screen-line-bottom h-px screen-line-bottom-border" />
     </Panel>
   )
 }

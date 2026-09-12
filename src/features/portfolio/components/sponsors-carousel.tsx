@@ -23,19 +23,12 @@ export function SponsorsCarousel() {
 
       <div className="screen-line-bottom h-px" />
 
-      {/* Both visual renderings below are swapped per breakpoint via
-          display:none, which also drops them from the accessibility tree, so
-          assistive tech gets this one viewport-independent list of names
-          instead. The full linked list lives in <Sponsors />. */}
       <ul className="sr-only">
         {SPONSORS.map((sponsor) => (
           <li key={sponsor.name}>{sponsor.name}</li>
         ))}
       </ul>
 
-      {/* A full rotation runs past seven seconds, far longer than a phone
-          spends scrolling by, so narrow viewports get every logo at once
-          instead of a wave that only ever reveals a third of them. */}
       <div
         className="grid grid-cols-3 py-2 text-muted-foreground @2xl:hidden"
         aria-hidden
