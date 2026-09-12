@@ -65,7 +65,7 @@ export function Testimonials() {
     <Panel ref={ref} id={ID}>
       <div className="h-px" />
       <div className="h-4" />
-      <div className="screen-line-bottom h-px" />
+      <div className="screen-line-bottom h-px screen-line-bottom-border" />
 
       <div className="flex items-center justify-center py-4">
         <h2 className="text-center text-sm/none font-medium text-muted-foreground">
