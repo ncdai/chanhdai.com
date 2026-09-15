@@ -1,3 +1,4 @@
+import { plugin as shadcn } from "@shadcn/lint"
 import nextVitals from "eslint-config-next/core-web-vitals"
 import nextTs from "eslint-config-next/typescript"
 import prettier from "eslint-config-prettier/flat"
@@ -14,6 +15,10 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-import-type-side-effects": "error",
       "@next/next/no-img-element": "off",
     },
+  },
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    plugins: { shadcn },
   },
   // Override default ignores of eslint-config-next.
   globalIgnores([

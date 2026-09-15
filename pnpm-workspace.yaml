@@ -8,6 +8,7 @@ minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - shadcn
   - cn
+  - '@shadcn/*'
   - '@base-ui/*'
   - '@ncdai/*'
   - '@types/react-dom@19.2.5'
