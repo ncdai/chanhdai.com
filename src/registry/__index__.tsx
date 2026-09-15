@@ -779,6 +779,23 @@ export const Index: Record<string, any> = {
     categories: ["utilities"],
     meta: undefined,
   },
+  "apple-carousel": {
+    name: "apple-carousel",
+    description: "Infinite autoplay carousel with progress dots, inspired by Apple’s website.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/apple-carousel/apple-carousel.tsx",
+      type: "registry:component",
+      target: "@components/apple-carousel.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/apple-carousel/apple-carousel.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "apple-carousel"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["marketing"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -2087,5 +2104,39 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: undefined,
+  },
+  "apple-carousel-demo": {
+    name: "apple-carousel-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/apple-carousel-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/apple-carousel-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "apple-carousel-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"min-h-svh content-center-safe py-8"},
+  },
+  "apple-carousel-caption-demo": {
+    name: "apple-carousel-caption-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/apple-carousel-caption-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/apple-carousel-caption-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "apple-carousel-caption-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"min-h-svh content-center-safe py-8"},
   },
 }

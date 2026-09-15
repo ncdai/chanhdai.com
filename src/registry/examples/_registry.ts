@@ -716,4 +716,32 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "apple-carousel-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("apple-carousel")],
+    files: [
+      {
+        path: "examples/apple-carousel-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "min-h-svh content-center-safe py-8",
+    },
+  },
+  {
+    name: "apple-carousel-caption-demo",
+    type: "registry:example",
+    registryDependencies: ["button", getRegistryItemUrl("apple-carousel")],
+    files: [
+      {
+        path: "examples/apple-carousel-caption-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "min-h-svh content-center-safe py-8",
+    },
+  },
 ]

@@ -1152,6 +1152,27 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "apple-carousel",
+      "title": "Apple Carousel",
+      "description": "Infinite autoplay carousel with progress dots, inspired by Apple’s website.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/apple-carousel/apple-carousel.tsx",
+          "type": "registry:component",
+          "target": "@components/apple-carousel.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/apple-carousel",
+      "categories": [
+        "marketing"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

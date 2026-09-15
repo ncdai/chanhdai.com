@@ -919,4 +919,21 @@ export const components: Registry["items"] = [
     categories: ["utilities"],
     docs: "https://chanhdai.com/components/carbon-ads",
   },
+  {
+    name: "apple-carousel",
+    type: "registry:component",
+    title: "Apple Carousel",
+    description:
+      "Infinite autoplay carousel with progress dots, inspired by Apple’s website.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/apple-carousel/apple-carousel.tsx",
+        type: "registry:component",
+        target: "@components/apple-carousel.tsx",
+      },
+    ],
+    categories: ["marketing"],
+    docs: "https://chanhdai.com/components/apple-carousel",
+  },
 ]
