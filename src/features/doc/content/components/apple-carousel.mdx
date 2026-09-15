@@ -1,0 +1,168 @@
+---
+title: Apple Carousel
+description: Infinite autoplay carousel with progress dots, inspired by Apple’s website.
+image: https://assets.chanhdai.com/images/blog/apple-carousel.webp
+new: true
+createdAt: 2026-09-16
+updatedAt: 2026-09-16
+---
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="apple-carousel-demo"
+  openInV0Url="https://chanhdai.com/r/apple-carousel.json"
+/>
+
+## Features
+
+- Loops endlessly, with neighboring cards peeking in.
+- Autoplays with a progress dot, and pauses on interaction or when off screen.
+- Swipe, scroll, click a dot, or use arrow keys, even mid-slide.
+- Respects reduced motion: no autoplay until Play is pressed, and cards jump instead of sliding.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/apple-carousel
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="apple-carousel" title="components/apple-carousel.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  AppleCarouselContent,
+  AppleCarouselControls,
+  AppleCarouselItem,
+  AppleCarouselPlayButton,
+  AppleCarouselRoot,
+  AppleCarouselTab,
+  AppleCarouselTabList,
+} from "@/components/apple-carousel"
+```
+
+```tsx
+<AppleCarouselRoot>
+  <AppleCarouselContent>
+    <AppleCarouselItem />
+  </AppleCarouselContent>
+
+  <AppleCarouselControls>
+    <AppleCarouselTabList aria-label="Featured">
+      <AppleCarouselTab />
+    </AppleCarouselTabList>
+    <AppleCarouselPlayButton />
+  </AppleCarouselControls>
+</AppleCarouselRoot>
+```
+
+Items are empty cards for any content. Render one `AppleCarouselTab` per item, in the same order, with a label for screen readers.
+
+## Composition
+
+Use the following composition to build an `AppleCarousel`
+
+```text
+AppleCarouselRoot
+├── AppleCarouselContent
+│   └── AppleCarouselItem
+└── AppleCarouselControls
+    ├── AppleCarouselTabList
+    │   └── AppleCarouselTab
+    └── AppleCarouselPlayButton
+```
+
+## API reference
+
+### AppleCarouselRoot
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="AppleCarouselRootProps"
+/>
+
+### useAppleCarouselItem
+
+Reads the state of the enclosing `AppleCarouselItem`.
+
+<AutoTypeTable
+  path="src/registry/components/apple-carousel/apple-carousel.tsx"
+  name="AppleCarouselItemState"
+/>
+
+<Callout>
+  Item content also renders in up to two clones, so ids repeat and effects run
+  per copy. Check `isClone` before playing media, fetching data, or tracking
+  impressions.
+</Callout>
+
+### Data attributes
+
+Style content by state, for example with `in-data-current:opacity-100`.
+
+| Attribute      | Element                                 | Present when              |
+| -------------- | --------------------------------------- | ------------------------- |
+| `data-current` | `AppleCarouselItem`, `AppleCarouselTab` | The item or tab is shown. |
+| `data-clone`   | `AppleCarouselItem`                     | The item is a clone.      |
+| `data-index`   | `AppleCarouselItem`                     | Always.                   |
+| `data-playing` | `AppleCarouselRoot`                     | Autoplay is running.      |
+
+## Examples
+
+### Caption
+
+A caption and `Button` over each photo. `data-current` fades captions on peeking cards, and `dark` keeps text light in both themes.
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="apple-carousel-caption-demo"
+  openInV0Url="https://chanhdai.com/r/apple-carousel.json"
+/>
+
+## Credits
+
+- [Apple](https://developer.apple.com/)
+
+## References
+
+- [WAI-ARIA Carousel Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/)
+- [CSS scroll snap](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll_snap)
+- [Motion animate](https://motion.dev/docs/animate)
+- [inert](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inert)

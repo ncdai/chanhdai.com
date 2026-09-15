@@ -1,9 +1,9 @@
 {
-  "total": 67,
+  "total": 68,
   "countByType": {
     "registry:lib": 1,
     "registry:hook": 2,
-    "registry:component": 43,
+    "registry:component": 44,
     "registry:block": 12,
     "registry:style": 9
   }

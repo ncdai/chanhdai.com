@@ -11,6 +11,7 @@ import {
   ChevronsUpDownIcon,
   CopyIcon,
   Droplet,
+  GalleryHorizontal,
   GalleryHorizontalEndIcon,
   LayoutGridIcon,
   MoonStarIcon,
@@ -276,6 +277,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
       <path d="M15.5 4.5H22M15.5 4.5C15.5 3.79977 17.4943 2.49153 18 2M15.5 4.5C15.5 5.20023 17.4943 6.50847 18 7" />
     </svg>
   ),
+  "apple-carousel": <GalleryHorizontal />,
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {
