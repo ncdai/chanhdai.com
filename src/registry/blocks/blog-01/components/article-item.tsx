@@ -28,9 +28,7 @@ export function ArticleItem({ title, coverUrl, createdAt }: ArticleItemProps) {
           {format(new Date(createdAt), "MMMM d, yyyy")}
         </time>
 
-        <h3 className="text-lg leading-tight font-medium text-balance">
-          {title}
-        </h3>
+        <h3 className="text-lg/tight font-medium text-balance">{title}</h3>
       </div>
     </article>
   )

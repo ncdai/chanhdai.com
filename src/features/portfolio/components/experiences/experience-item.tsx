@@ -61,7 +61,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
                   <dt className="sr-only">Employment status</dt>
                   <dd>
                     <span className="sr-only">Current</span>
-                    <span className="relative flex size-2.5 translate-x-px translate-y-px items-center justify-center">
+                    <span className="relative flex size-2.5 translate-px items-center justify-center">
                       <span className="absolute inline-flex size-2.5 animate-ping rounded-full bg-info opacity-50" />
                       <span className="relative inline-flex size-1.5 rounded-full bg-info" />
                     </span>

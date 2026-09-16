@@ -100,7 +100,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
           )}
         </div>
 
-        <h3 className="text-lg leading-snug font-semibold">
+        <h3 className="text-lg/snug font-semibold">
           {experience.companyWebsite ? (
             <a
               className="link"

@@ -718,7 +718,7 @@ function ThemePicker() {
             "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:size-5 **:[[cmdk-input]]:h-10",
             "**:[[cmdk-group]]:px-2",
             "**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground",
-            "[&_[cmdk-item]_svg]:size-5 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-2"
+            "[&_[cmdk-item]_svg]:size-5 **:[[cmdk-item]]:p-2"
           )}
         >
           <CommandInput placeholder="Search theme…" />

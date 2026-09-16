@@ -393,7 +393,7 @@ export const ElectricBorder: React.FC<ElectricBorderProps> = ({
       onMouseLeave={onMouseLeave}
     >
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 z-2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300"
+        className="pointer-events-none absolute top-1/2 left-1/2 z-2 -translate-1/2 transition-opacity duration-300"
         style={{ opacity: active ? 1 : 0 }}
       >
         <canvas ref={canvasRef} className="block" />

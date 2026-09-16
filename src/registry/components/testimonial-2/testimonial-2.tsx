@@ -42,7 +42,7 @@ export function Testimonial2({
         <div className="hidden h-px grow translate-y-px bg-border md:block" />
 
         <div className="flex flex-col md:ml-auto md:text-right">
-          <span className="text-sm leading-none font-medium">
+          <span className="text-sm/none font-medium">
             <a href={url} target="_blank" rel="noopener">
               <span className="absolute inset-0" aria-hidden />
               {authorName}

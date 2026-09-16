@@ -136,7 +136,7 @@ export function GlowCard({ name, handle, avatar, className }: GlowCardProps) {
             <h2 className="text-base leading-none font-semibold text-foreground">
               {name}
             </h2>
-            <p className="text-sm leading-none text-foreground/50">{handle}</p>
+            <p className="text-sm/none text-foreground/50">{handle}</p>
           </div>
         </div>
       </div>
