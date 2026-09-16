@@ -1,0 +1,193 @@
+"use client"
+
+import React, { useMemo, useState } from "react"
+import { Repeat, Settings2 } from "lucide-react"
+import { useTheme } from "next-themes"
+
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  Tabs,
+  TabsContent,
+  TabsIndicator,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Code as CodeInline } from "@/components/ui/typography"
+import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
+import { OpenInV0Button } from "@/components/v0-open-button"
+import { Index } from "@/registry/__index__"
+
+export type ComponentPreviewTabsProps = React.ComponentProps<"div"> & {
+  name: string
+  openInV0Url?: string
+  customizeUrl?: string
+  canReplay?: boolean
+  prose?: boolean
+  codeCollapsible?: boolean
+  remountOnThemeChange?: boolean
+}
+
+export function ComponentPreviewTabs({
+  className,
+  name,
+  openInV0Url,
+  customizeUrl,
+  canReplay = false,
+  prose = false,
+  codeCollapsible = false,
+  remountOnThemeChange = false,
+  code,
+  ...props
+}: ComponentPreviewTabsProps & {
+  code: React.ReactNode
+}) {
+  const { resolvedTheme } = useTheme()
+
+  const [replay, setReplay] = useState(0)
+
+  const Preview = useMemo(() => {
+    const Component = Index[name]?.component
+
+    if (!Component) {
+      return (
+        <p className="text-sm text-muted-foreground">
+          Component <CodeInline>{name}</CodeInline> not found in registry.
+        </p>
+      )
+    }
+
+    return <Component />
+  }, [name])
+
+  return (
+    <div
+      className={cn(
+        "my-[1.25em] rounded-xl bg-surface inset-ring-1 inset-ring-border/64",
+        prose === false && "not-prose",
+        className
+      )}
+      {...props}
+    >
+      <Tabs defaultValue="preview" className="gap-0">
+        <div className="z-1 px-4">
+          <TabsList className="h-10 rounded-none bg-transparent p-0 inset-ring-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
+            <TabsTrigger className="h-7 rounded-lg p-0 px-2" value="preview">
+              Preview
+            </TabsTrigger>
+            <TabsTrigger className="h-7 rounded-lg p-0 px-2" value="code">
+              Code
+            </TabsTrigger>
+
+            <TabsIndicator className="h-0.5 translate-y-px rounded-none bg-foreground ring-0 dark:bg-foreground" />
+          </TabsList>
+        </div>
+
+        <TabsContent className="px-1 pb-1" value="preview">
+          <div
+            data-slot="preview"
+            data-show-buttons={canReplay || !!customizeUrl || !!openInV0Url}
+            className="relative rounded-[9px] border bg-background p-2 data-[show-buttons=true]:py-8.75"
+          >
+            {(canReplay || customizeUrl || openInV0Url) && (
+              <div
+                data-slot="buttons"
+                className="absolute top-0.75 right-0.75 flex items-center"
+              >
+                {canReplay && (
+                  <Tooltip>
+                    <TooltipTrigger
+                      render={
+                        <Button
+                          className="size-7 rounded-[5px] border-none"
+                          variant="ghost"
+                          size="icon-sm"
+                          aria-label="Replay"
+                          onClick={() => setReplay((v) => v + 1)}
+                        >
+                          <Repeat />
+                        </Button>
+                      }
+                    />
+                    <TooltipContent>Replay</TooltipContent>
+                  </Tooltip>
+                )}
+
+                {customizeUrl && (
+                  <Tooltip>
+                    <TooltipTrigger
+                      render={
+                        <Button
+                          className="size-7 rounded-[5px] border-none"
+                          variant="ghost"
+                          size="icon-sm"
+                          aria-label="Customize"
+                          nativeButton={false}
+                          render={
+                            <a
+                              href={customizeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Settings2 />
+                            </a>
+                          }
+                        />
+                      }
+                    />
+                    <TooltipContent>Customize</TooltipContent>
+                  </Tooltip>
+                )}
+
+                {openInV0Url && (
+                  <OpenInV0Button
+                    className="h-7 rounded-[5px]"
+                    url={openInV0Url}
+                  />
+                )}
+              </div>
+            )}
+
+            <div
+              key={`${replay}-${remountOnThemeChange ? (resolvedTheme ?? "system") : "static"}`}
+              data-slot="component-preview"
+              className="flex min-h-72 items-center justify-center font-sans"
+            >
+              <React.Suspense
+                fallback={
+                  <div className="flex items-center justify-center text-sm text-muted-foreground">
+                    Loading…
+                  </div>
+                }
+              >
+                {Preview}
+              </React.Suspense>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent
+          value="code"
+          className={cn(
+            "**:data-rehype-pretty-code-figure:m-0 **:data-rehype-pretty-code-figure:bg-transparent **:data-rehype-pretty-code-figure:pt-0 **:data-rehype-pretty-code-figure:inset-ring-0",
+            "**:data-[slot=copy-button]:top-1 **:data-[slot=copy-button]:opacity-100",
+            "**:data-fade-overlay:top-px"
+          )}
+        >
+          {codeCollapsible ? (
+            <CodeCollapsibleWrapper className="my-0">
+              {code}
+            </CodeCollapsibleWrapper>
+          ) : (
+            code
+          )}
+        </TabsContent>
+      </Tabs>
+    </div>
+  )
+}

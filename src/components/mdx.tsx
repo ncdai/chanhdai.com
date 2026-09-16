@@ -13,7 +13,6 @@ import {
   rehypeHighlightCode,
   rehypeHighlightCodeRawString,
 } from "@/lib/rehype-code-block"
-import { rehypeComponent } from "@/lib/rehype-component"
 import { rehypeNpmCommand } from "@/lib/rehype-npm-command"
 import { remarkCodeImport } from "@/lib/remark-code-import"
 import { cn } from "@/lib/utils"
@@ -107,7 +106,6 @@ const options: MDXRemoteProps["options"] = {
     rehypePlugins: [
       [rehypeExternalLinks, { target: "_blank", rel: "nofollow noopener" }],
       rehypeSlug,
-      rehypeComponent,
       rehypeCodeRawString,
       rehypeHighlightCode,
       rehypeHighlightCodeRawString,

@@ -52,7 +52,11 @@ const getCachedHighlightedFiles = cache(
     return await Promise.all(
       files.map(async (file) => ({
         ...file,
-        highlightedContent: await highlightCode(fixImport(file.content ?? "")),
+        highlightedContent: await highlightCode(
+          fixImport(file.content ?? ""),
+          "tsx",
+          { showLineNumbers: true }
+        ),
       }))
     )
   }
