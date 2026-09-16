@@ -311,6 +311,11 @@ This project is proudly supported by:
       <td align="center"><a href="https://github.com/raksalim">Raksa Lim</a></td>
       <td align="center"><a href="https://lndev.me?utm_source=chanhdai.com">Leonel Ngoya</a></td>
     </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/fadymondy">Fady Mondy</a></td>
+      <td></td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 
