@@ -2,17 +2,12 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "isolatedModules": false,
     "allowImportingTsExtensions": true
   },
   "include": [
-    "./src/scripts/**/*.{ts,mts}"
+    "next-env.d.ts",
+    "./src/scripts/**/*.ts",
+    "./src/scripts/**/*.mts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
