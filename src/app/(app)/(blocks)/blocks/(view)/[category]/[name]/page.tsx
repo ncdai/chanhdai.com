@@ -11,13 +11,13 @@ import { getAllBlockStaticParams } from "@/lib/blocks"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { getRegistryItem } from "@/lib/registry"
 import { absoluteUrl } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
-import { Button } from "@/components/base/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
 import { CarbonAds } from "@/components/carbon-ads"
 import { BlockDisplay } from "@/app/(preview)/components/block-display"
 import { DocKeyboardShortcuts } from "@/features/doc/components/doc-keyboard-shortcuts"

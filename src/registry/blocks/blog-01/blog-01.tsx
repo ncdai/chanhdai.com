@@ -23,11 +23,13 @@ export default function Blog01() {
       </div>
 
       <div className="flex justify-center">
-        <Button className="gap-2 pr-2.5 pl-3" asChild>
-          <a href="#">
-            View All
-            <ArrowRightIcon />
-          </a>
+        <Button
+          className="gap-2 pr-2.5 pl-3"
+          nativeButton={false}
+          render={<a href="#" />}
+        >
+          View All
+          <ArrowRightIcon />
         </Button>
       </div>
     </div>

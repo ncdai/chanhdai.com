@@ -7,7 +7,8 @@
   "dependencies": [
     "p5@^1.9.4",
     "motion",
-    "next-themes"
+    "next-themes",
+    "lucide-react"
   ],
   "devDependencies": [
     "@types/p5@^1.7.7"
@@ -19,7 +20,7 @@
   "files": [
     {
       "path": "src/registry/blocks/not-found-01/page.tsx",
-      "content": "import Link from \"next/link\"\nimport { ArrowRightIcon, SearchXIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\"\nimport { Daikanoid } from \"@/registry/blocks/not-found-01/components/daikanoid\"\n\nexport default function NotFound() {\n  return (\n    <div>\n      <Empty className=\"py-12 max-lg:min-h-svh\">\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <SearchXIcon />\n          </EmptyMedia>\n\n          <EmptyTitle className=\"text-base\">Page not found</EmptyTitle>\n\n          <EmptyDescription>\n            The page you are looking for does not exist or has been moved.\n          </EmptyDescription>\n        </EmptyHeader>\n\n        <EmptyContent>\n          <Button variant=\"outline\" asChild>\n            <Link href=\"/\">\n              Go to Home\n              <ArrowRightIcon />\n            </Link>\n          </Button>\n        </EmptyContent>\n      </Empty>\n\n      {/* The canvas is fixed at 800x600, so the game is desktop only. */}\n      <section className=\"place-items-center pb-6 max-lg:hidden\">\n        <Daikanoid />\n      </section>\n    </div>\n  )\n}\n",
+      "content": "import Link from \"next/link\"\nimport { ArrowRightIcon, SearchXIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\"\nimport { Daikanoid } from \"@/registry/blocks/not-found-01/components/daikanoid\"\n\nexport default function NotFound() {\n  return (\n    <div>\n      <Empty className=\"py-12 max-lg:min-h-svh\">\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <SearchXIcon />\n          </EmptyMedia>\n\n          <EmptyTitle className=\"text-base\">Page not found</EmptyTitle>\n\n          <EmptyDescription>\n            The page you are looking for does not exist or has been moved.\n          </EmptyDescription>\n        </EmptyHeader>\n\n        <EmptyContent>\n          <Button\n            variant=\"outline\"\n            nativeButton={false}\n            render={<Link href=\"/\" />}\n          >\n            Go to Home\n            <ArrowRightIcon />\n          </Button>\n        </EmptyContent>\n      </Empty>\n\n      {/* The canvas is fixed at 800x600, so the game is desktop only. */}\n      <section className=\"place-items-center pb-6 max-lg:hidden\">\n        <Daikanoid />\n      </section>\n    </div>\n  )\n}\n",
       "type": "registry:page",
       "target": "app/not-found.tsx"
     },

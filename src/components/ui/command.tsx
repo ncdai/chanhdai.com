@@ -34,7 +34,7 @@ function CommandDialog({
   description = "Search for a command to run...",
   children,
   ...props
-}: React.ComponentProps<typeof Dialog> & {
+}: Omit<React.ComponentProps<typeof Dialog>, "children"> & {
   title?: string
   description?: string
   children: React.ReactNode
@@ -42,9 +42,7 @@ function CommandDialog({
   return (
     <Dialog {...props}>
       <DialogHeader className="sr-only">
-        <DialogTitle asChild>
-          <span>{title}</span>
-        </DialogTitle>
+        <DialogTitle render={<span />}>{title}</DialogTitle>
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
 

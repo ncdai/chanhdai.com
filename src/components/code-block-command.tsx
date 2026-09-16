@@ -11,7 +11,7 @@ import {
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/components/base/ui/tabs"
+} from "@/components/ui/tabs"
 import { IconSwap, IconSwapItem } from "@/registry/components/icon-swap"
 
 import { CopyButton } from "./copy-button"

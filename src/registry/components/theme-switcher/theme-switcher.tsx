@@ -2,10 +2,9 @@
 
 import type { JSX } from "react"
 import { useSyncExternalStore } from "react"
+import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react"
 import { motion } from "motion/react"
 import { useTheme } from "next-themes"
-
-import { IconPlaceholder } from "@/registry/icons/icon-placeholder"
 
 function ThemeOption({
   icon,
@@ -42,39 +41,15 @@ function ThemeOption({
 
 const THEME_OPTIONS = [
   {
-    icon: (
-      <IconPlaceholder
-        lucide="MonitorIcon"
-        tabler="IconDeviceDesktop"
-        hugeicons="ComputerIcon"
-        phosphor="DesktopIcon"
-        remixicon="RiComputerLine"
-      />
-    ),
+    icon: <MonitorIcon />,
     value: "system",
   },
   {
-    icon: (
-      <IconPlaceholder
-        lucide="SunIcon"
-        tabler="IconSun"
-        hugeicons="Sun03Icon"
-        phosphor="SunIcon"
-        remixicon="RiSunLine"
-      />
-    ),
+    icon: <SunIcon />,
     value: "light",
   },
   {
-    icon: (
-      <IconPlaceholder
-        lucide="MoonIcon"
-        tabler="IconMoon"
-        hugeicons="Moon02Icon"
-        phosphor="MoonIcon"
-        remixicon="RiMoonLine"
-      />
-    ),
+    icon: <MoonIcon />,
     value: "dark",
   },
 ]

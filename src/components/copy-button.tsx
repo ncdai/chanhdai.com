@@ -2,8 +2,8 @@
 
 import type { Event } from "@/lib/events"
 import { trackEvent } from "@/lib/events"
-import type { CopyButtonProps } from "@/registry/transformed/components/copy-button"
-import { CopyButton as CopyButtonPrimitive } from "@/registry/transformed/components/copy-button"
+import type { CopyButtonProps } from "@/registry/components/copy-button"
+import { CopyButton as CopyButtonPrimitive } from "@/registry/components/copy-button"
 
 export function CopyButton({
   size = "icon-sm",

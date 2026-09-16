@@ -45,15 +45,17 @@ export function GitHubContributions({
       >
         {({ activity, dayIndex, weekIndex }) => (
           <Tooltip>
-            <TooltipTrigger asChild>
-              <g>
-                <ContributionGraphBlock
-                  activity={activity}
-                  dayIndex={dayIndex}
-                  weekIndex={weekIndex}
-                />
-              </g>
-            </TooltipTrigger>
+            <TooltipTrigger
+              render={
+                <g>
+                  <ContributionGraphBlock
+                    activity={activity}
+                    dayIndex={dayIndex}
+                    weekIndex={weekIndex}
+                  />
+                </g>
+              }
+            />
             <TooltipContent className="font-sans">
               <p>
                 {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}

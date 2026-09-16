@@ -2,17 +2,17 @@ import { differenceInMonths, parse } from "date-fns"
 import { BriefcaseBusinessIcon, InfinityIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import {
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 import { IconTile } from "@/components/ui/icon-tile"
+import { Separator } from "@/components/ui/separator"
 import { Tag } from "@/components/ui/tag"
 import {
   Collapsible,
   CollapsibleChevronsUpDownIcon,
-} from "@/components/base/collapsible-animated"
-import {
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
-import { Separator } from "@/components/base/ui/separator"
+} from "@/components/collapsible-animated"
 import { Markdown } from "@/components/markdown"
 import type { ExperiencePosition } from "@/features/portfolio/types/experiences"
 

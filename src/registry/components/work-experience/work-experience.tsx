@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, type ComponentProps } from "react"
 import { differenceInMonths, parse } from "date-fns"
+import { BriefcaseBusinessIcon, InfinityIcon } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 
 import { cn } from "@/lib/utils"
@@ -13,7 +14,6 @@ import {
 import { Separator } from "@/components/ui/separator"
 import type { ChevronsUpDownIconHandle } from "@/registry/components/chevrons-up-down-icon"
 import { ChevronsUpDownIcon } from "@/registry/components/chevrons-up-down-icon"
-import { IconPlaceholder } from "@/registry/icons/icon-placeholder"
 
 export type ExperiencePositionItemType = {
   /** Unique identifier for the position */
@@ -161,120 +161,105 @@ export function ExperiencePositionItem({
 
   return (
     <Collapsible
+      className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background"
       defaultOpen={position.isExpanded}
       onOpenChange={handleOpenChange}
       disabled={!position.description}
-      asChild
     >
-      <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
-        <CollapsibleTrigger
-          className={cn(
-            "group/experience-position not-prose block w-full text-left select-none",
-            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:rounded-lg hover:before:bg-muted/30",
-            "data-disabled:before:content-none"
-          )}
-        >
-          <div className="relative z-1 mb-1 flex items-start gap-3 text-base">
-            <div
-              className={cn(
-                "flex size-6 shrink-0 items-center justify-center rounded-lg",
-                "bg-muted text-muted-foreground",
-                "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
-                "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-              )}
-            >
-              {position.icon ?? (
-                <IconPlaceholder
-                  lucide="BriefcaseBusinessIcon"
-                  tabler="IconBriefcase"
-                  hugeicons="Briefcase01Icon"
-                  phosphor="BriefcaseIcon"
-                  remixicon="RiBriefcaseLine"
-                />
-              )}
-            </div>
-
-            <h4 className="flex-1 font-medium text-balance text-foreground">
-              {position.title}
-            </h4>
-
-            <div className="shrink-0 text-muted-foreground group-disabled/experience-position:hidden [&_svg]:h-lh [&_svg]:w-4">
-              <ChevronsUpDownIcon ref={chevronsUpDownIconRef} duration={0.15} />
-            </div>
+      <CollapsibleTrigger
+        className={cn(
+          "group/experience-position not-prose block w-full text-left select-none",
+          "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:rounded-lg hover:before:bg-muted/30",
+          "data-disabled:before:content-none"
+        )}
+      >
+        <div className="relative z-1 mb-1 flex items-start gap-3 text-base">
+          <div
+            className={cn(
+              "flex size-6 shrink-0 items-center justify-center rounded-lg",
+              "bg-muted text-muted-foreground",
+              "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
+              "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+            )}
+          >
+            {position.icon ?? <BriefcaseBusinessIcon />}
           </div>
 
-          {/* Separators are aria-hidden: a dl may only expose dt/dd groups, and these dividers are decorative. */}
-          <dl className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground">
-            {position.employmentType && (
-              <>
-                <div>
-                  <dt className="sr-only">Employment Type</dt>
-                  <dd>{position.employmentType}</dd>
-                </div>
+          <h4 className="flex-1 font-medium text-balance text-foreground">
+            {position.title}
+          </h4>
 
-                <Separator
-                  className="data-vertical:h-4 data-vertical:self-center"
-                  orientation="vertical"
-                  aria-hidden
-                />
-              </>
-            )}
+          <div className="shrink-0 text-muted-foreground group-data-disabled/experience-position:hidden [&_svg]:h-lh [&_svg]:w-4">
+            <ChevronsUpDownIcon ref={chevronsUpDownIconRef} duration={0.15} />
+          </div>
+        </div>
 
-            <div>
-              <dt className="sr-only">Employment Period</dt>
-              <dd className="flex items-center gap-0.5 tabular-nums">
-                <span>{start}</span>
-                <span className="font-mono">—</span>
-                {isOngoing ? (
-                  <IconPlaceholder
-                    lucide="InfinityIcon"
-                    tabler="IconInfinity"
-                    hugeicons="Infinity01Icon"
-                    phosphor="InfinityIcon"
-                    remixicon="RiInfinityFill"
-                    className="size-4.5 translate-y-[0.5px]"
-                    aria-label="Present"
-                  />
-                ) : (
-                  <span>{end}</span>
-                )}
-              </dd>
-            </div>
+        {/* Separators are aria-hidden: a dl may only expose dt/dd groups, and these dividers are decorative. */}
+        <dl className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground">
+          {position.employmentType && (
+            <>
+              <div>
+                <dt className="sr-only">Employment Type</dt>
+                <dd>{position.employmentType}</dd>
+              </div>
 
-            {duration && (
-              <>
-                <Separator
-                  className="data-vertical:h-4 data-vertical:self-center"
-                  orientation="vertical"
-                  aria-hidden
-                />
-                <div>
-                  <dt className="sr-only">Duration</dt>
-                  <dd className="tabular-nums">{duration}</dd>
-                </div>
-              </>
-            )}
-          </dl>
-        </CollapsibleTrigger>
-
-        <CollapsibleContent className="overflow-hidden">
-          {position.description && (
-            <Prose className="pt-2 pl-9">
-              <ReactMarkdown>{position.description}</ReactMarkdown>
-            </Prose>
+              <Separator
+                className="data-vertical:h-4 data-vertical:self-center"
+                orientation="vertical"
+                aria-hidden
+              />
+            </>
           )}
-        </CollapsibleContent>
 
-        {Array.isArray(position.skills) && position.skills.length > 0 && (
-          <ul className="not-prose flex flex-wrap gap-1.5 pt-3 pl-9">
-            {position.skills.map((skill, index) => (
-              <li key={index} className="flex">
-                <Skill>{skill}</Skill>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <dt className="sr-only">Employment Period</dt>
+            <dd className="flex items-center gap-0.5 tabular-nums">
+              <span>{start}</span>
+              <span className="font-mono">—</span>
+              {isOngoing ? (
+                <InfinityIcon
+                  className="size-4.5 translate-y-[0.5px]"
+                  aria-label="Present"
+                />
+              ) : (
+                <span>{end}</span>
+              )}
+            </dd>
+          </div>
+
+          {duration && (
+            <>
+              <Separator
+                className="data-vertical:h-4 data-vertical:self-center"
+                orientation="vertical"
+                aria-hidden
+              />
+              <div>
+                <dt className="sr-only">Duration</dt>
+                <dd className="tabular-nums">{duration}</dd>
+              </div>
+            </>
+          )}
+        </dl>
+      </CollapsibleTrigger>
+
+      <CollapsibleContent className="overflow-hidden">
+        {position.description && (
+          <Prose className="pt-2 pl-9">
+            <ReactMarkdown>{position.description}</ReactMarkdown>
+          </Prose>
         )}
-      </div>
+      </CollapsibleContent>
+
+      {Array.isArray(position.skills) && position.skills.length > 0 && (
+        <ul className="not-prose flex flex-wrap gap-1.5 pt-3 pl-9">
+          {position.skills.map((skill, index) => (
+            <li key={index} className="flex">
+              <Skill>{skill}</Skill>
+            </li>
+          ))}
+        </ul>
+      )}
     </Collapsible>
   )
 }

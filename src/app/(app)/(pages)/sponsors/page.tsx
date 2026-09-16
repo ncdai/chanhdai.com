@@ -5,7 +5,7 @@ import { ArrowUpRightIcon } from "lucide-react"
 import { SPONSORSHIP_URL, UTM_PARAMS, X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   PageHeading,
   PageHeadingDescription,

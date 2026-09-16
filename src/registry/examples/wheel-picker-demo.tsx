@@ -1,8 +1,8 @@
-import type { WheelPickerOption } from "@/registry/transformed/components/wheel-picker"
+import type { WheelPickerOption } from "@/registry/components/wheel-picker"
 import {
   WheelPicker,
   WheelPickerWrapper,
-} from "@/registry/transformed/components/wheel-picker"
+} from "@/registry/components/wheel-picker"
 
 export default function WheelPickerDemo() {
   return (

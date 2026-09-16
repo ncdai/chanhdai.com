@@ -3,21 +3,21 @@ import { addQueryParams } from "@/utils/url"
 import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
-import { IconTile } from "@/components/ui/icon-tile"
-import { Tag } from "@/components/ui/tag"
-import {
-  Collapsible,
-  CollapsibleChevronsUpDownIcon,
-} from "@/components/base/collapsible-animated"
 import {
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
+} from "@/components/ui/collapsible"
+import { IconTile } from "@/components/ui/icon-tile"
+import { Tag } from "@/components/ui/tag"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
+import {
+  Collapsible,
+  CollapsibleChevronsUpDownIcon,
+} from "@/components/collapsible-animated"
 import { Markdown } from "@/components/markdown"
 
 import type { Project } from "../../types/projects"

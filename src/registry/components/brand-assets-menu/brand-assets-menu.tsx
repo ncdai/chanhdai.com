@@ -1,7 +1,7 @@
 "use client"
 
 import { useTiks } from "@rexa-developer/tiks/react"
-import { toast } from "sonner"
+import { DownloadIcon, SquareDashedIcon, TypeIcon } from "lucide-react"
 
 import {
   ContextMenu,
@@ -10,7 +10,7 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
-import { IconPlaceholder } from "@/registry/icons/icon-placeholder"
+import { toast } from "@/components/ui/toast"
 
 export type BrandAssetsMenuProps = {
   logomark: React.ReactElement
@@ -33,13 +33,13 @@ export function BrandAssetsMenu({
 
   return (
     <ContextMenu>
-      <ContextMenuTrigger asChild>{children}</ContextMenuTrigger>
+      <ContextMenuTrigger render={children} />
 
       <ContextMenuContent className="w-fit">
         <ContextMenuItem
           onClick={() => {
             copyText(logomarkSVG)
-            toast.success("Logomark as SVG copied")
+            toast.add({ type: "success", title: "Logomark as SVG copied" })
             success()
           }}
         >
@@ -50,55 +50,41 @@ export function BrandAssetsMenu({
         <ContextMenuItem
           onClick={() => {
             copyText(logotypeSVG)
-            toast.success("Logotype as SVG copied")
+            toast.add({ type: "success", title: "Logotype as SVG copied" })
             success()
           }}
         >
-          <IconPlaceholder
-            lucide="TypeIcon"
-            tabler="IconLetterT"
-            hugeicons="TextIcon"
-            phosphor="TextTIcon"
-            remixicon="RiText"
-          />
+          <TypeIcon />
           Copy Logotype as SVG
         </ContextMenuItem>
 
         <ContextMenuSeparator />
 
-        <ContextMenuItem asChild>
-          <a
-            href={brandGuidelinesURL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IconPlaceholder
-              lucide="SquareDashedIcon"
-              tabler="IconShape"
-              hugeicons="DashedLine02Icon"
-              phosphor="BoundingBoxIcon"
-              remixicon="RiShapeLine"
+        <ContextMenuItem
+          render={
+            <a
+              href={brandGuidelinesURL}
+              target="_blank"
+              rel="noopener noreferrer"
             />
-            Brand Guidelines
-          </a>
+          }
+        >
+          <SquareDashedIcon />
+          Brand Guidelines
         </ContextMenuItem>
 
-        <ContextMenuItem asChild>
-          <a
-            href={brandAssetsURL}
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-          >
-            <IconPlaceholder
-              lucide="DownloadIcon"
-              tabler="IconDownload"
-              hugeicons="Download01Icon"
-              phosphor="DownloadSimpleIcon"
-              remixicon="RiDownloadLine"
+        <ContextMenuItem
+          render={
+            <a
+              href={brandAssetsURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
             />
-            Download Brand Assets
-          </a>
+          }
+        >
+          <DownloadIcon />
+          Download Brand Assets
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>

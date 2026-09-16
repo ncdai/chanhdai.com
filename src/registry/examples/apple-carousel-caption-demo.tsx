@@ -35,10 +35,18 @@ export default function AppleCarouselCaptionDemo() {
                 "@max-3xl:flex-col @max-3xl:px-6 @max-3xl:text-center"
               )}
             >
-              <Button className="rounded-full" asChild>
-                <a href={item.href} target="_blank" rel="noopener noreferrer">
-                  Learn more
-                </a>
+              <Button
+                className="rounded-full"
+                nativeButton={false}
+                render={
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                }
+              >
+                Learn more
               </Button>
               <p className="text-pretty text-shadow-sm">
                 <span className="font-semibold after:px-2 after:opacity-50 after:content-['•'/''] @max-3xl:block @max-3xl:after:hidden">

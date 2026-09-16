@@ -2,15 +2,15 @@
 
 import { copyText } from "@/utils/copy"
 import { EllipsisIcon, LinkIcon, ShareIcon } from "lucide-react"
-import { toast } from "sonner"
 
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/base/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
+import { toast } from "@/components/ui/toast"
 import { LinkedInIcon, XIcon } from "@/components/icons"
 
 export function DocShareMenu({ title, url }: { title: string; url: string }) {
@@ -30,11 +30,11 @@ export function DocShareMenu({ title, url }: { title: string; url: string }) {
             className="size-7 border-none active:scale-none"
             variant="secondary"
             size="icon-sm"
-          >
-            <ShareIcon />
-          </Button>
+          />
         }
-      />
+      >
+        <ShareIcon />
+      </DropdownMenuTrigger>
 
       <DropdownMenuContent
         className="w-fit"
@@ -46,7 +46,7 @@ export function DocShareMenu({ title, url }: { title: string; url: string }) {
         <DropdownMenuItem
           onClick={() => {
             copyText(absoluteUrl)
-            toast.success("Link copied")
+            toast.add({ type: "success", title: "Link copied" })
           }}
         >
           <LinkIcon />
@@ -59,12 +59,12 @@ export function DocShareMenu({ title, url }: { title: string; url: string }) {
               href={`https://x.com/intent/tweet?url=${urlEncoded}`}
               target="_blank"
               rel="noopener"
-            >
-              <XIcon />
-              Share on X
-            </a>
+            />
           }
-        />
+        >
+          <XIcon />
+          Share on X
+        </DropdownMenuItem>
 
         <DropdownMenuItem
           render={
@@ -72,12 +72,12 @@ export function DocShareMenu({ title, url }: { title: string; url: string }) {
               href={`https://www.linkedin.com/sharing/share-offsite?url=${urlEncoded}`}
               target="_blank"
               rel="noopener"
-            >
-              <LinkedInIcon />
-              Share on LinkedIn
-            </a>
+            />
           }
-        />
+        >
+          <LinkedInIcon />
+          Share on LinkedIn
+        </DropdownMenuItem>
 
         {typeof navigator !== "undefined" && "share" in navigator && (
           <DropdownMenuItem

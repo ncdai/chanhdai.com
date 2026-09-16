@@ -13,7 +13,7 @@ Next.js 16 (App Router) portfolio, blog, and shadcn registry website.
 | `src/registry/`                        | Registry source (components, hooks, blocks, examples, lib)         |
 | `src/features/`                        | Feature modules: `doc`, `blog`, `portfolio`, `sponsor`, `bookmark` |
 | `src/config/`                          | Site (`site.ts`), registry (`registry.ts`), JSON-LD config         |
-| `src/scripts/`                         | Build scripts (registry, icons, capture) run with Bun              |
+| `src/scripts/`                         | Build scripts (registry, capture) run with Bun                     |
 | `src/hooks/`, `src/lib/`, `src/utils/` | Hooks, libraries, utilities                                        |
 
 **Key files**: `components.json` (shadcn config), `src/features/portfolio/data/` (portfolio data), `src/features/{sponsor,bookmark}/data.tsx` (sponsor and bookmark data), `.env.example` (env vars)
@@ -31,7 +31,7 @@ Built on shadcn/ui. Registry types and their definition files:
 | `registry:lib`       | `src/registry/lib/_registry.ts`        |
 | `registry:style`     | `src/registry/styles/_registry.ts`     |
 
-**NEVER EDIT** auto-generated outputs of `pnpm registry:build`: `registry.json`, `registry-stats.json`, `src/registry/__index__.tsx`, `src/registry/transformed/`, `public/r/*.json`
+**NEVER EDIT** auto-generated outputs of `pnpm registry:build`: `registry.json`, `registry-stats.json`, `src/registry/__index__.tsx`, `public/r/*.json`
 
 ### Adding a new component
 
@@ -71,7 +71,6 @@ pnpm format:write       # Prettier
 pnpm check-types        # Type checking (tsc --noEmit)
 pnpm registry:build     # Build shadcn registry (Bun script + shadcn build)
 pnpm registry:validate  # Validate generated registry.json
-pnpm icons:build        # Build registry icons
 ```
 
 ### Local dev URL

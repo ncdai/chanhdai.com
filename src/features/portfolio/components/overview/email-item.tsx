@@ -6,10 +6,10 @@ import { decodeEmail } from "@/utils/string"
 import { useTiks } from "@rexa-developer/tiks/react"
 import { MailIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
-import { toast } from "sonner"
 
 import { trackEvent } from "@/lib/events"
 import { useIsClient } from "@/hooks/use-is-client"
+import { toast } from "@/components/ui/toast"
 import { CopyButton } from "@/components/copy-button"
 
 import {
@@ -40,7 +40,7 @@ export function EmailItem({ emailB64 }: EmailItemProps) {
       },
     })
     success()
-    toast.success("Email copied")
+    toast.add({ type: "success", title: "Email copied" })
   })
 
   return (

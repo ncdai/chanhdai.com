@@ -2,12 +2,12 @@
 
 import { createContext, useContext, useEffect, useRef, useState } from "react"
 
+import { Collapsible as CollapsibleRoot } from "@/components/ui/collapsible"
 import type {
   ChevronDownIconHandle,
   ChevronDownIconProps,
 } from "@/components/animated-icons/chevron-down-icon"
 import { ChevronDownIcon } from "@/components/animated-icons/chevron-down-icon"
-import { Collapsible as CollapsibleRoot } from "@/components/base/ui/collapsible"
 import type {
   ChevronsUpDownIconHandle,
   ChevronsUpDownIconProps,

@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes"
 
-import { DotGridSpotlight } from "@/registry/transformed/components/dot-grid-spotlight"
+import { DotGridSpotlight } from "@/registry/components/dot-grid-spotlight"
 
 const DOT_COLOR = {
   light: {

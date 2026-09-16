@@ -6,10 +6,10 @@ import { decodePhoneNumber, formatPhoneNumber } from "@/utils/string"
 import { useTiks } from "@rexa-developer/tiks/react"
 import { PhoneIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
-import { toast } from "sonner"
 
 import { trackEvent } from "@/lib/events"
 import { useIsClient } from "@/hooks/use-is-client"
+import { toast } from "@/components/ui/toast"
 import { CopyButton } from "@/components/copy-button"
 
 import {
@@ -41,7 +41,7 @@ export function PhoneItem({ phoneNumberB64 }: PhoneItemProps) {
       },
     })
     success()
-    toast.success("Phone number copied")
+    toast.add({ type: "success", title: "Phone number copied" })
   })
 
   return (

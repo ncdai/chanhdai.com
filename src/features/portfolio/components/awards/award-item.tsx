@@ -1,21 +1,21 @@
 import { format } from "date-fns"
 import { Crown, Paperclip } from "lucide-react"
 
-import { IconTile } from "@/components/ui/icon-tile"
-import {
-  Collapsible,
-  CollapsibleChevronsUpDownIcon,
-} from "@/components/base/collapsible-animated"
 import {
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
-import { Separator } from "@/components/base/ui/separator"
+} from "@/components/ui/collapsible"
+import { IconTile } from "@/components/ui/icon-tile"
+import { Separator } from "@/components/ui/separator"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
+import {
+  Collapsible,
+  CollapsibleChevronsUpDownIcon,
+} from "@/components/collapsible-animated"
 import { Markdown } from "@/components/markdown"
 import type { Award } from "@/features/portfolio/types/awards"
 

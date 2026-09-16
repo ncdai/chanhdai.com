@@ -64,7 +64,8 @@
       "description": "Toggle between system, light, and dark themes in Next.js apps.",
       "dependencies": [
         "next-themes",
-        "motion"
+        "motion",
+        "lucide-react"
       ],
       "files": [
         {
@@ -289,7 +290,8 @@
       "description": "Display work experiences with role details, company logos, and durations.",
       "dependencies": [
         "react-markdown",
-        "date-fns"
+        "date-fns",
+        "lucide-react"
       ],
       "registryDependencies": [
         "collapsible",
@@ -535,7 +537,8 @@
       "dependencies": [
         "motion",
         "@rexa-developer/tiks",
-        "web-haptics"
+        "web-haptics",
+        "lucide-react"
       ],
       "registryDependencies": [
         "button",
@@ -567,7 +570,8 @@
       "dependencies": [
         "@base-ui/react",
         "motion",
-        "jotai"
+        "jotai",
+        "lucide-react"
       ],
       "registryDependencies": [
         "https://chanhdai.com/r/icon-swap.json",
@@ -580,7 +584,7 @@
           "target": "@components/code-block-command.tsx"
         },
         {
-          "path": "src/components/base/ui/tabs.tsx",
+          "path": "src/components/ui/tabs.tsx",
           "type": "registry:component",
           "target": "@components/tabs.tsx"
         }
@@ -825,11 +829,12 @@
       "title": "Brand Assets Menu",
       "description": "Context menu for copying brand SVGs and opening asset links.",
       "dependencies": [
-        "@rexa-developer/tiks"
+        "@rexa-developer/tiks",
+        "lucide-react"
       ],
       "registryDependencies": [
         "context-menu",
-        "sonner"
+        "toast"
       ],
       "files": [
         {
@@ -1020,10 +1025,13 @@
       "name": "share-menu",
       "title": "Share Menu",
       "description": "Share menu to copy a link or post to X, LinkedIn, and the native share sheet.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "button",
         "dropdown-menu",
-        "sonner"
+        "toast"
       ],
       "files": [
         {
@@ -1087,10 +1095,11 @@
       "description": "Button that shows loading and success feedback for async actions.",
       "dependencies": [
         "motion",
-        "radix-ui"
+        "lucide-react"
       ],
       "registryDependencies": [
-        "button"
+        "button",
+        "https://chanhdai.com/r/use-controllable-state.json"
       ],
       "files": [
         {
@@ -1208,6 +1217,9 @@
       "name": "hero-01",
       "title": "Hero 01",
       "description": "A hero section with a golden spiral background.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "button",
         "https://chanhdai.com/r/style.json"
@@ -1238,7 +1250,8 @@
       "title": "Blog 01",
       "description": "A blog section with a grid layout.",
       "dependencies": [
-        "date-fns"
+        "date-fns",
+        "lucide-react"
       ],
       "registryDependencies": [
         "button"
@@ -1269,7 +1282,8 @@
       "title": "Blog 02",
       "description": "A blog section with a lined grid layout.",
       "dependencies": [
-        "date-fns"
+        "date-fns",
+        "lucide-react"
       ],
       "registryDependencies": [
         "button",
@@ -1361,6 +1375,9 @@
       "name": "experience-01",
       "title": "Experience 01",
       "description": "A work experience section with a lined layout.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "https://chanhdai.com/r/style.json",
         "https://chanhdai.com/r/work-experience.json"
@@ -1410,7 +1427,8 @@
       "title": "Metrics 01",
       "description": "A metrics section with a line chart.",
       "dependencies": [
-        "date-fns"
+        "date-fns",
+        "lucide-react"
       ],
       "registryDependencies": [
         "@bklit/line-chart",
@@ -1442,6 +1460,9 @@
       "name": "social-links-01",
       "title": "Social Links 01",
       "description": "A social links section with a lined grid layout.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "https://chanhdai.com/r/style.json"
       ],
@@ -1493,7 +1514,8 @@
       "dependencies": [
         "p5@^1.9.4",
         "motion",
-        "next-themes"
+        "next-themes",
+        "lucide-react"
       ],
       "devDependencies": [
         "@types/p5@^1.7.7"

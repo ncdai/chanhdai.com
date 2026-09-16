@@ -5,20 +5,20 @@ import { Repeat, Settings2 } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Tabs,
   TabsContent,
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/components/base/ui/tabs"
+} from "@/components/ui/tabs"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
-import { Code as CodeInline } from "@/components/base/ui/typography"
+} from "@/components/ui/tooltip"
+import { Code as CodeInline } from "@/components/ui/typography"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { OpenInV0Button } from "@/components/v0-open-button"
 import { Index } from "@/registry/__index__"

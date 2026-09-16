@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 
 import { useBookmarkFilters } from "../lib/search-params"
 import type { BookmarkListEntry } from "../types"

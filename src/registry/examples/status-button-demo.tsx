@@ -1,6 +1,6 @@
 "use client"
 
-import { StatusButton } from "@/registry/transformed/components/status-button"
+import { StatusButton } from "@/registry/components/status-button"
 
 function fakeRequest() {
   return new Promise<void>((resolve) => setTimeout(resolve, 1500))

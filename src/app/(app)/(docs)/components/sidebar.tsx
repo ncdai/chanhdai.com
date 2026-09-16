@@ -13,13 +13,13 @@ import { useHotkeys } from "react-hotkeys-hook"
 
 import { cn } from "@/lib/utils"
 import { useSidebarOpen } from "@/hooks/use-sidebar-open"
+import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
-import { Button } from "@/components/base/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
 
 import { SidebarIcon } from "./sidebar-icon"
 
