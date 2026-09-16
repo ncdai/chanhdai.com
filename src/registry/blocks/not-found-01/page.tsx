@@ -29,11 +29,13 @@ export default function NotFound() {
         </EmptyHeader>
 
         <EmptyContent>
-          <Button variant="outline" asChild>
-            <Link href="/">
-              Go to Home
-              <ArrowRightIcon />
-            </Link>
+          <Button
+            variant="outline"
+            nativeButton={false}
+            render={<Link href="/" />}
+          >
+            Go to Home
+            <ArrowRightIcon />
           </Button>
         </EmptyContent>
       </Empty>

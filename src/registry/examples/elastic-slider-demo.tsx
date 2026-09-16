@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { ElasticSlider } from "@/registry/transformed/components/elastic-slider"
+import { ElasticSlider } from "@/registry/components/elastic-slider"
 
 export default function ElasticSliderDemo() {
   const [opacity, setOpacity] = useState(0.5)

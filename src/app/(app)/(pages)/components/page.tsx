@@ -10,12 +10,12 @@ import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS, X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl } from "@/lib/utils"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
 import { CarbonAds } from "@/components/carbon-ads"
 import { TrustedRegistryIcon } from "@/components/icons"
 import {

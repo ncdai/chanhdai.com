@@ -6,17 +6,17 @@ import { motion } from "motion/react"
 import { registryConfig } from "@/config/registry"
 import type { PackageManager } from "@/hooks/use-package-manager"
 import { usePackageManager } from "@/hooks/use-package-manager"
-import { components } from "@/registry/components/_registry"
-import { IconSwap, IconSwapItem } from "@/registry/components/icon-swap"
-import { TextFlip } from "@/registry/components/text-flip"
-
 import {
   Tabs,
   TabsContent,
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "./base/ui/tabs"
+} from "@/components/ui/tabs"
+import { components } from "@/registry/components/_registry"
+import { IconSwap, IconSwapItem } from "@/registry/components/icon-swap"
+import { TextFlip } from "@/registry/components/text-flip"
+
 import { CopyButton } from "./copy-button"
 import { getIconForPackageManager } from "./icons"
 

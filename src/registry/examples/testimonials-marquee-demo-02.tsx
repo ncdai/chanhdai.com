@@ -13,7 +13,7 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
-} from "@/registry/transformed/components/testimonial"
+} from "@/registry/components/testimonial"
 
 export default function TestimonialsMarqueeDemo2() {
   return (

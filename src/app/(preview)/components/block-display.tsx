@@ -2,10 +2,10 @@ import { cache } from "react"
 import type { registryItemFileSchema } from "shadcn/schema"
 import type { z } from "zod"
 
-import { formatCode } from "@/lib/format-code"
 import { highlightCode } from "@/lib/highlight-code"
 import {
   createFileTreeForRegistryItemFiles,
+  fixImport,
   getRegistryItem,
 } from "@/lib/registry"
 import { BlockViewer } from "@/app/(preview)/components/block-viewer"
@@ -52,9 +52,7 @@ const getCachedHighlightedFiles = cache(
     return await Promise.all(
       files.map(async (file) => ({
         ...file,
-        highlightedContent: await highlightCode(
-          await formatCode(file.content ?? "", "radix-vega")
-        ),
+        highlightedContent: await highlightCode(fixImport(file.content ?? "")),
       }))
     )
   }

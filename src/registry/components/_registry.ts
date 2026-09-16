@@ -8,7 +8,7 @@ export const components: Registry["items"] = [
     title: "Theme Switcher",
     description:
       "Toggle between system, light, and dark themes in Next.js apps.",
-    dependencies: ["next-themes", "motion"],
+    dependencies: ["next-themes", "motion", "lucide-react"],
     files: [
       {
         path: "components/theme-switcher/theme-switcher.tsx",
@@ -191,7 +191,7 @@ export const components: Registry["items"] = [
     title: "Work Experience",
     description:
       "Display work experiences with role details, company logos, and durations.",
-    dependencies: ["react-markdown", "date-fns"],
+    dependencies: ["react-markdown", "date-fns", "lucide-react"],
     registryDependencies: [
       "collapsible",
       "separator",
@@ -409,7 +409,12 @@ export const components: Registry["items"] = [
     title: "Copy Button",
     description:
       "Copy text to clipboard with visual, haptic, and audio feedback.",
-    dependencies: ["motion", "@rexa-developer/tiks", "web-haptics"],
+    dependencies: [
+      "motion",
+      "@rexa-developer/tiks",
+      "web-haptics",
+      "lucide-react",
+    ],
     registryDependencies: ["button", getRegistryItemUrl("icon-swap")],
     files: [
       {
@@ -432,7 +437,7 @@ export const components: Registry["items"] = [
     title: "Code Block Command",
     description:
       "Display install commands with package manager switcher and copy button.",
-    dependencies: ["@base-ui/react", "motion", "jotai"],
+    dependencies: ["@base-ui/react", "motion", "jotai", "lucide-react"],
     registryDependencies: [
       getRegistryItemUrl("icon-swap"),
       getRegistryItemUrl("copy-button"),
@@ -444,7 +449,7 @@ export const components: Registry["items"] = [
         target: "@components/code-block-command.tsx",
       },
       {
-        path: "src/components/base/ui/tabs.tsx",
+        path: "src/components/ui/tabs.tsx",
         type: "registry:component",
         target: "@components/tabs.tsx",
       },
@@ -649,8 +654,8 @@ export const components: Registry["items"] = [
     type: "registry:component",
     title: "Brand Assets Menu",
     description: "Context menu for copying brand SVGs and opening asset links.",
-    registryDependencies: ["context-menu", "sonner"],
-    dependencies: ["@rexa-developer/tiks"],
+    registryDependencies: ["context-menu", "toast"],
+    dependencies: ["@rexa-developer/tiks", "lucide-react"],
     files: [
       {
         path: "components/brand-assets-menu/brand-assets-menu.tsx",
@@ -811,7 +816,8 @@ export const components: Registry["items"] = [
     title: "Share Menu",
     description:
       "Share menu to copy a link or post to X, LinkedIn, and the native share sheet.",
-    registryDependencies: ["button", "dropdown-menu", "sonner"],
+    dependencies: ["lucide-react"],
+    registryDependencies: ["button", "dropdown-menu", "toast"],
     files: [
       {
         path: "components/share-menu/share-menu.tsx",
@@ -862,8 +868,11 @@ export const components: Registry["items"] = [
     title: "Status Button",
     description:
       "Button that shows loading and success feedback for async actions.",
-    dependencies: ["motion", "radix-ui"],
-    registryDependencies: ["button"],
+    dependencies: ["motion", "lucide-react"],
+    registryDependencies: [
+      "button",
+      getRegistryItemUrl("use-controllable-state"),
+    ],
     files: [
       {
         path: "components/status-button/status-button.tsx",

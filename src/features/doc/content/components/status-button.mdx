@@ -40,7 +40,7 @@ npx shadcn@latest add @ncdai/status-button
 <Step>Install the following dependencies</Step>
 
 ```bash
-npm install cn class-variance-authority lucide-react motion radix-ui
+npm install cn class-variance-authority lucide-react motion @base-ui/react
 ```
 
 <Step>Add a cn helper</Step>
@@ -53,7 +53,7 @@ npm install cn class-variance-authority lucide-react motion radix-ui
 
 <Step>Install the required components</Step>
 
-- [Button](https://ui.shadcn.com/docs/components/button)
+- [Button](https://ui.shadcn.com/docs/components/base/button)
 
 <Step>Add the spinner animation to your global CSS</Step>
 
@@ -74,6 +74,11 @@ npm install cn class-variance-authority lucide-react motion radix-ui
 ```
 
 <Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="use-controllable-state"
+  title="hooks/use-controllable-state.tsx"
+/>
 
 <ComponentSource name="status-button" title="components/status-button.tsx" />
 
@@ -124,14 +129,14 @@ const [status, setStatus] = useState<ButtonStatus>("idle")
 
 ### StatusButton
 
-Extends [Button](https://ui.shadcn.com/docs/components/radix/button) with loading and success states.
+Extends [Button](https://ui.shadcn.com/docs/components/base/button) with loading and success states.
 
 <AutoTypeTable
   path="src/features/doc/content/props.ts"
   name="StatusButtonProps"
 />
 
-See [shadcn/ui](https://ui.shadcn.com/docs/components/radix/button#api-reference) documentation for more information.
+See [shadcn/ui](https://ui.shadcn.com/docs/components/base/button#api-reference) documentation for more information.
 
 ## Examples
 

@@ -368,7 +368,7 @@ export const Index: Record<string, any> = {
       type: "registry:component",
       target: "@components/code-block-command.tsx",
     },{
-      path: "src/components/base/ui/tabs.tsx",
+      path: "src/components/ui/tabs.tsx",
       type: "registry:component",
       target: "@components/tabs.tsx",
     }],

@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 
 import { MOBILE_NAV } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { Separator } from "@/components/base/ui/separator"
+import { Separator } from "@/components/ui/separator"
 import blocks from "@/registry/__blocks__.json"
 import { BOOKMARKS } from "@/features/bookmark/data"
 import { sortBookmarksNewestFirst } from "@/features/bookmark/lib/sort"

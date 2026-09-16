@@ -4,8 +4,8 @@ import { useId, useState } from "react"
 
 import { Field, FieldError, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import type { ButtonStatus } from "@/registry/transformed/components/status-button"
-import { StatusButton } from "@/registry/transformed/components/status-button"
+import type { ButtonStatus } from "@/registry/components/status-button"
+import { StatusButton } from "@/registry/components/status-button"
 
 async function subscribe(email: string) {
   await new Promise((resolve) => setTimeout(resolve, 1500))

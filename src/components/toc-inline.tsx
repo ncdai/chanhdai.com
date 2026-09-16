@@ -6,13 +6,13 @@ import { TextIcon } from "lucide-react"
 import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
 import {
-  Collapsible,
-  CollapsibleChevronDownIcon,
-} from "@/components/base/collapsible-animated"
-import {
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
+} from "@/components/ui/collapsible"
+import {
+  Collapsible,
+  CollapsibleChevronDownIcon,
+} from "@/components/collapsible-animated"
 
 export function TOCInline({
   items,

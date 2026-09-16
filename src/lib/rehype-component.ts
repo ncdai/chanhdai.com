@@ -6,7 +6,6 @@ import { visit } from "unist-util-visit"
 import type { UnistNode, UnistTree } from "@/types/unist"
 import { Index } from "@/registry/__index__"
 
-import { formatCode } from "./format-code"
 import { fixImport } from "./registry"
 
 type NodeToProcess = {
@@ -93,7 +92,7 @@ export function rehypeComponent() {
               /*turbopackIgnore: true*/ filePath,
               "utf8"
             )
-            const source = await formatCode(raw, "radix-vega")
+            const source = fixImport(raw)
 
             const title = getNodeAttributeByName(item.node, "title")
             const showLineNumbers = getNodeAttributeByName(
@@ -150,7 +149,7 @@ export function rehypeComponent() {
               /*turbopackIgnore: true*/ filePath,
               "utf8"
             )
-            const source = fixImport(raw) // await formatCode(raw, "radix-vega")
+            const source = fixImport(raw)
 
             const codeMeta = getNodeAttributeByName(item.node, "data-code-meta")
 

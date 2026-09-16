@@ -236,12 +236,23 @@ function MainContent({ className }: { className?: string }) {
       </p>
 
       <div className="mb-6 grid grid-cols-2 items-center gap-4 sm:mb-8 sm:flex">
-        <Button className="border-none px-4 sm:px-8" size="lg" asChild>
-          <a href="#">Sign up now</a>
+        <Button
+          className="border-none px-4 sm:px-8"
+          size="lg"
+          nativeButton={false}
+          render={<a href="#" />}
+        >
+          Sign up now
         </Button>
 
-        <Button className="px-4 sm:px-8" variant="outline" size="lg" asChild>
-          <a href="#">Learn more</a>
+        <Button
+          className="px-4 sm:px-8"
+          variant="outline"
+          size="lg"
+          nativeButton={false}
+          render={<a href="#" />}
+        >
+          Learn more
         </Button>
       </div>
 

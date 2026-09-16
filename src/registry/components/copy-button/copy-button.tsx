@@ -1,6 +1,7 @@
 "use client"
 
 import type { ComponentProps } from "react"
+import { CheckIcon, CircleXIcon, CopyIcon } from "lucide-react"
 import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
@@ -8,7 +9,6 @@ import type { CopyState } from "@/hooks/use-copy-to-clipboard"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { Button } from "@/components/ui/button"
 import { IconSwap, IconSwapItem } from "@/registry/components/icon-swap"
-import { IconPlaceholder } from "@/registry/icons/icon-placeholder"
 
 export type CopyStateIconProps = {
   state: CopyState
@@ -29,41 +29,12 @@ export function CopyStateIcon({
   return (
     <IconSwap>
       <IconSwapItem key={state} as={motion.span}>
-        {state === "idle" &&
-          (idleIcon ?? (
-            <IconPlaceholder
-              data-slot="idle-icon"
-              lucide="CopyIcon"
-              tabler="IconCopy"
-              hugeicons="Copy01Icon"
-              phosphor="CopyIcon"
-              remixicon="RiFileCopyLine"
-            />
-          ))}
+        {state === "idle" && (idleIcon ?? <CopyIcon data-slot="idle-icon" />)}
 
-        {state === "done" &&
-          (doneIcon ?? (
-            <IconPlaceholder
-              data-slot="done-icon"
-              lucide="CheckIcon"
-              tabler="IconCheck"
-              hugeicons="Tick02Icon"
-              phosphor="CheckIcon"
-              remixicon="RiCheckLine"
-            />
-          ))}
+        {state === "done" && (doneIcon ?? <CheckIcon data-slot="done-icon" />)}
 
         {state === "error" &&
-          (errorIcon ?? (
-            <IconPlaceholder
-              data-slot="error-icon"
-              lucide="CircleXIcon"
-              tabler="IconX"
-              hugeicons="CancelCircleIcon"
-              phosphor="XCircleIcon"
-              remixicon="RiCloseCircleLine"
-            />
-          ))}
+          (errorIcon ?? <CircleXIcon data-slot="error-icon" />)}
       </IconSwapItem>
     </IconSwap>
   )

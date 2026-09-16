@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRightIcon } from "lucide-react"
 
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import { BookmarkItem } from "@/features/bookmark/components/bookmark-item"
 import { BOOKMARKS } from "@/features/bookmark/data"
 import { sortBookmarksNewestFirst } from "@/features/bookmark/lib/sort"

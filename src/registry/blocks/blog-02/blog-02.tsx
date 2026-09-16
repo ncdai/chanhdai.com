@@ -38,11 +38,13 @@ export function Blog02() {
           </div>
 
           <div className="screen-line-top screen-line-bottom flex justify-center py-2">
-            <Button className="gap-2 pr-2.5 pl-3" asChild>
-              <a href="#">
-                View All
-                <ArrowRightIcon />
-              </a>
+            <Button
+              className="gap-2 pr-2.5 pl-3"
+              nativeButton={false}
+              render={<a href="#" />}
+            >
+              View All
+              <ArrowRightIcon />
             </Button>
           </div>
         </div>

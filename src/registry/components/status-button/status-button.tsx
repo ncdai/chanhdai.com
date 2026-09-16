@@ -9,10 +9,10 @@ import {
   type Transition,
   type Variants,
 } from "motion/react"
-import { useControllableState } from "radix-ui/internal"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { useControllableState } from "@/registry/hooks/use-controllable-state"
 
 export type ButtonStatus = "idle" | "loading" | "success"
 

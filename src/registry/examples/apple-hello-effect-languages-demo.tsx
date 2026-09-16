@@ -3,10 +3,10 @@
 import { useState } from "react"
 import { AnimatePresence } from "motion/react"
 
-import { AppleHelloEffectEnglish } from "@/registry/transformed/components/apple-hello-effect/apple-hello-effect-english"
-import { AppleHelloEffectHindi } from "@/registry/transformed/components/apple-hello-effect/apple-hello-effect-hindi"
-import { AppleHelloEffectSpanish } from "@/registry/transformed/components/apple-hello-effect/apple-hello-effect-spanish"
-import { AppleHelloEffectVietnamese } from "@/registry/transformed/components/apple-hello-effect/apple-hello-effect-vietnamese"
+import { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
+import { AppleHelloEffectHindi } from "@/registry/components/apple-hello-effect/apple-hello-effect-hindi"
+import { AppleHelloEffectSpanish } from "@/registry/components/apple-hello-effect/apple-hello-effect-spanish"
+import { AppleHelloEffectVietnamese } from "@/registry/components/apple-hello-effect/apple-hello-effect-vietnamese"
 
 export default function AppleHelloEffectLanguagesDemo() {
   const [index, setIndex] = useState(0)

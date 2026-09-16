@@ -1,6 +1,6 @@
 "use client"
 
-import { CodeBlockCommand } from "@/registry/transformed/components/code-block-command"
+import { CodeBlockCommand } from "@/registry/components/code-block-command"
 
 export default function CodeBlockCommandDemo() {
   return (

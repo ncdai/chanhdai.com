@@ -1,4 +1,4 @@
-import { CopyButton } from "@/registry/transformed/components/copy-button"
+import { CopyButton } from "@/registry/components/copy-button"
 
 export default function CopyButtonDemo() {
   return (

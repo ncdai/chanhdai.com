@@ -8,8 +8,8 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/transformed/components/testimonial"
-import { TestimonialSpotlight } from "@/registry/transformed/components/testimonial-spotlight"
+} from "@/registry/components/testimonial"
+import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 export default function TestimonialSpotlightDemo() {
   return (

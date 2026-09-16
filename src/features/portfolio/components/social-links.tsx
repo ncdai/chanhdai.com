@@ -1,12 +1,12 @@
 import { addQueryParams } from "@/utils/url"
 
 import { UTM_PARAMS } from "@/config/site"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
 import {
   HandwrittenArrow,
   HandwrittenNote,

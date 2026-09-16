@@ -6,7 +6,7 @@ import { XIcon } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
 import { trackEvent } from "@/lib/events"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import { SPONSORS } from "@/features/sponsor/data"
 
 export function DocSponsors() {

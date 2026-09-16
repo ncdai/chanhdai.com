@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView, usePageInView } from "motion/react"
 
-import { TextFlip } from "@/registry/transformed/components/text-flip"
+import { TextFlip } from "@/registry/components/text-flip"
 
 const WORDS = ["Developer", "Designer", "Creator", "Builder"]
 
