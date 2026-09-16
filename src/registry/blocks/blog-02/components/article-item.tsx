@@ -35,9 +35,7 @@ export function ArticleItem({
       </div>
 
       <div className="flex flex-col gap-2 p-2">
-        <h3 className="text-lg leading-tight font-medium text-balance">
-          {title}
-        </h3>
+        <h3 className="text-lg/tight font-medium text-balance">{title}</h3>
 
         <dl>
           <dt className="sr-only">Published on</dt>

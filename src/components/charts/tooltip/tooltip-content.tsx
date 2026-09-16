@@ -33,7 +33,7 @@ export function TooltipContent({ title, rows, children }: TooltipContentProps) {
             >
               <div className="flex items-center gap-2">
                 <span
-                  className="h-2.5 w-2.5 shrink-0 rounded-full"
+                  className="size-2.5 shrink-0 rounded-full"
                   style={{ backgroundColor: row.color }}
                 />
                 <span className="text-sm text-chart-tooltip-muted">

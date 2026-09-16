@@ -496,7 +496,7 @@ export function ElasticSlider({
             <div
               key={i}
               className={cn(
-                "absolute top-1/2 h-2 w-px -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-200",
+                "absolute top-1/2 h-2 w-px -translate-1/2 rounded-full transition-colors duration-200",
                 "bg-transparent group-data-[active=true]/elastic-slider:bg-(--elastic-slider-hash)"
               )}
               style={{ left: `${hashMarkPct(i)}%` }}

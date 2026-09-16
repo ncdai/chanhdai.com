@@ -16,7 +16,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/hiretimsf",
     authorName: "HireTimSF.com",
-    authorTagline: "Building @menu_ceo",
+    authorTagline: "Building menu.ceo",
     url: "https://x.com/hiretimsf/status/2058272162369466488",
     quote:
       "This guy is really talented Design engineer. I am a big fan of his work.",
@@ -103,7 +103,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/ephraimduncan",
     authorName: "Duncan",
-    authorTagline: "Engineering @Documenso",
+    authorTagline: "Engineering at Documenso",
     url: "https://x.com/ephraimduncan/status/2008254368806826312",
     quote: "great work on your portfolio, you deserve it",
     date: "2026-01-06",
@@ -112,7 +112,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/FrancescoCiull4",
     authorName: "Francesco Ciulla",
-    authorTagline: "Developer Advocate @daily.dev",
+    authorTagline: "Developer Advocate at daily.dev",
     url: "https://x.com/FrancescoCiull4/status/2006332479536529608",
     quote:
       "your portfolio is stunning. i created mine some weeks ago but this is another planet.",
@@ -161,7 +161,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/rauchg",
     authorName: "Guillermo Rauch",
-    authorTagline: "CEO @Vercel",
+    authorTagline: "CEO at Vercel",
     url: "https://x.com/rauchg/status/1978913158514237669",
     quote:
       "awesome. Love the components, especially slide-to-unlock. Great job",
@@ -184,7 +184,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/kapehe_ok",
     authorName: "Kap",
-    authorTagline: "Head of Developer Community @Vercel",
+    authorTagline: "Head of Developer Community at Vercel",
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
     quote: "one of my favorite projects that submitted! you are crushing it!",
     date: "2025-07-24",
@@ -193,7 +193,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/steventey",
     authorName: "Steven Tey",
-    authorTagline: "Founder @Dub.co",
+    authorTagline: "Founder of Dub",
     url: "https://x.com/steventey/status/1936934909370830924",
     quote: "whoa, this is really dope – needs to get added to @shadcn UI 👀",
     date: "2025-06-23",
@@ -214,9 +214,18 @@ export const TESTIMONIALS_1: Testimonial[] = [
 // Short quotes (50 characters or fewer), ordered by date ascending
 export const TESTIMONIALS_2: Testimonial[] = [
   {
+    authorAvatar: "https://unavatar.io/x/colmtuite",
+    authorName: "Colm Tuite",
+    authorTagline: "Director of Product at MUI",
+    url: "https://x.com/colmtuite/status/2100269958475227352",
+    quote: "beautiful site",
+    date: "2026-09-16",
+    isVerified: true,
+  },
+  {
     authorAvatar: "https://unavatar.io/x/matiNotFound",
     authorName: "Matias",
-    authorTagline: "Developer @Vercel",
+    authorTagline: "Developer at Vercel",
     url: "https://x.com/matiNotFound/status/2090863638387073269",
     quote: "looks amazing!",
     date: "2026-08-22",
@@ -224,7 +233,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/evilrabbit_",
     authorName: "Evil Rabbit",
-    authorTagline: "Founding Designer @Vercel",
+    authorTagline: "Founding Designer at Vercel",
     url: "https://x.com/evilrabbit_/status/2058279035390820692",
     quote: "sick",
     date: "2026-05-24",
@@ -242,7 +251,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/MrAhmadAwais",
     authorName: "Ahmad Awais",
-    authorTagline: "CEO @CommandCodeAI",
+    authorTagline: "CEO at Command Code",
     url: "https://x.com/MrAhmadAwais/status/2052029483415425506",
     quote: "lovely sliders!! awesome work!",
     date: "2026-05-06",
@@ -252,7 +261,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/evilrabbit_",
     authorName: "Evil Rabbit",
-    authorTagline: "Founding Designer @Vercel",
+    authorTagline: "Founding Designer at Vercel",
     url: "https://x.com/evilrabbit_/status/2046010757943566809",
     quote: "niiiice one! 🤍",
     date: "2026-04-20",
@@ -271,7 +280,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/evilrabbit_",
     authorName: "Evil Rabbit",
-    authorTagline: "Founding Designer @Vercel",
+    authorTagline: "Founding Designer at Vercel",
     url: "https://x.com/evilrabbit_/status/2040096654196613419",
     quote: "🖤",
     date: "2026-04-03",
@@ -337,7 +346,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/branmcconnell",
     authorName: "Brandon McConnell",
-    authorTagline: "Frontend Engineer @mintlify",
+    authorTagline: "Frontend Engineer at Mintlify",
     url: "https://x.com/branmcconnell/status/2028391281198862377",
     quote: "amazing, such cool libraries 🔥",
     date: "2026-03-02",
@@ -373,7 +382,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/JohnPhamous",
     authorName: "JohnPhamous",
-    authorTagline: "Design Engineer @Vercel",
+    authorTagline: "Design Engineer at Vercel",
     url: "https://x.com/JohnPhamous/status/2018355370855674244",
     quote: "nice",
     date: "2026-02-02",
@@ -472,7 +481,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
     authorName: "Max Prilutskiy",
-    authorTagline: "CEO @Lingo.dev",
+    authorTagline: "CEO at Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
     quote: "i like your style! :)",
     date: "2025-05-18",

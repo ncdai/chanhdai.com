@@ -692,7 +692,7 @@ function ThemePicker() {
             <PopoverTrigger
               render={
                 <Button
-                  className="bg-transparent px-1.75 shadow-none dark:border-border dark:bg-transparent dark:aria-expanded:bg-input/50"
+                  className="bg-transparent px-1.75 shadow-none active:scale-100 dark:border-border dark:bg-transparent dark:aria-expanded:bg-input/50"
                   variant="outline"
                   size="sm"
                   aria-label="Theme"
@@ -709,45 +709,48 @@ function ThemePicker() {
       </Tooltip>
 
       <PopoverContent
-        className="rounded-2xl p-0"
+        className="rounded-2xl bg-surface p-0"
         align="start"
         alignOffset={-8}
       >
         <Command
           className={cn(
+            "px-1 pb-1",
             "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:size-5 **:[[cmdk-input]]:h-10",
-            "**:[[cmdk-group]]:px-2",
+            "**:[[cmdk-group]]:px-1",
             "**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground",
-            "[&_[cmdk-item]_svg]:size-5 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-2"
+            "[&_[cmdk-item]_svg]:size-5 **:[[cmdk-item]]:p-2"
           )}
         >
           <CommandInput placeholder="Search theme…" />
 
-          <CommandList className="min-h-80 scroll-fade">
-            <CommandEmpty>No results found.</CommandEmpty>
+          <div className="rounded-xl bg-background ring-1 ring-border">
+            <CommandList className="min-h-80 scroll-fade">
+              <CommandEmpty>No results found.</CommandEmpty>
 
-            <CommandGroup heading="Current theme">
-              <CommandItem onSelect={() => handleThemeSelect(null)}>
-                <ThemePalette />
-                Default
-                {!theme && <CheckIcon className="ml-auto" strokeWidth={3} />}
-              </CommandItem>
-            </CommandGroup>
+              <CommandGroup heading="Current theme">
+                <CommandItem onSelect={() => handleThemeSelect(null)}>
+                  <ThemePalette />
+                  Default
+                  {!theme && <CheckIcon className="ml-auto" strokeWidth={3} />}
+                </CommandItem>
+              </CommandGroup>
 
-            <ThemePickerGroup
-              title="shadcn/ui"
-              themes={shadcnThemes}
-              activeTheme={theme}
-              onThemeSelect={handleThemeSelect}
-            />
+              <ThemePickerGroup
+                title="shadcn/ui"
+                themes={shadcnThemes}
+                activeTheme={theme}
+                onThemeSelect={handleThemeSelect}
+              />
 
-            <ThemePickerGroup
-              title="tweakcn"
-              themes={tweakcnThemes}
-              activeTheme={theme}
-              onThemeSelect={handleThemeSelect}
-            />
-          </CommandList>
+              <ThemePickerGroup
+                title="tweakcn"
+                themes={tweakcnThemes}
+                activeTheme={theme}
+                onThemeSelect={handleThemeSelect}
+              />
+            </CommandList>
+          </div>
         </Command>
       </PopoverContent>
     </Popover>

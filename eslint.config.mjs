@@ -2,6 +2,7 @@ import { plugin as shadcn } from "@shadcn/lint"
 import nextVitals from "eslint-config-next/core-web-vitals"
 import nextTs from "eslint-config-next/typescript"
 import prettier from "eslint-config-prettier/flat"
+import betterTailwindcss from "eslint-plugin-better-tailwindcss"
 import { defineConfig, globalIgnores } from "eslint/config"
 
 const eslintConfig = defineConfig([
@@ -19,6 +20,16 @@ const eslintConfig = defineConfig([
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: { shadcn },
+  },
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    plugins: { "better-tailwindcss": betterTailwindcss },
+    settings: {
+      "better-tailwindcss": { entryPoint: "src/styles/globals.css" },
+    },
+    rules: {
+      "better-tailwindcss/enforce-canonical-classes": "warn",
+    },
   },
   // Override default ignores of eslint-config-next.
   globalIgnores([

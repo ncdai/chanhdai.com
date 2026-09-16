@@ -238,10 +238,7 @@ export function MiddleTruncation({
   return (
     <span
       ref={containerRef}
-      className={cn(
-        "block overflow-hidden text-ellipsis whitespace-nowrap",
-        className
-      )}
+      className={cn("block truncate", className)}
       title={children}
       {...props}
     >

@@ -12,7 +12,7 @@ export default function ScrollFadeEffectDemo() {
     <div data-slot="scroll-fade-effect-demo" className="rounded-lg border">
       <ScrollFadeEffect className="h-72 w-48">
         <div className="p-4">
-          <h4 className="mb-4 text-sm leading-none font-medium">Tags</h4>
+          <h4 className="mb-4 text-sm/none font-medium">Tags</h4>
           {tags.map((tag) => (
             <React.Fragment key={tag}>
               <div className="text-sm">{tag}</div>
