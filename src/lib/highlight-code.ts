@@ -65,42 +65,67 @@ export const transformers = [
   },
 ] as ShikiTransformer[]
 
-export async function highlightCode(code: string, language: string = "tsx") {
-  // Create cache key from code content and language.
+export const CODE_THEMES = {
+  dark: "vesper",
+  light: "github-light-default",
+} as const
+
+export type HighlightCodeOptions = {
+  showLineNumbers?: boolean
+  /** 1-based line numbers. */
+  highlightedLines?: number[]
+}
+
+export async function highlightCode(
+  code: string,
+  language: string = "tsx",
+  { showLineNumbers = false, highlightedLines = [] }: HighlightCodeOptions = {}
+) {
   const cacheKey = createHash("sha256")
-    .update(`${language}:${code}`)
+    .update(JSON.stringify([language, showLineNumbers, highlightedLines, code]))
     .digest("hex")
 
-  // Check cache first.
   const cached = highlightCache.get(cacheKey)
   if (cached) {
     return cached
   }
 
-  const html = await codeToHtml(code, {
+  // A trailing newline would render as an empty last line
+  const html = await codeToHtml(code.replace(/\n$/, ""), {
     lang: language,
-    themes: {
-      dark: "vesper",
-      light: "github-light",
-    },
+    themes: CODE_THEMES,
     defaultColor: false,
     transformers: [
       {
         pre(node) {
-          node.properties["style"] = ""
+          delete node.properties["class"]
+          delete node.properties["style"]
+          node.properties["data-language"] = language
         },
         code(node) {
-          node.properties["data-line-numbers"] = ""
+          if (showLineNumbers) {
+            node.properties["data-line-numbers"] = ""
+          }
+          node.properties["data-language"] = language
           node.properties["style"] = "display: grid"
         },
-        line(node) {
+        line(node, line) {
+          delete node.properties["class"]
           node.properties["data-line"] = ""
+
+          if (highlightedLines.includes(line)) {
+            node.properties["data-highlighted-line"] = ""
+          }
+
+          // Empty lines would collapse in `display: grid` and get lost on copy
+          if (node.children.length === 0) {
+            node.children = [{ type: "text", value: " " }]
+          }
         },
       },
     ],
   })
 
-  // Cache the result.
   highlightCache.set(cacheKey, html)
 
   return html

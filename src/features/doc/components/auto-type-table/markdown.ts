@@ -10,6 +10,7 @@ import type {
   CodeToHastOptionsCommon,
 } from "shiki"
 
+import { CODE_THEMES } from "@/lib/highlight-code"
 import {
   rehypeCodeRawString,
   rehypeHighlightCode,
@@ -42,10 +43,7 @@ export function markdownRenderer(options?: ShikiOptions): MarkdownRenderer {
       const nodes = await highlightHast(type, {
         lang: "ts",
         structure: "inline",
-        themes: {
-          dark: "vesper",
-          light: "github-light",
-        },
+        themes: CODE_THEMES,
         defaultColor: false,
         ...options,
       })

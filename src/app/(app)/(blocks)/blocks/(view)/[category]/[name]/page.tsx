@@ -167,7 +167,7 @@ export default async function BlockViewPage({
 
       <div className="screen-line-bottom flex h-px" />
 
-      <div className="flex items-center gap-4 p-2 pl-4 max-sm:justify-between">
+      <div className="flex items-center justify-between gap-4 p-2 pl-4">
         <Button
           className="h-7 gap-2 border-none px-0 text-muted-foreground hover:text-foreground"
           variant="link"

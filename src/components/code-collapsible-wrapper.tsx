@@ -21,7 +21,7 @@ export function CodeCollapsibleWrapper({
     >
       {/* Stays visible while closed so the first lines act as a preview */}
       <CollapsibleContent
-        className="overflow-hidden *:data-rehype-pretty-code-figure:my-0 data-closed:max-h-80"
+        className="overflow-hidden *:data-rehype-pretty-code-figure:my-0 data-closed:max-h-80 data-closed:[contain-intrinsic-size:auto_--spacing(80)] data-closed:[content-visibility:auto]"
         keepMounted
         hidden={false}
       >
