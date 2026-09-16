@@ -9,7 +9,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
 import type { Activity } from "@/registry/components/contribution-graph"
 import {
   ContributionGraph,

@@ -1,5 +1,4 @@
 import React from "react"
-import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
@@ -30,12 +29,10 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"header">) {
 }
 
 function PanelTitle({
+  as: Comp = "h2",
   className,
-  asChild = false,
   ...props
-}: React.ComponentProps<"h2"> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot.Root : "h2"
-
+}: React.ComponentProps<"h2"> & { as?: "h2" | "div" }) {
   return (
     <Comp
       data-slot="panel-title"

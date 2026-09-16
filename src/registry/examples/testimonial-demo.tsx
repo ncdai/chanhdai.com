@@ -8,7 +8,7 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/transformed/components/testimonial"
+} from "@/registry/components/testimonial"
 
 export default function TestimonialDemo() {
   return (

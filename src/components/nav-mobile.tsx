@@ -7,12 +7,12 @@ import { usePathname } from "next/navigation"
 
 import type { NavItem } from "@/types/nav"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/base/ui/popover"
+} from "@/components/ui/popover"
 import { haptic } from "@/registry/lib/haptic"
 
 export function NavMobile({ items }: { items: NavItem<Route>[] }) {
@@ -81,8 +81,8 @@ function NavMobileTrigger(
       aria-label="Toggle Menu"
       {...props}
     >
-      <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-aria-expanded:translate-y-0.75 group-aria-expanded:rotate-45" />
-      <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-aria-expanded:-translate-y-0.75 group-aria-expanded:-rotate-45" />
+      <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-popup-open:translate-y-0.75 group-data-popup-open:rotate-45" />
+      <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-popup-open:-translate-y-0.75 group-data-popup-open:-rotate-45" />
     </Button>
   )
 }

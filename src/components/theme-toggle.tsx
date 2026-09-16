@@ -6,10 +6,14 @@ import { useHotkeys } from "react-hotkeys-hook"
 import { META_THEME_COLORS } from "@/config/site"
 import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { useMetaColor } from "@/hooks/use-meta-color"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 import { MoonIcon } from "./animated-icons/moon-icon"
 import { SunMediumIcon } from "./animated-icons/sun-medium-icon"
-import { Tooltip, TooltipContent, TooltipTrigger } from "./base/ui/tooltip"
 import { Button } from "./ui/button"
 import { Kbd } from "./ui/kbd"
 

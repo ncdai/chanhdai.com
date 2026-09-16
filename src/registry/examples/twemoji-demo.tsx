@@ -1,4 +1,4 @@
-import { Twemoji } from "@/registry/transformed/components/twemoji"
+import { Twemoji } from "@/registry/components/twemoji"
 
 export default function TwemojiDemo() {
   return (

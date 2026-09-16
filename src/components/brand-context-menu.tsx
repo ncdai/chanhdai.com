@@ -4,7 +4,6 @@ import Link from "next/link"
 import { copyText } from "@/utils/copy"
 import { useTiks } from "@rexa-developer/tiks/react"
 import { ArrowUpRight, Download, SquareDashed, Type } from "lucide-react"
-import { toast } from "sonner"
 
 import {
   ContextMenu,
@@ -12,7 +11,8 @@ import {
   ContextMenuItem,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from "@/components/base/ui/context-menu"
+} from "@/components/ui/context-menu"
+import { toast } from "@/components/ui/toast"
 
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
 import { getWordmarkSVG } from "./chanhdai-wordmark"
@@ -25,21 +25,17 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
       <ContextMenuTrigger>{children}</ContextMenuTrigger>
 
       <ContextMenuContent className="w-fit">
-        <ContextMenuItem
-          render={
-            <a href="/" target="_blank">
-              <ArrowUpRight />
-              Open Link in New Tab
-            </a>
-          }
-        />
+        <ContextMenuItem render={<a href="/" target="_blank" />}>
+          <ArrowUpRight />
+          Open Link in New Tab
+        </ContextMenuItem>
 
         <ContextMenuSeparator />
 
         <ContextMenuItem
           onClick={() => {
             copyText(getMarkSVG())
-            toast.success("Mark as SVG copied")
+            toast.add({ type: "success", title: "Mark as SVG copied" })
             success()
           }}
         >
@@ -50,7 +46,7 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
         <ContextMenuItem
           onClick={() => {
             copyText(getWordmarkSVG())
-            toast.success("Logotype as SVG copied")
+            toast.add({ type: "success", title: "Logotype as SVG copied" })
             success()
           }}
         >
@@ -60,23 +56,19 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
 
         <ContextMenuSeparator />
 
-        <ContextMenuItem
-          render={
-            <Link href="/blog/chanhdai-brand">
-              <SquareDashed />
-              Brand Guidelines
-            </Link>
-          }
-        />
+        <ContextMenuItem render={<Link href="/blog/chanhdai-brand" />}>
+          <SquareDashed />
+          Brand Guidelines
+        </ContextMenuItem>
 
         <ContextMenuItem
           render={
-            <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-              <Download />
-              Download Brand Assets
-            </a>
+            <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download />
           }
-        />
+        >
+          <Download />
+          Download Brand Assets
+        </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
   )

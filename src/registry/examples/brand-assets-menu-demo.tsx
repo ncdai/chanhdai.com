@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-import { BrandAssetsMenu } from "@/registry/transformed/components/brand-assets-menu"
+import { BrandAssetsMenu } from "@/registry/components/brand-assets-menu"
 
 export default function BrandAssetsMenuDemo() {
   return (

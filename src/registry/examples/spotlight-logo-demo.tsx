@@ -1,4 +1,4 @@
-import { SpotlightLogo } from "@/registry/transformed/components/spotlight-logo"
+import { SpotlightLogo } from "@/registry/components/spotlight-logo"
 
 export default function SpotlightLogoDemo() {
   return (

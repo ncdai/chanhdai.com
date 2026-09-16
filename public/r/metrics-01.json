@@ -5,7 +5,8 @@
   "author": "ncdai <dai@chanhdai.com>",
   "description": "A metrics section with a line chart.",
   "dependencies": [
-    "date-fns"
+    "date-fns",
+    "lucide-react"
   ],
   "registryDependencies": [
     "@bklit/line-chart",

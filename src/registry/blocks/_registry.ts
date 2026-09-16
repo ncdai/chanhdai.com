@@ -28,6 +28,7 @@ export const blocks: Registry["items"] = [
     title: "Hero 01",
     description: "A hero section with a golden spiral background.",
     type: "registry:block",
+    dependencies: ["lucide-react"],
     registryDependencies: ["button", getRegistryItemUrl("style")],
     files: [
       {
@@ -51,7 +52,7 @@ export const blocks: Registry["items"] = [
     title: "Blog 01",
     description: "A blog section with a grid layout.",
     type: "registry:block",
-    dependencies: ["date-fns"],
+    dependencies: ["date-fns", "lucide-react"],
     registryDependencies: ["button"],
     files: [
       {
@@ -75,7 +76,7 @@ export const blocks: Registry["items"] = [
     title: "Blog 02",
     description: "A blog section with a lined grid layout.",
     type: "registry:block",
-    dependencies: ["date-fns"],
+    dependencies: ["date-fns", "lucide-react"],
     registryDependencies: ["button", getRegistryItemUrl("style")],
     files: [
       {
@@ -153,6 +154,7 @@ export const blocks: Registry["items"] = [
     title: "Experience 01",
     description: "A work experience section with a lined layout.",
     type: "registry:block",
+    dependencies: ["lucide-react"],
     registryDependencies: [...getRegistryItemUrls("style", "work-experience")],
     files: [
       {
@@ -190,7 +192,7 @@ export const blocks: Registry["items"] = [
     title: "Metrics 01",
     description: "A metrics section with a line chart.",
     type: "registry:block",
-    dependencies: ["date-fns"],
+    dependencies: ["date-fns", "lucide-react"],
     registryDependencies: ["@bklit/line-chart", getRegistryItemUrl("style")],
     files: [
       {
@@ -215,6 +217,7 @@ export const blocks: Registry["items"] = [
     title: "Social Links 01",
     description: "A social links section with a lined grid layout.",
     type: "registry:block",
+    dependencies: ["lucide-react"],
     registryDependencies: [getRegistryItemUrl("style")],
     files: [
       {
@@ -254,7 +257,7 @@ export const blocks: Registry["items"] = [
     description: "A 404 page with a playable brick breaker game.",
     type: "registry:block",
     // p5 2.x is a breaking rewrite (no `preload`), so the range stays on 1.x.
-    dependencies: ["p5@^1.9.4", "motion", "next-themes"],
+    dependencies: ["p5@^1.9.4", "motion", "next-themes", "lucide-react"],
     devDependencies: ["@types/p5@^1.7.7"],
     registryDependencies: ["button", "empty"],
     files: [

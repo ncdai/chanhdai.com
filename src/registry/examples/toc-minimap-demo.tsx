@@ -1,5 +1,5 @@
-import type { TOCItemType } from "@/registry/transformed/components/toc-minimap"
-import { TOCMinimap } from "@/registry/transformed/components/toc-minimap"
+import type { TOCItemType } from "@/registry/components/toc-minimap"
+import { TOCMinimap } from "@/registry/components/toc-minimap"
 
 export default function TOCMinimapDemo() {
   return <TOCMinimap items={ITEMS} />

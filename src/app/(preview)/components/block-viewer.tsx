@@ -26,6 +26,12 @@ import type {
 } from "@/lib/registry"
 import { cn } from "@/lib/utils"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { Button } from "@/components/ui/button"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 import {
   Command,
   CommandEmpty,
@@ -35,22 +41,16 @@ import {
   CommandList,
 } from "@/components/ui/command"
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
-import { Button } from "@/components/base/ui/button"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/base/ui/popover"
-import { Separator } from "@/components/base/ui/separator"
+import { Separator } from "@/components/ui/separator"
 import {
   Sidebar,
   SidebarGroup,
@@ -61,20 +61,20 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarProvider,
-} from "@/components/base/ui/sidebar"
+} from "@/components/ui/sidebar"
 import {
   Tabs,
   TabsContent,
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/components/base/ui/tabs"
-import { ToggleGroup, ToggleGroupItem } from "@/components/base/ui/toggle-group"
+} from "@/components/ui/tabs"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
 import {
   DesktopIcon,
   FolderIcon,
@@ -576,7 +576,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
             <SidebarMenuButton
               className={cn(
                 "rounded-none pl-(--index) whitespace-nowrap [&_svg]:text-muted-foreground",
-                "aria-[expanded=false]:*:data-[slot=folder]:block aria-expanded:*:data-[slot=folder-open]:block"
+                "not-data-panel-open:*:data-[slot=folder]:block data-panel-open:*:data-[slot=folder-open]:block"
               )}
               style={
                 {

@@ -10,7 +10,7 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/base/ui/hover-card"
+} from "@/components/ui/hover-card"
 
 import { AnchorProvider, useActiveAnchor, useItems } from "./toc"
 

@@ -1,14 +1,13 @@
 "use client"
 
-import { toast } from "sonner"
-
-import { ShimmeringText } from "@/registry/transformed/components/shimmering-text"
+import { toast } from "@/components/ui/toast"
+import { ShimmeringText } from "@/registry/components/shimmering-text"
 import {
   SlideToUnlock,
   SlideToUnlockHandle,
   SlideToUnlockText,
   SlideToUnlockTrack,
-} from "@/registry/transformed/components/slide-to-unlock"
+} from "@/registry/components/slide-to-unlock"
 
 export default function SlideToUnlockDemo2() {
   return (

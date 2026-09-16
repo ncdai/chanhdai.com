@@ -3,8 +3,8 @@ import { Suspense } from "react"
 import {
   GitHubContributions,
   GitHubContributionsFallback,
-} from "@/registry/transformed/components/github-contributions"
-import { getCachedContributions } from "@/registry/transformed/components/github-contributions/lib/get-cached-contributions"
+} from "@/registry/components/github-contributions"
+import { getCachedContributions } from "@/registry/components/github-contributions/lib/get-cached-contributions"
 
 const GITHUB_USERNAME = "ncdai"
 const GITHUB_PROFILE_URL = "https://github.com/ncdai"

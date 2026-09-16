@@ -6,7 +6,7 @@ import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { IconTile } from "@/components/ui/icon-tile"
-import { Separator } from "@/components/base/ui/separator"
+import { Separator } from "@/components/ui/separator"
 import {
   AccentureIcon,
   AnimationsDevIcon,

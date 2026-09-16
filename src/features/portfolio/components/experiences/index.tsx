@@ -1,11 +1,11 @@
 import { ChevronDownIcon } from "lucide-react"
 
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
+} from "@/components/ui/collapsible"
 import {
   Panel,
   PanelHeader,

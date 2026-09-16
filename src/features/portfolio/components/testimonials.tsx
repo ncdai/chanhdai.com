@@ -7,7 +7,7 @@ import { useInView, usePageInView } from "motion/react"
 
 import { cn } from "@/lib/utils"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import type { MarqueeContentProps } from "@/components/kibo-ui/marquee"
 import {
   Marquee,
@@ -24,9 +24,9 @@ import {
   TestimonialAvatarImg,
   TestimonialAvatarRing,
   TestimonialQuote,
-} from "@/registry/transformed/components/testimonial"
-import { TestimonialSpotlight } from "@/registry/transformed/components/testimonial-spotlight"
-import { Twemoji } from "@/registry/transformed/components/twemoji/twemoji"
+} from "@/registry/components/testimonial"
+import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
+import { Twemoji } from "@/registry/components/twemoji/twemoji"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 import {
   TESTIMONIALS_1,

@@ -4,12 +4,12 @@ import { Grip, LayoutDashboard } from "lucide-react"
 
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/base/ui/tooltip"
+} from "@/components/ui/tooltip"
 import {
   PageHeading,
   PageHeadingTagline,

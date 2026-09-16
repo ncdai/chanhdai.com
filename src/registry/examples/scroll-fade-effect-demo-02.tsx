@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { ScrollFadeEffect } from "@/registry/transformed/components/scroll-fade-effect"
+import { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
 
 export default function ScrollFadeEffectHorizontalDemo() {
   return (

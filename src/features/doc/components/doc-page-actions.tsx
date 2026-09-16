@@ -8,17 +8,14 @@ import { IconCheck, IconCopy, IconX } from "@tabler/icons-react"
 import { ChevronDownIcon } from "lucide-react"
 
 import type { CopyState } from "@/hooks/use-copy-to-clipboard"
-import { Button } from "@/components/base/ui/button"
-import {
-  ButtonGroup,
-  ButtonGroupSeparator,
-} from "@/components/base/ui/button-group"
+import { Button } from "@/components/ui/button"
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/base/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 import {
   ClaudeIcon,
   CursorIcon,
@@ -197,11 +194,11 @@ export function ViewOptions({
             variant="secondary"
             size="icon-sm"
             aria-label="View Options"
-          >
-            <ChevronDownIcon className="mt-0.5 size-4" />
-          </Button>
+          />
         }
-      />
+      >
+        <ChevronDownIcon className="mt-0.5 size-4" />
+      </DropdownMenuTrigger>
 
       <DropdownMenuContent
         className="w-fit"
@@ -213,13 +210,11 @@ export function ViewOptions({
         {items.map(({ title, href, icon: Icon }) => (
           <DropdownMenuItem
             key={href}
-            render={
-              <a href={href} rel="noopener" target="_blank">
-                <Icon />
-                {title}
-              </a>
-            }
-          />
+            render={<a href={href} rel="noopener" target="_blank" />}
+          >
+            <Icon />
+            {title}
+          </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>

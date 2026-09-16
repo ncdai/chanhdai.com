@@ -1,7 +1,7 @@
 import { CodeXmlIcon, LightbulbIcon } from "lucide-react"
 
-import type { ExperienceItemType } from "@/registry/transformed/components/work-experience"
-import { WorkExperience } from "@/registry/transformed/components/work-experience"
+import type { ExperienceItemType } from "@/registry/components/work-experience"
+import { WorkExperience } from "@/registry/components/work-experience"
 
 export function Experience01() {
   return (

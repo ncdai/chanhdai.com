@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import { PostItem } from "@/features/blog/components/post-item"
 import { getBlogPosts } from "@/features/doc/data/documents"
 import {

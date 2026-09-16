@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRightIcon } from "lucide-react"
 
-import { Button } from "@/components/base/ui/button"
+import { Button } from "@/components/ui/button"
 import { RemountOnThemeChange } from "@/components/remount-on-theme-change"
 import AppleHelloEffectAllDemo from "@/registry/examples/apple-hello-effect-languages-demo"
 import BrandAssetsMenuDemo from "@/registry/examples/brand-assets-menu-demo"

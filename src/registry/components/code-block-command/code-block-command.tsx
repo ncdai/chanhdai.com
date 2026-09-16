@@ -4,6 +4,7 @@ import { useMemo } from "react"
 import { ScrollArea } from "@base-ui/react/scroll-area"
 import { useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
+import { TerminalIcon, TextAlignStartIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import {
@@ -12,10 +13,9 @@ import {
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/components/base/ui/tabs"
+} from "@/components/ui/tabs"
 import { CopyButton } from "@/registry/components/copy-button"
 import { IconSwap, IconSwapItem } from "@/registry/components/icon-swap"
-import { IconPlaceholder } from "@/registry/icons/icon-placeholder"
 
 export type PackageManager = "prompt" | "pnpm" | "yarn" | "npm" | "bun"
 
@@ -210,15 +210,7 @@ export function CodeBlockCommand({
 function getIconForPackageManager(manager: PackageManager) {
   switch (manager) {
     case "prompt":
-      return (
-        <IconPlaceholder
-          lucide="TextAlignStartIcon"
-          tabler="IconAlignLeft"
-          hugeicons="TextAlignLeftIcon"
-          phosphor="TextAlignLeftIcon"
-          remixicon="RiAlignLeft"
-        />
-      )
+      return <TextAlignStartIcon />
     case "pnpm":
       return (
         <svg viewBox="0 0 24 24">
@@ -256,15 +248,7 @@ function getIconForPackageManager(manager: PackageManager) {
         </svg>
       )
     default:
-      return (
-        <IconPlaceholder
-          lucide="TerminalIcon"
-          tabler="IconTerminal"
-          hugeicons="TerminalIcon"
-          phosphor="TerminalIcon"
-          remixicon="RiTerminalLine"
-        />
-      )
+      return <TerminalIcon />
   }
 }
 

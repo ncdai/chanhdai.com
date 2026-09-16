@@ -1,5 +1,6 @@
+import { ArrowUpRightIcon } from "lucide-react"
+
 import { cn } from "@/lib/utils"
-import { IconPlaceholder } from "@/registry/icons/icon-placeholder"
 
 export function SocialLinks01() {
   return (
@@ -59,14 +60,7 @@ function SocialLinkItem({ icon, title, href }: SocialLink) {
         </a>
       </h3>
 
-      <IconPlaceholder
-        lucide="ArrowUpRightIcon"
-        tabler="IconArrowUpRight"
-        hugeicons="ArrowUpRight03Icon"
-        phosphor="ArrowUpRightIcon"
-        remixicon="RiArrowRightUpLine"
-        className="size-4 shrink-0 text-muted-foreground"
-      />
+      <ArrowUpRightIcon className="size-4 shrink-0 text-muted-foreground" />
     </div>
   )
 }

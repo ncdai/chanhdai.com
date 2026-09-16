@@ -3,7 +3,7 @@ import { ArrowUpRightIcon, ComponentIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { IconTile } from "@/components/ui/icon-tile"
-import { Separator } from "@/components/base/ui/separator"
+import { Separator } from "@/components/ui/separator"
 import { NewsIcon } from "@/components/icons"
 
 import type { BookmarkClickSurface } from "../lib/analytics"

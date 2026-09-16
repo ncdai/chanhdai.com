@@ -19,10 +19,14 @@ export function HelloTitle() {
 
   return (
     <>
-      <PanelTitle asChild className="font-handwritten leading-none">
-        <div id={`${ID}-greeting`} aria-hidden suppressHydrationWarning>
-          {greeting}
-        </div>
+      <PanelTitle
+        as="div"
+        id={`${ID}-greeting`}
+        className="font-handwritten leading-none"
+        aria-hidden
+        suppressHydrationWarning
+      >
+        {greeting}
       </PanelTitle>
 
       <InlineScript html={getInlineScript(`${ID}-greeting`)} />
