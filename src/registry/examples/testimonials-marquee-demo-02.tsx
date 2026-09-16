@@ -69,7 +69,7 @@ const TESTIMONIALS_1 = [
   {
     authorAvatar: "https://unavatar.io/x/rauchg",
     authorName: "Guillermo Rauch",
-    authorTagline: "CEO @Vercel",
+    authorTagline: "CEO at Vercel",
     url: "https://x.com/rauchg/status/1978913158514237669",
     quote:
       "awesome. Love the components, especially slide-to-unlock. Great job",
@@ -93,14 +93,14 @@ const TESTIMONIALS_1 = [
   {
     authorAvatar: "https://unavatar.io/x/steventey",
     authorName: "Steven Tey",
-    authorTagline: "Founder @Dub.co",
+    authorTagline: "Founder of Dub",
     url: "https://x.com/steventey/status/1936934909370830924",
     quote: "whoa, this is really dope – needs to get added to @shadcn UI",
   },
   {
     authorAvatar: "https://unavatar.io/x/kapehe_ok",
     authorName: "Kap",
-    authorTagline: "Head of Developer Community @Vercel",
+    authorTagline: "Head of Developer Community at Vercel",
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
     quote: "one of my favorite projects that submitted! you are crushing it!",
   },
@@ -133,14 +133,14 @@ const TESTIMONIALS_2 = [
   {
     authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
     authorName: "Max Prilutskiy",
-    authorTagline: "CEO @Lingo.dev",
+    authorTagline: "CEO at Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
     quote: "i like your style! :)",
   },
   {
     authorAvatar: "https://unavatar.io/x/aaronmahlke",
     authorName: "Aaron",
-    authorTagline: "Founding Design Engineer @Mail0",
+    authorTagline: "Founding Design Engineer at Mail0",
     url: "https://x.com/aaronmahlke/status/1955606729657344490",
     quote: "super cool portfolio!",
   },

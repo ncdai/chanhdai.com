@@ -14,14 +14,14 @@ const TESTIMONIALS_1: TestimonialType[] = [
   {
     authorAvatar: "https://unavatar.io/x/kapehe_ok",
     authorName: "Kap",
-    authorTagline: "Head of Developer Community @Vercel",
+    authorTagline: "Head of Developer Community at Vercel",
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
     quote: "one of my favorite projects that submitted! you are crushing it!",
   },
   {
     authorAvatar: "https://unavatar.io/x/rauchg",
     authorName: "Guillermo Rauch",
-    authorTagline: "CEO @Vercel",
+    authorTagline: "CEO at Vercel",
     url: "https://x.com/rauchg/status/1978913158514237669",
     quote:
       "awesome. Love the components, especially slide-to-unlock. Great job",
@@ -37,7 +37,7 @@ const TESTIMONIALS_1: TestimonialType[] = [
   {
     authorAvatar: "https://unavatar.io/x/FrancescoCiull4",
     authorName: "Francesco Ciulla",
-    authorTagline: "Developer Advocate @daily.dev",
+    authorTagline: "Developer Advocate at daily.dev",
     url: "https://x.com/FrancescoCiull4/status/2006332479536529608",
     quote:
       "your portfolio is stunning. i created mine some weeks ago but this is another planet.",
@@ -77,7 +77,7 @@ const TESTIMONIALS_2: TestimonialType[] = [
   {
     authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
     authorName: "Max Prilutskiy",
-    authorTagline: "CEO @Lingo.dev",
+    authorTagline: "CEO at Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
     quote: "i like your style! :)",
   },
@@ -119,7 +119,7 @@ const TESTIMONIALS_2: TestimonialType[] = [
   {
     authorAvatar: "https://unavatar.io/x/branmcconnell",
     authorName: "Brandon McConnell",
-    authorTagline: "Frontend Engineer @mintlify",
+    authorTagline: "Frontend Engineer at Mintlify",
     url: "https://x.com/branmcconnell/status/2028391281198862377",
     quote: "amazing, such cool libraries",
   },

@@ -70,7 +70,7 @@ const TESTIMONIALS = [
   {
     authorAvatar: "https://unavatar.io/x/rauchg",
     authorName: "Guillermo Rauch",
-    authorTagline: "CEO @Vercel",
+    authorTagline: "CEO at Vercel",
     url: "https://x.com/rauchg/status/1978913158514237669",
     quote:
       "awesome. Love the components, especially slide-to-unlock. Great job",
@@ -94,14 +94,14 @@ const TESTIMONIALS = [
   {
     authorAvatar: "https://unavatar.io/x/steventey",
     authorName: "Steven Tey",
-    authorTagline: "Founder @Dub.co",
+    authorTagline: "Founder of Dub",
     url: "https://x.com/steventey/status/1936934909370830924",
     quote: "whoa, this is really dope – needs to get added to @shadcn UI",
   },
   {
     authorAvatar: "https://unavatar.io/x/kapehe_ok",
     authorName: "Kap",
-    authorTagline: "Head of Developer Community @Vercel",
+    authorTagline: "Head of Developer Community at Vercel",
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
     quote: "one of my favorite projects that submitted! you are crushing it!",
   },
