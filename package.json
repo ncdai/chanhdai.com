@@ -37,6 +37,7 @@
     "capture": "bun run ./src/scripts/capture.mts",
     "capture:sync": "bun run ./src/scripts/capture-sync.mts",
     "capture:cover": "bun run ./src/scripts/capture-cover.mts",
+    "avatars:sync": "bun run ./src/scripts/sync-x-avatars.mts",
     "generate-libphonenumber-metadata": "libphonenumber-metadata-generator ./src/assets/libphonenumber.metadata.json --countries VN --extended",
     "upgrade:next": "npx @next/codemod@latest upgrade latest",
     "upgrade:tailwind": "npx @tailwindcss/upgrade@latest",

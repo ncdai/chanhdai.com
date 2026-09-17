@@ -65,9 +65,10 @@ export default function TestimonialsMarqueeDemo2() {
   )
 }
 
+// Demo avatars only. Replace them with your own URLs.
 const TESTIMONIALS_1 = [
   {
-    authorAvatar: "https://unavatar.io/x/rauchg",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/rauchg.webp",
     authorName: "Guillermo Rauch",
     authorTagline: "CEO at Vercel",
     url: "https://x.com/rauchg/status/1978913158514237669",
@@ -75,7 +76,7 @@ const TESTIMONIALS_1 = [
       "awesome. Love the components, especially slide-to-unlock. Great job",
   },
   {
-    authorAvatar: "https://unavatar.io/x/orcdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/orcdev.webp",
     authorName: "OrcDev",
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/1980378575170859446",
@@ -83,7 +84,7 @@ const TESTIMONIALS_1 = [
       "Seriously, this is one of the best portfolio templates I’ve ever seen.",
   },
   {
-    authorAvatar: "https://unavatar.io/x/iamsahaj_xyz",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/iamsahaj_xyz.webp",
     authorName: "Sahaj",
     authorTagline: "Creator of tweakcn.com",
     url: "https://x.com/iamsahaj_xyz/status/1982814244501381239",
@@ -91,21 +92,21 @@ const TESTIMONIALS_1 = [
       "remember seeing it on @mannupaaji’s review. it’s one of the best looking ones I’ve seen",
   },
   {
-    authorAvatar: "https://unavatar.io/x/steventey",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/steventey.webp",
     authorName: "Steven Tey",
     authorTagline: "Founder of Dub",
     url: "https://x.com/steventey/status/1936934909370830924",
     quote: "whoa, this is really dope – needs to get added to @shadcn UI",
   },
   {
-    authorAvatar: "https://unavatar.io/x/kapehe_ok",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/kapehe_ok.webp",
     authorName: "Kap",
     authorTagline: "Head of Developer Community at Vercel",
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
     quote: "one of my favorite projects that submitted! you are crushing it!",
   },
   {
-    authorAvatar: "https://unavatar.io/x/initjean",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/initjean.webp",
     authorName: "Jean P.D. Meijer",
     authorTagline: "Design Engineer",
     url: "https://x.com/initjean/status/1948159885960438151",
@@ -113,7 +114,7 @@ const TESTIMONIALS_1 = [
       "congrats you deserve it! react wheel picker is so smooth, its insane",
   },
   {
-    authorAvatar: "https://unavatar.io/x/GithubProjects",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/githubprojects.webp",
     authorName: "GitHub Projects Community",
     authorTagline: "UNOFFICIAL, but followed by @github",
     url: "https://x.com/GithubProjects/status/1931034244337271044",
@@ -124,42 +125,42 @@ const TESTIMONIALS_1 = [
 
 const TESTIMONIALS_2 = [
   {
-    authorAvatar: "https://unavatar.io/x/mannupaaji",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/mannupaaji.webp",
     authorName: "Manu Arora",
     authorTagline: "Creator of ui.aceternity.com",
     url: "https://x.com/mannupaaji/status/1944755561117163597",
     quote: "Great work on the portfolio",
   },
   {
-    authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/maxprilutskiy.webp",
     authorName: "Max Prilutskiy",
     authorTagline: "CEO at Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
     quote: "i like your style! :)",
   },
   {
-    authorAvatar: "https://unavatar.io/x/aaronmahlke",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/aaronmahlke.webp",
     authorName: "Aaron",
     authorTagline: "Founding Design Engineer at Mail0",
     url: "https://x.com/aaronmahlke/status/1955606729657344490",
     quote: "super cool portfolio!",
   },
   {
-    authorAvatar: "https://unavatar.io/x/jordwalke",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/jordwalke.webp",
     authorName: "jordwalke",
     authorTagline: "Creator of React",
     url: "https://x.com/jordwalke/status/1937165909778657589",
     quote: "Looks great",
   },
   {
-    authorAvatar: "https://unavatar.io/x/YonathanDejene",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/yonathandejene.webp",
     authorName: "Yonaries",
     authorTagline: "Making orabrowser.com",
     url: "https://x.com/YonathanDejene/status/1984529637309886639",
     quote: "incredible portfolio i’ve seen by far",
   },
   {
-    authorAvatar: "https://unavatar.io/x/zaidmukaddam",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/zaidmukaddam.webp",
     authorName: "Zaid",
     authorTagline: "Creator of scira.ai",
     url: "https://x.com/zaidmukaddam/status/1984599685974409374",

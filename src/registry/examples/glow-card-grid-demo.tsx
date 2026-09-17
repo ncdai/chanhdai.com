@@ -17,35 +17,36 @@ export default function GlowCardGridDemo() {
   )
 }
 
+// Demo avatars only. Replace them with your own URLs.
 const CARDS = [
   {
     name: "shadcn",
     handle: "@shadcn",
-    avatar: "https://unavatar.io/x/shadcn",
+    avatar: "https://assets.chanhdai.com/avatars/x/shadcn.webp",
   },
   {
     name: "OrcDev",
     handle: "@orcdev",
-    avatar: "https://unavatar.io/x/orcdev",
+    avatar: "https://assets.chanhdai.com/avatars/x/orcdev.webp",
   },
   {
     name: "David Haz",
-    handle: "@davidhdev",
-    avatar: "https://unavatar.io/x/davidhdev",
+    handle: "@davidhaz",
+    avatar: "https://assets.chanhdai.com/avatars/x/davidhaz.webp",
   },
   {
     name: "Shu",
     handle: "@shuding",
-    avatar: "https://unavatar.io/x/shuding",
+    avatar: "https://assets.chanhdai.com/avatars/x/shuding.webp",
   },
   {
     name: "Emil Kowalski",
     handle: "@emilkowalski",
-    avatar: "https://unavatar.io/x/emilkowalski",
+    avatar: "https://assets.chanhdai.com/avatars/x/emilkowalski.webp",
   },
   {
     name: "Chánh Đại",
     handle: "@iamncdai",
-    avatar: "https://unavatar.io/x/iamncdai",
+    avatar: "https://assets.chanhdai.com/avatars/x/iamncdai.webp",
   },
 ]
