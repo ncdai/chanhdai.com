@@ -34,6 +34,7 @@ export type User = {
   about: string
   /** Public URL to avatar image */
   avatar: string
+  avatarSketch?: string
   /** Different avatar variants based on theme and lighting */
   avatarVariants: AvatarLightsVariants
   /** Open Graph image URL for social sharing */
