@@ -121,7 +121,7 @@ export function SiteFooterCad() {
               </ul>
             </Field>
 
-            <Field className="col-span-2" label="Analytics">
+            <Field label="Analytics">
               <ul className="flex flex-col gap-0.5">
                 <li>
                   <a
@@ -134,6 +134,31 @@ export function SiteFooterCad() {
                   </a>
                 </li>
                 <li>Google Analytics</li>
+              </ul>
+            </Field>
+
+            <Field label="For agents">
+              <ul className="flex flex-col gap-0.5">
+                <li>
+                  <a
+                    className="link-underline"
+                    href="/llms.txt"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    llms.txt
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="link-underline"
+                    href="/index.md"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    index.md
+                  </a>
+                </li>
               </ul>
             </Field>
 
