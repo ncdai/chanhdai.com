@@ -42,7 +42,7 @@ const TESTIMONIALS = [...TESTIMONIALS_1, ...TESTIMONIALS_2].sort(
   (a, b) => Number(a.order ?? 999) - Number(b.order ?? 999)
 )
 
-const TESTIMONIALS_MOBILE = TESTIMONIALS.slice(0, 8)
+const TESTIMONIALS_MOBILE = TESTIMONIALS.slice(0, 9)
 
 const TESTIMONIALS_FEATURED = TESTIMONIALS.filter((item) => item.isFeatured)
 

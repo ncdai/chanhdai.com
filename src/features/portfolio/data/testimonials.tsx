@@ -2,7 +2,7 @@ import { ShadcnIcon, VercelIcon } from "@/components/icons"
 
 import type { Testimonial } from "../types/testimonials"
 
-// Long quotes (more than 50 characters), ordered by date ascending
+// Long quotes (more than 50 characters), ordered by date descending
 export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/orcdev.webp",
@@ -10,7 +10,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/2058273274098860335",
     quote: "same! Đại is very talented! love his work",
-    date: "2026-06-24",
+    date: "2026-05-24",
     isVerified: true,
   },
   {
@@ -211,14 +211,33 @@ export const TESTIMONIALS_1: Testimonial[] = [
   },
 ]
 
-// Short quotes (50 characters or fewer), ordered by date ascending
+// Short quotes (50 characters or fewer), ordered by date descending
 export const TESTIMONIALS_2: Testimonial[] = [
+  {
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/hamishoneill.webp",
+    authorName: "Hamish O'Neill",
+    authorTagline: "Founder UI Rules and shadcncraft",
+    url: "https://x.com/hamishoneill/status/2100305671078203491",
+    quote: "Loving it Dai",
+    date: "2026-09-17",
+    isVerified: true,
+  },
   {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/colmtuite.webp",
     authorName: "Colm Tuite",
     authorTagline: "Director of Product at MUI",
     url: "https://x.com/colmtuite/status/2100269958475227352",
     quote: "beautiful site",
+    date: "2026-09-17",
+    isVerified: true,
+    order: 9,
+  },
+  {
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/shadcncraft.webp",
+    authorName: "shadcncraft",
+    authorTagline: "shadcncraft.com",
+    url: "https://x.com/shadcncraft/status/2099922884148023539",
+    quote: "Dai you’re the detail master",
     date: "2026-09-16",
     isVerified: true,
   },
@@ -301,7 +320,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     authorTagline: "Building componentry.fun",
     url: "https://x.com/harshjdhv/status/2035010611512508481",
     quote: "Cleannnn",
-    date: "2026-03-21",
+    date: "2026-03-20",
     isVerified: true,
   },
   {
@@ -335,21 +354,21 @@ export const TESTIMONIALS_2: Testimonial[] = [
     icon: <ShadcnIcon />,
   },
   {
-    authorAvatar: "https://assets.chanhdai.com/avatars/x/kapish_dima.webp",
-    authorName: "KapishDima",
-    authorTagline: "Creator of soundcn.xyz",
-    url: "https://x.com/kapish_dima/status/2028094092366807227",
-    quote: "As always, brilliant 🙏",
-    date: "2026-03-01",
-    isVerified: true,
-  },
-  {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/branmcconnell.webp",
     authorName: "Brandon McConnell",
     authorTagline: "Frontend Engineer at Mintlify",
     url: "https://x.com/branmcconnell/status/2028391281198862377",
     quote: "amazing, such cool libraries 🔥",
     date: "2026-03-02",
+    isVerified: true,
+  },
+  {
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/kapish_dima.webp",
+    authorName: "KapishDima",
+    authorTagline: "Creator of soundcn.xyz",
+    url: "https://x.com/kapish_dima/status/2028094092366807227",
+    quote: "As always, brilliant 🙏",
+    date: "2026-03-01",
     isVerified: true,
   },
   {
@@ -407,20 +426,20 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://assets.chanhdai.com/avatars/x/ajaypatel_aj.webp",
-    authorName: "Ajay Patel",
-    authorTagline: "Creator of shadcnstudio.com",
-    url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
-    quote: "This Portfolio is something else 😍",
-    date: "2025-11-24",
-    isVerified: true,
-  },
-  {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/shadcn.webp",
     authorName: "shadcn",
     authorTagline: "Creator of shadcn/ui",
     url: "https://x.com/shadcn/status/1992950153976991893",
     quote: "Nice",
+    date: "2025-11-24",
+    isVerified: true,
+  },
+  {
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/ajaypatel_aj.webp",
+    authorName: "Ajay Patel",
+    authorTagline: "Creator of shadcnstudio.com",
+    url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
+    quote: "This Portfolio is something else 😍",
     date: "2025-11-24",
     isVerified: true,
   },
