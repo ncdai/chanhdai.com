@@ -5,7 +5,7 @@ import type { Testimonial } from "../types/testimonials"
 // Long quotes (more than 50 characters), ordered by date ascending
 export const TESTIMONIALS_1: Testimonial[] = [
   {
-    authorAvatar: "https://unavatar.io/x/orcdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/orcdev.webp",
     authorName: "OrcDev",
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/2058273274098860335",
@@ -14,7 +14,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/hiretimsf",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/hiretimsf.webp",
     authorName: "HireTimSF.com",
     authorTagline: "Building menu.ceo",
     url: "https://x.com/hiretimsf/status/2058272162369466488",
@@ -24,7 +24,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/shadcn",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/shadcn.webp",
     authorName: "shadcn",
     authorTagline: "Creator of shadcn/ui",
     url: "https://x.com/shadcn/status/2057717991387869600",
@@ -34,7 +34,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     order: 7,
   },
   {
-    authorAvatar: "https://unavatar.io/x/joshpuckett",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/joshpuckett.webp",
     authorName: "joshpuckett",
     authorTagline: "Teaching at interfacecraft.dev",
     url: "https://x.com/joshpuckett/status/2045487801618284892",
@@ -44,7 +44,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     order: 4,
   },
   {
-    authorAvatar: "https://unavatar.io/x/dimicx",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/dimicx.webp",
     authorName: "dimi",
     authorTagline: "Design Engineer",
     url: "https://x.com/dimicx/status/2035018694053577149",
@@ -54,7 +54,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/khushiirl",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/khushiirl.webp",
     authorName: "khushi.vy",
     authorTagline: "Software Engineer",
     url: "https://x.com/khushiirl/status/2025894411155206168",
@@ -63,7 +63,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/meghtrix",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/meghtrix.webp",
     authorName: "Megh",
     authorTagline: "Creator of patterncraft.fun",
     url: "https://x.com/meghtrix/status/2017658774530781471",
@@ -72,7 +72,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/shadcncraft?v=2",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/shadcncraft.webp",
     authorName: "shadcncraft",
     authorTagline: "shadcncraft.com",
     url: "https://x.com/shadcncraft/status/2017091317244055988",
@@ -82,7 +82,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     order: 6,
   },
   {
-    authorAvatar: "https://unavatar.io/x/KartikeyStack",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/kartikeystack.webp",
     authorName: "Kartikey",
     authorTagline: "Engineer",
     url: "https://x.com/KartikeyStack/status/2016717957938974963",
@@ -91,7 +91,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/orcdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/orcdev.webp",
     authorName: "OrcDev",
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/2011373509310878010",
@@ -101,7 +101,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     order: 5,
   },
   {
-    authorAvatar: "https://unavatar.io/x/ephraimduncan",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/ephraimduncan.webp",
     authorName: "Duncan",
     authorTagline: "Engineering at Documenso",
     url: "https://x.com/ephraimduncan/status/2008254368806826312",
@@ -110,7 +110,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/FrancescoCiull4",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/francescociull4.webp",
     authorName: "Francesco Ciulla",
     authorTagline: "Developer Advocate at daily.dev",
     url: "https://x.com/FrancescoCiull4/status/2006332479536529608",
@@ -120,7 +120,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/ajaypatel_aj",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/ajaypatel_aj.webp",
     authorName: "Ajay Patel",
     authorTagline: "Creator of shadcnstudio.com",
     url: "https://x.com/ajaypatel_aj/status/2003723039029231737",
@@ -129,7 +129,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/BurnedChris",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/burnedchris.webp",
     authorName: "Christopher Burns",
     authorTagline: "Creator of c15t.com",
     url: "https://x.com/BurnedChris/status/2000947403571204445",
@@ -139,7 +139,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/iamsahaj_xyz",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/iamsahaj_xyz.webp",
     authorName: "Sahaj",
     authorTagline: "Creator of tweakcn.com",
     url: "https://x.com/iamsahaj_xyz/status/1982814244501381239",
@@ -149,7 +149,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/orcdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/orcdev.webp",
     authorName: "OrcDev",
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/1980378575170859446",
@@ -159,7 +159,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/rauchg",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/rauchg.webp",
     authorName: "Guillermo Rauch",
     authorTagline: "CEO at Vercel",
     url: "https://x.com/rauchg/status/1978913158514237669",
@@ -172,7 +172,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     icon: <VercelIcon />,
   },
   {
-    authorAvatar: "https://unavatar.io/x/initjean",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/initjean.webp",
     authorName: "Jean P.D. Meijer",
     authorTagline: "Design Engineer",
     url: "https://x.com/initjean/status/1948159885960438151",
@@ -182,7 +182,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/kapehe_ok",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/kapehe_ok.webp",
     authorName: "Kap",
     authorTagline: "Head of Developer Community at Vercel",
     url: "https://x.com/kapehe_ok/status/1948104774358106612",
@@ -191,7 +191,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/steventey",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/steventey.webp",
     authorName: "Steven Tey",
     authorTagline: "Founder of Dub",
     url: "https://x.com/steventey/status/1936934909370830924",
@@ -200,7 +200,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/GithubProjects",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/githubprojects.webp",
     authorName: "GitHub Projects Community",
     authorTagline: "Followed by @github",
     url: "https://x.com/GithubProjects/status/1931034244337271044",
@@ -214,7 +214,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
 // Short quotes (50 characters or fewer), ordered by date ascending
 export const TESTIMONIALS_2: Testimonial[] = [
   {
-    authorAvatar: "https://unavatar.io/x/colmtuite",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/colmtuite.webp",
     authorName: "Colm Tuite",
     authorTagline: "Director of Product at MUI",
     url: "https://x.com/colmtuite/status/2100269958475227352",
@@ -223,7 +223,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/matiNotFound",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/matinotfound.webp",
     authorName: "Matias",
     authorTagline: "Developer at Vercel",
     url: "https://x.com/matiNotFound/status/2090863638387073269",
@@ -231,7 +231,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     date: "2026-08-22",
   },
   {
-    authorAvatar: "https://unavatar.io/x/evilrabbit_",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/evilrabbit_.webp",
     authorName: "Evil Rabbit",
     authorTagline: "Founding Designer at Vercel",
     url: "https://x.com/evilrabbit_/status/2058279035390820692",
@@ -240,7 +240,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/legionsdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/legionsdev.webp",
     authorName: "Gurbinder",
     authorTagline: "Creator of evilcharts.com",
     url: "https://x.com/legionsdev/status/2057222692789756152",
@@ -249,7 +249,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/MrAhmadAwais",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/mrahmadawais.webp",
     authorName: "Ahmad Awais",
     authorTagline: "CEO at Command Code",
     url: "https://x.com/MrAhmadAwais/status/2052029483415425506",
@@ -259,7 +259,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     order: 8,
   },
   {
-    authorAvatar: "https://unavatar.io/x/evilrabbit_",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/evilrabbit_.webp",
     authorName: "Evil Rabbit",
     authorTagline: "Founding Designer at Vercel",
     url: "https://x.com/evilrabbit_/status/2046010757943566809",
@@ -269,7 +269,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     order: 3,
   },
   {
-    authorAvatar: "https://unavatar.io/x/fortysevenfx",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/fortysevenfx.webp",
     authorName: "François Best",
     authorTagline: "Creator of nuqs.dev",
     url: "https://x.com/fortysevenfx/status/2040166992305328371",
@@ -278,7 +278,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/evilrabbit_",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/evilrabbit_.webp",
     authorName: "Evil Rabbit",
     authorTagline: "Founding Designer at Vercel",
     url: "https://x.com/evilrabbit_/status/2040096654196613419",
@@ -287,7 +287,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/joshpuckett",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/joshpuckett.webp",
     authorName: "joshpuckett",
     authorTagline: "Teaching at interfacecraft.dev",
     url: "https://x.com/joshpuckett/status/2038713206764617896",
@@ -296,7 +296,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/harshjdhv",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/harshjdhv.webp",
     authorName: "Harsh",
     authorTagline: "Building componentry.fun",
     url: "https://x.com/harshjdhv/status/2035010611512508481",
@@ -305,16 +305,16 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/davidhdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/davidhaz.webp",
     authorName: "David Haz",
     authorTagline: "Creator of reactbits.dev",
-    url: "https://x.com/davidhdev/status/2034191466281513275",
+    url: "https://x.com/davidhaz/status/2034191466281513275",
     quote: "Looks incredible!",
     date: "2026-03-18",
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/orcdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/orcdev.webp",
     authorName: "OrcDev",
     authorTagline: "Creator of 8bitcn.com",
     url: "https://x.com/orcdev/status/2032398810035417582",
@@ -323,7 +323,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/shadcn",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/shadcn.webp",
     authorName: "shadcn",
     authorTagline: "Creator of shadcn/ui",
     url: "https://x.com/shadcn/status/2032193591133495700",
@@ -335,7 +335,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     icon: <ShadcnIcon />,
   },
   {
-    authorAvatar: "https://unavatar.io/x/kapish_dima?t=zzx7M",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/kapish_dima.webp",
     authorName: "KapishDima",
     authorTagline: "Creator of soundcn.xyz",
     url: "https://x.com/kapish_dima/status/2028094092366807227",
@@ -344,7 +344,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/branmcconnell",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/branmcconnell.webp",
     authorName: "Brandon McConnell",
     authorTagline: "Frontend Engineer at Mintlify",
     url: "https://x.com/branmcconnell/status/2028391281198862377",
@@ -353,16 +353,16 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/davidhdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/davidhaz.webp",
     authorName: "David Haz",
     authorTagline: "Creator of reactbits.dev",
-    url: "https://x.com/davidhdev/status/2025902761926132112",
+    url: "https://x.com/davidhaz/status/2025902761926132112",
     quote: "That’s so cool 😭",
     date: "2026-02-23",
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/uixmat",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/uixmat.webp",
     authorName: "Matt",
     authorTagline: "Creator of ui.bklit.com",
     url: "https://x.com/uixmat/status/2023145872771436904",
@@ -371,7 +371,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/nuqs47ng",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/nuqs47ng.webp",
     authorName: "nuqs",
     authorTagline: "nuqs.dev",
     url: "https://x.com/nuqs47ng/status/2020417206103023847",
@@ -380,7 +380,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/JohnPhamous",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/johnphamous.webp",
     authorName: "JohnPhamous",
     authorTagline: "Design Engineer at Vercel",
     url: "https://x.com/JohnPhamous/status/2018355370855674244",
@@ -389,16 +389,16 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/davidhdev",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/davidhaz.webp",
     authorName: "David Haz",
     authorTagline: "Creator of reactbits.dev",
-    url: "https://x.com/davidhdev/status/2017868986969444511",
+    url: "https://x.com/davidhaz/status/2017868986969444511",
     quote: "Simple and clean, love it! 🌟",
     date: "2026-02-01",
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/shadcn",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/shadcn.webp",
     authorName: "shadcn",
     authorTagline: "Creator of shadcn/ui",
     url: "https://x.com/shadcn/status/2011452657702154747",
@@ -407,7 +407,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/ajaypatel_aj",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/ajaypatel_aj.webp",
     authorName: "Ajay Patel",
     authorTagline: "Creator of shadcnstudio.com",
     url: "https://x.com/ajaypatel_aj/status/1992946036558778494",
@@ -416,7 +416,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/shadcn",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/shadcn.webp",
     authorName: "shadcn",
     authorTagline: "Creator of shadcn/ui",
     url: "https://x.com/shadcn/status/1992950153976991893",
@@ -425,7 +425,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/zaidmukaddam",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/zaidmukaddam.webp",
     authorName: "Zaid",
     authorTagline: "Creator of scira.ai",
     url: "https://x.com/zaidmukaddam/status/1984599685974409374",
@@ -434,7 +434,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/YonathanDejene",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/yonathandejene.webp",
     authorName: "Yonaries",
     authorTagline: "Making orabrowser.com",
     url: "https://x.com/YonathanDejene/status/1984529637309886639",
@@ -443,7 +443,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/aaronmahlke",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/aaronmahlke.webp",
     authorName: "Aaron",
     authorTagline: "Design Engineer",
     url: "https://x.com/aaronmahlke/status/1955606729657344490",
@@ -452,7 +452,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/mannupaaji",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/mannupaaji.webp",
     authorName: "Manu Arora",
     authorTagline: "Creator of ui.aceternity.com",
     url: "https://x.com/mannupaaji/status/1944755561117163597",
@@ -461,7 +461,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/jordwalke",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/jordwalke.webp",
     authorName: "jordwalke",
     authorTagline: "Creator of React",
     url: "https://x.com/jordwalke/status/1937166049868439854",
@@ -470,7 +470,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/jordwalke",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/jordwalke.webp",
     authorName: "jordwalke",
     authorTagline: "Creator of React",
     url: "https://x.com/jordwalke/status/1937165909778657589",
@@ -479,7 +479,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
     isVerified: true,
   },
   {
-    authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/maxprilutskiy.webp",
     authorName: "Max Prilutskiy",
     authorTagline: "CEO at Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",

@@ -28,7 +28,8 @@ export default function TestimonialSpotlightDemo() {
           <TestimonialAuthor>
             <TestimonialAvatar>
               <TestimonialAvatarImg
-                src="https://unavatar.io/x/shadcn"
+                // Demo avatar only. Replace it with your own URL.
+                src="https://assets.chanhdai.com/avatars/x/shadcn.webp"
                 alt="shadcn"
               />
               <TestimonialAvatarRing />
