@@ -42,8 +42,8 @@ export function ProfileHeader() {
               />
               <img
                 className="hidden size-full rounded-[inherit] object-cover select-none dark:block"
-                src={USER.avatarVariants.darkOn}
-                alt="Avatar with lights on in dark mode"
+                src={USER.avatar}
+                alt="Avatar in dark mode"
               />
               <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground/30 dark:inset-ring-foreground/10" />
             </div>
