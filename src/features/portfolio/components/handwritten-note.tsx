@@ -1,6 +1,16 @@
-import { cn } from "@/lib/utils"
+import { useId } from "react"
 
-function HandwrittenNote({ className, ...props }: React.ComponentProps<"div">) {
+import { cn } from "@/lib/utils"
+import { InkFilter } from "@/components/ink-filter"
+
+function HandwrittenNote({
+  className,
+  style,
+  children,
+  ...props
+}: React.ComponentProps<"div">) {
+  const inkId = useId()
+
   return (
     <div
       data-slot="handwritten-note"
@@ -8,8 +18,14 @@ function HandwrittenNote({ className, ...props }: React.ComponentProps<"div">) {
         "pointer-events-none absolute font-handwritten text-xl/none tracking-normal text-muted-foreground select-none",
         className
       )}
+      style={{ filter: `url(#${inkId})`, ...style }}
       {...props}
-    />
+    >
+      {/* Text and arrow go through one pass so both share the same grain. */}
+      <InkFilter id={inkId} />
+
+      {children}
+    </div>
   )
 }
 
@@ -31,7 +47,7 @@ function HandwrittenArrow({
       {...props}
     >
       <path d="M34 4c1 15-5 26-21 30" />
-      <path d="m21 36-8-2 7-7" />
+      <path d="m22 37-9-3 7.5-8" />
     </svg>
   )
 }
