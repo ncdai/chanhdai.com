@@ -45,10 +45,8 @@ export function SiteHeader() {
       <div className="screen-line-top screen-line-bottom mx-auto flex h-(--header-height) items-center gap-2 border-x screen-line-bottom-border screen-line-top-border pr-2 pl-4 group-has-data-[slot=layout-wide]/layout:container after:z-1 sm:gap-4 md:max-w-3xl">
         <BrandContextMenu>
           <Link href="/" aria-label="Home">
-            {/* Filtered on a wrapper, not the link, so the focus ring stays
-                crisp. */}
             <span className="flex" style={{ filter: `url(#${inkId})` }}>
-              <InkFilter id={inkId} density={4} />
+              <InkFilter id={inkId} density={2} />
               <ChanhDaiMark className="h-6 shrink-0" />
             </span>
           </Link>
