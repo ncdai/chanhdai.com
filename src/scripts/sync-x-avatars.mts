@@ -1,9 +1,11 @@
+import { parseArgs } from "node:util"
 import sharp from "sharp"
 
 import { getR2ClientFromEnv } from "./lib/r2.mts"
 import {
   extractXAvatarUsernames,
   getXAvatarKey,
+  selectXAvatarUsernames,
   toProfileImageUrl,
 } from "./lib/x-avatar.ts"
 
@@ -76,20 +78,23 @@ async function downloadAvatar(imageUrl: string) {
 }
 
 async function main() {
-  const usernames = await findUsernames()
+  const referenced = await findUsernames()
 
   // R2 keys are case-sensitive while X handles are not.
-  const notLowercase = usernames.filter((name) => name !== name.toLowerCase())
+  const notLowercase = referenced.filter((name) => name !== name.toLowerCase())
   if (notLowercase.length > 0) {
     throw new Error(
       `Avatar URLs must use lowercase usernames: ${notLowercase.join(", ")}`
     )
   }
 
-  if (usernames.length === 0) {
+  if (referenced.length === 0) {
     console.log("No X avatar URLs found.")
     return
   }
+
+  const { positionals } = parseArgs({ allowPositionals: true })
+  const usernames = selectXAvatarUsernames(referenced, positionals)
 
   const client = getR2ClientFromEnv()
   let failedCount = 0

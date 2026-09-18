@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest"
 import {
   extractXAvatarUsernames,
   getXAvatarKey,
+  selectXAvatarUsernames,
   toProfileImageUrl,
 } from "./x-avatar"
 
@@ -23,6 +24,28 @@ describe("extractXAvatarUsernames", () => {
     `
 
     expect(extractXAvatarUsernames(source)).toEqual([])
+  })
+})
+
+describe("selectXAvatarUsernames", () => {
+  const referenced = ["rauchg", "shadcn", "shadcncraft"]
+
+  it("selects every referenced username when none are requested", () => {
+    expect(selectXAvatarUsernames(referenced, [])).toEqual(referenced)
+  })
+
+  it("selects only the requested usernames, written as X handles", () => {
+    expect(
+      selectXAvatarUsernames(referenced, [
+        "@Shadcn",
+        "shadcncraft",
+        "shadcncraft",
+      ])
+    ).toEqual(["shadcn", "shadcncraft"])
+  })
+
+  it("rejects usernames that no avatar URL uses", () => {
+    expect(() => selectXAvatarUsernames(referenced, ["rauch"])).toThrow("rauch")
   })
 })
 
