@@ -14,7 +14,7 @@
           "target": "@lib/haptic.ts"
         }
       ],
-      "docs": "https://chanhdai.com/components/haptic-feedback",
+      "docs": "https://chanhdai.com/components/haptic",
       "categories": [
         "utilities"
       ],
@@ -642,6 +642,7 @@
           "target": "@components/glow-card-grid.tsx"
         }
       ],
+      "docs": "https://chanhdai.com/components/glow-card-grid",
       "categories": [
         "effects"
       ],
@@ -1177,6 +1178,27 @@
       "docs": "https://chanhdai.com/components/apple-carousel",
       "categories": [
         "marketing"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
+      "name": "jpg-card-holder",
+      "title": "JPG Card Holder",
+      "description": "Leather card holder shaped like a JPG file, with cards you can pull out.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/jpg-card-holder/jpg-card-holder.tsx",
+          "type": "registry:component",
+          "target": "@components/jpg-card-holder.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/jpg-card-holder",
+      "categories": [
+        "illustrations"
       ],
       "type": "registry:component",
       "author": "ncdai <dai@chanhdai.com>"

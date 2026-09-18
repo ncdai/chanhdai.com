@@ -500,6 +500,7 @@ export const components: Registry["items"] = [
       },
     ],
     categories: ["effects"],
+    docs: "https://chanhdai.com/components/glow-card-grid",
   },
   {
     name: "middle-truncation",
@@ -944,5 +945,22 @@ export const components: Registry["items"] = [
     ],
     categories: ["marketing"],
     docs: "https://chanhdai.com/components/apple-carousel",
+  },
+  {
+    name: "jpg-card-holder",
+    type: "registry:component",
+    title: "JPG Card Holder",
+    description:
+      "Leather card holder shaped like a JPG file, with cards you can pull out.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/jpg-card-holder/jpg-card-holder.tsx",
+        type: "registry:component",
+        target: "@components/jpg-card-holder.tsx",
+      },
+    ],
+    categories: ["illustrations"],
+    docs: "https://chanhdai.com/components/jpg-card-holder",
   },
 ]

@@ -12,7 +12,7 @@
       "target": "@lib/haptic.ts"
     }
   ],
-  "docs": "https://chanhdai.com/components/haptic-feedback",
+  "docs": "https://chanhdai.com/components/haptic",
   "categories": [
     "utilities"
   ],
