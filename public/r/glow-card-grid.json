@@ -12,6 +12,7 @@
       "target": "@components/glow-card-grid.tsx"
     }
   ],
+  "docs": "https://chanhdai.com/components/glow-card-grid",
   "categories": [
     "effects"
   ],

@@ -500,6 +500,7 @@ export const components: Registry["items"] = [
       },
     ],
     categories: ["effects"],
+    docs: "https://chanhdai.com/components/glow-card-grid",
   },
   {
     name: "middle-truncation",
