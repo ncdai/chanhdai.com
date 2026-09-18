@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { BlockItem } from "@/features/blocks/components/block-item"
 import { getBlocks } from "@/features/blocks/data/blocks"
 
+import { HandwrittenArrow, HandwrittenNote } from "../handwritten-note"
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
 import { PanelTitleCopy } from "../panel-title-copy"
 
@@ -23,6 +24,18 @@ export function Blocks() {
           <PanelTitleCopy id={ID} />
         </PanelTitle>
       </PanelHeader>
+
+      <HandwrittenNote
+        className="top-16 right-full mr-4 hidden w-36 flex-col items-end xl:flex"
+        aria-hidden
+      >
+        <span className="-rotate-3 text-right">
+          same deal,
+          <span className="block" />
+          bigger pieces
+        </span>
+        <HandwrittenArrow className="-scale-x-100 -rotate-6" />
+      </HandwrittenNote>
 
       <div className="relative py-4">
         <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">

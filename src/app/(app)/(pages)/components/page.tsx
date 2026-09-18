@@ -150,10 +150,14 @@ export default function Page() {
 
         <div className="relative">
           <HandwrittenNote
-            className="top-2 right-full mr-2 hidden w-36 flex-col items-end lg:flex"
+            className="top-4 right-full mr-4 hidden w-36 flex-col items-end lg:flex"
             aria-hidden
           >
-            <span className="-rotate-6">free, copy &amp; paste</span>
+            <span className="-rotate-6 text-right">
+              free to copy
+              <span className="block" />
+              yours to keep
+            </span>
             <HandwrittenArrow className="-scale-x-100 -rotate-6" />
           </HandwrittenNote>
         </div>

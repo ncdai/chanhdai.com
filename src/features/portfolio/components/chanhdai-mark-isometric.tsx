@@ -105,14 +105,16 @@ export function ChanhDaiMarkIsometric() {
           />
         </pattern>
 
+        {/* y, not a transform string: Motion runs those on WAAPI, which the
+            <use> copies don't follow, so the hatch drifts off the outline. */}
         <motion.g
           id={ids.faceFill}
           variants={{
             normal: {
-              transform: "translate(0px, 0px)",
+              y: 0,
             },
             pressed: {
-              transform: "translate(0px, 16px)",
+              y: 16,
             },
           }}
           transition={transition}

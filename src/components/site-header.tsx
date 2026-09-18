@@ -1,9 +1,11 @@
+import { useId } from "react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
 import { MAIN_NAV } from "@/config/site"
 import { Separator } from "@/components/ui/separator"
 import { ChanhDaiMark } from "@/components/chanhdai-mark"
+import { InkFilter } from "@/components/ink-filter"
 import { NavDesktop } from "@/components/nav-desktop"
 import { NavItemGitHub } from "@/components/nav-item-github"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -21,6 +23,7 @@ const BrandContextMenu = dynamic(
 const CommandMenu = dynamic(() => import("@/components/command-menu"))
 
 export function SiteHeader() {
+  const inkId = useId()
   const docs = getAllDocs()
 
   // Minimize data serialized to client component - only send necessary fields
@@ -42,7 +45,12 @@ export function SiteHeader() {
       <div className="screen-line-top screen-line-bottom mx-auto flex h-(--header-height) items-center gap-2 border-x screen-line-bottom-border screen-line-top-border pr-2 pl-4 group-has-data-[slot=layout-wide]/layout:container after:z-1 sm:gap-4 md:max-w-3xl">
         <BrandContextMenu>
           <Link href="/" aria-label="Home">
-            <ChanhDaiMark className="h-6 shrink-0" />
+            {/* Filtered on a wrapper, not the link, so the focus ring stays
+                crisp. */}
+            <span className="flex" style={{ filter: `url(#${inkId})` }}>
+              <InkFilter id={inkId} density={4} />
+              <ChanhDaiMark className="h-6 shrink-0" />
+            </span>
           </Link>
         </BrandContextMenu>
 

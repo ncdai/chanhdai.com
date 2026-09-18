@@ -2,9 +2,11 @@ import { Suspense } from "react"
 import type { Metadata } from "next"
 import type { ProfilePage, WithContext } from "schema-dts"
 
+import { CARBON_ADS } from "@/config/ads"
 import { JSON_LD_ID } from "@/config/json-ld"
 import { JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl, cn } from "@/lib/utils"
+import { FloatingCarbonAds } from "@/components/floating-carbon-ads"
 import { Awards } from "@/features/portfolio/components/awards"
 import { Blocks } from "@/features/portfolio/components/blocks"
 import { Blog } from "@/features/portfolio/components/blog"
@@ -40,6 +42,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLdScript data={getProfilePageJsonLd()} />
+      {CARBON_ADS && <FloatingCarbonAds />}
 
       <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))]">
         <div className="mx-auto md:max-w-3xl">

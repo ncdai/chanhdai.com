@@ -117,9 +117,10 @@ pnpm capture:sync  # Upload the folder to Cloudflare R2
 X avatars (testimonials, team cards) are self-hosted on Cloudflare R2 at `https://assets.chanhdai.com/avatars/x/<username>.webp`. Use the lowercase username.
 
 ```bash
-pnpm avatars:sync  # Re-fetch every avatar URL found in src/ and upload it to R2
+pnpm avatars:sync         # Re-fetch every avatar URL found in src/ and upload it to R2
+pnpm avatars:sync shadcn  # Only the given usernames
 ```
 
-It requires the `R2_*` variables from `.env.example`. Run it after adding an avatar URL, and now and then to pick up avatar changes. A new avatar can return 404 for a few minutes after upload.
+It requires the `R2_*` variables from `.env.example`. After adding an avatar URL, sync just that username. Sync everything now and then to pick up avatar changes. A new avatar can return 404 for a few minutes after upload.
 
 A failed avatar keeps its previous copy on R2. "Profile not found" usually means the user changed their handle, so update the URLs.
