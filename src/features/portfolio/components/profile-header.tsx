@@ -19,7 +19,7 @@ export function ProfileHeader() {
           aria-hidden
         >
           <HandwrittenArrow className="-scale-y-100 -rotate-6" />
-          <span className="ml-1 -rotate-6">
+          <span className="ml-3 -rotate-6">
             follows your cursor
             <span className="block" />
             click for a sound

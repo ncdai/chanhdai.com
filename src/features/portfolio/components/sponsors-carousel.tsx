@@ -47,7 +47,7 @@ export function SponsorsCarousel() {
       </div>
 
       <HandwrittenNote
-        className="top-6 right-full mr-2 hidden w-20 flex-col items-end lg:flex"
+        className="top-6 right-full mr-3 hidden w-20 flex-col items-end lg:flex"
         aria-hidden
       >
         <span className="-rotate-6">big thanks</span>
