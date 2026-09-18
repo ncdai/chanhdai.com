@@ -1183,6 +1183,27 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "jpg-card-holder",
+      "title": "JPG Card Holder",
+      "description": "Leather card holder shaped like a JPG file, with cards you can pull out.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/jpg-card-holder/jpg-card-holder.tsx",
+          "type": "registry:component",
+          "target": "@components/jpg-card-holder.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/jpg-card-holder",
+      "categories": [
+        "illustrations"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

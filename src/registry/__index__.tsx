@@ -796,6 +796,23 @@ export const Index: Record<string, any> = {
     categories: ["marketing"],
     meta: undefined,
   },
+  "jpg-card-holder": {
+    name: "jpg-card-holder",
+    description: "Leather card holder shaped like a JPG file, with cards you can pull out.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/jpg-card-holder/jpg-card-holder.tsx",
+      type: "registry:component",
+      target: "@components/jpg-card-holder.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/jpg-card-holder/jpg-card-holder.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "jpg-card-holder"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["illustrations"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -2138,5 +2155,22 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: {"previewClassName":"min-h-svh content-center-safe py-8"},
+  },
+  "jpg-card-holder-demo": {
+    name: "jpg-card-holder-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/jpg-card-holder-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/jpg-card-holder-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "jpg-card-holder-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center"},
   },
 }

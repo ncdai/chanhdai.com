@@ -744,4 +744,18 @@ export const examples: Registry["items"] = [
       previewClassName: "min-h-svh content-center-safe py-8",
     },
   },
+  {
+    name: "jpg-card-holder-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("jpg-card-holder")],
+    files: [
+      {
+        path: "examples/jpg-card-holder-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center",
+    },
+  },
 ]

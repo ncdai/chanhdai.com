@@ -37,6 +37,12 @@ export const componentCategories = [
       "Encompasses generalized visual enhancements, micro-interactions, background decorations, and state transitions that elevate high-fidelity aesthetics.",
   },
   {
+    name: "illustrations",
+    title: "Illustrations",
+    description:
+      "Detailed objects and scenes drawn in code that add character to a page, often with playful interactions that bring the artwork to life.",
+  },
+  {
     name: "controls",
     title: "Controls",
     description:

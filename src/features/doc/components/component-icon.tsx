@@ -11,6 +11,7 @@ import {
   ChevronsUpDownIcon,
   CopyIcon,
   Droplet,
+  FileImageIcon,
   GalleryHorizontal,
   GalleryHorizontalEndIcon,
   LayoutGridIcon,
@@ -278,6 +279,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
     </svg>
   ),
   "apple-carousel": <GalleryHorizontal />,
+  "jpg-card-holder": <FileImageIcon />,
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {
