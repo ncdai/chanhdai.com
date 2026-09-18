@@ -214,6 +214,15 @@ export const TESTIMONIALS_1: Testimonial[] = [
 // Short quotes (50 characters or fewer), ordered by date descending
 export const TESTIMONIALS_2: Testimonial[] = [
   {
+    authorAvatar: "https://assets.chanhdai.com/avatars/x/aarongarciah.webp",
+    authorName: "Aarón García",
+    authorTagline: "Design Engineer at Base UI and MUI",
+    url: "https://x.com/aarongarciah/status/2100546563567202571",
+    quote: "super fun site! 📐",
+    date: "2026-09-17",
+    isVerified: true,
+  },
+  {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/hamishoneill.webp",
     authorName: "Hamish O'Neill",
     authorTagline: "Founder UI Rules and shadcncraft",
