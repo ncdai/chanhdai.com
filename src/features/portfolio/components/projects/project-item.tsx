@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { addQueryParams } from "@/utils/url"
 import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
 
@@ -35,26 +34,18 @@ export function ProjectItem({
 
   return (
     <Collapsible className={className} defaultOpen={project.isExpanded}>
-      <CollapsibleTrigger className="group/project flex w-full items-center text-left hover:bg-accent-muted">
-        {project.logo ? (
-          <Image
-            src={project.logo}
-            alt={project.title}
-            width={32}
-            height={32}
-            quality={100}
-            className="mx-4 flex size-6 shrink-0 grayscale select-none group-hover/project:grayscale-0"
-            unoptimized
-            aria-hidden
-          />
-        ) : (
-          <IconTile className="mx-4">{project.icon ?? <BoxIcon />}</IconTile>
-        )}
+      {/* Only the title is the trigger (accordion pattern); its overlay keeps
+          the whole row clickable, while the project link sits above it. */}
+      <div className="relative flex items-center hover:bg-accent-muted">
+        <IconTile className="mx-4">{project.icon ?? <BoxIcon />}</IconTile>
 
         <div className="flex flex-1 items-center gap-2 border-l border-dashed border-line p-4 pr-2">
           <div className="flex-1">
             <h3 className="mb-1 leading-snug font-medium text-balance">
-              {project.title}
+              <CollapsibleTrigger className="text-left">
+                <span className="absolute inset-0" aria-hidden />
+                {project.title}
+              </CollapsibleTrigger>
             </h3>
 
             <dl className="text-sm text-muted-foreground">
@@ -101,7 +92,7 @@ export function ProjectItem({
             <CollapsibleChevronsUpDownIcon duration={0.15} />
           </div>
         </div>
-      </CollapsibleTrigger>
+      </div>
 
       <CollapsibleContent className="overflow-hidden">
         <div className="space-y-4 border-t border-line p-4">

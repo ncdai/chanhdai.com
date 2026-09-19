@@ -131,6 +131,12 @@ const nextConfig: NextConfig = {
         destination: "/llms.txt",
         permanent: true,
       },
+      // Merged into one document, like the Recognition section on the home page.
+      {
+        source: "/:doc(awards|certifications|intellectual-property).md",
+        destination: "/recognition.md",
+        permanent: true,
+      },
       {
         source: "/blocks/content",
         destination: "/blocks/marketing",

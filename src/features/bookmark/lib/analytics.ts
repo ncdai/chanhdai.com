@@ -1,6 +1,6 @@
 import { trackEvent } from "@/lib/events"
 
-export type BookmarkClickSurface = "home" | "list" | "palette"
+export type BookmarkClickSurface = "list" | "palette"
 
 /** Client-only: OpenPanel is a browser SDK. */
 export function trackBookmarkClick(input: {

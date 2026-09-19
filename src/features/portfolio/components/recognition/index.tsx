@@ -6,27 +6,28 @@ import {
   PanelTitleSup,
 } from "@/features/portfolio/components/panel"
 import { PanelTitleCopy } from "@/features/portfolio/components/panel-title-copy"
-import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
+import { RECOGNITION } from "@/features/portfolio/data/recognition"
 
-import { CertificationItem } from "./certification-item"
+import { RecognitionItem } from "./recognition-item"
 
-const ID = "certs"
+const ID = "recognition"
 
-export function Certifications() {
+export function Recognition() {
   return (
     <Panel id={ID}>
       <PanelHeader>
         <PanelTitle>
-          <a href={`#${ID}`}>Certifications</a>
-          <PanelTitleSup>({CERTIFICATIONS.length})</PanelTitleSup>
+          <a href={`#${ID}`}>Recognition</a>
+          <PanelTitleSup>({RECOGNITION.length})</PanelTitleSup>
           <PanelTitleCopy id={ID} />
         </PanelTitle>
       </PanelHeader>
 
       <CollapsibleList
-        items={CERTIFICATIONS}
+        items={RECOGNITION}
         max={6}
-        renderItem={(item) => <CertificationItem certification={item} />}
+        keyExtractor={(entry) => entry.key}
+        renderItem={(entry) => <RecognitionItem entry={entry} />}
       />
     </Panel>
   )
