@@ -2,17 +2,12 @@ export type Certification = {
   title: string
   issuer: string
   /**
-   * Issuer logo to display (takes precedence over `issuerIconName`).
-   * Provide an absolute URL or a path under /public.
-   */
-  issuerLogoURL?: string
-  /**
-   * Icon key for the issuer when no `issuerLogoURL` is provided.
+   * Icon key for the issuer; unknown or missing keys fall back to a generic badge.
    * Must match a supported icon name (e.g., "vercel", "coursera", "meta", "google", "microsoft", "accenture", "trademark", "copyright").
    */
   issuerIconName?: string
   /**
-   * Issue date in ISO format (YYYY-MM-DD). Parsed and formatted in the UI via Day.js.
+   * Issue date in ISO format (YYYY-MM-DD).
    */
   issueDate: string
   /**

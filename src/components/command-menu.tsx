@@ -5,12 +5,11 @@ import { copyToClipboardWithEvent } from "@/utils/copy"
 import { useRouter } from "@bprogress/next/app"
 import { useTiks } from "@rexa-developer/tiks/react"
 import {
+  AwardIcon,
   BookmarkIcon,
   BoxIcon,
   BriefcaseBusinessIcon,
-  CircleCheckBigIcon,
   CornerDownLeftIcon,
-  CrownIcon,
   DownloadIcon,
   FileTextIcon,
   GraduationCapIcon,
@@ -20,7 +19,6 @@ import {
   MoonStarIcon,
   QuoteIcon,
   RssIcon,
-  ScaleIcon,
   SquareDashedIcon,
   SunMediumIcon,
   TextInitialIcon,
@@ -178,22 +176,10 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: <BoxIcon />,
   },
   {
-    title: "Awards",
-    href: "/#awards",
+    title: "Recognition",
+    href: "/#recognition",
     kind: "page",
-    icon: <CrownIcon />,
-  },
-  {
-    title: "Certifications",
-    href: "/#certs",
-    kind: "page",
-    icon: <CircleCheckBigIcon />,
-  },
-  {
-    title: "Intellectual property",
-    href: "/#ip",
-    kind: "page",
-    icon: <ScaleIcon />,
+    icon: <AwardIcon />,
   },
 ]
 

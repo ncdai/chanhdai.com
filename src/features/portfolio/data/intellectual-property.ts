@@ -1,14 +1,14 @@
 import type { Certification } from "../types/certifications"
 
 /**
- * Trademark and copyright registrations. They share the credential shape
- * rendered by `CertificationItem`, but live in their own section since they
- * certify ownership of intellectual property rather than earned skills.
+ * Trademark and copyright registrations. They share the certification shape
+ * but stay a separate list since they certify ownership of intellectual
+ * property rather than earned skills.
  */
 export const INTELLECTUAL_PROPERTY: Certification[] = [
   {
     title: "Certificate of Trademark Registration No. 594593",
-    issuer: "Intellectual Property Office of Viet Nam",
+    issuer: "IP Viet Nam",
     issuerIconName: "trademark",
     issueDate: "2026-02-04",
     credentialID: "594593",
@@ -17,7 +17,7 @@ export const INTELLECTUAL_PROPERTY: Certification[] = [
   },
   {
     title: "Certificate of Trademark Registration No. 584461",
-    issuer: "Intellectual Property Office of Viet Nam",
+    issuer: "IP Viet Nam",
     issuerIconName: "trademark",
     issueDate: "2025-12-04",
     credentialID: "584461",
@@ -26,7 +26,7 @@ export const INTELLECTUAL_PROPERTY: Certification[] = [
   },
   {
     title: "Certificate of Trademark Registration No. 565092",
-    issuer: "Intellectual Property Office of Viet Nam",
+    issuer: "IP Viet Nam",
     issuerIconName: "trademark",
     issueDate: "2025-08-18",
     credentialID: "565092",
@@ -35,7 +35,7 @@ export const INTELLECTUAL_PROPERTY: Certification[] = [
   },
   {
     title: "Certificate of Trademark Registration No. 543682",
-    issuer: "Intellectual Property Office of Viet Nam",
+    issuer: "IP Viet Nam",
     issuerIconName: "trademark",
     issueDate: "2025-05-08",
     credentialID: "543682",
