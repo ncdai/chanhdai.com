@@ -704,6 +704,21 @@ export function ZaDarkIcon(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
+export function ShadcncraftIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden {...props}>
+      <path
+        fill="currentColor"
+        d="M21.92 3.71v5.16H9.57L6.23 14.4a.7.7 0 0 1-.63.35H2.73a.7.7 0 0 1-.73-.72V8.87h7.04l2.92-4.82C12.35 3.4 13.06 3 13.83 3h7.36c.4 0 .73.32.73.71"
+      />
+      <path
+        fill="currentColor"
+        d="M2 21.28v-5.16h12.35l3.34-5.52a.7.7 0 0 1 .63-.35h2.87c.4 0 .73.32.73.71v5.16h-7.04l-2.92 4.83c-.39.65-1.1 1.05-1.87 1.05H2.73a.7.7 0 0 1-.73-.72"
+      />
+    </svg>
+  )
+}
+
 export function getIconForLanguageExtension(language: string) {
   switch (language) {
     case "json":

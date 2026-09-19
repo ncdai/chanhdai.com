@@ -39,7 +39,7 @@ export function ProjectItem({
       <div className="relative flex items-center hover:bg-accent-muted">
         <IconTile className="mx-4">{project.icon ?? <BoxIcon />}</IconTile>
 
-        <div className="flex flex-1 items-center gap-2 border-l border-dashed border-line p-4 pr-2">
+        <div className="flex flex-1 items-center gap-2 border-l border-dashed border-line p-4">
           <div className="flex-1">
             <h3 className="mb-1 leading-snug font-medium text-balance">
               <CollapsibleTrigger className="text-left">
