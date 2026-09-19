@@ -81,7 +81,7 @@ function AwardRow({ entry }: { entry: AwardRecognition }) {
       <div className="relative flex items-center hover:bg-accent-muted">
         <IconTile className="mx-4">{award.icon ?? <CrownIcon />}</IconTile>
 
-        <div className="flex flex-1 items-center gap-2 border-l border-dashed border-line p-4 pr-2">
+        <div className="flex flex-1 items-center gap-2 border-l border-dashed border-line p-4">
           <div className="flex-1">
             <h3 className="mb-1 leading-snug font-medium text-balance">
               {canExpand ? (
@@ -159,14 +159,14 @@ function CredentialRow({ entry }: { entry: CredentialRecognition }) {
   const { kind, credential, date } = entry
 
   return (
-    <div className="relative flex items-center pr-2 hover:bg-accent-muted">
+    <div className="relative flex items-center pr-4 hover:bg-accent-muted">
       <IconTile className="mx-4">
         {(credential.issuerIconName
           ? ISSUER_ICONS[credential.issuerIconName]
           : null) ?? <CircleCheckBigIcon />}
       </IconTile>
 
-      <div className="flex-1 space-y-1 border-l border-dashed border-line p-4 pr-2">
+      <div className="flex-1 space-y-1 border-l border-dashed border-line p-4">
         <h3 className="leading-snug font-medium text-balance">
           <a href={credential.credentialURL} target="_blank" rel="noopener">
             <span className="absolute inset-0" aria-hidden />

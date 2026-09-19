@@ -30,13 +30,13 @@ export function Experiences() {
         </PanelTitle>
       </PanelHeader>
 
-      <div className="pr-2 pl-4">
+      <div className="px-4">
         <ExperienceList experiences={EXPERIENCES.slice(0, MAX)} />
       </div>
 
       {EXPERIENCES.length > MAX && (
         <Collapsible className="group/collapsible">
-          <CollapsibleContent render={<div className="pr-2 pl-4" />}>
+          <CollapsibleContent render={<div className="px-4" />}>
             <ExperienceList experiences={EXPERIENCES.slice(MAX)} />
           </CollapsibleContent>
 
