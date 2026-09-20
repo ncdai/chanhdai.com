@@ -1,7 +1,8 @@
 "use client"
 
-import { useSyncExternalStore } from "react"
+import { useId, useSyncExternalStore } from "react"
 
+import { InkFilter } from "@/components/ink-filter"
 import { InlineScript } from "@/components/inline-script"
 import { PanelTitle } from "@/features/portfolio/components/panel"
 
@@ -9,6 +10,8 @@ const ID = "hello"
 const SSR_TEXT = "Hello"
 
 export function HelloTitle() {
+  const inkId = useId()
+
   // Server renders "Hello"; the client snapshot resolves the viewer's local
   // greeting, which also covers client-side navigation (no inline script).
   const greeting = useSyncExternalStore(
@@ -19,10 +22,15 @@ export function HelloTitle() {
 
   return (
     <>
+      {/* Sibling, not child: the inline script replaces the title's
+          textContent, which would remove the filter before hydration. */}
+      <InkFilter id={inkId} />
+
       <PanelTitle
         as="div"
         id={`${ID}-greeting`}
         className="font-handwritten leading-none"
+        style={{ filter: `url(#${inkId})` }}
         aria-hidden
         suppressHydrationWarning
       >

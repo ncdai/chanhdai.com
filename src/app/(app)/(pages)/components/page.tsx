@@ -24,6 +24,7 @@ import {
   PageHeadingTitle,
 } from "@/components/page-heading"
 import { RegistryCommandAnimated } from "@/components/registry-command-animated"
+import { RegistryHealth } from "@/components/registry-health"
 import { ComponentIcon } from "@/features/doc/components/component-icon"
 import { getComponentDocs } from "@/features/doc/data/documents"
 import type { Doc } from "@/features/doc/types/document"
@@ -210,9 +211,9 @@ export default function Page() {
 
         <ComponentList items={allComponents} showAds />
 
-        <div className="screen-line-top flex justify-center p-4 before:-top-px">
+        <div className="screen-line-top flex flex-wrap justify-center gap-2 p-4 before:-top-px">
           <a
-            className="flex h-7 items-center gap-1 rounded-full bg-primary pr-2.5 pl-2 text-sm font-medium whitespace-nowrap text-primary-foreground select-none [&>svg]:pointer-events-none [&>svg]:size-4 [&>svg]:shrink-0"
+            className="flex h-7 items-center gap-1 rounded-full border border-transparent bg-primary bg-clip-padding pr-2.5 pl-2 text-sm font-medium whitespace-nowrap text-primary-foreground select-none [&>svg]:pointer-events-none [&>svg]:size-4 [&>svg]:shrink-0"
             href={trustedRegistryUrl}
             target="_blank"
             rel="noopener"
@@ -220,6 +221,8 @@ export default function Page() {
             <TrustedRegistryIcon />
             Trusted Registry
           </a>
+
+          <RegistryHealth />
         </div>
 
         <div className="screen-line-bottom h-px" />
