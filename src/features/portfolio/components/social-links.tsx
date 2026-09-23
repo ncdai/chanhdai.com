@@ -17,7 +17,7 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 
 export function SocialLinks() {
   return (
-    <Panel>
+    <Panel className="screen-line-bottom-line">
       <h2 className="sr-only">Social links</h2>
 
       <PanelContent>
