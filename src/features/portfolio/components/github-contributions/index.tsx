@@ -9,14 +9,12 @@ export function GitHubContributions() {
   const contributions = getGitHubContributions()
 
   return (
-    <Panel className="screen-line-top-none">
+    <Panel className="screen-line-top-border">
       <h2 className="sr-only">GitHub contributions</h2>
 
       <Suspense fallback={<GitHubContributionFallback />}>
         <GitHubContributionGraph contributions={contributions} />
       </Suspense>
-
-      <div className="h-px" />
     </Panel>
   )
 }

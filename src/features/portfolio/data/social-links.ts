@@ -24,12 +24,12 @@ export const SOCIAL = {
     href: "https://linkedin.com/in/ncdai",
     sameAs: true,
   },
-  dailydotdev: {
-    title: "daily.dev",
-    handle: "@ncdai",
-    href: "https://app.daily.dev/ncdai",
-    sameAs: true,
-  },
+  // dailydotdev: {
+  //   title: "daily.dev",
+  //   handle: "@ncdai",
+  //   href: "https://app.daily.dev/ncdai",
+  //   sameAs: true,
+  // },
   discord: {
     title: "Discord",
     handle: "ncdai",

@@ -46,8 +46,8 @@ export default function HomePage() {
           <ProfileHeader />
           <Separator />
 
-          <Overview />
           <SocialLinks />
+          <Overview />
           <GitHubContributions />
           <Separator />
 
