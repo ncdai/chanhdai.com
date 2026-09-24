@@ -593,14 +593,18 @@ function CommandMenuTrigger({ ...props }: React.ComponentProps<typeof Button>) {
     >
       <SearchIcon />
 
-      <span className="font-sans text-sm/4 font-medium sm:hidden">Search…</span>
+      <span className="font-sans text-sm/4 font-medium sm:sr-only">
+        Search…
+      </span>
 
-      <KbdGroup className="hidden gap-0.75 sm:in-[.os-macos_&]:flex">
+      {/* Tablets rarely have a keyboard, and the header has no room for the
+      hint until md. */}
+      <KbdGroup className="hidden gap-0.75 md:in-[.os-macos_&]:flex">
         <Kbd className="w-5 min-w-auto">⌘</Kbd>
         <Kbd className="w-5 min-w-auto">K</Kbd>
       </KbdGroup>
 
-      <KbdGroup className="hidden gap-0.75 sm:not-[.os-macos_&]:flex">
+      <KbdGroup className="hidden gap-0.75 md:not-[.os-macos_&]:flex">
         <Kbd>Ctrl</Kbd>
         <Kbd className="w-5 min-w-auto">K</Kbd>
       </KbdGroup>
