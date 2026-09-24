@@ -3,6 +3,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 import { useRouter } from "@bprogress/next/app"
+import { PenTool03Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import { useTiks } from "@rexa-developer/tiks/react"
 import {
   AwardIcon,
@@ -106,6 +108,13 @@ const MENU_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <GridViewIcon />,
     shortcut: "GB",
+  },
+  {
+    title: "Craft",
+    href: "/craft",
+    kind: "page",
+    icon: <HugeiconsIcon icon={PenTool03Icon} aria-hidden />,
+    shortcut: "GR",
   },
   {
     title: "Blog",
