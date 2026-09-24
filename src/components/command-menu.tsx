@@ -3,6 +3,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 import { useRouter } from "@bprogress/next/app"
+import { PenTool03Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import { useTiks } from "@rexa-developer/tiks/react"
 import {
   AwardIcon,
@@ -106,6 +108,13 @@ const MENU_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <GridViewIcon />,
     shortcut: "GB",
+  },
+  {
+    title: "Craft",
+    href: "/craft",
+    kind: "page",
+    icon: <HugeiconsIcon icon={PenTool03Icon} aria-hidden />,
+    shortcut: "GR",
   },
   {
     title: "Blog",
@@ -593,14 +602,18 @@ function CommandMenuTrigger({ ...props }: React.ComponentProps<typeof Button>) {
     >
       <SearchIcon />
 
-      <span className="font-sans text-sm/4 font-medium sm:hidden">Search…</span>
+      <span className="font-sans text-sm/4 font-medium sm:sr-only">
+        Search…
+      </span>
 
-      <KbdGroup className="hidden gap-0.75 sm:in-[.os-macos_&]:flex">
+      {/* Tablets rarely have a keyboard, and the header has no room for the
+      hint until md. */}
+      <KbdGroup className="hidden gap-0.75 md:in-[.os-macos_&]:flex">
         <Kbd className="w-5 min-w-auto">⌘</Kbd>
         <Kbd className="w-5 min-w-auto">K</Kbd>
       </KbdGroup>
 
-      <KbdGroup className="hidden gap-0.75 sm:not-[.os-macos_&]:flex">
+      <KbdGroup className="hidden gap-0.75 md:not-[.os-macos_&]:flex">
         <Kbd>Ctrl</Kbd>
         <Kbd className="w-5 min-w-auto">K</Kbd>
       </KbdGroup>

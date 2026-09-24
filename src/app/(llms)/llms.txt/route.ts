@@ -15,6 +15,7 @@ const content = `# chanhdai.com
 - [Recognition](${SITE_INFO.url}/recognition.md): Awards, certifications, and the trademarks and copyrights registered under my name.
 - [Components](${SITE_INFO.url}/components.md): Every registry component, with install instructions.
 - [Blocks](${SITE_INFO.url}/blocks.md): Every registry block, grouped by category, with install instructions.
+- [Craft](${SITE_INFO.url}/craft.md): Interface and interaction demos, newest first, with links to their code and posts on X.
 - [Blog](${SITE_INFO.url}/blog.md): Every blog post, newest first, with publish dates.
 - [Bookmarks](${SITE_INFO.url}/bookmarks.md): Articles, courses, books, references, and tools I recommend.
 
