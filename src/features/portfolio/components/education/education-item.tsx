@@ -20,12 +20,12 @@ export function EducationItem({ item }: { item: Education }) {
   const isOngoing = !end
 
   return (
-    <div className="group/education-item relative before:absolute before:left-3 before:h-full before:w-px before:bg-border">
+    <div className="group/education-item relative before:absolute before:left-3 before:top-0 before:bottom-5 before:w-px before:bg-border">
       <div
-        className="pointer-events-none absolute bottom-0 left-3 hidden size-4 bg-background group-last/education-item:flex"
+        className="pointer-events-none absolute bottom-2 left-3 hidden size-3 bg-background group-last/education-item:flex"
         aria-hidden
       >
-        <span className="size-full -translate-y-2.25 rounded-bl-sm border-b border-l" />
+        <span className="size-full rounded-bl-sm border-b border-l" />
       </div>
 
       <Collapsible defaultOpen={item.isExpanded} disabled={!item.description}>
