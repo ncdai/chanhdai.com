@@ -1,9 +1,10 @@
 import {
   formatCompactNumber,
+  formatDate,
   formatDuration,
   formatNumber,
 } from "@/utils/format"
-import { describe, expect, it } from "vitest"
+import { afterEach, describe, expect, it } from "vitest"
 
 describe("formatNumber", () => {
   it("groups thousands with commas", () => {
@@ -65,5 +66,26 @@ describe("formatDuration", () => {
 
   it("handles zero", () => {
     expect(formatDuration(0)).toBe("0s")
+  })
+})
+
+describe("formatDate", () => {
+  const originalTimeZone = process.env.TZ
+
+  afterEach(() => {
+    process.env.TZ = originalTimeZone
+  })
+
+  // Frontmatter dates like `createdAt: 2025-02-14` parse to UTC midnight.
+  const timeZones = ["UTC", "Asia/Ho_Chi_Minh", "America/Los_Angeles"]
+
+  it.each(timeZones)("keeps a date-only string's day in %s", (timeZone) => {
+    process.env.TZ = timeZone
+    expect(formatDate("2025-02-14", "dd.MM.yyyy")).toBe("14.02.2025")
+  })
+
+  it.each(timeZones)("keeps a UTC-midnight Date's day in %s", (timeZone) => {
+    process.env.TZ = timeZone
+    expect(formatDate(new Date("2025-02-14"), "dd.MM.yyyy")).toBe("14.02.2025")
   })
 })

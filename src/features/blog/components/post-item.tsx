@@ -1,7 +1,7 @@
 import type { ImageProps } from "next/image"
 import Image from "next/image"
 import Link from "next/link"
-import { format } from "date-fns"
+import { formatDate } from "@/utils/format"
 
 import type { Doc } from "@/features/doc/types/document"
 
@@ -56,7 +56,7 @@ export function PostItem({
           <dt className="sr-only">Published on</dt>
           <dd className="text-sm text-muted-foreground">
             <time dateTime={new Date(post.metadata.createdAt).toISOString()}>
-              {format(new Date(post.metadata.createdAt), "dd.MM.yyyy")}
+              {formatDate(post.metadata.createdAt, "dd.MM.yyyy")}
             </time>
           </dd>
         </dl>

@@ -1,3 +1,6 @@
+import { tz } from "@date-fns/tz"
+import { format } from "date-fns"
+
 /**
  * Always `en-US`, never the runtime locale: a client component would pick up
  * the visitor's locale while a server component picks up the host's, so the
@@ -38,4 +41,20 @@ export function formatDuration(seconds: number): string {
   if (secs > 0) parts.push(`${secs}s`)
 
   return parts.length > 0 ? parts.join(" ") : "0s"
+}
+
+const UTC = tz("UTC")
+
+/**
+ * Formats a calendar date (e.g. a post's `createdAt`) in UTC, never the
+ * runtime time zone. Date-only values such as `2025-02-14` parse as UTC
+ * midnight, so formatting them in local time shows the previous day west of
+ * UTC, and a client component would then disagree with the server-rendered
+ * HTML.
+ */
+export function formatDate(
+  date: string | number | Date,
+  formatStr: string
+): string {
+  return format(date, formatStr, { in: UTC })
 }
