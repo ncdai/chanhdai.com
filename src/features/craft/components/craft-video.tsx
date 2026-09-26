@@ -113,8 +113,9 @@ export function CraftVideo({
         aria-label={isPlaying ? "Pause video" : "Play video"}
         data-held-back={isHeldBack ? "" : undefined}
         className={cn(
-          "absolute right-3 bottom-3 flex size-9 items-center justify-center rounded-full bg-muted/80 text-foreground backdrop-blur-md",
-          "transition-[opacity,background-color,scale] duration-150 ease-out hover:bg-muted active:scale-97 motion-reduce:active:scale-100",
+          // It sits on the video, not the page, so it stays dark in both themes.
+          "dark absolute right-3 bottom-3 flex size-9 items-center justify-center rounded-full bg-muted/60 text-foreground inset-ring-1 inset-ring-foreground/10 backdrop-blur-md backdrop-saturate-150",
+          "transition-[opacity,background-color,scale] duration-150 ease-out hover:bg-muted/80 active:scale-97 motion-reduce:active:scale-100",
           "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring",
           "opacity-0 group-hover/craft-video:opacity-100 focus-visible:opacity-100 data-held-back:opacity-100 pointer-coarse:opacity-100"
         )}
