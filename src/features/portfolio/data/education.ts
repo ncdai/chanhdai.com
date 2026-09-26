@@ -10,7 +10,7 @@ export const EDUCATION: Education[] = [
       start: "08.2018",
       end: "08.2026",
     },
-    description: `- Currently studying for a Bachelor’s degree in Information Systems.
+    description: `- Completed a Bachelor’s degree in Information Systems.
 - Language Proficiency: B1 level in English (CEFR).
 - Achieved several awards, including:
   - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
