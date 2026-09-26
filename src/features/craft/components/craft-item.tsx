@@ -2,10 +2,12 @@ import type { Route } from "next"
 import type { ImageProps } from "next/image"
 import Image from "next/image"
 import Link from "next/link"
+import { mergeProps } from "@base-ui/react/merge-props"
+import { useRender } from "@base-ui/react/use-render"
 import { format } from "date-fns"
+import { ArrowRightIcon, ArrowUpRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Separator } from "@/components/ui/separator"
 
 import type { Craft } from "../types"
 import { CraftGallery } from "./craft-gallery"
@@ -27,81 +29,74 @@ export function CraftItem({
   return (
     <figure
       data-media-type={media.type}
-      className={cn(
-        "flex flex-col gap-2 p-2 data-[media-type=gallery]:px-0",
-        className
-      )}
+      className={cn("flex flex-col", className)}
     >
-      {media.type === "gallery" ? (
-        <CraftGallery images={media.images} />
-      ) : (
-        <div className="relative rounded-xl">
-          {media.type === "video" ? (
-            <CraftVideo
-              className="rounded-[inherit]"
-              src={media.src}
-              poster={media.poster}
-              width={media.width}
-              height={media.height}
-            />
-          ) : (
-            <Image
-              className="h-auto w-full rounded-[inherit] bg-muted"
-              src={media.src}
-              alt={media.alt}
-              width={media.width}
-              height={media.height}
-              loading={imageLoading}
-              unoptimized
-            />
-          )}
+      <div className="p-2 in-data-[media-type=gallery]:px-0 in-data-[media-type=gallery]:pb-4">
+        {media.type === "gallery" ? (
+          <CraftGallery images={media.images} />
+        ) : (
+          <div className="relative rounded-xl">
+            {media.type === "video" ? (
+              <CraftVideo
+                className="rounded-[inherit]"
+                src={media.src}
+                poster={media.poster}
+                width={media.width}
+                height={media.height}
+              />
+            ) : (
+              <Image
+                className="h-auto w-full rounded-[inherit] bg-muted"
+                src={media.src}
+                alt={media.alt}
+                width={media.width}
+                height={media.height}
+                loading={imageLoading}
+                unoptimized
+              />
+            )}
 
-          <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-black/10 dark:inset-ring-white/10" />
-        </div>
-      )}
+            <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-black/10 dark:inset-ring-white/10" />
+          </div>
+        )}
+      </div>
 
-      <figcaption className="flex flex-col items-center gap-1 p-2 text-center text-sm">
-        <p className="max-w-prose text-balance">
-          <span className="font-medium">
-            Fig. {figureNumber.toString().padStart(2, "0")}.
-          </span>{" "}
+      {/* On phones the links get their own row so they never wrap. */}
+      <figcaption className="screen-line-top grid grid-cols-[--spacing(31)_1fr]">
+        <CaptionCell>
+          Fig.{figureNumber.toString().padStart(2, "0")}
+        </CaptionCell>
+        <p className="max-w-prose p-4 text-sm/5 text-pretty max-sm:row-span-2">
           {craft.description}
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-muted-foreground">
+        <CaptionCell
+          className="border-t"
+          render={<time dateTime={craft.createdAt} />}
+        >
+          {format(
+            new Date(craft.createdAt),
+            isMonthOnly(craft.createdAt) ? "MMM yyyy" : "d MMM yyyy"
+          )}
+        </CaptionCell>
+        <div className="col-span-2 flex border-t border-line max-sm:empty:hidden sm:col-span-1">
           {craft.registryHref && (
-            <>
-              <Link
-                className="link-underline hover:text-foreground"
-                href={craft.registryHref as Route}
-              >
-                Get the code
-              </Link>
-              <MetaSeparator />
-            </>
+            <CaptionLink render={<Link href={craft.registryHref as Route} />}>
+              Get the code
+              <ArrowRightIcon />
+            </CaptionLink>
           )}
 
           {craft.xPostUrl && (
-            <>
-              <a
-                className="link-underline hover:text-foreground"
-                href={craft.xPostUrl}
-                target="_blank"
-                rel="noopener"
-              >
-                View on <span aria-hidden>𝕏</span>
-                <span className="sr-only">X</span>
-              </a>
-              <MetaSeparator />
-            </>
+            <CaptionLink
+              render={
+                <a href={craft.xPostUrl} target="_blank" rel="noopener" />
+              }
+            >
+              View on X
+              <ArrowUpRightIcon />
+            </CaptionLink>
           )}
-
-          <time dateTime={craft.createdAt}>
-            {format(
-              new Date(craft.createdAt),
-              isMonthOnly(craft.createdAt) ? "MMM yyyy" : "d MMM yyyy"
-            )}
-          </time>
         </div>
       </figcaption>
     </figure>
@@ -110,12 +105,37 @@ export function CraftItem({
 
 const isMonthOnly = (date: string) => /^\d{4}-\d{2}$/.test(date)
 
-function MetaSeparator() {
+function CaptionCell({
+  className,
+  render,
+  ...props
+}: useRender.ComponentProps<"span">) {
+  return useRender({
+    defaultTagName: "span",
+    props: mergeProps<"span">(
+      {
+        className: cn(
+          "border-r border-line p-4 font-mono text-xs/5 font-medium tracking-wide whitespace-nowrap text-muted-foreground uppercase",
+          className
+        ),
+      },
+      props
+    ),
+    render,
+  })
+}
+
+function CaptionLink({
+  className,
+  ...props
+}: React.ComponentProps<typeof CaptionCell>) {
   return (
-    <Separator
-      className="data-vertical:h-4 data-vertical:self-center"
-      orientation="vertical"
-      aria-hidden
+    <CaptionCell
+      className={cn(
+        "flex items-center justify-between gap-1.5 transition-[color,background-color] ease-out hover:bg-accent-muted hover:text-foreground max-sm:flex-1 max-sm:last:border-r-0 [&_svg]:size-3.5",
+        className
+      )}
+      {...props}
     />
   )
 }
