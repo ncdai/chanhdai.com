@@ -1,5 +1,8 @@
 const ASSETS_URL = "https://assets.chanhdai.com"
 
+// The craft feed tops out around 750px wide, so 2x that is plenty.
+export const MEDIA_MAX_WIDTH = 1600
+
 const X_POST_URL_PATTERN =
   /^https:\/\/(?:www\.)?(?:x|twitter)\.com\/\w+\/status\/(\d+)/
 
@@ -10,7 +13,9 @@ export function parseXPostId(input: string): string | null {
 
 export function getCraftMediaKeys(postId: string) {
   return {
-    video: `videos/craft/${postId}.mp4`,
+    // The original from X, kept for re-encoding later.
+    source: `videos/craft/${postId}.mp4`,
+    video: `videos/craft/${postId}-${MEDIA_MAX_WIDTH}w.mp4`,
     poster: `images/craft/${postId}.webp`,
   }
 }

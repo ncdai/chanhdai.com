@@ -33,9 +33,10 @@ describe("parseXPostId", () => {
 })
 
 describe("getCraftMediaKeys", () => {
-  it("files the video and its poster under the post ID", () => {
+  it("files the source, the encode, and the poster under the post ID", () => {
     expect(getCraftMediaKeys("2101608687702053067")).toEqual({
-      video: "videos/craft/2101608687702053067.mp4",
+      source: "videos/craft/2101608687702053067.mp4",
+      video: "videos/craft/2101608687702053067-1600w.mp4",
       poster: "images/craft/2101608687702053067.webp",
     })
   })
@@ -60,15 +61,15 @@ describe("formatCraftMediaSnippet", () => {
     expect(
       formatCraftMediaSnippet({
         postId: "2101608687702053067",
-        width: 3024,
-        height: 1898,
+        width: 1600,
+        height: 1004,
       })
     ).toBe(`media: {
   type: "video",
-  src: "https://assets.chanhdai.com/videos/craft/2101608687702053067.mp4",
+  src: "https://assets.chanhdai.com/videos/craft/2101608687702053067-1600w.mp4",
   poster: "https://assets.chanhdai.com/images/craft/2101608687702053067.webp",
-  width: 3024,
-  height: 1898,
+  width: 1600,
+  height: 1004,
 },`)
   })
 })
