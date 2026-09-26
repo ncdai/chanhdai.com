@@ -68,8 +68,13 @@ export function CraftVideo({
       1px always covers at least one source row. */}
       <video
         ref={videoRef}
-        className="-mt-px h-auto w-full rounded-[inherit] bg-muted"
-        style={{ aspectRatio: `${width} / ${height}` }}
+        className="-mt-px h-auto w-full rounded-[inherit] bg-muted bg-cover"
+        style={{
+          aspectRatio: `${width} / ${height}`,
+          // Safari hides the poster once play() is called and shows the
+          // background until the first frame decodes.
+          backgroundImage: poster ? `url(${poster})` : undefined,
+        }}
         src={src}
         poster={poster}
         width={width}
