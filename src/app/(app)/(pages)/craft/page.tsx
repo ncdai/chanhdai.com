@@ -67,7 +67,7 @@ export default function CraftPage() {
 
         <ul>
           {CRAFTS.map((craft, index) => (
-            <li key={craft.media.src} className="group/craft">
+            <li key={craft.description} className="group/craft">
               <div className="stripe-divider h-12 group-first/craft:hidden" />
               <CraftItem
                 className="screen-line-top screen-line-bottom"

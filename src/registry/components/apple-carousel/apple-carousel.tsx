@@ -427,15 +427,16 @@ function AppleCarouselContent({
       data-slot="apple-carousel-content"
       className={cn(
         "relative no-scrollbar snap-x snap-mandatory overflow-x-auto overflow-y-hidden data-animating:snap-none",
-        "[--apple-carousel-item-width:min(max(87.5cqw,var(--container-3xs)),var(--container-6xl))] [--apple-carousel-padding:max(6.25cqw,(100cqw-var(--container-6xl))/2)]",
-        "@max-3xl:scroll-ps-(--apple-carousel-padding) @max-3xl:[--apple-carousel-item-width:calc(max(87.5cqw,var(--container-3xs))-(--spacing(5)))]",
+        "[--apple-carousel-gap:--spacing(5)] [--apple-carousel-item-width:min(max(87.5cqw,var(--container-3xs)),var(--container-6xl))] [--apple-carousel-padding:max(6.25cqw,(100cqw-var(--container-6xl))/2)]",
+        "@max-3xl:scroll-ps-(--apple-carousel-padding) @max-3xl:[--apple-carousel-item-width:calc(max(87.5cqw,var(--container-3xs))-var(--apple-carousel-gap))]",
         className
       )}
       {...props}
     >
       <ul
         role="list"
-        className="mx-auto grid w-fit grid-flow-col gap-5 px-(--apple-carousel-padding)"
+        data-slot="apple-carousel-list"
+        className="mx-auto grid w-fit grid-flow-col gap-(--apple-carousel-gap) px-(--apple-carousel-padding)"
       >
         {items.slice(count - cloneCount).map((item, i) => (
           <AppleCarouselItemContext
@@ -494,11 +495,27 @@ function AppleCarouselItem({ className, ...props }: ComponentProps<"li">) {
   )
 }
 
-function AppleCarouselControls({ className, ...props }: ComponentProps<"div">) {
+type AppleCarouselControlsProps = ComponentProps<"div"> & {
+  /**
+   * Size of the tab list and play button inside.
+   * @defaultValue "default"
+   */
+  size?: "default" | "sm"
+}
+
+function AppleCarouselControls({
+  size = "default",
+  className,
+  ...props
+}: AppleCarouselControlsProps) {
   return (
     <div
       data-slot="apple-carousel-controls"
-      className={cn("flex items-center justify-center gap-3 pt-6", className)}
+      data-size={size}
+      className={cn(
+        "group/apple-carousel-controls flex items-center justify-center gap-3 pt-6 data-[size=sm]:gap-2 data-[size=sm]:pt-4",
+        className
+      )}
       {...props}
     />
   )
@@ -516,7 +533,7 @@ function AppleCarouselTabList({
       role="tablist"
       data-slot="apple-carousel-tab-list"
       className={cn(
-        "flex h-14 items-center rounded-full bg-muted px-4",
+        "flex h-14 items-center rounded-full bg-muted px-4 group-data-[size=sm]/apple-carousel-controls:h-11 group-data-[size=sm]/apple-carousel-controls:px-3",
         className
       )}
       {...props}
@@ -604,7 +621,7 @@ function AppleCarouselTab({
         // Width morphs on screen; the hover color is a quick, small change.
         "transition-[width,background-color] duration-[400ms,150ms] ease-[cubic-bezier(0.645,0.045,0.355,1),ease]",
         "motion-reduce:transition-colors motion-reduce:duration-150 motion-reduce:ease-[ease]",
-        "data-current:w-12 @max-3xl:data-current:w-8",
+        "data-current:w-12 group-data-[size=sm]/apple-carousel-controls:data-current:w-6 @max-3xl:data-current:w-8",
         "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring",
         className
       )}
@@ -670,7 +687,7 @@ function AppleCarouselPlayButton({
       aria-label={isPlaying ? "Pause gallery" : "Play gallery"}
       data-slot="apple-carousel-play-button"
       className={cn(
-        "flex size-14 items-center justify-center rounded-full bg-muted text-foreground",
+        "flex size-14 items-center justify-center rounded-full bg-muted text-foreground group-data-[size=sm]/apple-carousel-controls:size-11",
         "transition-[background-color,scale] duration-150 ease-out hover:bg-muted/80 active:scale-97 motion-reduce:active:scale-100",
         "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring",
         className
@@ -690,7 +707,7 @@ function AppleCarouselPlayButton({
         stroke="currentColor"
         strokeWidth={ICON_STROKE_WIDTH}
         strokeLinejoin="round"
-        className="size-6"
+        className="size-6 group-data-[size=sm]/apple-carousel-controls:size-5"
       >
         <motion.path
           initial={false}
@@ -717,4 +734,8 @@ export {
   AppleCarouselTabList,
   useAppleCarouselItem,
 }
-export type { AppleCarouselItemState, AppleCarouselRootProps }
+export type {
+  AppleCarouselControlsProps,
+  AppleCarouselItemState,
+  AppleCarouselRootProps,
+}

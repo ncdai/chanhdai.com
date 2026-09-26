@@ -2,7 +2,10 @@ import type { ComponentProps } from "react"
 import type { motion } from "motion/react"
 
 import type { Button } from "@/components/ui/button"
-import type { AppleCarouselRoot } from "@/registry/components/apple-carousel"
+import type {
+  AppleCarouselControls,
+  AppleCarouselRoot,
+} from "@/registry/components/apple-carousel"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GitHubContributions } from "@/registry/components/github-contributions"
@@ -25,6 +28,11 @@ import type { TimescaleRoot } from "@/registry/components/timescale"
 
 export type AppleCarouselRootProps = Omit<
   ComponentProps<typeof AppleCarouselRoot>,
+  keyof ComponentProps<"div">
+>
+
+export type AppleCarouselControlsProps = Omit<
+  ComponentProps<typeof AppleCarouselControls>,
   keyof ComponentProps<"div">
 >
 

@@ -61,6 +61,34 @@ export const CRAFTS: Craft[] = [
     xPostUrl: "https://x.com/iamncdai/status/2099902335715848548",
   },
   {
+    description: "Museum: a little Apple corner at home.",
+    media: {
+      type: "gallery",
+      images: [
+        {
+          src: "https://assets.chanhdai.com/images/craft/2098000111234343170-1.webp",
+          alt: "Vintage iPhones on stands across two lit shelves, seen at an angle through the glass door, with their boxes behind them.",
+          width: 1260,
+          height: 1920,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/2098000111234343170-2.webp",
+          alt: "The whole cabinet from the front: iPhones and their boxes on two shelves, and an iPad with its box on the bottom shelf.",
+          width: 1290,
+          height: 1920,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/2098000111234343170-3.webp",
+          alt: "A black-and-white close-up of the Apple Museum sign on the cabinet door, with a Vercel bottle on the shelf above.",
+          width: 1160,
+          height: 1920,
+        },
+      ],
+    },
+    createdAt: "2026-09-10",
+    xPostUrl: "https://x.com/iamncdai/status/2098000111234343170",
+  },
+  {
     description:
       "Swipe Actions: swipeable list rows that reveal actions on the left or right.",
     media: {

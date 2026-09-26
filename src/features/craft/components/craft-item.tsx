@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
 
 import type { Craft } from "../types"
+import { CraftGallery } from "./craft-gallery"
 import { CraftVideo } from "./craft-video"
 
 export function CraftItem({
@@ -24,30 +25,40 @@ export function CraftItem({
   const { media } = craft
 
   return (
-    <figure className={cn("flex flex-col gap-2 p-2", className)}>
-      <div className="relative rounded-xl">
-        {media.type === "video" ? (
-          <CraftVideo
-            className="rounded-[inherit]"
-            src={media.src}
-            poster={media.poster}
-            width={media.width}
-            height={media.height}
-          />
-        ) : (
-          <Image
-            className="h-auto w-full rounded-[inherit] bg-muted"
-            src={media.src}
-            alt={media.alt}
-            width={media.width}
-            height={media.height}
-            loading={imageLoading}
-            unoptimized
-          />
-        )}
+    <figure
+      data-media-type={media.type}
+      className={cn(
+        "flex flex-col gap-2 p-2 data-[media-type=gallery]:px-0",
+        className
+      )}
+    >
+      {media.type === "gallery" ? (
+        <CraftGallery images={media.images} />
+      ) : (
+        <div className="relative rounded-xl">
+          {media.type === "video" ? (
+            <CraftVideo
+              className="rounded-[inherit]"
+              src={media.src}
+              poster={media.poster}
+              width={media.width}
+              height={media.height}
+            />
+          ) : (
+            <Image
+              className="h-auto w-full rounded-[inherit] bg-muted"
+              src={media.src}
+              alt={media.alt}
+              width={media.width}
+              height={media.height}
+              loading={imageLoading}
+              unoptimized
+            />
+          )}
 
-        <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-black/10 dark:inset-ring-white/10" />
-      </div>
+          <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-black/10 dark:inset-ring-white/10" />
+        </div>
+      )}
 
       <figcaption className="flex flex-col items-center gap-1 p-2 text-center text-sm">
         <p className="text-balance">
