@@ -61,7 +61,7 @@ export function CraftItem({
       )}
 
       <figcaption className="flex flex-col items-center gap-1 p-2 text-center text-sm">
-        <p className="text-balance">
+        <p className="max-w-prose text-balance">
           <span className="font-medium">
             Fig. {figureNumber.toString().padStart(2, "0")}.
           </span>{" "}
@@ -96,14 +96,19 @@ export function CraftItem({
             </>
           )}
 
-          <time dateTime={new Date(craft.createdAt).toISOString()}>
-            {format(new Date(craft.createdAt), "d MMM yyyy")}
+          <time dateTime={craft.createdAt}>
+            {format(
+              new Date(craft.createdAt),
+              isMonthOnly(craft.createdAt) ? "MMM yyyy" : "d MMM yyyy"
+            )}
           </time>
         </div>
       </figcaption>
     </figure>
   )
 }
+
+const isMonthOnly = (date: string) => /^\d{4}-\d{2}$/.test(date)
 
 function MetaSeparator() {
   return (
