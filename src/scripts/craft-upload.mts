@@ -10,15 +10,13 @@ import {
   formatCraftMediaSnippet,
   getCraftMediaKeys,
   isMp4,
+  MEDIA_MAX_WIDTH,
   parseXPostId,
 } from "./lib/craft-media.ts"
 import { getR2ClientFromEnv } from "./lib/r2.mts"
 
 const USAGE =
   "Usage: pnpm craft:upload <x-post-url-or-id> <video-url-or-file> [--force] [--poster-time <seconds>]"
-
-// The craft feed tops out around 750px wide, so 2x that is plenty.
-const POSTER_MAX_WIDTH = 1600
 
 async function readVideo(source: string) {
   if (!/^https?:\/\//.test(source)) {
@@ -33,6 +31,57 @@ async function readVideo(source: string) {
   }
 
   return new Uint8Array(await response.arrayBuffer())
+}
+
+async function encodeVideo(source: Uint8Array) {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "craft-encode-"))
+
+  try {
+    const input = path.join(dir, "source.mp4")
+    const output = path.join(dir, "video.mp4")
+    await writeFile(input, source)
+
+    const ffmpeg = Bun.spawn(
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        input,
+        // The even-height rounding makes scale set a non-square pixel ratio.
+        "-vf",
+        `scale='min(${MEDIA_MAX_WIDTH},iw)':-2,setsar=1`,
+        // X exports a variable frame rate. The default would duplicate frames
+        // up to 120fps.
+        "-fps_mode",
+        "passthrough",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "slow",
+        "-crf",
+        "26",
+        "-pix_fmt",
+        "yuv420p",
+        // Craft videos always play muted.
+        "-an",
+        "-movflags",
+        "+faststart",
+        output,
+      ],
+      { stderr: "inherit" }
+    )
+
+    const exitCode = await ffmpeg.exited
+
+    if (exitCode !== 0) {
+      throw new Error(`ffmpeg exited with code ${exitCode}`)
+    }
+
+    return new Uint8Array(await Bun.file(output).arrayBuffer())
+  } finally {
+    await rm(dir, { recursive: true, force: true })
+  }
 }
 
 async function capturePoster(video: Uint8Array, time: number) {
@@ -73,10 +122,7 @@ async function capturePoster(video: Uint8Array, time: number) {
     const frame = await page.locator("video").waitHandle()
     const png = await frame.screenshot({ type: "png" })
 
-    const poster = await sharp(png)
-      .resize({ width: POSTER_MAX_WIDTH, withoutEnlargement: true })
-      .webp()
-      .toBuffer()
+    const poster = await sharp(png).webp().toBuffer()
 
     return { ...size, poster }
   } finally {
@@ -102,11 +148,15 @@ async function main() {
     throw new Error(USAGE)
   }
 
+  if (!Bun.which("ffmpeg")) {
+    throw new Error("ffmpeg is missing. Install it with: brew install ffmpeg")
+  }
+
   const client = getR2ClientFromEnv()
   const keys = getCraftMediaKeys(postId)
 
   if (!values.force) {
-    for (const key of [keys.video, keys.poster]) {
+    for (const key of [keys.source, keys.video, keys.poster]) {
       if (await client.exists(key)) {
         throw new Error(
           `${key} already exists. Pass --force to replace it, then bump ?v= in the URL so the CDN drops its cached copy.`
@@ -115,13 +165,18 @@ async function main() {
     }
   }
 
-  const video = await readVideo(source)
+  const original = await readVideo(source)
 
-  if (!isMp4(video)) {
+  if (!isMp4(original)) {
     throw new Error(`${source} is not an MP4 file`)
   }
 
+  const video = await encodeVideo(original)
+  // From the encode, so the poster matches the first frame pixel for pixel.
   const { width, height, poster } = await capturePoster(video, posterTime)
+
+  await client.write(keys.source, original, { type: "video/mp4" })
+  console.log(`Uploaded: ${keys.source}`)
 
   await client.write(keys.video, video, { type: "video/mp4" })
   console.log(`Uploaded: ${keys.video}`)
