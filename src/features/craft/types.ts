@@ -30,7 +30,7 @@ export type Craft = {
   /** One sentence shown under the media, enough to understand the work. */
   description: string
   media: CraftMedia
-  /** ISO date (e.g., "2026-09-24"). */
+  /** ISO date (e.g., "2026-09-24"), or only the month ("2024-07") when the day is unknown. */
   createdAt: string
   /** The component or block page, once it has shipped. */
   registryHref?: `/components/${string}` | `/blocks/${string}`

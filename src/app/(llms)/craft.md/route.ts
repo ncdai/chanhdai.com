@@ -1,5 +1,3 @@
-import { format } from "date-fns"
-
 import { SITE_INFO } from "@/config/site"
 import { CRAFTS } from "@/features/craft/data"
 import type { CraftMedia } from "@/features/craft/types"
@@ -23,7 +21,7 @@ ${CRAFTS.length} entries, newest first. They are also shown on ${SITE_INFO.url}/
 
 ${CRAFTS.map((item) =>
   [
-    `- ${item.description} (${format(new Date(item.createdAt), "yyyy-MM-dd")})`,
+    `- ${item.description} (${item.createdAt})`,
     `  ${formatMedia(item.media)}`,
     item.registryHref && `  Code: ${SITE_INFO.url}${item.registryHref}`,
     item.xPostUrl && `  Post on X: ${item.xPostUrl}`,

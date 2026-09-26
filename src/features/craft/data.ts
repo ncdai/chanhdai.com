@@ -146,4 +146,119 @@ export const CRAFTS: Craft[] = [
     createdAt: "2026-05-05",
     xPostUrl: "https://x.com/iamncdai/status/2051681608579809631",
   },
+  {
+    description:
+      "Simplamo AI: a coaching chat and milestone suggestions for OKR goals, built at Simplamo.",
+    media: {
+      type: "gallery",
+      images: [
+        {
+          src: "https://assets.chanhdai.com/images/craft/simplamo-ai-1.webp",
+          alt: "Simplamo's goals page with the AI chat panel open, where the OKR & KPI Coach answers a question about OKR best practices.",
+          width: 2880,
+          height: 1800,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/simplamo-ai-2.webp",
+          alt: "The Ideate Milestones dialog working through its steps, with a robot illustration while suggestions generate.",
+          width: 2880,
+          height: 1800,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/simplamo-ai-3.webp",
+          alt: "The Ideate Milestones dialog listing five suggested milestones for a goal, three of them selected, above a Create Milestones button.",
+          width: 2880,
+          height: 1800,
+        },
+      ],
+    },
+    createdAt: "2024-07",
+  },
+  {
+    description:
+      "Tung Tung Mobile App: a learning community for taking tests, climbing score boards, and following topics.",
+    media: {
+      type: "gallery",
+      images: [
+        {
+          src: "https://assets.chanhdai.com/images/craft/tungtung-1.webp",
+          alt: "Three dark mode screens of the Tung Tung app: a math question with answer choices, a score board, and the home screen.",
+          width: 1600,
+          height: 1200,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/tungtung-2.webp",
+          alt: "Three light mode screens of the Tung Tung app: community topics, suggested tests, and a test's detail page.",
+          width: 1600,
+          height: 1200,
+        },
+      ],
+    },
+    createdAt: "2019-09",
+  },
+  {
+    description:
+      "UnlimitedStudy: a quiz website for students, with tools for teachers to build and track tests.",
+    media: {
+      type: "gallery",
+      images: [
+        {
+          src: "https://assets.chanhdai.com/images/craft/unlimitedstudy-1.webp",
+          alt: "The UnlimitedStudy landing page listing its tools: quizzes, knowledge sharing, literature and culture maps, and health and life skills.",
+          width: 1440,
+          height: 900,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/unlimitedstudy-2.webp",
+          alt: "The home page with featured quiz collections and popular tests.",
+          width: 1440,
+          height: 900,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/unlimitedstudy-3.webp",
+          alt: "The quiz section with subject tabs, a featured collection banner, and suggested tests.",
+          width: 1440,
+          height: 900,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/unlimitedstudy-4.webp",
+          alt: "A collection page listing the 24 official math papers from the 2017 national exam.",
+          width: 1440,
+          height: 900,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/unlimitedstudy-5.webp",
+          alt: "A submitted physics quiz with the answer sheet on the right, scored 9 out of 10.",
+          width: 1440,
+          height: 900,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/unlimitedstudy-6.webp",
+          alt: "A test's overview for its author, with charts of attempts per day, week, and month, and a score distribution.",
+          width: 1440,
+          height: 900,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/unlimitedstudy-7.webp",
+          alt: "The question editor for a test, with the questions on the left and the answer key on the right.",
+          width: 1440,
+          height: 900,
+        },
+      ],
+    },
+    createdAt: "2018-01",
+  },
+  {
+    description:
+      "Hành Trình Khám Phá Miền Tây: my first website, a Mekong Delta travel guide I built in 8th grade.",
+    media: {
+      type: "image",
+      src: "https://assets.chanhdai.com/images/craft/2066194589539823825.webp",
+      alt: "The home page of a Mekong Delta travel site: a green notebook-style layout with a banner of the region's landmarks, a photo slideshow, and sidebars for provinces and a distance search.",
+      width: 1526,
+      height: 858,
+    },
+    createdAt: "2014-05",
+    xPostUrl: "https://x.com/iamncdai/status/2066194589539823825",
+  },
 ]
