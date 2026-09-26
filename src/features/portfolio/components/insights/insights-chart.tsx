@@ -21,7 +21,7 @@ export function InsightsChart({
 }) {
   const range = showDateRange ? getPlottedRange(series) : null
   const dateRange = range
-    ? `, ${format(range.start, "dd.MM.yyyy")} – ${format(range.end, "dd.MM.yyyy")}`
+    ? `, ${format(range.start, "d MMM yyyy")} – ${format(range.end, "d MMM yyyy")}`
     : ""
 
   return (

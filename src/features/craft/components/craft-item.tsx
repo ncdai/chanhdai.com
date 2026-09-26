@@ -97,7 +97,7 @@ export function CraftItem({
           )}
 
           <time dateTime={new Date(craft.createdAt).toISOString()}>
-            {format(new Date(craft.createdAt), "MMM d, yyyy")}
+            {format(new Date(craft.createdAt), "d MMM yyyy")}
           </time>
         </div>
       </figcaption>

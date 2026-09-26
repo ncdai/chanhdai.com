@@ -1,5 +1,7 @@
 import { unstable_cache } from "next/cache"
 import { addQueryParams } from "@/utils/url"
+import { TZDate } from "@date-fns/tz"
+import { format } from "date-fns"
 import { z } from "zod"
 
 import { registryConfig } from "@/config/registry"
@@ -64,15 +66,6 @@ const BREAKDOWN: {
 
 const POINTS_FORMATTER = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 1,
-})
-
-const CHECKED_AT_FORMATTER = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: false,
-  timeZone: "UTC",
 })
 
 const getCachedHealth = unstable_cache(
@@ -173,8 +166,8 @@ export async function RegistryHealth({ className }: { className?: string }) {
 
         <div className="flex flex-col gap-1 px-4 py-3 text-xs text-muted-foreground">
           <p>
-            Checked {CHECKED_AT_FORMATTER.format(new Date(health.checkedAt))}{" "}
-            UTC
+            Checked{" "}
+            {format(new TZDate(health.checkedAt, "UTC"), "d MMM, HH:mm")} UTC
           </p>
           <a
             className="w-fit text-foreground link-underline"

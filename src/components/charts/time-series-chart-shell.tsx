@@ -12,6 +12,7 @@ import {
 } from "react"
 import { scaleLinear, scaleTime } from "@visx/scale"
 import { bisector } from "d3-array"
+import { format } from "date-fns"
 import type { Transition } from "motion/react"
 
 import { DEFAULT_ANIMATION_EASING } from "./animation"
@@ -154,13 +155,7 @@ export function TimeSeriesChartInner({
   }, [innerHeight, data, lines, yScaleDomainMax])
 
   const dateLabels = useMemo(
-    () =>
-      data.map((d) =>
-        xAccessor(d).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        })
-      ),
+    () => data.map((d) => format(xAccessor(d), "d MMM")),
     [data, xAccessor]
   )
 

@@ -56,7 +56,7 @@ export function PostItem({
           <dt className="sr-only">Published on</dt>
           <dd className="text-sm text-muted-foreground">
             <time dateTime={new Date(post.metadata.createdAt).toISOString()}>
-              {format(new Date(post.metadata.createdAt), "dd.MM.yyyy")}
+              {format(new Date(post.metadata.createdAt), "d MMM yyyy")}
             </time>
           </dd>
         </dl>

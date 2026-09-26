@@ -31,7 +31,7 @@ export async function Insights() {
           <a href={`#${ID}`}>Insights</a>
           {range && (
             <PanelTitleSup>
-              ({format(range.start, "dd.MM")} – {format(range.end, "dd.MM")})
+              ({format(range.start, "d MMM")} – {format(range.end, "d MMM")})
             </PanelTitleSup>
           )}
           <PanelTitleCopy id={ID} />
