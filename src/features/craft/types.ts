@@ -2,15 +2,16 @@
 // video.twimg.com refuse to serve other sites.
 type AssetUrl = `https://assets.chanhdai.com/${string}`
 
+export type CraftImage = {
+  src: AssetUrl
+  alt: string
+  /** Intrinsic size, used to reserve the box before the file loads. */
+  width: number
+  height: number
+}
+
 export type CraftMedia =
-  | {
-      type: "image"
-      src: AssetUrl
-      alt: string
-      /** Intrinsic size, used to reserve the box before the file loads. */
-      width: number
-      height: number
-    }
+  | ({ type: "image" } & CraftImage)
   | {
       type: "video"
       src: AssetUrl
@@ -19,6 +20,10 @@ export type CraftMedia =
       /** Intrinsic size, used to reserve the box before the file loads. */
       width: number
       height: number
+    }
+  | {
+      type: "gallery"
+      images: CraftImage[]
     }
 
 export type Craft = {
