@@ -64,7 +64,7 @@ export function BookmarkItem({
             <dt className="sr-only">Bookmarked on</dt>
             <dd>
               <time dateTime={new Date(bookmark.bookmarkedAt).toISOString()}>
-                {format(new Date(bookmark.bookmarkedAt), "dd.MM.yyyy")}
+                {format(new Date(bookmark.bookmarkedAt), "d MMM yyyy")}
               </time>
             </dd>
           </div>

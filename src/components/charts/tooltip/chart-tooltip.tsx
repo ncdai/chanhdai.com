@@ -4,6 +4,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import { format } from "date-fns"
 import { motion, useSpring } from "motion/react"
 
 import { chartCssVars, useChart } from "../chart-context"
@@ -135,11 +136,7 @@ export function ChartTooltip({
       return barXAccessor(tooltipData.point)
     }
     // For line/area charts, use the date
-    return xAccessor(tooltipData.point).toLocaleDateString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    })
+    return format(xAccessor(tooltipData.point), "EEE, d MMM")
   }, [tooltipData, barXAccessor, xAccessor])
 
   // Use portal to render into the chart container

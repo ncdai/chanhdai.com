@@ -2,6 +2,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import { format } from "date-fns"
 
 import { cn } from "@/lib/utils"
 
@@ -101,12 +102,7 @@ export function XAxis({
       return data.map((d, i) => ({
         date: xAccessor(d),
         x: (xScale(xAccessor(d)) ?? 0) + margin.left,
-        label:
-          dateLabels[i] ??
-          xAccessor(d).toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-          }),
+        label: dateLabels[i] ?? format(xAccessor(d), "d MMM"),
       }))
     }
 
@@ -135,10 +131,7 @@ export function XAxis({
     return dates.map((date) => ({
       date,
       x: (xScale(date) ?? 0) + margin.left,
-      label: date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      }),
+      label: format(date, "d MMM"),
     }))
   }, [tickMode, data, xAccessor, xScale, margin.left, dateLabels, numTicks])
 
