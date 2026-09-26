@@ -66,7 +66,7 @@ export function CraftItem({
         <CaptionCell>
           Fig.{figureNumber.toString().padStart(2, "0")}
         </CaptionCell>
-        <p className="max-w-prose p-4 text-sm/5 text-pretty max-sm:row-span-2">
+        <p className="max-w-prose px-4 py-3 text-sm/5 text-pretty max-sm:row-span-2">
           {craft.description}
         </p>
 
@@ -115,7 +115,7 @@ function CaptionCell({
     props: mergeProps<"span">(
       {
         className: cn(
-          "border-r border-line p-4 font-mono text-xs/5 font-medium tracking-wide whitespace-nowrap text-muted-foreground uppercase",
+          "border-r border-line px-4 py-3 font-mono text-xs/5 font-medium tracking-wide whitespace-nowrap text-muted-foreground uppercase",
           className
         ),
       },
