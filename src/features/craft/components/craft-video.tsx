@@ -51,6 +51,21 @@ export function CraftVideo({
     })
   }
 
+  const togglePlayback = () => {
+    const video = videoRef.current
+    if (!video) return
+
+    if (isPlaying) {
+      setPlayback("paused")
+      video.pause()
+    } else {
+      setPlayback("playing")
+      // Inside the click, so browsers that refused autoplay count it as a
+      // user gesture.
+      play(video)
+    }
+  }
+
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
@@ -88,6 +103,9 @@ export function CraftVideo({
           setIsBlocked(false)
         }}
         onPause={() => setIsPlaying(false)}
+        // A pointer shortcut. The button is the keyboard and screen reader
+        // control.
+        onClick={togglePlayback}
       />
 
       <button
@@ -100,20 +118,7 @@ export function CraftVideo({
           "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring",
           "opacity-0 group-hover/craft-video:opacity-100 focus-visible:opacity-100 data-held-back:opacity-100 pointer-coarse:opacity-100"
         )}
-        onClick={() => {
-          const video = videoRef.current
-          if (!video) return
-
-          if (isPlaying) {
-            setPlayback("paused")
-            video.pause()
-          } else {
-            setPlayback("playing")
-            // Inside the click, so browsers that refused autoplay count it as
-            // a user gesture.
-            play(video)
-          }
-        }}
+        onClick={togglePlayback}
       >
         <PlayPauseIcon
           isPlaying={isPlaying}
