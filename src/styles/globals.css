@@ -61,7 +61,7 @@
   --font-handwritten: var(--font-handwritten);
   --font-heading: var(--font-sans);
 
-  --default-mono-font-feature-settings: "ss11" 1, "zero" 1, "tnum" 1;
+  --font-mono--font-feature-settings: "ss01", "zero";
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -214,7 +214,7 @@
 }
 
 @utility code-inline {
-  @apply rounded-md border bg-muted/50 px-1 py-px font-mono text-sm font-normal whitespace-pre-wrap in-data-table-nowrap:whitespace-nowrap retina:border-[0.5px];
+  @apply rounded-md border bg-muted/50 px-1 py-px font-mono font-features-['ss01','ss03','zero'] text-sm font-normal whitespace-pre-wrap in-data-table-nowrap:whitespace-nowrap retina:border-[0.5px];
 }
 
 @utility prose-no-margin {
