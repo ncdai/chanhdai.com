@@ -165,20 +165,7 @@ This project is proudly supported by:
           </picture>
         </a>
       </td>
-      <td>
-        <a href="https://shadcnspace.com?utm_source=chanhdai.com">
-          <picture>
-            <source
-              media="(prefers-color-scheme: dark)"
-              srcset="https://assets.chanhdai.com/images/sponsors/shadcnspace-dark.svg"
-            />
-            <img
-              src="https://assets.chanhdai.com/images/sponsors/shadcnspace.svg"
-              alt="Shadcn Space"
-            />
-          </picture>
-        </a>
-      </td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
@@ -213,37 +200,6 @@ This project is proudly supported by:
           </picture>
         </a>
       </td>
-      <td>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com">
-          <picture>
-            <source
-              media="(prefers-color-scheme: dark)"
-              srcset="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg"
-            />
-            <img
-              src="https://assets.chanhdai.com/images/sponsors/reactbits.svg"
-              alt="React Bits"
-            />
-          </picture>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://obelinf.com?utm_source=chanhdai.com">
-          <picture>
-            <source
-              media="(prefers-color-scheme: dark)"
-              srcset="https://assets.chanhdai.com/images/sponsors/obelinf-dark.svg"
-            />
-            <img
-              src="https://assets.chanhdai.com/images/sponsors/obelinf.svg"
-              alt="Obelinf"
-            />
-          </picture>
-        </a>
-      </td>
-      <td></td>
       <td></td>
     </tr>
     <tr>
