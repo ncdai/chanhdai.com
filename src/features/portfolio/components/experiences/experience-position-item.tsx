@@ -31,8 +31,8 @@ export function ExperiencePositionItem({
       defaultOpen={position.isExpanded}
       disabled={!position.description}
     >
-      <div className="pointer-events-none absolute bottom-0 left-3 hidden size-4 bg-background group-last/experience-position:flex">
-        <span className="size-full -translate-y-2.25 rounded-bl-sm border-b border-l" />
+      <div className="pointer-events-none absolute bottom-2 left-3 hidden size-3 bg-background group-last/experience-position:flex">
+        <span className="size-full rounded-bl-sm border-b border-l" />
       </div>
 
       <CollapsibleTrigger
