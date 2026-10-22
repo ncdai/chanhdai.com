@@ -41,7 +41,7 @@ export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
                   className="text-[0.8125rem]/none text-muted-foreground tabular-nums"
                   style={{ textBox: "trim-end cap alphabetic" }}
                 >
-                  {formatCompactNumber(stargazersCount).toLowerCase()}
+                  {formatCompactNumber(stargazersCount)}
                 </span>
 
                 <span className="sr-only">GitHub stars</span>
