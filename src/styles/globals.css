@@ -381,7 +381,7 @@
   --dk-brick-shadow: #71717a;
 
   /* Layout */
-  --header-height: --spacing(14);
+  --header-height: --spacing(15);
   --fade-bottom-height: --spacing(24);
 }
 
