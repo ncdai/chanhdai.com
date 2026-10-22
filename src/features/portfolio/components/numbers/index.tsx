@@ -10,7 +10,11 @@ export function Numbers() {
     NUMBERS
 
   return (
-    <Panel id={ID} className="screen-line-bottom-none screen-line-top-none">
+    <Panel id={ID} className="screen-line-bottom-none">
+      <div className="h-px" />
+      <div className="h-4" />
+      <div className="screen-line-bottom h-px screen-line-bottom-border" />
+
       <div className="flex items-center justify-center py-4">
         <h2 className="text-center text-sm/none font-medium text-muted-foreground">
           Growing with the community
@@ -25,10 +29,6 @@ export function Numbers() {
         <Stat label="npm downloads / year" value={npmYearlyDownloads} />
         <Stat label="Page views / year" value={yearlyPageViews} />
       </dl>
-
-      <div className="screen-line-bottom h-px" />
-      <div className="h-4" />
-      <div className="screen-line-bottom h-px screen-line-bottom-border" />
     </Panel>
   )
 }

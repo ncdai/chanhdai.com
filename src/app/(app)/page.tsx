@@ -48,8 +48,8 @@ export default function HomePage() {
           <Separator />
 
           <Hello />
-          <Numbers />
           <SponsorsCarousel />
+          <Numbers />
           <Testimonials />
           <Separator />
 
