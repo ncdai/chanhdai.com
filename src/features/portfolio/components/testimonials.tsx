@@ -27,13 +27,13 @@ import {
 } from "@/registry/components/testimonial"
 import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 import { Twemoji } from "@/registry/components/twemoji/twemoji"
-import { SOCIAL } from "@/features/portfolio/data/social-links"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
 } from "@/features/portfolio/data/testimonials"
 import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
 
+import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { Panel, PanelContent } from "./panel"
 
 const ID = "testimonials"
@@ -69,10 +69,7 @@ export function Testimonials() {
 
       <div className="flex items-center justify-center py-4">
         <h2 className="text-center text-sm/none font-medium text-muted-foreground">
-          Trusted by top builders on{" "}
-          <a href={SOCIAL.x.href} target="_blank" rel="noopener" aria-label="X">
-            𝕏
-          </a>
+          Trusted by top builders on 𝕏
         </h2>
       </div>
 
@@ -124,6 +121,18 @@ export function Testimonials() {
           <ArrowRightIcon />
         </Button>
       </div>
+
+      <HandwrittenNote
+        className="top-10 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
+        aria-hidden
+      >
+        <span className="rotate-6">
+          made my day,
+          <span className="block" />
+          keeps me going
+        </span>
+        <HandwrittenArrow className="mt-1 size-7 rotate-6" />
+      </HandwrittenNote>
     </Panel>
   )
 }
