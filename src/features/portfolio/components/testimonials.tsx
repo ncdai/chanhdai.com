@@ -27,7 +27,6 @@ import {
 } from "@/registry/components/testimonial"
 import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 import { Twemoji } from "@/registry/components/twemoji/twemoji"
-import { SOCIAL } from "@/features/portfolio/data/social-links"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
@@ -69,10 +68,7 @@ export function Testimonials() {
 
       <div className="flex items-center justify-center py-4">
         <h2 className="text-center text-sm/none font-medium text-muted-foreground">
-          Trusted by top builders on{" "}
-          <a href={SOCIAL.x.href} target="_blank" rel="noopener" aria-label="X">
-            𝕏
-          </a>
+          Trusted by top builders on 𝕏
         </h2>
       </div>
 
