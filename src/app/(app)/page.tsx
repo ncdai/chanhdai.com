@@ -1,4 +1,3 @@
-import { Suspense } from "react"
 import type { Metadata } from "next"
 import type { ProfilePage, WithContext } from "schema-dts"
 
@@ -14,10 +13,7 @@ import { Education } from "@/features/portfolio/components/education"
 import { Experiences } from "@/features/portfolio/components/experiences"
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
 import { Hello } from "@/features/portfolio/components/hello"
-import {
-  Insights,
-  InsightsSkeleton,
-} from "@/features/portfolio/components/insights"
+import { Numbers } from "@/features/portfolio/components/numbers"
 import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
@@ -52,6 +48,7 @@ export default function HomePage() {
           <Separator />
 
           <Hello />
+          <Numbers />
           <SponsorsCarousel />
           <Testimonials />
           <Separator />
@@ -78,11 +75,6 @@ export default function HomePage() {
           <Separator />
 
           <Recognition />
-          <Separator />
-
-          <Suspense fallback={<InsightsSkeleton />}>
-            <Insights />
-          </Suspense>
           <Separator />
 
           <Sponsors />
