@@ -13,7 +13,7 @@ export function Numbers() {
     <Panel id={ID} className="screen-line-bottom-none">
       <div className="h-px" />
       <div className="h-4" />
-      <div className="screen-line-bottom h-px screen-line-bottom-border" />
+      <div className="screen-line-bottom h-px" />
 
       <div className="flex items-center justify-center py-4">
         <h2 className="text-center text-sm/none font-medium text-muted-foreground">
