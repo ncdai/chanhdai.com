@@ -11,7 +11,7 @@ export function ComponentItem({
     <Link
       data-slot="component-item"
       className={cn(
-        "flex items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
+        "flex items-center gap-2 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
         className
       )}
       {...props}
@@ -27,20 +27,27 @@ export function ComponentItemIcon({
   return <IconTile className={cn("relative", className)} {...props} />
 }
 
+const DOT_LABELS = {
+  new: "New",
+  updated: "Updated",
+} as const
+
 export function ComponentItemDot({
+  type,
   className,
   ...props
-}: Omit<React.ComponentProps<"span">, "children">) {
+}: Omit<React.ComponentProps<"span">, "children"> & {
+  type: keyof typeof DOT_LABELS
+}) {
   return (
     <span
       data-slot="component-item-dot"
-      className={cn(
-        "absolute -top-1 -right-1 flex items-center justify-center",
-        className
-      )}
+      data-type={type}
+      className={cn("flex shrink-0 items-center justify-center", className)}
       {...props}
     >
-      <span className="flex size-2 rounded-sm bg-info ring-1 ring-background" />
+      <span className="flex size-2 rounded-sm bg-info" />
+      <span className="sr-only">({DOT_LABELS[type]})</span>
     </span>
   )
 }

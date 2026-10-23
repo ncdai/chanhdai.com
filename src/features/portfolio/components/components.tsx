@@ -7,10 +7,8 @@ import { Button } from "@/components/ui/button"
 import {
   ComponentItem,
   ComponentItemDot,
-  ComponentItemIcon,
   ComponentItemTitle,
 } from "@/app/(app)/(pages)/components/component-item"
-import { ComponentIcon } from "@/features/doc/components/component-icon"
 import { getComponentDocs } from "@/features/doc/data/documents"
 
 import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
@@ -63,17 +61,12 @@ export function Components() {
               )}
             >
               <ComponentItem href={`/components/${c.slug}` as Route}>
-                <ComponentItemIcon>
-                  <ComponentIcon slug={c.slug} />
-                  {(c.metadata.new || c.metadata.updated) && (
-                    <ComponentItemDot
-                      aria-label={c.metadata.new ? "New" : "Updated"}
-                    />
-                  )}
-                </ComponentItemIcon>
                 <ComponentItemTitle as="h3">
                   {c.metadata.title}
                 </ComponentItemTitle>
+                {(c.metadata.new || c.metadata.updated) && (
+                  <ComponentItemDot type={c.metadata.new ? "new" : "updated"} />
+                )}
               </ComponentItem>
             </li>
           ))}

@@ -25,7 +25,6 @@ import {
 } from "@/components/page-heading"
 import { RegistryCommandAnimated } from "@/components/registry-command-animated"
 import { RegistryHealth } from "@/components/registry-health"
-import { ComponentIcon } from "@/features/doc/components/component-icon"
 import { getComponentDocs } from "@/features/doc/data/documents"
 import type { Doc } from "@/features/doc/types/document"
 import {
@@ -36,7 +35,6 @@ import {
 import {
   ComponentItem,
   ComponentItemDot,
-  ComponentItemIcon,
   ComponentItemTitle,
 } from "./component-item"
 
@@ -259,17 +257,12 @@ function ComponentList({
         {items.map((c) => (
           <li key={c.slug} className="screen-line-bottom">
             <ComponentItem href={`/components/${c.slug}` as Route}>
-              <ComponentItemIcon>
-                <ComponentIcon slug={c.slug} />
-                {showNew && (c.metadata.new || c.metadata.updated) && (
-                  <ComponentItemDot
-                    aria-label={c.metadata.new ? "New" : "Updated"}
-                  />
-                )}
-              </ComponentItemIcon>
               <ComponentItemTitle as="h3">
                 {c.metadata.title}
               </ComponentItemTitle>
+              {showNew && (c.metadata.new || c.metadata.updated) && (
+                <ComponentItemDot type={c.metadata.new ? "new" : "updated"} />
+              )}
             </ComponentItem>
           </li>
         ))}
