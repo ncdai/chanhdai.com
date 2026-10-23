@@ -47,8 +47,8 @@ export function SiteFooterCad() {
 
   return (
     <footer className="max-w-screen overflow-x-clip px-2">
-      <div className="mx-auto border-x group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
-        <div className="screen-line-top screen-line-bottom screen-line-top-border before:z-1">
+      <div className="mx-auto border-x border-x-line group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
+        <div className="screen-line-top screen-line-bottom before:z-1">
           <div className="stripe-divider h-12" />
         </div>
 
@@ -188,7 +188,7 @@ export function SiteFooterCad() {
 
         <div className="screen-line-top h-4" />
 
-        <div className="screen-line-top screen-line-bottom flex items-center gap-3 screen-line-bottom-border px-4 py-3 text-muted-foreground">
+        <div className="screen-line-top screen-line-bottom flex items-center gap-3 px-4 py-3 text-muted-foreground">
           <Link
             href="/"
             className="mr-auto text-muted-foreground transition-[color] hover:text-foreground"

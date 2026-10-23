@@ -113,13 +113,13 @@ export default function Page() {
 
         <div className="h-4" />
 
-        <div className="screen-line-bottom flex h-px screen-line-bottom-border" />
+        <div className="screen-line-bottom flex h-px" />
 
         <Suspense fallback={<div className="h-12" />}>
           <BookmarkFilters />
         </Suspense>
 
-        <div className="screen-line-top screen-line-bottom screen-line-top-border before:z-1">
+        <div className="screen-line-top screen-line-bottom before:z-1">
           <div className="stripe-divider" />
         </div>
 

@@ -65,7 +65,7 @@ export function Testimonials() {
     <Panel ref={ref} id={ID}>
       <div className="h-px" />
       <div className="h-4" />
-      <div className="screen-line-bottom h-px screen-line-bottom-border" />
+      <div className="screen-line-bottom h-px" />
 
       <div className="flex items-center justify-center py-4">
         <h2 className="text-center text-sm/none font-medium text-muted-foreground">
@@ -123,15 +123,15 @@ export function Testimonials() {
       </div>
 
       <HandwrittenNote
-        className="top-10 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
+        className="top-8 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
         aria-hidden
       >
-        <span className="rotate-6">
+        <span className="-rotate-3">
           made my day,
           <span className="block" />
           keeps me going
         </span>
-        <HandwrittenArrow className="mt-1 size-7 rotate-6" />
+        <HandwrittenArrow className="mt-2 -rotate-3" />
       </HandwrittenNote>
     </Panel>
   )

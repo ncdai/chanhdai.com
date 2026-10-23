@@ -141,7 +141,7 @@ export default function Page() {
 
         <div className="h-4" />
 
-        <div className="screen-line-top screen-line-bottom screen-line-bottom-border screen-line-top-border">
+        <div className="screen-line-top screen-line-bottom">
           <RegistryCommandAnimated />
         </div>
 
