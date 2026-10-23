@@ -104,7 +104,7 @@ Won 2nd Prize — Business Startup Competition 2019.`,
     year: 2022,
     content: `Joined Simplamo as a Senior Frontend Developer and UI Lead.
 
-Launched [ZaDark](https://zadark.com) — 80k+ downloads, 30k+ active users.
+Launched [ZaDark](https://zadark.com) — 80K+ downloads, 30K+ active users.
 
 Won Bronze Medal — 10th Design, Manufacturing, and Application Award 2022.`,
   },
@@ -115,9 +115,9 @@ Won Bronze Medal — 10th Design, Manufacturing, and Application Award 2022.`,
   },
   {
     year: 2025,
-    content: `Open-sourced [chanhdai.com](https://github.com/ncdai/chanhdai.com) — 2.3k+ stars on GitHub.
+    content: `Open-sourced [chanhdai.com](https://github.com/ncdai/chanhdai.com) — 2.4K+ stars on GitHub.
 
-Released [React Wheel Picker](https://react-wheel-picker.chanhdai.com) — 70k+ weekly downloads, selected for the [Vercel OSS Program](https://vercel.com/open-source-program).
+Released [React Wheel Picker](https://react-wheel-picker.chanhdai.com) — 70K+ weekly downloads, selected for the [Vercel OSS Program](https://vercel.com/open-source-program).
 
 Followed by [shadcn](https://x.com/shadcn) on X.`,
   },
