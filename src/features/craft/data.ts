@@ -83,6 +83,12 @@ export const CRAFTS: Craft[] = [
           width: 1000,
           height: 1655,
         },
+        {
+          src: "https://assets.chanhdai.com/images/craft/2098000111234343170-4-1000w.webp",
+          alt: "A silver iPhone 5, an iPod classic, and the original iPhone on black stands, below an iPhone 5s box, an Eiffel Tower model, and a glass hello sign.",
+          width: 1000,
+          height: 1386,
+        },
       ],
     },
     createdAt: "2026-09-10",
