@@ -25,10 +25,6 @@ export function ProfileHeader() {
             click for a sound
           </span>
         </HandwrittenNote>
-
-        <figcaption className="pointer-events-none absolute right-2 bottom-2 text-sm/none tracking-wide text-[color-mix(in_oklab,var(--muted-foreground)_60%,var(--background))] tabular-nums select-none sm:right-4 sm:bottom-4">
-          Fig. 1.
-        </figcaption>
       </figure>
 
       <div className="flex flex-col sm:row-span-2 sm:row-start-1">

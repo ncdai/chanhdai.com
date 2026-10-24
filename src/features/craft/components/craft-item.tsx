@@ -5,7 +5,6 @@ import Link from "next/link"
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
 import { format } from "date-fns"
-import { ArrowRightIcon, ArrowUpRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -46,7 +45,7 @@ export function CraftItem({
               />
             ) : (
               <Image
-                className="h-auto w-full rounded-[inherit] bg-muted"
+                className="h-auto w-full rounded-[inherit] bg-muted select-none"
                 src={media.src}
                 alt={media.alt}
                 width={media.width}
@@ -56,7 +55,7 @@ export function CraftItem({
               />
             )}
 
-            <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-black/10 dark:inset-ring-white/10" />
+            <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground/10" />
           </div>
         )}
       </div>
@@ -81,20 +80,30 @@ export function CraftItem({
         </CaptionCell>
         <div className="col-span-2 flex border-t border-line max-sm:empty:hidden sm:col-span-1">
           {craft.registryHref && (
-            <CaptionLink render={<Link href={craft.registryHref as Route} />}>
+            <CaptionLink
+              render={
+                <Link
+                  href={craft.registryHref as Route}
+                  className="link-underline"
+                />
+              }
+            >
               Get the code
-              <ArrowRightIcon />
             </CaptionLink>
           )}
 
           {craft.xPostUrl && (
             <CaptionLink
               render={
-                <a href={craft.xPostUrl} target="_blank" rel="noopener" />
+                <a
+                  href={craft.xPostUrl}
+                  className="link-underline"
+                  target="_blank"
+                  rel="noopener"
+                />
               }
             >
               View on X
-              <ArrowUpRightIcon />
             </CaptionLink>
           )}
         </div>
@@ -115,7 +124,7 @@ function CaptionCell({
     props: mergeProps<"span">(
       {
         className: cn(
-          "border-r border-line px-4 py-3 font-mono text-xs/5 font-medium tracking-wide whitespace-nowrap text-muted-foreground uppercase",
+          "border-r border-line px-4 py-3 font-mono font-features-['ss01','ss03','zero'] text-xs/5 font-medium tracking-wide whitespace-nowrap text-muted-foreground uppercase",
           className
         ),
       },

@@ -259,10 +259,10 @@ export const CRAFTS: Craft[] = [
       "Hành Trình Khám Phá Miền Tây: my first website, a Mekong Delta travel guide I built in 8th grade.",
     media: {
       type: "image",
-      src: "https://assets.chanhdai.com/images/craft/2066194589539823825.webp",
+      src: "https://assets.chanhdai.com/images/craft/2066194589539823825.webp?v=2",
       alt: "The home page of a Mekong Delta travel site: a green notebook-style layout with a banner of the region's landmarks, a photo slideshow, and sidebars for provinces and a distance search.",
-      width: 1526,
-      height: 858,
+      width: 1440,
+      height: 820,
     },
     createdAt: "2014-05",
     xPostUrl: "https://x.com/iamncdai/status/2066194589539823825",
