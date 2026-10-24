@@ -38,7 +38,7 @@ function Stat({ label, value }: { label: string; value: number }) {
     <div className="flex items-baseline gap-2">
       {/* The leader is a pseudo-element because a `dl` group may only hold
           `dt` and `dd`, leaving no room for a decorative element. */}
-      <dt className="flex flex-1 items-baseline gap-2 text-sm/4 text-muted-foreground after:flex-1 after:translate-y-0.75 after:border-b after:border-dashed after:border-line">
+      <dt className="flex flex-1 items-baseline gap-2 text-sm/4 after:flex-1 after:translate-y-0.75 after:border-b after:border-dashed after:border-line">
         {label}
       </dt>
       <dd className="text-sm/4 font-medium tabular-nums">
