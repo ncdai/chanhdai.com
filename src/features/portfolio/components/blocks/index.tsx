@@ -44,7 +44,7 @@ export function Blocks() {
         </div>
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {allBlocks.slice(0, 6).map((block) => (
+          {allBlocks.slice(0, 4).map((block) => (
             <li
               key={block.name}
               className={cn(

@@ -25,7 +25,7 @@ export function Recognition() {
 
       <CollapsibleList
         items={RECOGNITION}
-        max={6}
+        max={4}
         keyExtractor={(entry) => entry.key}
         renderItem={(entry) => <RecognitionItem entry={entry} />}
       />
