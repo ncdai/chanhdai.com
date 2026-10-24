@@ -116,7 +116,7 @@ async function InsightsContent() {
 
       <InsightsMetrics summary={data.summary} changes={data.changes} />
 
-      <InsightsChart series={data.series} figureNumber={1} showDateRange />
+      <InsightsChart series={data.series} showDateRange />
     </>
   )
 }

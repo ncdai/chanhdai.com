@@ -74,9 +74,6 @@ export function GitHubContributionGraph({
           <ContributionGraphTotalCount>
             {({ totalCount }) => (
               <figcaption className="text-pretty tabular-nums">
-                <span className="mr-2 tracking-wide text-muted-foreground/80">
-                  Fig. 2.
-                </span>
                 {formatNumber(totalCount)} contributions,{" "}
                 {format(parseISO(data[0].date), "d MMM yyyy")} –{" "}
                 {format(parseISO(data[data.length - 1].date), "d MMM yyyy")}.

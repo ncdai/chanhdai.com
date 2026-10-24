@@ -10,12 +10,9 @@ import { getPlottedRange } from "./plotted-range"
 
 export function InsightsChart({
   series,
-  figureNumber,
   showDateRange = false,
 }: {
   series: InsightsSeriesItem[]
-  /** Figures are numbered per page, so the caller decides where this one falls. */
-  figureNumber: number
   /** Off by default because the home panel already shows the range next to its title. */
   showDateRange?: boolean
 }) {
@@ -61,9 +58,6 @@ export function InsightsChart({
       )}
 
       <figcaption className="screen-line-top px-4 py-3 text-center text-sm text-balance tabular-nums">
-        <span className="mr-2 tracking-wide text-muted-foreground/80">
-          Fig. {figureNumber}.
-        </span>
         Daily unique visitors and sessions{dateRange}. Source:{" "}
         <a
           href="https://openpanel.dev"
