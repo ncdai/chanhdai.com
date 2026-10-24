@@ -89,7 +89,7 @@ export function Testimonials() {
         {TESTIMONIALS_FEATURED.map((item) => (
           <TestimonialSpotlight
             key={item.url}
-            className="bg-background inset-ring-foreground/15 [--spotlight-size:50%]"
+            className="bg-background inset-ring-foreground/20 [--spotlight-size:50%]"
           >
             <TestimonialItem {...item} showIcon />
           </TestimonialSpotlight>
@@ -163,7 +163,7 @@ function TestimonialsMarquee({
         {data.map((item) => (
           <MarqueeItem
             key={item.url}
-            className="mx-1 h-full w-xs rounded-xl bg-background inset-ring-1 inset-ring-foreground/15 transition-[background-color] ease-out hover:bg-accent-muted"
+            className="mx-1 h-full w-xs rounded-xl bg-background inset-ring-1 inset-ring-foreground/20 transition-[background-color] ease-out hover:bg-accent-muted"
           >
             <TestimonialItem {...item} />
           </MarqueeItem>
