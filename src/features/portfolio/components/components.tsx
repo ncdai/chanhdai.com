@@ -51,7 +51,7 @@ export function Components() {
         <div className="screen-line-bottom h-px" />
 
         <ul className="grid grid-cols-1 overflow-x-clip sm:grid-cols-2 md:grid-cols-3">
-          {components.slice(0, 12).map((c) => (
+          {components.slice(0, 9).map((c) => (
             <li
               key={c.slug}
               className={cn(

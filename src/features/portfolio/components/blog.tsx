@@ -35,7 +35,7 @@ export function Blog() {
         </div>
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {allPosts.slice(0, 6).map((post) => (
+          {allPosts.slice(0, 4).map((post) => (
             <li
               key={post.slug}
               className={cn(
