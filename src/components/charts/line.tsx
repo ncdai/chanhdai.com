@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useId, useRef, useState } from "react"
 import { curveNatural } from "@visx/curve"
 import { LinePath } from "@visx/shape"
 import { motion, useMotionTemplate, useSpring } from "motion/react"
@@ -55,22 +55,26 @@ export function Line({
 
   const pathRef = useRef<SVGPathElement>(null)
   const [pathLength, setPathLength] = useState(0)
+  // The highlight reuses the rendered path, so it is read from the DOM after commit.
+  const [pathD, setPathD] = useState("")
 
-  // Unique gradient ID for this line
-  const gradientId = useMemo(
-    () => `line-gradient-${dataKey}-${Math.random().toString(36).slice(2, 9)}`,
-    [dataKey]
-  )
+  const reactId = useId()
+  const gradientId = `line-gradient-${dataKey}-${reactId}`
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: data, innerWidth
+  // biome-ignore lint/correctness/useExhaustiveDependencies: data, innerWidth, innerHeight
   useEffect(() => {
-    if (pathRef.current && animate) {
-      const len = pathRef.current.getTotalLength()
+    const path = pathRef.current
+    if (!path) {
+      return
+    }
+    setPathD(path.getAttribute("d") || "")
+    if (animate) {
+      const len = path.getTotalLength()
       if (len > 0) {
         setPathLength(len)
       }
     }
-  }, [animate, data, innerWidth])
+  }, [animate, data, innerWidth, innerHeight])
 
   // Binary search to find path length at a given X coordinate
   const findLengthAtX = useCallback(
@@ -97,47 +101,59 @@ export function Line({
     [pathLength]
   )
 
-  // Calculate segment bounds for highlight from either selection or hover
-  const segmentBounds = useMemo(() => {
-    if (!pathRef.current || pathLength === 0) {
-      return { startLength: 0, segmentLength: 0, isActive: false }
-    }
+  // Springs for smooth highlight animation (both offset AND segment length)
+  const springConfig = { stiffness: 180, damping: 28 }
+  const offsetSpring = useSpring(0, springConfig)
+  const segmentLengthSpring = useSpring(0, springConfig)
 
-    // Selection takes priority over hover
-    if (selection?.active) {
-      const startLength = findLengthAtX(selection.startX)
-      const endLength = findLengthAtX(selection.endX)
+  // Segment bounds come from measuring the path, so they are computed after
+  // commit and pushed straight into the springs
+  useEffect(() => {
+    const segmentBounds = getSegmentBounds()
+    offsetSpring.set(-segmentBounds.startLength)
+    segmentLengthSpring.set(segmentBounds.segmentLength)
+
+    function getSegmentBounds() {
+      if (!pathRef.current || pathLength === 0) {
+        return { startLength: 0, segmentLength: 0, isActive: false }
+      }
+
+      // Selection takes priority over hover
+      if (selection?.active) {
+        const startLength = findLengthAtX(selection.startX)
+        const endLength = findLengthAtX(selection.endX)
+        return {
+          startLength,
+          segmentLength: endLength - startLength,
+          isActive: true,
+        }
+      }
+
+      if (!tooltipData) {
+        return { startLength: 0, segmentLength: 0, isActive: false }
+      }
+
+      const idx = tooltipData.index
+      const startIdx = Math.max(0, idx - 1)
+      const endIdx = Math.min(data.length - 1, idx + 1)
+
+      const startPoint = data[startIdx]
+      const endPoint = data[endIdx]
+      if (!(startPoint && endPoint)) {
+        return { startLength: 0, segmentLength: 0, isActive: false }
+      }
+
+      const startX = xScale(xAccessor(startPoint)) ?? 0
+      const endX = xScale(xAccessor(endPoint)) ?? 0
+
+      const startLength = findLengthAtX(startX)
+      const endLength = findLengthAtX(endX)
+
       return {
         startLength,
         segmentLength: endLength - startLength,
         isActive: true,
       }
-    }
-
-    if (!tooltipData) {
-      return { startLength: 0, segmentLength: 0, isActive: false }
-    }
-
-    const idx = tooltipData.index
-    const startIdx = Math.max(0, idx - 1)
-    const endIdx = Math.min(data.length - 1, idx + 1)
-
-    const startPoint = data[startIdx]
-    const endPoint = data[endIdx]
-    if (!(startPoint && endPoint)) {
-      return { startLength: 0, segmentLength: 0, isActive: false }
-    }
-
-    const startX = xScale(xAccessor(startPoint)) ?? 0
-    const endX = xScale(xAccessor(endPoint)) ?? 0
-
-    const startLength = findLengthAtX(startX)
-    const endLength = findLengthAtX(endX)
-
-    return {
-      startLength,
-      segmentLength: endLength - startLength,
-      isActive: true,
     }
   }, [
     tooltipData,
@@ -147,20 +163,6 @@ export function Line({
     pathLength,
     xAccessor,
     findLengthAtX,
-  ])
-
-  // Springs for smooth highlight animation (both offset AND segment length)
-  const springConfig = { stiffness: 180, damping: 28 }
-  const offsetSpring = useSpring(0, springConfig)
-  const segmentLengthSpring = useSpring(0, springConfig)
-
-  // Update springs when segment bounds change
-  useEffect(() => {
-    offsetSpring.set(-segmentBounds.startLength)
-    segmentLengthSpring.set(segmentBounds.segmentLength)
-  }, [
-    segmentBounds.startLength,
-    segmentBounds.segmentLength,
     offsetSpring,
     segmentLengthSpring,
   ])
@@ -230,10 +232,10 @@ export function Line({
       </g>
 
       {/* Highlight segment on hover */}
-      {showHighlight && isHovering && isLoaded && pathRef.current && (
+      {showHighlight && isHovering && isLoaded && pathD && (
         <motion.path
           animate={{ opacity: 1 }}
-          d={pathRef.current.getAttribute("d") || ""}
+          d={pathD}
           exit={{ opacity: 0 }}
           fill="none"
           initial={{ opacity: 0 }}

@@ -140,11 +140,6 @@ export function JpgCardHolder({
     return {
       "data-dragging": draggingCard === card || undefined,
       style: { y: offsets[card] },
-      onPointerDown: (event: PointerEvent<HTMLDivElement>) =>
-        handleCardPointerDown(card, event),
-      onPointerMove: handleCardPointerMove,
-      onPointerUp: handleCardPointerUp,
-      onPointerCancel: handleCardPointerUp,
     }
   }
 
@@ -203,6 +198,10 @@ export function JpgCardHolder({
           aria-hidden
           className="absolute -top-18 left-20 h-95 w-60 origin-top-left rotate-6 cursor-grab data-dragging:cursor-grabbing"
           {...getCardProps(0)}
+          onPointerDown={(event) => handleCardPointerDown(0, event)}
+          onPointerMove={handleCardPointerMove}
+          onPointerUp={handleCardPointerUp}
+          onPointerCancel={handleCardPointerUp}
         >
           <div className="size-full origin-bottom rounded-[3.75cqw] bg-muted-foreground transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-peek/jpg-card-holder:duration-400 motion-safe:group-data-peek/jpg-card-holder:-translate-y-4 motion-safe:group-data-peek/jpg-card-holder:-rotate-3 motion-safe:group-data-peek/jpg-card-holder:delay-40" />
         </motion.div>
@@ -211,6 +210,10 @@ export function JpgCardHolder({
           aria-hidden
           className="absolute -top-13.5 left-30 h-95 w-60 origin-top-left rotate-14 cursor-grab data-dragging:cursor-grabbing"
           {...getCardProps(1)}
+          onPointerDown={(event) => handleCardPointerDown(1, event)}
+          onPointerMove={handleCardPointerMove}
+          onPointerUp={handleCardPointerUp}
+          onPointerCancel={handleCardPointerUp}
         >
           <div className="size-full origin-bottom rounded-[3.75cqw] bg-foreground transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-peek/jpg-card-holder:duration-400 motion-safe:group-data-peek/jpg-card-holder:-translate-y-7 motion-safe:group-data-peek/jpg-card-holder:rotate-3" />
         </motion.div>

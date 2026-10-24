@@ -3,9 +3,11 @@
 /* eslint-disable react-hooks/refs */
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useMemo } from "react"
 import { format } from "date-fns"
 import { motion, useSpring } from "motion/react"
+
+import { useIsClient } from "@/hooks/use-is-client"
 
 import { chartCssVars, useChart } from "../chart-context"
 import { DateTicker } from "./date-ticker"
@@ -72,12 +74,7 @@ export function ChartTooltip({
 
   const isHorizontal = orientation === "horizontal"
 
-  const [mounted, setMounted] = useState(false)
-
-  // Only render portals on client side after mount
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const mounted = useIsClient()
 
   const visible = tooltipData !== null
   const x = tooltipData?.x ?? 0

@@ -8,6 +8,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { motion, useSpring } from "motion/react"
 
 import { cn } from "@/lib/utils"
+import { useIsClient } from "@/hooks/use-is-client"
 
 // Spring config for smooth tooltip movement
 const springConfig = { stiffness: 100, damping: 20 }
@@ -56,11 +57,7 @@ export function TooltipBox({
   const tooltipRef = useRef<HTMLDivElement>(null)
   const tooltipWidthRef = useRef(180)
   const tooltipHeightRef = useRef(80)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const mounted = useIsClient()
 
   const animatedLeft = useSpring(x + offset, springConfig)
   const animatedTop = useSpring(y, springConfig)
