@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/refs */
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useMemo } from "react"
 import { format } from "date-fns"
 
 import { cn } from "@/lib/utils"
+import { useIsClient } from "@/hooks/use-is-client"
 
 import { useChart } from "./chart-context"
 
@@ -89,12 +90,7 @@ export function XAxis({
     xAccessor,
     dateLabels,
   } = useChart()
-  const [mounted, setMounted] = useState(false)
-
-  // Only render on client side after mount
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const mounted = useIsClient()
 
   // Generate tick labels: evenly spaced along the domain, or one per data row
   const labelsToShow = useMemo(() => {

@@ -46,7 +46,7 @@ export function ComponentItemDot({
       className={cn("flex shrink-0 items-center justify-center", className)}
       {...props}
     >
-      <span className="flex size-2 rounded-sm bg-info" />
+      <span className="flex size-1.5 rounded-sm bg-info" />
       <span className="sr-only">({DOT_LABELS[type]})</span>
     </span>
   )
