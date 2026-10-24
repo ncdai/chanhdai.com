@@ -26,12 +26,12 @@ export const USER: User = {
       website: "https://shadcncraft.com?atp=ncdai",
       experienceId: "shadcncraft",
     },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
-    },
+    // {
+    //   title: "Founder",
+    //   company: "Quaric",
+    //   website: "https://quaric.com",
+    //   experienceId: "quaric",
+    // },
   ],
   about: `- I’m Chánh Đại (call me Dai) — a Design Engineer with 5+ years of experience, known for pixel-perfect execution and obsessive attention to detail.
 - Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted projects.

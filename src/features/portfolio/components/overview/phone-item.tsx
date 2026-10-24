@@ -45,7 +45,7 @@ export function PhoneItem({ phoneNumberB64 }: PhoneItemProps) {
   })
 
   return (
-    <IntroItem className="group">
+    <IntroItem className="group font-features-['ss01','ss03','zero']">
       <IntroItemIcon>
         <PhoneIcon />
       </IntroItemIcon>
