@@ -30,17 +30,17 @@ export const SOCIAL = {
   //   href: "https://app.daily.dev/ncdai",
   //   sameAs: true,
   // },
-  discord: {
-    title: "Discord",
-    handle: "ncdai",
-    href: "https://discord.com/users/1186630645443739651",
-  },
-  youtube: {
-    title: "YouTube",
-    handle: "@ncdai",
-    href: "https://www.youtube.com/@ncdai",
-    sameAs: true,
-  },
+  // discord: {
+  //   title: "Discord",
+  //   handle: "ncdai",
+  //   href: "https://discord.com/users/1186630645443739651",
+  // },
+  // youtube: {
+  //   title: "YouTube",
+  //   handle: "@ncdai",
+  //   href: "https://www.youtube.com/@ncdai",
+  //   sameAs: true,
+  // },
 } satisfies Record<string, SocialProfile>
 
 export type SocialName = keyof typeof SOCIAL
