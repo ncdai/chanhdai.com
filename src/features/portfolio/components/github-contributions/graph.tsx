@@ -1,7 +1,7 @@
 "use client"
 
 import { use } from "react"
-import { formatNumber } from "@/utils/format"
+import { formatCompactNumber } from "@/utils/format"
 import { format, parseISO } from "date-fns"
 import { LoaderIcon } from "lucide-react"
 
@@ -74,7 +74,7 @@ export function GitHubContributionGraph({
           <ContributionGraphTotalCount>
             {({ totalCount }) => (
               <figcaption className="text-pretty text-muted-foreground tabular-nums">
-                {formatNumber(totalCount)} contributions,{" "}
+                {formatCompactNumber(totalCount)} contributions,{" "}
                 {format(parseISO(data[0].date), "d MMM yyyy")} –{" "}
                 {format(parseISO(data[data.length - 1].date), "d MMM yyyy")}.
                 Source:{" "}

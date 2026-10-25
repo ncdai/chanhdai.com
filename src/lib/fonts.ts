@@ -1,4 +1,4 @@
-import { Caveat, IBM_Plex_Serif } from "next/font/google"
+import { Caveat, Noto_Serif } from "next/font/google"
 import localFont from "next/font/local"
 import { GeistSans } from "geist/font/sans"
 
@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
 const fontSans = GeistSans
 
-const fontSerif = IBM_Plex_Serif({
+const fontSerif = Noto_Serif({
   weight: ["400"],
   display: "swap",
   variable: "--font-serif",
