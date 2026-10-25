@@ -30,7 +30,7 @@ export function SponsorsCarousel() {
       </ul>
 
       <div
-        className="grid grid-cols-3 py-2 text-muted-foreground @2xl:hidden"
+        className="grid grid-cols-3 py-2 text-foreground/90 @2xl:hidden"
         aria-hidden
       >
         {SPONSORS.map((sponsor) => (
@@ -39,7 +39,7 @@ export function SponsorsCarousel() {
       </div>
 
       <div className="@max-2xl:hidden" aria-hidden>
-        <LogosCarousel className="w-full py-4 text-muted-foreground [--column-count:4]">
+        <LogosCarousel className="w-full py-4 text-foreground/90 [--column-count:4]">
           {SPONSORS.map((sponsor) => (
             <sponsor.logo key={sponsor.name} className="h-auto w-full" />
           ))}
