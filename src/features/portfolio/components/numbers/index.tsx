@@ -1,5 +1,10 @@
-import { formatCompactNumber } from "@/utils/format"
+import { formatCompactNumber, formatNumber } from "@/utils/format"
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Panel } from "@/features/portfolio/components/panel"
 import { NUMBERS } from "@/features/portfolio/data/numbers"
 
@@ -42,7 +47,14 @@ function Stat({ label, value }: { label: string; value: number }) {
         {label}
       </dt>
       <dd className="text-sm/4 font-medium tabular-nums">
-        {formatCompactNumber(value)}
+        <Tooltip>
+          <TooltipTrigger render={<data value={value} tabIndex={0} />}>
+            {formatCompactNumber(value)}
+          </TooltipTrigger>
+          <TooltipContent className="tabular-nums">
+            {formatNumber(value)}
+          </TooltipContent>
+        </Tooltip>
       </dd>
     </div>
   )
