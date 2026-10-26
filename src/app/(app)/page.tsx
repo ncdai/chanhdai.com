@@ -11,6 +11,7 @@ import { Blog } from "@/features/portfolio/components/blog"
 import { Components } from "@/features/portfolio/components/components"
 import { Education } from "@/features/portfolio/components/education"
 import { Experiences } from "@/features/portfolio/components/experiences"
+import { FrameWidthDimension } from "@/features/portfolio/components/frame-width-dimension"
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
 import { Hello } from "@/features/portfolio/components/hello"
 import { Numbers } from "@/features/portfolio/components/numbers"
@@ -40,6 +41,7 @@ export default function HomePage() {
 
       <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))]">
         <div className="mx-auto md:max-w-3xl">
+          <FrameWidthDimension />
           <ProfileHeader />
           <Separator>
             {/* Mirrors the avatar's diameter, so same breakpoint. */}
