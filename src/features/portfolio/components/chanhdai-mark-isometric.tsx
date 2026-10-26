@@ -311,22 +311,22 @@ export function ChanhDaiMarkIsometric() {
 
       {/* Hidden on press: it measures the drawing at rest, so it returns only
           once the top face has sprung back. Unreadable below sm. */}
-      <motion.g
+      <g
         className="pointer-events-none text-dimension max-sm:hidden"
         fill="none"
         stroke="currentColor"
         strokeWidth="1"
         strokeLinejoin="round"
-        variants={{
-          normal: {
-            opacity: 1,
-            transition: { delay: 0.15, duration: 0.2, ease: "easeOut" },
-          },
-          pressed: {
-            opacity: 0,
-            transition: { duration: 0.1, ease: "easeOut" },
-          },
-        }}
+        // variants={{
+        //   normal: {
+        //     opacity: 1,
+        //     transition: { delay: 0.15, duration: 0.2, ease: "easeOut" },
+        //   },
+        //   pressed: {
+        //     opacity: 0,
+        //     transition: { duration: 0.1, ease: "easeOut" },
+        //   },
+        // }}
       >
         {/* A reference line, not an extension line, so no gap at the vertex. */}
         <path
@@ -347,7 +347,7 @@ export function ChanhDaiMarkIsometric() {
           transform={`translate(${ANGLE_END.x} ${ANGLE_END.y}) rotate(-60)`}
         />
         <text
-          className="fill-dimension-foreground font-mono"
+          className="fill-dimension-foreground font-mono select-none"
           x={ANGLE_LABEL.x}
           y={ANGLE_LABEL.y}
           stroke="none"
@@ -357,7 +357,7 @@ export function ChanhDaiMarkIsometric() {
         >
           30°
         </text>
-      </motion.g>
+      </g>
     </motion.svg>
   )
 }
