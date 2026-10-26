@@ -309,7 +309,8 @@ export function ChanhDaiMarkIsometric() {
       <use href={`#${ids.stroke}`} stroke="var(--stroke)" />
       <use href={`#${ids.stroke}`} stroke={`url(#${ids.radialGradient})`} />
 
-      {/* y follows the top face on press; the text is unreadable below sm. */}
+      {/* Hidden on press: it measures the drawing at rest, so it returns only
+          once the top face has sprung back. Unreadable below sm. */}
       <motion.g
         className="pointer-events-none text-dimension max-sm:hidden"
         fill="none"
@@ -318,13 +319,14 @@ export function ChanhDaiMarkIsometric() {
         strokeLinejoin="round"
         variants={{
           normal: {
-            y: 0,
+            opacity: 1,
+            transition: { delay: 0.15, duration: 0.2, ease: "easeOut" },
           },
           pressed: {
-            y: 16,
+            opacity: 0,
+            transition: { duration: 0.1, ease: "easeOut" },
           },
         }}
-        transition={transition}
       >
         {/* A reference line, not an extension line, so no gap at the vertex. */}
         <path
