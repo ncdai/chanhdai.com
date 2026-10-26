@@ -68,7 +68,7 @@ export function Testimonials() {
       <div className="screen-line-bottom h-px" />
 
       <div className="flex items-center justify-center py-4">
-        <h2 className="text-center text-sm/none font-medium text-muted-foreground">
+        <h2 className="text-center text-sm/none font-medium tracking-wide text-muted-foreground uppercase">
           Trusted by top builders on 𝕏
         </h2>
       </div>
