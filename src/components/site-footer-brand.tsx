@@ -16,9 +16,6 @@ import {
 
 const VIEWBOX_WIDTH = 1410
 
-const LETTERS_LEFT = 0
-const LETTERS_RIGHT = 1409
-
 export function SiteFooterInteractiveLogotype() {
   const shouldReduceMotion = useReducedMotion()
 
@@ -111,26 +108,14 @@ export function SiteFooterInteractiveLogotype() {
   )
 }
 
-/**
- * Labeled in viewBox units so it stays true as the logotype scales. Has its
- * own row because the spacer below sits under the fixed bottom fade.
- */
 function LogotypeWidthDimension() {
-  const toX = (x: number) => `${(x / VIEWBOX_WIDTH) * 100}%`
-
   return (
     <Dimension className="relative container mx-auto h-8">
-      <DimensionExtensionLine
-        className="inset-y-0"
-        style={{ left: toX(LETTERS_LEFT) }}
-      />
-      <DimensionExtensionLine
-        className="inset-y-0"
-        style={{ left: toX(LETTERS_RIGHT) }}
-      />
+      <DimensionExtensionLine className="top-1 bottom-0 left-0" />
+      <DimensionExtensionLine className="top-1 right-0 bottom-0" />
 
       <DimensionLine className="absolute inset-x-0 bottom-0">
-        {LETTERS_RIGHT - LETTERS_LEFT}
+        {VIEWBOX_WIDTH}
       </DimensionLine>
     </Dimension>
   )

@@ -14,8 +14,8 @@ function FrameWidthDimension({ className }: { className?: string }) {
       )}
     >
       <Dimension className="absolute -inset-x-px inset-y-0">
-        <DimensionExtensionLine className="inset-y-0 left-0" />
-        <DimensionExtensionLine className="inset-y-0 left-full -translate-x-px" />
+        <DimensionExtensionLine className="inset-y-1 left-0" />
+        <DimensionExtensionLine className="inset-y-1 right-0" />
         <DimensionLine className="absolute inset-x-0 top-1/2 -translate-y-1/2">
           768
         </DimensionLine>
