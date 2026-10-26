@@ -1,6 +1,7 @@
 import { USER } from "@/features/portfolio/data/user"
 
 import { ChanhDaiMarkIsometric } from "./chanhdai-mark-isometric"
+import { DiameterDimension } from "./diameter-dimension"
 import { FlipSentences } from "./flip-sentences"
 import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { PronounceMyName } from "./pronounce-my-name"
@@ -29,8 +30,8 @@ export function ProfileHeader() {
 
       <div className="flex flex-col sm:row-span-2 sm:row-start-1">
         <div className="screen-line-top mt-auto shrink-0 border-r border-line">
-          <div className="mx-0.5 my-0.75 flex outline-none">
-            <div className="relative size-30 rounded-full min-[24rem]:size-32 sm:size-40">
+          <div className="-mx-px my-0 flex outline-none">
+            <div className="relative z-10 size-30 rounded-full min-[24rem]:size-32 sm:size-40">
               <img
                 className="block size-full rounded-[inherit] object-cover select-none dark:hidden"
                 src={USER.avatarSketch}
@@ -41,7 +42,13 @@ export function ProfileHeader() {
                 src={USER.avatar}
                 alt="Avatar in dark mode"
               />
-              <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground/30 dark:inset-ring-foreground/10" />
+              <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground dark:hidden" />
+
+              {/* The label assumes size-40 (sm+); the gutter fits it from lg. */}
+              <DiameterDimension
+                className="-z-1 hidden lg:block"
+                diameter={160}
+              />
             </div>
           </div>
           {/* <AvatarLightsToggle className="group/avatar-lights-toggle mx-0.5 my-0.75 flex outline-none">

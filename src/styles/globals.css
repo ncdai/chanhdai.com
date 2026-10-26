@@ -46,6 +46,8 @@
   --color-success: var(--success);
   --color-destructive: var(--destructive);
   --color-link: var(--link);
+  --color-dimension: var(--dimension);
+  --color-dimension-foreground: var(--dimension-foreground);
   --color-surface: var(--surface);
   --color-surface-foreground: var(--surface-foreground);
   --color-code: var(--code);
@@ -306,6 +308,13 @@
   /* blue-700 */
   --link: oklch(0.488 0.243 264.376);
 
+  --dimension: color-mix(
+    in oklab,
+    oklch(70.5% 0.015 286.067) 60%,
+    var(--background)
+  );
+  --dimension-foreground: oklch(70.5% 0.015 286.067);
+
   /* zinc-50 */
   --surface: oklch(0.985 0 0);
 
@@ -448,6 +457,13 @@
 
   /* blue-500 */
   --link: oklch(0.623 0.214 259.815);
+
+  --dimension: color-mix(
+    in oklab,
+    oklch(37% 0.013 285.805) 80%,
+    var(--background)
+  );
+  --dimension-foreground: oklch(37% 0.013 285.805);
 
   /* zinc-900 */
   --surface: oklch(0.21 0.006 285.885);
