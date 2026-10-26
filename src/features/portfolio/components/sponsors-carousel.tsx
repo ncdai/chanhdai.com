@@ -15,7 +15,7 @@ export function SponsorsCarousel() {
 
       <div className="flex justify-center">
         <div className="bg-background px-2 py-4">
-          <h2 className="text-center text-sm/none font-medium text-muted-foreground">
+          <h2 className="text-center text-sm/none font-medium tracking-wide text-muted-foreground uppercase">
             Proudly supported by
           </h2>
         </div>
