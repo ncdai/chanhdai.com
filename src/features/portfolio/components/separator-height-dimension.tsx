@@ -14,7 +14,7 @@ function SeparatorHeightDimension({
   className?: string
 }) {
   return (
-    <Dimension className={cn("absolute -inset-x-px inset-y-0 z-2", className)}>
+    <Dimension className={cn("absolute inset-0 z-2", className)}>
       <DimensionExtensionLine
         orientation="horizontal"
         className="top-0 -right-8 left-full -translate-y-px"
