@@ -60,7 +60,7 @@ export function SiteFooterCad() {
             </span>
           </div>
 
-          <dl className="grid grid-cols-2 gap-px bg-line font-mono md:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px bg-line font-mono font-features-['ss01','ss03','zero'] md:grid-cols-4">
             <Field label="Crafted by">
               <a
                 className="link-underline"
@@ -114,7 +114,7 @@ export function SiteFooterCad() {
             <Field label="Typeface">Geist</Field>
 
             <Field className="col-span-2" label="Stack">
-              <ul className="flex flex-col gap-0.5">
+              <ul className="flex flex-col gap-1">
                 {stack.map((entry) => (
                   <li key={entry}>{entry}</li>
                 ))}
@@ -122,7 +122,7 @@ export function SiteFooterCad() {
             </Field>
 
             <Field label="Analytics">
-              <ul className="flex flex-col gap-0.5">
+              <ul className="flex flex-col gap-1">
                 <li>
                   <a
                     className="link-underline"
@@ -138,7 +138,7 @@ export function SiteFooterCad() {
             </Field>
 
             <Field label="For agents">
-              <ul className="flex flex-col gap-0.5">
+              <ul className="flex flex-col gap-1">
                 <li>
                   <a
                     className="link-underline"
@@ -163,21 +163,9 @@ export function SiteFooterCad() {
             </Field>
 
             <Field className="col-span-2 md:col-span-4" label="Inspired by">
-              {/*
-                Cancelling the cell padding and repeating the parent's column
-                count and gap lands these columns on the same grid lines as the
-                cells above, rather than dividing the padded width.
-              */}
-              <ol className="-mx-4 grid grid-cols-2 gap-x-px gap-y-0.5 font-sans md:grid-cols-4">
-                {INSPIRED_BY.map((name, index) => (
-                  <li className="flex gap-2 px-4" key={name}>
-                    {/* Hidden: the list element already conveys the position. */}
-                    <span
-                      className="font-mono text-muted-foreground/80"
-                      aria-hidden
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+              <ol className="-mx-4 grid grid-cols-2 gap-x-px gap-y-1">
+                {INSPIRED_BY.map((name) => (
+                  <li className="px-4" key={name}>
                     {name}
                   </li>
                 ))}
