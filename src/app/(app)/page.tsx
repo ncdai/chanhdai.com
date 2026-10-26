@@ -18,6 +18,7 @@ import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
 import { Recognition } from "@/features/portfolio/components/recognition"
+import { SeparatorHeightDimension } from "@/features/portfolio/components/separator-height-dimension"
 import { SocialLinks } from "@/features/portfolio/components/social-links"
 import { Sponsors } from "@/features/portfolio/components/sponsors"
 import { SponsorsCarousel } from "@/features/portfolio/components/sponsors-carousel"
@@ -40,7 +41,10 @@ export default function HomePage() {
       <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))]">
         <div className="mx-auto md:max-w-3xl">
           <ProfileHeader />
-          <Separator />
+          <Separator>
+            {/* Mirrors the avatar's diameter, so same breakpoint. */}
+            <SeparatorHeightDimension className="hidden lg:block" height={32} />
+          </Separator>
 
           <Overview />
           <SocialLinks />
@@ -97,7 +101,7 @@ function getProfilePageJsonLd(): WithContext<ProfilePage> {
   }
 }
 
-function Separator({ className }: { className?: string }) {
+function Separator({ className, children }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
@@ -105,6 +109,7 @@ function Separator({ className }: { className?: string }) {
         className
       )}
     >
+      {children}
       {/* <div
         className="absolute -top-1.25 -left-1.25 z-2 flex size-2.25 border bg-background"
         aria-hidden
