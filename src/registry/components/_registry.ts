@@ -963,4 +963,22 @@ export const components: Registry["items"] = [
     categories: ["illustrations"],
     docs: "https://chanhdai.com/components/jpg-card-holder",
   },
+  {
+    name: "foldable",
+    type: "registry:component",
+    title: "Foldable",
+    description:
+      "Folded card that opens like the iPhone Duo, blurring as the cover turns.",
+    dependencies: ["motion"],
+    registryDependencies: ["slider"],
+    files: [
+      {
+        path: "components/foldable/foldable.tsx",
+        type: "registry:component",
+        target: "@components/foldable.tsx",
+      },
+    ],
+    categories: ["illustrations"],
+    docs: "https://chanhdai.com/components/foldable",
+  },
 ]

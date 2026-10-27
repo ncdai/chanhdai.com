@@ -1204,6 +1204,30 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "foldable",
+      "title": "Foldable",
+      "description": "Folded card that opens like the iPhone Duo, blurring as the cover turns.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/foldable/foldable.tsx",
+          "type": "registry:component",
+          "target": "@components/foldable.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/foldable",
+      "categories": [
+        "illustrations"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",
