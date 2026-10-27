@@ -786,4 +786,18 @@ export const examples: Registry["items"] = [
       previewClassName: "flex min-h-svh items-center justify-center",
     },
   },
+  {
+    name: "ipod-classic-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("ipod-classic")],
+    files: [
+      {
+        path: "examples/ipod-classic-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center",
+    },
+  },
 ]

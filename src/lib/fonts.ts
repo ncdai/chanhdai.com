@@ -24,6 +24,15 @@ const fontMono = localFont({
   variable: "--font-mono",
 })
 
+// Only the iPod uses it, so it loads on demand instead of on every page.
+const fontChicagoKare = localFont({
+  src: "../assets/fonts/ChicagoKare-Regular.woff2",
+  weight: "400",
+  display: "block",
+  preload: false,
+  variable: "--font-chicago-kare",
+})
+
 // const fontPixel = localFont({
 //   src: "../assets/fonts/DepartureMono-Regular.woff2",
 //   weight: "400",
@@ -51,5 +60,6 @@ export const fontVariables = cn(
   fontMono.variable,
   fontSerif.variable,
   fontHandwritten.variable,
+  fontChicagoKare.variable,
   "[--font-sans:var(--font-geist-sans)]"
 )

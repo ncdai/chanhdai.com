@@ -13,6 +13,7 @@ import type {
   GlowCard,
   GlowCardGrid,
 } from "@/registry/components/glow-card-grid/glow-card-grid"
+import type { IpodClassic } from "@/registry/components/ipod-classic"
 import type { LogosFlip } from "@/registry/components/logos-flip"
 import type { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
 import type { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
@@ -128,4 +129,9 @@ export type TimescaleRootProps = Omit<
 export type StatusButtonProps = Omit<
   ComponentProps<typeof StatusButton>,
   Exclude<keyof ComponentProps<typeof Button>, "onClick">
+>
+
+export type IpodClassicProps = Omit<
+  ComponentProps<typeof IpodClassic>,
+  keyof ComponentProps<"div">
 >
