@@ -28,23 +28,6 @@ const chanhdai: LogoDef = {
   pattern: [".XX.XXX.", "X...X..X", "X...X..X", ".XX.XXX."],
 }
 
-const eve: LogoDef = {
-  name: "eve",
-  brickWidth: 40,
-  colOffset: 2,
-  rowOffset: 1,
-  pattern: [
-    "XXXXXXX...XXXXXX",
-    "XXXXXXX...XXXXXX",
-    ".........X......",
-    "XXX......X...XXX",
-    "XXX.....X....XXX",
-    "........X.......",
-    "XXXX...X....XXXX",
-    "XXXX...X....XXXX",
-  ],
-}
-
 const vercel: LogoDef = {
   name: "Vercel",
   brickWidth: 40,
@@ -66,7 +49,7 @@ const vercel: LogoDef = {
   ],
 }
 
-export const LOGOS: LogoDef[] = [chanhdai, eve, vercel]
+export const LOGOS: LogoDef[] = [chanhdai, vercel]
 
 export function getLogoIndex(name?: string | null): number {
   if (!name) return 0
