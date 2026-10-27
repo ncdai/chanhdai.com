@@ -1,0 +1,137 @@
+---
+title: Foldable
+description: Folded card that opens like the iPhone Duo, blurring as the cover turns.
+image: https://assets.chanhdai.com/images/blog/foldable.webp
+new: true
+createdAt: 2026-10-27
+updatedAt: 2026-10-27
+---
+
+<ComponentPreview
+  name="foldable-demo"
+  className="text-foreground **:data-[slot=component-preview]:pb-2"
+/>
+
+## Features
+
+- Drag, flick, or tap the card to open and close it.
+- Only the paper folds. The content stays flat.
+- As the cover turns, its content blurs and dims away from the hinge, like the iPhone Duo.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/foldable
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Slider](https://ui.shadcn.com/docs/components/base/slider)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="foldable" title="components/foldable.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Foldable,
+  FoldableCover,
+  FoldableInsideLeft,
+  FoldableInsideRight,
+  FoldableSlider,
+  FoldableStage,
+} from "@/components/foldable"
+```
+
+```tsx
+<Foldable>
+  <FoldableStage>
+    <FoldableInsideRight>Inside right</FoldableInsideRight>
+    <FoldableCover>Cover</FoldableCover>
+    <FoldableInsideLeft>Inside left</FoldableInsideLeft>
+  </FoldableStage>
+  <FoldableSlider />
+</Foldable>
+```
+
+## Composition
+
+Use the following composition to build a `Foldable`
+
+```text
+Foldable
+├── FoldableStage
+│   ├── FoldableInsideRight
+│   ├── FoldableCover
+│   └── FoldableInsideLeft
+└── FoldableSlider
+```
+
+## API reference
+
+### CSS variables
+
+Set them on `Foldable`, for example `[--foldable-w:16rem]`.
+
+| Variable             | Default                         | Description                                   |
+| -------------------- | ------------------------------- | --------------------------------------------- |
+| `--foldable-w`       | `min(20rem, calc(50vw - 2rem))` | Width of one page. The height is 7/5 of it.   |
+| `--foldable-radius`  | `--spacing(4)`                  | Corner radius of the paper.                   |
+| `--foldable-surface` | `var(--background)`             | Paper color behind the content of every page. |
+
+## Examples
+
+### Spread
+
+`FoldableInsideLeft` and `FoldableInsideRight` each show one half of a two-page layout, so the inside reads as one spread when open. `FoldableStage` is the container for its container queries, so the content resizes with the page.
+
+<ComponentPreview
+  name="foldable-spread-demo"
+  className="text-foreground **:data-[slot=component-preview]:pb-2"
+/>
+
+## Accessibility
+
+- The card is hidden from assistive technology. Repeat important content outside it.
+- `FoldableSlider` works from the keyboard and is labeled by its visible text.
+- With `prefers-reduced-motion`, the card settles with a short ease instead of a spring.
+
+## Credits
+
+- [Apple](https://www.apple.com/iphone-duo/)

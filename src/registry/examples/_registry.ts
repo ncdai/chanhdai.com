@@ -758,4 +758,32 @@ export const examples: Registry["items"] = [
       previewClassName: "flex min-h-svh items-center justify-center",
     },
   },
+  {
+    name: "foldable-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("foldable")],
+    files: [
+      {
+        path: "examples/foldable-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center",
+    },
+  },
+  {
+    name: "foldable-spread-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("foldable")],
+    files: [
+      {
+        path: "examples/foldable-spread-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center",
+    },
+  },
 ]

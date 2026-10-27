@@ -43,4 +43,17 @@ export const coverScenarios: Record<string, CoverScenario> = {
     await page.mouse.move(0, 0)
     await sleep(400)
   },
+  foldable: async ({ page, preview }) => {
+    // Closed, it reads as a flat card; partway open shows the fold itself.
+    const slider = await preview.$('[data-slot="slider"] input[type="range"]')
+    await slider?.focus()
+    for (let i = 0; i < 3; i++) await page.keyboard.press("PageUp")
+
+    await page.evaluate(() => {
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur()
+      }
+    })
+    await sleep(400)
+  },
 }

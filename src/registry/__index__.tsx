@@ -813,6 +813,23 @@ export const Index: Record<string, any> = {
     categories: ["illustrations"],
     meta: undefined,
   },
+  "foldable": {
+    name: "foldable",
+    description: "Folded card that opens like the iPhone Duo, blurring as the cover turns.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/foldable/foldable.tsx",
+      type: "registry:component",
+      target: "@components/foldable.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/foldable/foldable.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "foldable"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["illustrations"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -2168,6 +2185,40 @@ export const Index: Record<string, any> = {
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/jpg-card-holder-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "jpg-card-holder-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center"},
+  },
+  "foldable-demo": {
+    name: "foldable-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/foldable-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/foldable-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "foldable-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center"},
+  },
+  "foldable-spread-demo": {
+    name: "foldable-spread-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/foldable-spread-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/foldable-spread-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "foldable-spread-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,

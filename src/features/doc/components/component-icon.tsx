@@ -7,6 +7,7 @@ import {
   IconRipple,
 } from "@tabler/icons-react"
 import {
+  BookOpenIcon,
   BriefcaseBusinessIcon,
   ChevronsUpDownIcon,
   CopyIcon,
@@ -280,6 +281,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
   ),
   "apple-carousel": <GalleryHorizontal />,
   "jpg-card-holder": <FileImageIcon />,
+  foldable: <BookOpenIcon />,
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {
