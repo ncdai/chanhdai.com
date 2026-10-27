@@ -176,8 +176,8 @@ export function SiteFooterCad() {
 
             <Field className="col-span-2" label="Approved by">
               <div className="flex h-full flex-col justify-end gap-2">
-                <ChanhDaiSignature className="h-12 w-auto self-start" />
-                <span className="font-sans font-medium">
+                <ChanhDaiSignature className="ml-1 h-12 w-auto self-start text-blue-900 dark:text-foreground" />
+                <span className="border-t border-line pt-2 font-sans text-sm/none font-medium tracking-wide uppercase">
                   {USER.displayName}
                 </span>
               </div>
