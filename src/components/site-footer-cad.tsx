@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
+import { USER } from "@/features/portfolio/data/user"
 
 // Imported here rather than through `@/config/site`, which client components
 // pull in, to keep the manifest out of client bundles.
@@ -15,6 +16,7 @@ import packageJson from "../../package.json"
 // Precomputed by `pnpm registry:build`, so the count costs no registry import.
 import registryStats from "../../registry-stats.json"
 import { ChanhDaiMark } from "./chanhdai-mark"
+import { ChanhDaiSignature } from "./chanhdai-signature"
 
 const INSPIRED_BY = [
   "Tailwind CSS",
@@ -162,7 +164,7 @@ export function SiteFooterCad() {
               </ul>
             </Field>
 
-            <Field className="col-span-2 md:col-span-4" label="Inspired by">
+            <Field className="col-span-2" label="Inspired by">
               <ol className="-mx-4 grid grid-cols-2 gap-x-px gap-y-1">
                 {INSPIRED_BY.map((name) => (
                   <li className="px-4" key={name}>
@@ -170,6 +172,15 @@ export function SiteFooterCad() {
                   </li>
                 ))}
               </ol>
+            </Field>
+
+            <Field className="col-span-2" label="Approved by">
+              <div className="flex h-full flex-col justify-end gap-2">
+                <ChanhDaiSignature className="h-12 w-auto self-start" />
+                <span className="font-sans font-medium">
+                  {USER.displayName}
+                </span>
+              </div>
             </Field>
           </dl>
         </div>
@@ -302,7 +313,7 @@ function Field({
       <dt className="text-[0.625rem]/4 font-medium tracking-wider text-muted-foreground uppercase">
         {label}
       </dt>
-      <dd className="text-sm">{children}</dd>
+      <dd className="flex-1 text-sm">{children}</dd>
     </div>
   )
 }
