@@ -44,7 +44,7 @@ export function PostItem({
           </Link>
 
           {(post.metadata.new || post.metadata.updated) && (
-            <span className="pointer-events-none ml-2 inline-block size-2 -translate-y-px rounded-full bg-info">
+            <span className="pointer-events-none ml-2 inline-block size-1.5 -translate-y-px rounded-full bg-info">
               <span className="sr-only">
                 {post.metadata.new ? " (New)" : " (Updated)"}
               </span>
