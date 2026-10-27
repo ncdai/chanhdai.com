@@ -4,6 +4,20 @@ import type { Craft } from "./types"
 export const CRAFTS: Craft[] = [
   {
     description:
+      "iPod Classic: a click wheel iPod for the web, inspired by Apple Music’s 404 page.",
+    media: {
+      type: "video",
+      src: "https://assets.chanhdai.com/videos/craft/2114947544413528454-1600w.mp4",
+      poster:
+        "https://assets.chanhdai.com/images/craft/2114947544413528454.webp",
+      width: 1600,
+      height: 1004,
+    },
+    createdAt: "2026-10-27",
+    xPostUrl: "https://x.com/iamncdai/status/2114947544413528454",
+  },
+  {
+    description:
       "Business Card: an open and close interaction inspired by iPhone Duo.",
     media: {
       type: "video",
@@ -14,6 +28,7 @@ export const CRAFTS: Craft[] = [
       height: 1004,
     },
     createdAt: "2026-09-20",
+    registryHref: "/components/foldable",
     xPostUrl: "https://x.com/iamncdai/status/2101608687702053067",
   },
   {
