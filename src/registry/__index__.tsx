@@ -1226,6 +1226,10 @@ export const Index: Record<string, any> = {
       path: "src/registry/blocks/not-found-01/components/daikanoid/ui.ts",
       type: "registry:component",
       target: "@components/daikanoid/ui.ts",
+    },{
+      path: "src/hooks/use-media-query.ts",
+      type: "registry:hook",
+      target: "@hooks/use-media-query.ts",
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/blocks/not-found-01/page.tsx")

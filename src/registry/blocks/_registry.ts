@@ -316,6 +316,11 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
         target: "@components/daikanoid/ui.ts",
       },
+      {
+        path: "src/hooks/use-media-query.ts",
+        type: "registry:hook",
+        target: "@hooks/use-media-query.ts",
+      },
     ],
     cssVars: {
       light: {
