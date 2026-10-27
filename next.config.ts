@@ -75,6 +75,7 @@ const nextConfig: NextConfig = {
       "@phosphor-icons/react",
       "@remixicon/react",
     ],
+    agentUpgrade: "latest",
   },
   images: {
     remotePatterns: [
