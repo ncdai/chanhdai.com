@@ -448,11 +448,12 @@ export function FoldableStage({
   return (
     // Sized to the closed page so the vanishing point stays at its center. The
     // margin, rounded like the height, makes room for the cover rising past it
-    // as it turns.
+    // as it turns. Safari ignores the perspective of a stage it first drew flat,
+    // so the stage keeps its own layer from the start.
     <div
       data-slot="foldable-stage"
       className={cn(
-        "relative my-[calc(var(--foldable-h)*var(--foldable-rise))] h-(--foldable-h) w-(--foldable-w) supports-[height:round(1px,1px)]:my-[round(var(--foldable-h)*var(--foldable-rise),1px)]",
+        "relative my-[calc(var(--foldable-h)*var(--foldable-rise))] h-(--foldable-h) w-(--foldable-w) will-change-transform supports-[height:round(1px,1px)]:my-[round(var(--foldable-h)*var(--foldable-rise),1px)]",
         className
       )}
       style={
