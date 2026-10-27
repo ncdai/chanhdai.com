@@ -1,0 +1,92 @@
+---
+title: iPod Classic
+description: iPod classic with a working click wheel, menus, and music playback.
+image: https://assets.chanhdai.com/images/blog/ipod-classic.webp
+new: true
+createdAt: 2026-10-27
+updatedAt: 2026-10-27
+---
+
+<ComponentPreview
+  name="ipod-classic-demo"
+  className="text-foreground **:data-[slot=component-preview]:py-8"
+/>
+
+## Features
+
+- Click wheel scrolling that speeds up as you spin.
+- Crossfade between songs and wheel click sounds.
+- Settings and volume persist between visits.
+- Hidden Brick game: hold Select on About for 5 seconds.
+
+## Installation
+
+```bash
+npx shadcn@latest add @ncdai/ipod-classic
+```
+
+CLI only. Browse the source on [GitHub](https://github.com/ncdai/chanhdai.com/tree/main/src/registry/components/ipod-classic).
+
+<Callout>
+  Requires the [Chicago Kare](https://github.com/KingDuane/Chicago-Kare) font,
+  exposed as `--font-chicago-kare`.
+</Callout>
+
+## Usage
+
+```tsx
+import { IpodClassic, type IpodLibrary } from "@/components/ipod-classic"
+```
+
+```tsx
+const library: IpodLibrary = {
+  songs: [
+    { id: "1", name: "Song", artistName: "Artist", previewUrl: "/song.m4a" },
+  ],
+  playlists: [{ id: "favorites", name: "Favorites", songIds: ["1"] }],
+}
+
+<IpodClassic library={library} />
+```
+
+## API reference
+
+### IpodClassic
+
+Extends `div` props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="IpodClassicProps"
+/>
+
+### IpodLibrary
+
+<AutoTypeTable
+  path="src/registry/components/ipod-classic/lib/types.ts"
+  name="IpodLibrary"
+/>
+
+### IpodSong
+
+<AutoTypeTable
+  path="src/registry/components/ipod-classic/lib/types.ts"
+  name="IpodSong"
+/>
+
+### IpodPlaylist
+
+<AutoTypeTable
+  path="src/registry/components/ipod-classic/lib/types.ts"
+  name="IpodPlaylist"
+/>
+
+## Accessibility
+
+- Arrow keys move, Enter and Space select, Escape goes back.
+- Wheel buttons are labeled, and status changes are announced.
+
+## Credits
+
+- [Apple](https://music.apple.com/us/jfdsalkfavsd)
+- [KingDuane](https://github.com/KingDuane/Chicago-Kare)
