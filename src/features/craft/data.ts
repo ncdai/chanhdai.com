@@ -28,6 +28,7 @@ export const CRAFTS: Craft[] = [
       height: 1004,
     },
     createdAt: "2026-09-20",
+    registryHref: "/components/foldable",
     xPostUrl: "https://x.com/iamncdai/status/2101608687702053067",
   },
   {
