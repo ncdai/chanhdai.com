@@ -14,6 +14,7 @@ export const CRAFTS: Craft[] = [
       height: 1004,
     },
     createdAt: "2026-10-27",
+    registryHref: "/components/ipod-classic",
     xPostUrl: "https://x.com/iamncdai/status/2114947544413528454",
   },
   {
