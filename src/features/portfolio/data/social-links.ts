@@ -7,7 +7,7 @@ import type { SocialProfile } from "@/features/portfolio/types/social-links"
  */
 export const SOCIAL = {
   x: {
-    title: "X",
+    title: "𝕏",
     handle: "@iamncdai",
     href: "https://x.com/iamncdai",
     sameAs: true,
