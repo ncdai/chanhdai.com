@@ -35,6 +35,7 @@ import {
   getComponentDocs,
   getDocBySlug,
 } from "@/features/doc/data/documents"
+import { withLicenseSection } from "@/features/doc/lib/component-license"
 import type { Doc } from "@/features/doc/types/document"
 
 export const revalidate = false
@@ -137,7 +138,8 @@ export default async function Page({
     notFound()
   }
 
-  const toc = getTableOfContents(doc.content)
+  const content = withLicenseSection(doc.content)
+  const toc = getTableOfContents(content)
 
   const allDocs = getComponentDocs()
     .slice()
@@ -293,7 +295,7 @@ export default async function Page({
           <TOCInline className="lg:hidden" items={toc} />
 
           <div>
-            <MDX code={doc.content} />
+            <MDX code={content} />
           </div>
         </Prose>
 

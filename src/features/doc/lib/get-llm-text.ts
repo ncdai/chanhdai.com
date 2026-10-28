@@ -7,6 +7,7 @@ import remarkMdx from "remark-mdx"
 
 import { generator } from "@/lib/auto-type-table"
 import { remarkComponent } from "@/lib/remark-component"
+import { withLicenseSection } from "@/features/doc/lib/component-license"
 import type { Doc } from "@/features/doc/types/document"
 
 const processor = remark()
@@ -18,7 +19,10 @@ const processor = remark()
 
 export async function getLLMText(doc: Doc) {
   const processed = await processor.process({
-    value: doc.content,
+    value:
+      doc.metadata.category === "components"
+        ? withLicenseSection(doc.content)
+        : doc.content,
   })
 
   return `# ${doc.metadata.title}
