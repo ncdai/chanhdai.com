@@ -1,0 +1,155 @@
+---
+title: Apple Accordion
+description: Accordion whose items morph from pills into cards, inspired by Apple’s product pages.
+image: https://assets.chanhdai.com/images/blog/apple-accordion.webp
+new: true
+createdAt: 2026-10-28
+updatedAt: 2026-10-28
+---
+
+<ComponentPreview
+  className="**:data-[slot=apple-accordion]:rounded-sm **:data-[slot=preview]:p-1"
+  name="apple-accordion-demo"
+/>
+
+## Features
+
+- Each item morphs from a pill into a card while the others make room.
+- Up and down buttons step through items without closing the card.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/apple-accordion
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install @base-ui/react lucide-react cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="apple-accordion"
+  title="components/apple-accordion.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  AppleAccordionClose,
+  AppleAccordionContent,
+  AppleAccordionItem,
+  AppleAccordionList,
+  AppleAccordionNext,
+  AppleAccordionPrevious,
+  AppleAccordionRoot,
+  AppleAccordionTrigger,
+  AppleAccordionTriggerIcon,
+} from "@/components/apple-accordion"
+```
+
+```tsx
+<AppleAccordionRoot>
+  <AppleAccordionPrevious />
+  <AppleAccordionNext />
+
+  <AppleAccordionList>
+    <AppleAccordionItem value="display">
+      <AppleAccordionTrigger>
+        <AppleAccordionTriggerIcon />
+        Display
+      </AppleAccordionTrigger>
+      <AppleAccordionContent>
+        <p>Brighter, with deeper blacks.</p>
+      </AppleAccordionContent>
+    </AppleAccordionItem>
+  </AppleAccordionList>
+
+  <AppleAccordionClose />
+</AppleAccordionRoot>
+```
+
+Items must be direct children of `AppleAccordionList`. Use `value` and `onValueChange` to show matching media beside the list.
+
+## Composition
+
+Use the following composition to build an `AppleAccordion`
+
+```text
+AppleAccordionRoot
+├── AppleAccordionPrevious
+├── AppleAccordionNext
+├── AppleAccordionList
+│   └── AppleAccordionItem
+│       ├── AppleAccordionTrigger
+│       │   └── AppleAccordionTriggerIcon
+│       └── AppleAccordionContent
+└── AppleAccordionClose
+```
+
+## API reference
+
+Every part except `AppleAccordionTriggerIcon` accepts a `render` prop to change its element.
+
+### AppleAccordionRoot
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="AppleAccordionRootProps"
+/>
+
+### AppleAccordionItem
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="AppleAccordionItemProps"
+/>
+
+### Data attributes
+
+| Attribute       | Element                                        | Present when               |
+| --------------- | ---------------------------------------------- | -------------------------- |
+| `data-open`     | `AppleAccordionRoot`                           | Any item is open.          |
+| `data-open`     | `AppleAccordionItem`                           | The item is open.          |
+| `aria-disabled` | `AppleAccordionPrevious`, `AppleAccordionNext` | No item in that direction. |
+
+## Accessibility
+
+- Focus moves into the open card, and Escape or Close returns it to the pill.
+- With `prefers-reduced-motion`, cards resize instantly and content only fades.
+
+## Credits
+
+- [Apple](https://www.apple.com/macbook-pro/)

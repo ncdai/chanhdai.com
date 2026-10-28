@@ -947,6 +947,23 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/apple-carousel",
   },
   {
+    name: "apple-accordion",
+    type: "registry:component",
+    title: "Apple Accordion",
+    description:
+      "Accordion whose items morph from pills into cards, inspired by Apple’s product pages.",
+    dependencies: ["@base-ui/react", "lucide-react"],
+    files: [
+      {
+        path: "components/apple-accordion/apple-accordion.tsx",
+        type: "registry:component",
+        target: "@components/apple-accordion.tsx",
+      },
+    ],
+    categories: ["marketing"],
+    docs: "https://chanhdai.com/components/apple-accordion",
+  },
+  {
     name: "jpg-card-holder",
     type: "registry:component",
     title: "JPG Card Holder",
