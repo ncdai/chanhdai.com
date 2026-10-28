@@ -63,7 +63,7 @@ export function SiteFooterCad() {
             </span>
           </div>
 
-          <dl className="grid grid-cols-2 gap-px bg-line font-mono font-features-['ss01','ss03','zero'] md:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px bg-line font-mono md:grid-cols-4">
             <Field label="Crafted by">
               <a
                 className="link-underline"

@@ -216,7 +216,7 @@
 }
 
 @utility code-inline {
-  @apply rounded-md border bg-muted/50 px-1 py-px font-mono font-features-['ss01','ss03','zero'] text-sm font-normal whitespace-pre-wrap in-data-table-nowrap:whitespace-nowrap retina:border-[0.5px];
+  @apply rounded-md border bg-muted/50 px-1 py-px font-mono text-sm font-normal whitespace-pre-wrap in-data-table-nowrap:whitespace-nowrap retina:border-[0.5px];
 }
 
 @utility prose-no-margin {
