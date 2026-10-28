@@ -22,6 +22,7 @@ const INSPIRED_BY = [
   "Tailwind CSS",
   "shadcn/ui",
   "Vercel",
+  "Apple",
   "Evil Charts",
   "Devouring Details",
   "Skiper UI",
