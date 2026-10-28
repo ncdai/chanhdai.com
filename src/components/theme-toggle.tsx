@@ -58,7 +58,7 @@ export function ThemeToggle() {
               className="hidden [html.light_&]:block"
               aria-hidden
             /> */}
-            <DarkSideIcon />
+            <DarkSideIcon className="size-3.5" />
           </Button>
         }
       />
