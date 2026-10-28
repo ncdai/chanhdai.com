@@ -124,7 +124,7 @@ function CaptionCell({
     props: mergeProps<"span">(
       {
         className: cn(
-          "border-r border-line px-4 py-3 font-mono font-features-['ss01','ss03','zero'] text-xs/5 font-medium tracking-wide whitespace-nowrap text-muted-foreground uppercase",
+          "border-r border-line px-4 py-3 font-mono text-xs/5 font-medium tracking-wide whitespace-nowrap text-muted-foreground uppercase",
           className
         ),
       },
