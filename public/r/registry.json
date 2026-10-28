@@ -1183,6 +1183,28 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "apple-accordion",
+      "title": "Apple Accordion",
+      "description": "Accordion whose items morph from pills into cards, inspired by Apple’s product pages.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/apple-accordion/apple-accordion.tsx",
+          "type": "registry:component",
+          "target": "@components/apple-accordion.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/apple-accordion",
+      "categories": [
+        "marketing"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "jpg-card-holder",
       "title": "JPG Card Holder",
       "description": "Leather card holder shaped like a JPG file, with cards you can pull out.",

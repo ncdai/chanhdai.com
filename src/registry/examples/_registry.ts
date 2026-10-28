@@ -745,6 +745,20 @@ export const examples: Registry["items"] = [
     },
   },
   {
+    name: "apple-accordion-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("apple-accordion")],
+    files: [
+      {
+        path: "examples/apple-accordion-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "min-h-svh content-center-safe px-4 py-8 sm:px-8",
+    },
+  },
+  {
     name: "jpg-card-holder-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("jpg-card-holder")],

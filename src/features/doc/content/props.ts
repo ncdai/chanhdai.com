@@ -3,6 +3,10 @@ import type { motion } from "motion/react"
 
 import type { Button } from "@/components/ui/button"
 import type {
+  AppleAccordionItem,
+  AppleAccordionRoot,
+} from "@/registry/components/apple-accordion"
+import type {
   AppleCarouselControls,
   AppleCarouselRoot,
 } from "@/registry/components/apple-carousel"
@@ -26,6 +30,18 @@ import type { SpinningCircularText } from "@/registry/components/spinning-circul
 import type { StatusButton } from "@/registry/components/status-button"
 import type { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 import type { TimescaleRoot } from "@/registry/components/timescale"
+
+// `defaultValue` and `value` are also native attributes of the div and li,
+// so they stay out of the exclusion to keep the component's own props.
+export type AppleAccordionRootProps = Omit<
+  ComponentProps<typeof AppleAccordionRoot>,
+  Exclude<keyof ComponentProps<"div">, "defaultValue"> | "render"
+>
+
+export type AppleAccordionItemProps = Omit<
+  ComponentProps<typeof AppleAccordionItem>,
+  Exclude<keyof ComponentProps<"li">, "value"> | "render"
+>
 
 export type AppleCarouselRootProps = Omit<
   ComponentProps<typeof AppleCarouselRoot>,

@@ -796,6 +796,23 @@ export const Index: Record<string, any> = {
     categories: ["marketing"],
     meta: undefined,
   },
+  "apple-accordion": {
+    name: "apple-accordion",
+    description: "Accordion whose items morph from pills into cards, inspired by Apple’s product pages.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/apple-accordion/apple-accordion.tsx",
+      type: "registry:component",
+      target: "@components/apple-accordion.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/apple-accordion/apple-accordion.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "apple-accordion"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["marketing"],
+    meta: undefined,
+  },
   "jpg-card-holder": {
     name: "jpg-card-holder",
     description: "Leather card holder shaped like a JPG file, with cards you can pull out.",
@@ -2309,6 +2326,23 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: {"previewClassName":"min-h-svh content-center-safe py-8"},
+  },
+  "apple-accordion-demo": {
+    name: "apple-accordion-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/apple-accordion-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/apple-accordion-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "apple-accordion-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"min-h-svh content-center-safe px-4 py-8 sm:px-8"},
   },
   "jpg-card-holder-demo": {
     name: "jpg-card-holder-demo",
