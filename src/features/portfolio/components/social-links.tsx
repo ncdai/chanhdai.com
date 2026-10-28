@@ -54,8 +54,6 @@ export function SocialLinks() {
         </ul>
       </PanelContent>
 
-      <div className="pointer-events-none absolute inset-y-0 left-1/2 -z-1 w-px -translate-x-2.25 border-r border-dashed border-line max-sm:hidden" />
-
       <HandwrittenNote className="-top-7 right-full mr-4 hidden w-20 flex-col items-end lg:flex">
         <span className="-rotate-6">follow me</span>
         <HandwrittenArrow className="size-7 translate-x-3 -scale-x-100 -rotate-6" />
