@@ -8,6 +8,16 @@ import { UTM_PARAMS } from "@/config/site"
 import { trackEvent } from "@/lib/events"
 import { Button } from "@/components/ui/button"
 import { SPONSORS } from "@/features/sponsor/data"
+import type { SponsorTier } from "@/features/sponsor/types"
+
+const PAID_TIERS = new Set<SponsorTier>(["platinum", "gold", "silver"])
+
+const PLATFORM_SPONSORS = new Set(["Vercel", "Claude"])
+
+const DOC_SPONSORS = SPONSORS.filter(
+  (sponsor) =>
+    PAID_TIERS.has(sponsor.tier) || PLATFORM_SPONSORS.has(sponsor.name)
+)
 
 export function DocSponsors() {
   const [visible, setVisible] = useState(true)
@@ -50,12 +60,7 @@ export function DocSponsors() {
           </div>
 
           <ul className="grid grid-cols-1 gap-1 sm:grid-cols-2">
-            {SPONSORS.filter(
-              (sponsor) =>
-                sponsor.tier === "platinum" ||
-                sponsor.tier === "gold" ||
-                sponsor.tier === "silver"
-            ).map((item) => (
+            {DOC_SPONSORS.map((item) => (
               <li key={item.name}>
                 <a
                   className="flex items-center justify-center rounded-[9px] border bg-background text-foreground [&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0"
@@ -69,6 +74,11 @@ export function DocSponsors() {
               </li>
             ))}
           </ul>
+
+          <p className="px-3 pt-2 pb-1.5 text-sm text-balance text-muted-foreground">
+            Thanks to these sponsors, every component here stays free and built
+            with care.
+          </p>
         </aside>
       </div>
     </>
