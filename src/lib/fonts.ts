@@ -1,16 +1,13 @@
-import { Caveat, Noto_Serif } from "next/font/google"
+import { Caveat } from "next/font/google"
 import localFont from "next/font/local"
 import { GeistSans } from "geist/font/sans"
+import { GeistSerif } from "geist/font/serif"
 
 import { cn } from "@/lib/utils"
 
 const fontSans = GeistSans
 
-const fontSerif = Noto_Serif({
-  weight: ["400"],
-  display: "swap",
-  variable: "--font-serif",
-})
+const fontSerif = GeistSerif
 
 const fontHandwritten = Caveat({
   weight: "400",
@@ -39,5 +36,6 @@ export const fontVariables = cn(
   fontSerif.variable,
   fontHandwritten.variable,
   fontChicagoKare.variable,
-  "[--font-sans:var(--font-geist-sans)]"
+  "[--font-sans:var(--font-geist-sans)]",
+  "[--font-serif:var(--font-geist-serif)]"
 )
