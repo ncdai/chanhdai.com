@@ -136,7 +136,7 @@ Visited Quy Nhon, Binh Dinh for the first time, and returned to Ha Noi.`,
 - 2nd Prize — Can Tho City Youth and Children’s Creativity Contest 2018
 - 3rd Prize — National Young Informatics Contest 2018
 
-Earned direct admission to University of Science — VNUHCM, majoring in Information Systems.
+Earned direct admission to University of Science, VNUHCM, majoring in Information Systems.
 
 Began freelancing and joined Tung Tung as a UI/UX Designer.
 

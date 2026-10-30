@@ -3,7 +3,7 @@ import type { Education } from "@/features/portfolio/types/education"
 export const EDUCATION: Education[] = [
   {
     id: "hcmus",
-    school: "University of Science — VNUHCM",
+    school: "University of Science, VNUHCM",
     degree: "Bachelor’s degree",
     fieldOfStudy: "Information Systems",
     period: {
