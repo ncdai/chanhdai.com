@@ -38,7 +38,10 @@ export const USER: User = {
 - Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2.4K stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (70K+ weekly downloads, ▲ Vercel OSS Program), and [ZaDark](https://zadark.com) (80K+ downloads, 30K+ users) — peak metrics.
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
-  avatarSketch: "https://assets.chanhdai.com/images/avatar-sketch.webp",
+  avatarOutline:
+    "https://assets.chanhdai.com/images/avatar-macbook-outline.webp?t=1793321200",
+  avatarMonochrome:
+    "https://assets.chanhdai.com/images/avatar-macbook-monochrome.webp?t=1793321200",
   avatarVariants: {
     lightOff: "https://assets.chanhdai.com/images/avatar-light-off.webp",
     lightOn: "https://assets.chanhdai.com/images/avatar-light-on.webp",

@@ -34,15 +34,15 @@ export function ProfileHeader() {
             <div className="relative z-10 size-30 rounded-full min-[24rem]:size-32 sm:size-40">
               <img
                 className="block size-full rounded-[inherit] object-cover select-none dark:hidden"
-                src={USER.avatarSketch}
-                alt="Avatar with sketch style in light mode"
+                src={USER.avatarOutline}
+                alt="Avatar outline style"
               />
               <img
                 className="hidden size-full rounded-[inherit] object-cover select-none dark:block"
-                src={USER.avatar}
-                alt="Avatar in dark mode"
+                src={USER.avatarMonochrome}
+                alt="Avatar monochrome style"
               />
-              <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground dark:hidden" />
+              <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground dark:inset-ring-foreground/20" />
 
               {/* The label assumes size-40 (sm+); the gutter fits it from lg. */}
               <DiameterDimension
