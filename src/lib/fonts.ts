@@ -13,7 +13,7 @@ const fontSerif = Noto_Serif({
 })
 
 const fontHandwritten = Caveat({
-  weight: ["400", "500"],
+  weight: "400",
   display: "swap",
   variable: "--font-handwritten",
 })
@@ -32,28 +32,6 @@ const fontChicagoKare = localFont({
   preload: false,
   variable: "--font-chicago-kare",
 })
-
-// const fontPixel = localFont({
-//   src: "../assets/fonts/DepartureMono-Regular.woff2",
-//   weight: "400",
-//   fallback: ["monospace"],
-//   variable: "--font-pixel",
-// })
-
-// const pixelatedMSSansSerif = localFont({
-//   src: [
-//     {
-//       path: "../assets/fonts/ms_sans_serif.woff2",
-//       weight: "400",
-//     },
-//     {
-//       path: "../assets/fonts/ms_sans_serif_bold.woff2",
-//       weight: "700",
-//     },
-//   ],
-//   fallback: ["Arial"],
-//   variable: "--font-98cn",
-// })
 
 export const fontVariables = cn(
   fontSans.variable,
