@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-swap",
+  "title": "Text Swap",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "Animated text that swaps through items with a fade transition.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/text-swap/text-swap.tsx",
+      "content": "\"use client\"\n\nimport { Children, useEffect, useState } from \"react\"\nimport type { Transition, Variants } from \"motion/react\"\nimport { AnimatePresence, motion, useReducedMotion } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst defaultTransition: Transition = {\n  type: \"spring\",\n  visualDuration: 0.35,\n  bounce: 0,\n}\n\nconst exitTransition: Transition = { duration: 0.2, ease: \"easeOut\" }\n\nconst defaultVariants: Variants = {\n  initial: { y: \"-0.25em\", opacity: 0, filter: \"blur(2px)\" },\n  animate: { y: \"0em\", opacity: 1, filter: \"blur(0px)\" },\n  exit: {\n    y: \"0.25em\",\n    opacity: 0,\n    filter: \"blur(2px)\",\n    transition: exitTransition,\n  },\n}\n\n// `animate` stays shared: it is what the server renders with `initial={false}`,\n// and the client reads the media query before hydrating.\nconst reducedMotionVariants: Variants = {\n  ...defaultVariants,\n  initial: { opacity: 0 },\n  exit: { opacity: 0, transition: exitTransition },\n}\n\ntype MotionElement = typeof motion.p | typeof motion.span | typeof motion.code\n\nexport type TextSwapProps = {\n  /**\n   * Motion element to render.\n   * @defaultValue motion.p\n   * */\n  as?: MotionElement\n  className?: string\n  /** Array of children to cycle through. */\n  children: React.ReactNode[]\n\n  /**\n   * Time in seconds between each swap.\n   * @defaultValue 2\n   * */\n  interval?: number\n  /**\n   * Motion transition for the enter animation. The default exit is faster and\n   * sets its own transition.\n   * @defaultValue { type: \"spring\", visualDuration: 0.35, bounce: 0 }\n   * */\n  transition?: Transition\n  /**\n   * Motion variants for enter/exit animations. Replaces the defaults, including\n   * their reduced motion fallback.\n   * */\n  variants?: Variants\n\n  /** Controls whether the swap animation runs. */\n  play?: boolean\n\n  /** Called with the new index after each swap. */\n  onIndexChange?: (index: number) => void\n}\n\nexport function TextSwap({\n  as: Component = motion.p,\n  className,\n  children,\n\n  interval = 2,\n  transition = defaultTransition,\n  variants,\n  play = true,\n\n  onIndexChange,\n}: TextSwapProps) {\n  const [currentIndex, setCurrentIndex] = useState(0)\n  const shouldReduceMotion = useReducedMotion()\n\n  const items = Children.toArray(children)\n\n  useEffect(() => {\n    if (!play) return\n\n    const timer = setInterval(() => {\n      setCurrentIndex((prev) => {\n        const next = (prev + 1) % items.length\n        onIndexChange?.(next)\n        return next\n      })\n    }, interval * 1000)\n\n    return () => clearInterval(timer)\n  }, [play, interval, items.length, onIndexChange])\n\n  return (\n    <AnimatePresence mode=\"wait\" initial={false}>\n      <Component\n        key={currentIndex}\n        className={cn(\"inline-block\", className)}\n        initial=\"initial\"\n        animate=\"animate\"\n        exit=\"exit\"\n        transition={transition}\n        variants={\n          variants ??\n          (shouldReduceMotion ? reducedMotionVariants : defaultVariants)\n        }\n      >\n        {items[currentIndex]}\n      </Component>\n    </AnimatePresence>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/text-swap.tsx"
+    }
+  ],
+  "docs": "https://chanhdai.com/components/text-swap",
+  "categories": [
+    "text-effects"
+  ],
+  "type": "registry:component"
+}

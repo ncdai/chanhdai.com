@@ -83,18 +83,18 @@ export const Index: Record<string, any> = {
     categories: ["controls"],
     meta: undefined,
   },
-  "text-flip": {
-    name: "text-flip",
-    description: "Animated text that cycles through items with a smooth flip transition.",
+  "text-swap": {
+    name: "text-swap",
+    description: "Animated text that swaps through items with a fade transition.",
     type: "registry:component",
     files: [{
-      path: "src/registry/components/text-flip/text-flip.tsx",
+      path: "src/registry/components/text-swap/text-swap.tsx",
       type: "registry:component",
-      target: "@components/text-flip.tsx",
+      target: "@components/text-swap.tsx",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/components/text-flip/text-flip.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "text-flip"
+      const mod = await import("@/registry/components/text-swap/text-swap.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "text-swap"
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["text-effects"],
@@ -1273,18 +1273,18 @@ export const Index: Record<string, any> = {
     categories: ["application"],
     meta: {"createdAt":"2026-08-09"},
   },
-  "text-flip-demo": {
-    name: "text-flip-demo",
+  "text-swap-demo": {
+    name: "text-swap-demo",
     description: "",
     type: "registry:example",
     files: [{
-      path: "src/registry/examples/text-flip-demo.tsx",
+      path: "src/registry/examples/text-swap-demo.tsx",
       type: "registry:example",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/examples/text-flip-demo.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "text-flip-demo"
+      const mod = await import("@/registry/examples/text-swap-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "text-swap-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,

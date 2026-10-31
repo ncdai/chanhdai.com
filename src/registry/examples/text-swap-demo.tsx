@@ -3,11 +3,11 @@
 import { useRef } from "react"
 import { motion, useInView, usePageInView } from "motion/react"
 
-import { TextFlip } from "@/registry/components/text-flip"
+import { TextSwap } from "@/registry/components/text-swap"
 
 const WORDS = ["Developer", "Designer", "Creator", "Builder"]
 
-export default function TextFlipDemo() {
+export default function TextSwapDemo() {
   const ref = useRef<HTMLDivElement>(null)
   const isPageInView = usePageInView()
   const isInView = useInView(ref)
@@ -24,7 +24,7 @@ export default function TextFlipDemo() {
         <span className="invisible col-start-1 row-start-1" aria-hidden>
           {WORDS.reduce((a, b) => (a.length >= b.length ? a : b))}
         </span>
-        <TextFlip
+        <TextSwap
           as={motion.span}
           className="col-start-1 row-start-1 text-foreground"
           play={play}
@@ -32,7 +32,7 @@ export default function TextFlipDemo() {
           {WORDS.map((word) => (
             <span key={word}>{word}</span>
           ))}
-        </TextFlip>
+        </TextSwap>
       </span>
     </div>
   )

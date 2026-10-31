@@ -15,7 +15,7 @@ import MiddleTruncationDemo from "@/registry/examples/middle-truncation-demo"
 import ShimmeringTextDemo2 from "@/registry/examples/shimmering-text-demo-02"
 import SlideToUnlockDemo from "@/registry/examples/slide-to-unlock-demo"
 import TestimonialSpotlightDemo from "@/registry/examples/testimonial-spotlight-demo"
-import TextFlipDemo from "@/registry/examples/text-flip-demo"
+import TextSwapDemo from "@/registry/examples/text-swap-demo"
 import ThemeSwitcherDemo from "@/registry/examples/theme-switcher-demo"
 import ThemeToggleEffectDemo from "@/registry/examples/theme-toggle-effect-demo"
 import TwemojiDemo from "@/registry/examples/twemoji-demo"
@@ -81,7 +81,7 @@ export function ComponentsShowcase() {
         </GridItem>
 
         <GridItem>
-          <TextFlipDemo />
+          <TextSwapDemo />
         </GridItem>
 
         <GridItem>

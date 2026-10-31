@@ -20,21 +20,21 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/theme-switcher",
   },
   {
-    name: "text-flip",
+    name: "text-swap",
     type: "registry:component",
-    title: "Text Flip",
+    title: "Text Swap",
     description:
-      "Animated text that cycles through items with a smooth flip transition.",
+      "Animated text that swaps through items with a fade transition.",
     dependencies: ["motion"],
     files: [
       {
-        path: "components/text-flip/text-flip.tsx",
+        path: "components/text-swap/text-swap.tsx",
         type: "registry:component",
-        target: "@components/text-flip.tsx",
+        target: "@components/text-swap.tsx",
       },
     ],
     categories: ["text-effects"],
-    docs: "https://chanhdai.com/components/text-flip",
+    docs: "https://chanhdai.com/components/text-swap",
   },
   {
     name: "apple-hello-effect",

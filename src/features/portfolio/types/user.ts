@@ -11,8 +11,8 @@ export type User = {
   /** e.g. "he/him", "she/her", "they/them" */
   pronouns: string
   bio: string
-  /** Short phrases rotated in UI (e.g., homepage flip effect) */
-  flipSentences: string[]
+  /** Short phrases about the person, swapped in the profile header */
+  taglines: string[]
   /** General location for display */
   address: string
   /** E.164 format, base64 encoded (https://t.io.vn/base64-string-converter) */

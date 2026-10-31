@@ -2,8 +2,8 @@ import { USER } from "@/features/portfolio/data/user"
 
 import { ChanhDaiMarkIsometric } from "./chanhdai-mark-isometric"
 import { DiameterDimension } from "./diameter-dimension"
-import { FlipSentences } from "./flip-sentences"
 import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
+import { ProfileTaglines } from "./profile-taglines"
 import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
 
@@ -79,9 +79,9 @@ export function ProfileHeader() {
             )}
           </div>
 
-          <FlipSentences className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">
-            {USER.flipSentences}
-          </FlipSentences>
+          <ProfileTaglines className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">
+            {USER.taglines}
+          </ProfileTaglines>
         </div>
       </div>
     </div>

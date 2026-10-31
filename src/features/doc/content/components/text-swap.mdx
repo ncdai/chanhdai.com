@@ -1,17 +1,17 @@
 ---
-title: Text Flip
-description: Animated text that cycles through items with a smooth flip transition.
+title: Text Swap
+description: Animated text that swaps through items with a fade transition.
 image: https://assets.chanhdai.com/images/blog/text-flip.webp
 createdAt: 2026-02-19
-updatedAt: 2026-10-31
+updatedAt: 2026-11-01
 ---
 
 <ComponentPreview
-  name="text-flip-demo"
-  openInV0Url="https://chanhdai.com/r/text-flip.json"
+  name="text-swap-demo"
+  openInV0Url="https://chanhdai.com/r/text-swap.json"
 />
 
-<DocDependencies name="text-flip" />
+<DocDependencies name="text-swap" />
 
 ## Use cases
 
@@ -28,7 +28,7 @@ updatedAt: 2026-10-31
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @ncdai/text-flip
+npx shadcn@latest add @ncdai/text-swap
 ```
 
 </TabsContent>
@@ -53,7 +53,7 @@ npm install motion cn
 
 <Step>Copy and paste the following code into your project</Step>
 
-<ComponentSource name="text-flip" title="components/text-flip.tsx" />
+<ComponentSource name="text-swap" title="components/text-swap.tsx" />
 
 <Step>Update the import paths to match your project setup</Step>
 
@@ -66,24 +66,24 @@ npm install motion cn
 ## Usage
 
 ```tsx
-import { TextFlip } from "@/components/text-flip"
+import { TextSwap } from "@/components/text-swap"
 ```
 
 ```tsx
-<TextFlip>
+<TextSwap>
   <span>Developer</span>
   <span>Designer</span>
   <span>Creator</span>
-</TextFlip>
+</TextSwap>
 ```
 
 ## API reference
 
-### TextFlip
+### TextSwap
 
 <AutoTypeTable
-  path="src/registry/components/text-flip/text-flip.tsx"
-  name="TextFlipProps"
+  path="src/registry/components/text-swap/text-swap.tsx"
+  name="TextSwapProps"
 />
 
 ## Accessibility

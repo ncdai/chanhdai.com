@@ -89,7 +89,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
   ),
   "copy-button": <CopyIcon />,
   "code-block-command": <TerminalIcon />,
-  "text-flip": <SeparatorHorizontalIcon />,
+  "text-swap": <SeparatorHorizontalIcon />,
   haptic: <VibrateIcon />,
   "testimonial-spotlight": <SunDimIcon />,
   "glow-card-grid": <LayoutGridIcon />,

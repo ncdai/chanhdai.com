@@ -128,6 +128,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/components/text-flip",
+        destination: "/components/text-swap",
+        permanent: true,
+      },
+      {
+        source: "/components/text-flip.md",
+        destination: "/components/text-swap.md",
+        permanent: true,
+      },
+      {
         source: "/wall-of-love",
         destination: "/testimonials",
         permanent: true,
