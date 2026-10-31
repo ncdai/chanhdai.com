@@ -27,6 +27,7 @@ import {
   DocContentCol,
   DocRightCol,
 } from "@/features/doc/components/doc-layout"
+import { DocNeighbourNav } from "@/features/doc/components/doc-neighbour-nav"
 import { LLMCopyButtonWithViewOptions } from "@/features/doc/components/doc-page-actions"
 import { DocShareMenu } from "@/features/doc/components/doc-share-menu"
 import { DocSponsors } from "@/features/doc/components/doc-sponsors"
@@ -302,6 +303,8 @@ export default async function Page({
         <DocFeedback category="components" slug={doc.slug} />
 
         <DocSponsors />
+
+        <DocNeighbourNav previous={previous} next={next} />
 
         <div className="screen-dashed-line-top before:opacity-80">
           <div className="screen-line-top h-4 overflow-x-clip" />
