@@ -17,7 +17,6 @@ updatedAt: 2026-05-30
 
 - Adjustable character spacing and font size.
 - Container size scales automatically to fit the text ring.
-- Announces the full text to screen readers via hidden content.
 
 ## Installation
 
@@ -36,6 +35,20 @@ npx shadcn@latest add @ncdai/spinning-circular-text
 <TabsContent value="manual">
 
 <Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
 
 <Step>Add the animation to your global CSS</Step>
 
@@ -91,6 +104,10 @@ import { SpinningCircularText } from "@/components/spinning-circular-text"
   path="src/features/doc/content/props.ts"
   name="SpinningCircularTextProps"
 />
+
+## Accessibility
+
+- Screen readers announce the full text, and the spinning ring stays hidden.
 
 ## Credits
 

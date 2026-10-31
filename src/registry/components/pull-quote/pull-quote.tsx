@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-export type Testimonial2Props = {
+export type PullQuoteProps = {
   /** Full display name of the person giving the testimonial. */
   authorName: string
   /** Short tagline, title, or description of the person. */
@@ -13,13 +13,13 @@ export type Testimonial2Props = {
   className?: string
 }
 
-export function Testimonial2({
+export function PullQuote({
   className,
   authorName,
   authorTagline,
   url,
   quote,
-}: Testimonial2Props) {
+}: PullQuoteProps) {
   return (
     <figure className={cn("relative flex flex-col gap-6 pl-3", className)}>
       <blockquote className="relative block w-full font-serif text-xl text-foreground md:w-lg md:text-2xl">

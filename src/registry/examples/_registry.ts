@@ -622,12 +622,12 @@ export const examples: Registry["items"] = [
     },
   },
   {
-    name: "testimonial-2-demo",
+    name: "pull-quote-demo",
     type: "registry:example",
-    registryDependencies: [getRegistryItemUrl("testimonial-2")],
+    registryDependencies: [getRegistryItemUrl("pull-quote")],
     files: [
       {
-        path: "examples/testimonial-2-demo.tsx",
+        path: "examples/pull-quote-demo.tsx",
         type: "registry:example",
       },
     ],

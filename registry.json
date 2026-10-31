@@ -984,17 +984,17 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
-      "name": "testimonial-2",
-      "title": "Testimonial 2",
+      "name": "pull-quote",
+      "title": "Pull Quote",
       "description": "Display a testimonial quote with author attribution and source link.",
       "files": [
         {
-          "path": "src/registry/components/testimonial-2/testimonial-2.tsx",
+          "path": "src/registry/components/pull-quote/pull-quote.tsx",
           "type": "registry:component",
-          "target": "@components/testimonial-2.tsx"
+          "target": "@components/pull-quote.tsx"
         }
       ],
-      "docs": "https://chanhdai.com/components/testimonial-2",
+      "docs": "https://chanhdai.com/components/pull-quote",
       "categories": [
         "marketing"
       ],

@@ -118,6 +118,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/components/testimonial-2",
+        destination: "/components/pull-quote",
+        permanent: true,
+      },
+      {
+        source: "/components/testimonial-2.md",
+        destination: "/components/pull-quote.md",
+        permanent: true,
+      },
+      {
         source: "/wall-of-love",
         destination: "/testimonials",
         permanent: true,

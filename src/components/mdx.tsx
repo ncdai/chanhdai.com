@@ -36,9 +36,9 @@ import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { ComponentSource } from "@/components/component-source"
 import { AutoTypeTable } from "@/features/doc/components/auto-type-table"
 import { DocDependencies } from "@/features/doc/components/doc-dependencies"
+import { DocPullQuote } from "@/features/doc/components/doc-pull-quote"
 import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import { DocTestimonial } from "@/features/doc/components/doc-testimonial"
-import { DocTestimonial2 } from "@/features/doc/components/doc-testimonial-2"
 
 import { Callout } from "./callout"
 import { CodeTabs } from "./code-tabs"
@@ -96,8 +96,8 @@ const components: MDXRemoteProps["components"] = {
   YouTubeEmbed,
   IframeEmbed,
   FramedImage,
+  DocPullQuote,
   DocTestimonial,
-  DocTestimonial2,
   DocSponsors,
   AutoTypeTable: (props) => <AutoTypeTable {...props} generator={generator} />,
 }

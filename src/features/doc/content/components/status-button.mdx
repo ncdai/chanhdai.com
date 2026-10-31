@@ -16,9 +16,6 @@ updatedAt: 2026-08-23
 ## Features
 
 - Works from an async click handler, or follows a status you control from form state.
-- Keeps focus while busy, so keyboard focus is not lost when the action finishes.
-- Announces loading and success to screen readers.
-- Swaps states without motion when reduced motion is preferred.
 
 ## Installation
 
@@ -144,3 +141,9 @@ See [shadcn/ui](https://ui.shadcn.com/docs/components/base/button#api-reference)
 ### Form submission
 
 <ComponentPreview name="status-button-form-demo" />
+
+## Accessibility
+
+- Keeps focus while busy, so keyboard focus is not lost when the action finishes.
+- Announces loading and success to screen readers.
+- With `prefers-reduced-motion`, states swap without animation.
