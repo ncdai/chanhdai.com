@@ -18,7 +18,7 @@ updatedAt: 2026-06-29
 
 - A radial-gradient highlight tracks the cursor and traces the SVG outline.
 - Pressing the mark morphs its paths with a spring and plays a tactile click.
-- Respects reduced motion and skips pointer tracking on touch devices.
+- Skips pointer tracking on touch devices.
 
 <Callout>
   This is my SVG logomark, **provided for reference only**. Please replace it
@@ -76,6 +76,10 @@ import { SpotlightLogo } from "@/components/spotlight-logo"
 ```tsx
 <SpotlightLogo />
 ```
+
+## Accessibility
+
+- With `prefers-reduced-motion`, the highlight stops tracking the cursor.
 
 ## Credits
 

@@ -19,8 +19,7 @@ updatedAt: 2026-09-26
 
 - Loops endlessly, with neighboring cards peeking in.
 - Autoplays with a progress dot, and pauses on interaction or when off screen.
-- Swipe, scroll, click a dot, or use arrow keys, even mid-slide.
-- Respects reduced motion: no autoplay until Play is pressed, and cards jump instead of sliding.
+- Swipe, scroll, or click a dot, even mid-slide.
 
 ## Installation
 
@@ -164,6 +163,11 @@ A caption and `Button` over each photo. `data-current` fades captions on peeking
   name="apple-carousel-caption-demo"
   openInV0Url="https://chanhdai.com/r/apple-carousel.json"
 />
+
+## Accessibility
+
+- Arrow keys, `Home`, and `End` move between the dots.
+- With `prefers-reduced-motion`, autoplay waits until Play is pressed, and cards jump instead of sliding.
 
 ## Credits
 
