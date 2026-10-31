@@ -18,7 +18,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <main className="max-w-screen overflow-x-clip px-2">{children}</main>
       <SiteFooterCad />
       <div
-        className="pointer-events-none fixed inset-x-0 bottom-0 z-50"
+        className="pointer-events-none fixed inset-x-0 bottom-0 z-50 lg:hidden"
         aria-hidden
       >
         <div className="h-(--fade-bottom-height) bg-linear-to-b from-transparent to-background mask-linear-[to_top,var(--background)_25%,transparent] backdrop-blur-[1px]" />
