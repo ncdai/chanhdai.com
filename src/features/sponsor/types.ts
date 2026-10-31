@@ -32,6 +32,8 @@ export type SponsorTier = (typeof SPONSOR_TIERS)[number]["name"]
 
 export type SponsorTierColumns = (typeof SPONSOR_TIERS)[number]["columns"]
 
+export const PAID_TIERS = new Set<SponsorTier>(["platinum", "gold", "silver"])
+
 export type Sponsor = {
   name: string
   url: string

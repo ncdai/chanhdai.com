@@ -71,7 +71,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
       <div
         className={cn(
           "relative flex flex-col rounded-(--sidebar-radius) border bg-background",
-          "h-[calc(100svh-var(--sidebar-top)-var(--fade-bottom-height))] w-(--sidebar-width)",
+          "h-[calc(100svh-var(--sidebar-top)-(--spacing(4)))] w-(--sidebar-width)",
           "translate-x-0 in-data-[sidebar-open=false]:-translate-x-[calc(var(--sidebar-width)-1px)]",
           "transition-[translate] duration-350 ease-[cubic-bezier(0.24,0.88,0.28,0.92)]"
         )}

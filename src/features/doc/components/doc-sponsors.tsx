@@ -8,9 +8,7 @@ import { UTM_PARAMS } from "@/config/site"
 import { trackEvent } from "@/lib/events"
 import { Button } from "@/components/ui/button"
 import { SPONSORS } from "@/features/sponsor/data"
-import type { SponsorTier } from "@/features/sponsor/types"
-
-const PAID_TIERS = new Set<SponsorTier>(["platinum", "gold", "silver"])
+import { PAID_TIERS } from "@/features/sponsor/types"
 
 const PLATFORM_SPONSORS = new Set(["Vercel", "Claude"])
 
