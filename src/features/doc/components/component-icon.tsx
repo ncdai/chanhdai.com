@@ -144,7 +144,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
   ),
   "chevrons-up-down-icon": <ChevronsUpDownIcon />,
   "logos-carousel": <IconRipple />,
-  "testimonial-2": <IconBlockquote />,
+  "pull-quote": <IconBlockquote />,
   "line-nav": <IconBaselineDensitySmall />,
   "share-menu": <ShareIcon />,
   "spotlight-logo": <ChanhDaiMark />,

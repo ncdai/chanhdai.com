@@ -660,18 +660,18 @@ export const Index: Record<string, any> = {
     categories: ["marketing"],
     meta: undefined,
   },
-  "testimonial-2": {
-    name: "testimonial-2",
+  "pull-quote": {
+    name: "pull-quote",
     description: "Display a testimonial quote with author attribution and source link.",
     type: "registry:component",
     files: [{
-      path: "src/registry/components/testimonial-2/testimonial-2.tsx",
+      path: "src/registry/components/pull-quote/pull-quote.tsx",
       type: "registry:component",
-      target: "@components/testimonial-2.tsx",
+      target: "@components/pull-quote.tsx",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/components/testimonial-2/testimonial-2.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "testimonial-2"
+      const mod = await import("@/registry/components/pull-quote/pull-quote.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "pull-quote"
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["marketing"],
@@ -2157,18 +2157,18 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: {"previewClassName":"container mx-auto min-h-svh place-items-center-safe content-center-safe"},
   },
-  "testimonial-2-demo": {
-    name: "testimonial-2-demo",
+  "pull-quote-demo": {
+    name: "pull-quote-demo",
     description: "",
     type: "registry:example",
     files: [{
-      path: "src/registry/examples/testimonial-2-demo.tsx",
+      path: "src/registry/examples/pull-quote-demo.tsx",
       type: "registry:example",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/examples/testimonial-2-demo.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "testimonial-2-demo"
+      const mod = await import("@/registry/examples/pull-quote-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "pull-quote-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,

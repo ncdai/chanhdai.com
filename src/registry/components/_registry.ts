@@ -779,20 +779,20 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/logos-flip",
   },
   {
-    name: "testimonial-2",
+    name: "pull-quote",
     type: "registry:component",
-    title: "Testimonial 2",
+    title: "Pull Quote",
     description:
       "Display a testimonial quote with author attribution and source link.",
     files: [
       {
-        path: "components/testimonial-2/testimonial-2.tsx",
+        path: "components/pull-quote/pull-quote.tsx",
         type: "registry:component",
-        target: "@components/testimonial-2.tsx",
+        target: "@components/pull-quote.tsx",
       },
     ],
     categories: ["marketing"],
-    docs: "https://chanhdai.com/components/testimonial-2",
+    docs: "https://chanhdai.com/components/pull-quote",
   },
   {
     name: "line-nav",
