@@ -4,6 +4,7 @@ import { visit } from "unist-util-visit"
 
 import type { UnistNode, UnistTree } from "@/types/unist"
 import { Index } from "@/registry/__index__"
+import { getDocDependencyLines } from "@/features/doc/lib/doc-dependencies"
 
 import { fixImport } from "./registry"
 
@@ -81,6 +82,22 @@ export function remarkComponent() {
           }
         } catch (error) {
           console.error(error)
+        }
+      }
+
+      if (node.name === "DocDependencies") {
+        const name = getNodeAttributeByName(node, "name")?.value as string
+
+        if (parent && typeof index === "number") {
+          const paragraphs = getDocDependencyLines(name).map((line) => ({
+            type: "paragraph",
+            children: [{ type: "text", value: line }],
+          }))
+
+          parent.children.splice(index, 1, ...paragraphs)
+
+          // The node count can change, so resume right after the replacement.
+          return index + paragraphs.length
         }
       }
 

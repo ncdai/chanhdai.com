@@ -35,6 +35,7 @@ import { Code } from "@/components/ui/typography"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { ComponentSource } from "@/components/component-source"
 import { AutoTypeTable } from "@/features/doc/components/auto-type-table"
+import { DocDependencies } from "@/features/doc/components/doc-dependencies"
 import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import { DocTestimonial } from "@/features/doc/components/doc-testimonial"
 import { DocTestimonial2 } from "@/features/doc/components/doc-testimonial-2"
@@ -63,6 +64,7 @@ const components: MDXRemoteProps["components"] = {
   code: Code,
   ComponentPreview,
   ComponentSource,
+  DocDependencies,
   CodeCollapsibleWrapper,
   CodeTabs,
   Callout,
