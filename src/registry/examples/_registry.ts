@@ -622,6 +622,21 @@ export const examples: Registry["items"] = [
     },
   },
   {
+    name: "logos-swap-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("logos-swap")],
+    files: [
+      {
+        path: "examples/logos-swap-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName:
+        "container mx-auto min-h-svh place-items-center-safe content-center-safe",
+    },
+  },
+  {
     name: "pull-quote-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("pull-quote")],

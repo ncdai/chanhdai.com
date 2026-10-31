@@ -19,6 +19,7 @@ import type {
 } from "@/registry/components/glow-card-grid/glow-card-grid"
 import type { IpodClassic } from "@/registry/components/ipod-classic"
 import type { LogosFlip } from "@/registry/components/logos-flip"
+import type { LogosSwap } from "@/registry/components/logos-swap"
 import type { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
 import type { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
 import type { ShimmeringText } from "@/registry/components/shimmering-text"
@@ -120,6 +121,11 @@ export type GlowCardProps = ComponentProps<typeof GlowCard>
 
 export type LogosFlipProps = Omit<
   ComponentProps<typeof LogosFlip>,
+  keyof Omit<ComponentProps<"div">, "children">
+>
+
+export type LogosSwapProps = Omit<
+  ComponentProps<typeof LogosSwap>,
   keyof Omit<ComponentProps<"div">, "children">
 >
 

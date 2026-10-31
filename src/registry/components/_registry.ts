@@ -779,6 +779,22 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/logos-flip",
   },
   {
+    name: "logos-swap",
+    type: "registry:component",
+    title: "Logos Swap",
+    description: "Swap logos one at a time in a scattered order.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/logos-swap/logos-swap.tsx",
+        type: "registry:component",
+        target: "@components/logos-swap.tsx",
+      },
+    ],
+    categories: ["marketing"],
+    docs: "https://chanhdai.com/components/logos-swap",
+  },
+  {
     name: "pull-quote",
     type: "registry:component",
     title: "Pull Quote",

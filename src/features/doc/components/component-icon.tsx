@@ -7,6 +7,7 @@ import {
   IconRipple,
 } from "@tabler/icons-react"
 import {
+  ArrowUpDownIcon,
   BookOpenIcon,
   BriefcaseBusinessIcon,
   ChevronsUpDownIcon,
@@ -266,6 +267,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
     </svg>
   ),
   "logos-flip": <SquareCenterlineDashedVertical />,
+  "logos-swap": <ArrowUpDownIcon />,
   "swipe-actions": (
     <svg
       viewBox="0 0 24 24"

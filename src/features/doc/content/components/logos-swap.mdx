@@ -1,0 +1,109 @@
+---
+title: Logos Swap
+description: Swap logos one at a time in a scattered order.
+image: https://assets.chanhdai.com/images/blog/logos-swap.webp
+createdAt: 2026-10-31
+updatedAt: 2026-10-31
+---
+
+<ComponentPreview name="logos-swap-demo" />
+
+<DocDependencies name="logos-swap" />
+
+## Features
+
+- Pauses while the page is hidden or the logos are off screen.
+
+## Use cases
+
+- Customer logos beside a sign-in form.
+- Trusted-by row under a landing page hero.
+- Sponsor row with more logos than fit at once.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/logos-swap
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="logos-swap" title="components/logos-swap.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogosSwap } from "@/components/logos-swap"
+```
+
+```tsx
+<LogosSwap>
+  <Logo />
+  <Logo />
+  <Logo />
+  <Logo />
+  <Logo />
+  <Logo />
+</LogosSwap>
+```
+
+Pass more logos than `columnCount`, otherwise nothing swaps.
+
+Set `--column-count` to wrap the logos onto fewer columns:
+
+```tsx
+<LogosSwap
+  columnCount={6}
+  className="[--column-count:3] sm:[--column-count:6]"
+/>
+```
+
+## API reference
+
+### LogosSwap
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="LogosSwapProps" />
+
+## Accessibility
+
+- With `prefers-reduced-motion`, swapping stops at the first `columnCount` logos, so put the most important ones first.
+- Screen readers only reach the logos on screen.
+- The swap auto-updates, so WCAG 2.2.2 applies: add a pause control, or set `aria-hidden` and list every logo elsewhere.
+
+## Credits
+
+- [Claude Platform](https://platform.claude.com/login)

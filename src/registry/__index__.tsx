@@ -660,6 +660,23 @@ export const Index: Record<string, any> = {
     categories: ["marketing"],
     meta: undefined,
   },
+  "logos-swap": {
+    name: "logos-swap",
+    description: "Swap logos one at a time in a scattered order.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/logos-swap/logos-swap.tsx",
+      type: "registry:component",
+      target: "@components/logos-swap.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/logos-swap/logos-swap.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "logos-swap"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["marketing"],
+    meta: undefined,
+  },
   "pull-quote": {
     name: "pull-quote",
     description: "Display a testimonial quote with author attribution and source link.",
@@ -2152,6 +2169,23 @@ export const Index: Record<string, any> = {
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/logos-flip-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "logos-flip-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"container mx-auto min-h-svh place-items-center-safe content-center-safe"},
+  },
+  "logos-swap-demo": {
+    name: "logos-swap-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/logos-swap-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/logos-swap-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "logos-swap-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,
