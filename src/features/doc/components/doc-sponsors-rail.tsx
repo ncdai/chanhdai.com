@@ -10,10 +10,9 @@ import { PAID_TIERS } from "@/features/sponsor/types"
 const RAIL_SPONSORS = SPONSORS.filter((sponsor) => PAID_TIERS.has(sponsor.tier))
 
 export function DocSponsorsRail() {
-  // overflow-hidden would clip outer focus outlines, so links draw them inset.
   return (
     <section
-      className="sticky bottom-4 z-51 mr-2 ml-auto w-[calc(100%-(--spacing(6)))] max-w-100 overflow-hidden rounded-xl border bg-background max-xl:hidden [&_a]:-outline-offset-2"
+      className="sticky bottom-4 z-51 mt-2 mr-2 ml-auto w-[calc(100%-(--spacing(6)))] max-w-100 overflow-hidden rounded-xl border bg-background max-xl:hidden [&_a]:-outline-offset-2"
       aria-labelledby="doc-sponsors-rail-heading"
     >
       <h2
@@ -21,15 +20,14 @@ export function DocSponsorsRail() {
         className="border-b border-line text-xs/none font-medium tracking-wide text-muted-foreground uppercase"
       >
         <Link
-          className="flex items-center justify-between p-2 pl-2.5 transition-[background-color,color] ease-out hover:bg-accent-muted hover:text-foreground"
+          className="flex h-8 items-center justify-between pr-2 pl-2.5 transition-[background-color,color] ease-out hover:bg-accent-muted hover:text-foreground"
           href="/sponsors"
         >
           Sponsors
-          <ArrowRightIcon className="size-3" />
+          <ArrowRightIcon className="size-3.5" />
         </Link>
       </h2>
 
-      {/* grow lets an odd last Silver fill its row instead of leaving a gap. */}
       <ul className="flex flex-wrap gap-px bg-line">
         {RAIL_SPONSORS.map((item) => (
           <li
