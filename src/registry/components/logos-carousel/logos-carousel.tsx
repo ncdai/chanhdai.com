@@ -29,7 +29,6 @@ const TRANSITION_DURATION = 0.5
 
 const EASE_OUT_QUAD = [0.25, 0.46, 0.45, 0.94] as const
 
-/** Direction the wave sweeps across the columns. */
 type WaveDirection = "ltr" | "rtl"
 
 export type LogosCarouselProps = {
@@ -128,16 +127,16 @@ const LogoColumn = memo(function LogoColumn({
     delay: waveIndex * (STAGGER_DELAY / 1000),
   }
 
-  const column = getColumnVariants(reduceMotion)
-  const logo = getLogoVariants(reduceMotion, transition)
+  const enterTransition = getEnterTransition(reduceMotion, transition)
+  const logo = getLogoVariants(reduceMotion, transition, enterTransition)
 
   return (
     <motion.div
       data-slot="logos-carousel-column"
       className="relative"
-      initial={column.initial}
-      animate={column.animate}
-      transition={transition}
+      initial={{ opacity: 0, transform: "translateY(60%)" }}
+      animate={{ opacity: 1, transform: "translateY(0%)" }}
+      transition={enterTransition}
     >
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -156,47 +155,44 @@ const LogoColumn = memo(function LogoColumn({
 })
 
 /**
- * Under reduced motion every variant collapses to a plain opacity cross-fade.
- * The logos still cycle, so no logo is dropped from the run; only the travel
- * and blur that can trigger vestibular discomfort are removed.
+ * `initial` and `animate` must not branch on reduced motion: the server renders
+ * `initial` without knowing the preference, and a mismatch leaves its transform
+ * stuck in the DOM. Travel and blur jump instead, while opacity is still 0.
  */
-function getColumnVariants(reduceMotion: boolean) {
-  if (reduceMotion) {
-    return {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-    }
-  }
+function getEnterTransition(
+  reduceMotion: boolean,
+  transition: Transition
+): Transition {
+  if (!reduceMotion) return transition
 
   return {
-    initial: { opacity: 0, transform: "translateY(60%)" },
-    animate: { opacity: 1, transform: "translateY(0%)" },
+    ...transition,
+    transform: { duration: 0 },
+    filter: { duration: 0 },
   }
 }
 
-function getLogoVariants(reduceMotion: boolean, transition: Transition) {
-  if (reduceMotion) {
-    return {
-      initial: { opacity: 0 },
-      animate: { opacity: 1, transition },
-      exit: { opacity: 0, transition },
-    }
-  }
-
+function getLogoVariants(
+  reduceMotion: boolean,
+  transition: Transition,
+  enterTransition: Transition
+) {
   return {
     initial: { opacity: 0, transform: "translateY(60%)", filter: "blur(2px)" },
     animate: {
       opacity: 1,
       transform: "translateY(0%)",
       filter: "blur(0px)",
-      transition,
+      transition: enterTransition,
     },
-    exit: {
-      opacity: 0,
-      transform: "translateY(-50%)",
-      filter: "blur(3px)",
-      transition,
-    },
+    exit: reduceMotion
+      ? { opacity: 0, transition }
+      : {
+          opacity: 0,
+          transform: "translateY(-50%)",
+          filter: "blur(3px)",
+          transition,
+        },
   }
 }
 
