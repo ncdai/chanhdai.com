@@ -3,7 +3,7 @@ title: Text Flip
 description: Animated text that cycles through items with a smooth flip transition.
 image: https://assets.chanhdai.com/images/blog/text-flip.webp
 createdAt: 2026-02-19
-updatedAt: 2026-02-20
+updatedAt: 2026-10-31
 ---
 
 <ComponentPreview
@@ -85,3 +85,8 @@ import { TextFlip } from "@/components/text-flip"
   path="src/registry/components/text-flip/text-flip.tsx"
   name="TextFlipProps"
 />
+
+## Accessibility
+
+- With `prefers-reduced-motion`, items still cycle but fade in place, without moving or blurring.
+- Passing `variants` replaces this fallback, so custom variants need their own.
