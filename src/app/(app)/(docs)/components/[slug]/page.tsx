@@ -30,7 +30,8 @@ import {
 import { DocNeighbourNav } from "@/features/doc/components/doc-neighbour-nav"
 import { LLMCopyButtonWithViewOptions } from "@/features/doc/components/doc-page-actions"
 import { DocShareMenu } from "@/features/doc/components/doc-share-menu"
-import { DocSponsors } from "@/features/doc/components/doc-sponsors"
+// import { DocSponsors } from "@/features/doc/components/doc-sponsors"
+import { DocSponsorsRail } from "@/features/doc/components/doc-sponsors-rail"
 import {
   findNeighbour,
   getComponentDocs,
@@ -302,7 +303,7 @@ export default async function Page({
 
         <DocFeedback category="components" slug={doc.slug} />
 
-        <DocSponsors />
+        {/* <DocSponsors /> */}
 
         <DocNeighbourNav previous={previous} next={next} />
 
@@ -311,10 +312,15 @@ export default async function Page({
         </div>
       </DocContentCol>
 
-      <DocRightCol>
-        <div className="sticky top-[calc(var(--doc-cols-top,0)+(--spacing(3)))] translate-x-2 opacity-0 in-data-doc-cols-ready:opacity-100">
-          <TOCMinimap items={toc} />
+      <DocRightCol className="flex flex-col pb-3.75">
+        {/* Ends the Minimap's sticky range above the rail. */}
+        <div className="flex-1">
+          <div className="sticky top-[calc(var(--doc-cols-top,0)+(--spacing(3)))] translate-x-2 opacity-0 in-data-doc-cols-ready:opacity-100">
+            <TOCMinimap items={toc} />
+          </div>
         </div>
+
+        <DocSponsorsRail />
       </DocRightCol>
     </>
   )
