@@ -34,7 +34,7 @@ import ShimmeringTextDemo2 from "@/registry/examples/shimmering-text-demo-02"
 import SlideToUnlockDemo from "@/registry/examples/slide-to-unlock-demo"
 import TestimonialSpotlightDemo from "@/registry/examples/testimonial-spotlight-demo"
 import TestimonialsMarqueeDemo from "@/registry/examples/testimonials-marquee-demo"
-import TextFlipDemo from "@/registry/examples/text-flip-demo"
+import TextSwapDemo from "@/registry/examples/text-swap-demo"
 import ThemeSwitcherDemo from "@/registry/examples/theme-switcher-demo"
 import ThemeToggleEffectDemo from "@/registry/examples/theme-toggle-effect-demo"
 import TOCMinimapDemo from "@/registry/examples/toc-minimap-demo"
@@ -180,7 +180,7 @@ export default function ComponentsShowcasePage() {
         </GridItem>
 
         <GridItem>
-          <TextFlipDemo />
+          <TextSwapDemo />
         </GridItem>
 
         <GridItem>

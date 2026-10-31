@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/tabs"
 import { components } from "@/registry/components/_registry"
 import { IconSwap, IconSwapItem } from "@/registry/components/icon-swap"
-import { TextFlip } from "@/registry/components/text-flip"
+import { TextSwap } from "@/registry/components/text-swap"
 
 import { CopyButton } from "./copy-button"
 import { getIconForPackageManager } from "./icons"
@@ -95,7 +95,7 @@ export function RegistryCommandAnimated() {
 
             <span>{registryConfig.namespace}/</span>
 
-            <TextFlip
+            <TextSwap
               className="text-foreground"
               as={motion.span}
               onIndexChange={(index: number) => {
@@ -103,7 +103,7 @@ export function RegistryCommandAnimated() {
               }}
             >
               {registryItemNames}
-            </TextFlip>
+            </TextSwap>
           </code>
         </pre>
       </Tabs>

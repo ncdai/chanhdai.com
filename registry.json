@@ -82,20 +82,20 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
-      "name": "text-flip",
-      "title": "Text Flip",
-      "description": "Animated text that cycles through items with a smooth flip transition.",
+      "name": "text-swap",
+      "title": "Text Swap",
+      "description": "Animated text that swaps through items with a fade transition.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "src/registry/components/text-flip/text-flip.tsx",
+          "path": "src/registry/components/text-swap/text-swap.tsx",
           "type": "registry:component",
-          "target": "@components/text-flip.tsx"
+          "target": "@components/text-swap.tsx"
         }
       ],
-      "docs": "https://chanhdai.com/components/text-flip",
+      "docs": "https://chanhdai.com/components/text-swap",
       "categories": [
         "text-effects"
       ],

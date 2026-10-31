@@ -3,12 +3,12 @@ import type { Registry } from "shadcn/schema"
 
 export const examples: Registry["items"] = [
   {
-    name: "text-flip-demo",
+    name: "text-swap-demo",
     type: "registry:example",
-    registryDependencies: [getRegistryItemUrl("text-flip")],
+    registryDependencies: [getRegistryItemUrl("text-swap")],
     files: [
       {
-        path: "examples/text-flip-demo.tsx",
+        path: "examples/text-swap-demo.tsx",
         type: "registry:example",
       },
     ],

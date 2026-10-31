@@ -35,7 +35,7 @@ const reducedMotionVariants: Variants = {
 
 type MotionElement = typeof motion.p | typeof motion.span | typeof motion.code
 
-export type TextFlipProps = {
+export type TextSwapProps = {
   /**
    * Motion element to render.
    * @defaultValue motion.p
@@ -46,7 +46,7 @@ export type TextFlipProps = {
   children: React.ReactNode[]
 
   /**
-   * Time in seconds between each flip.
+   * Time in seconds between each swap.
    * @defaultValue 2
    * */
   interval?: number
@@ -62,14 +62,14 @@ export type TextFlipProps = {
    * */
   variants?: Variants
 
-  /** Controls whether the flip animation runs. */
+  /** Controls whether the swap animation runs. */
   play?: boolean
 
-  /** Called with the new index after each flip. */
+  /** Called with the new index after each swap. */
   onIndexChange?: (index: number) => void
 }
 
-export function TextFlip({
+export function TextSwap({
   as: Component = motion.p,
   className,
   children,
@@ -80,7 +80,7 @@ export function TextFlip({
   play = true,
 
   onIndexChange,
-}: TextFlipProps) {
+}: TextSwapProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const shouldReduceMotion = useReducedMotion()
 

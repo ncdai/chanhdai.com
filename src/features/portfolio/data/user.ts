@@ -8,7 +8,7 @@ export const USER: User = {
   gender: "male",
   pronouns: "he/him",
   bio: "Creating with code. Small details matter.",
-  flipSentences: [
+  taglines: [
     "Creating with code. Small details matter.",
     "Design Engineer.",
     "Open source contributor.",
