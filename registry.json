@@ -984,6 +984,27 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "logos-swap",
+      "title": "Logos Swap",
+      "description": "Swap logos one at a time in a scattered order.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/logos-swap/logos-swap.tsx",
+          "type": "registry:component",
+          "target": "@components/logos-swap.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/logos-swap",
+      "categories": [
+        "marketing"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "pull-quote",
       "title": "Pull Quote",
       "description": "Display a testimonial quote with author attribution and source link.",
