@@ -30,6 +30,7 @@ import {
   SunDimIcon,
   TerminalIcon,
   VibrateIcon,
+  WalletCardsIcon,
   ZapIcon,
 } from "lucide-react"
 
@@ -284,6 +285,7 @@ const COMPONENT_ICONS: Record<string, React.ReactNode> = {
   "apple-carousel": <GalleryHorizontal />,
   "jpg-card-holder": <FileImageIcon />,
   foldable: <BookOpenIcon />,
+  wallet: <WalletCardsIcon />,
 }
 
 export function ComponentIcon({ slug }: { slug: string }) {

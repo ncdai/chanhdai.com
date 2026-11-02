@@ -997,6 +997,23 @@ export const Index: Record<string, any> = {
     categories: ["illustrations"],
     meta: undefined,
   },
+  "wallet": {
+    name: "wallet",
+    description: "Leather wallet with cards you can peek at and pull out.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/wallet/wallet.tsx",
+      type: "registry:component",
+      target: "@components/wallet.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/wallet/wallet.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "wallet"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["illustrations"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -2441,6 +2458,40 @@ export const Index: Record<string, any> = {
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/ipod-classic-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "ipod-classic-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center"},
+  },
+  "wallet-demo": {
+    name: "wallet-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/wallet-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/wallet-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "wallet-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center"},
+  },
+  "wallet-passes-demo": {
+    name: "wallet-passes-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/wallet-passes-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/wallet-passes-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "wallet-passes-demo"
       return { default: mod.default || mod[exportName] }
     }),
     categories: undefined,

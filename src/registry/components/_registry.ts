@@ -1061,4 +1061,20 @@ export const components: Registry["items"] = [
     categories: ["illustrations"],
     docs: "https://chanhdai.com/components/ipod-classic",
   },
+  {
+    name: "wallet",
+    type: "registry:component",
+    title: "Wallet",
+    description: "Leather wallet with cards you can peek at and pull out.",
+    dependencies: ["@base-ui/react", "motion"],
+    files: [
+      {
+        path: "components/wallet/wallet.tsx",
+        type: "registry:component",
+        target: "@components/wallet.tsx",
+      },
+    ],
+    categories: ["illustrations"],
+    docs: "https://chanhdai.com/components/wallet",
+  },
 ]

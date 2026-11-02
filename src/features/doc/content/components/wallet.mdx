@@ -1,0 +1,145 @@
+---
+title: Wallet
+description: Leather wallet with cards you can peek at and pull out.
+image: https://assets.chanhdai.com/images/blog/wallet.webp
+new: true
+createdAt: 2026-11-02
+updatedAt: 2026-11-02
+---
+
+<ComponentPreview name="wallet-demo" />
+
+<DocDependencies name="wallet" />
+
+## Features
+
+- Hover a card to peek at it, and the cards behind rise with it.
+- Click or tap a card to pull it out and show its content.
+- Cards rise out of the pocket once, when the wallet scrolls into view.
+
+## Use cases
+
+- Hero illustration on a pricing page, with one card per plan.
+- Saved payment methods on an account page.
+- Tickets, passes, and memberships in one place.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/wallet
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install @base-ui/react motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="wallet" title="components/wallet.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Wallet,
+  WalletCard,
+  WalletCardContent,
+  WalletCardDescription,
+  WalletCardHeader,
+  WalletCards,
+  WalletCardTitle,
+  WalletLabel,
+  WalletPocket,
+} from "@/components/wallet"
+```
+
+```tsx
+<Wallet>
+  <WalletCards>
+    <WalletCard className="bg-sky-600 text-white">
+      <WalletCardHeader>
+        <WalletCardTitle>Travel</WalletCardTitle>
+        <WalletCardDescription>•••• 1945</WalletCardDescription>
+      </WalletCardHeader>
+      <WalletCardContent>
+        <p>$6,120.50</p>
+      </WalletCardContent>
+    </WalletCard>
+  </WalletCards>
+
+  <WalletPocket>
+    <WalletLabel>Wallet</WalletLabel>
+  </WalletPocket>
+</Wallet>
+```
+
+Cards must be direct children of `WalletCards`. Everything inside scales with the wallet's width.
+
+## Composition
+
+Use the following composition to build a `Wallet`
+
+```text
+Wallet
+├── WalletCards
+│   └── WalletCard
+│       ├── WalletCardHeader
+│       │   ├── WalletCardTitle
+│       │   └── WalletCardDescription
+│       └── WalletCardContent
+└── WalletPocket
+    └── WalletLabel
+```
+
+## API reference
+
+`WalletCardTitle` renders an `h3`. Use its `render` prop to change the heading level. `WalletCard` has `data-active` while it is pulled out.
+
+## Examples
+
+### Passes
+
+Cards take any color and content, and the wallet makes room for more of them.
+
+<ComponentPreview name="wallet-passes-demo" />
+
+## Accessibility
+
+- Titles are buttons with `aria-expanded`.
+- `Escape` puts the card back and returns focus to its title.
+- Closed cards keep their content out of the tab order and away from screen readers.
+- With `prefers-reduced-motion`, cards jump into place and do not peek.
+
+## Credits
+
+- [Vercel](https://vercel.com/get/token-pass)

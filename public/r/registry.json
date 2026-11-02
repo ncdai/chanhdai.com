@@ -1438,6 +1438,28 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "wallet",
+      "title": "Wallet",
+      "description": "Leather wallet with cards you can peek at and pull out.",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/wallet/wallet.tsx",
+          "type": "registry:component",
+          "target": "@components/wallet.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/wallet",
+      "categories": [
+        "illustrations"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

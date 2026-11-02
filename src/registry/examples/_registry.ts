@@ -829,4 +829,32 @@ export const examples: Registry["items"] = [
       previewClassName: "flex min-h-svh items-center justify-center",
     },
   },
+  {
+    name: "wallet-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("wallet")],
+    files: [
+      {
+        path: "examples/wallet-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center",
+    },
+  },
+  {
+    name: "wallet-passes-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("wallet")],
+    files: [
+      {
+        path: "examples/wallet-passes-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center",
+    },
+  },
 ]
