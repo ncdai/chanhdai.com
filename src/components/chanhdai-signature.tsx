@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useEffectEvent, useRef } from "react"
+import type { AnimationPlaybackControls, MotionValue } from "motion/react"
 import {
   animate,
   motion,
@@ -9,6 +10,10 @@ import {
   useReducedMotion,
   useTransform,
 } from "motion/react"
+
+import { decodeAudioData, playSound } from "@/lib/soundcn/sound-engine"
+import type { SoundPlayback } from "@/lib/soundcn/sound-engine"
+import { cn } from "@/lib/utils"
 
 const STROKE =
   "M25.5 27.5002C28.4708 23.044 34.2001 17.205 34.2001 11.6002C34.2001 2.70798 23.6124 14.2638 22 16.0002C17.6584 20.7488 -7.38565 50.6764 3.60005 58.0002C14.643 65.7302 37.7281 15.1538 42 9.60018C43.6 7.50018 45.7001 4.30017 47 4.20017C52.3893 3.43029 27.3464 38.2978 29 39.4002C29.2674 39.5606 36.6214 32.5712 38.6 32.2002C40 31.9002 41.5 32.9002 43 32.8002C49.6707 32.3555 50.817 27.1067 53.2001 22.0002C56.3437 15.7129 60.7209 7.5514 66 2.80018C70.9065 -2.1063 67.5231 6.36937 66 8.40018C64.2855 10.6862 48.8139 31.4829 53.4001 32.4002C57.0278 32.9184 59.4023 23.8755 62 24.2002C63.1093 24.3586 63.2089 26.1661 62.7032 28.8268C62.326 30.8109 61.6122 33.2694 60.7293 35.8724C58.9094 41.2383 56.3709 47.2178 54.5824 50.9199C53.5253 53.1078 52.7302 54.5003 52.5 54.5003C51.942 54.5003 51.8029 53.7718 51.9442 52.5956C52.3641 49.0978 55.2632 41.6405 56.9953 37.6096C57.5692 36.2742 58.0149 35.3149 58.2001 35.0002C59.0815 33.5018 60.6934 31.1497 62.7032 28.8268C66.8186 24.0701 72.6025 19.4352 77.2 22.5002C79.3343 23.8341 79.1883 26.3211 77.5292 29.392C74.0949 35.7488 64.1775 44.6075 54.5824 50.9199C53.6985 51.5014 52.8173 52.0613 51.9442 52.5956C44.7668 56.9881 38.1337 59.6536 35 58.4002C30.1991 56.2664 35.0022 50.4599 37.2001 48.6002C39.0875 46.9487 47.4321 42.1659 56.9953 37.6096C58.2236 37.0244 59.472 36.443 60.7293 35.8724C66.4969 33.255 72.4539 30.8661 77.5292 29.392C83.9666 27.5224 88.9855 27.1247 90.4 29.6002C90.6137 29.974 90.7254 30.3234 90.7528 30.6478C91.0207 33.8147 83.2516 34.5939 83.8 32.4002C84.2423 30.189 88.2057 30.7164 90.7528 30.6478C91.4352 30.6294 92.0159 30.5682 92.4 30.4002C98.7493 27.8605 98.1056 20.8466 100 15.4002C100.657 13.5102 111.263 -3.9648 113.8 2.80018C116.105 10.2918 101.597 18.9509 100.6 25.6002C98.2931 39.4418 191.497 25.513 199.6 25.0002"
@@ -35,15 +40,33 @@ const PEN_ANGLE = 45
 
 const IN_VIEW_MARGIN = "0px 0px -96px 0px"
 
-export function ChanhDaiSignature(props: React.ComponentProps<"svg">) {
-  const ref = useRef<SVGSVGElement>(null)
+// The asset is normalized; this brings it in line with the site's other sounds.
+const SCRATCH_VOLUME = 0.13
+
+// Starts fetching the sound before the footer scrolls in, so it is decoded by
+// the time anyone can click.
+const SCRATCH_PRELOAD_MARGIN = "0px 0px 400px 0px"
+
+type SignatureValues = {
+  progress: MotionValue<number>
+  inkOpacity: MotionValue<number>
+  penLift: MotionValue<number>
+}
+
+export function ChanhDaiSignature({
+  className,
+  ...props
+}: React.ComponentProps<"button">) {
+  const ref = useRef<HTMLButtonElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
+  const controlsRef = useRef<AnimationPlaybackControls | null>(null)
   const isInView = useInView(ref, {
     once: true,
     amount: "all",
     margin: IN_VIEW_MARGIN,
   })
   const shouldReduceMotion = useReducedMotion()
+  const playScratch = usePenScratch(ref, !shouldReduceMotion)
 
   const progress = useMotionValue(0)
   const inkOpacity = useMotionValue(0)
@@ -58,61 +81,140 @@ export function ChanhDaiSignature(props: React.ComponentProps<"svg">) {
   const penY = useTransform(nibPoint, (point) => point.y)
   const penOpacity = useTransform(penLift, [0, 1], [1, 0])
 
+  function sign() {
+    controlsRef.current?.stop()
+    const values = { progress, inkOpacity, penLift }
+    controlsRef.current = shouldReduceMotion
+      ? fadeInSignature(values)
+      : drawSignature(values)
+  }
+
+  const onFirstView = useEffectEvent(() => {
+    // A click may have signed it already while the box was partly in view.
+    if (!controlsRef.current) sign()
+  })
+
   useEffect(() => {
-    if (!isInView) return
+    if (isInView) onFirstView()
+  }, [isInView])
 
-    if (shouldReduceMotion) {
-      progress.set(1)
-      const controls = animate(inkOpacity, 1, { duration: INK_FADE_DURATION })
-      return () => controls.stop()
-    }
+  useEffect(() => {
+    return () => controlsRef.current?.stop()
+  }, [])
 
-    const controls = animate([
-      [penLift, 0, { duration: PEN_LAND_DURATION, ease: PEN_EASE }],
-      // A bare `1` with no duration jumps to the start of the timeline and
-      // shows the round cap before the nib lands, hence the explicit `0`.
-      [inkOpacity, [0, 1], { duration: 0 }],
-      [progress, 1, { duration: DRAW_DURATION, ease: DRAW_EASE }],
-      [
-        penLift,
-        1,
-        {
-          duration: PEN_LIFT_DURATION,
-          ease: PEN_EASE,
-          at: `-${PEN_LIFT_OVERLAP}`,
-        },
-      ],
-    ])
-    return () => controls.stop()
-  }, [isInView, shouldReduceMotion, progress, inkOpacity, penLift])
+  function handleClick() {
+    // The first signing on scroll stays silent: only a click may start audio.
+    playScratch()
+    sign()
+  }
 
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 201 60"
-      // The pen reaches past the viewBox.
-      overflow="visible"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-      aria-hidden
+    <button
+      type="button"
+      className={cn(
+        "rounded-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+        className
+      )}
       {...props}
       ref={ref}
+      onClick={handleClick}
     >
-      <motion.path
-        ref={pathRef}
-        d={STROKE}
-        initial={{ pathSpacing: 2 }}
-        style={{ pathLength: progress, opacity: inkOpacity }}
-      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="block h-full w-auto"
+        fill="none"
+        viewBox="0 0 201 60"
+        // The pen reaches past the viewBox.
+        overflow="visible"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        aria-hidden
+      >
+        <motion.path
+          ref={pathRef}
+          d={STROKE}
+          initial={{ pathSpacing: 2 }}
+          style={{ pathLength: progress, opacity: inkOpacity }}
+        />
 
-      <motion.g style={{ x: penX, y: penY, opacity: penOpacity }}>
-        <TechnicalPen transform={`rotate(${PEN_ANGLE})`} />
-      </motion.g>
-    </svg>
+        <motion.g style={{ x: penX, y: penY, opacity: penOpacity }}>
+          <TechnicalPen transform={`rotate(${PEN_ANGLE})`} />
+        </motion.g>
+      </svg>
+
+      <span className="sr-only">Sign again</span>
+    </button>
   )
+}
+
+/**
+ * Loads the scratch sound only once the footer is near the viewport, keeping
+ * it out of the bundle for visitors who never scroll that far. The recording
+ * follows this exact timeline, silent pen landing included, so it plays from
+ * the click with no offset.
+ */
+function usePenScratch(
+  ref: React.RefObject<HTMLElement | null>,
+  enabled: boolean
+) {
+  const isNear = useInView(ref, { once: true, margin: SCRATCH_PRELOAD_MARGIN })
+  const dataUriRef = useRef<string | null>(null)
+  const playbackRef = useRef<Promise<SoundPlayback> | null>(null)
+
+  useEffect(() => {
+    if (!isNear || !enabled) return
+
+    let cancelled = false
+    void import("@/lib/soundcn/pen-scratch").then(
+      async ({ penScratchSound }) => {
+        await decodeAudioData(penScratchSound.dataUri)
+        if (!cancelled) dataUriRef.current = penScratchSound.dataUri
+      }
+    )
+    return () => {
+      cancelled = true
+    }
+  }, [isNear, enabled])
+
+  useEffect(() => {
+    return () => void playbackRef.current?.then((playback) => playback.stop())
+  }, [])
+
+  return function play() {
+    const dataUri = dataUriRef.current
+    if (!enabled || !dataUri) return
+
+    // Chained on the promise, so a quick second click still stops the first.
+    void playbackRef.current?.then((playback) => playback.stop())
+    playbackRef.current = playSound(dataUri, { volume: SCRATCH_VOLUME })
+  }
+}
+
+function drawSignature({ progress, inkOpacity, penLift }: SignatureValues) {
+  return animate([
+    [penLift, 0, { duration: PEN_LAND_DURATION, ease: PEN_EASE }],
+    // Explicit `from` values: a bare `1` with no duration jumps to the start of
+    // the timeline and shows the round cap before the nib lands, and a replay
+    // must restart the stroke from 0 rather than from where it stopped.
+    [inkOpacity, [0, 1], { duration: 0 }],
+    [progress, [0, 1], { duration: DRAW_DURATION, ease: DRAW_EASE }],
+    [
+      penLift,
+      1,
+      {
+        duration: PEN_LIFT_DURATION,
+        ease: PEN_EASE,
+        at: `-${PEN_LIFT_OVERLAP}`,
+      },
+    ],
+  ])
+}
+
+function fadeInSignature({ progress, inkOpacity }: SignatureValues) {
+  progress.set(1)
+  return animate(inkOpacity, [0, 1], { duration: INK_FADE_DURATION })
 }
 
 // `STROKE` never changes, so its length is measured once.
