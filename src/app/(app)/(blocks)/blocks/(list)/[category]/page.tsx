@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type { CollectionPage, WithContext } from "schema-dts"
 
+import { AD_PLACEMENTS } from "@/config/ads"
 import { blockCategories } from "@/config/registry"
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
@@ -123,7 +124,7 @@ export default async function BlocksPage({
         ])}
       />
 
-      <BlockList blocks={blocks} showAds />
+      <BlockList blocks={blocks} showAds={AD_PLACEMENTS.blocks} />
     </>
   )
 }

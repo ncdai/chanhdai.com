@@ -4,7 +4,7 @@ import { addQueryParams } from "@/utils/url"
 import { Grip, LayoutDashboard } from "lucide-react"
 import type { CollectionPage, WithContext } from "schema-dts"
 
-import { CARBON_ADS } from "@/config/ads"
+import { AD_PLACEMENTS, CARBON_ADS } from "@/config/ads"
 import { JSON_LD_ID } from "@/config/json-ld"
 import { registryConfig } from "@/config/registry"
 import { UTM_PARAMS, X_HANDLE } from "@/config/site"
@@ -207,7 +207,10 @@ export default function Page() {
 
         <div className="screen-line-bottom h-px" />
 
-        <ComponentList items={allComponents} showAds />
+        <ComponentList
+          items={allComponents}
+          showAds={AD_PLACEMENTS.components}
+        />
 
         <div className="screen-line-top flex flex-wrap justify-center gap-2 p-4 before:-top-px">
           <a

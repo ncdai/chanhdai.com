@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type { CollectionPage, WithContext } from "schema-dts"
 
+import { AD_PLACEMENTS } from "@/config/ads"
 import { JSON_LD_ID } from "@/config/json-ld"
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
@@ -83,7 +84,7 @@ export default function BlocksPage() {
         ])}
       />
 
-      <BlockList blocks={blocks} showAds />
+      <BlockList blocks={blocks} showAds={AD_PLACEMENTS.blocks} />
     </>
   )
 }

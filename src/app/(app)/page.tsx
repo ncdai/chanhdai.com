@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import type { ProfilePage, WithContext } from "schema-dts"
 
-import { CARBON_ADS } from "@/config/ads"
+import { AD_PLACEMENTS, CARBON_ADS } from "@/config/ads"
 import { JSON_LD_ID } from "@/config/json-ld"
 import { JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl, cn } from "@/lib/utils"
@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLdScript data={getProfilePageJsonLd()} />
-      {CARBON_ADS && <FloatingCarbonAds />}
+      {CARBON_ADS && AD_PLACEMENTS.home && <FloatingCarbonAds />}
 
       <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))]">
         <div className="mx-auto md:max-w-3xl">
