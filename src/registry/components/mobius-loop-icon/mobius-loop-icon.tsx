@@ -25,6 +25,7 @@ export function MobiusLoopIcon(props: SVGMotionProps<SVGSVGElement>) {
       {...props}
     >
       <motion.path
+        initial={{ d: circle1 }}
         animate={{
           d: [circle1, infinity, circle2],
         }}
