@@ -114,7 +114,16 @@ export function SiteFooterCad() {
               </a>
             </Field>
 
-            <Field label="Typeface">Geist</Field>
+            <Field label="Typeface">
+              <a
+                className="link-underline"
+                href="https://vercel.com/font"
+                target="_blank"
+                rel="noopener"
+              >
+                Geist
+              </a>
+            </Field>
 
             <Field className="col-span-2" label="Stack">
               <ul className="flex flex-col gap-1">
