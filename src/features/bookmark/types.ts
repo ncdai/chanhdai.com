@@ -38,6 +38,12 @@ export enum BookmarkCategory {
    * Software tools, libraries, and utilities that aid in development or design.
    */
   SOFTWARE = "Software",
+
+  /**
+   * Curated galleries and showcases to browse for visual ideas.
+   * Examples: Best Designs on X.com.
+   */
+  INSPIRATION = "Inspiration",
 }
 
 export type Bookmark = {
@@ -62,6 +68,7 @@ export const BOOKMARK_CATEGORY_TO_PARAM: Record<
   [BookmarkCategory.REFERENCE]: "reference",
   [BookmarkCategory.UI_LIBRARY]: "ui-library",
   [BookmarkCategory.SOFTWARE]: "software",
+  [BookmarkCategory.INSPIRATION]: "inspiration",
 }
 
 /** Serializable subset of a bookmark, safe to pass to client components. */
