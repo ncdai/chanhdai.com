@@ -71,11 +71,15 @@ const declaredVersions: Record<string, string | undefined> = {
   ...packageJson.devDependencies,
 }
 
-/** The stack in npm spec form: `["next@16.3.0", …]`. */
-export function getStack(): string[] {
-  return STACK_DEPENDENCIES.flatMap((dependency) => {
+export type StackEntry = {
+  name: string
+  version: string
+}
+
+export function getStack(): StackEntry[] {
+  return STACK_DEPENDENCIES.flatMap((name) => {
     // Drops the range prefix, so `^4.3.3` reads as a version.
-    const version = declaredVersions[dependency]?.replace(/^[^\d]*/, "")
-    return version ? [`${dependency}@${version}`] : []
+    const version = declaredVersions[name]?.replace(/^[^\d]*/, "")
+    return version ? [{ name, version }] : []
   })
 }
