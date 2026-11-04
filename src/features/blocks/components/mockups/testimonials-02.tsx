@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils"
 import { Avatar, Bar, Heading, MarqueeFade } from "./primitives"
 
 const ROWS = [
-  { offset: "-ml-[14%]", lines: [3, 2, 3, 2] },
-  { offset: "-ml-[30%]", lines: [1, 2, 1, 1, 2] },
+  { offset: "ml-[-14%]", lines: [3, 2, 3, 2] },
+  { offset: "ml-[-30%]", lines: [1, 2, 1, 1, 2] },
 ]
 
 export function Testimonials02Mockup() {
