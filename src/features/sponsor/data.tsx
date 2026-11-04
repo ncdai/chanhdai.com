@@ -1,4 +1,4 @@
-import type { Sponsor } from "./types"
+import type { IndividualSponsor, Sponsor } from "./types"
 
 export const SPONSORS: Sponsor[] = [
   {
@@ -182,5 +182,11 @@ export const SPONSORS: Sponsor[] = [
       )
     },
     tier: "silver",
+  },
+]
+
+export const INDIVIDUAL_SPONSORS: IndividualSponsor[] = [
+  {
+    githubUsername: "fadymondy",
   },
 ]

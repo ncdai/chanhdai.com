@@ -13,8 +13,9 @@ import {
   PageHeadingTitle,
 } from "@/components/page-heading"
 import { SponsorItem } from "@/features/sponsor/components/sponsor-item"
-import { SPONSORS } from "@/features/sponsor/data"
+import { INDIVIDUAL_SPONSORS, SPONSORS } from "@/features/sponsor/data"
 import type {
+  IndividualSponsor,
   Sponsor,
   SponsorTier,
   SponsorTierColumns,
@@ -100,6 +101,8 @@ export default function Page() {
           />
         ))}
 
+        <IndividualSponsorsGroup sponsors={INDIVIDUAL_SPONSORS} />
+
         <div className="flex justify-center py-4">
           <Button
             className="gap-2 border-none pr-2.5 pl-3"
@@ -118,22 +121,22 @@ export default function Page() {
   )
 }
 
-// Logos share a 320x96 viewBox, so min-height follows the logo width.
-const GRID_LAYOUTS: Record<
-  SponsorTierColumns,
-  { grid: string; guides: string[]; rowStart: string; item: string }
-> = {
+type GridLayout = {
+  grid: string
+  guides: string[]
+  rows: string
+}
+
+const GRID_LAYOUTS: Record<SponsorTierColumns, GridLayout> = {
   2: {
-    grid: "sm:grid-cols-2",
-    guides: ["border-r", "border-l"],
-    rowStart: "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom",
-    item: "min-h-22.5 [&_svg]:max-w-75",
+    grid: "grid-cols-1 sm:grid-cols-2",
+    guides: ["max-sm:hidden", "border-l max-sm:hidden"],
+    rows: "max-sm:*:screen-line-bottom sm:*:nth-[2n+1]:screen-line-bottom",
   },
   3: {
-    grid: "sm:grid-cols-3",
-    guides: ["border-r", "border-x", "border-l"],
-    rowStart: "sm:nth-[3n+1]:screen-line-top sm:nth-[3n+1]:screen-line-bottom",
-    item: "min-h-15 [&_svg]:max-w-50",
+    grid: "grid-cols-2 sm:grid-cols-3",
+    guides: ["", "border-l", "border-l max-sm:hidden"],
+    rows: "max-sm:*:nth-[2n+1]:screen-line-bottom sm:*:nth-[3n+1]:screen-line-bottom",
   },
 }
 
@@ -154,43 +157,88 @@ function SponsorsGroup({
 
   return (
     <div>
-      <h2 className="p-4 font-heading text-sm/none font-medium tracking-wider text-muted-foreground">
-        {title}
-      </h2>
+      <SponsorsGroupTitle>{title}</SponsorsGroupTitle>
 
-      <div className="relative">
-        <div
-          className={cn(
-            "pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden",
-            layout.grid
-          )}
-        >
-          {layout.guides.map((guide, index) => (
-            <div key={index} className={cn("border-line", guide)} />
-          ))}
-        </div>
-
-        <ul className={cn("grid grid-cols-1 gap-4", layout.grid)}>
-          {sponsors.map((item) => (
-            <li
-              key={item.name}
-              className={cn(
-                "max-sm:screen-line-top max-sm:screen-line-bottom",
-                layout.rowStart
-              )}
+      <SponsorsGrid layout={layout}>
+        {sponsors.map((item) => (
+          <li key={item.name}>
+            <SponsorItem
+              href={addQueryParams(item.url, UTM_PARAMS)}
+              aria-label={`${item.name} logo`}
+              data-tier={item.tier}
+              className="min-h-15 data-[tier=gold]:min-h-18 data-[tier=platinum]:min-h-22.5 [&_svg]:w-full [&_svg]:max-w-50 [&_svg]:shrink-0 data-[tier=gold]:[&_svg]:max-w-60 data-[tier=platinum]:[&_svg]:max-w-75"
             >
-              <SponsorItem
-                href={addQueryParams(item.url, UTM_PARAMS)}
-                aria-label={`${item.name} logo`}
-                data-tier={item.tier.replaceAll("_", "-")}
-                className={cn("[&_svg]:w-full [&_svg]:shrink-0", layout.item)}
-              >
-                <item.logo aria-hidden />
-              </SponsorItem>
-            </li>
-          ))}
-        </ul>
-      </div>
+              <item.logo aria-hidden />
+            </SponsorItem>
+          </li>
+        ))}
+      </SponsorsGrid>
     </div>
+  )
+}
+
+function IndividualSponsorsGroup({
+  sponsors,
+}: {
+  sponsors: IndividualSponsor[]
+}) {
+  if (sponsors.length === 0) {
+    return null
+  }
+
+  return (
+    <div>
+      <SponsorsGroupTitle>Individual Sponsors</SponsorsGroupTitle>
+
+      <SponsorsGrid layout={GRID_LAYOUTS[3]}>
+        {sponsors.map((item) => (
+          <li key={item.githubUsername}>
+            <SponsorItem
+              href={`https://github.com/${item.githubUsername}`}
+              rel="noopener"
+              className="h-12 justify-start px-4 font-mono text-sm"
+            >
+              <span className="truncate">{item.githubUsername}</span>
+            </SponsorItem>
+          </li>
+        ))}
+      </SponsorsGrid>
+    </div>
+  )
+}
+
+function SponsorsGrid({
+  layout,
+  children,
+}: {
+  layout: GridLayout
+  children: React.ReactNode
+}) {
+  return (
+    <div className="relative">
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 -z-1 grid",
+          layout.grid
+        )}
+      >
+        {layout.guides.map((guide, index) => (
+          <div key={index} className={cn("border-line", guide)} />
+        ))}
+      </div>
+
+      <ul className={cn("screen-line-top grid", layout.grid, layout.rows)}>
+        {children}
+      </ul>
+    </div>
+  )
+}
+
+function SponsorsGroupTitle(props: React.ComponentProps<"h2">) {
+  return (
+    <h2
+      className="p-4 font-heading text-sm/none font-medium tracking-wider text-muted-foreground"
+      {...props}
+    />
   )
 }
