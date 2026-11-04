@@ -225,7 +225,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/aarongarciah.webp",
     authorName: "Aarón García",
-    authorTagline: "Design Engineer at Base UI and MUI",
+    authorTagline: "Design Engineer at Base UI",
     url: "https://x.com/aarongarciah/status/2100546563567202571",
     quote: "super fun site! 📐",
     date: "2026-09-17",
@@ -243,7 +243,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/colmtuite.webp",
     authorName: "Colm Tuite",
-    authorTagline: "Director of Product at MUI",
+    authorTagline: "Design Engineering Director at Base UI",
     url: "https://x.com/colmtuite/status/2100269958475227352",
     quote: "beautiful site",
     date: "2026-09-17",
