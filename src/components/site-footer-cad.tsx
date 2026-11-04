@@ -118,8 +118,10 @@ export function SiteFooterCad() {
 
             <Field className="col-span-2" label="Stack">
               <ul className="flex flex-col gap-1">
-                {stack.map((entry) => (
-                  <li key={entry}>{entry}</li>
+                {stack.map(({ name, version }) => (
+                  <li key={name}>
+                    {name}@{version}
+                  </li>
                 ))}
               </ul>
             </Field>
