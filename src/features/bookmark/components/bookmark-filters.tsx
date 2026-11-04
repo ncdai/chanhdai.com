@@ -13,6 +13,7 @@ const CATEGORY_LABELS: Record<BookmarkCategoryParam, string> = {
   reference: "Reference",
   "ui-library": "UI Library",
   software: "Software",
+  inspiration: "Inspiration",
 }
 
 function FilterTab({

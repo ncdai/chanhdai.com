@@ -222,4 +222,10 @@ export const BOOKMARKS: Bookmark[] = [
     category: BookmarkCategory.UI_LIBRARY,
     bookmarkedAt: "2026-09-03",
   },
+  {
+    title: "Best Designs on X.com",
+    url: "https://bestdesignsonx.com",
+    category: BookmarkCategory.INSPIRATION,
+    bookmarkedAt: "2026-11-04",
+  },
 ]
