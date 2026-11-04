@@ -29,6 +29,8 @@ export default function AppleCarouselDemo() {
               <img
                 src={item.image}
                 alt={item.title}
+                loading="lazy"
+                decoding="async"
                 className="size-full object-cover"
               />
             </a>

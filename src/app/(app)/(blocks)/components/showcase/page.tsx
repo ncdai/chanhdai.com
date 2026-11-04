@@ -16,31 +16,37 @@ import {
   PageHeadingTitle,
 } from "@/components/page-heading"
 import { RemountOnThemeChange } from "@/components/remount-on-theme-change"
+import AppleCarouselDemo from "@/registry/examples/apple-carousel-demo"
 import AppleHelloEffectAllDemo from "@/registry/examples/apple-hello-effect-languages-demo"
 import BrandAssetsMenuDemo from "@/registry/examples/brand-assets-menu-demo"
+import ChevronsUpDownIconDemo from "@/registry/examples/chevrons-up-down-icon-demo"
 import CodeBlockCommandDemo from "@/registry/examples/code-block-command-demo"
 import CopyButtonDemo from "@/registry/examples/copy-button-demo"
 import DotGridSpotlightDemo from "@/registry/examples/dot-grid-spotlight-demo"
 import ElasticSliderDemo from "@/registry/examples/elastic-slider-demo"
 import FluidGradientTextDemo from "@/registry/examples/fluid-gradient-text-demo"
+import FoldableDemo from "@/registry/examples/foldable-demo"
 import GitHubContributionsDemo from "@/registry/examples/github-contributions-demo"
-import GitHubStarsDemo from "@/registry/examples/github-stars-demo"
 import GlowCardGridDemo from "@/registry/examples/glow-card-grid-demo"
-import HapticDemo from "@/registry/examples/haptic-demo"
 import IconSwapDemo from "@/registry/examples/icon-swap-demo"
+import IpodClassicDemo from "@/registry/examples/ipod-classic-demo"
+import JpgCardHolderDemo from "@/registry/examples/jpg-card-holder-demo"
+import LogosFlipDemo from "@/registry/examples/logos-flip-demo"
 import MiddleTruncationDemo from "@/registry/examples/middle-truncation-demo"
+import MobiusLoopIconDemo from "@/registry/examples/mobius-loop-icon-demo"
 import ScrollFadeEffectDemo from "@/registry/examples/scroll-fade-effect-demo"
 import ShimmeringTextDemo2 from "@/registry/examples/shimmering-text-demo-02"
 import SlideToUnlockDemo from "@/registry/examples/slide-to-unlock-demo"
+import SpotlightLogoDemo from "@/registry/examples/spotlight-logo-demo"
+import StatusButtonDemo from "@/registry/examples/status-button-demo"
+import SwipeActionsDemo from "@/registry/examples/swipe-actions-demo"
 import TestimonialSpotlightDemo from "@/registry/examples/testimonial-spotlight-demo"
 import TestimonialsMarqueeDemo from "@/registry/examples/testimonials-marquee-demo"
 import TextSwapDemo from "@/registry/examples/text-swap-demo"
-import ThemeSwitcherDemo from "@/registry/examples/theme-switcher-demo"
 import ThemeToggleEffectDemo from "@/registry/examples/theme-toggle-effect-demo"
-import TOCMinimapDemo from "@/registry/examples/toc-minimap-demo"
 import TwemojiDemo from "@/registry/examples/twemoji-demo"
+import WalletDemo from "@/registry/examples/wallet-demo"
 import WheelPickerDemo from "@/registry/examples/wheel-picker-demo"
-import WorkExperienceDemo from "@/registry/examples/work-experience-demo"
 
 import { GridItem } from "./grid-item"
 
@@ -152,27 +158,27 @@ export default function ComponentsShowcasePage() {
         </GridItem>
 
         <GridItem>
-          <ThemeSwitcherDemo />
+          <ThemeToggleEffectDemo />
         </GridItem>
 
         <GridItem className="md:row-span-2">
           <ElasticSliderDemo />
         </GridItem>
 
-        <GridItem>
-          <ThemeToggleEffectDemo />
+        <GridItem className="*:max-w-xs md:row-span-2">
+          <WalletDemo />
         </GridItem>
 
         <GridItem className="**:data-rwp-wrapper:rounded-xl md:row-span-2">
           <WheelPickerDemo />
         </GridItem>
 
-        <GridItem className="md:row-span-2">
-          <MiddleTruncationDemo />
-        </GridItem>
-
         <GridItem>
           <TestimonialSpotlightDemo />
+        </GridItem>
+
+        <GridItem className="md:row-span-2">
+          <MiddleTruncationDemo />
         </GridItem>
 
         <GridItem className="px-0 md:col-span-2 md:row-span-2">
@@ -181,6 +187,14 @@ export default function ComponentsShowcasePage() {
 
         <GridItem>
           <TextSwapDemo />
+        </GridItem>
+
+        <GridItem className="md:col-span-3">
+          <LogosFlipDemo />
+        </GridItem>
+
+        <GridItem className="pt-10 *:w-40 sm:*:w-44 md:row-span-2">
+          <JpgCardHolderDemo />
         </GridItem>
 
         <GridItem>
@@ -196,11 +210,23 @@ export default function ComponentsShowcasePage() {
         </GridItem>
 
         <GridItem>
+          <StatusButtonDemo />
+        </GridItem>
+
+        <GridItem className="overflow-clip px-0 **:data-[slot=apple-carousel-item]:h-96 md:col-span-2 md:row-span-2">
+          <AppleCarouselDemo />
+        </GridItem>
+
+        <GridItem>
           <IconSwapDemo />
         </GridItem>
 
         <GridItem>
           <TwemojiDemo />
+        </GridItem>
+
+        <GridItem className="md:row-span-2">
+          <FoldableDemo />
         </GridItem>
 
         <GridItem className="md:col-span-2 md:row-span-2">
@@ -211,6 +237,28 @@ export default function ComponentsShowcasePage() {
           <ShimmeringTextDemo2 />
         </GridItem>
 
+        <GridItem className="md:row-span-2">
+          <SpotlightLogoDemo />
+        </GridItem>
+
+        <GridItem className="*:max-w-xs md:row-span-3">
+          <IpodClassicDemo />
+        </GridItem>
+
+        <GridItem className="md:row-span-2">
+          <SwipeActionsDemo />
+        </GridItem>
+
+        <div className="grid grid-cols-2 gap-1">
+          <GridItem>
+            <MobiusLoopIconDemo />
+          </GridItem>
+
+          <GridItem>
+            <ChevronsUpDownIconDemo />
+          </GridItem>
+        </div>
+
         <GridItem className="overflow-hidden px-0 md:col-span-3">
           <TestimonialsMarqueeDemo />
         </GridItem>
@@ -219,26 +267,8 @@ export default function ComponentsShowcasePage() {
           <GlowCardGridDemo />
         </GridItem>
 
-        <div className="grid grid-cols-2 gap-1">
-          <GridItem>
-            <GitHubStarsDemo />
-          </GridItem>
-
-          <GridItem className="pr-0">
-            <TOCMinimapDemo />
-          </GridItem>
-        </div>
-
         <GridItem className="**:data-[slot=scroll-fade-effect-demo]:rounded-xl">
           <ScrollFadeEffectDemo />
-        </GridItem>
-
-        <GridItem className="items-start overflow-clip p-0 md:col-span-2 md:row-span-2">
-          <WorkExperienceDemo />
-        </GridItem>
-
-        <GridItem className="p-0">
-          <HapticDemo />
         </GridItem>
 
         <GridItem className="overflow-clip p-0 *:aspect-video *:w-full *:rounded-none *:border-none">
