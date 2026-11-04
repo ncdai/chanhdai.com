@@ -228,4 +228,11 @@ export const BOOKMARKS: Bookmark[] = [
     category: BookmarkCategory.INSPIRATION,
     bookmarkedAt: "2026-11-04",
   },
+  {
+    title: "aiforui.dev",
+    url: "https://aiforui.dev",
+    author: "Emil Kowalski",
+    category: BookmarkCategory.COURSE,
+    bookmarkedAt: "2026-11-04",
+  },
 ]
