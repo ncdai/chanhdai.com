@@ -123,7 +123,7 @@ const PRINT_LEVELS = [
     paper: "inset-y-[calc(var(--foldable-w)*var(--foldable-texel)*10)]",
     print:
       "inset-x-[calc(var(--foldable-w)*var(--foldable-texel)*8)] -inset-y-[calc(var(--foldable-w)*var(--foldable-texel)*2)]",
-    mask: "[mask-size:calc(100%_-_var(--foldable-w)*var(--foldable-texel)*16)_calc(100%_-_var(--foldable-w)*var(--foldable-texel)*16)]",
+    mask: "mask-size-[calc(100%-var(--foldable-w)*var(--foldable-texel)*16)_calc(100%-var(--foldable-w)*var(--foldable-texel)*16)]",
   },
   {
     level: 4,
@@ -133,7 +133,7 @@ const PRINT_LEVELS = [
     paper: "inset-y-[calc(var(--foldable-w)*var(--foldable-texel)*40)]",
     print:
       "inset-x-[calc(var(--foldable-w)*var(--foldable-texel)*32)] -inset-y-[calc(var(--foldable-w)*var(--foldable-texel)*8)]",
-    mask: "[mask-size:calc(100%_-_var(--foldable-w)*var(--foldable-texel)*64)_calc(100%_-_var(--foldable-w)*var(--foldable-texel)*64)]",
+    mask: "mask-size-[calc(100%-var(--foldable-w)*var(--foldable-texel)*64)_calc(100%-var(--foldable-w)*var(--foldable-texel)*64)]",
   },
   {
     level: 6,
@@ -143,7 +143,7 @@ const PRINT_LEVELS = [
     paper: "inset-y-[calc(var(--foldable-w)*var(--foldable-texel)*160)]",
     print:
       "inset-x-[calc(var(--foldable-w)*var(--foldable-texel)*128)] -inset-y-[calc(var(--foldable-w)*var(--foldable-texel)*32)]",
-    mask: "[mask-size:calc(100%_-_var(--foldable-w)*var(--foldable-texel)*256)_calc(100%_-_var(--foldable-w)*var(--foldable-texel)*256)]",
+    mask: "mask-size-[calc(100%-var(--foldable-w)*var(--foldable-texel)*256)_calc(100%-var(--foldable-w)*var(--foldable-texel)*256)]",
   },
 ]
 
