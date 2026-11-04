@@ -196,6 +196,8 @@ function TestimonialItem({
             className="grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/testimonial:grayscale-0"
             src={authorAvatar}
             alt={authorName}
+            loading="lazy"
+            decoding="async"
           />
           <TestimonialAvatarRing />
         </TestimonialAvatar>
