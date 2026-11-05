@@ -37,7 +37,7 @@ const healthSchema = z.object({
     installability: z.number(),
     hygiene: z.number(),
   }),
-  checkedAt: z.string().datetime(),
+  checkedAt: z.iso.datetime(),
 })
 
 const registriesSchema = z.array(
