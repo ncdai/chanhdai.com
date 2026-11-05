@@ -204,8 +204,8 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@openpanel/web':
-        specifier: ^1.4.1
-        version: 1.4.1
+        specifier: ^1.4.4
+        version: 1.4.4
       '@rexa-developer/tiks':
         specifier: ^0.1.9
         version: 0.1.9(react@19.3.1)
@@ -1426,11 +1426,11 @@ packages:
   '@open-draft/until@2.1.0':
     resolution: {integrity: sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==}
 
-  '@openpanel/sdk@1.3.1':
-    resolution: {integrity: sha512-mQ5xaBUGXnyRg3qYxwnbVaUYyW7w8u+munrWk/ClnqxEeR2j+FYPiA6noHbHMCFC2aZutYD5OoRzEvw3FBNFxw==}
+  '@openpanel/sdk@1.3.4':
+    resolution: {integrity: sha512-Qy/hW4Xgkf+xzIqGzaGV9Sy6lBiXseJ2I5aNV2BGGDgF48iWM21nv+xuIRuOLIHlaaMZSv2jAZv0deiW0vnR4g==}
 
-  '@openpanel/web@1.4.1':
-    resolution: {integrity: sha512-DgUWeocZw+b57YiJjefZPg+6sceR7TdOF8x7Ut75lu3CwcwqGi5jZNPXjikNemGL37aNWXCB4buhcoNan2j7RA==}
+  '@openpanel/web@1.4.4':
+    resolution: {integrity: sha512-wMjOaOpv8tggmYBF7HpkzxFPo3Aqr+vda0ZKBIoyW8kY9rN0o0SygkWR9XX46XETdA8aX8nR/TwE6CEyvPsJ3g==}
 
   '@opentelemetry/api-logs@0.203.0':
     resolution: {integrity: sha512-9B9RU0H7Ya1Dx/Rkyc4stuBZSGVQF27WigitInx2QQoj6KUpEFYPKoWjdFTunJYxmXmh17HeBvbMa1EhGyPmqQ==}
@@ -7878,11 +7878,11 @@ snapshots:
   '@open-draft/until@2.1.0':
     optional: true
 
-  '@openpanel/sdk@1.3.1': {}
+  '@openpanel/sdk@1.3.4': {}
 
-  '@openpanel/web@1.4.1':
+  '@openpanel/web@1.4.4':
     dependencies:
-      '@openpanel/sdk': 1.3.1
+      '@openpanel/sdk': 1.3.4
       '@rrweb/types': 2.0.0-alpha.20
       rrweb: 2.0.0-alpha.20
 
@@ -12820,7 +12820,7 @@ snapshots:
 
   rrweb-snapshot@2.0.1:
     dependencies:
-      postcss: 8.5.23
+      postcss: 8.5.28
 
   rrweb@2.0.0-alpha.20:
     dependencies:
