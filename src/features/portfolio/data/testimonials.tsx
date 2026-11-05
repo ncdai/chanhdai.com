@@ -243,7 +243,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://assets.chanhdai.com/avatars/x/colmtuite.webp",
     authorName: "Colm Tuite",
-    authorTagline: "Design Engineering Director at Base UI",
+    authorTagline: "Co-creator of Base UI",
     url: "https://x.com/colmtuite/status/2100269958475227352",
     quote: "beautiful site",
     date: "2026-09-17",
