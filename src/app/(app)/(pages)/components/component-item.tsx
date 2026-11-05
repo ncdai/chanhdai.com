@@ -12,6 +12,7 @@ export function ComponentItem({
       data-slot="component-item"
       className={cn(
         "flex items-center gap-2 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
+        "outline-none focus-visible:inset-ring-2 focus-visible:inset-ring-ring/50",
         className
       )}
       {...props}
