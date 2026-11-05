@@ -5,27 +5,6 @@ allowBuilds:
   puppeteer: false
   sharp: false
 minimumReleaseAge: 1440
-minimumReleaseAgeExclude:
-  - shadcn
-  - cn
-  - '@shadcn/*'
-  - '@base-ui/*'
-  - '@ncdai/*'
-  - '@types/react-dom@19.2.5'
-  - '@next/env@16.3.3'
-  - '@next/eslint-plugin-next@16.3.3'
-  - '@next/swc-darwin-arm64@16.3.3'
-  - '@next/swc-darwin-x64@16.3.3'
-  - '@next/swc-linux-arm64-gnu@16.3.3'
-  - '@next/swc-linux-arm64-musl@16.3.3'
-  - '@next/swc-linux-x64-gnu@16.3.3'
-  - '@next/swc-linux-x64-musl@16.3.3'
-  - '@next/swc-win32-arm64-msvc@16.3.3'
-  - '@next/swc-win32-x64-msvc@16.3.3'
-  - eslint-config-next@16.3.3
-  - eslint@10.9.1
-  - next@16.3.3
-  - geist@1.9.0
 overrides:
   '@types/react': 19.3.0
   '@types/react-dom': 19.3.0
