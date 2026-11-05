@@ -237,7 +237,7 @@ export const blocks: Registry["items"] = [
     title: "Social Proof 01",
     description: "A social proof section with a logos carousel.",
     type: "registry:block",
-    registryDependencies: [getRegistryItemUrl("logos-carousel")],
+    registryDependencies: [...getRegistryItemUrls("style", "logos-carousel")],
     files: [
       {
         path: "blocks/social-proof-01/social-proof-01.tsx",
@@ -248,6 +248,25 @@ export const blocks: Registry["items"] = [
     categories: ["marketing"],
     meta: {
       createdAt: "2026-06-26",
+      previewClassName: "min-h-svh content-center-safe",
+    },
+  },
+  {
+    name: "social-proof-02",
+    title: "Social Proof 02",
+    description: "A social proof section with a logos swap.",
+    type: "registry:block",
+    registryDependencies: [...getRegistryItemUrls("style", "logos-swap")],
+    files: [
+      {
+        path: "blocks/social-proof-02/social-proof-02.tsx",
+        type: "registry:component",
+        target: "@components/social-proof-02.tsx",
+      },
+    ],
+    categories: ["marketing"],
+    meta: {
+      createdAt: "2026-11-05",
       previewClassName: "min-h-svh content-center-safe",
     },
   },

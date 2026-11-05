@@ -1,5 +1,12 @@
 [
   {
+    "name": "social-proof-02",
+    "description": "A social proof section with a logos swap.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
     "name": "not-found-01",
     "description": "A 404 page with a playable brick breaker game.",
     "categories": [
