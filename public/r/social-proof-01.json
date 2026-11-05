@@ -5,6 +5,7 @@
   "author": "ncdai <dai@chanhdai.com>",
   "description": "A social proof section with a logos carousel.",
   "registryDependencies": [
+    "https://chanhdai.com/r/style.json",
     "https://chanhdai.com/r/logos-carousel.json"
   ],
   "files": [

@@ -1766,6 +1766,7 @@
       "title": "Social Proof 01",
       "description": "A social proof section with a logos carousel.",
       "registryDependencies": [
+        "https://chanhdai.com/r/style.json",
         "https://chanhdai.com/r/logos-carousel.json"
       ],
       "files": [
@@ -1777,6 +1778,31 @@
       ],
       "meta": {
         "createdAt": "2026-06-26",
+        "previewClassName": "min-h-svh content-center-safe"
+      },
+      "categories": [
+        "marketing"
+      ],
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
+      "name": "social-proof-02",
+      "title": "Social Proof 02",
+      "description": "A social proof section with a logos swap.",
+      "registryDependencies": [
+        "https://chanhdai.com/r/style.json",
+        "https://chanhdai.com/r/logos-swap.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/social-proof-02/social-proof-02.tsx",
+          "type": "registry:component",
+          "target": "@components/social-proof-02.tsx"
+        }
+      ],
+      "meta": {
+        "createdAt": "2026-11-05",
         "previewClassName": "min-h-svh content-center-safe"
       },
       "categories": [
