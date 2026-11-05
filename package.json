@@ -116,7 +116,7 @@
     "eslint": "9.39.5",
     "eslint-config-next": "16.4.3",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-better-tailwindcss": "^4.7.0",
+    "eslint-plugin-better-tailwindcss": "^4.10.0",
     "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
     "libphonenumber-metadata-generator": "^1.1.0",
