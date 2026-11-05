@@ -16,7 +16,7 @@ export function PanelTitleCopy({
   return (
     <CopyButton
       className={cn(
-        "absolute top-1 ml-1 size-7 shrink-0 border-none text-muted-foreground opacity-0 transition-opacity group-hover/panel-title:opacity-100",
+        "absolute top-1 ml-1 size-7 shrink-0 border-none text-muted-foreground opacity-0 transition-opacity group-hover/panel-title:opacity-100 group-has-focus-visible/panel-title:opacity-100",
         className
       )}
       variant="ghost"
