@@ -1,17 +1,12 @@
 "use client"
 
-import { useRef } from "react"
+import { memo, useRef } from "react"
 import { useInView, usePageInView } from "motion/react"
 
 import { cn } from "@/lib/utils"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import type { MarqueeContentProps } from "@/components/kibo-ui/marquee"
-import {
-  Marquee,
-  MarqueeContent,
-  MarqueeFade,
-  MarqueeItem,
-} from "@/components/kibo-ui/marquee"
+import type { MarqueeProps } from "@/components/marquee"
+import { Marquee, MarqueeContent, MarqueeItem } from "@/components/marquee"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -92,18 +87,17 @@ export function Testimonials() {
           </TestimonialSpotlight>
         ))}
 
-        <TestimonialsMarquee
-          className="sm:col-span-2"
-          data={TESTIMONIALS_1_FILTERED}
-          play={play}
-        />
+        <div className="col-span-2 overflow-clip rounded-xl border">
+          <TestimonialsMarquee data={TESTIMONIALS_1_FILTERED} play={play} />
 
-        <TestimonialsMarquee
-          className="sm:col-span-2"
-          data={TESTIMONIALS_2_FILTERED}
-          direction="right"
-          play={play}
-        />
+          <div className="h-2 border-y border-line" />
+
+          <TestimonialsMarquee
+            data={TESTIMONIALS_2_FILTERED}
+            side="right"
+            play={play}
+          />
+        </div>
       </PanelContent>
 
       {/* <div className="screen-line-top flex justify-center py-4">
@@ -136,33 +130,28 @@ export function Testimonials() {
 
 function TestimonialsMarquee({
   data,
-  direction,
+  side,
   play,
-  className,
 }: {
   data: TestimonialType[]
-  direction?: MarqueeContentProps["direction"]
+  side?: MarqueeProps["side"]
   play?: boolean
-  className?: string
 }) {
   return (
-    <Marquee className={className}>
-      <MarqueeFade side="left" />
-      <MarqueeFade side="right" />
-
-      <MarqueeContent
-        className="[&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!"
-        play={play}
-        pauseOnHover={false}
-        direction={direction}
-        speed={30}
-      >
+    <Marquee
+      className={cn("scroll-px-2", !play && "**:paused")}
+      side={side}
+      speed={30}
+      gap="0px"
+      autoFill
+    >
+      <MarqueeContent>
         {data.map((item) => (
-          <MarqueeItem
-            key={item.url}
-            className="mx-1 h-full w-xs rounded-xl bg-background inset-ring-1 inset-ring-foreground/20 transition-[background-color] ease-out hover:bg-accent-muted"
-          >
-            <TestimonialItem {...item} />
+          <MarqueeItem key={item.url} className="w-xs">
+            <TestimonialItem
+              className="border-r border-line bg-background transition-[background-color] ease-out hover:bg-accent-muted"
+              {...item}
+            />
           </MarqueeItem>
         ))}
       </MarqueeContent>
@@ -170,7 +159,8 @@ function TestimonialsMarquee({
   )
 }
 
-function TestimonialItem({
+// Toggling `play` re-renders every row, items only depend on static data
+const TestimonialItem = memo(function TestimonialItem({
   className,
   authorAvatar,
   authorName,
@@ -184,7 +174,7 @@ function TestimonialItem({
     <Testimonial className={cn("group/testimonial relative", className)}>
       <TestimonialQuote className="font-serif text-base">
         <p>
-          <Twemoji className="grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/testimonial:grayscale-0">
+          <Twemoji className="grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/testimonial:grayscale-0 group-has-focus-visible/testimonial:grayscale-0">
             {quote}
           </Twemoji>
         </p>
@@ -193,9 +183,11 @@ function TestimonialItem({
       <TestimonialAuthor>
         <TestimonialAvatar>
           <TestimonialAvatarImg
-            className="grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/testimonial:grayscale-0"
+            className="grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/testimonial:grayscale-0 group-has-focus-visible/testimonial:grayscale-0"
             src={authorAvatar}
             alt={authorName}
+            loading="lazy"
+            decoding="async"
           />
           <TestimonialAvatarRing />
         </TestimonialAvatar>
@@ -224,4 +216,4 @@ function TestimonialItem({
       )}
     </Testimonial>
   )
-}
+})
