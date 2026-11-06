@@ -3,6 +3,7 @@ import { getRegistryItemUrl } from "@/utils/registry"
 import type { RegistryItem } from "shadcn/schema"
 
 import { REGISTRY_ITEM_URLS } from "@/config/registry-item-urls"
+import { getUsedBy } from "@/features/doc/data/used-by"
 
 export type DocDependency = {
   name: string
@@ -74,6 +75,7 @@ export function getDocDependencyLines(
   return [
     toTextLine("Dependencies", packages),
     toTextLine("Registry dependencies", registryItems),
+    toTextLine("Used by", getUsedBy(name)),
   ].filter((line) => line !== null)
 }
 

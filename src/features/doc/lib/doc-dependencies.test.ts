@@ -13,6 +13,16 @@ vi.mock("@/config/registry-item-urls", () => ({
   REGISTRY_ITEM_URLS: { "@acme": "https://acme.dev/components/{name}" },
 }))
 
+vi.mock("@/features/doc/data/used-by", () => ({
+  getUsedBy: (name: string) =>
+    name === "gamma"
+      ? [
+          { name: "Acme", url: "https://acme.dev" },
+          { name: "Globex", url: "https://globex.dev" },
+        ]
+      : [],
+}))
+
 function createItem(item: Partial<RegistryItem> & { name: string }) {
   return { type: "registry:component", ...item } as RegistryItem
 }
@@ -116,6 +126,14 @@ describe("getDocDependencyLines", () => {
     ])
     expect(getDocDependencyLines("beta", items)).toEqual([
       "Registry dependencies: button",
+    ])
+  })
+
+  it("lists the products using the component", () => {
+    const items = [createItem({ name: "gamma" })]
+
+    expect(getDocDependencyLines("gamma", items)).toEqual([
+      "Used by: Acme, Globex",
     ])
   })
 })
