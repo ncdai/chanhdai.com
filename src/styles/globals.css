@@ -534,10 +534,6 @@
     @apply bg-selection text-selection-foreground;
   }
 
-  html {
-    @apply overscroll-y-none;
-  }
-
   body {
     @apply bg-background text-foreground antialiased;
     font-synthesis-weight: none;
