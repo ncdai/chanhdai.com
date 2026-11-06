@@ -3,7 +3,7 @@ title: Apple Carousel
 description: Infinite autoplay carousel with progress dots, inspired by Apple’s website.
 image: https://assets.chanhdai.com/images/blog/apple-carousel.webp
 createdAt: 2026-09-16
-updatedAt: 2026-09-26
+updatedAt: 2026-11-06
 ---
 
 <ComponentPreview
@@ -16,7 +16,7 @@ updatedAt: 2026-09-26
 
 ## Features
 
-- Loops endlessly, with neighboring cards peeking in.
+- Loops endlessly by default, with neighboring cards peeking in.
 - Autoplays with a progress dot, and pauses on interaction or when off screen.
 - Swipe, scroll, or click a dot, even mid-slide.
 
@@ -140,8 +140,8 @@ Reads the state of the enclosing `AppleCarouselItem`.
 />
 
 <Callout>
-  Item content also renders in up to two clones, so ids repeat and effects run
-  per copy. Check `isClone` before playing media, fetching data, or tracking
+  With `loop` on, item content also renders in clones, so ids repeat and effects
+  run per copy. Check `isClone` before playing media, fetching data, or tracking
   impressions.
 </Callout>
 

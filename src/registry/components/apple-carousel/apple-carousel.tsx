@@ -69,17 +69,23 @@ function getSlides(viewport: HTMLElement) {
 }
 
 function getSnapLeft(viewport: HTMLElement, slide: HTMLElement) {
+  let left: number
   if (getComputedStyle(slide).scrollSnapAlign.startsWith("start")) {
     const padding = parseFloat(
       getComputedStyle(viewport).scrollPaddingInlineStart
     )
-    return slide.offsetLeft - (padding || 0)
+    left = slide.offsetLeft - (padding || 0)
+  } else {
+    left = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2
   }
 
-  return slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2
+  // Without loop clones, the last cards can sit past the end of the track,
+  // and a spring aimed there would hit the wall mid-flight.
+  const maxLeft = viewport.scrollWidth - viewport.clientWidth
+  return Math.min(Math.max(left, 0), maxLeft)
 }
 
-function getNearestSlide(viewport: HTMLElement) {
+function getNearestSlide(viewport: HTMLElement, currentIndex: number) {
   let nearest: HTMLElement | undefined
   let minDistance = Infinity
 
@@ -87,7 +93,13 @@ function getNearestSlide(viewport: HTMLElement) {
     const distance = Math.abs(
       getSnapLeft(viewport, slide) - viewport.scrollLeft
     )
-    if (distance < minDistance) {
+    // Cards clamped to the end share a snap; keep the current one so its dot
+    // doesn't jump back once the scroll settles.
+    const isTie = Math.abs(distance - minDistance) < 1
+    if (
+      (distance < minDistance && !isTie) ||
+      (isTie && slide.dataset.index === String(currentIndex))
+    ) {
       minDistance = distance
       nearest = slide
     }
@@ -106,6 +118,7 @@ function getRealSlide(viewport: HTMLElement, index: number) {
 type AppleCarouselContextValue = {
   id: string
   index: number
+  loop: boolean
   isPlaying: boolean
   prefersReducedMotion: boolean
   viewportRef: RefObject<HTMLDivElement | null>
@@ -172,10 +185,17 @@ type AppleCarouselRootProps = ComponentProps<"div"> & {
    * @defaultValue 5000
    */
   duration?: number
+  /**
+   * Whether the last card wraps around to the first. Without it, autoplay
+   * stops on the last card and Play starts over from the first.
+   * @defaultValue true
+   */
+  loop?: boolean
 }
 
 function AppleCarouselRoot({
   duration = 5000,
+  loop = true,
   className,
   ...props
 }: AppleCarouselRootProps) {
@@ -196,7 +216,13 @@ function AppleCarouselRoot({
   const progressAnimationRef = useRef<Animation | null>(null)
   const scrollLeft = useMotionValue(0)
 
-  const play = () => setPlayback("playing")
+  const play = () => {
+    // Only a stopped non-loop gallery can hold a finished progress.
+    const timing = progressAnimationRef.current?.effect?.getComputedTiming()
+    if (timing?.progress === 1) goTo(0)
+    setPlayback("playing")
+  }
+
   const pause = () => setPlayback("paused")
 
   const isOwnScroll = () =>
@@ -228,14 +254,14 @@ function AppleCarouselRoot({
     // through must not flash their dots.
     if (scrollAnimationRef.current) return
     const viewport = viewportRef.current
-    const slide = viewport && getNearestSlide(viewport)
+    const slide = viewport && getNearestSlide(viewport, index)
     if (slide) setIndex(Number(slide.dataset.index))
   }
 
   // Clone and real card look identical, so the jump is invisible.
   const wrapFromClone = () => {
     const viewport = viewportRef.current
-    const slide = viewport && getNearestSlide(viewport)
+    const slide = viewport && getNearestSlide(viewport, index)
     if (!viewport || !slide?.hasAttribute("data-clone")) return
 
     const realSlide = getRealSlide(viewport, Number(slide.dataset.index))
@@ -287,8 +313,10 @@ function AppleCarouselRoot({
 
   const goNext = () => {
     const viewport = viewportRef.current
-    const next = viewport && getNearestSlide(viewport)?.nextElementSibling
+    if (!viewport) return
+    const next = getNearestSlide(viewport, index)?.nextElementSibling
     if (next instanceof HTMLElement) scrollToSlide(next)
+    else pause()
   }
 
   const onViewportScroll = useEffectEvent(() => {
@@ -378,6 +406,7 @@ function AppleCarouselRoot({
       value={{
         id,
         index,
+        loop,
         isPlaying,
         prefersReducedMotion,
         viewportRef,
@@ -402,14 +431,15 @@ function AppleCarouselContent({
   children,
   ...props
 }: ComponentProps<"div">) {
-  const { index, viewportRef } = useAppleCarousel()
+  const { index, loop, viewportRef } = useAppleCarousel()
   const isHydrated = useIsHydrated()
 
   const items = Children.toArray(children).filter(isValidElement)
   const count = items.length
   // Clones wait for hydration: without them the first card already sits at
   // scrollLeft 0, so the server markup renders the right card with no script.
-  const cloneCount = isHydrated && count > 1 ? Math.min(CLONE_COUNT, count) : 0
+  const cloneCount =
+    loop && isHydrated && count > 1 ? Math.min(CLONE_COUNT, count) : 0
 
   const alignToCurrent = useEffectEvent(() => {
     const viewport = viewportRef.current
@@ -417,8 +447,9 @@ function AppleCarouselContent({
     if (viewport && slide) viewport.scrollLeft = getSnapLeft(viewport, slide)
   })
 
+  // Adding or dropping clones shifts every card, including when loop toggles.
   useLayoutEffect(() => {
-    if (cloneCount > 0) alignToCurrent()
+    alignToCurrent()
   }, [cloneCount])
 
   return (
