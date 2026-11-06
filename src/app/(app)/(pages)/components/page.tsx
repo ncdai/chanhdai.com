@@ -27,11 +27,8 @@ import { RegistryCommandAnimated } from "@/components/registry-command-animated"
 import { RegistryHealth } from "@/components/registry-health"
 import { getComponentDocs } from "@/features/doc/data/documents"
 import type { Doc } from "@/features/doc/types/document"
-import {
-  HandwrittenArrow,
-  HandwrittenNote,
-} from "@/features/portfolio/components/handwritten-note"
 
+import { ComponentBenefits } from "./component-benefits"
 import {
   ComponentItem,
   ComponentItemDot,
@@ -139,6 +136,12 @@ export default function Page() {
 
         <div className="h-4" />
 
+        <div className="screen-line-bottom h-px" />
+
+        <ComponentBenefits />
+
+        <div className="stripe-divider" />
+
         <div className="screen-line-top screen-line-bottom">
           <RegistryCommandAnimated />
         </div>
@@ -146,20 +149,6 @@ export default function Page() {
         <div className="stripe-divider" />
 
         <div className="screen-line-bottom h-px" />
-
-        <div className="relative">
-          <HandwrittenNote
-            className="top-4 right-full mr-4 hidden w-36 flex-col items-end lg:flex"
-            aria-hidden
-          >
-            <span className="-rotate-6 text-right">
-              free to copy
-              <span className="block" />
-              yours to keep
-            </span>
-            <HandwrittenArrow className="-scale-x-100 -rotate-6" />
-          </HandwrittenNote>
-        </div>
 
         <div className="flex items-center gap-1.5 p-1.5 pl-4">
           <h2 className="flex-1 text-sm/none font-medium tracking-wider text-muted-foreground">
