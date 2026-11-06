@@ -1,6 +1,7 @@
 import { blockCategories, registryConfig } from "@/config/registry"
 import { SITE_INFO } from "@/config/site"
 import { compareBlocksByCreatedAtDesc } from "@/lib/blocks"
+import { markdownResponse } from "@/lib/markdown-response"
 import { blocks } from "@/registry/blocks/_registry"
 
 const categorySections = blockCategories
@@ -50,9 +51,5 @@ export const revalidate = false
 export const dynamic = "force-static"
 
 export async function GET() {
-  return new Response(content, {
-    headers: {
-      "Content-Type": "text/markdown;charset=utf-8",
-    },
-  })
+  return markdownResponse(content)
 }
