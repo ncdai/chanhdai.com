@@ -1,3 +1,4 @@
+import { markdownResponse } from "@/lib/markdown-response"
 import { PROJECTS } from "@/features/portfolio/data/projects"
 
 const content = `# Projects
@@ -13,9 +14,5 @@ export const revalidate = false
 export const dynamic = "force-static"
 
 export async function GET() {
-  return new Response(content, {
-    headers: {
-      "Content-Type": "text/markdown;charset=utf-8",
-    },
-  })
+  return markdownResponse(content)
 }

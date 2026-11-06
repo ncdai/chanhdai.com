@@ -1,4 +1,5 @@
 import { SITE_INFO } from "@/config/site"
+import { markdownResponse } from "@/lib/markdown-response"
 import { getBlogPosts, getComponentDocs } from "@/features/doc/data/documents"
 
 const allComponents = getComponentDocs()
@@ -32,9 +33,5 @@ export const revalidate = false
 export const dynamic = "force-static"
 
 export async function GET() {
-  return new Response(content, {
-    headers: {
-      "Content-Type": "text/markdown;charset=utf-8",
-    },
-  })
+  return markdownResponse(content, { negotiated: true })
 }

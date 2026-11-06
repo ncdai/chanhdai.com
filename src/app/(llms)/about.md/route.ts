@@ -1,3 +1,4 @@
+import { markdownResponse } from "@/lib/markdown-response"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
@@ -26,9 +27,5 @@ export const revalidate = false
 export const dynamic = "force-static"
 
 export async function GET() {
-  return new Response(content, {
-    headers: {
-      "Content-Type": "text/markdown;charset=utf-8",
-    },
-  })
+  return markdownResponse(content)
 }

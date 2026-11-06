@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 
+import { markdownResponse } from "@/lib/markdown-response"
 import { getAllDocs } from "@/features/doc/data/documents"
 import { getLLMText } from "@/features/doc/lib/get-llm-text"
 
@@ -28,9 +29,5 @@ export async function GET(
     notFound()
   }
 
-  return new Response(await getLLMText(post), {
-    headers: {
-      "Content-Type": "text/markdown;charset=utf-8",
-    },
-  })
+  return markdownResponse(await getLLMText(post), { negotiated: true })
 }
