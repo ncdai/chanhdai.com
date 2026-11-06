@@ -3,13 +3,19 @@ import Link from "next/link"
 import { addQueryParams } from "@/utils/url"
 
 import { UTM_PARAMS } from "@/config/site"
+import { getUsedBy } from "@/features/doc/data/used-by"
 import type { DocDependency } from "@/features/doc/lib/doc-dependencies"
 import { getDocDependencies } from "@/features/doc/lib/doc-dependencies"
 
 export function DocDependencies({ name }: { name: string }) {
   const { packages, registryItems } = getDocDependencies(name)
+  const usedBy = getUsedBy(name).map(({ name, url }) => ({ name, href: url }))
 
-  if (packages.length === 0 && registryItems.length === 0) {
+  if (
+    packages.length === 0 &&
+    registryItems.length === 0 &&
+    usedBy.length === 0
+  ) {
     return null
   }
 
@@ -18,6 +24,8 @@ export function DocDependencies({ name }: { name: string }) {
       <dl className="screen-line-top screen-line-bottom grid grid-cols-1 gap-px overflow-x-clip bg-line py-px sm:auto-cols-fr sm:grid-flow-col">
         <DependencyField label="Dependencies" dependencies={packages} />
         <DependencyField label="Registry" dependencies={registryItems} />
+        {/* Followed links credit the products that use the component. */}
+        <DependencyField label="Used by" dependencies={usedBy} follow />
       </dl>
     </div>
   )
@@ -26,9 +34,11 @@ export function DocDependencies({ name }: { name: string }) {
 function DependencyField({
   label,
   dependencies,
+  follow = false,
 }: {
   label: string
   dependencies: DocDependency[]
+  follow?: boolean
 }) {
   if (dependencies.length === 0) {
     return null
@@ -43,7 +53,7 @@ function DependencyField({
         <ul className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-[0.8125rem]/5">
           {dependencies.map((dependency) => (
             <li key={dependency.name}>
-              <DependencyName {...dependency} />
+              <DependencyName {...dependency} follow={follow} />
             </li>
           ))}
         </ul>
@@ -52,7 +62,11 @@ function DependencyField({
   )
 }
 
-function DependencyName({ name, href }: DocDependency) {
+function DependencyName({
+  name,
+  href,
+  follow,
+}: DocDependency & { follow: boolean }) {
   if (!href) {
     return name
   }
@@ -64,7 +78,7 @@ function DependencyName({ name, href }: DocDependency) {
       className="link-underline"
       href={(isExternal ? addQueryParams(href, UTM_PARAMS) : href) as Route}
       target="_blank"
-      rel={isExternal ? "nofollow noopener" : "noopener"}
+      rel={isExternal && !follow ? "nofollow noopener" : "noopener"}
     >
       {name}
     </Link>
