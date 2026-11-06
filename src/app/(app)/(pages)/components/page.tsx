@@ -140,13 +140,13 @@ export default function Page() {
 
         <ComponentBenefits />
 
-        <div className="stripe-divider" />
+        <div className="h-4" />
 
         <div className="screen-line-top screen-line-bottom">
           <RegistryCommandAnimated />
         </div>
 
-        <div className="stripe-divider" />
+        <div className="h-4" />
 
         <div className="screen-line-bottom h-px" />
 
