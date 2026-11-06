@@ -21,7 +21,7 @@ export function ComponentBenefits() {
             </svg>
           }
           title="Built with care"
-          description="Every pixel and interaction tuned by hand."
+          description="Every pixel and interaction carefully refined."
         />
         <Benefit
           icon={
@@ -38,7 +38,7 @@ export function ComponentBenefits() {
             </svg>
           }
           title="One-command install"
-          description="Built into the shadcn CLI, no setup needed."
+          description="Add components with one shadcn command."
         />
         <Benefit
           icon={
@@ -56,7 +56,7 @@ export function ComponentBenefits() {
             </svg>
           }
           title="Yours to own"
-          description="Source lands in your repo, edit freely."
+          description="The source is in your repo. Make it your own."
         />
         <Benefit
           icon={
@@ -73,7 +73,7 @@ export function ComponentBenefits() {
             </svg>
           }
           title="Agent-ready"
-          description="Every doc has a Markdown version for agents."
+          description="Markdown docs help agents use each one."
         />
       </ul>
     </section>
@@ -92,8 +92,8 @@ function Benefit({
   return (
     <li className="screen-line-bottom flex gap-3 border-line p-4 sm:odd:border-r">
       <IconTile aria-hidden>{icon}</IconTile>
-      <div className="flex-1 space-y-1">
-        <h3 className="text-sm/6 font-medium">{title}</h3>
+      <div className="flex-1">
+        <h3 className="mb-1 text-base/6 font-medium">{title}</h3>
         <p className="text-sm text-pretty text-muted-foreground">
           {description}
         </p>
