@@ -4,6 +4,58 @@ import type { Craft } from "./types"
 export const CRAFTS: Craft[] = [
   {
     description:
+      "CAD-style Footer: a site footer laid out like a drawing’s title block, signed and with a dimensioned logotype.",
+    media: {
+      type: "video",
+      src: "https://assets.chanhdai.com/videos/craft/2117966971732148487-1600w.mp4",
+      poster:
+        "https://assets.chanhdai.com/images/craft/2117966971732148487.webp",
+      width: 1600,
+      height: 1004,
+    },
+    createdAt: "2026-11-04",
+    xPostUrl: "https://x.com/iamncdai/status/2117966971732148487",
+  },
+  {
+    description:
+      "Wallet: a leather wallet with cards you can peek at and pull out, inspired by Vercel’s Token Pass.",
+    media: {
+      type: "video",
+      src: "https://assets.chanhdai.com/videos/craft/2117279668240044542-1600w.mp4",
+      poster:
+        "https://assets.chanhdai.com/images/craft/2117279668240044542.webp",
+      width: 1600,
+      height: 1004,
+    },
+    createdAt: "2026-11-02",
+    registryHref: "/components/wallet",
+    xPostUrl: "https://x.com/iamncdai/status/2117279668240044542",
+  },
+  {
+    description:
+      "Avatars: a new look for the two of us, inspired by the Apple CEO’s avatar.",
+    media: {
+      type: "gallery",
+      images: [
+        {
+          src: "https://assets.chanhdai.com/images/craft/2115779338037829742-1.webp",
+          alt: "A line drawing in a circle of two people in face masks making peace signs behind a MacBook, one in glasses and one with long hair.",
+          width: 1200,
+          height: 675,
+        },
+        {
+          src: "https://assets.chanhdai.com/images/craft/2115779338037829742-2.webp",
+          alt: "The same avatar shaded in grainy black and white on a black background, lit by the glowing Apple logo on the MacBook.",
+          width: 1200,
+          height: 675,
+        },
+      ],
+    },
+    createdAt: "2026-10-29",
+    xPostUrl: "https://x.com/iamncdai/status/2115779338037829742",
+  },
+  {
+    description:
       "iPod Classic: a click wheel iPod for the web, inspired by Apple Music’s 404 page.",
     media: {
       type: "video",
