@@ -19,7 +19,7 @@ export function CraftGallery({ images }: { images: CraftImage[] }) {
   const isPortrait = height > width
 
   return (
-    <AppleCarouselRoot>
+    <AppleCarouselRoot loop={false}>
       {/* Only the next card peeks in, on the right and unfaded: fading
           washes dark photos out on light themes. */}
       <AppleCarouselContent className="scroll-ps-(--apple-carousel-padding) [--apple-carousel-gap:--spacing(2)] [--apple-carousel-padding:--spacing(2)] [--craft-gallery-peek:--spacing(10)]">
