@@ -38,7 +38,7 @@ export function TestimonialSpotlight({
       ref={itemRef}
       data-slot="testimonial-spotlight"
       className={cn(
-        "group/testimonial-spotlight relative overflow-hidden rounded-xl bg-card/50 inset-ring-1 inset-ring-foreground/10",
+        "group/testimonial-spotlight relative overflow-hidden rounded-xl bg-card/50 inset-ring-1 inset-ring-foreground/10 [--spotlight-color:rgba(15,23,42,0.05)] dark:[--spotlight-color:rgba(255,255,255,0.15)]",
         className
       )}
       onMouseMove={handleMouseMove}
@@ -47,7 +47,7 @@ export function TestimonialSpotlight({
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out group-hover/testimonial-spotlight:opacity-(--spotlight-opacity,0.5)"
         style={{
-          background: `radial-gradient(circle at var(--spotlight-x) var(--spotlight-y), var(--spotlight-color,rgba(255,255,255,0.2)), transparent var(--spotlight-size,60%))`,
+          background: `radial-gradient(circle at var(--spotlight-x) var(--spotlight-y), var(--spotlight-color,rgba(15,23,42,0.05)), transparent var(--spotlight-size,60%))`,
         }}
       />
       {children}
