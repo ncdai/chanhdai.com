@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useId, useState } from "react"
+import { useTextMorph } from "torph/react"
 
 import { InlineScript } from "@/components/inline-script"
 
@@ -9,30 +10,35 @@ import { IntroItem, IntroItemContent, IntroItemIcon } from "./intro-item"
 export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
   const uid = useId()
   const ids = {
-    time: `lt-time-${uid}`,
+    hour: `lt-hour-${uid}`,
+    minute: `lt-minute-${uid}`,
+    period: `lt-period-${uid}`,
     diff: `lt-diff-${uid}`,
     hands: `lt-hands-${uid}`,
   }
 
-  const [timeString, setTimeString] = useState<string>("")
-  const [diffText, setDiffText] = useState<string>("")
+  const [time, setTime] = useState({ hour: "", minute: "", period: "" })
+  const [diffText, setDiffText] = useState("")
   // Deterministic 12:00 for SSR; the inline script corrects it before paint.
-  const [handsPath, setHandsPath] = useState<string>(() =>
-    clockHandsPath(12, 0)
-  )
+  const [handsPath, setHandsPath] = useState(() => clockHandsPath(12, 0))
 
   useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>
+
     const updateTime = () => {
-      const { time, hour, minute, diff } = computeClock(timeZone)
-      setTimeString(time)
-      setHandsPath(clockHandsPath(hour, minute))
+      const { time, diff, hour, minute } = computeClock(timeZone)
+      setTime(time)
       setDiffText(diff)
+      setHandsPath(clockHandsPath(hour, minute))
+
+      // Aligned to the wall-clock minute so the morph lands when the minute
+      // actually changes, not up to 59s later.
+      timeout = setTimeout(updateTime, 60000 - (Date.now() % 60000))
     }
 
     updateTime()
-    const interval = setInterval(updateTime, 60000)
 
-    return () => clearInterval(interval)
+    return () => clearTimeout(timeout)
   }, [timeZone])
 
   return (
@@ -54,9 +60,11 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
       </IntroItemIcon>
 
       <IntroItemContent>
-        <span id={ids.time} suppressHydrationWarning>
-          {timeString}
-        </span>
+        {/* Split so each number rolls by place value; torph treats "11:05"
+            as text because of the colon. */}
+        <MorphText id={ids.hour} value={time.hour} />:
+        <MorphText id={ids.minute} value={time.minute} />{" "}
+        <MorphText id={ids.period} value={time.period} />
         <span
           id={ids.diff}
           className="text-muted-foreground"
@@ -72,8 +80,41 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
   )
 }
 
-// Serialized via `.toString()` into the pre-hydration script, so it must stay
-// self-contained: globals and arguments only, no module-scope references.
+function MorphText({ id, value }: { id: string; value: string }) {
+  const { ref, update } = useTextMorph({ duration: 600 })
+
+  // The first value adopts the text painted by the inline script, unanimated.
+  useEffect(() => {
+    update(value)
+  }, [value, update])
+
+  return (
+    <span
+      ref={ref}
+      id={id}
+      // Empty innerHTML leaves the children to torph instead of React.
+      dangerouslySetInnerHTML={{ __html: "" }}
+      suppressHydrationWarning
+    />
+  )
+}
+
+type CurrentLocalTimeItemProps = {
+  timeZone: string
+}
+
+type ClockIds = {
+  hour: string
+  minute: string
+  period: string
+  diff: string
+  hands: string
+}
+
+// The functions below are serialized via `.toString()` into the pre-hydration
+// script, so they must stay self-contained: globals and arguments only, no
+// module-scope references.
+
 function clockHandsPath(hour: number, minute: number) {
   const h = hour % 12
   const round = (n: number) => Math.round(n * 1000) / 1000
@@ -89,19 +130,22 @@ function clockHandsPath(hour: number, minute: number) {
   return `M12 12 L${hx} ${hy} M12 12 L${mx} ${my}`
 }
 
-// Self-contained (globals only) so it can be serialized via `.toString()` into
-// the pre-hydration script as well as called directly from the effect.
 function computeClock(timeZone: string) {
   const now = new Date()
 
-  const time = new Intl.DateTimeFormat("en-US", {
+  const parts = new Intl.DateTimeFormat("en-US", {
     timeZone,
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
-  }).format(now)
-  const hour = parseInt(time, 10)
-  const minute = parseInt(time.slice(3), 10)
+  }).formatToParts(now)
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((p) => p.type === type)?.value ?? ""
+  const time = {
+    hour: part("hour"),
+    minute: part("minute"),
+    period: part("dayPeriod"),
+  }
 
   // tz offset = (tz wall-clock instant) − (UTC wall-clock instant), each read
   // back as a local Date. In minutes, positive = east of UTC.
@@ -116,17 +160,14 @@ function computeClock(timeZone: string) {
       ? " // same time"
       : ` // ${Math.floor(hoursDiff)}h ${targetOffset > viewerOffset ? "ahead" : "behind"}`
 
-  return { time, hour, minute, diff }
+  return {
+    time,
+    diff,
+    hour: parseInt(time.hour, 10),
+    minute: parseInt(time.minute, 10),
+  }
 }
 
-type CurrentLocalTimeItemProps = {
-  timeZone: string
-}
-
-type ClockIds = { time: string; diff: string; hands: string }
-
-// Shared `compute`/`handsPath` are passed as arguments rather than referenced
-// because this body is serialized via `.toString()` (globals + args only).
 function runClockScript(
   timeZone: string,
   ids: ClockIds,
@@ -135,12 +176,18 @@ function runClockScript(
 ) {
   try {
     const { time, diff, hour, minute } = compute(timeZone)
-    const t = document.getElementById(ids.time)
-    if (t) t.textContent = time
-    const d = document.getElementById(ids.diff)
-    if (d) d.textContent = diff
-    const p = document.getElementById(ids.hands)
-    if (p) p.setAttribute("d", handsPath(hour, minute))
+    const setText = (id: string, text: string) => {
+      const el = document.getElementById(id)
+      if (el) el.textContent = text
+    }
+
+    setText(ids.hour, time.hour)
+    setText(ids.minute, time.minute)
+    setText(ids.period, time.period)
+    setText(ids.diff, diff)
+    document
+      .getElementById(ids.hands)
+      ?.setAttribute("d", handsPath(hour, minute))
   } catch {}
 }
 
