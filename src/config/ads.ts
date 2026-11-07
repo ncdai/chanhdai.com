@@ -7,6 +7,6 @@ type AdPlacement = "home" | "blocks" | "components"
 
 export const AD_PLACEMENTS: Record<AdPlacement, boolean> = {
   home: false,
-  blocks: false,
+  blocks: true,
   components: true,
 }
