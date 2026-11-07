@@ -1014,6 +1014,23 @@ export const Index: Record<string, any> = {
     categories: ["illustrations"],
     meta: undefined,
   },
+  "bookshelf": {
+    name: "bookshelf",
+    description: "Shelf of book spines that turn to show their covers.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/bookshelf/bookshelf.tsx",
+      type: "registry:component",
+      target: "@components/bookshelf.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/bookshelf/bookshelf.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "bookshelf"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["illustrations"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -2513,5 +2530,22 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: {"previewClassName":"flex min-h-svh items-center justify-center"},
+  },
+  "bookshelf-demo": {
+    name: "bookshelf-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/bookshelf-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bookshelf-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "bookshelf-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center overflow-x-clip"},
   },
 }

@@ -857,4 +857,19 @@ export const examples: Registry["items"] = [
       previewClassName: "flex min-h-svh items-center justify-center",
     },
   },
+  {
+    name: "bookshelf-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("bookshelf")],
+    files: [
+      {
+        path: "examples/bookshelf-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName:
+        "flex min-h-svh items-center justify-center overflow-x-clip",
+    },
+  },
 ]

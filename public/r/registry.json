@@ -1460,6 +1460,28 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "bookshelf",
+      "title": "Bookshelf",
+      "description": "Shelf of book spines that turn to show their covers.",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/bookshelf/bookshelf.tsx",
+          "type": "registry:component",
+          "target": "@components/bookshelf.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/bookshelf",
+      "categories": [
+        "illustrations"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",

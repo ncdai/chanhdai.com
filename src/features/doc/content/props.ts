@@ -11,6 +11,7 @@ import type {
   AppleCarouselRoot,
 } from "@/registry/components/apple-carousel"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
+import type { Bookshelf, BookshelfItem } from "@/registry/components/bookshelf"
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GitHubContributions } from "@/registry/components/github-contributions"
 import type {
@@ -42,6 +43,18 @@ export type AppleAccordionRootProps = Omit<
 export type AppleAccordionItemProps = Omit<
   ComponentProps<typeof AppleAccordionItem>,
   Exclude<keyof ComponentProps<"li">, "value"> | "render"
+>
+
+// `defaultValue` is also a native attribute of the div, so it stays out of the
+// exclusion to keep the component's own prop.
+export type BookshelfProps = Omit<
+  ComponentProps<typeof Bookshelf>,
+  Exclude<keyof ComponentProps<"div">, "defaultValue"> | "render"
+>
+
+export type BookshelfItemProps = Omit<
+  ComponentProps<typeof BookshelfItem>,
+  keyof ComponentProps<"div"> | "render"
 >
 
 export type AppleCarouselRootProps = Omit<
