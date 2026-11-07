@@ -38,7 +38,7 @@ export function ScrollToTop({
       variant="secondary"
       size="icon-sm"
       aria-label="Scroll to top"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
       {...props}
     >
       <ArrowUpIcon />
