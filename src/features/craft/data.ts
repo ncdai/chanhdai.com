@@ -4,6 +4,21 @@ import type { Craft } from "./types"
 export const CRAFTS: Craft[] = [
   {
     description:
+      "Bookshelf: a shelf of book spines that lift on hover and turn to show their covers.",
+    media: {
+      type: "video",
+      src: "https://assets.chanhdai.com/videos/craft/2118950634854723604-1600w.mp4",
+      poster:
+        "https://assets.chanhdai.com/images/craft/2118950634854723604.webp",
+      width: 1600,
+      height: 1004,
+    },
+    createdAt: "2026-11-07",
+    registryHref: "/components/bookshelf",
+    xPostUrl: "https://x.com/iamncdai/status/2118950634854723604",
+  },
+  {
+    description:
       "CAD-style Footer: a site footer laid out like a drawing’s title block, signed and with a dimensioned logotype.",
     media: {
       type: "video",
