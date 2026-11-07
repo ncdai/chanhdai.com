@@ -1077,4 +1077,20 @@ export const components: Registry["items"] = [
     categories: ["illustrations"],
     docs: "https://chanhdai.com/components/wallet",
   },
+  {
+    name: "bookshelf",
+    type: "registry:component",
+    title: "Bookshelf",
+    description: "Shelf of book spines that turn to show their covers.",
+    dependencies: ["@base-ui/react", "motion"],
+    files: [
+      {
+        path: "components/bookshelf/bookshelf.tsx",
+        type: "registry:component",
+        target: "@components/bookshelf.tsx",
+      },
+    ],
+    categories: ["illustrations"],
+    docs: "https://chanhdai.com/components/bookshelf",
+  },
 ]

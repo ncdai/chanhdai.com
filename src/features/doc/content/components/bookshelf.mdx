@@ -1,0 +1,137 @@
+---
+title: Bookshelf
+description: Shelf of book spines that turn to show their covers.
+image: https://assets.chanhdai.com/images/blog/bookshelf.webp
+new: true
+createdAt: 2026-11-07
+updatedAt: 2026-11-07
+---
+
+<ComponentPreview name="bookshelf-demo" />
+
+<DocDependencies name="bookshelf" />
+
+## Features
+
+- Spines and covers take any content, including images.
+- Control the open book from your own state.
+
+## Use cases
+
+- Reading list or favorite books on a personal site.
+- Course or ebook catalog on a landing page.
+- Record or game collection with cover art.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/bookshelf
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install @base-ui/react motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="bookshelf" title="components/bookshelf.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Bookshelf,
+  BookshelfCover,
+  BookshelfItem,
+  BookshelfSpine,
+  BookshelfTrigger,
+} from "@/components/bookshelf"
+```
+
+```tsx
+<Bookshelf>
+  <BookshelfItem spineWidth={40} coverWidth={168} className="h-60">
+    <BookshelfTrigger>
+      <BookshelfSpine className="bg-sky-500 text-white">
+        <span className="[writing-mode:vertical-rl]">Clean Code</span>
+      </BookshelfSpine>
+      <BookshelfCover>
+        <img src="/clean-code.jpg" alt="" className="size-full object-cover" />
+      </BookshelfCover>
+    </BookshelfTrigger>
+  </BookshelfItem>
+</Bookshelf>
+```
+
+Give each item a height.
+
+## Composition
+
+Use the following composition to build a `Bookshelf`
+
+```text
+Bookshelf
+└── BookshelfItem
+    └── BookshelfTrigger
+        ├── BookshelfSpine
+        └── BookshelfCover
+```
+
+## API reference
+
+Every part accepts a `render` prop to change its element.
+
+### Bookshelf
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="BookshelfProps" />
+
+### BookshelfItem
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="BookshelfItemProps"
+/>
+
+### Data attributes
+
+| Attribute   | Element                       | Present when      |
+| ----------- | ----------------------------- | ----------------- |
+| `data-open` | Every part except `Bookshelf` | The book is open. |
+
+## Accessibility
+
+- Each book is a button with `aria-expanded`.
+- `Enter` or `Space` toggles the focused book, and `Escape` closes it.
+- A closed cover is hidden from screen readers, so the spine names the book.
+- Keyboard changes skip the turn.
+- With `prefers-reduced-motion`, books fade instead of turning and do not lift.
