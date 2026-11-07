@@ -97,6 +97,7 @@
     "react-use": "^17.6.0",
     "schema-dts": "^1.1.5",
     "sharp": "^0.34.3",
+    "torph": "^0.1.3",
     "vcard-creator": "^0.7.2",
     "web-haptics": "^0.0.6",
     "zod": "^4.6.7"
