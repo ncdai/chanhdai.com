@@ -8,8 +8,71 @@ import {
 } from "@/registry/components/bookshelf"
 
 const SPINE_WIDTH = 40
+
 // Cover width follows height so short and tall books keep a real book's proportions
 const COVER_RATIO = 0.7
+
+export default function BookshelfDemo() {
+  return (
+    <Bookshelf className="border-b-4 border-foreground/80 px-1">
+      {BOOKS.map((book) => (
+        <BookshelfItem
+          key={book.title}
+          value={book.title}
+          spineWidth={SPINE_WIDTH}
+          coverWidth={Math.round(book.height * COVER_RATIO)}
+          style={{ height: book.height }}
+        >
+          <BookshelfTrigger>
+            <BookshelfSpine
+              className={cn(
+                "flex items-center justify-center border border-black/20 px-1 py-3",
+                book.className
+              )}
+            >
+              <span className="max-h-full text-center font-serif text-xs/tight text-balance [writing-mode:vertical-rl]">
+                {book.title}
+              </span>
+              {/* Darkens as the spine turns away */}
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 ease-out in-data-open:opacity-45"
+              />
+            </BookshelfSpine>
+
+            <BookshelfCover
+              className={cn(
+                "flex flex-col justify-between border border-black/20 p-4 text-left",
+                book.className
+              )}
+            >
+              <span
+                className={cn(
+                  "font-serif text-lg/tight text-balance",
+                  book.titleClassName
+                )}
+              >
+                {book.title}
+              </span>
+              <span className="flex flex-col text-xs opacity-80">
+                {book.authors.map((author) => (
+                  <span key={author} className="text-pretty">
+                    {author}
+                  </span>
+                ))}
+              </span>
+              {/* Brightens as the cover turns to face the viewer */}
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-black opacity-60 transition-opacity duration-300 ease-out in-data-open:opacity-0"
+              />
+            </BookshelfCover>
+          </BookshelfTrigger>
+        </BookshelfItem>
+      ))}
+    </Bookshelf>
+  )
+}
 
 type Book = {
   title: string
@@ -84,65 +147,3 @@ const BOOKS: Book[] = [
     titleClassName: "text-black",
   },
 ]
-
-export default function BookshelfDemo() {
-  return (
-    <Bookshelf className="border-b-4 border-foreground/80 px-1">
-      {BOOKS.map((book) => (
-        <BookshelfItem
-          key={book.title}
-          value={book.title}
-          spineWidth={SPINE_WIDTH}
-          coverWidth={Math.round(book.height * COVER_RATIO)}
-          style={{ height: book.height }}
-        >
-          <BookshelfTrigger>
-            <BookshelfSpine
-              className={cn(
-                "flex items-center justify-center border border-black/20 px-1 py-3",
-                book.className
-              )}
-            >
-              <span className="max-h-full text-center font-serif text-xs/tight text-balance [writing-mode:vertical-rl]">
-                {book.title}
-              </span>
-              {/* Darkens as the spine turns away */}
-              <span
-                aria-hidden
-                className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 ease-out in-data-open:opacity-45"
-              />
-            </BookshelfSpine>
-
-            <BookshelfCover
-              className={cn(
-                "flex flex-col justify-between border border-black/20 p-4 text-left",
-                book.className
-              )}
-            >
-              <span
-                className={cn(
-                  "font-serif text-lg/tight text-balance",
-                  book.titleClassName
-                )}
-              >
-                {book.title}
-              </span>
-              <span className="flex flex-col text-xs opacity-80">
-                {book.authors.map((author) => (
-                  <span key={author} className="text-pretty">
-                    {author}
-                  </span>
-                ))}
-              </span>
-              {/* Brightens as the cover turns to face the viewer */}
-              <span
-                aria-hidden
-                className="absolute inset-0 bg-black opacity-60 transition-opacity duration-300 ease-out in-data-open:opacity-0"
-              />
-            </BookshelfCover>
-          </BookshelfTrigger>
-        </BookshelfItem>
-      ))}
-    </Bookshelf>
-  )
-}
