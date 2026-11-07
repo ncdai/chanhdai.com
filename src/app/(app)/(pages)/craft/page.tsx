@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 
+import { AD_PLACEMENTS, CARBON_ADS } from "@/config/ads"
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
+import { CarbonAds } from "@/components/carbon-ads"
 import {
   PageHeading,
   PageHeadingTagline,
@@ -64,6 +66,15 @@ export default function CraftPage() {
         </PageHeading>
 
         <div className="h-4" />
+
+        {CARBON_ADS && AD_PLACEMENTS.craft && (
+          <>
+            <div className="screen-line-bottom h-px" />
+            <div className="flex justify-center p-4">
+              <CarbonAds />
+            </div>
+          </>
+        )}
 
         <ul>
           {CRAFTS.map((craft, index) => (
