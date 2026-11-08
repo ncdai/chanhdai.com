@@ -24,7 +24,7 @@ export function Hello() {
       </PanelContent>
 
       <div className="screen-line-bottom h-px" />
-      <div className="h-4" />
+      <div className="stripe-divider" />
       <div className="screen-line-bottom h-px" />
     </Panel>
   )

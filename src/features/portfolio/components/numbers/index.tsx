@@ -17,7 +17,7 @@ export function Numbers() {
   return (
     <Panel id={ID} className="screen-line-bottom-none">
       <div className="h-px" />
-      <div className="h-4" />
+      <div className="stripe-divider" />
       <div className="screen-line-bottom h-px" />
 
       <div className="flex items-center justify-center py-4">
