@@ -56,7 +56,7 @@ export function Testimonials() {
   return (
     <Panel ref={ref} id={ID}>
       <div className="h-px" />
-      <div className="h-4" />
+      <div className="stripe-divider" />
       <div className="screen-line-bottom h-px" />
 
       <div className="flex items-center justify-center py-4">
