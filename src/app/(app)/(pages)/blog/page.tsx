@@ -96,7 +96,7 @@ export default function Page() {
 
         <div className="h-4" />
 
-        <div className="screen-line-top screen-line-bottom p-2">
+        <div className="screen-line-top screen-line-bottom -mx-px p-2">
           <Suspense
             fallback={
               <div className="flex h-9 w-full rounded-lg border border-input dark:bg-input/30" />
