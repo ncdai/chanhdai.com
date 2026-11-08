@@ -90,7 +90,7 @@ export function Testimonials() {
         <div className="col-span-2 overflow-clip rounded-xl border">
           <TestimonialsMarquee data={TESTIMONIALS_1_FILTERED} play={play} />
 
-          <div className="h-2 border-y border-line" />
+          <div className="h-2.5 border-y" />
 
           <TestimonialsMarquee
             data={TESTIMONIALS_2_FILTERED}
@@ -99,6 +99,8 @@ export function Testimonials() {
           />
         </div>
       </PanelContent>
+
+      <div className="h-px" />
 
       {/* <div className="screen-line-top flex justify-center py-4">
         <Button
@@ -149,7 +151,7 @@ function TestimonialsMarquee({
         {data.map((item) => (
           <MarqueeItem key={item.url} className="w-xs">
             <TestimonialItem
-              className="border-r border-line bg-background transition-[background-color] ease-out hover:bg-accent-muted"
+              className="border-r bg-background transition-[background-color] ease-out hover:bg-accent-muted"
               {...item}
             />
           </MarqueeItem>

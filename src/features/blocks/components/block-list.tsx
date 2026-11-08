@@ -29,7 +29,7 @@ export function BlockList({
   )
 
   return (
-    <div className="relative py-4">
+    <div className="relative -mx-px py-4">
       <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2 lg:grid-cols-3">
         <div className="border-r border-line" />
         <div className="border-l border-line lg:border-r" />
