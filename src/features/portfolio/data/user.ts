@@ -50,6 +50,7 @@ export const USER: User = {
   },
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
+  ogVideo: "https://assets.chanhdai.com/videos/og-video-dark.mp4?t=1794217231",
   namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
   timeZone: "Asia/Ho_Chi_Minh",
   keywords: [

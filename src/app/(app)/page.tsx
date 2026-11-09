@@ -3,6 +3,7 @@ import type { ProfilePage, WithContext } from "schema-dts"
 
 import { AD_PLACEMENTS, CARBON_ADS } from "@/config/ads"
 import { JSON_LD_ID } from "@/config/json-ld"
+import { SITE_INFO, SITE_OPEN_GRAPH } from "@/config/site"
 import { JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl, cn } from "@/lib/utils"
 import { FloatingCarbonAds } from "@/components/floating-carbon-ads"
@@ -30,6 +31,17 @@ import { USER } from "@/features/portfolio/data/user"
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    ...SITE_OPEN_GRAPH,
+    videos: [
+      {
+        url: SITE_INFO.ogVideo,
+        type: "video/mp4",
+        width: 1920,
+        height: 1080,
+      },
+    ],
   },
 }
 
