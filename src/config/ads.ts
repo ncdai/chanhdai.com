@@ -6,7 +6,7 @@ export const CARBON_ADS = serve && placement ? { serve, placement } : null
 type AdPlacement = "home" | "blocks" | "components" | "craft"
 
 export const AD_PLACEMENTS: Record<AdPlacement, boolean> = {
-  home: false,
+  home: true,
   blocks: true,
   components: true,
   craft: true,
