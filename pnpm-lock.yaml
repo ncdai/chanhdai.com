@@ -206,6 +206,9 @@ importers:
       '@openpanel/web':
         specifier: ^1.4.4
         version: 1.4.4
+      '@ramka/react':
+        specifier: ^0.0.2
+        version: 0.0.2(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@rexa-developer/tiks':
         specifier: ^0.1.9
         version: 0.1.9(react@19.3.1)
@@ -2184,6 +2187,12 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  '@ramka/react@0.0.2':
+    resolution: {integrity: sha512-73x8vVlRfAEo3elHXgZ8rqvILb+UIF8WNCfIFArOuHRKiPwiSsqZjihJi1KUPQRsHTrLE0TqLftE8j5SjNBqyw==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
 
   '@rexa-developer/tiks@0.1.9':
     resolution: {integrity: sha512-S+61g1fKLZgxQD5u5pFfFVtWdrYEadnd1hzlk8E283AU8mXL4xxCvUU7GrawWlDA3TtlFSzw2icTuBmZlcPKQQ==}
@@ -8679,6 +8688,11 @@ snapshots:
       react: 19.3.1
     optionalDependencies:
       '@types/react': 19.3.0
+
+  '@ramka/react@0.0.2(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
+    dependencies:
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
 
   '@rexa-developer/tiks@0.1.9(react@19.3.1)':
     optionalDependencies:

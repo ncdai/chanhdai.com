@@ -1031,6 +1031,23 @@ export const Index: Record<string, any> = {
     categories: ["illustrations"],
     meta: undefined,
   },
+  "lightbox": {
+    name: "lightbox",
+    description: "Image viewer that morphs from the thumbnail, with swipe, zoom, and pull to close.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/lightbox/lightbox.tsx",
+      type: "registry:component",
+      target: "@components/lightbox.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/lightbox/lightbox.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "lightbox"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["data-display"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -2547,5 +2564,90 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: {"previewClassName":"flex min-h-svh items-center justify-center overflow-x-clip"},
+  },
+  "lightbox-demo": {
+    name: "lightbox-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/lightbox-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/lightbox-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "lightbox-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center px-4"},
+  },
+  "lightbox-thumbnails-demo": {
+    name: "lightbox-thumbnails-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/lightbox-thumbnails-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/lightbox-thumbnails-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "lightbox-thumbnails-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center px-4"},
+  },
+  "lightbox-single-demo": {
+    name: "lightbox-single-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/lightbox-single-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/lightbox-single-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "lightbox-single-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center px-4"},
+  },
+  "lightbox-handle-demo": {
+    name: "lightbox-handle-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/lightbox-handle-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/lightbox-handle-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "lightbox-handle-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center px-4"},
+  },
+  "lightbox-next-image-demo": {
+    name: "lightbox-next-image-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/lightbox-next-image-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/lightbox-next-image-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "lightbox-next-image-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center px-4"},
   },
 }

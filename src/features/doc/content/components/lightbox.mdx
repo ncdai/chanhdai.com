@@ -1,0 +1,259 @@
+---
+title: Lightbox
+description: Image viewer that morphs from the thumbnail, with swipe, zoom, and pull to close.
+image: https://assets.chanhdai.com/images/blog/lightbox.webp
+new: true
+createdAt: 2026-11-10
+updatedAt: 2026-11-10
+---
+
+<ComponentPreview
+  name="lightbox-demo"
+  openInV0Url="https://chanhdai.com/r/lightbox.json"
+/>
+
+<DocDependencies name="lightbox" />
+
+## Features
+
+Built on top of [ramka](https://ramka.dev), unstyled lightbox primitives for React. ramka handles the behavior, gestures, and accessibility. This component adds the styles.
+
+- Morphs from the thumbnail on open and back on close.
+- Swipe between images, pull down to close.
+- Pinch or double-tap to zoom, then drag to pan.
+
+## Use cases
+
+- Photo galleries on a portfolio or travel page.
+- Product images on a store page.
+- Screenshots in a blog post or changelog.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/lightbox
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install @ramka/react cn lucide-react
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Button](https://ui.shadcn.com/docs/components/base/button)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="lightbox" title="components/lightbox.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Lightbox,
+  LightboxCaption,
+  LightboxClose,
+  LightboxContent,
+  LightboxCounter,
+  LightboxFooter,
+  LightboxHeader,
+  LightboxItem,
+  LightboxMedia,
+  LightboxNext,
+  LightboxPrevious,
+  LightboxSlide,
+  LightboxSlides,
+  LightboxTrigger,
+  LightboxZoom,
+  LightboxZoomIn,
+  LightboxZoomOut,
+} from "@/components/lightbox"
+```
+
+```tsx
+<Lightbox>
+  {photos.map((photo, index) => (
+    <LightboxTrigger key={photo.src} index={index}>
+      {({ imageRef }) => <img ref={imageRef} src={photo.src} alt={photo.alt} />}
+    </LightboxTrigger>
+  ))}
+
+  <LightboxContent aria-label="Photos">
+    <LightboxSlides aria-label="Photos" aria-roledescription="carousel">
+      {photos.map((photo, index) => (
+        <LightboxSlide key={photo.src}>
+          <LightboxItem index={index} caption={photo.caption}>
+            <LightboxZoom>
+              <LightboxMedia width={photo.width} height={photo.height}>
+                <img src={photo.src} alt={photo.alt} />
+              </LightboxMedia>
+            </LightboxZoom>
+          </LightboxItem>
+        </LightboxSlide>
+      ))}
+    </LightboxSlides>
+
+    <LightboxHeader>
+      <LightboxZoomOut />
+      <LightboxZoomIn />
+      <LightboxClose />
+    </LightboxHeader>
+
+    <LightboxPrevious />
+    <LightboxNext />
+
+    <LightboxFooter>
+      <LightboxCaption />
+      <LightboxCounter />
+    </LightboxFooter>
+  </LightboxContent>
+</Lightbox>
+```
+
+<Callout>
+  The thumbnail and the full image must share the same aspect ratio. Crop the
+  thumbnail with `object-cover`.
+</Callout>
+
+## Composition
+
+Use the following composition to build a `Lightbox`
+
+```text
+Lightbox
+├── LightboxTrigger
+└── LightboxContent
+    ├── LightboxSlides
+    │   └── LightboxSlide
+    │       └── LightboxItem
+    │           └── LightboxZoom
+    │               └── LightboxMedia
+    ├── LightboxHeader
+    │   ├── LightboxZoomOut
+    │   ├── LightboxZoomIn
+    │   └── LightboxClose
+    ├── LightboxPrevious
+    ├── LightboxNext
+    └── LightboxFooter
+        ├── LightboxCaption
+        ├── LightboxCounter
+        └── LightboxThumbnailStrip
+            └── LightboxThumbnailStripTrack
+                └── LightboxThumbnail
+```
+
+## API reference
+
+Props pass through to ramka. See the [ramka API reference](https://ramka.dev/docs/lightbox/api).
+
+| Part                                                                                     | Notes                                                                                                 |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `LightboxContent`                                                                        | Includes the portal and backdrop. Needs `aria-label`.                                                 |
+| `LightboxHeader`, `LightboxFooter`                                                       | Hide while pulling to close. The footer also hides while zoomed.                                      |
+| `LightboxClose`, `LightboxZoomIn`, `LightboxZoomOut`, `LightboxPrevious`, `LightboxNext` | Render a `Button` with `variant="secondary"` and `size="icon"`, both overridable.                     |
+| `createLightboxHandle`                                                                   | Returns a handle with `open(index)`, `close()`, and `goTo(index)`. Pass it to `Lightbox` as `handle`. |
+
+### Spacing
+
+Set on `LightboxContent`, for example `md:[--lb-inset-x:2rem]`.
+
+| Variable            | Default                                            |
+| ------------------- | -------------------------------------------------- |
+| `--lb-inset-top`    | `4rem`, `4.5rem` from `md`                         |
+| `--lb-inset-bottom` | `4rem`, `4.5rem` from `md`, `8rem` with thumbnails |
+| `--lb-inset-x`      | `0`, `4.5rem` from `md`                            |
+
+### Data attributes
+
+`LightboxContent` is a `group/lightbox`, so children can use `group-data-zoomed/lightbox:hidden` and the like.
+
+| Attribute                                             | Element                             |
+| ----------------------------------------------------- | ----------------------------------- |
+| `data-pulling`, `data-pull-dismissing`, `data-zoomed` | `LightboxContent`                   |
+| `data-active`                                         | `LightboxItem`, `LightboxThumbnail` |
+
+## Examples
+
+### Thumbnails
+
+<ComponentPreview
+  name="lightbox-thumbnails-demo"
+  openInV0Url="https://chanhdai.com/r/lightbox.json"
+/>
+
+### Single image
+
+`scrollToZoom` lets the mouse wheel zoom, and `maxZoom` caps it.
+
+<ComponentPreview
+  name="lightbox-single-demo"
+  openInV0Url="https://chanhdai.com/r/lightbox.json"
+/>
+
+### Open from code
+
+Without a trigger, the lightbox fades in instead of morphing.
+
+<ComponentPreview
+  name="lightbox-handle-demo"
+  openInV0Url="https://chanhdai.com/r/lightbox.json"
+/>
+
+### Next.js Image
+
+Use `sizes="100vw"` on the full image and skip `fill`.
+
+<ComponentPreview
+  name="lightbox-next-image-demo"
+  openInV0Url="https://chanhdai.com/r/lightbox.json"
+/>
+
+## Accessibility
+
+- `Escape` closes and returns focus to the trigger.
+- Arrow keys move between images, or pan when zoomed. `Home` and `End` jump to the ends.
+- `+`, `-`, and `0` zoom in, out, and reset.
+- The caption and counter are announced on change.
+- Button labels are in English. Pass `children` to translate them.
+- With `prefers-reduced-motion`, the morph becomes a fade and the thumbnail strip jumps.
+
+## Credits
+
+- [Artur Bień](https://github.com/arturbien/ramka)
+- Photos by [Marina Lobato](https://unsplash.com/photos/boats-on-turquoise-ha-long-bay-kG7pOXbBfNs), [diGital Sennin](https://unsplash.com/photos/green-trees-on-body-of-water-during-daytime-QttaHHgHz_w), [Thai Tong](https://unsplash.com/photos/people-riding-boat-on-river-near-mountain-during-daytime-hUPK0QCg-y0), [Tam Dang Ngoc](https://unsplash.com/photos/a-large-building-with-a-lot-of-windows-on-top-of-it-DHwKQ9sajcc), [Jonathan Ouimet](https://unsplash.com/photos/aerial-view-photography-of-brown-pagoda-temple-during-daytime-JF4o7WErDn8), [Tron Le](https://unsplash.com/photos/city-skyline-during-night-time-wUk2U5Wirxg), and [Ngô Thanh Tùng](https://unsplash.com/photos/lighted-bridge-B76nvP51iew) on [Unsplash](https://unsplash.com)
+
+## References
+
+- [ramka](https://ramka.dev/docs/lightbox)
+- [Gestures](https://ramka.dev/docs/lightbox/gestures) — pull, zoom, and the CSS variables they expose
+- [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)
