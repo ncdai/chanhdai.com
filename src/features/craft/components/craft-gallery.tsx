@@ -1,62 +1,162 @@
+"use client"
+
+import type { ImageProps } from "next/image"
 import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 import {
-  AppleCarouselContent,
-  AppleCarouselControls,
-  AppleCarouselItem,
-  AppleCarouselPlayButton,
-  AppleCarouselRoot,
-  AppleCarouselTab,
-  AppleCarouselTabList,
-} from "@/registry/components/apple-carousel"
+  Lightbox,
+  LightboxClose,
+  LightboxContent,
+  LightboxFooter,
+  LightboxHeader,
+  LightboxItem,
+  LightboxMedia,
+  LightboxNext,
+  LightboxPrevious,
+  LightboxSlide,
+  LightboxSlides,
+  LightboxThumbnail,
+  LightboxThumbnailStrip,
+  LightboxThumbnailStripTrack,
+  LightboxTrigger,
+  LightboxZoom,
+  LightboxZoomIn,
+  LightboxZoomOut,
+} from "@/registry/components/lightbox"
 
 import type { CraftImage } from "../types"
 
-export function CraftGallery({ images }: { images: CraftImage[] }) {
-  // Cards share the first photo's ratio so the height holds between slides.
-  const [{ width, height }] = images
-  const isPortrait = height > width
+const MAX_TILES = 4
+
+export function CraftGallery({
+  images,
+  label,
+  imageLoading,
+}: {
+  images: CraftImage[]
+  label: string
+  imageLoading?: ImageProps["loading"]
+}) {
+  const count = images.length
+  const tiles = images.slice(0, MAX_TILES)
+  const hiddenCount = count - tiles.length
+  const isPortrait = images[0].height > images[0].width
 
   return (
-    <AppleCarouselRoot loop={false}>
-      {/* Only the next card peeks in, on the right and unfaded: fading
-          washes dark photos out on light themes. */}
-      <AppleCarouselContent className="scroll-ps-(--apple-carousel-padding) [--apple-carousel-gap:--spacing(2)] [--apple-carousel-padding:--spacing(2)] [--craft-gallery-peek:--spacing(10)]">
-        {images.map((image) => (
-          <AppleCarouselItem
-            key={image.src}
-            className={cn(
-              "h-auto w-[calc(100cqw-var(--apple-carousel-padding)-var(--apple-carousel-gap)-var(--craft-gallery-peek))] snap-start rounded-xl @max-5xl:h-auto @max-3xl:h-auto",
-              // Two portrait photos per view from @md, so they fit uncropped.
-              isPortrait &&
-                "@md:w-[calc((100cqw-var(--apple-carousel-padding)-2*var(--apple-carousel-gap)-var(--craft-gallery-peek))/2)]"
-            )}
-            style={{ aspectRatio: `${width} / ${height}` }}
-          >
-            <Image
-              className="size-full object-cover select-none"
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              unoptimized
-            />
-            <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-black/10 dark:inset-ring-white/10" />
-          </AppleCarouselItem>
-        ))}
-      </AppleCarouselContent>
+    // Closing on an image past the last tile morphs back into the "+N" tile.
+    <Lightbox morphTo="closest">
+      <div
+        className={cn(
+          "grid gap-0.5",
+          count > 1 && [
+            "grid-cols-2 grid-rows-2",
+            isPortrait ? "aspect-square" : "aspect-video",
+          ]
+        )}
+      >
+        {tiles.map((image, index) => {
+          const isLastTile = index === tiles.length - 1 && hiddenCount > 0
 
-      <AppleCarouselControls size="sm">
-        <AppleCarouselTabList aria-label="Photos">
+          return (
+            <LightboxTrigger
+              key={image.src}
+              index={index}
+              crossfade={isLastTile ? "both" : undefined}
+              className={cn(
+                // Each tile rounds only the corners it sits on, since the
+                // morph reads the tile's own radius.
+                "relative overflow-hidden",
+                count === 1
+                  ? "rounded-xl"
+                  : "first:rounded-ss-xl last:rounded-ee-xl",
+                count === 2 && "row-span-2 last:rounded-se-xl",
+                count === 3 && "first:row-span-2",
+                count > 1 && count < 4 && "first:rounded-es-xl",
+                count > 2 && "nth-2:rounded-se-xl",
+                count > 3 && "nth-3:rounded-es-xl"
+              )}
+            >
+              {({ imageRef }) => (
+                <>
+                  <Image
+                    ref={imageRef}
+                    className={cn(
+                      "rounded-[inherit] bg-muted outline -outline-offset-1 outline-foreground/10 select-none",
+                      count === 1 ? "h-auto w-full" : "size-full object-cover"
+                    )}
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    loading={imageLoading}
+                    unoptimized
+                  />
+                  {isLastTile && (
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/50 text-2xl font-medium text-white">
+                      +{hiddenCount}
+                    </span>
+                  )}
+                </>
+              )}
+            </LightboxTrigger>
+          )
+        })}
+      </div>
+
+      <LightboxContent aria-label={label}>
+        <LightboxSlides>
           {images.map((image, index) => (
-            <AppleCarouselTab key={image.src}>
-              Photo {index + 1}
-            </AppleCarouselTab>
+            <LightboxSlide key={image.src}>
+              <LightboxItem index={index}>
+                <LightboxZoom>
+                  <LightboxMedia width={image.width} height={image.height}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={image.width}
+                      height={image.height}
+                      draggable={false}
+                      unoptimized
+                    />
+                  </LightboxMedia>
+                </LightboxZoom>
+              </LightboxItem>
+            </LightboxSlide>
           ))}
-        </AppleCarouselTabList>
-        <AppleCarouselPlayButton />
-      </AppleCarouselControls>
-    </AppleCarouselRoot>
+        </LightboxSlides>
+
+        <LightboxHeader>
+          <LightboxZoomOut />
+          <LightboxZoomIn />
+          <LightboxClose />
+        </LightboxHeader>
+
+        {count > 1 && (
+          <>
+            <LightboxPrevious />
+            <LightboxNext />
+
+            <LightboxFooter>
+              <LightboxThumbnailStrip>
+                <LightboxThumbnailStripTrack aria-label="Photos">
+                  {images.map((image, index) => (
+                    <LightboxThumbnail key={image.src} index={index}>
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        unoptimized
+                      />
+                    </LightboxThumbnail>
+                  ))}
+                </LightboxThumbnailStripTrack>
+              </LightboxThumbnailStrip>
+            </LightboxFooter>
+          </>
+        )}
+      </LightboxContent>
+    </Lightbox>
   )
 }
