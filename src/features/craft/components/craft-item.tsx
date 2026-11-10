@@ -1,6 +1,5 @@
 import type { Route } from "next"
 import type { ImageProps } from "next/image"
-import Image from "next/image"
 import Link from "next/link"
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
@@ -26,37 +25,25 @@ export function CraftItem({
   const { media } = craft
 
   return (
-    <figure
-      data-media-type={media.type}
-      className={cn("flex flex-col", className)}
-    >
-      <div className="p-2 in-data-[media-type=gallery]:px-0 in-data-[media-type=gallery]:pb-4">
-        {media.type === "gallery" ? (
-          <CraftGallery images={media.images} />
-        ) : (
+    <figure className={cn("flex flex-col", className)}>
+      <div className="p-2">
+        {media.type === "video" ? (
           <div className="relative rounded-xl">
-            {media.type === "video" ? (
-              <CraftVideo
-                className="rounded-[inherit]"
-                src={media.src}
-                poster={media.poster}
-                width={media.width}
-                height={media.height}
-              />
-            ) : (
-              <Image
-                className="h-auto w-full rounded-[inherit] bg-muted select-none"
-                src={media.src}
-                alt={media.alt}
-                width={media.width}
-                height={media.height}
-                loading={imageLoading}
-                unoptimized
-              />
-            )}
-
+            <CraftVideo
+              className="rounded-[inherit]"
+              src={media.src}
+              poster={media.poster}
+              width={media.width}
+              height={media.height}
+            />
             <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground/10" />
           </div>
+        ) : (
+          <CraftGallery
+            images={media.type === "gallery" ? media.images : [media]}
+            label={craft.description}
+            imageLoading={imageLoading}
+          />
         )}
       </div>
 
