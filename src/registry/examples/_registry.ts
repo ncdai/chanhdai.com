@@ -872,4 +872,74 @@ export const examples: Registry["items"] = [
         "flex min-h-svh items-center justify-center overflow-x-clip",
     },
   },
+  {
+    name: "lightbox-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("lightbox")],
+    files: [
+      {
+        path: "examples/lightbox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center px-4",
+    },
+  },
+  {
+    name: "lightbox-thumbnails-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("lightbox")],
+    files: [
+      {
+        path: "examples/lightbox-thumbnails-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center px-4",
+    },
+  },
+  {
+    name: "lightbox-single-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("lightbox")],
+    files: [
+      {
+        path: "examples/lightbox-single-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center px-4",
+    },
+  },
+  {
+    name: "lightbox-handle-demo",
+    type: "registry:example",
+    registryDependencies: ["button", getRegistryItemUrl("lightbox")],
+    files: [
+      {
+        path: "examples/lightbox-handle-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center px-4",
+    },
+  },
+  {
+    name: "lightbox-next-image-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("lightbox")],
+    files: [
+      {
+        path: "examples/lightbox-next-image-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center px-4",
+    },
+  },
 ]

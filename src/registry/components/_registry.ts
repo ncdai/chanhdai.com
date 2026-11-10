@@ -1093,4 +1093,22 @@ export const components: Registry["items"] = [
     categories: ["illustrations"],
     docs: "https://chanhdai.com/components/bookshelf",
   },
+  {
+    name: "lightbox",
+    type: "registry:component",
+    title: "Lightbox",
+    description:
+      "Image viewer that morphs from the thumbnail, with swipe, zoom, and pull to close.",
+    dependencies: ["@ramka/react", "lucide-react"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "components/lightbox/lightbox.tsx",
+        type: "registry:component",
+        target: "@components/lightbox.tsx",
+      },
+    ],
+    categories: ["data-display"],
+    docs: "https://chanhdai.com/components/lightbox",
+  },
 ]

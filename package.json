@@ -58,6 +58,7 @@
     "@ncdai/react-wheel-picker": "^1.2.0",
     "@number-flow/react": "^0.6.0",
     "@openpanel/web": "^1.4.4",
+    "@ramka/react": "^0.0.2",
     "@rexa-developer/tiks": "^0.1.9",
     "@tabler/icons-react": "^3.42.0",
     "@visx/curve": "4.0.1-alpha.0",

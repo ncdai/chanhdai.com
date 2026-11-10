@@ -1482,6 +1482,31 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "lightbox",
+      "title": "Lightbox",
+      "description": "Image viewer that morphs from the thumbnail, with swipe, zoom, and pull to close.",
+      "dependencies": [
+        "@ramka/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/lightbox/lightbox.tsx",
+          "type": "registry:component",
+          "target": "@components/lightbox.tsx"
+        }
+      ],
+      "docs": "https://chanhdai.com/components/lightbox",
+      "categories": [
+        "data-display"
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",
