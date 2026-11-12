@@ -36,4 +36,6 @@ export type Craft = {
   registryHref?: `/components/${string}` | `/blocks/${string}`
   /** The post where it was shared, so readers can see its replies and reposts. */
   xPostUrl?: `https://x.com/${string}`
+  /** The post was picked by bestdesignsonx.com, which mirrors X post paths. Needs `xPostUrl`. */
+  pickedByBestDesignsOnX?: boolean
 }

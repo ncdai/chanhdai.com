@@ -83,6 +83,7 @@ export const CRAFTS: Craft[] = [
     createdAt: "2026-10-27",
     registryHref: "/components/ipod-classic",
     xPostUrl: "https://x.com/iamncdai/status/2114947544413528454",
+    pickedByBestDesignsOnX: true,
   },
   {
     description:
@@ -98,6 +99,7 @@ export const CRAFTS: Craft[] = [
     createdAt: "2026-09-20",
     registryHref: "/components/foldable",
     xPostUrl: "https://x.com/iamncdai/status/2101608687702053067",
+    pickedByBestDesignsOnX: true,
   },
   {
     description:
@@ -128,6 +130,7 @@ export const CRAFTS: Craft[] = [
     createdAt: "2026-09-16",
     registryHref: "/components/apple-carousel",
     xPostUrl: "https://x.com/iamncdai/status/2099952343982932285",
+    pickedByBestDesignsOnX: true,
   },
   {
     description:
@@ -206,6 +209,7 @@ export const CRAFTS: Craft[] = [
     createdAt: "2026-06-29",
     registryHref: "/components/spotlight-logo",
     xPostUrl: "https://x.com/iamncdai/status/2071332019850846394",
+    pickedByBestDesignsOnX: true,
   },
   {
     description:
