@@ -103,15 +103,6 @@ const PHOTOS = [
     height: 1152,
   },
   {
-    src: "https://assets.chanhdai.com/registry/images/components/apple-carousel/2-2048w.webp",
-    thumbnail:
-      "https://assets.chanhdai.com/registry/images/components/apple-carousel/2-640w.webp",
-    alt: "A narrow waterway under an arch of cajuput trees, their trunks reflected in the still green water.",
-    caption: "Tra Su Forest, An Giang",
-    width: 2048,
-    height: 1152,
-  },
-  {
     src: "https://assets.chanhdai.com/registry/images/components/apple-carousel/3-2048w.webp",
     thumbnail:
       "https://assets.chanhdai.com/registry/images/components/apple-carousel/3-640w.webp",
@@ -121,11 +112,20 @@ const PHOTOS = [
     height: 1152,
   },
   {
-    src: "https://assets.chanhdai.com/registry/images/components/apple-carousel/4-2048w.webp",
+    src: "https://assets.chanhdai.com/registry/images/components/apple-carousel/6-2048w.webp",
     thumbnail:
-      "https://assets.chanhdai.com/registry/images/components/apple-carousel/4-640w.webp",
-    alt: "A gate tower with tiered roofs on top of an old stone wall, framed by bare trees.",
-    caption: "Imperial City, Hue",
+      "https://assets.chanhdai.com/registry/images/components/apple-carousel/6-640w.webp",
+    alt: "Skyscrapers along the Saigon River at sunset, with the Bitexco Financial Tower in the middle.",
+    caption: "Saigon River, Ho Chi Minh City",
+    width: 2048,
+    height: 1152,
+  },
+  {
+    src: "https://assets.chanhdai.com/registry/images/components/apple-carousel/7-2048w.webp",
+    thumbnail:
+      "https://assets.chanhdai.com/registry/images/components/apple-carousel/7-640w.webp",
+    alt: "The Dragon Bridge lit up at night under a purple sky, reflected in the river.",
+    caption: "Dragon Bridge, Da Nang",
     width: 2048,
     height: 1152,
   },
