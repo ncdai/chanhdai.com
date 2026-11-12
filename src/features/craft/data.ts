@@ -70,6 +70,22 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
+      "Apple Accordion – accordion items that morph from pills into cards.",
+    media: {
+      type: "video",
+      src: "https://assets.chanhdai.com/videos/craft/2115244810990936137-1600w.mp4",
+      poster:
+        "https://assets.chanhdai.com/images/craft/2115244810990936137.webp",
+      width: 1600,
+      height: 1004,
+    },
+    createdAt: "2026-10-28",
+    registryHref: "/components/apple-accordion",
+    xPostUrl: "https://x.com/iamncdai/status/2115244810990936137",
+    pickedByBestDesignsOnX: true,
+  },
+  {
+    description:
       "iPod Classic – a click wheel iPod, inspired by Apple Music’s 404 page.",
     media: {
       type: "video",
