@@ -4,7 +4,7 @@ import type { Craft } from "./types"
 export const CRAFTS: Craft[] = [
   {
     description:
-      "Bookshelf: a shelf of book spines that lift on hover and turn to show their covers.",
+      "Bookshelf – book spines that lift on hover and turn to show their covers.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2118950634854723604-1600w.mp4",
@@ -19,7 +19,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "CAD-style Footer: a site footer laid out like a drawing’s title block, signed and with a dimensioned logotype.",
+      "CAD-style Footer – a footer laid out like a drawing’s title block.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2117966971732148487-1600w.mp4",
@@ -33,7 +33,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Wallet: a leather wallet with cards you can peek at and pull out, inspired by Vercel’s Token Pass.",
+      "Wallet – pull cards from a leather wallet, inspired by Vercel’s Token Pass.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2117279668240044542-1600w.mp4",
@@ -47,8 +47,7 @@ export const CRAFTS: Craft[] = [
     xPostUrl: "https://x.com/iamncdai/status/2117279668240044542",
   },
   {
-    description:
-      "Avatars: a new look for the two of us, inspired by the Apple CEO’s avatar.",
+    description: "Avatars – our new look, inspired by the Apple CEO’s avatar.",
     media: {
       type: "gallery",
       images: [
@@ -71,7 +70,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "iPod Classic: a click wheel iPod for the web, inspired by Apple Music’s 404 page.",
+      "iPod Classic – a click wheel iPod, inspired by Apple Music’s 404 page.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2114947544413528454-1600w.mp4",
@@ -87,7 +86,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Business Card: an open and close interaction inspired by iPhone Duo.",
+      "Business Card – a card that folds open, inspired by iPhone Duo.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2101608687702053067-1600w.mp4",
@@ -103,7 +102,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "JPG Card Holder: a leather card holder shaped like a JPG file, with cards you can pull out.",
+      "JPG Card Holder – a JPG-shaped card holder with pull-out cards.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2101154119641878870-1600w.mp4",
@@ -118,7 +117,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Apple Carousel: an infinite autoplay carousel with progress dots, inspired by Apple’s website.",
+      "Apple Carousel – an infinite autoplay carousel with progress dots.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2099952343982932285-1600w.mp4",
@@ -134,7 +133,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Deal Board: a sales pipeline kanban with drag-and-drop cards, built at shadcncraft.",
+      "Deal Board – a drag-and-drop sales kanban, built at shadcncraft.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2099902335715848548-1600w.mp4",
@@ -147,7 +146,7 @@ export const CRAFTS: Craft[] = [
     xPostUrl: "https://x.com/iamncdai/status/2099902335715848548",
   },
   {
-    description: "Museum: a little Apple corner at home.",
+    description: "Museum – a little Apple corner at home.",
     media: {
       type: "gallery",
       images: [
@@ -181,8 +180,7 @@ export const CRAFTS: Craft[] = [
     xPostUrl: "https://x.com/iamncdai/status/2098000111234343170",
   },
   {
-    description:
-      "Swipe Actions: swipeable list rows that reveal actions on the left or right.",
+    description: "Swipe Actions – list rows that swipe to reveal actions.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2097315369434358238-1600w.mp4",
@@ -197,7 +195,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Spotlight Logo: an SVG logo that lights up around the cursor, inspired by the X login page.",
+      "Spotlight Logo – a logo that lights up around the cursor, inspired by X’s login page.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2071332019850846394-1600w.mp4",
@@ -213,7 +211,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Theme-Adaptive Avatar: a portrait with day and night versions that crossfade when the theme changes.",
+      "Theme-Adaptive Avatar – a day and night portrait that crossfades with the theme.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2055648700127740096-1600w.mp4",
@@ -226,8 +224,7 @@ export const CRAFTS: Craft[] = [
     xPostUrl: "https://x.com/iamncdai/status/2055648700127740096",
   },
   {
-    description:
-      "Bento Grid: every registry component running live in one grid.",
+    description: "Bento Grid – every registry component, live in one grid.",
     media: {
       type: "video",
       src: "https://assets.chanhdai.com/videos/craft/2051681608579809631-1600w.mp4",
@@ -240,8 +237,7 @@ export const CRAFTS: Craft[] = [
     xPostUrl: "https://x.com/iamncdai/status/2051681608579809631",
   },
   {
-    description:
-      "Simplamo AI: a coaching chat and milestone suggestions for OKR goals, built at Simplamo.",
+    description: "Simplamo AI – AI coaching for OKR goals, built at Simplamo.",
     media: {
       type: "gallery",
       images: [
@@ -269,7 +265,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Tung Tung Mobile App: a learning community for taking tests, climbing score boards, and following topics.",
+      "Tung Tung Mobile App – a learning community for tests and leaderboards.",
     media: {
       type: "gallery",
       images: [
@@ -290,8 +286,7 @@ export const CRAFTS: Craft[] = [
     createdAt: "2019-09",
   },
   {
-    description:
-      "UnlimitedStudy: a quiz website for students, with tools for teachers to build and track tests.",
+    description: "UnlimitedStudy – a quiz website for students and teachers.",
     media: {
       type: "gallery",
       images: [
@@ -343,7 +338,7 @@ export const CRAFTS: Craft[] = [
   },
   {
     description:
-      "Hành Trình Khám Phá Miền Tây: my first website, a Mekong Delta travel guide I built in 8th grade.",
+      "Hành Trình Khám Phá Miền Tây – my first website, a Mekong Delta travel guide from 8th grade.",
     media: {
       type: "image",
       src: "https://assets.chanhdai.com/images/craft/2066194589539823825.webp?v=2",
