@@ -47,7 +47,6 @@ export function CraftItem({
         )}
       </div>
 
-      {/* On phones the links get their own row so they never wrap. */}
       <figcaption className="screen-line-top grid grid-cols-[--spacing(31)_1fr]">
         <CaptionCell>
           Fig.{figureNumber.toString().padStart(2, "0")}
@@ -65,7 +64,7 @@ export function CraftItem({
             isMonthOnly(craft.createdAt) ? "MMM yyyy" : "d MMM yyyy"
           )}
         </CaptionCell>
-        <div className="col-span-2 flex border-t border-line max-sm:empty:hidden sm:col-span-1">
+        <div className="col-span-2 flex divide-line border-t border-line max-sm:flex-col max-sm:divide-y max-sm:empty:hidden sm:col-span-1">
           {craft.registryHref && (
             <CaptionLink
               render={
@@ -91,6 +90,21 @@ export function CraftItem({
               }
             >
               View on X
+            </CaptionLink>
+          )}
+
+          {craft.xPostUrl && craft.pickedByBestDesignsOnX && (
+            <CaptionLink
+              render={
+                <a
+                  href={`https://bestdesignsonx.com${new URL(craft.xPostUrl).pathname}`}
+                  className="link-underline"
+                  target="_blank"
+                  rel="noopener"
+                />
+              }
+            >
+              Picked by Best Designs On X
             </CaptionLink>
           )}
         </div>
@@ -128,7 +142,7 @@ function CaptionLink({
   return (
     <CaptionCell
       className={cn(
-        "flex items-center justify-between gap-1.5 transition-[color,background-color] ease-out hover:bg-accent-muted hover:text-foreground max-sm:flex-1 max-sm:last:border-r-0 [&_svg]:size-3.5",
+        "flex items-center justify-between gap-1.5 transition-[color,background-color] ease-out hover:bg-accent-muted hover:text-foreground max-sm:border-r-0 [&_svg]:size-3.5",
         className
       )}
       {...props}
