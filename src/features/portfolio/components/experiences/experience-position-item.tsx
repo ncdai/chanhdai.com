@@ -32,7 +32,7 @@ export function ExperiencePositionItem({
       disabled={!position.description}
     >
       <div className="pointer-events-none absolute bottom-0 left-3 hidden size-4 bg-background group-last/experience-position:flex">
-        <span className="size-full -translate-y-2.25 rounded-bl-sm border-b border-l" />
+        <span className="size-full -translate-y-2.25 border-b border-l" />
       </div>
 
       <CollapsibleTrigger

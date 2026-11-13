@@ -25,7 +25,7 @@ export function EducationItem({ item }: { item: Education }) {
         className="pointer-events-none absolute bottom-0 left-3 hidden size-4 bg-background group-last/education-item:flex"
         aria-hidden
       >
-        <span className="size-full -translate-y-2.25 rounded-bl-sm border-b border-l" />
+        <span className="size-full -translate-y-2.25 border-b border-l" />
       </div>
 
       <Collapsible defaultOpen={item.isExpanded} disabled={!item.description}>

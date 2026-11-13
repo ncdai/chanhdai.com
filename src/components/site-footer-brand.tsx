@@ -1,5 +1,6 @@
 "use client"
 
+import { useCallback, useState } from "react"
 import {
   motion,
   useMotionValue,
@@ -132,13 +133,26 @@ export function SiteFooterInteractiveLogotype() {
 }
 
 function LogotypeWidthDimension() {
+  const [width, setWidth] = useState(VIEWBOX_WIDTH)
+
+  const measureRef = useCallback((node: HTMLDivElement | null) => {
+    if (!node) return
+
+    const observer = new ResizeObserver(([entry]) => {
+      setWidth(Math.round(entry.borderBoxSize[0].inlineSize))
+    })
+    observer.observe(node)
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <Dimension className="relative container mx-auto h-8">
+    <Dimension ref={measureRef} className="relative container mx-auto h-8">
       <DimensionExtensionLine className="top-1 bottom-0 left-0" />
       <DimensionExtensionLine className="top-1 right-0 bottom-0" />
 
       <DimensionLine className="absolute inset-x-0 bottom-0">
-        {VIEWBOX_WIDTH}
+        {width}
       </DimensionLine>
     </Dimension>
   )

@@ -9,10 +9,6 @@ import { useIsScrolled } from "@/hooks/use-is-scrolled"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { Button } from "@/components/ui/button"
 import { CarbonAds } from "@/components/carbon-ads"
-import {
-  HandwrittenArrow,
-  HandwrittenNote,
-} from "@/features/portfolio/components/handwritten-note"
 
 const DISMISSED_KEY = "carbonAdsDismissed"
 
@@ -89,8 +85,8 @@ export function FloatingCarbonAds() {
     >
       {shownAt !== null && (
         // Outside the ad box: Carbon forbids covering any part of the ad.
-        <div className="flex items-end justify-between gap-2">
-          <HandwrittenNote
+        <div className="flex items-end justify-end gap-2">
+          {/* <HandwrittenNote
             className="relative ml-auto flex items-end text-base/none"
             aria-hidden
           >
@@ -100,7 +96,7 @@ export function FloatingCarbonAds() {
               my AI bill
             </span>
             <HandwrittenArrow className="size-6" />
-          </HandwrittenNote>
+          </HandwrittenNote> */}
 
           <Button
             className="size-7 translate-x-2 rounded-lg border-none text-muted-foreground"
