@@ -42,13 +42,11 @@ export function Components() {
         <HandwrittenArrow className="mt-2 -rotate-3" />
       </HandwrittenNote>
 
-      <div className="relative pt-4">
+      <div className="relative">
         <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
           <div className="border-r border-line" />
           <div className="border-r border-line max-md:hidden" />
         </div>
-
-        <div className="screen-line-bottom h-px" />
 
         <ul className="grid grid-cols-1 overflow-x-clip sm:grid-cols-2 md:grid-cols-3">
           {components.slice(0, 9).map((c) => (
@@ -71,11 +69,9 @@ export function Components() {
             </li>
           ))}
         </ul>
-
-        <div className="screen-line-top h-4 before:-top-px" />
       </div>
 
-      <div className="screen-line-top flex justify-center py-4">
+      <div className="screen-line-top -mt-px flex justify-center py-4">
         <Button
           className="gap-2 pr-2.5 pl-3 shadow-[inset_0_0_1px] shadow-foreground/20"
           variant="secondary"
