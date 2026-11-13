@@ -81,16 +81,16 @@ export function Testimonials() {
         {TESTIMONIALS_FEATURED.map((item) => (
           <TestimonialSpotlight
             key={item.url}
-            className="bg-background inset-ring-foreground/20 [--spotlight-size:50%]"
+            className="rounded-none bg-background inset-ring-foreground/30 [--spotlight-size:50%] **:data-[slot=testimonial-quote]:text-lg"
           >
             <TestimonialItem {...item} showIcon />
           </TestimonialSpotlight>
         ))}
 
-        <div className="col-span-2 overflow-clip rounded-xl border">
+        <div className="col-span-2 border">
           <TestimonialsMarquee data={TESTIMONIALS_1_FILTERED} play={play} />
 
-          <div className="h-2.5 border-y" />
+          <div className="h-px bg-border" />
 
           <TestimonialsMarquee
             data={TESTIMONIALS_2_FILTERED}
@@ -151,7 +151,7 @@ function TestimonialsMarquee({
         {data.map((item) => (
           <MarqueeItem key={item.url} className="w-xs">
             <TestimonialItem
-              className="border-r bg-background transition-[background-color] ease-out hover:bg-accent-muted"
+              className="border-r bg-background transition-[background-color] ease-out hover:bg-accent-muted **:data-[slot=testimonial-quote]:font-sans"
               {...item}
             />
           </MarqueeItem>
@@ -210,7 +210,7 @@ const TestimonialItem = memo(function TestimonialItem({
 
       {showIcon && icon && (
         <div
-          className="pointer-events-none absolute right-3 bottom-3 flex size-8 items-center justify-center [&_svg]:size-4 [&_svg]:text-muted-foreground/80"
+          className="pointer-events-none absolute right-3 bottom-3 flex size-8 items-center justify-center [&_svg]:size-4 [&_svg]:text-foreground/90"
           aria-hidden
         >
           {icon}
