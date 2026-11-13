@@ -81,7 +81,7 @@ export function Testimonials() {
         {TESTIMONIALS_FEATURED.map((item) => (
           <TestimonialSpotlight
             key={item.url}
-            className="rounded-none bg-background inset-ring-foreground/30 [--spotlight-size:50%]"
+            className="rounded-none bg-background inset-ring-muted-foreground [--spotlight-size:50%]"
           >
             <TestimonialItem {...item} showIcon />
           </TestimonialSpotlight>
