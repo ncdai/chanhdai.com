@@ -1,4 +1,5 @@
 import type { NpmCommands } from "@/types/unist"
+import type { Event } from "@/lib/events"
 import { cn } from "@/lib/utils"
 import { MiddleTruncation } from "@/registry/components/middle-truncation"
 
@@ -35,10 +36,12 @@ export function CodeBlockCaption({
 export function CodeBlockFrame({
   code,
   hasTitle = false,
+  copyEvent = "copy_code_block",
   children,
 }: {
   code?: string
   hasTitle?: boolean
+  copyEvent?: Event["name"]
   children: React.ReactNode
 }) {
   return (
@@ -62,7 +65,7 @@ export function CodeBlockFrame({
             variant="ghost"
             size="icon-xs"
             text={code}
-            event="copy_code_block"
+            event={copyEvent}
           />
 
           {!hasTitle && (

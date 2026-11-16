@@ -6,6 +6,7 @@ const eventSchema = z.object({
   name: z.enum([
     "copy_npm_command",
     "copy_code_block",
+    "copy_install_prompt",
     "copy_block_code",
     "copy_email",
     "copy_phone_number",

@@ -1116,9 +1116,8 @@ export const components: Registry["items"] = [
   },
 ]
 
-// Shipped with the item rather than as @soundcn dependencies: soundcn installs
-// into lib/ and hooks/, while these components import the soundcn/ folders
-// and the reduced-motion aware useSound used on the site.
+// Not @soundcn dependencies: those install into lib/ without useSound, while
+// the components import lib/soundcn/ and hooks/soundcn/use-sound.
 function getSoundcnFiles(
   sound: string
 ): NonNullable<Registry["items"][number]["files"]> {

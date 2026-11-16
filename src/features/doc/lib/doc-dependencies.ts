@@ -111,7 +111,7 @@ function getDocsHref(docs?: string) {
 }
 
 // The leading character is skipped so a scope's `@` is kept.
-export function stripVersion(packageName: string) {
+function stripVersion(packageName: string) {
   return packageName.replace(/(?<=.)@.*$/, "")
 }
 
