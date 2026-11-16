@@ -58,7 +58,7 @@ export function getDocDependencies(
   return {
     packages: Array.from(packages, (packageName) => ({
       name: packageName,
-      href: `https://www.npmjs.com/package/${packageName}`,
+      href: `https://www.npmjs.com/package/${stripVersion(packageName)}`,
     })),
     registryItems: (rootItem.registryDependencies ?? []).map((dependency) =>
       toRegistryDependency(dependency, itemsByUrl.get(dependency))
@@ -108,6 +108,11 @@ function getDocsHref(docs?: string) {
   return docs?.startsWith(`${registry.homepage}/`)
     ? new URL(docs).pathname
     : docs
+}
+
+// The leading character is skipped so a scope's `@` is kept.
+export function stripVersion(packageName: string) {
+  return packageName.replace(/(?<=.)@.*$/, "")
 }
 
 function toTextLine(label: string, dependencies: DocDependency[]) {

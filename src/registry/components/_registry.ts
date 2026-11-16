@@ -391,7 +391,8 @@ export const components: Registry["items"] = [
     title: "Consent Manager",
     description:
       "Cookie and tracking consent banner for Next.js, built on c15t.",
-    dependencies: ["@c15t/nextjs"],
+    // Built against v1, later majors rename the exports used here.
+    dependencies: ["@c15t/nextjs@^1.8.3"],
     registryDependencies: ["button"],
     files: [
       {

@@ -511,7 +511,7 @@
       "title": "Consent Manager",
       "description": "Cookie and tracking consent banner for Next.js, built on c15t.",
       "dependencies": [
-        "@c15t/nextjs"
+        "@c15t/nextjs@^1.8.3"
       ],
       "registryDependencies": [
         "button"
