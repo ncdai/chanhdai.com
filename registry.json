@@ -786,15 +786,37 @@
       "name": "toc-minimap",
       "title": "TOC Minimap",
       "description": "Navigate page sections with a compact, hoverable TOC minimap.",
+      "dependencies": [
+        "motion"
+      ],
       "registryDependencies": [
-        "hover-card",
-        "@soundcn/u-mini-map-open"
+        "hover-card"
       ],
       "files": [
         {
           "path": "src/registry/components/toc-minimap/toc-minimap.tsx",
           "type": "registry:component",
           "target": "@components/toc-minimap.tsx"
+        },
+        {
+          "path": "src/lib/soundcn/u-mini-map-open.ts",
+          "type": "registry:lib",
+          "target": "@lib/soundcn/u-mini-map-open.ts"
+        },
+        {
+          "path": "src/lib/soundcn/sound-engine.ts",
+          "type": "registry:lib",
+          "target": "@lib/soundcn/sound-engine.ts"
+        },
+        {
+          "path": "src/lib/soundcn/sound-types.ts",
+          "type": "registry:lib",
+          "target": "@lib/soundcn/sound-types.ts"
+        },
+        {
+          "path": "src/hooks/soundcn/use-sound.ts",
+          "type": "registry:hook",
+          "target": "@hooks/soundcn/use-sound.ts"
         }
       ],
       "docs": "https://chanhdai.com/components/toc-minimap",
@@ -1076,14 +1098,31 @@
       "dependencies": [
         "motion"
       ],
-      "registryDependencies": [
-        "@soundcn/metal-click"
-      ],
       "files": [
         {
           "path": "src/registry/components/spotlight-logo/spotlight-logo.tsx",
           "type": "registry:component",
           "target": "@components/spotlight-logo.tsx"
+        },
+        {
+          "path": "src/lib/soundcn/metal-click.ts",
+          "type": "registry:lib",
+          "target": "@lib/soundcn/metal-click.ts"
+        },
+        {
+          "path": "src/lib/soundcn/sound-engine.ts",
+          "type": "registry:lib",
+          "target": "@lib/soundcn/sound-engine.ts"
+        },
+        {
+          "path": "src/lib/soundcn/sound-types.ts",
+          "type": "registry:lib",
+          "target": "@lib/soundcn/sound-types.ts"
+        },
+        {
+          "path": "src/hooks/soundcn/use-sound.ts",
+          "type": "registry:hook",
+          "target": "@hooks/soundcn/use-sound.ts"
         }
       ],
       "docs": "https://chanhdai.com/components/spotlight-logo",

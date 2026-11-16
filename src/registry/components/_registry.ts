@@ -623,13 +623,15 @@ export const components: Registry["items"] = [
     title: "TOC Minimap",
     description:
       "Navigate page sections with a compact, hoverable TOC minimap.",
-    registryDependencies: ["hover-card", "@soundcn/u-mini-map-open"],
+    dependencies: ["motion"],
+    registryDependencies: ["hover-card"],
     files: [
       {
         path: "components/toc-minimap/toc-minimap.tsx",
         type: "registry:component",
         target: "@components/toc-minimap.tsx",
       },
+      ...getSoundcnFiles("u-mini-map-open"),
     ],
     categories: ["navigation"],
     docs: "https://chanhdai.com/components/toc-minimap",
@@ -853,13 +855,13 @@ export const components: Registry["items"] = [
     description:
       "SVG logo with a cursor-tracking gradient highlight and tactile press.",
     dependencies: ["motion"],
-    registryDependencies: ["@soundcn/metal-click"],
     files: [
       {
         path: "components/spotlight-logo/spotlight-logo.tsx",
         type: "registry:component",
         target: "@components/spotlight-logo.tsx",
       },
+      ...getSoundcnFiles("metal-click"),
     ],
     categories: ["effects"],
     docs: "https://chanhdai.com/components/spotlight-logo",
@@ -1113,3 +1115,33 @@ export const components: Registry["items"] = [
     docs: "https://chanhdai.com/components/lightbox",
   },
 ]
+
+// Shipped with the item rather than as @soundcn dependencies: soundcn installs
+// into lib/ and hooks/, while these components import the soundcn/ folders
+// and the reduced-motion aware useSound used on the site.
+function getSoundcnFiles(
+  sound: string
+): NonNullable<Registry["items"][number]["files"]> {
+  return [
+    {
+      path: `src/lib/soundcn/${sound}.ts`,
+      type: "registry:lib",
+      target: `@lib/soundcn/${sound}.ts`,
+    },
+    {
+      path: "src/lib/soundcn/sound-engine.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/sound-engine.ts",
+    },
+    {
+      path: "src/lib/soundcn/sound-types.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/sound-types.ts",
+    },
+    {
+      path: "src/hooks/soundcn/use-sound.ts",
+      type: "registry:hook",
+      target: "@hooks/soundcn/use-sound.ts",
+    },
+  ]
+}
