@@ -74,6 +74,25 @@ describe("getDocDependencies", () => {
     expect(packages.map(({ name }) => name)).toEqual(["jotai"])
   })
 
+  it("links a pinned package to its npm page without the version", () => {
+    const items = [
+      createItem({
+        name: "alpha",
+        dependencies: ["@c15t/nextjs@^1.8.3", "p5@^1.9.4"],
+      }),
+    ]
+
+    const { packages } = getDocDependencies("alpha", items)
+
+    expect(packages).toEqual([
+      {
+        name: "@c15t/nextjs@^1.8.3",
+        href: "https://www.npmjs.com/package/@c15t/nextjs",
+      },
+      { name: "p5@^1.9.4", href: "https://www.npmjs.com/package/p5" },
+    ])
+  })
+
   it("links each kind of registry dependency", () => {
     const externalDocs = "https://www.kibo-ui.com/components/contribution-graph"
     const items = [

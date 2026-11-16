@@ -37,7 +37,6 @@ export function ShareMenu({ title, url }: ShareMenuProps) {
         className="w-fit"
         align="start"
         alignOffset={-6}
-        collisionPadding={16}
         finalFocus={false}
       >
         <DropdownMenuItem

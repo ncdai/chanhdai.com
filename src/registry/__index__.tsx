@@ -515,6 +515,22 @@ export const Index: Record<string, any> = {
       path: "src/registry/components/toc-minimap/toc-minimap.tsx",
       type: "registry:component",
       target: "@components/toc-minimap.tsx",
+    },{
+      path: "src/lib/soundcn/u-mini-map-open.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/u-mini-map-open.ts",
+    },{
+      path: "src/lib/soundcn/sound-engine.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/sound-engine.ts",
+    },{
+      path: "src/lib/soundcn/sound-types.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/sound-types.ts",
+    },{
+      path: "src/hooks/soundcn/use-sound.ts",
+      type: "registry:hook",
+      target: "@hooks/soundcn/use-sound.ts",
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/components/toc-minimap/toc-minimap.tsx")
@@ -736,6 +752,22 @@ export const Index: Record<string, any> = {
       path: "src/registry/components/spotlight-logo/spotlight-logo.tsx",
       type: "registry:component",
       target: "@components/spotlight-logo.tsx",
+    },{
+      path: "src/lib/soundcn/metal-click.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/metal-click.ts",
+    },{
+      path: "src/lib/soundcn/sound-engine.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/sound-engine.ts",
+    },{
+      path: "src/lib/soundcn/sound-types.ts",
+      type: "registry:lib",
+      target: "@lib/soundcn/sound-types.ts",
+    },{
+      path: "src/hooks/soundcn/use-sound.ts",
+      type: "registry:hook",
+      target: "@hooks/soundcn/use-sound.ts",
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/components/spotlight-logo/spotlight-logo.tsx")

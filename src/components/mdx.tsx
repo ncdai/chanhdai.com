@@ -39,6 +39,7 @@ import { DocDependencies } from "@/features/doc/components/doc-dependencies"
 import { DocPullQuote } from "@/features/doc/components/doc-pull-quote"
 import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import { DocTestimonial } from "@/features/doc/components/doc-testimonial"
+import { InstallPrompt } from "@/features/doc/components/install-prompt"
 
 import { Callout } from "./callout"
 import { CodeTabs } from "./code-tabs"
@@ -65,6 +66,7 @@ const components: MDXRemoteProps["components"] = {
   ComponentPreview,
   ComponentSource,
   DocDependencies,
+  InstallPrompt,
   CodeCollapsibleWrapper,
   CodeTabs,
   Callout,
@@ -89,6 +91,7 @@ const components: MDXRemoteProps["components"] = {
   TabsListInstallType: () => (
     <TabsList>
       <TabsTrigger value="cli">Command</TabsTrigger>
+      <TabsTrigger value="prompt">Prompt</TabsTrigger>
       <TabsTrigger value="manual">Manual</TabsTrigger>
       <TabsIndicator />
     </TabsList>
