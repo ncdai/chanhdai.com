@@ -194,7 +194,7 @@ const TestimonialItem = memo(function TestimonialItem({
           <TestimonialAvatarRing />
         </TestimonialAvatar>
 
-        <TestimonialAuthorName>
+        <TestimonialAuthorName className="font-medium">
           <a href={url} target="_blank" rel="noopener">
             <span className="absolute inset-0" aria-hidden />
             {authorName}
