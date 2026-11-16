@@ -5,7 +5,7 @@ function HandwrittenNote({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="handwritten-note"
       className={cn(
-        "pointer-events-none absolute font-handwritten text-base/none tracking-tighter text-muted-foreground select-none",
+        "pointer-events-none absolute font-handwritten text-base/none tracking-tighter text-blue-900 select-none dark:text-muted-foreground",
         className
       )}
       {...props}
@@ -20,7 +20,10 @@ function HandwrittenArrow({
 }: React.ComponentProps<"svg">) {
   return (
     <svg
-      className={cn("size-8 shrink-0 text-muted-foreground", className)}
+      className={cn(
+        "size-8 shrink-0 text-blue-900 dark:text-muted-foreground",
+        className
+      )}
       viewBox="0 0 40 40"
       fill="none"
       stroke="currentColor"

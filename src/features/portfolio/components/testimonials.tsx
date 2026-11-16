@@ -116,7 +116,7 @@ export function Testimonials() {
       </div> */}
 
       <HandwrittenNote
-        className="top-8 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
+        className="top-14 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
         aria-hidden
       >
         <span className="-rotate-3">
@@ -194,7 +194,7 @@ const TestimonialItem = memo(function TestimonialItem({
           <TestimonialAvatarRing />
         </TestimonialAvatar>
 
-        <TestimonialAuthorName>
+        <TestimonialAuthorName className="font-medium">
           <a href={url} target="_blank" rel="noopener">
             <span className="absolute inset-0" aria-hidden />
             {authorName}
