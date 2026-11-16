@@ -5,7 +5,7 @@ function HandwrittenNote({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="handwritten-note"
       className={cn(
-        "pointer-events-none absolute font-handwritten text-xl/none tracking-normal text-muted-foreground select-none",
+        "pointer-events-none absolute font-handwritten text-base/none tracking-tighter text-muted-foreground select-none",
         className
       )}
       {...props}

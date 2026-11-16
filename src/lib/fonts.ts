@@ -1,4 +1,3 @@
-import { Caveat } from "next/font/google"
 import localFont from "next/font/local"
 import { GeistSans } from "geist/font/sans"
 import { GeistSerif } from "geist/font/serif"
@@ -9,7 +8,8 @@ const fontSans = GeistSans
 
 const fontSerif = GeistSerif
 
-const fontHandwritten = Caveat({
+const fontHandwritten = localFont({
+  src: "../assets/fonts/ChanhDaiNotes-Regular.woff2",
   weight: "400",
   display: "swap",
   variable: "--font-handwritten",
