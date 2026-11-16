@@ -116,7 +116,7 @@ export function Testimonials() {
       </div> */}
 
       <HandwrittenNote
-        className="top-8 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
+        className="top-14 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
         aria-hidden
       >
         <span className="-rotate-3">
