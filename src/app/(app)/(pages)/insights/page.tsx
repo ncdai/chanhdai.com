@@ -1,12 +1,10 @@
 import { Suspense } from "react"
 import type { Metadata } from "next"
-import { differenceInCalendarDays, parseISO } from "date-fns"
 
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import {
   PageHeading,
-  PageHeadingDescription,
   PageHeadingTagline,
   PageHeadingTitle,
 } from "@/components/page-heading"
@@ -22,7 +20,7 @@ import { getInsights } from "@/features/portfolio/data/insights"
 
 const title = "Insights"
 const description =
-  "The code is public, and so are the numbers. Visitors, sessions, and views, compared with the previous period."
+  "Visitors, sessions, and views, compared with the previous period."
 
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
@@ -69,10 +67,9 @@ export default function InsightsPage() {
       <div className="min-h-svh">
         <PageHeading>
           <PageHeadingTagline>Insights</PageHeadingTagline>
-          <PageHeadingTitle>Open source, open metrics.</PageHeadingTitle>
-          <PageHeadingDescription>
-            The code is public, and so are the numbers.
-          </PageHeadingDescription>
+          <PageHeadingTitle>
+            Built in public, measured in public.
+          </PageHeadingTitle>
         </PageHeading>
 
         <div className="h-4" />
@@ -99,21 +96,8 @@ async function InsightsContent() {
     )
   }
 
-  // The API window is `[startDate, endDate)`, so the difference is the number
-  // of days the summary covers without an off-by-one.
-  const days = differenceInCalendarDays(
-    parseISO(data.endDate),
-    parseISO(data.startDate)
-  )
-
   return (
     <>
-      <div className="screen-line-bottom flex h-10 items-center px-4">
-        <h2 className="font-heading text-sm font-medium text-muted-foreground">
-          Last {days} days
-        </h2>
-      </div>
-
       <InsightsMetrics summary={data.summary} changes={data.changes} />
 
       <InsightsChart series={data.series} showDateRange />
@@ -124,7 +108,6 @@ async function InsightsContent() {
 function InsightsContentSkeleton() {
   return (
     <>
-      <div className="screen-line-bottom h-10" aria-hidden />
       <InsightsMetricsSkeleton />
       <InsightsChartSkeleton />
     </>
