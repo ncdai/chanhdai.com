@@ -41,12 +41,6 @@ export const USER: User = {
     "https://assets.chanhdai.com/images/avatar-macbook-outline.webp?t=1793321200",
   avatarMonochrome:
     "https://assets.chanhdai.com/images/avatar-macbook-monochrome.webp?t=1793321200",
-  avatarVariants: {
-    lightOff: "https://assets.chanhdai.com/images/avatar-light-off.webp",
-    lightOn: "https://assets.chanhdai.com/images/avatar-light-on.webp",
-    darkOff: "https://assets.chanhdai.com/images/avatar-dark-off.webp",
-    darkOn: "https://assets.chanhdai.com/images/avatar-dark-on.webp",
-  },
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
   ogVideo: "https://assets.chanhdai.com/videos/og-video-dark.mp4?t=1794217231",

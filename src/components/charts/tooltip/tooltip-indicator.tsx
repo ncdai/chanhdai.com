@@ -1,11 +1,15 @@
 "use client"
 
-import { motion, useSpring } from "motion/react"
+import { useEffect, useId } from "react"
+import { m, useSpring } from "motion/react"
 
+import { useChartConfig, type SpringConfig } from "../chart-config-context"
 import { chartCssVars } from "../chart-context"
-
-// Faster spring for crosshair - responsive to mouse movement
-const crosshairSpringConfig = { stiffness: 300, damping: 30 }
+import {
+  indicatorFadeGradientStops,
+  resolveVerticalFadeSides,
+  type IndicatorFadeEdges,
+} from "../indicator-fade"
 
 export type IndicatorWidth =
   | number // Pixel width
@@ -37,10 +41,28 @@ export interface TooltipIndicatorProps {
   colorEdge?: string
   /** Secondary color at center (50%) */
   colorMid?: string
-  /** Whether to fade to transparent at 0% and 100% */
-  fadeEdges?: boolean
-  /** Unique ID for the gradient */
+  /**
+   * Bottom colour for a vertical colour ramp: the indicator blends from
+   * `colorMid` (top) to `colorEnd` (bottom). Composes with `fadeEdges`.
+   */
+  colorEnd?: string
+  /**
+   * Y (px) where the indicator ends, e.g. the hovered point. Springs with the
+   * indicator. Default: `height` (full plot).
+   */
+  bottom?: number
+  /** Vertical fade: both ends, top, bottom, or none (solid). */
+  fadeEdges?: IndicatorFadeEdges | boolean
+  /** Fade zone size as a percentage of indicator height. Default: 10 */
+  fadeLength?: number
+  /** Animate position with a spring. Default: true */
+  animate?: boolean
+  /** Unique ID for the gradient. Default: generated per instance. */
   gradientId?: string
+  /** Per-chart override; falls back to `ChartConfigProvider.tooltipSpring`. */
+  springConfig?: SpringConfig
+  /** SVG stroke dash pattern. When set, renders a dashed stroke instead of a solid fill. */
+  strokeDasharray?: string
 }
 
 function resolveWidth(width: IndicatorWidth): number {
@@ -61,57 +83,167 @@ function resolveWidth(width: IndicatorWidth): number {
   }
 }
 
-export function TooltipIndicator({
+/** Colour at a gradient `offset` ("40%") on a top → bottom ramp. */
+function verticalRampColor(top: string, end: string, offset: string): string {
+  const percent = Number.parseFloat(offset)
+  if (percent <= 0) {
+    return top
+  }
+  if (percent >= 100) {
+    return end
+  }
+  return `color-mix(in srgb, ${end} ${percent}%, ${top})`
+}
+
+// Inner-only-on-visible so `useSpring` initializes at the real cursor x
+// instead of 0 on first hover.
+export function TooltipIndicator(props: TooltipIndicatorProps) {
+  if (!props.visible) {
+    return null
+  }
+  return <TooltipIndicatorInner {...props} />
+}
+
+function TooltipIndicatorInner({
   x,
-  height,
   visible,
+  height,
   width = "line",
   span,
   columnWidth,
   colorEdge = chartCssVars.crosshair,
   colorMid = chartCssVars.crosshair,
-  fadeEdges = true,
-  gradientId = "tooltip-indicator-gradient",
+  colorEnd,
+  bottom,
+  fadeEdges = "both",
+  fadeLength = 10,
+  animate = true,
+  gradientId: gradientIdProp,
+  springConfig,
+  strokeDasharray,
 }: TooltipIndicatorProps) {
+  // Per-instance id: a shared id makes every chart on the page resolve
+  // `url(#…)` to the first chart's gradient (and its colours).
+  const generatedId = useId()
+  const gradientId =
+    gradientIdProp ?? `tooltip-indicator-gradient-${generatedId}`
+  const { tooltipSpring } = useChartConfig()
+  const effectiveSpring = springConfig ?? tooltipSpring
+
   const pixelWidth =
     span !== undefined && columnWidth !== undefined
       ? span * columnWidth
       : resolveWidth(width)
 
-  const animatedX = useSpring(x - pixelWidth / 2, crosshairSpringConfig)
+  const rectX = x - pixelWidth / 2
+  const lineX = x
+  const endY = Math.max(0, Math.min(height, bottom ?? height))
+  const animatedX = useSpring(rectX, effectiveSpring)
+  const animatedLineX = useSpring(lineX, effectiveSpring)
+  const animatedEndY = useSpring(endY, effectiveSpring)
 
-  animatedX.set(x - pixelWidth / 2)
-
-  if (!visible) {
-    return null
+  if (animate) {
+    animatedX.set(rectX)
+    animatedLineX.set(lineX)
+    animatedEndY.set(endY)
   }
 
-  const edgeOpacity = fadeEdges ? 0 : 1
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we need to jump the animatedX when the visible prop changes
+  useEffect(() => {
+    animatedX.set(rectX)
+    animatedLineX.set(lineX)
+    animatedEndY.set(endY)
+  }, [animatedLineX, animatedX, animatedEndY, endY, lineX, rectX, visible])
+
+  const indicatorFill = colorMid || colorEdge
+  const fadeSides = resolveVerticalFadeSides(fadeEdges)
+  const dashed = Boolean(strokeDasharray)
+
+  if (dashed) {
+    const strokeWidth = Math.max(1, pixelWidth)
+    return animate ? (
+      <m.line
+        stroke={indicatorFill}
+        strokeDasharray={strokeDasharray}
+        strokeWidth={strokeWidth}
+        x1={animatedLineX}
+        x2={animatedLineX}
+        y1={0}
+        y2={animatedEndY}
+      />
+    ) : (
+      <line
+        stroke={indicatorFill}
+        strokeDasharray={strokeDasharray}
+        strokeWidth={strokeWidth}
+        x1={lineX}
+        x2={lineX}
+        y1={0}
+        y2={endY}
+      />
+    )
+  }
+
+  if (!(fadeSides.any || colorEnd)) {
+    return animate ? (
+      <m.rect
+        fill={indicatorFill}
+        height={animatedEndY}
+        width={pixelWidth}
+        x={animatedX}
+        y={0}
+      />
+    ) : (
+      <rect
+        fill={indicatorFill}
+        height={endY}
+        width={pixelWidth}
+        x={rectX}
+        y={0}
+      />
+    )
+  }
+
+  const fadeStops = indicatorFadeGradientStops(fadeSides, fadeLength)
+  if (colorEnd && fadeStops.length === 1) {
+    fadeStops.push({ offset: "100%", opacity: 1 })
+  }
 
   return (
     <g>
       <defs>
         <linearGradient id={gradientId} x1="0%" x2="0%" y1="0%" y2="100%">
-          <stop
-            offset="0%"
-            style={{ stopColor: colorEdge, stopOpacity: edgeOpacity }}
-          />
-          <stop offset="10%" style={{ stopColor: colorEdge, stopOpacity: 1 }} />
-          <stop offset="50%" style={{ stopColor: colorMid, stopOpacity: 1 }} />
-          <stop offset="90%" style={{ stopColor: colorEdge, stopOpacity: 1 }} />
-          <stop
-            offset="100%"
-            style={{ stopColor: colorEdge, stopOpacity: edgeOpacity }}
-          />
+          {fadeStops.map((stop) => (
+            <stop
+              key={stop.offset}
+              offset={stop.offset}
+              style={{
+                stopColor: colorEnd
+                  ? verticalRampColor(indicatorFill, colorEnd, stop.offset)
+                  : indicatorFill,
+                stopOpacity: stop.opacity,
+              }}
+            />
+          ))}
         </linearGradient>
       </defs>
-      <motion.rect
-        fill={`url(#${gradientId})`}
-        height={height}
-        width={pixelWidth}
-        x={animatedX}
-        y={0}
-      />
+      {animate ? (
+        <m.rect
+          fill={`url(#${gradientId})`}
+          height={animatedEndY}
+          width={pixelWidth}
+          x={animatedX}
+          y={0}
+        />
+      ) : (
+        <rect
+          fill={`url(#${gradientId})`}
+          height={endY}
+          width={pixelWidth}
+          x={rectX}
+          y={0}
+        />
+      )}
     </g>
   )
 }

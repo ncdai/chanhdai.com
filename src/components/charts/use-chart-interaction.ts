@@ -1,13 +1,25 @@
 "use client"
 
-import { useCallback, useRef, useState } from "react"
-import { localPoint } from "@visx/event"
-import type { scaleLinear, scaleTime } from "@visx/scale"
+import { useCallback, useEffect, useRef, useState } from "react"
+import type {
+  ScaleLinear as D3ScaleLinear,
+  ScaleTime as D3ScaleTime,
+} from "d3-scale"
 
-import type { LineConfig, Margin, TooltipData } from "./chart-context"
+import {
+  createChartHoverStore,
+  type BandConfig,
+  type ChartHoverStore,
+  type LineConfig,
+  type Margin,
+  type TooltipData,
+} from "./chart-context"
+import { localPoint } from "./local-point"
+import { useScheduledTooltip } from "./use-scheduled-tooltip"
+import { normalizeYAxisId } from "./y-axis-scales"
 
-type ScaleTime = ReturnType<typeof scaleTime<number>>
-type ScaleLinear = ReturnType<typeof scaleLinear<number>>
+type ScaleTime = D3ScaleTime<number, number>
+type ScaleLinear = D3ScaleLinear<number, number>
 
 export interface ChartSelection {
   startX: number
@@ -20,8 +32,11 @@ export interface ChartSelection {
 interface UseChartInteractionParams {
   xScale: ScaleTime
   yScale: ScaleLinear
+  yScales: Record<string, ScaleLinear>
   data: Record<string, unknown>[]
   lines: LineConfig[]
+  /** `<Band>` configs — edge y-positions for tooltip dots. */
+  bands?: BandConfig[]
   margin: Margin
   xAccessor: (d: Record<string, unknown>) => Date
   bisectDate: (
@@ -33,10 +48,11 @@ interface UseChartInteractionParams {
 }
 
 interface ChartInteractionResult {
-  tooltipData: TooltipData | null
-  setTooltipData: React.Dispatch<React.SetStateAction<TooltipData | null>>
-  selection: ChartSelection | null
-  clearSelection: () => void
+  /**
+   * Tooltip + selection state. Lives outside React state so a pointer move
+   * re-renders only hover consumers (publish it with `ChartHoverStoreProvider`).
+   */
+  hoverStore: ChartHoverStore
   interactionHandlers: {
     onMouseMove?: (event: React.MouseEvent<SVGGElement>) => void
     onMouseLeave?: () => void
@@ -49,21 +65,55 @@ interface ChartInteractionResult {
   interactionStyle: React.CSSProperties
 }
 
+/** Pixel y per line dataKey, plus band edge keys (line keys win on collisions). */
+function resolveYPositions(
+  d: Record<string, unknown>,
+  lines: LineConfig[],
+  bands: BandConfig[] | undefined,
+  yScales: Record<string, ScaleLinear>,
+  yScale: ScaleLinear
+): Record<string, number> {
+  const yPositions: Record<string, number> = {}
+  const place = (key: string, yAxisId: string | number | undefined) => {
+    const value = d[key]
+    if (typeof value === "number") {
+      const axisScale = yScales[normalizeYAxisId(yAxisId)] ?? yScale
+      yPositions[key] = axisScale(value) ?? 0
+    }
+  }
+  for (const band of bands ?? []) {
+    if (band.showInTooltip) {
+      place(band.upperKey, band.yAxisId)
+      place(band.lowerKey, band.yAxisId)
+    }
+  }
+  // Lines last so they win when a band edge shares a line's key.
+  for (const line of lines) {
+    place(line.dataKey, line.yAxisId)
+  }
+  return yPositions
+}
+
 export function useChartInteraction({
   xScale,
   yScale,
+  yScales,
   data,
   lines,
+  bands,
   margin,
   xAccessor,
   bisectDate,
   canInteract,
 }: UseChartInteractionParams): ChartInteractionResult {
-  const [tooltipData, setTooltipData] = useState<TooltipData | null>(null)
-  const [selection, setSelection] = useState<ChartSelection | null>(null)
+  const [hoverStore] = useState(createChartHoverStore)
+  const { setSelection } = hoverStore
+  const { scheduleTooltip, clearTooltip, resetTooltipDedupe } =
+    useScheduledTooltip<TooltipData>(hoverStore.setTooltipData)
 
   const isDraggingRef = useRef(false)
   const dragStartXRef = useRef<number>(0)
+  const lastHoveredXRef = useRef<number | null>(null)
 
   const resolveTooltipFromX = useCallback(
     (pixelX: number): TooltipData | null => {
@@ -87,22 +137,14 @@ export function useChartInteraction({
         }
       }
 
-      const yPositions: Record<string, number> = {}
-      for (const line of lines) {
-        const value = d[line.dataKey]
-        if (typeof value === "number") {
-          yPositions[line.dataKey] = yScale(value) ?? 0
-        }
-      }
-
       return {
         point: d,
         index: finalIndex,
         x: xScale(xAccessor(d)) ?? 0,
-        yPositions,
+        yPositions: resolveYPositions(d, lines, bands, yScales, yScale),
       }
     },
-    [xScale, yScale, data, lines, xAccessor, bisectDate]
+    [xScale, yScale, yScales, data, lines, bands, xAccessor, bisectDate]
   )
 
   const resolveIndexFromX = useCallback(
@@ -142,7 +184,7 @@ export function useChartInteraction({
         if (!svg) {
           return null
         }
-        point = localPoint(svg, touch as unknown as MouseEvent)
+        point = localPoint(svg, touch)
       } else {
         point = localPoint(event)
       }
@@ -154,8 +196,6 @@ export function useChartInteraction({
     },
     [margin.left]
   )
-
-  // --- Mouse handlers ---
 
   const handleMouseMove = useCallback(
     (event: React.MouseEvent<SVGGElement>) => {
@@ -177,21 +217,29 @@ export function useChartInteraction({
         return
       }
 
+      lastHoveredXRef.current = chartX
       const tooltip = resolveTooltipFromX(chartX)
       if (tooltip) {
-        setTooltipData(tooltip)
+        scheduleTooltip(tooltip)
       }
     },
-    [getChartX, resolveTooltipFromX, resolveIndexFromX]
+    [
+      getChartX,
+      resolveTooltipFromX,
+      resolveIndexFromX,
+      scheduleTooltip,
+      setSelection,
+    ]
   )
 
   const handleMouseLeave = useCallback(() => {
-    setTooltipData(null)
+    lastHoveredXRef.current = null
+    clearTooltip()
     if (isDraggingRef.current) {
       isDraggingRef.current = false
     }
     setSelection(null)
-  }, [])
+  }, [clearTooltip, setSelection])
 
   const handleMouseDown = useCallback(
     (event: React.MouseEvent<SVGGElement>) => {
@@ -199,12 +247,15 @@ export function useChartInteraction({
       if (chartX === null) {
         return
       }
+      // Stop the drag from starting a native text selection across the page
+      // (tooltip, labels, nearby copy).
+      event.preventDefault()
       isDraggingRef.current = true
       dragStartXRef.current = chartX
-      setTooltipData(null)
+      clearTooltip()
       setSelection(null)
     },
-    [getChartX]
+    [getChartX, clearTooltip, setSelection]
   )
 
   const handleMouseUp = useCallback(() => {
@@ -212,9 +263,7 @@ export function useChartInteraction({
       isDraggingRef.current = false
     }
     setSelection(null)
-  }, [])
-
-  // --- Touch handlers ---
+  }, [setSelection])
 
   const handleTouchStart = useCallback(
     (event: React.TouchEvent<SVGGElement>) => {
@@ -224,13 +273,15 @@ export function useChartInteraction({
         if (chartX === null) {
           return
         }
+        lastHoveredXRef.current = chartX
         const tooltip = resolveTooltipFromX(chartX)
         if (tooltip) {
-          setTooltipData(tooltip)
+          scheduleTooltip(tooltip)
         }
       } else if (event.touches.length === 2) {
         event.preventDefault()
-        setTooltipData(null)
+        resetTooltipDedupe()
+        clearTooltip()
         const x0 = getChartX(event, 0)
         const x1 = getChartX(event, 1)
         if (x0 === null || x1 === null) {
@@ -247,7 +298,15 @@ export function useChartInteraction({
         })
       }
     },
-    [getChartX, resolveTooltipFromX, resolveIndexFromX]
+    [
+      getChartX,
+      resolveTooltipFromX,
+      resolveIndexFromX,
+      scheduleTooltip,
+      resetTooltipDedupe,
+      clearTooltip,
+      setSelection,
+    ]
   )
 
   const handleTouchMove = useCallback(
@@ -258,9 +317,10 @@ export function useChartInteraction({
         if (chartX === null) {
           return
         }
+        lastHoveredXRef.current = chartX
         const tooltip = resolveTooltipFromX(chartX)
         if (tooltip) {
-          setTooltipData(tooltip)
+          scheduleTooltip(tooltip)
         }
       } else if (event.touches.length === 2) {
         event.preventDefault()
@@ -280,17 +340,32 @@ export function useChartInteraction({
         })
       }
     },
-    [getChartX, resolveTooltipFromX, resolveIndexFromX]
+    [
+      getChartX,
+      resolveTooltipFromX,
+      resolveIndexFromX,
+      scheduleTooltip,
+      setSelection,
+    ]
   )
 
   const handleTouchEnd = useCallback(() => {
-    setTooltipData(null)
+    clearTooltip()
     setSelection(null)
-  }, [])
+  }, [clearTooltip, setSelection])
 
-  const clearSelection = useCallback(() => {
-    setSelection(null)
-  }, [])
+  // Re-anchor tooltip/crosshair when x-scale or visible data changes (e.g. brush zoom commit).
+  useEffect(() => {
+    if (!canInteract || lastHoveredXRef.current === null) {
+      return
+    }
+    const tooltip = resolveTooltipFromX(lastHoveredXRef.current)
+    if (tooltip) {
+      scheduleTooltip(tooltip, `${tooltip.index}:${Math.round(tooltip.x)}`)
+      return
+    }
+    clearTooltip()
+  }, [canInteract, clearTooltip, resolveTooltipFromX, scheduleTooltip])
 
   const interactionHandlers = canInteract
     ? {
@@ -310,10 +385,7 @@ export function useChartInteraction({
   }
 
   return {
-    tooltipData,
-    setTooltipData,
-    selection,
-    clearSelection,
+    hoverStore,
     interactionHandlers,
     interactionStyle,
   }

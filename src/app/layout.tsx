@@ -121,17 +121,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var value = localStorage.getItem('avatarLights');
-                document.documentElement.dataset.avatarLights = JSON.parse(value || '"on"');
-              } catch(_) {}
-            `,
-          }}
-        />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
                 var value = localStorage.getItem('sidebarOpen');
                 document.documentElement.dataset.sidebarOpen = JSON.parse(value || 'true');
               } catch(_) {}

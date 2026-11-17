@@ -51,12 +51,6 @@ export function ProfileHeader() {
               />
             </div>
           </div>
-          {/* <AvatarLightsToggle className="group/avatar-lights-toggle mx-0.5 my-0.75 flex outline-none">
-            <AvatarLights
-              className="ring-border ring-offset-background group-focus-visible/avatar-lights-toggle:ring-1 group-focus-visible/avatar-lights-toggle:ring-offset-2"
-              variants={USER.avatarVariants}
-            />
-          </AvatarLightsToggle> */}
         </div>
       </div>
 

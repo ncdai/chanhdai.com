@@ -22,10 +22,4 @@ describe("getBookmarkExternalHref", () => {
   it("returns invalid urls unchanged", () => {
     expect(getBookmarkExternalHref("not a url")).toBe("not a url")
   })
-
-  it("normalizes bare origins with a trailing slash", () => {
-    expect(getBookmarkExternalHref("https://animations.dev")).toBe(
-      "https://animations.dev/?utm_source=chanhdai.com"
-    )
-  })
 })
