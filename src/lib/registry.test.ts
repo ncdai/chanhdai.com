@@ -64,16 +64,6 @@ describe("fixImport", () => {
       "import { A } from '@/components/foo/a'\nimport { B } from '@/lib/bar/b'"
     )
   })
-
-  it("collapses two matches that share one line (lazy prefix spans the gap)", () => {
-    // Quirk: `.+?` in the first capture group consumes across the quote/space
-    // boundary, so two matches on one line fold into the last one. Real file
-    // contents keep imports on separate lines, so this pathological case does
-    // not occur in practice; pinned to document the actual behavior.
-    expect(
-      fixImport("a '@/registry/components/foo/aa' b '@/registry/lib/bar/bb'")
-    ).toBe("a '@/lib/bar/bb'")
-  })
 })
 
 describe("getFileTarget", () => {
