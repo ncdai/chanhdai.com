@@ -6,15 +6,19 @@ type ISODateString = string
 
 export type InsightsSummary = {
   unique_visitors: number
-  total_sessions: number
   total_screen_views: number
+  views_per_session: number
   avg_session_duration: number
 }
 
 export type InsightsSeriesItem = {
   date: ISODateString
-  unique_visitors: number
-  total_sessions: number
+  total_screen_views: number
+}
+
+export type InsightsPage = {
+  path: string
+  pageviews: number
 }
 
 type DateRange = {
@@ -27,33 +31,19 @@ type OverviewResponse = DateRange & {
   series: InsightsSeriesItem[]
 }
 
-const METRIC_KEYS = [
-  "unique_visitors",
-  "total_sessions",
-  "total_screen_views",
-  "avg_session_duration",
-] as const satisfies readonly (keyof InsightsSummary)[]
-
-/**
- * `null` when the previous cycle is unavailable or was zero, since growth from
- * zero has no meaningful percentage.
- */
-export type InsightsChanges = Record<
-  (typeof METRIC_KEYS)[number],
-  number | null
->
-
 export type InsightsResponse = OverviewResponse & {
-  previous: (DateRange & { summary: InsightsSummary }) | null
-  changes: InsightsChanges
+  topPages: InsightsPage[]
 }
 
-async function fetchOverview(
+const TOP_PAGES_LIMIT = 10
+
+async function fetchInsights<T>(
+  endpoint: string,
   range?: DateRange
-): Promise<OverviewResponse | null> {
+): Promise<T | null> {
   try {
     const url = new URL(
-      `https://api.openpanel.dev/insights/${process.env.OPENPANEL_PROJECT_ID}/overview`
+      `https://api.openpanel.dev/insights/${process.env.OPENPANEL_PROJECT_ID}/${endpoint}`
     )
 
     if (range) {
@@ -72,75 +62,42 @@ async function fetchOverview(
       return null
     }
 
-    const data = (await res.json()) as OverviewResponse
-    return data
+    return (await res.json()) as T
   } catch {
     return null
   }
 }
 
 /**
- * The API treats a range as `[startDate, endDate)`, so the cycle immediately
- * before it ends exactly where the current one starts.
+ * The range is required because `/pages` defaults to 7 days while `/overview`
+ * defaults to 30. The endpoint ignores `limit` and ranks by sessions, so every
+ * row comes back and is re-ranked by views here.
  */
-function getPreviousRange({ startDate, endDate }: DateRange): DateRange | null {
-  const start = Date.parse(startDate)
-  const end = Date.parse(endDate)
+async function fetchTopPages(range: DateRange): Promise<InsightsPage[]> {
+  const pages = await fetchInsights<InsightsPage[]>("pages", range)
 
-  if (Number.isNaN(start) || Number.isNaN(end) || end <= start) {
-    return null
-  }
-
-  return {
-    startDate: toDateParam(start - (end - start)),
-    endDate: toDateParam(start),
-  }
-}
-
-function toDateParam(time: number): ISODateString {
-  return new Date(time).toISOString().slice(0, 10)
-}
-
-function getPercentChange(current: number, previous?: number): number | null {
-  if (previous === undefined || previous === 0) {
-    return null
-  }
-
-  return ((current - previous) / previous) * 100
-}
-
-function getChanges(
-  current: InsightsSummary,
-  previous: InsightsSummary | null
-): InsightsChanges {
-  return Object.fromEntries(
-    METRIC_KEYS.map((key) => [
-      key,
-      getPercentChange(current[key], previous?.[key]),
-    ])
-  ) as InsightsChanges
+  return (pages ?? [])
+    .map(({ path, pageviews }) => ({ path, pageviews }))
+    .sort((a, b) => b.pageviews - a.pageviews)
+    .slice(0, TOP_PAGES_LIMIT)
 }
 
 export const getInsights = unstable_cache(
   async (): Promise<InsightsResponse | null> => {
-    const current = await fetchOverview()
+    const overview = await fetchInsights<OverviewResponse>("overview")
 
-    if (current === null) {
+    if (overview === null) {
       return null
     }
 
-    const previousRange = getPreviousRange(current)
-    const previousSummary = previousRange
-      ? ((await fetchOverview(previousRange))?.summary ?? null)
-      : null
-
     return {
-      ...current,
-      previous:
-        previousRange && previousSummary
-          ? { ...previousRange, summary: previousSummary }
-          : null,
-      changes: getChanges(current.summary, previousSummary),
+      ...overview,
+      // The range is `[startDate, endDate)`, yet the series also includes
+      // `endDate`: today, still partial, which ends the chart on a false drop.
+      series: overview.series.filter(
+        (item) => item.date.slice(0, 10) < overview.endDate
+      ),
+      topPages: await fetchTopPages(overview),
     }
   },
   ["openpanel-insights"],
