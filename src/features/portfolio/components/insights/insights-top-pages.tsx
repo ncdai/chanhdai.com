@@ -15,17 +15,24 @@ export function InsightsTopPages({ pages }: { pages: InsightsPage[] }) {
       <InsightsTopPagesHeading />
       <InsightsTopPagesColumns />
 
-      <ol className="grid gap-4 p-4">
+      <ol className="grid grid-cols-1 gap-4 p-4">
         {pages.map((page) => (
-          <li key={page.path} className="flex items-baseline gap-2 text-sm/4">
-            <Link href={page.path as Route} className="min-w-0 truncate">
-              {page.path}
+          <li
+            key={page.path}
+            className="flex items-baseline gap-2 font-mono text-sm/4"
+          >
+            <Link
+              href={page.path as Route}
+              className="flex min-w-0"
+              title={page.path}
+            >
+              <MiddleTruncatedPath path={page.path} />
             </Link>
             <span
               className="flex-1 translate-y-0.75 border-b border-dashed border-line"
               aria-hidden
             />
-            <span className="font-medium tabular-nums">
+            <span className="font-medium">
               {formatNumber(page.pageviews)}
               <span className="sr-only"> views</span>
             </span>
@@ -33,6 +40,17 @@ export function InsightsTopPages({ pages }: { pages: InsightsPage[] }) {
         ))}
       </ol>
     </section>
+  )
+}
+
+function MiddleTruncatedPath({ path }: { path: string }) {
+  const index = path.lastIndexOf("/")
+
+  return (
+    <>
+      <span className="truncate">{path.slice(0, index)}</span>
+      <span className="max-w-full shrink-0 truncate">{path.slice(index)}</span>
+    </>
   )
 }
 

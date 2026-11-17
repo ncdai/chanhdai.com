@@ -75,7 +75,7 @@ function MetricValue({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <dd
       data-slot="metric-value"
-      className={cn("text-xl/none font-medium tabular-nums", className)}
+      className={cn("font-mono text-xl/none font-medium", className)}
       {...props}
     />
   )
