@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import {
@@ -8,20 +7,10 @@ import {
   type RefObject,
   type SetStateAction,
 } from "react"
-import type { scaleBand, scaleLinear, scaleTime } from "@visx/scale"
+import type { ScaleBand, ScaleLinear, ScaleTime } from "d3-scale"
 import type { Transition } from "motion/react"
 
 import type { ChartSelection } from "./use-chart-interaction"
-
-type ScaleLinear<Output, _Input = number> = ReturnType<
-  typeof scaleLinear<Output>
->
-type ScaleTime<Output, _Input = Date | number> = ReturnType<
-  typeof scaleTime<Output>
->
-type ScaleBand<Domain extends { toString(): string }> = ReturnType<
-  typeof scaleBand<Domain>
->
 
 // CSS variable references for theming
 export const chartCssVars = {

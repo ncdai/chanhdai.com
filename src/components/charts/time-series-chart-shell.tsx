@@ -10,8 +10,8 @@ import {
   type ReactElement,
   type ReactNode,
 } from "react"
-import { scaleLinear, scaleTime } from "@visx/scale"
 import { bisector } from "d3-array"
+import { scaleLinear, scaleTime } from "d3-scale"
 import { format } from "date-fns"
 import type { Transition } from "motion/react"
 
@@ -115,10 +115,7 @@ export function TimeSeriesChartInner({
     const minTime = Math.min(...dates.map((d) => d.getTime()))
     const maxTime = Math.max(...dates.map((d) => d.getTime()))
 
-    return scaleTime({
-      range: [0, innerWidth],
-      domain: [minTime, maxTime],
-    })
+    return scaleTime().domain([minTime, maxTime]).range([0, innerWidth])
   }, [innerWidth, data, xAccessor])
 
   const columnWidth = useMemo(() => {
@@ -147,11 +144,10 @@ export function TimeSeriesChartInner({
       }
     }
 
-    return scaleLinear({
-      range: [innerHeight, 0],
-      domain: [0, maxValue * 1.1],
-      nice: true,
-    })
+    return scaleLinear()
+      .domain([0, maxValue * 1.1])
+      .nice()
+      .range([innerHeight, 0])
   }, [innerHeight, data, lines, yScaleDomainMax])
 
   const dateLabels = useMemo(

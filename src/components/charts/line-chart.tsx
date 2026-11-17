@@ -3,11 +3,12 @@
 import {
   Children,
   isValidElement,
+  useEffect,
   useMemo,
   useRef,
+  useState,
   type ReactNode,
 } from "react"
-import { ParentSize } from "@visx/responsive"
 import type { Transition } from "motion/react"
 
 import { cn } from "@/lib/utils"
@@ -136,6 +137,7 @@ export function LineChart({
   children,
 }: LineChartProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const { width, height } = useElementSize(containerRef)
   const margin = { ...DEFAULT_MARGIN, ...marginProp }
 
   return (
@@ -144,26 +146,45 @@ export function LineChart({
       ref={containerRef}
       style={{ aspectRatio, touchAction: "none" }}
     >
-      <ParentSize debounceTime={10}>
-        {({ width, height }) => (
-          <ChartInner
-            animationDuration={animationDuration}
-            animationEasing={animationEasing}
-            containerRef={containerRef}
-            data={data}
-            enterTransition={enterTransition}
-            height={height}
-            margin={margin}
-            revealSignature={revealSignature}
-            width={width}
-            xDataKey={xDataKey}
-          >
-            {children}
-          </ChartInner>
-        )}
-      </ParentSize>
+      <ChartInner
+        animationDuration={animationDuration}
+        animationEasing={animationEasing}
+        containerRef={containerRef}
+        data={data}
+        enterTransition={enterTransition}
+        height={height}
+        margin={margin}
+        revealSignature={revealSignature}
+        width={width}
+        xDataKey={xDataKey}
+      >
+        {children}
+      </ChartInner>
     </div>
   )
+}
+
+function useElementSize(ref: React.RefObject<HTMLElement | null>) {
+  const [size, setSize] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) {
+      return
+    }
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect
+      setSize((prev) =>
+        prev.width === width && prev.height === height
+          ? prev
+          : { width, height }
+      )
+    })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [ref])
+
+  return size
 }
 
 export { Line, type LineProps } from "./line"

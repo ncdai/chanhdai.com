@@ -1,17 +1,11 @@
 "use client"
 
-import { useCallback, useEffect, useId, useRef, useState } from "react"
-import { curveNatural } from "@visx/curve"
-import { LinePath } from "@visx/shape"
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react"
+import { curveNatural, line, type CurveFactory } from "d3-shape"
 import { motion, useMotionTemplate, useSpring } from "motion/react"
 
 import { chartCssVars, useChart } from "./chart-context"
 import { ChartRevealClip } from "./chart-reveal-clip"
-
-// CurveFactory type - simplified version compatible with visx
-// biome-ignore lint/suspicious/noExplicitAny: d3 curve factory type
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type CurveFactory = any
 
 export interface LineProps {
   /** Key in data to use for y values */
@@ -55,26 +49,39 @@ export function Line({
 
   const pathRef = useRef<SVGPathElement>(null)
   const [pathLength, setPathLength] = useState(0)
-  // The highlight reuses the rendered path, so it is read from the DOM after commit.
-  const [pathD, setPathD] = useState("")
 
   const reactId = useId()
   const gradientId = `line-gradient-${dataKey}-${reactId}`
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: data, innerWidth, innerHeight
+  // Get y value for a data point
+  const getY = useCallback(
+    (d: Record<string, unknown>) => {
+      const value = d[dataKey]
+      return typeof value === "number" ? (yScale(value) ?? 0) : 0
+    },
+    [dataKey, yScale]
+  )
+
+  const pathD = useMemo(
+    () =>
+      line<Record<string, unknown>>()
+        .x((d) => xScale(xAccessor(d)) ?? 0)
+        .y(getY)
+        .curve(curve)(data) ?? "",
+    [data, xScale, xAccessor, getY, curve]
+  )
+
+  // Re-measure whenever the drawn path changes
   useEffect(() => {
     const path = pathRef.current
-    if (!path) {
+    if (!(path && animate)) {
       return
     }
-    setPathD(path.getAttribute("d") || "")
-    if (animate) {
-      const len = path.getTotalLength()
-      if (len > 0) {
-        setPathLength(len)
-      }
+    const len = path.getTotalLength()
+    if (len > 0) {
+      setPathLength(len)
     }
-  }, [animate, data, innerWidth, innerHeight])
+  }, [animate, pathD])
 
   // Binary search to find path length at a given X coordinate
   const findLengthAtX = useCallback(
@@ -170,15 +177,6 @@ export function Line({
   // Create animated strokeDasharray using motion template
   const animatedDasharray = useMotionTemplate`${segmentLengthSpring} ${pathLength}`
 
-  // Get y value for a data point
-  const getY = useCallback(
-    (d: Record<string, unknown>) => {
-      const value = d[dataKey]
-      return typeof value === "number" ? (yScale(value) ?? 0) : 0
-    },
-    [dataKey, yScale]
-  )
-
   const isHovering = tooltipData !== null || selection?.active === true
 
   return (
@@ -218,15 +216,13 @@ export function Line({
           initial={{ opacity: 1 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <LinePath
-            curve={curve}
-            data={data}
-            innerRef={pathRef}
+          <path
+            d={pathD}
+            fill="transparent"
+            ref={pathRef}
             stroke={fadeEdges ? `url(#${gradientId})` : stroke}
             strokeLinecap="round"
             strokeWidth={strokeWidth}
-            x={(d) => xScale(xAccessor(d)) ?? 0}
-            y={getY}
           />
         </motion.g>
       </g>

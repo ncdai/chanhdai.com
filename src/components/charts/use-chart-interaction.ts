@@ -1,13 +1,9 @@
 "use client"
 
 import { useCallback, useRef, useState } from "react"
-import { localPoint } from "@visx/event"
-import type { scaleLinear, scaleTime } from "@visx/scale"
+import type { ScaleLinear, ScaleTime } from "d3-scale"
 
 import type { LineConfig, Margin, TooltipData } from "./chart-context"
-
-type ScaleTime = ReturnType<typeof scaleTime<number>>
-type ScaleLinear = ReturnType<typeof scaleLinear<number>>
 
 export interface ChartSelection {
   startX: number
@@ -18,8 +14,8 @@ export interface ChartSelection {
 }
 
 interface UseChartInteractionParams {
-  xScale: ScaleTime
-  yScale: ScaleLinear
+  xScale: ScaleTime<number, number>
+  yScale: ScaleLinear<number, number>
   data: Record<string, unknown>[]
   lines: LineConfig[]
   margin: Margin
@@ -131,26 +127,15 @@ export function useChartInteraction({
       event: React.MouseEvent<SVGGElement> | React.TouchEvent<SVGGElement>,
       touchIndex = 0
     ): number | null => {
-      let point: { x: number; y: number } | null = null
-
-      if ("touches" in event) {
-        const touch = event.touches[touchIndex]
-        if (!touch) {
-          return null
-        }
-        const svg = event.currentTarget.ownerSVGElement
-        if (!svg) {
-          return null
-        }
-        point = localPoint(svg, touch as unknown as MouseEvent)
-      } else {
-        point = localPoint(event)
-      }
-
-      if (!point) {
+      const pointer =
+        "touches" in event ? event.touches[touchIndex] : event.nativeEvent
+      const ctm = event.currentTarget.ownerSVGElement?.getScreenCTM()
+      if (!(pointer && ctm)) {
         return null
       }
-      return point.x - margin.left
+      // Map client coordinates into the root <svg> user space
+      const point = new DOMPoint(pointer.clientX, pointer.clientY)
+      return point.matrixTransform(ctm.inverse()).x - margin.left
     },
     [margin.left]
   )

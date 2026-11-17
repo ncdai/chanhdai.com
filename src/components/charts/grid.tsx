@@ -1,7 +1,6 @@
 "use client"
 
 import { useId } from "react"
-import { GridColumns, GridRows } from "@visx/grid"
 
 import { chartCssVars, useChart } from "./chart-context"
 
@@ -116,29 +115,36 @@ export function Grid({
 
       {horizontal && (
         <g mask={fadeHorizontal ? `url(#${hMaskId})` : undefined}>
-          <GridRows
-            numTicks={rowTickValues ? undefined : numTicksRows}
-            scale={yScale}
-            stroke={stroke}
-            strokeDasharray={strokeDasharray}
-            strokeOpacity={strokeOpacity}
-            strokeWidth={strokeWidth}
-            tickValues={rowTickValues}
-            width={innerWidth}
-          />
+          {(rowTickValues ?? yScale.ticks(numTicksRows)).map((tick) => (
+            <GridLine
+              key={tick}
+              stroke={stroke}
+              strokeDasharray={strokeDasharray}
+              strokeOpacity={strokeOpacity}
+              strokeWidth={strokeWidth}
+              x1={0}
+              x2={innerWidth}
+              y1={yScale(tick)}
+              y2={yScale(tick)}
+            />
+          ))}
         </g>
       )}
       {vertical && columnScale && typeof columnScale === "function" && (
         <g mask={fadeVertical ? `url(#${vMaskId})` : undefined}>
-          <GridColumns
-            height={innerHeight}
-            numTicks={numTicksColumns}
-            scale={columnScale}
-            stroke={stroke}
-            strokeDasharray={strokeDasharray}
-            strokeOpacity={strokeOpacity}
-            strokeWidth={strokeWidth}
-          />
+          {columnScale.ticks(numTicksColumns).map((tick) => (
+            <GridLine
+              key={+tick}
+              stroke={stroke}
+              strokeDasharray={strokeDasharray}
+              strokeOpacity={strokeOpacity}
+              strokeWidth={strokeWidth}
+              x1={columnScale(tick)}
+              x2={columnScale(tick)}
+              y1={0}
+              y2={innerHeight}
+            />
+          ))}
         </g>
       )}
     </g>
@@ -146,5 +152,9 @@ export function Grid({
 }
 
 Grid.displayName = "Grid"
+
+function GridLine(props: React.ComponentProps<"line">) {
+  return <line fill="transparent" shapeRendering="crispEdges" {...props} />
+}
 
 export default Grid
