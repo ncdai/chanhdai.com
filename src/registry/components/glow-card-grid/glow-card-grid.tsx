@@ -133,7 +133,7 @@ export function GlowCard({ name, handle, avatar, className }: GlowCardProps) {
           <img className="size-20 rounded-full" src={avatar} alt={name} />
 
           <div className="flex flex-col items-center gap-1">
-            <h2 className="text-base leading-none font-semibold text-foreground">
+            <h2 className="text-base/none font-semibold text-foreground">
               {name}
             </h2>
             <p className="text-sm/none text-foreground/50">{handle}</p>
