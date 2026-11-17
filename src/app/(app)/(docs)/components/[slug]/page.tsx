@@ -30,6 +30,7 @@ import {
 import { DocNeighbourNav } from "@/features/doc/components/doc-neighbour-nav"
 import { LLMCopyButtonWithViewOptions } from "@/features/doc/components/doc-page-actions"
 import { DocShareMenu } from "@/features/doc/components/doc-share-menu"
+import { DocSponsorCallout } from "@/features/doc/components/doc-sponsor-callout"
 // import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import { DocSponsorsRail } from "@/features/doc/components/doc-sponsors-rail"
 import {
@@ -299,6 +300,8 @@ export default async function Page({
           <div>
             <MDX code={content} />
           </div>
+
+          <DocSponsorCallout className="mb-4" slug={doc.slug} />
         </Prose>
 
         <DocFeedback category="components" slug={doc.slug} />
