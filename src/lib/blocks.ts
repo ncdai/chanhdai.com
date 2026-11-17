@@ -35,14 +35,6 @@ export async function getAllBlockStaticParams(): Promise<
   return params
 }
 
-export async function getAllBlockIds(
-  types: z.infer<typeof registryItemSchema>["type"][] = ["registry:block"],
-  categories: string[] = []
-): Promise<string[]> {
-  const blocks = await getAllBlocks(types, categories)
-  return blocks.map((block) => block.name)
-}
-
 export async function getAllBlocks(
   types: z.infer<typeof registryItemSchema>["type"][] = ["registry:block"],
   categories: string[] = []
