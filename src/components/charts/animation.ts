@@ -17,7 +17,10 @@ export const DEFAULT_CHART_ENTER_TRANSITION: Transition = {
  */
 export function clipRevealTransition(enterTransition?: Transition): Transition {
   if (enterTransition?.type === "tween") {
-    return enterTransition
+    return {
+      ...enterTransition,
+      ease: enterTransition.ease ?? DEFAULT_CHART_ENTER_TRANSITION.ease,
+    }
   }
 
   const duration =
@@ -30,4 +33,44 @@ export function clipRevealTransition(enterTransition?: Transition): Transition {
     duration,
     ease: DEFAULT_CHART_ENTER_TRANSITION.ease,
   }
+}
+
+/*
+ * Polar grid enter — the radar chart standard (RadarGrid / RadarAxis /
+ * RadarLabels), shared by the radial and ring charts so every circular grid
+ * draws in the same way: rings grow out of the center one after another,
+ * spokes extend outward, then labels fade in.
+ */
+
+/** Delay between concentric grid rings, seconds. */
+export const GRID_RING_STAGGER_S = 0.08
+/** Grid rings scale (and fade) in from the center. */
+export const GRID_RING_SPRING: Transition = {
+  type: "spring",
+  stiffness: 100,
+  damping: 15,
+  mass: 1,
+}
+/** Delay between spokes, seconds. */
+export const GRID_SPOKE_STAGGER_S = 0.05
+/** Spokes extend from their inner end outward. */
+export const GRID_SPOKE_SPRING: Transition = {
+  type: "spring",
+  stiffness: 80,
+  damping: 15,
+  mass: 1,
+}
+/** Delay between value (level) labels, seconds. */
+export const GRID_VALUE_LABEL_STAGGER_S = 0.06
+/** Delay between angle (category) labels, seconds. */
+export const GRID_ANGLE_LABEL_STAGGER_S = 0.08
+/** Angle label fade duration, seconds. */
+export const GRID_ANGLE_LABEL_FADE_S = 0.5
+
+/** Labels start once half of the `ringCount` grid rings have started. */
+export function gridLabelDelay(
+  ringCount: number,
+  ringStagger: number = GRID_RING_STAGGER_S
+): number {
+  return ringCount * ringStagger * 0.5
 }

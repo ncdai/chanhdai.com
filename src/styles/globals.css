@@ -382,6 +382,14 @@
   --chart-ring-background: oklch(0.9 0.005 260 / 0.25);
   --chart-label: oklch(0.45 0.01 260);
 
+  --chart-brush-border: var(--chart-grid);
+  --chart-indicator-color: oklch(0.21 0.006 285);
+  --chart-indicator-secondary-color: oklch(0.913 0 0);
+  --chart-marker-badge-background: oklch(0 0 0);
+  --chart-marker-badge-foreground: oklch(0.84 0 0);
+  --chart-segment-background: oklch(0.756 0 0 / 0.06);
+  --chart-segment-line: oklch(0.5 0 0 / 0.25);
+
   /* Daikanoid — hex because p5 1.x cannot parse oklch() */
   --dk-background: #ffffff;
   --dk-foreground: #09090b;
@@ -511,6 +519,14 @@
   --chart-marker-foreground: oklch(0.9 0 0);
   --chart-ring-background: oklch(0.35 0.01 260 / 0.25);
   --chart-label: oklch(0.75 0.01 260);
+
+  --chart-brush-border: var(--chart-grid);
+  --chart-indicator-color: oklch(1 0 0);
+  --chart-indicator-secondary-color: oklch(0.145 0 0);
+  --chart-marker-badge-background: oklch(1 0 0);
+  --chart-marker-badge-foreground: oklch(0.15 0 0);
+  --chart-segment-background: oklch(0.41 0.0127 248.14 / 0.25);
+  --chart-segment-line: oklch(1 0 0 / 0.25);
 
   /* Daikanoid — hex because p5 1.x cannot parse oklch() */
   --dk-background: #09090b;

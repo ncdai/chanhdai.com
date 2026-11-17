@@ -3,6 +3,8 @@
 import type { ReactNode } from "react"
 import { formatNumber } from "@/utils/format"
 
+import { cn } from "@/lib/utils"
+
 export interface TooltipRow {
   color: string
   label: string
@@ -15,6 +17,30 @@ export interface TooltipContentProps {
   /** Optional additional content (e.g., markers) */
   children?: ReactNode
 }
+
+export interface TooltipHeaderProps {
+  children: ReactNode
+  className?: string
+}
+
+/**
+ * Popover-style header row: medium-weight label separated from the body by a
+ * full-width border. Use it at the top of custom `ChartTooltip` `content`.
+ */
+export function TooltipHeader({ children, className }: TooltipHeaderProps) {
+  return (
+    <div
+      className={cn(
+        "border-b px-3.5 py-2.5 text-left text-sm font-medium text-chart-tooltip-foreground",
+        className
+      )}
+    >
+      {children}
+    </div>
+  )
+}
+
+TooltipHeader.displayName = "TooltipHeader"
 
 export function TooltipContent({ title, rows, children }: TooltipContentProps) {
   return (
