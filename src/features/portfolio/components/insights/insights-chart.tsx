@@ -1,84 +1,60 @@
-import { format } from "date-fns"
-
 import { cn } from "@/lib/utils"
 import Grid from "@/components/charts/grid"
 import LineChart, { Line } from "@/components/charts/line-chart"
 import { ChartTooltip } from "@/components/charts/tooltip"
+import { PanelHeader, PanelTitle } from "@/features/portfolio/components/panel"
+import { PanelTitleCopy } from "@/features/portfolio/components/panel-title-copy"
 import type { InsightsSeriesItem } from "@/features/portfolio/data/insights"
 
-import { getPlottedRange } from "./plotted-range"
+const ID = "page-views"
 
-export function InsightsChart({
-  series,
-  showDateRange = false,
-}: {
-  series: InsightsSeriesItem[]
-  /** Off by default because the home panel already shows the range next to its title. */
-  showDateRange?: boolean
-}) {
-  const range = showDateRange ? getPlottedRange(series) : null
-  const dateRange = range
-    ? `, ${format(range.start, "d MMM yyyy")} – ${format(range.end, "d MMM yyyy")}`
-    : ""
-
+export function InsightsChart({ series }: { series: InsightsSeriesItem[] }) {
   return (
-    <figure>
+    <section id={ID}>
+      <InsightsChartHeading />
+
       {series.length > 0 ? (
         <LineChart
           className={cn(
             "sm:aspect-3/1!",
-            "[--chart-1:var(--color-zinc-900)] [--chart-2:var(--color-zinc-400)]",
-            "dark:[--chart-1:var(--color-zinc-100)] dark:[--chart-2:var(--color-zinc-600)]"
+            "[--chart-1:var(--color-zinc-900)] dark:[--chart-1:var(--color-zinc-100)]"
           )}
           data={series}
           margin={{ top: 16, right: 32, bottom: 40, left: 32 }}
         >
           <Grid horizontal />
           <Line
-            dataKey="total_sessions"
-            stroke="var(--chart-2)"
-            strokeWidth={2}
-          />
-          <Line
-            dataKey="unique_visitors"
+            dataKey="total_screen_views"
             stroke="var(--chart-1)"
             strokeWidth={2}
           />
-          <ChartTooltip
-            rowLabels={{
-              total_sessions: "Sessions",
-              unique_visitors: "Unique Visitors",
-            }}
-          />
+          <ChartTooltip rowLabels={{ total_screen_views: "Page views" }} />
         </LineChart>
       ) : (
         <div className="grid aspect-2/1 w-full place-content-center sm:aspect-3/1">
           <p className="text-muted-foreground">No insights available.</p>
         </div>
       )}
-
-      <figcaption className="screen-line-top px-4 py-3 text-center text-sm text-balance tabular-nums">
-        Daily unique visitors and sessions{dateRange}. Source:{" "}
-        <a
-          href="https://openpanel.dev"
-          className="link-underline"
-          target="_blank"
-          rel="noopener"
-        >
-          OpenPanel
-        </a>
-        .
-      </figcaption>
-    </figure>
+    </section>
   )
 }
 
-/** `h-11` is the caption row: `py-3` plus one line of `text-sm`. */
+function InsightsChartHeading() {
+  return (
+    <PanelHeader>
+      <PanelTitle>
+        <a href={`#${ID}`}>Page views</a>
+        <PanelTitleCopy id={ID} />
+      </PanelTitle>
+    </PanelHeader>
+  )
+}
+
 export function InsightsChartSkeleton() {
   return (
-    <div aria-hidden>
+    <div aria-hidden inert>
+      <InsightsChartHeading />
       <div className="aspect-2/1 w-full sm:aspect-3/1" />
-      <div className="screen-line-top h-11" />
     </div>
   )
 }
