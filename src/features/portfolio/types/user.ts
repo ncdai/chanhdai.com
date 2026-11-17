@@ -1,5 +1,3 @@
-import type { AvatarLightsVariants } from "@/features/portfolio/components/avatar-lights"
-
 export type User = {
   firstName: string
   lastName: string
@@ -36,8 +34,6 @@ export type User = {
   avatar: string
   avatarOutline: string
   avatarMonochrome: string
-  /** Different avatar variants based on theme and lighting */
-  avatarVariants: AvatarLightsVariants
   /** Open Graph image URL for social sharing */
   ogImage: string
   /** Open Graph video URL for social sharing */

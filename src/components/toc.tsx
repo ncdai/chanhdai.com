@@ -122,21 +122,6 @@ export function useActiveAnchor(): string | undefined {
   })
 }
 
-/**
- * The id of visible anchors
- */
-export function useActiveAnchors(): string[] {
-  return useTOCSelector((items) => {
-    const out: string[] = []
-
-    for (const item of items) {
-      if (item.active) out.push(item.id)
-    }
-
-    return out
-  })
-}
-
 export function useItems(): TOCItemInfo[] {
   return useTOCSelector((items) => items)
 }

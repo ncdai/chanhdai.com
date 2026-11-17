@@ -642,21 +642,6 @@
     background: var(--fade-background, var(--fade-linear-gradient));
   }
 
-  /* .duck-follower {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 50;
-
-    pointer-events: none;
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-
-    will-change: transform;
-    transition: none;
-  } */
-
   .twemoji {
     display: inline-block;
     height: 1em;

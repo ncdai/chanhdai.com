@@ -44,15 +44,6 @@ export const chartCssVars = {
   segmentLine: "var(--chart-segment-line)",
 }
 
-/** Default scatter series colors from the chart palette (`--chart-1` … `--chart-5`). */
-export const defaultScatterColors = [
-  "var(--chart-1)",
-  "var(--chart-2)",
-  "var(--chart-3)",
-  "var(--chart-4)",
-  "var(--chart-5)",
-] as const
-
 export interface Margin {
   top: number
   right: number
