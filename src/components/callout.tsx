@@ -12,6 +12,7 @@ export function Callout({
 }) {
   return (
     <Alert
+      role="note"
       className={cn(
         "not-prose rounded-xl border-none bg-surface text-surface-foreground inset-ring-1 inset-ring-border/64",
         className
