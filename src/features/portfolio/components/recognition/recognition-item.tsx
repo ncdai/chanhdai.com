@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/collapsible"
 import { IconTile } from "@/components/ui/icon-tile"
 import { Separator } from "@/components/ui/separator"
-import { Tag } from "@/components/ui/tag"
 import {
   Tooltip,
   TooltipContent,
@@ -48,8 +47,7 @@ const KIND_LABELS: Record<RecognitionKind, string> = {
   copyright: "Copyright",
 }
 
-// Closed map keyed by `issuerIconName`, so the bundle only keeps icons that can
-// appear; unknown names fall back to a generic check badge.
+// A closed map, so the bundle only keeps icons that can appear.
 const ISSUER_ICONS: Record<string, React.ReactNode> = {
   accenture: <AccentureIcon />,
   animationsdev: <AnimationsDevIcon />,
@@ -96,6 +94,8 @@ function AwardRow({ entry }: { entry: AwardRecognition }) {
 
             <dl className="flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
               <KindTerm kind="award" />
+
+              <MetaSeparator />
 
               <div>
                 <dt className="sr-only">Prize</dt>
@@ -177,6 +177,8 @@ function CredentialRow({ entry }: { entry: CredentialRecognition }) {
         <dl className="flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
           <KindTerm kind={kind} />
 
+          <MetaSeparator />
+
           <div>
             <dt className="sr-only">Issued by</dt>
             <dd>
@@ -196,15 +198,11 @@ function CredentialRow({ entry }: { entry: CredentialRecognition }) {
   )
 }
 
-// On its own line on mobile, so the meta after it wraps less and separators
-// don't dangle at line edges.
 function KindTerm({ kind }: { kind: RecognitionKind }) {
   return (
-    <div className="max-sm:mb-1 max-sm:basis-full">
+    <div>
       <dt className="sr-only">Type</dt>
-      <dd>
-        <Tag className="flex h-5 w-fit">{KIND_LABELS[kind]}</Tag>
-      </dd>
+      <dd>{KIND_LABELS[kind]}</dd>
     </div>
   )
 }
