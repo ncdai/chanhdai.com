@@ -1,11 +1,7 @@
-import Link from "next/link"
-
 import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import type { BuildInfo } from "@/lib/build-info"
 import { getBuildInfo, getStack } from "@/lib/build-info"
 import { cn } from "@/lib/utils"
-import { Separator } from "@/components/ui/separator"
-import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 import { USER } from "@/features/portfolio/data/user"
@@ -15,7 +11,6 @@ import { USER } from "@/features/portfolio/data/user"
 import packageJson from "../../package.json"
 // Precomputed by `pnpm registry:build`, so the count costs no registry import.
 import registryStats from "../../registry-stats.json"
-import { ChanhDaiMark } from "./chanhdai-mark"
 import { ChanhDaiSignature } from "./chanhdai-signature"
 
 const INSPIRED_BY = [
@@ -39,7 +34,6 @@ const SITE_TITLE = "chanhdai.com"
 
 const SITE_SUBTITLE = packageJson.description
 
-/** Footer laid out as the title block of a technical drawing. */
 export function SiteFooterCad() {
   const xLink = SOCIAL.x
   const githubLink = SOCIAL.github
@@ -183,85 +177,50 @@ export function SiteFooterCad() {
               </ol>
             </Field>
 
-            <Field className="col-span-2" label="Approved by">
+            <Field label="Links">
+              <ul className="flex flex-col gap-1">
+                <li>
+                  <a
+                    className="link-underline"
+                    href={xLink.href}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    X
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="link-underline"
+                    href={githubLink.href}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="link-underline"
+                    href={linkedinLink.href}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+              </ul>
+            </Field>
+
+            <Field label="Approved by">
               <div className="flex h-full flex-col justify-end gap-2">
-                <ChanhDaiSignature className="ml-1 h-12 w-auto self-start text-blue-900 dark:text-foreground" />
+                <ChanhDaiSignature className="w-36 max-w-full self-start text-blue-900 dark:text-foreground" />
                 <span className="border-t border-line pt-2 font-sans text-sm/none font-medium tracking-wide uppercase">
                   {USER.displayName}
                 </span>
               </div>
             </Field>
           </dl>
-        </div>
-
-        <div className="screen-line-top h-4" />
-
-        <div className="screen-line-top screen-line-bottom flex items-center gap-3 px-4 py-3 text-muted-foreground">
-          <Link
-            href="/"
-            className="mr-auto text-muted-foreground transition-[color] hover:text-foreground"
-            aria-label="Home"
-          >
-            <ChanhDaiMark className="h-4" />
-          </Link>
-
-          <a
-            className="flex items-center transition-[color] hover:text-foreground"
-            href={xLink.href}
-            target="_blank"
-            rel="noopener"
-            aria-label="X Profile"
-          >
-            <XIcon className="size-4" />
-          </a>
-
-          <Separator
-            orientation="vertical"
-            className="data-vertical:h-4 data-vertical:self-center"
-          />
-
-          <a
-            className="flex items-center transition-[color] hover:text-foreground"
-            href={githubLink.href}
-            target="_blank"
-            rel="noopener"
-            aria-label="GitHub Profile"
-          >
-            <GitHubIcon className="size-4" />
-          </a>
-
-          <Separator
-            orientation="vertical"
-            className="data-vertical:h-4 data-vertical:self-center"
-          />
-
-          <a
-            className="flex items-center transition-[color] hover:text-foreground"
-            href={linkedinLink.href}
-            target="_blank"
-            rel="noopener"
-            aria-label="LinkedIn Profile"
-          >
-            <LinkedInIcon className="size-4" />
-          </a>
-
-          <Separator
-            orientation="vertical"
-            className="data-vertical:h-4 data-vertical:self-center"
-          />
-
-          <a
-            className="flex items-center transition-[color] hover:text-foreground"
-            href={
-              process.env.NEXT_PUBLIC_DMCA_URL ||
-              "https://www.dmca.com/ProtectionPro.aspx"
-            }
-            target="_blank"
-            rel="noopener"
-            aria-label="DMCA.com Protection Status"
-          >
-            <DmcaIcon className="h-4 w-auto" />
-          </a>
         </div>
       </div>
 
