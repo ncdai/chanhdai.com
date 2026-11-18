@@ -45,7 +45,7 @@ export function SiteFooterInteractiveLogotype() {
 
   return (
     <>
-      <div className="screen-line-bottom after:z-1 after:bg-foreground/15">
+      <div className="screen-line-top screen-line-bottom after:z-1 after:bg-foreground/15">
         <div
           className="overflow-hidden"
           onMouseMove={handleMouseMove}
