@@ -56,8 +56,10 @@ export function SiteFooterCad() {
         </div>
 
         <div className="relative">
-          <div className="screen-line-bottom flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-4 py-3 font-mono text-sm">
-            <span className="font-medium">{SITE_TITLE}</span>
+          <div className="screen-line-bottom flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 px-4 py-3 font-mono text-sm">
+            <span className="text-base/4 font-semibold text-background [-webkit-text-stroke:1px_var(--foreground)] [paint-order:stroke_fill]">
+              {SITE_TITLE}
+            </span>
             <span className="font-sans text-muted-foreground">
               {SITE_SUBTITLE}
             </span>
