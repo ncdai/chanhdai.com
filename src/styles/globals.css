@@ -116,6 +116,14 @@
       opacity: 0.15;
     }
   }
+
+  --animate-blink: blink 2s step-end infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 @utility link {
