@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useId, useState } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import { useTextMorph } from "torph/react"
 
 import { InlineScript } from "@/components/inline-script"
@@ -11,6 +11,7 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
   const uid = useId()
   const ids = {
     hour: `lt-hour-${uid}`,
+    colon: `lt-colon-${uid}`,
     minute: `lt-minute-${uid}`,
     period: `lt-period-${uid}`,
     diff: `lt-diff-${uid}`,
@@ -21,6 +22,7 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
   const [diffText, setDiffText] = useState("")
   // Deterministic 12:00 for SSR; the inline script corrects it before paint.
   const [handsPath, setHandsPath] = useState(() => clockHandsPath(12, 0))
+  const colonRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>
@@ -30,6 +32,8 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
       setTime(time)
       setDiffText(diff)
       setHandsPath(clockHandsPath(hour, minute))
+      // Every tick, so a system clock change can't leave the blink off-beat.
+      syncBlink(colonRef.current)
 
       // Aligned to the wall-clock minute so the morph lands when the minute
       // actually changes, not up to 59s later.
@@ -62,7 +66,14 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
       <IntroItemContent>
         {/* Split so each number rolls by place value; torph treats "11:05"
             as text because of the colon. */}
-        <MorphText id={ids.hour} value={time.hour} />:
+        <MorphText id={ids.hour} value={time.hour} />
+        <span
+          ref={colonRef}
+          id={ids.colon}
+          className="motion-safe:animate-blink"
+        >
+          :
+        </span>
         <MorphText id={ids.minute} value={time.minute} />{" "}
         <MorphText id={ids.period} value={time.period} />
         <span
@@ -105,6 +116,7 @@ type CurrentLocalTimeItemProps = {
 
 type ClockIds = {
   hour: string
+  colon: string
   minute: string
   period: string
   diff: string
@@ -168,11 +180,23 @@ function computeClock(timeZone: string) {
   }
 }
 
+// CSS starts the blink whenever the element is styled; pinning it to the wall
+// clock shows the colon on even seconds like macOS, so it is visible as the
+// minute ticks over. `document.timeline.currentTime` is the frame start and
+// lags by the whole parse or hydration task, hence `performance.now()`.
+function syncBlink(el: Element | null) {
+  const startTime = performance.now() - (Date.now() % 2000)
+  el?.getAnimations().forEach((animation) => {
+    animation.startTime = startTime
+  })
+}
+
 function runClockScript(
   timeZone: string,
   ids: ClockIds,
   compute: typeof computeClock,
-  handsPath: typeof clockHandsPath
+  handsPath: typeof clockHandsPath,
+  sync: typeof syncBlink
 ) {
   try {
     const { time, diff, hour, minute } = compute(timeZone)
@@ -188,6 +212,7 @@ function runClockScript(
     document
       .getElementById(ids.hands)
       ?.setAttribute("d", handsPath(hour, minute))
+    sync(document.getElementById(ids.colon))
   } catch {}
 }
 
@@ -195,5 +220,5 @@ function runClockScript(
 // (Next.js "prevent flash before hydration"). Sharing `computeClock` with the
 // effect guarantees the pre-hydration value matches what React renders.
 function getInlineScript(timeZone: string, ids: ClockIds) {
-  return `(${runClockScript.toString()})(${JSON.stringify(timeZone)},${JSON.stringify(ids)},${computeClock.toString()},${clockHandsPath.toString()})`
+  return `(${runClockScript.toString()})(${JSON.stringify(timeZone)},${JSON.stringify(ids)},${computeClock.toString()},${clockHandsPath.toString()},${syncBlink.toString()})`
 }
