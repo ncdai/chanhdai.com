@@ -9,7 +9,7 @@ import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
   return (
-    <div className="screen-line-bottom grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] overflow-y-clip border-x border-x-line after:z-1">
+    <div className="screen-line-top screen-line-bottom grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] overflow-y-clip border-x border-x-line after:z-1">
       <figure className="relative col-span-2 p-2 sm:col-span-1 sm:col-start-2 sm:p-4">
         <ChanhDaiMarkIsometric />
 
@@ -58,7 +58,7 @@ export function ProfileHeader() {
         <div className="z-1 mt-auto border-t border-line">
           <div className="flex -translate-x-px items-center gap-2 pl-4">
             <h1
-              className="-translate-y-px text-[2rem]/none font-medium tracking-tight"
+              className="-translate-y-px text-3xl/none font-medium tracking-tight"
               lang="vi"
             >
               {USER.displayName}
