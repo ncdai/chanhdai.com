@@ -6,11 +6,7 @@ export const NPM_PACKAGES = [
   "@ncdai/react-swipe-actions",
 ]
 
-/**
- * Updated by hand: the X API is paid, and a follower count read every few
- * weeks does not justify it.
- */
-const X_FOLLOWERS = 3900
+const X_FOLLOWERS = 4000
 
 /** `numbers.json` is written by `pnpm numbers:sync`; edit it only through that. */
 export const NUMBERS = {
