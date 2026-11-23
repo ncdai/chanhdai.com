@@ -14,7 +14,7 @@ export function NotFound() {
       <section className="flex flex-col items-center gap-6 lg:hidden">
         <h1 className="font-mono text-8xl font-medium">404</h1>
         <Button
-          variant="outline"
+          variant="eink"
           nativeButton={false}
           render={
             <Link href="/">

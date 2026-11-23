@@ -108,7 +108,7 @@ export function EducationItem({ item }: { item: Education }) {
         </CollapsibleContent>
 
         {Array.isArray(item.skills) && item.skills.length > 0 && (
-          <ul className="flex flex-wrap gap-1.5 pt-3 pl-9 **:data-[slot=tag]:rounded-none">
+          <ul className="flex flex-wrap gap-1.5 pt-3 pl-9">
             {item.skills.map((skill, index) => (
               <li key={index} className="flex">
                 <Tag>{skill}</Tag>

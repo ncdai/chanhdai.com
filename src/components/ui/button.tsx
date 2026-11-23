@@ -34,6 +34,8 @@ const buttonVariants = cva(
         "icon-lg": "size-10",
       },
     },
+    // Compound classes come after size classes, so this wins over their radius
+    compoundVariants: [{ variant: "eink", className: "rounded-none" }],
     defaultVariants: {
       variant: "default",
       size: "default",

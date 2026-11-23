@@ -22,7 +22,7 @@ export function BookmarkListFiltered({
       <div className="flex flex-col items-start gap-2 border-b border-line p-4">
         <p className="font-mono text-sm">No bookmarks match this filter.</p>
 
-        <Button variant="secondary" size="sm" onClick={() => setFilters(null)}>
+        <Button variant="eink" size="sm" onClick={() => setFilters(null)}>
           Clear filter
         </Button>
       </div>
