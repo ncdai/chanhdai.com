@@ -103,7 +103,7 @@ export function ProjectItem({
           )}
 
           {project.skills.length > 0 && (
-            <ul className="flex flex-wrap gap-1.5">
+            <ul className="flex flex-wrap gap-1.5 **:data-[slot=tag]:rounded-none">
               {project.skills.map((skill, index) => (
                 <li key={index} className="flex">
                   <Tag>{skill}</Tag>

@@ -21,7 +21,7 @@ export function BlockItem({
   return (
     <div className="group/block relative flex h-full flex-col gap-2 p-2 transition-[background-color] ease-out hover:bg-accent-muted">
       {Mockup && (
-        <div className="relative select-none [--image-radius:var(--radius-xl)]">
+        <div className="relative select-none [--image-radius:0]">
           <MockupFrame className="rounded-(--image-radius)">
             <Mockup />
           </MockupFrame>
