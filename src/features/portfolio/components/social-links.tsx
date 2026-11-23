@@ -28,8 +28,8 @@ export function SocialLinks() {
                 <TooltipTrigger
                   render={
                     <Button
-                      className="text-foreground/80 shadow-none [&_svg:not([class*='size-'])]:size-4.5"
-                      variant="outline"
+                      className="rounded-none [&_svg:not([class*='size-'])]:size-4.5"
+                      variant="eink"
                       size="icon-sm"
                       nativeButton={false}
                       render={

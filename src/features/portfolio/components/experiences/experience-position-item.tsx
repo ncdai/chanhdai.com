@@ -38,7 +38,7 @@ export function ExperiencePositionItem({
       <CollapsibleTrigger
         className={cn(
           "group block w-full text-left",
-          "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg before:transition-[background-color] before:ease-out hover:before:bg-accent-muted",
+          "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:transition-[background-color] before:ease-out hover:before:bg-accent-muted",
           "outline-none focus-visible:before:inset-ring-2 focus-visible:before:inset-ring-ring/50",
           "data-disabled:before:content-none"
         )}
@@ -111,7 +111,7 @@ export function ExperiencePositionItem({
       </CollapsibleContent>
 
       {Array.isArray(position.skills) && position.skills.length > 0 && (
-        <ul className="flex flex-wrap gap-1.5 pt-3 pl-9">
+        <ul className="flex flex-wrap gap-1.5 pt-3 pl-9 **:data-[slot=tag]:rounded-none">
           {position.skills.map((skill, index) => (
             <li key={index} className="flex">
               <Tag>{skill}</Tag>
