@@ -73,7 +73,7 @@ export function Components() {
 
       <div className="screen-line-top -mt-px flex justify-center py-4">
         <Button
-          className="gap-2 rounded-none pr-2.5 pl-3"
+          className="gap-2 pr-2.5 pl-3"
           variant="eink"
           size="sm"
           nativeButton={false}

@@ -43,11 +43,7 @@ export function Experiences() {
           <div className="-mt-px flex items-center justify-center py-4">
             <CollapsibleTrigger
               render={
-                <Button
-                  className="gap-2 rounded-none pr-2.5 pl-3"
-                  variant="eink"
-                  size="sm"
-                >
+                <Button className="gap-2 pr-2.5 pl-3" variant="eink" size="sm">
                   <span className="hidden group-data-closed/collapsible:block">
                     Show more
                   </span>
