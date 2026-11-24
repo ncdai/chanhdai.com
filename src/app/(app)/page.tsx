@@ -56,7 +56,6 @@ export default function HomePage() {
           <FrameWidthDimension />
           <ProfileHeader />
           <Separator>
-            {/* Mirrors the avatar's diameter, so same breakpoint. */}
             <SeparatorHeightDimension className="hidden lg:block" height={32} />
           </Separator>
 

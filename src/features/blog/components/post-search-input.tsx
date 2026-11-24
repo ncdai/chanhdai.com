@@ -37,7 +37,7 @@ export function PostSearchInput() {
   }, [query])
 
   return (
-    <InputGroup className="rounded-lg shadow-none">
+    <InputGroup className="rounded-none border-foreground bg-background text-foreground shadow-none has-[[data-slot=input-group-control]:focus-visible]:border-foreground dark:border-muted-foreground dark:bg-background">
       <InputGroupInput
         placeholder="Search blog…"
         value={query}
@@ -46,7 +46,7 @@ export function PostSearchInput() {
         }}
       />
 
-      <InputGroupAddon align="inline-start">
+      <InputGroupAddon className="text-foreground" align="inline-start">
         <SearchIcon />
       </InputGroupAddon>
 
@@ -56,7 +56,7 @@ export function PostSearchInput() {
         data-disabled={!query.length}
       >
         <InputGroupButton
-          className="rounded-sm border-none"
+          className="rounded-none border-none"
           size="icon-xs"
           title="Clear"
           aria-label="Clear"
