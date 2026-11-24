@@ -17,17 +17,17 @@ function SeparatorHeightDimension({
     <Dimension className={cn("absolute inset-0 z-2", className)}>
       <DimensionExtensionLine
         orientation="horizontal"
-        className="top-0 -right-8 left-full -translate-y-px"
+        className="-top-px -right-6 left-full"
       />
       <DimensionExtensionLine
         orientation="horizontal"
-        className="top-full -right-8 left-full"
+        className="-right-6 -bottom-px left-full"
       />
       <DimensionLine
         orientation="vertical"
-        className="absolute -inset-y-px -right-6 translate-x-1/2"
+        className="absolute -inset-y-px -right-5"
       />
-      <DimensionValue className="absolute top-1/2 left-full ml-8 -translate-y-1/2">
+      <DimensionValue className="absolute top-1/2 left-full ml-6 -translate-y-1/2">
         {height}
       </DimensionValue>
     </Dimension>
