@@ -517,7 +517,7 @@ export function CoverFlow({
         }
         data-slot="cover-flow"
         className={cn(
-          "group/cover-flow relative flex w-full snap-x snap-mandatory scrollbar-none overflow-x-auto overflow-y-hidden overscroll-x-contain outline-none select-none",
+          "group/cover-flow relative isolate flex w-full snap-x snap-mandatory scrollbar-none overflow-x-auto overflow-y-hidden overscroll-x-contain outline-none select-none",
           "px-[calc(50%-var(--cover-flow-size)/2)]",
           "[--cover-flow-angle:70deg] [--cover-flow-depth:calc(var(--cover-flow-size)*-0.75)] [--cover-flow-first:calc(var(--cover-flow-size)*0.64)] [--cover-flow-size:--spacing(48)] [--cover-flow-step:calc(var(--cover-flow-size)*0.26)]",
           className
