@@ -1080,6 +1080,23 @@ export const Index: Record<string, any> = {
     categories: ["data-display"],
     meta: undefined,
   },
+  "cover-flow": {
+    name: "cover-flow",
+    description: "Row of covers that turn in 3D as you scroll, inspired by Cover Flow on iOS 6.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/cover-flow/cover-flow.tsx",
+      type: "registry:component",
+      target: "@components/cover-flow.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/cover-flow/cover-flow.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "cover-flow"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["data-display"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
@@ -2681,5 +2698,22 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: {"previewClassName":"flex min-h-svh items-center justify-center px-4"},
+  },
+  "cover-flow-demo": {
+    name: "cover-flow-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/cover-flow-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/cover-flow-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "cover-flow-demo"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: {"previewClassName":"flex min-h-svh items-center justify-center"},
   },
 }
