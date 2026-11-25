@@ -1,0 +1,154 @@
+---
+title: Cover Flow
+description: Row of covers that turn in 3D as you scroll, inspired by Cover Flow on iOS 6.
+image: https://assets.chanhdai.com/images/blog/cover-flow.webp
+new: true
+createdAt: 2026-11-25
+updatedAt: 2026-11-25
+---
+
+<ComponentPreview name="cover-flow-demo" />
+
+<DocDependencies name="cover-flow" />
+
+## Features
+
+- Drag with a mouse; a flick coasts and lands on a cover.
+- The value changes as each cover passes the center, so a caption keeps up while scrolling.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/cover-flow
+```
+
+</TabsContent>
+
+<TabsContent value="prompt">
+
+<InstallPrompt name="cover-flow" />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion cn
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/registry/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add Tailwind CSS utilities and animations</Step>
+
+<ComponentSource src="src/styles/cover-flow.css" title="globals.css" />
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="cover-flow" title="components/cover-flow.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  CoverFlow,
+  CoverFlowCover,
+  CoverFlowItem,
+  CoverFlowReflection,
+} from "@/components/cover-flow"
+```
+
+```tsx
+<CoverFlow aria-label="Albums">
+  <CoverFlowItem value="album">
+    <CoverFlowCover>
+      <img src="/album.jpg" alt="Album" />
+      <CoverFlowReflection>
+        <img src="/album.jpg" alt="" />
+      </CoverFlowReflection>
+    </CoverFlowCover>
+  </CoverFlowItem>
+</CoverFlow>
+```
+
+`CoverFlowReflection` is optional and needs the same content as the cover.
+
+## Composition
+
+Use the following composition to build a `CoverFlow`
+
+```text
+CoverFlow
+└── CoverFlowItem
+    └── CoverFlowCover
+        └── CoverFlowReflection
+```
+
+## API reference
+
+### CoverFlow
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="CoverFlowProps" />
+
+### CoverFlowItem
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="CoverFlowItemProps"
+/>
+
+### CSS variables
+
+Set them on `CoverFlow`, for example `className="[--cover-flow-size:--spacing(56)]"`.
+
+| Variable             | Default         | Description                                |
+| -------------------- | --------------- | ------------------------------------------ |
+| `--cover-flow-size`  | `--spacing(48)` | Width and height of a cover.               |
+| `--cover-flow-angle` | `70deg`         | How far the side covers turn.              |
+| `--cover-flow-first` | `size * 0.64`   | Gap between the center and the next cover. |
+| `--cover-flow-step`  | `size * 0.26`   | Gap between the stacked side covers.       |
+| `--cover-flow-depth` | `size * -0.75`  | How far the side covers sit back.          |
+
+### Data attributes
+
+| Attribute       | Element                           | Present when                |
+| --------------- | --------------------------------- | --------------------------- |
+| `data-selected` | `CoverFlowItem`, `CoverFlowCover` | The cover is at the center. |
+
+## Accessibility
+
+- The row is a listbox and the centered cover its selected option. Name the row with `aria-label` and each cover with its image's `alt`.
+- `ArrowLeft` and `ArrowRight` step through the covers, `Home` and `End` jump to the ends.
+- With `prefers-reduced-motion`, clicks and keys jump to the cover instead of gliding.
+
+## Credits
+
+- [Apple](https://en.wikipedia.org/wiki/Cover_Flow)
+- Photos by [Marina Lobato](https://unsplash.com/photos/boats-on-turquoise-ha-long-bay-kG7pOXbBfNs), [diGital Sennin](https://unsplash.com/photos/green-trees-on-body-of-water-during-daytime-QttaHHgHz_w), [Thai Tong](https://unsplash.com/photos/people-riding-boat-on-river-near-mountain-during-daytime-hUPK0QCg-y0), [Tam Dang Ngoc](https://unsplash.com/photos/a-large-building-with-a-lot-of-windows-on-top-of-it-DHwKQ9sajcc), [Jonathan Ouimet](https://unsplash.com/photos/aerial-view-photography-of-brown-pagoda-temple-during-daytime-JF4o7WErDn8), [Tron Le](https://unsplash.com/photos/city-skyline-during-night-time-wUk2U5Wirxg), and [Ngô Thanh Tùng](https://unsplash.com/photos/lighted-bridge-B76nvP51iew) on [Unsplash](https://unsplash.com)
+
+## References
+
+- [Scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations) — view timelines that draw the covers

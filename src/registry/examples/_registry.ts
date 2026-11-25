@@ -942,4 +942,18 @@ export const examples: Registry["items"] = [
       previewClassName: "flex min-h-svh items-center justify-center px-4",
     },
   },
+  {
+    name: "cover-flow-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("cover-flow")],
+    files: [
+      {
+        path: "examples/cover-flow-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    meta: {
+      previewClassName: "flex min-h-svh items-center justify-center",
+    },
+  },
 ]

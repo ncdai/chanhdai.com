@@ -1,0 +1,74 @@
+/*
+ * The cover turns toward the viewer within one cover of the center
+ * (--cover-flow-turn, -1 to 1), and the rest of its offset stacks it behind
+ * its neighbors.
+ */
+@utility cover-flow-transform {
+  transform: translateX(
+      calc(
+        var(--cover-flow-turn) * var(--cover-flow-first) +
+          (var(--cover-flow-offset) - var(--cover-flow-turn)) *
+          var(--cover-flow-step) - var(--cover-flow-offset) *
+          var(--cover-flow-size)
+      )
+    )
+    perspective(calc(var(--cover-flow-size) * 3))
+    translateZ(calc(abs(var(--cover-flow-turn)) * var(--cover-flow-depth)))
+    rotateY(calc(var(--cover-flow-turn) * var(--cover-flow-angle) * -1));
+
+  /*
+   * --cover-flow-offset lands a frame after the compositor scrolls, and the
+   * transform cancels most of the scroll, so trackpad scrolling would shake.
+   * A view timeline reads the scroll position the frame is drawn with.
+   */
+  @supports (animation-timeline: view()) {
+    animation: cover-flow linear both;
+    animation-timeline: --cover-flow;
+    animation-range: cover calc(50% - var(--cover-flow-size) * 50) cover
+      calc(50% + var(--cover-flow-size) * 50);
+  }
+}
+
+/* Keyframes sit at offsets 50, 1, 0, -1 and -50, the corners of the piecewise linear transform above. */
+@keyframes cover-flow {
+  0% {
+    transform: translateX(
+        calc(
+          var(--cover-flow-first) + var(--cover-flow-step) * 49 -
+            var(--cover-flow-size) * 50
+        )
+      )
+      perspective(calc(var(--cover-flow-size) * 3))
+      translateZ(var(--cover-flow-depth))
+      rotateY(calc(var(--cover-flow-angle) * -1));
+  }
+  49% {
+    transform: translateX(
+        calc(var(--cover-flow-first) - var(--cover-flow-size))
+      )
+      perspective(calc(var(--cover-flow-size) * 3))
+      translateZ(var(--cover-flow-depth))
+      rotateY(calc(var(--cover-flow-angle) * -1));
+  }
+  50% {
+    transform: translateX(0) perspective(calc(var(--cover-flow-size) * 3))
+      translateZ(0) rotateY(0deg);
+  }
+  51% {
+    transform: translateX(
+        calc(var(--cover-flow-size) - var(--cover-flow-first))
+      )
+      perspective(calc(var(--cover-flow-size) * 3))
+      translateZ(var(--cover-flow-depth)) rotateY(var(--cover-flow-angle));
+  }
+  100% {
+    transform: translateX(
+        calc(
+          var(--cover-flow-size) * 50 - var(--cover-flow-first) -
+            var(--cover-flow-step) * 49
+        )
+      )
+      perspective(calc(var(--cover-flow-size) * 3))
+      translateZ(var(--cover-flow-depth)) rotateY(var(--cover-flow-angle));
+  }
+}

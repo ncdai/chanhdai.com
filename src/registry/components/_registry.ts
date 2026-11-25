@@ -1114,6 +1114,57 @@ export const components: Registry["items"] = [
     categories: ["data-display"],
     docs: "https://chanhdai.com/components/lightbox",
   },
+  {
+    name: "cover-flow",
+    type: "registry:component",
+    title: "Cover Flow",
+    description:
+      "Row of covers that turn in 3D as you scroll, inspired by Cover Flow on iOS 6.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "components/cover-flow/cover-flow.tsx",
+        type: "registry:component",
+        target: "@components/cover-flow.tsx",
+      },
+    ],
+    css: {
+      "@utility cover-flow-transform": {
+        transform:
+          "translateX(calc(var(--cover-flow-turn) * var(--cover-flow-first) + (var(--cover-flow-offset) - var(--cover-flow-turn)) * var(--cover-flow-step) - var(--cover-flow-offset) * var(--cover-flow-size))) perspective(calc(var(--cover-flow-size) * 3)) translateZ(calc(abs(var(--cover-flow-turn)) * var(--cover-flow-depth))) rotateY(calc(var(--cover-flow-turn) * var(--cover-flow-angle) * -1))",
+        "@supports (animation-timeline: view())": {
+          animation: "cover-flow linear both",
+          "animation-timeline": "--cover-flow",
+          "animation-range":
+            "cover calc(50% - var(--cover-flow-size) * 50) cover calc(50% + var(--cover-flow-size) * 50)",
+        },
+      },
+      "@keyframes cover-flow": {
+        "0%": {
+          transform:
+            "translateX(calc(var(--cover-flow-first) + var(--cover-flow-step) * 49 - var(--cover-flow-size) * 50)) perspective(calc(var(--cover-flow-size) * 3)) translateZ(var(--cover-flow-depth)) rotateY(calc(var(--cover-flow-angle) * -1))",
+        },
+        "49%": {
+          transform:
+            "translateX(calc(var(--cover-flow-first) - var(--cover-flow-size))) perspective(calc(var(--cover-flow-size) * 3)) translateZ(var(--cover-flow-depth)) rotateY(calc(var(--cover-flow-angle) * -1))",
+        },
+        "50%": {
+          transform:
+            "translateX(0) perspective(calc(var(--cover-flow-size) * 3)) translateZ(0) rotateY(0deg)",
+        },
+        "51%": {
+          transform:
+            "translateX(calc(var(--cover-flow-size) - var(--cover-flow-first))) perspective(calc(var(--cover-flow-size) * 3)) translateZ(var(--cover-flow-depth)) rotateY(var(--cover-flow-angle))",
+        },
+        "100%": {
+          transform:
+            "translateX(calc(var(--cover-flow-size) * 50 - var(--cover-flow-first) - var(--cover-flow-step) * 49)) perspective(calc(var(--cover-flow-size) * 3)) translateZ(var(--cover-flow-depth)) rotateY(var(--cover-flow-angle))",
+        },
+      },
+    },
+    categories: ["data-display"],
+    docs: "https://chanhdai.com/components/cover-flow",
+  },
 ]
 
 // Not @soundcn dependencies: those install into lib/ without useSound, while

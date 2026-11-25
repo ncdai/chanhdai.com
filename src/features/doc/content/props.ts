@@ -13,6 +13,7 @@ import type {
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
 import type { Bookshelf, BookshelfItem } from "@/registry/components/bookshelf"
 import type { CopyButton } from "@/registry/components/copy-button"
+import type { CoverFlow, CoverFlowItem } from "@/registry/components/cover-flow"
 import type { GitHubContributions } from "@/registry/components/github-contributions"
 import type {
   GlowCard,
@@ -55,6 +56,16 @@ export type BookshelfProps = Omit<
 export type BookshelfItemProps = Omit<
   ComponentProps<typeof BookshelfItem>,
   keyof ComponentProps<"div"> | "render"
+>
+
+export type CoverFlowProps = Omit<
+  ComponentProps<typeof CoverFlow>,
+  Exclude<keyof ComponentProps<"div">, "defaultValue">
+>
+
+export type CoverFlowItemProps = Omit<
+  ComponentProps<typeof CoverFlowItem>,
+  keyof ComponentProps<"div">
 >
 
 export type AppleCarouselRootProps = Omit<
