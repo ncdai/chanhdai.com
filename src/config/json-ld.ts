@@ -18,6 +18,8 @@ export const personJsonLd: Person = {
   "@type": "Person",
   "@id": JSON_LD_ID.person,
   name: USER.displayName,
+  givenName: USER.firstName,
+  familyName: USER.lastName,
   alternateName: [USER.username],
   identifier: USER.username,
   description: SITE_INFO.description,
