@@ -48,6 +48,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* React hoists this into <head> in the server HTML; portfolios.here reads it to verify the profile. */}
+      <link rel="me" href="https://portfolios.here/chanh-dai" />
       <JsonLdScript data={getProfilePageJsonLd()} />
       {CARBON_ADS && AD_PLACEMENTS.home && <FloatingCarbonAds />}
 
