@@ -1,5 +1,12 @@
 [
   {
+    "name": "tech-stack-01",
+    "description": "A tech stack section with categorized badges.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
     "name": "social-proof-02",
     "description": "A social proof section with a logos swap.",
     "categories": [

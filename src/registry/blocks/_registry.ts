@@ -271,6 +271,30 @@ export const blocks: Registry["items"] = [
     },
   },
   {
+    name: "tech-stack-01",
+    title: "Tech Stack 01",
+    description: "A tech stack section with categorized badges.",
+    type: "registry:block",
+    registryDependencies: [getRegistryItemUrl("style")],
+    files: [
+      {
+        path: "blocks/tech-stack-01/tech-stack-01.tsx",
+        type: "registry:component",
+        target: "@components/tech-stack-01.tsx",
+      },
+      {
+        path: "blocks/tech-stack-01/components/tech-stack.tsx",
+        type: "registry:component",
+        target: "@components/tech-stack.tsx",
+      },
+    ],
+    categories: ["marketing"],
+    meta: {
+      createdAt: "2026-11-25",
+      previewClassName: "min-h-svh content-center-safe",
+    },
+  },
+  {
     name: "not-found-01",
     title: "Not Found 01",
     description: "A 404 page with a playable brick breaker game.",
