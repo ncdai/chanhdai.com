@@ -1946,6 +1946,35 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "tech-stack-01",
+      "title": "Tech Stack 01",
+      "description": "A tech stack section with categorized badges.",
+      "registryDependencies": [
+        "https://chanhdai.com/r/style.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/tech-stack-01/tech-stack-01.tsx",
+          "type": "registry:component",
+          "target": "@components/tech-stack-01.tsx"
+        },
+        {
+          "path": "src/registry/blocks/tech-stack-01/components/tech-stack.tsx",
+          "type": "registry:component",
+          "target": "@components/tech-stack.tsx"
+        }
+      ],
+      "meta": {
+        "createdAt": "2026-11-25",
+        "previewClassName": "min-h-svh content-center-safe"
+      },
+      "categories": [
+        "marketing"
+      ],
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "not-found-01",
       "title": "Not Found 01",
       "description": "A 404 page with a playable brick breaker game.",

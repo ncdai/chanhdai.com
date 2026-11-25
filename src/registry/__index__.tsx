@@ -1329,6 +1329,27 @@ export const Index: Record<string, any> = {
     categories: ["marketing"],
     meta: {"createdAt":"2026-11-05","previewClassName":"min-h-svh content-center-safe"},
   },
+  "tech-stack-01": {
+    name: "tech-stack-01",
+    description: "A tech stack section with categorized badges.",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/blocks/tech-stack-01/tech-stack-01.tsx",
+      type: "registry:component",
+      target: "@components/tech-stack-01.tsx",
+    },{
+      path: "src/registry/blocks/tech-stack-01/components/tech-stack.tsx",
+      type: "registry:component",
+      target: "@components/tech-stack.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/blocks/tech-stack-01/tech-stack-01.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || "tech-stack-01"
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["marketing"],
+    meta: {"createdAt":"2026-11-25","previewClassName":"min-h-svh content-center-safe"},
+  },
   "not-found-01": {
     name: "not-found-01",
     description: "A 404 page with a playable brick breaker game.",

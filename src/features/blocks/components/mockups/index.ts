@@ -8,6 +8,7 @@ import { NotFound01Mockup } from "./not-found-01"
 import { SocialLinks01Mockup } from "./social-links-01"
 import { SocialProof01Mockup } from "./social-proof-01"
 import { Team01Mockup } from "./team-01"
+import { TechStack01Mockup } from "./tech-stack-01"
 import { Testimonials01Mockup } from "./testimonials-01"
 import { Testimonials02Mockup } from "./testimonials-02"
 
@@ -24,5 +25,6 @@ export const BLOCK_MOCKUPS: Record<string, React.ComponentType> = {
   "social-links-01": SocialLinks01Mockup,
   "social-proof-01": SocialProof01Mockup,
   "social-proof-02": SocialProof01Mockup,
+  "tech-stack-01": TechStack01Mockup,
   "not-found-01": NotFound01Mockup,
 }
