@@ -92,7 +92,7 @@ export function ComponentPreviewTabs({
           <div
             data-slot="preview"
             data-show-buttons={canReplay || !!customizeUrl || !!openInV0Url}
-            className="relative rounded-[9px] border bg-background p-2 data-[show-buttons=true]:py-8.75"
+            className="relative rounded-[9px] border bg-background p-2 text-foreground data-[show-buttons=true]:py-8.75"
           >
             {(canReplay || customizeUrl || openInV0Url) && (
               <div
