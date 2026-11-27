@@ -34,7 +34,7 @@ export const USER: User = {
     // },
   ],
   about: `- I’m a Design Engineer with 5+ years of experience crafting polished, detail-driven interfaces.
-- I created [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2.4K stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (1.5M+ downloads, ▲ Vercel OSS Program), and [ZaDark](https://zadark.com) (80K+ downloads, 30K+ users).
+- I created [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2.4K stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (1.9M+ downloads, ▲ Vercel OSS Program 2025), and [ZaDark](https://zadark.com) (80K+ downloads, 30K+ users).
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
   avatarOutline:

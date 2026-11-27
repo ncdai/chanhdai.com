@@ -11,8 +11,7 @@ import { NUMBERS } from "@/features/portfolio/data/numbers"
 const ID = "numbers"
 
 export function Numbers() {
-  const { githubStars, npmYearlyDownloads, xFollowers, yearlyPageViews } =
-    NUMBERS
+  const { githubStars, npmDownloads, pageViews, xFollowers } = NUMBERS
 
   return (
     <Panel id={ID} className="screen-line-bottom-none">
@@ -31,8 +30,8 @@ export function Numbers() {
       <dl className="grid gap-4 p-4">
         <Stat label="GitHub stars" value={githubStars} />
         <Stat label="X followers" value={xFollowers} />
-        <Stat label="npm downloads / year" value={npmYearlyDownloads} />
-        <Stat label="Page views / year" value={yearlyPageViews} />
+        <Stat label="npm downloads" value={npmDownloads} />
+        <Stat label="Page views" value={pageViews} />
       </dl>
     </Panel>
   )
