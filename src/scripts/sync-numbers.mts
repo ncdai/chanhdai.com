@@ -96,25 +96,60 @@ async function fetchGitHubStars(): Promise<number> {
   return total
 }
 
-/** Requested per package because the bulk endpoint rejects scoped names. */
-async function fetchNpmYearlyDownloads(): Promise<number> {
+const DAY_MS = 24 * 60 * 60 * 1000
+
+/** npm silently clamps ranges longer than 18 months. */
+const NPM_RANGE_DAYS = 365
+
+function toIsoDate(date: Date): string {
+  return date.toISOString().slice(0, 10)
+}
+
+async function fetchNpmPackageDownloads(name: string): Promise<number> {
+  const { time } = await fetchJson<{ time: { created: string } }>(
+    `https://registry.npmjs.org/${name}`
+  )
+
+  const today = new Date()
+  const ranges: string[] = []
+
+  for (
+    let start = new Date(time.created);
+    start <= today;
+    start = new Date(start.getTime() + NPM_RANGE_DAYS * DAY_MS)
+  ) {
+    const end = new Date(
+      Math.min(start.getTime() + (NPM_RANGE_DAYS - 1) * DAY_MS, today.getTime())
+    )
+    ranges.push(`${toIsoDate(start)}:${toIsoDate(end)}`)
+  }
+
   const counts = await Promise.all(
-    NPM_PACKAGES.map((name) =>
-      fetchJson<{ downloads: number; package: string }>(
-        `https://api.npmjs.org/downloads/point/last-year/${name}`
+    ranges.map((range) =>
+      fetchJson<{ downloads: number }>(
+        `https://api.npmjs.org/downloads/point/${range}/${name}`
       )
     )
   )
 
-  for (const { package: name, downloads } of counts) {
-    console.log(`  ${name}: ${downloads}`)
-  }
-
   return counts.reduce((total, { downloads }) => total + downloads, 0)
 }
 
-/** The `12m` preset matches the dashboard, so the two can be compared directly. */
-async function fetchYearlyPageViews(): Promise<number> {
+/** Requested per package because the bulk endpoint rejects scoped names. */
+async function fetchNpmDownloads(): Promise<number> {
+  const counts = await Promise.all(NPM_PACKAGES.map(fetchNpmPackageDownloads))
+
+  NPM_PACKAGES.forEach((name, i) => {
+    console.log(`  ${name}: ${counts[i]}`)
+  })
+
+  return counts.reduce((total, downloads) => total + downloads, 0)
+}
+
+/** OpenPanel has no all-time range, so count from the day tracking began. */
+const OPENPANEL_START_DATE = "2026-01-24"
+
+async function fetchPageViews(): Promise<number> {
   const { OPENPANEL_PROJECT_ID, OPENPANEL_CLIENT_ID, OPENPANEL_CLIENT_SECRET } =
     process.env
 
@@ -126,8 +161,14 @@ async function fetchYearlyPageViews(): Promise<number> {
     throw new Error("OPENPANEL_* credentials are not set")
   }
 
+  const params = new URLSearchParams({
+    range: "custom",
+    startDate: OPENPANEL_START_DATE,
+    endDate: toIsoDate(new Date()),
+  })
+
   const json = await fetchJson<{ summary: { total_screen_views: number } }>(
-    `https://api.openpanel.dev/insights/${OPENPANEL_PROJECT_ID}/overview?range=12m`,
+    `https://api.openpanel.dev/insights/${OPENPANEL_PROJECT_ID}/overview?${params}`,
     {
       headers: {
         "openpanel-client-id": OPENPANEL_CLIENT_ID,
@@ -140,16 +181,16 @@ async function fetchYearlyPageViews(): Promise<number> {
 }
 
 async function main() {
-  const [githubStars, npmYearlyDownloads, yearlyPageViews] = await Promise.all([
+  const [githubStars, npmDownloads, pageViews] = await Promise.all([
     fetchGitHubStars(),
-    fetchNpmYearlyDownloads(),
-    fetchYearlyPageViews(),
+    fetchNpmDownloads(),
+    fetchPageViews(),
   ])
 
   const numbers = {
     githubStars,
-    npmYearlyDownloads,
-    yearlyPageViews,
+    npmDownloads,
+    pageViews,
   }
 
   await fs.writeFile(
@@ -159,8 +200,8 @@ async function main() {
   )
 
   console.log(`GitHub stars: ${githubStars}`)
-  console.log(`npm downloads (last 12 months): ${npmYearlyDownloads}`)
-  console.log(`Page views (last 12 months): ${yearlyPageViews}`)
+  console.log(`npm downloads (all time): ${npmDownloads}`)
+  console.log(`Page views (all time): ${pageViews}`)
   console.log(`Wrote ${path.relative(process.cwd(), OUTPUT_PATH)}`)
 }
 
