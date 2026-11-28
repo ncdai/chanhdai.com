@@ -12,8 +12,8 @@ import {
   PageHeadingTagline,
   PageHeadingTitle,
 } from "@/components/page-heading"
+import { BookmarkBook } from "@/features/bookmark/components/bookmark-book"
 import { BookmarkFilters } from "@/features/bookmark/components/bookmark-filters"
-import { BookmarkItem } from "@/features/bookmark/components/bookmark-item"
 import { BookmarkList } from "@/features/bookmark/components/bookmark-list"
 import { BookmarkListFiltered } from "@/features/bookmark/components/bookmark-list-filtered"
 import { BOOKMARKS } from "@/features/bookmark/data"
@@ -82,7 +82,7 @@ export default function Page() {
   const entries = SORTED_BOOKMARKS.map<BookmarkListEntry>((bookmark) => ({
     url: bookmark.url,
     category: BOOKMARK_CATEGORY_TO_PARAM[bookmark.category],
-    card: <BookmarkItem bookmark={bookmark} surface="list" />,
+    card: <BookmarkBook bookmark={bookmark} surface="list" />,
   }))
 
   return (
