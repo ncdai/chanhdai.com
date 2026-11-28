@@ -31,7 +31,7 @@ import { DocNeighbourNav } from "@/features/doc/components/doc-neighbour-nav"
 import { LLMCopyButtonWithViewOptions } from "@/features/doc/components/doc-page-actions"
 import { DocShareMenu } from "@/features/doc/components/doc-share-menu"
 import { DocSponsorCallout } from "@/features/doc/components/doc-sponsor-callout"
-// import { DocSponsors } from "@/features/doc/components/doc-sponsors"
+import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import { DocSponsorsRail } from "@/features/doc/components/doc-sponsors-rail"
 import {
   findNeighbour,
@@ -306,7 +306,7 @@ export default async function Page({
 
         <DocFeedback category="components" slug={doc.slug} />
 
-        {/* <DocSponsors /> */}
+        <DocSponsors />
 
         <DocNeighbourNav previous={previous} next={next} />
 
