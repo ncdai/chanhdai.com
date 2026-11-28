@@ -2,11 +2,6 @@ import type { JSX } from "react"
 
 export const SPONSOR_TIERS = [
   {
-    name: "osp",
-    title: "Open Source Program",
-    columns: 3,
-  },
-  {
     name: "platinum",
     title: "Platinum Sponsors",
     columns: 2,
@@ -19,7 +14,12 @@ export const SPONSOR_TIERS = [
   {
     name: "silver",
     title: "Silver Sponsors",
-    columns: 2,
+    columns: 3,
+  },
+  {
+    name: "osp",
+    title: "Open Source Program",
+    columns: 3,
   },
 ] as const
 
