@@ -37,7 +37,6 @@ import { ComponentSource } from "@/components/component-source"
 import { AutoTypeTable } from "@/features/doc/components/auto-type-table"
 import { DocDependencies } from "@/features/doc/components/doc-dependencies"
 import { DocPullQuote } from "@/features/doc/components/doc-pull-quote"
-import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import { DocTestimonial } from "@/features/doc/components/doc-testimonial"
 import { InstallPrompt } from "@/features/doc/components/install-prompt"
 
@@ -101,7 +100,6 @@ const components: MDXRemoteProps["components"] = {
   FramedImage,
   DocPullQuote,
   DocTestimonial,
-  DocSponsors,
   AutoTypeTable: (props) => <AutoTypeTable {...props} generator={generator} />,
 }
 

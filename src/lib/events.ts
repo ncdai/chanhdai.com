@@ -25,7 +25,6 @@ const eventSchema = z.object({
     "block_viewer_open_preview",
     "block_viewer_refresh_preview",
     "block_viewer_theme_change",
-    "doc_sponsors_close",
     "doc_sponsor_click",
     "carbon_ads_close",
     "doc_feedback",
