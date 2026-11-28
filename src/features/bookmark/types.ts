@@ -54,6 +54,7 @@ export type Bookmark = {
   /** Canonical link; also the entry's identity for list keys and click analytics. */
   url: string
   author?: string
+  icon?: React.ReactElement
   category: BookmarkCategory
   bookmarkedAt: string
   /** 1-2 first-person sentences. */
@@ -81,7 +82,11 @@ export type BookmarkPreview = {
   url: string
 }
 
-/** `card` is a server-rendered slot, which keeps the card out of the client bundle. */
+/**
+ * `card` is a server-rendered slot: `Bookmark.icon` is server JSX, so a
+ * bookmark cannot cross the client boundary as data, and rendering on the
+ * server keeps the card out of the client bundle.
+ */
 export type BookmarkListEntry = {
   url: string
   category: BookmarkCategoryParam
