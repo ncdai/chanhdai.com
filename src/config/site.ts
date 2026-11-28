@@ -56,10 +56,10 @@ export const MAIN_NAV: NavItem<Route>[] = [
     title: "Craft",
     href: "/craft",
   },
-  {
-    title: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   title: "Blog",
+  //   href: "/blog",
+  // },
   {
     title: "Sponsors",
     href: "/sponsors",
