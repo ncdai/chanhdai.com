@@ -1,30 +1,25 @@
-import { CARBON_ADS } from "@/config/ads"
-import { CarbonAds } from "@/components/carbon-ads"
-
 import type { BookmarkListEntry } from "../types"
 
-const AD_POSITION = 2
-
 export function BookmarkList({ entries }: { entries: BookmarkListEntry[] }) {
-  const showAd = CARBON_ADS && entries.length > 0
-
   return (
-    <ul>
-      {entries.slice(0, AD_POSITION).map(renderEntry)}
+    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+      {entries.map((entry) => (
+        <li key={entry.url} className="flex flex-col">
+          <div className="flex flex-1 items-end justify-center px-2 pt-10">
+            {entry.card}
+          </div>
 
-      {showAd && (
-        <li className="border-b border-line p-4 pb-2 empty:hidden">
-          <CarbonAds className="flex justify-center" />
+          <ShelfBoard />
         </li>
-      )}
-
-      {entries.slice(AD_POSITION).map(renderEntry)}
+      ))}
     </ul>
   )
 }
 
-const renderEntry = (entry: BookmarkListEntry) => (
-  <li key={entry.url} className="border-b border-line">
-    {entry.card}
-  </li>
-)
+function ShelfBoard() {
+  return (
+    <div className="screen-line-top screen-line-bottom before:z-1" aria-hidden>
+      <div className="stripe-divider h-2" />
+    </div>
+  )
+}

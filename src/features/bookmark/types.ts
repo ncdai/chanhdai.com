@@ -46,16 +46,20 @@ export enum BookmarkCategory {
   INSPIRATION = "Inspiration",
 }
 
+/** Book format on the /bookmarks shelf: pocket, trade, hardcover. */
+export type BookmarkSize = "sm" | "md" | "lg"
+
 export type Bookmark = {
   title: string
   /** Canonical link; also the entry's identity for list keys and click analytics. */
   url: string
   author?: string
-  icon?: React.ReactElement
   category: BookmarkCategory
   bookmarkedAt: string
-  /** 1-2 first-person sentences shown on cards. */
+  /** 1-2 first-person sentences. */
   why?: string
+  /** Omit to derive a stable size from `url`. */
+  size?: BookmarkSize
 }
 
 export const BOOKMARK_CATEGORY_TO_PARAM: Record<
@@ -77,11 +81,7 @@ export type BookmarkPreview = {
   url: string
 }
 
-/**
- * `card` is a server-rendered slot: `Bookmark.icon` is server JSX, so a
- * bookmark cannot cross the client boundary as data, and rendering on the
- * server keeps the card out of the client bundle.
- */
+/** `card` is a server-rendered slot, which keeps the card out of the client bundle. */
 export type BookmarkListEntry = {
   url: string
   category: BookmarkCategoryParam
